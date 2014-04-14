@@ -26,7 +26,14 @@
             </style>
             <div class="cover">
                 <div class="button-on-cover" style="position: relative">
-                    <button class="g-btn type_primary size_small" >
+                    <script>
+                        $(document).ready(function($) {
+                            $('#changecover').click(function(event) {
+                                $(this).find('.cover')
+                            });
+                        });
+                    </script>
+                    <button class="g-btn type_primary size_small" id="changecover" >
                         <span>Change Cover</span>
                     </button>
                     <button class="g-btn type_primary size_small">
@@ -111,14 +118,42 @@
                                         }
                                         .submit-button {
                                             right: 9px;
-                                            bottom: 8px;
+                                            top: 8px;
                                             position: absolute;
                                             z-index: 1;
                                             margin: 0;
                                         }
+                                        .activity-content {
+                                            width: auto;
+                                            height: auto;
+                                            overflow: visible;
+                                            position: relative;
+                                            margin: 0 0 0 70px;
+                                            width: 100%;
+                                            height: 100%;
+                                        }
+                                        .one-third li {
+                                            clear: both;
+                                        }
+                                        .teacher-block:after, .one-third li:after, .clearfix:after {
+                                            clear: both;
+                                            content: "."
+                                            display: block;
+                                            height: 0;
+                                            line-height: 0;
+                                            visibility: hidden;
+                                        }
+                                        .teacher-block {
+                                            clear: both;
+                                            min-height: 80px;
+                                            position: relative;
+                                            border: 1px solid #d0d6d9;
+                                            border-radius: 5px;
+                                            margin-bottom: 10px;
+                                        }
                                     </style>
                                     <div class="w-tabs-section-content">
-                                        <div class="w-tabs-section-content-h">
+                                        <div class="w-tabs-section-content-h" style="padding-top: 10px;">
                                             <div class="activity-input">
                                                 <a class="avatar-view" href="user">
                                                     <img class="" width="35" height="35" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
@@ -132,7 +167,11 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                            <div class="activity-content"></div>
+                                            <div class="activity-content">
+                                                <div>
+                                                    
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -226,11 +265,44 @@
                     <p><strong>Mã Môn Học:</strong> INT2208</p>
                     <p><strong>Số tín chỉ:</strong> 3</p>
                     <p><strong>Website Môn Học:</strong> <a href="bluebee-uet.com">bluebee-uet.com</a></p>
-                    <div>
+                    <div class="clearfix">
                         <p style="float: left"><strong>Thành viên:</strong> <a>7 người</a></p>
-                        <a href="#SDA"><p style="float: right">Thêm thành viên <i class="icon-plus"></i></p></a>
+                        <a id="add-members" style="float: right" href="#SDA"><p id="add-members-contents">Thêm thành viên <i class="icon-plus"></i></p></a>
+                        <script>
+                            $(document).ready(function() {
+                                $('a#add-members').click(function(event) {
+                                    var hide = $('#box-invite-friends').css('display');
+                                    if (hide == 'none') {
+                                        $('#box-invite-friends').slideDown('400');
+                                    } else {
+                                        $('#box-invite-friends').slideUp('400');
+                                    }
+                                });
+                            });
+                        </script>
                     </div>
-                    
+                    <div id="box-invite-friends" style="clear: both; display: none">
+                        <div contenteditable=true id="invite-friends"></div>
+                        <button type="submit" class="g-btn type_primary size_small" style="width: 100%">
+                            <span>Invite Your Friends</span>
+                        </button>
+                        <script type="text/javascript">
+                        $(document).ready(function() {
+                            $("#invite-friends").tokenInput(
+                                [
+                                    {"id":"0","name":"vungocson94@gmail.com"},
+                                    {"id":"1","name":"sonvn_57@ctmail.com"},
+                                ]
+                                , {
+                                theme: "facebook",
+                                preventDuplicates: true
+                            });
+                            $('button[type=submit]').click(function () {
+                                alert("Would submit: " + $(this).siblings("#invite-friends").val());
+                            });
+                        });
+                        </script>
+                    </div>
                     <div class="g-hr">
                         <span class="g-hr-h">
                             <i class="icon-user"></i>
@@ -238,28 +310,6 @@
                     </div>
                     <h3 style="margin-top: -20px">Giáo Viên</h3>
                     <ul>
-                        <style>
-                            .one-third li {
-                                clear: both;
-                            }
-                            .teacher-block:after, .one-third li:after {
-                                clear: both;
-                                content: "."
-                                display: block;
-                                height: 0;
-                                line-height: 0;
-                                visibility: hidden;
-                            }
-                            .teacher-block {
-                                clear: both;
-                                min-height: 80px;
-                                position: relative;
-                                border: 1px solid #d0d6d9;
-                                border-radius: 5px;
-                                margin-bottom: 10px;
-                            }
-
-                        </style>
                         <li>
                             <div class="teacher-block">
                                 <img style="float: left" class="ava" src="http://localhost:7070/SE_2014_Group5/themes/classic/assets/img/demo/blog-1.jpg" />
