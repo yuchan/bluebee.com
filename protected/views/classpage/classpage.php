@@ -188,7 +188,7 @@
                                                     border-radius: 50%;
                                                 }
                                                 .profile {
-                                                    margin: 15px;
+                                                    margin: 10px 15px;
                                                     display: inline-block;
                                                 }
                                             </style>

@@ -25,6 +25,9 @@
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/ava.css" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/dropzone.css" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/basic.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/token-input.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/token-input-facebook.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/token-input-mac.css" />
 
 
         <!-- javascript -->
@@ -50,6 +53,7 @@
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/dropzone.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/w-switcher.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.magnific-popup.min.js"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.tokeninput.js"></script>
 
         <!-- Star rating-->
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/ratings.css" />
@@ -62,24 +66,18 @@
 
         <!-- Pop-up -->
         <script>
-            $(document).ready(function() {
-                $('.popup-with-form').magnificPopup({
+            $(function() {
+                $('.popup-modal').magnificPopup({
                     type: 'inline',
                     preloader: false,
-                    focus: '#name',
-
-                    // When elemened is focused, some mobile browsers in some cases zoom in
-                    // It looks not nice, so we disable it:
-                    callbacks: {
-                        beforeOpen: function() {
-                            if($(window).width() < 700) {
-                                this.st.focus = false;
-                            } else {
-                                this.st.focus = '#name';
-                            }
-                        }
-                    }
+                    focus: '#username',
+                    modal: true
                 });
+                $(document).on('click', '.popup-modal-dismiss', function(e) {
+                    e.preventDefault();
+                    $.magnificPopup.close();
+                }
+                );
             });
         </script>
 
