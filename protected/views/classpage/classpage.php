@@ -202,7 +202,7 @@
                                                     margin-top: 5px;
                                                 }
 
-                                                a.avatar-view-user img {
+                                                a.avatar-view-user img, a.other-user-avatar img{
                                                     border-radius: 50%;
                                                 }
                                                 .profile {
@@ -253,7 +253,7 @@
                                             </style>
                                             <div class="activity-content">
                                                 <div class="activity-item">
-                                                    <a class="other-user-avatar avatar-view-user" href="/glang">
+                                                    <a class="other-user-avatar" href="/glang">
                                                         <img class="" width="50" height="50" src="//gravatar.com/avatar/7b75aef92133d076da32941576f8d885?size=70&amp;d=https://koding-cdn.s3.amazonaws.com/images/default.avatar.70.png&amp;r=g" style="opacity: 1;">
                                                     </a>
                                                     <div  class="profile clearfix">
