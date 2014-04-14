@@ -319,33 +319,33 @@
                 <div>
                     <a href="" style="margin-left: 30px">More...</a>
                     <br/>
-                    <a class="popup-modal" href="#test-modal">
-                        <button class="g-btn type_outline"><span><i class="icon-heart"></i>Creat your own class</span></button>
+                    <a class="popup-with-form" href="#test-form">
+                        <button class="g-btn type_outline"><span><i class="icon-heart"></i>Create your own class</span></button>
                     </a>
 
-                    <form id="test-modal" class="white-popup-block mfp-hide">
-                        <h1>Creat your class</h1>
-                        <fieldset style="size: 200px ; alignment-adjust: central">
+                    <form action="blue-bee.com" id="test-form" class="white-popup-block mfp-hide">
+                        <h1>Form</h1>
+                        <fieldset style="border:0;">
                             <ol>
                                 <li>
-                                    <label for="name"><h4>Name Class</h4></label>
-                                    <input id="name" name="name" placeholder="Name Class" required="" type="text">
+                                    <label for="name">Name</label>
+                                    <input id="name" name="name" placeholder="Name" required="" type="text" style="resize:horizontal; width:400px">
                                 </li>
                                 <li>
-                                    <label for="email"><h4>Your Email</h4></label>
-                                    <input id="email" name="email" placeholder="example@domain.com" required="" type="email">
+                                    <label for="email">Email</label>
+                                    <input id="email" name="email" placeholder="example@domain.com" required="" type="email" style="resize:horizontal; width:400px">
                                 </li>
                                 <li>
-                                    <label for="phone"><h4>Your Phone number</h4></label>
-                                    <input id="phone" name="phone" placeholder="Eg. +447500000000" required="" type="tel">
+                                    <label for="phone">Phone</label>
+                                    <input id="phone" name="phone" placeholder="Eg. +447500000000" required="" type="tel" style="resize:horizontal; width:400px">
                                 </li>
                                 <li>
-                                    <label for="textarea"><h4>Describle about class</h4></label><br>
-                                    <textarea id="textarea">Try to resize me to see how popup CSS-based resizing works.</textarea>
+                                    <label for="textarea">Textarea</label><br>
+                                    <textarea id="textarea" style="resize:horizontal; width:400px">Try to resize me to see how popup CSS-based resizing works.</textarea>
                                 </li>
                             </ol>
 
-                            <p><a class="popup-modal-dismiss" href="http://localhost/SE_project/index.php/class"><button class="g-btn type_default size_small"><span><i class="icon-arrow-up"></i>Submit</span></button></a></p>
+                            <p><a href="blue-bee.com"><button class="g-btn type_default size_small"><span><i class="icon-arrow-up"></i>Submit</span></button></a></p>
 
                         </fieldset>
                     </form>
@@ -411,7 +411,7 @@
                     <a href="" style="margin-left: 30px">More...</a>
                     <br/>
                     <a href="">
-                        <button class="g-btn type_outline"><span><i class="icon-heart"></i>Creat your own group</span></button>
+                        <button class="g-btn type_outline"><span><i class="icon-heart"></i>Create your own group</span></button>
                     </a>
                 </div>
 
