@@ -30,7 +30,6 @@
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/token-input-mac.css" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/component.css" />
 
-
         <!-- javascript -->
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery-1.9.1.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/g-alert.js"></script>
@@ -69,39 +68,18 @@
 
         <!-- Pop-up -->
         <script>
-            $(document).ready(function() {
-                $('.novaCat').on('blur', function(ui, event) {
-                    var valor = $('.novaCat').val();
-                    if (valor) {
-                        $('#novaCategoria').dialog({
-                            modal: true,
-                            resizable: false,
-                            buttons: {
-                                "OK": function() {
-                                    $(this).dialog("close");
-                                }
-                            }
-                        });
-                    }
-                    ;
-                });
-
-                //formulário popup
-                $('.popup-with-form').magnificPopup({
+            $(function() {
+                $('.popup-modal').magnificPopup({
                     type: 'inline',
                     preloader: false,
-                    focus: '#name',
-                    callbacks: {
-                        beforeOpen: function() {
-                            if ($(window).width() < 700) {
-                                this.st.focus = false;
-                            } else {
-                                this.st.focus = '#name';
-                            }
-                        }
-                    }
+                    focus: '#username',
+                    modal: true
                 });
-
+                $(document).on('click', '.popup-modal-dismiss', function(e) {
+                    e.preventDefault();
+                    $.magnificPopup.close();
+                }
+                );
             });
         </script>
 
@@ -178,135 +156,12 @@
 
                             <!-- SEARCH -->
                             <div class="w-search submit_inside">
-                                <div class="w-search-h">
-                                    <a class="w-search-show" href="javascript:void(0)" style="margin: auto;">
-                                        <i class="icon-search" style="line-height: inherit"></i>
-                                    </a>
-                                    <form class="w-search-form show_hidden" action="#" />
-                                    <div class="w-search-input">
-                                        <input type="text" value="" placeholder="Bạn muốn tìm gì ?" />
-                                    </div>
-                                    <div class="w-search-submit">
-                                        <input type="submit" value="Search" />
-
-                                    </div>
-                                    <a class="w-search-close" href="javascript:void(0)" title="Close search"> &#10005; </a>
-                                    </form>
-                                </div>
+                                
                             </div>
 
                             <!-- NAV -->
                             <nav class="w-nav ">
-                                <div class="w-nav-h align_center">
-                                    <div class="w-nav-select">
-                                        <select class="w-nav-select-h">
-                                        </select>
-                                    </div>
-                                    <div class="w-nav-list layout_hor width_auto float_right level_1">
-                                        <div class="w-nav-list-h">
-                                            <div class="w-nav-item level_1 active">
-                                                <div class="w-nav-item-h">
-                                                    <a href="<?php echo Yii::app()->createUrl("discussion") ?>" class="w-nav-anchor level_1">
-                                                        <span class="w-nav-icon"><i class="icon-star"></i></span>
-                                                        <span class="w-nav-title">Home</span>
-                                                        <span class="w-nav-hint"></span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="w-nav-item level_1">
-                                                <div class="w-nav-item-h">
-                                                    <a href="<?php echo Yii::app()->createUrl("document") ?>" class="w-nav-anchor level_1">
-                                                        <span class="w-nav-icon"><i class="icon-star"></i></span>
-                                                        <span class="w-nav-title">Book shelf</span>
-                                                        <span class="w-nav-hint"></span>
-                                                    </a>
-                                                </div>
-                                            </div>
 
-                                            <div class="w-nav-item level_1">
-                                                <div class="w-nav-item-h">
-                                                    <a href="<?php echo Yii::app()->createUrl("share") ?>" class="w-nav-anchor level_1">
-                                                        <span class="w-nav-icon"><i class="icon-star"></i></span>
-                                                        <span class="w-nav-title">My classes</span>
-                                                        <span class="w-nav-hint"></span>
-                                                    </a>
-
-                                                    <div class="w-nav-list place_down show_onhover level_2">
-                                                        <div class="w-nav-list-h">
-                                                            <div class="w-nav-item level_2">
-                                                                <div class="w-nav-item-h">
-                                                                    <a href="home-landing.html" class="w-nav-anchor level_2">Class - Vietnam National University</a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="w-nav-item level_2">
-                                                                <div class="w-nav-item-h">
-                                                                    <a href="home-parallax.html" class="w-nav-anchor level_2">Class - Blue UET team</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                            <div class="w-nav-item level_1">
-                                                <div class="w-nav-item-h">
-                                                    <a href="<?php echo Yii::app()->createUrl("share") ?>" class="w-nav-anchor level_1">
-                                                        <span class="w-nav-icon"><i class="icon-star"></i></span>
-                                                        <span class="w-nav-title">Groups</span>
-                                                        <span class="w-nav-hint"></span>
-                                                    </a>
-
-                                                    <div class="w-nav-list place_down show_onhover level_2">
-                                                        <div class="w-nav-list-h">
-                                                            <div class="w-nav-item level_2">
-                                                                <div class="w-nav-item-h">
-                                                                    <a href="home-landing.html" class="w-nav-anchor level_2">Group - Vietnam National University</a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="w-nav-item level_2">
-                                                                <div class="w-nav-item-h">
-                                                                    <a href="home-parallax.html" class="w-nav-anchor level_2">Group - Blue UET team</a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="w-nav-item level_2">
-                                                                <div class="w-nav-item-h">
-                                                                    <a href="home-parallax.html" class="w-nav-anchor level_2">Group - Blue UET team</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                            <div class="w-nav-item level_1">
-                                                <div class="w-nav-item-h">
-                                                    <a href="<?php echo Yii::app()->createUrl("login") ?>" class="w-nav-anchor level_1">
-                                                        <img style="border: 5px solid white;"class="ava" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/blog-1.jpg"/>
-                                                    </a>
-
-                                                    <div class="w-nav-list place_down show_onhover level_2">
-                                                        <div class="w-nav-list-h">
-                                                            <div class="w-nav-item level_2">
-                                                                <div class="w-nav-item-h">
-                                                                    <a href="home-landing.html" class="w-nav-anchor level_2">Sign out</a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="w-nav-item level_2">
-                                                                <div class="w-nav-item-h">
-                                                                    <a href="home-parallax.html" class="w-nav-anchor level_2">Update information</a>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
                             </nav>
 
                         </div>
