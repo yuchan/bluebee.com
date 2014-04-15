@@ -1,12 +1,42 @@
 <?php
+Yii::import('application.controllers.BaseController');
+class WelcomePageController extends BaseController {
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+    public function init() {
+        Yii::app()->theme = 'welcome';
+        parent::init();
+    }
+    public function actionIndex() {
+       $this->render('index');
+    }
 
-public function actionIndex()
-{
-    $this->render('index');
+//    public function actionWelcomePage() {
+//        $this->render('index');
+//    }
+    // Uncomment the following methods and override them if needed
+    /*
+      public function filters()
+      {
+      // return the filter configuration for this controller, e.g.:
+      return array(
+      'inlineFilterName',
+      array(
+      'class'=>'path.to.FilterClass',
+      'propertyName'=>'propertyValue',
+      ),
+      );
+      }
+
+      public function actions()
+      {
+      // return external action classes, e.g.:
+      return array(
+      'action1'=>'path.to.ActionClass',
+      'action2'=>array(
+      'class'=>'path.to.AnotherActionClass',
+      'propertyName'=>'propertyValue',
+      ),
+      );
+      }
+     */
 }
