@@ -24,13 +24,12 @@ class WelcomePageController extends BaseController {
                 );
                 if (!empty($loginFormData['user_name'])) {
                     if (!empty($loginFormData['user_password'])) {
-
-                        $user = User::model()->findByAttributes(array('user_name' => $loginFormData['user_name']));
+                        $user = User::model()->findByAttributes(array('username' => $loginFormData['user_name']));
                         if ($user) {
                             //user existed, check password
-                            if (strcmp($user->user_password, $loginFormData['user_password'] == 0)) {
+                            if (strcmp($user->password, $loginFormData['user_password'] == 0)) {
                                 $this->retVal->message = "Dang nhap thanh cong";
-                                //     Yii::app()->request->redirect('discussion');
+                                //     Yii::app()->request->redirect('user');
                             } else {
                                 //user not existed
                                 $this->retVal->message = "Sai ten nguoi dung hoac mat khau";
