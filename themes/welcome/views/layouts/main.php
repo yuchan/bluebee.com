@@ -156,21 +156,7 @@
 
                             <!-- SEARCH -->
                             <div class="w-search submit_inside">
-                                <div class="w-search-h">
-                                    <a class="w-search-show" href="javascript:void(0)" style="margin: auto;">
-                                        <i class="icon-search" style="line-height: inherit"></i>
-                                    </a>
-                                    <form class="w-search-form show_hidden" action="#" />
-                                    <div class="w-search-input">
-                                        <input type="text" value="" placeholder="Bạn muốn tìm gì ?" />
-                                    </div>
-                                    <div class="w-search-submit">
-                                        <input type="submit" value="Search" />
-
-                                    </div>
-                                    <a class="w-search-close" href="javascript:void(0)" title="Close search"> &#10005; </a>
-                                    </form>
-                                </div>
+                                
                             </div>
 
                             <!-- NAV -->
