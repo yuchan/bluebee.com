@@ -1,5 +1,5 @@
 <!-- MAIN -->
-<div class="l-submain">
+<div class="l-submain" style="height: 100%">
     <div class="l-submain-h i-cf" style="width: 60%">
         <div class="l-content">
             <div class="l-content-h i-widgets">
@@ -7,7 +7,7 @@
                     <div class="one-half">
                         <div style="margin-top: 15%; text-align: center">
                             <h3>Welcome to Our Social</h3>
-                            <img style="height: 120px; width: 120px; margin: auto" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo.jpg" />
+                            <img style="height: 210px; width: 210px; margin: auto" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo.jpg" />
                             <h4>Ong Xanh Mặt Ngầu</h4>
                         </div>
                     </div>
@@ -149,7 +149,11 @@
         <div id="learn-more">
             <a href="#rock"> Learn more <br><i class="icon-angle-down" style="margin-left: 3px"></i> </a>
         </div>
-        <div id="rock" style="border-top: 2px solid whitesmoke; margin-top: 80px"></div>
+    </div>
+</div>
+<div id="rock" style="border-top: 2px solid whitesmoke; margin-top: 80px"></div>
+<div class="l-submain">
+    <div class="l-submain-h i-cf" style="width: 60%">
         <div id="cbp-so-scroller" class="cbp-so-scroller">
             <section class="cbp-so-section">
                 <figure class="cbp-so-side cbp-so-side-left">
