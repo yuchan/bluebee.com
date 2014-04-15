@@ -45,7 +45,7 @@
                                 text-align: center;
                             }
                         </style>
-                        <div class="w-tabs layout_accordion" style="border: none; height: 398px">
+                        <div class="w-tabs layout_accordion" style="border: 2px dashed #429edb; border-radius: 5px; height: 398px">
                             <div class="w-tabs-h">
                                 <div class="w-tabs-section active" style="border: none;">
                                     <div class="w-tabs-section-title">
@@ -80,10 +80,22 @@
                                                                         </label>
                                                                     </div>
                                                                 </div>
-                                                                <a href="quenmatkhau" style="float:right">Quên Mật Khẩu?</a>
-                                                                <div class="g-form-row">
-                                                                    <div class="g-form-row-field" style="margin-top: -10px">
+                                                                <div class="g-form-row"  style="padding-bottom: 5px; margin-top: -10px">
+                                                                    <div class="g-form-row-field">
+                                                                        <div class="g-alert type_success with_close" style="position: absolute; z-index: 2; width: 89%">
+                                                                            <div class="g-alert-close"> ✕ </div>
+                                                                            <div class="g-alert-body">
+                                                                                <p><b>Success Message</b>. Your Text Goes Here.</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="g-alert type_error with_close" style="position: absolute; z-index: 2; width: 89%">
+                                                                            <div class="g-alert-close"> ✕ </div>
+                                                                            <div class="g-alert-body">
+                                                                                <p><b>Success Message</b>. Your Text Goes Here.</p>
+                                                                            </div>
+                                                                        </div>
                                                                         <button class="g-btn type_primary size_small" type="submit" name="Submit" value="Submit">Đăng Nhập</button>
+                                                                        <a href="quenmatkhau" style="float:right; margin-top: 5px">Quên Mật Khẩu?</a>
                                                                     </div>
                                                                 </div>
                                                                 </form>
@@ -103,18 +115,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="g-alert type_success with_close" style="position: absolute; width:100%">
-                    <div class="g-alert-close"> ✕ </div>
-                    <div class="g-alert-body">
-                        <p><b>Success Message</b>. Your Text Goes Here.</p>
-                    </div>
-                </div>
-                <div class="g-alert type_error with_close" style="position: absolute; width:100%">
-                    <div class="g-alert-close"> ✕ </div>
-                    <div class="g-alert-body">
-                        <p><b>Success Message</b>. Your Text Goes Here.</p>
-                    </div>
-                </div>
             </div>
         </div>
         <style type="text/css">
@@ -129,7 +129,7 @@
             @media screen and (max-width: 73.5em) {
                 #learn-more {
                     width: 40%;
-                    margin:  -10px auto 0 auto;
+                    margin:  -20px auto 0 auto;
                 }
             }
         </style>
