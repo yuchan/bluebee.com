@@ -58,7 +58,7 @@
                                                                 <div class="g-form-row">
                                                                     <div class="g-form-row-field">
                                                                         <div class="g-input">
-                                                                            <input type="text" name="username" id="contact_username" value="" placeholder="Tên người dùng (User name) *">
+                                                                            <input type="text" name="username" id="contact_username" value="" placeholder="Email">
                                                                         </div>
                                                                     </div>
                                                                 </div>
