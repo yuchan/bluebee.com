@@ -1,6 +1,3 @@
-<script type="text/javascript" >
-    new cbpScroller(document.getElementById('cbp-so-scroller'));
-</script>
 <!-- MAIN -->
 <div class="l-submain">
     <div class="l-submain-h i-cf" style="width: 60%">
@@ -10,7 +7,7 @@
                     <div class="one-half">
                         <div style="margin-top: 15%; text-align: center">
                             <h3>Welcome to Our Social</h3>
-                            <img style="height: 120px; width: 120px; margin: auto" alt="" src="img/logo.jpg" />
+                            <img style="height: 120px; width: 120px; margin: auto" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo.jpg" />
                             <h4>Ong Xanh Mặt Ngầu</h4>
                         </div>
                     </div>
@@ -156,7 +153,7 @@
         <div id="cbp-so-scroller" class="cbp-so-scroller">
             <section class="cbp-so-section">
                 <figure class="cbp-so-side cbp-so-side-left">
-                    <img src="img/2.png" alt="img01">
+                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/2.png" alt="img01">
                 </figure>
                 <article class="cbp-so-side cbp-so-side-right">
                     <h2>Plum caramels</h2>
@@ -169,12 +166,12 @@
                     <p>Soufflé bonbon jelly cotton candy liquorice dessert jelly bear claw candy canes. Pudding halvah bonbon marzipan powder. Marzipan gingerbread sweet jelly.</p>
                 </article>
                 <figure class="cbp-so-side cbp-so-side-right">
-                    <img src="img/3.png" alt="img01">
+                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/3.png" alt="img01">
                 </figure>
             </section>
             <section class="cbp-so-section">
                 <figure class="cbp-so-side cbp-so-side-left">
-                    <img src="img/1.png" alt="img01">
+                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/1.png" alt="img01">
                 </figure>
                 <article class="cbp-so-side cbp-so-side-right">
                     <h2>Carrot cake</h2>
@@ -204,6 +201,30 @@
             </div>
         </div>
     </div>
+    <script>
+        new cbpScroller( document.getElementById( 'cbp-so-scroller' ) );
+        $(document).ready(function() {
+          $('#signup').click(function() {
+            $.smoothScroll({
+              scrollTarget: '#',
+              afterScroll: function() {
+                $('div#signuparea').trigger('click');
+              },
+              speed: 800,
+              easing: 'swing',
+            });
+            return false;
+          });
+          $('#learn-more').click(function() {
+            $.smoothScroll({
+              scrollTarget: '#rock',
+              speed: 800,
+            });
+            return false;
+          });
+        });
+    </script>
+
 
 
 </div>
