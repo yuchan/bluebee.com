@@ -25,7 +25,9 @@
                 }
             </style>
             <div class="cover">
-                <div class="button-on-cover" style="position: relative">
+                <div class="button-on-cover" style="position: absolute">
+<<<<<<< HEAD
+=======
                     <script>
                         $(document).ready(function($) {
                             $('#changecover').click(function(event) {
@@ -33,6 +35,7 @@
                             });
                         });
                     </script>
+>>>>>>> c8a985cbb1cf574584d43afca33a639dc541f885
                     <button class="g-btn type_primary size_small" id="changecover" >
                         <span>Change Cover</span>
                     </button>
@@ -129,7 +132,7 @@
                                         }
                                         .teacher-block:after, .one-third li:after, .clearfix:after {
                                             clear: both;
-                                            content: "."
+                                            content: ".";
                                             display: block;
                                             height: 0;
                                             line-height: 0;
@@ -174,6 +177,16 @@
                                                     border: 1px solid #d8d8d8;
                                                     box-sizing: border-box;
                                                 }
+                                                .activity-item article {
+                                                    display: block;
+                                                    color: #3c4572;
+                                                    font-weight: 200;
+                                                    margin-bottom: 16px;
+                                                }
+                                                .activity-item article p{
+                                                    padding-left: 15px;
+                                                    padding-right: 15px;
+                                                }
                                                 .other-user-avatar {
                                                     background-size: 50px;
                                                     width: 50px;
@@ -184,12 +197,61 @@
                                                     margin-right: 10px;
                                                     position: absolute;
                                                 }
-                                                .other-user-avatar img {
+
+                                                a.avatar-view-user {
+                                                    left: 6px;
+                                                    z-index: 2;
+                                                    position: absolute;
+                                                    margin-top: 5px;
+                                                }
+
+                                                a.avatar-view-user img, a.other-user-avatar img{
                                                     border-radius: 50%;
                                                 }
                                                 .profile {
                                                     margin: 10px 15px;
                                                     display: inline-block;
+                                                    width: 95%;
+                                                }
+                                                .fix-vote-button {
+                                                    float: right;
+                                                    margin-top: 6px;
+                                                }
+                                                .comment-container {
+                                                    background-color: #f6f6f6;
+                                                    border-radius: 0 0 5px 5px;
+                                                    position: relative;
+                                                    width: 100%;
+                                                    height: 100%;
+                                                    margin: 0;
+                                                    padding: 0;
+                                                }
+                                                .show-more-comment {
+                                                    background-color: #ececec;
+                                                    border-top: 1px solid #d8d8d8;
+                                                    border-bottom: 1px solid #d8d8d8;
+                                                    text-align: center;
+                                                    height: 40px;
+                                                    line-height: 40px;
+                                                    position: relative;
+                                                }
+                                                .view-more {
+                                                    width: 100%;
+                                                    display: block;
+                                                }
+                                                .list-item-comment-wrapper {
+                                                    position: relative;
+                                                    width: 100%;
+                                                    height: 100%;
+                                                    display: block;
+                                                }
+                                                .item-comment {
+                                                    padding: 5px 10px;
+                                                    border-top: 1px solid #d8d8d8;
+                                                }
+                                                .comment-content {
+                                                    margin: 0 0 0 40px;
+                                                    width: 92%;
                                                 }
                                             </style>
                                             <div class="activity-content">
@@ -197,9 +259,84 @@
                                                     <a class="other-user-avatar" href="/glang">
                                                         <img class="" width="50" height="50" src="//gravatar.com/avatar/7b75aef92133d076da32941576f8d885?size=70&amp;d=https://koding-cdn.s3.amazonaws.com/images/default.avatar.70.png&amp;r=g" style="opacity: 1;">
                                                     </a>
-                                                    <a href="/glang" class="profile">
-                                                        <span data-paths="profile.firstName profile.lastName" id="el-105">Granger Lang</span>
-                                                    </a>
+                                                    <div  class="profile clearfix">
+                                                        <a style="float: left" href="/glang">
+                                                            <span data-paths="profile.firstName profile.lastName" id="el-105">Granger Lang</span>
+                                                        </a>
+                                                        <p style="color: #dadcdd; float: left">&nbsp;&nbsp;12 hours ago</p>
+                                                        <a class="fix-vote-button"><i class="icon-chevron-right"></i></a>
+                                                        <p style="float: right"><strong>&nbsp; 69 &nbsp;</strong></p>
+                                                        <a class="fix-vote-button"><i class="icon-chevron-left"></i></a>
+                                                    </div>
+                                                    <article data-paths="body" id="el-99">
+                                                        <p>Sometimes, I would ask myself: "Is this possible?" Then answer my own question with: "What <em>isn't</em> possible?" and work on finding a solution to how to make it possible.</p>
+                                                    </article>
+                                                    <div class="comment-container">
+                                                        <div class="show-more-comment">
+                                                            <a class="view-more" href="#">
+                                                                View all <span data-paths="repliesCount" id="el-117">4</span> comments...
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="list-item-comment-wrapper">
+                                                        <div class="item-comment">
+                                                            <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
+                                                                <img class="" width="40" height="40" src="https://koding.com/-/image/cache?endpoint=crop&amp;grow=true&amp;width=40&amp;height=40&amp;url=https%3A%2F%2Fkoding-uploads.s3.amazonaws.com%2F532039454615df7d6e1a4f1d%2Favatar.png%3F1396889384153" style="opacity: 1;">
+                                                            </a>
+                                                            <div class="comment-content">
+                                                                <div  class="profile clearfix" style="margin: 0; width: 100%">
+                                                                    <a style="float: left" href="/glang">
+                                                                        <span data-paths="profile.firstName profile.lastName" id="el-105">sancak</span>
+                                                                    </a>
+                                                                    <p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>
+                                                                    <a class="fix-vote-button"><i class="icon-chevron-right"></i></a>
+                                                                    <p style="float: right"><strong>&nbsp; 2 &nbsp;</strong></p>
+                                                                    <a class="fix-vote-button"><i class="icon-chevron-left"></i></a>
+                                                                </div>
+                                                                <div class="comment-body-container">
+                                                                    <p data-paths="body" id="el-1140">think it harder, make it possible! :)</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="item-comment">
+                                                            <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
+                                                                <img class="" width="40" height="40" src="https://koding.com/-/image/cache?endpoint=crop&amp;grow=true&amp;width=40&amp;height=40&amp;url=https%3A%2F%2Fkoding-uploads.s3.amazonaws.com%2F52eb06de962cea7d390008ec%2Favatar.png%3F1397496157548" style="opacity: 1;">
+                                                            </a>
+                                                            <div class="comment-content">
+                                                                <div  class="profile clearfix" style="margin: 0; width: 100%">
+                                                                    <a style="float: left" href="/glang">
+                                                                        <span data-paths="profile.firstName profile.lastName" id="el-105">Josh Max</span>
+                                                                    </a>
+                                                                    <p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>
+                                                                    <a class="fix-vote-button"><i class="icon-chevron-right"></i></a>
+                                                                    <p style="float: right"><strong>&nbsp; 2 &nbsp;</strong></p>
+                                                                    <a class="fix-vote-button"><i class="icon-chevron-left"></i></a>
+                                                                </div>
+                                                                <div class="comment-body-container">
+                                                                    <p data-paths="body" id="el-1140">I never ask "is this possible?" pertaining to web development. I ask "how long will this take me and is it worth the end result?" Then I start, get stuck somewhere and ask one of the guys on SO for advice, and they ask "is this even possible?" for me ;)</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="item-comment">
+                                                            <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
+                                                                <img class="" width="40" height="40" src="https://koding.com/-/image/cache?endpoint=crop&amp;grow=true&amp;width=40&amp;height=40&amp;url=https%3A%2F%2Fkoding-uploads.s3.amazonaws.com%2F525c1b392568dd110b0041ce%2Favatar.png%3F1397248877962" style="opacity: 1;">
+                                                            </a>
+                                                            <div class="comment-content">
+                                                                <div  class="profile clearfix" style="margin: 0; width: 100%">
+                                                                    <a style="float: left" href="/glang">
+                                                                        <span data-paths="profile.firstName profile.lastName" id="el-105">trillobite</span>
+                                                                    </a>
+                                                                    <p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>
+                                                                    <a class="fix-vote-button"><i class="icon-chevron-right"></i></a>
+                                                                    <p style="float: right"><strong>&nbsp; 2 &nbsp;</strong></p>
+                                                                    <a class="fix-vote-button"><i class="icon-chevron-left"></i></a>
+                                                                </div>
+                                                                <div class="comment-body-container">
+                                                                    <p data-paths="body" id="el-1140">Is it possible that the core of the moon could just be peanut butter? I mean, think about it, it weighs less than it should if it's supposed to contain matter from earth from a horrific meteor strike, and peanut butter probably weighs less than iron/rock. How awesome would that be, aliens come to earth, and we explain to them that world hunger vanished after we discovered the moon, and the info came public :P Then North Korea got pissed off and blew up the moon, cause it made no sense, and now there is peanut butter all over the earth..Show more.... the end.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
