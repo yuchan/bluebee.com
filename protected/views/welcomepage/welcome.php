@@ -45,7 +45,7 @@
                                 text-align: center;
                             }
                         </style>
-                        <div class="w-tabs layout_accordion" style="border: 2px dashed #429edb; border-radius: 5px; height: 398px">
+                        <div class="w-tabs layout_accordion" style="border: none; height: 398px">
                             <div class="w-tabs-h">
                                 <div class="w-tabs-section active" style="border: none;">
                                     <div class="w-tabs-section-title">
@@ -103,6 +103,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="g-alert type_success with_close" style="position: absolute; width:100%">
+                    <div class="g-alert-close"> ✕ </div>
+                    <div class="g-alert-body">
+                        <p><b>Success Message</b>. Your Text Goes Here.</p>
+                    </div>
+                </div>
+                <div class="g-alert type_error with_close" style="position: absolute; width:100%">
+                    <div class="g-alert-close"> ✕ </div>
+                    <div class="g-alert-body">
+                        <p><b>Success Message</b>. Your Text Goes Here.</p>
+                    </div>
+                </div>
             </div>
         </div>
         <style type="text/css">
@@ -117,7 +129,7 @@
             @media screen and (max-width: 73.5em) {
                 #learn-more {
                     width: 40%;
-                    margin:  -20px auto 0 auto;
+                    margin:  -10px auto 0 auto;
                 }
             }
         </style>
