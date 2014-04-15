@@ -23,22 +23,26 @@ class WelcomePageController extends BaseController {
                     'user_password' => @$_POST['Password'],
                 );
                 if (!empty($loginFormData['user_name'])) {
-                    if (!empty($loginFormData['user_password'])) {
-                        $user = User::model()->findByAttributes(array('username' => $loginFormData['user_name']));
-                        if ($user) {
-                            //user existed, check password
-                            if (strcmp($user->password, $loginFormData['user_password'] == 0)) {
-                                $this->retVal->message = "Dang nhap thanh cong";
-                                //     Yii::app()->request->redirect('user');
+                    if (Validator::validateEmail($loginFormData['user_name'])) {
+                        if (!empty($loginFormData['user_password'])) {
+                            $user = User::model()->findByAttributes(array('username' => $loginFormData['user_name']));
+                            if ($user) {
+                                //user existed, check password
+                                if (strcmp($user->password, $loginFormData['user_password'] == 0)) {
+                                    $this->retVal->message = "Dang nhap thanh cong";
+                                    //     Yii::app()->request->redirect('user');
+                                } else {
+                                    //user not existed
+                                    $this->retVal->message = "Sai ten nguoi dung hoac mat khau";
+                                }
                             } else {
-                                //user not existed
-                                $this->retVal->message = "Sai ten nguoi dung hoac mat khau";
+                                $this->retVal->message = "Ten nguoi dung chua duoc danh ky";
                             }
                         } else {
-                            $this->retVal->message = "Ten nguoi dung chua duoc danh ky";
+                            $this->retVal->message = "Password khong duoc de trong";
                         }
                     } else {
-                        $this->retVal->message = "Password khong duoc de trong";
+                        $this->retVal->message = "Sai định dạng email";
                     }
                 } else {
                     $this->retVal->message = "User name khong duoc de trong";
@@ -63,57 +67,45 @@ class WelcomePageController extends BaseController {
                     'user_password' => $_POST['Password'],
                     'user_email' => $_POST['contact_email'],
                 );
-                if (!empty($loginFormData['user_name'])) {
-                    if (!empty($loginFormData['user_email'])) {
-                        if (!empty($loginFormData['user_password'])) {
-                            if (Validator::validateUsername($loginFormData['user_name'])) {
-                                if (Validator::validateEmail($loginFormData['user_email'])) {
-                                    if (Validator::validatePassword($loginFormData['user_password'])) {
 
+                if (!empty($loginFormData['user_email'])) {
+                    if (!empty($loginFormData['user_password'])) {
 
-                                        $user = User::model()->findByAttributes(array('user_name' => $loginFormData['user_name']));
-                                        if ($user) {
-                                            //user existed, check password
-                                            $this->retVal->message = "Tên người dùng đã được đăng ký";
+                        if (Validator::validateEmail($loginFormData['user_email'])) {
+                            if (Validator::validatePassword($loginFormData['user_password'])) {
+
+                                $user = User::model()->findByAttributes(array('username' => $loginFormData['user_email']));
+                                if ($user) {
+                                    $this->retVal->message = "Email đã được đăng ký";
+                                } else {
+                                    $model = new User;
+                                    if ($model) {
+                                        $model->user_real_name = $loginFormData['user_name'];
+                                        $model->password = $loginFormData['user_password'];
+                                        $model->username = $loginFormData['user_email'];
+                                        $model->user_status = 1;
+                                        $model->user_active = 1;
+                                        $model->save(FALSE);
+                                        if ($model->save(FALSE)) {
+                                            $this->retVal->message = "Đăng ký thành công, hãy đăng nhập bằng tài khoản của bạn";
                                         } else {
-                                            $user = User::model()->findByAttributes(array('user_email' => $loginFormData['user_email']));
-                                            if ($user) {
-                                                $this->retVal->message = "Email đã được đăng ký";
-                                            } else {
-                                                $model = new User;
-                                                if ($model) {
-                                                    $model->user_name = $loginFormData['user_name'];
-                                                    $model->user_password = $loginFormData['user_password'];
-                                                    $model->user_email = $loginFormData['user_email'];
-                                                    $model->user_status = 1;
-                                                    $model->save(FALSE);
-                                                    if ($model->save(FALSE)) {
-                                                        $this->retVal->message = "Đăng ký thành công, hãy đăng nhập bằng tài khoản của bạn";
-                                                    } else {
-                                                        $this->retVal->message = "Không thể lưu user do lỗi server";
-                                                    }
-                                                } else {
-                                                    $this->retVal->message = "Không thể lưu user do lỗi server ";
-                                                }
-                                            }
+                                            $this->retVal->message = "Không thể lưu user do lỗi server";
                                         }
                                     } else {
-                                        $this->retVal->message = "Password phải nhiều hơn 5 kí tự";
+                                        $this->retVal->message = "Không thể lưu user do lỗi server ";
                                     }
-                                } else {
-                                    $this->retVal->message = "Sai định dạng email";
                                 }
                             } else {
-                                $this->retVal->message = "username không được có khoảng trắng và phải nhiều hơn 5 kí tự";
+                                $this->retVal->message = "Password phải nhiều hơn 5 kí tự";
                             }
                         } else {
-                            $this->retVal->message = "Password không được để trống";
+                            $this->retVal->message = "Sai định dạng email";
                         }
                     } else {
-                        $this->retVal->message = "Email không được để trống";
+                        $this->retVal->message = "Password không được để trống";
                     }
                 } else {
-                    $this->retVal->message = "Username khong duoc de trong";
+                    $this->retVal->message = "Email không được để trống";
                 }
             } catch (exception $e) {
                 $this->retVal->message = $e->getMessage();
