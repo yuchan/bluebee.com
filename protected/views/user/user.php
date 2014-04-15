@@ -322,51 +322,7 @@
                     <a class="popup-with-form" href="#novaLinha">
                         <button class="g-btn type_outline"><span><i class="icon-heart"></i>Create your own class</span></button>
                     </a>
-                    <form class="g-form white-popup-block mfp-hide" id="novaLinha">
-                        <h3>Create A New Class</h3>
-                        <div class="g-form-group">
-                            <div class="g-form-group-rows">
-                                <div class="g-form-row">
-                                    <div class="g-form-row-label">
-                                        <label class="g-form-row-label-h" for="class_name">Class' Name</label>
-                                    </div>
-                                    <div class="g-form-row-field">
-                                        <div class="g-input">
-                                            <input type="text" name="classname" id="contact_username" placeholder="Name" value="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="g-form-row">
-                                    <div class="g-form-row-label">
-                                        <label class="g-form-row-label-h" for="contact_email">Email</label>
-                                    </div>
-                                    <div class="g-form-row-field">
-                                        <div class="g-input">
-                                            <input type="text" name="email" id="contact_username" placeholder="Email" value="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="g-form-group">
-                                    <div class="g-form-row-label">
-                                        <label class="g-form-row-label-h" for="contact_email">Describle</label>
-                                    </div>
-                                    <div class="g-form-group-rows">
-                                        <div class="g-form-row">
-                                            <div class="g-form-row-field">
-                                                <textarea name="#" id="input1x3" cols="30" rows="10"></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="g-form-row">
-                                    <div class="g-form-row-field">
-                                        <button class="g-btn type_primary" type="submit" name="Submit" value="Submit">Submit</button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </form>
+                  <?php $this->renderPartial('partial/newclass')?>
 
                 </div>
 
