@@ -13,7 +13,7 @@
                     var json = data;
                     var result = $.parseJSON(json);
                     $('#res').html(result.message);
-                    if(result.success){
+                    if (result.success) {
                         location.href = result.url;
                     }
 //                    var json = $.parseJSON(data);
@@ -178,7 +178,7 @@
                 <figure class="cbp-so-side cbp-so-side-right" style="width: 100%">
                     <div class="w-video ratio_16-9">
                         <div class="w-video-h">
-                            <iframe src="http://player.vimeo.com/video/48363485"></iframe>
+                            <iframe width="560" height="315" src="//www.youtube.com/embed/-HJodK56EsU" frameborder="0" allowfullscreen></iframe>
                         </div>
                     </div>
                 </figure>
