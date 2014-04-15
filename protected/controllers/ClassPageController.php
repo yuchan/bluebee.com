@@ -9,6 +9,8 @@ class ClassPageController extends Controller {
     public function actionClassPage() {
         $this->render('classpage');
     }
+    
+    
     // Uncomment the following methods and override them if needed
     /*
       public function filters()
