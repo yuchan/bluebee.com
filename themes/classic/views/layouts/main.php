@@ -69,18 +69,39 @@
 
         <!-- Pop-up -->
         <script>
-            $(function() {
-                $('.popup-modal').magnificPopup({
+            $(document).ready(function() {
+                $('.novaCat').on('blur', function(ui, event) {
+                    var valor = $('.novaCat').val();
+                    if (valor) {
+                        $('#novaCategoria').dialog({
+                            modal: true,
+                            resizable: false,
+                            buttons: {
+                                "OK": function() {
+                                    $(this).dialog("close");
+                                }
+                            }
+                        });
+                    }
+                    ;
+                });
+
+                //formulário popup
+                $('.popup-with-form').magnificPopup({
                     type: 'inline',
                     preloader: false,
-                    focus: '#username',
-                    modal: true
+                    focus: '#name',
+                    callbacks: {
+                        beforeOpen: function() {
+                            if ($(window).width() < 700) {
+                                this.st.focus = false;
+                            } else {
+                                this.st.focus = '#name';
+                            }
+                        }
+                    }
                 });
-                $(document).on('click', '.popup-modal-dismiss', function(e) {
-                    e.preventDefault();
-                    $.magnificPopup.close();
-                }
-                );
+
             });
         </script>
 
