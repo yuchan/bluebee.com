@@ -45,7 +45,7 @@
                                 text-align: center;
                             }
                         </style>
-                        <div class="w-tabs layout_accordion" style="border: 2px dashed #429edb; border-radius: 5px; min-height: 375px">
+                        <div class="w-tabs layout_accordion" style="border: 2px dashed #429edb; border-radius: 5px; height: 398px">
                             <div class="w-tabs-h">
                                 <div class="w-tabs-section active" style="border: none;">
                                     <div class="w-tabs-section-title">
