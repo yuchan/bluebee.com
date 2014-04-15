@@ -322,33 +322,52 @@
                     <a class="popup-with-form" href="#novaLinha">
                         <button class="g-btn type_outline"><span><i class="icon-heart"></i>Create your own class</span></button>
                     </a>
+                    <form class="g-form white-popup-block mfp-hide" id="novaLinha">
+                        <h3>Create A New Class</h3>
+                        <div class="g-form-group">
+                            <div class="g-form-group-rows">
+                                <div class="g-form-row">
+                                    <div class="g-form-row-label">
+                                        <label class="g-form-row-label-h" for="class_name">Class' Name</label>
+                                    </div>
+                                    <div class="g-form-row-field">
+                                        <div class="g-input">
+                                            <input type="text" name="classname" id="contact_username" placeholder="Name" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="g-form-row">
+                                    <div class="g-form-row-label">
+                                        <label class="g-form-row-label-h" for="contact_email">Email</label>
+                                    </div>
+                                    <div class="g-form-row-field">
+                                        <div class="g-input">
+                                            <input type="text" name="email" id="contact_username" placeholder="Email" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="g-form-group">
+                                    <div class="g-form-row-label">
+                                        <label class="g-form-row-label-h" for="contact_email">Describle</label>
+                                    </div>
+                                    <div class="g-form-group-rows">
+                                        <div class="g-form-row">
+                                            <div class="g-form-row-field">
+                                                <textarea name="#" id="input1x3" cols="30" rows="10"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="g-form-row">
+                                    <div class="g-form-row-field">
+                                        <button class="g-btn type_primary" type="submit" name="Submit" value="Submit">Submit</button>
+                                    </div>
+                                </div>
 
-                    <form id="novaLinha" class="white-popup-block mfp-hide">
-                        <h1>Form</h1>
-                        <fieldset style="border:0;">
-                            <ol>
-                                <li>
-                                    <label for="name">Name</label>
-                                    <input id="name" name="name" placeholder="Name" required="" type="text"">
-                                </li>
-                                <li>
-                                    <label for="email">Email</label>
-                                    <input id="email" name="email" placeholder="example@domain.com" required="" type="email"">
-                                </li>
-                                <li>
-                                    <label for="phone">Phone</label>
-                                    <input id="phone" name="phone" placeholder="Eg. +447500000000" required="" type="tel"">
-                                </li>
-                                <li>
-                                    <label for="textarea">Textarea</label><br>
-                                    <textarea id="textarea">Try to resize me to see how popup CSS-based resizing works.</textarea>
-                                </li>
-                            </ol>
-
-                            <p><a href="blue-bee.com"><button class="g-btn type_default size_small"><span><i class="icon-arrow-up"></i>Submit</span></button></a></p>
-
-                        </fieldset>
+                            </div>
+                        </div>
                     </form>
+
                 </div>
 
                 <div class="rounded2 color_alternate">
