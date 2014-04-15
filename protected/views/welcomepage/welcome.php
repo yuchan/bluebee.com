@@ -32,7 +32,7 @@
                     <div class="one-half">
                         <div style="margin-top: 15%; text-align: center">
                             <h3>Welcome to Our Social</h3>
-                            <img style="height: 210px; width: 210px; margin: auto" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo.jpg" />
+                            <img style="height: 150px; width: 150px; margin: auto" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo.jpg" />
                             <h4>Ong Xanh Mặt Ngầu</h4>
                         </div>
                     </div>
@@ -208,8 +208,5 @@
           });
         });
     </script>
-
-
-
 </div>
 <!-- /MAIN -->
