@@ -60,24 +60,45 @@
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.barrating.js"></script>
         <script type="text/javascript">
             $(function() {
-                $('.example-f').barrating({showSelectedRating:false});
+                $('.example-f').barrating({showSelectedRating: false});
             });
         </script>
 
         <!-- Pop-up -->
         <script>
-            $(function() {
-                $('.popup-modal').magnificPopup({
+            $(document).ready(function() {
+                $('.novaCat').on('blur', function(ui, event) {
+                    var valor = $('.novaCat').val();
+                    if (valor) {
+                        $('#novaCategoria').dialog({
+                            modal: true,
+                            resizable: false,
+                            buttons: {
+                                "OK": function() {
+                                    $(this).dialog("close");
+                                }
+                            }
+                        });
+                    }
+                    ;
+                });
+
+                //formulário popup
+                $('.popup-with-form').magnificPopup({
                     type: 'inline',
                     preloader: false,
-                    focus: '#username',
-                    modal: true
+                    focus: '#name',
+                    callbacks: {
+                        beforeOpen: function() {
+                            if ($(window).width() < 700) {
+                                this.st.focus = false;
+                            } else {
+                                this.st.focus = '#name';
+                            }
+                        }
+                    }
                 });
-                $(document).on('click', '.popup-modal-dismiss', function(e) {
-                    e.preventDefault();
-                    $.magnificPopup.close();
-                }
-                );
+
             });
         </script>
 
@@ -232,7 +253,7 @@
                                                         <span class="w-nav-title">Groups</span>
                                                         <span class="w-nav-hint"></span>
                                                     </a>
-                                                    
+
                                                     <div class="w-nav-list place_down show_onhover level_2">
                                                         <div class="w-nav-list-h">
                                                             <div class="w-nav-item level_2">
@@ -252,16 +273,16 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
+
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="w-nav-item level_1">
                                                 <div class="w-nav-item-h">
                                                     <a href="<?php echo Yii::app()->createUrl("login") ?>" class="w-nav-anchor level_1">
                                                         <img style="border: 5px solid white;"class="ava" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/blog-1.jpg"/>
                                                     </a>
-                                                    
+
                                                     <div class="w-nav-list place_down show_onhover level_2">
                                                         <div class="w-nav-list-h">
                                                             <div class="w-nav-item level_2">
@@ -274,10 +295,10 @@
                                                                     <a href="home-parallax.html" class="w-nav-anchor level_2">Update information</a>
                                                                 </div>
                                                             </div>
-                                                            
+
                                                         </div>
                                                     </div>
-                                                    
+
                                                 </div>
                                             </div>
 

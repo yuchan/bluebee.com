@@ -319,29 +319,29 @@
                 <div>
                     <a href="" style="margin-left: 30px">More...</a>
                     <br/>
-                    <a class="popup-with-form" href="#test-form">
+                    <a class="popup-with-form" href="#novaLinha">
                         <button class="g-btn type_outline"><span><i class="icon-heart"></i>Create your own class</span></button>
                     </a>
 
-                    <form action="blue-bee.com" id="test-form" class="white-popup-block mfp-hide">
+                    <form id="novaLinha" class="white-popup-block mfp-hide">
                         <h1>Form</h1>
                         <fieldset style="border:0;">
                             <ol>
                                 <li>
                                     <label for="name">Name</label>
-                                    <input id="name" name="name" placeholder="Name" required="" type="text" style="resize:horizontal; width:400px">
+                                    <input id="name" name="name" placeholder="Name" required="" type="text"">
                                 </li>
                                 <li>
                                     <label for="email">Email</label>
-                                    <input id="email" name="email" placeholder="example@domain.com" required="" type="email" style="resize:horizontal; width:400px">
+                                    <input id="email" name="email" placeholder="example@domain.com" required="" type="email"">
                                 </li>
                                 <li>
                                     <label for="phone">Phone</label>
-                                    <input id="phone" name="phone" placeholder="Eg. +447500000000" required="" type="tel" style="resize:horizontal; width:400px">
+                                    <input id="phone" name="phone" placeholder="Eg. +447500000000" required="" type="tel"">
                                 </li>
                                 <li>
                                     <label for="textarea">Textarea</label><br>
-                                    <textarea id="textarea" style="resize:horizontal; width:400px">Try to resize me to see how popup CSS-based resizing works.</textarea>
+                                    <textarea id="textarea">Try to resize me to see how popup CSS-based resizing works.</textarea>
                                 </li>
                             </ol>
 
