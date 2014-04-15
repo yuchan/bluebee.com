@@ -25,7 +25,7 @@
                 }
             </style>
             <div class="cover">
-                <div class="button-on-cover" style="position: relative">
+                <div class="button-on-cover" style="position: absolute">
                     <script>
                         $(document).ready(function($) {
                             $('#changecover').click(function(event) {
