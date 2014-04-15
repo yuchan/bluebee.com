@@ -10,10 +10,15 @@ class WelcomePageController extends BaseController {
     }
 
     public function actionIndex() {
-        $this->actionLogin();
+        $this->actionWelcome();
+    }
+    
+    public function  actionWelcome(){
+        $this->render('welcome');
     }
 
     public function actionLogin() {
+      
         $this->retVal = new stdClass();
         $request = Yii::app()->request;
         if ($request->isPostRequest && isset($_POST)) {
@@ -30,31 +35,41 @@ class WelcomePageController extends BaseController {
                                 //user existed, check password
                                 if (strcmp($user->password, $loginFormData['user_password'] == 0)) {
                                     $this->retVal->message = "Dang nhap thanh cong";
-                                    //     Yii::app()->request->redirect('user');
+                                  //  Yii::app()->clientScript->registerMetaTag("10;url={$returnUri}", null, 'refresh');
+                                 //$this->redirect(Yii::app()->createUrl("user"));
+                                  $this->retVal->url = Yii::app()->createUrl("user");
+                                  $this->retVal->success = 1;
+                                 
                                 } else {
                                     //user not existed
+                                    //die("fail");
                                     $this->retVal->message = "Sai ten nguoi dung hoac mat khau";
+                                    //$this->render('welcome');
                                 }
                             } else {
                                 $this->retVal->message = "Ten nguoi dung chua duoc danh ky";
+                                //$this->render('welcome');
                             }
                         } else {
                             $this->retVal->message = "Password khong duoc de trong";
+                            //$this->render('welcome');
                         }
                     } else {
                         $this->retVal->message = "Sai định dạng email";
+                       // $this->render('welcome');
                     }
                 } else {
                     $this->retVal->message = "User name khong duoc de trong";
+                    $this->render('welcome');
                 }
             } catch (exception $e) {
                 $this->retVal->message = $e->getMessage();
             }
             echo CJSON::encode($this->retVal);
-            Yii::app()->end();
+       //     Yii::app()->end();
         }
-
-        $this->render('welcome');
+        
+        
     }
 
     public function actionSignup() {
@@ -111,7 +126,7 @@ class WelcomePageController extends BaseController {
                 $this->retVal->message = $e->getMessage();
             }
             echo CJSON::encode($this->retVal);
-            Yii::app()->end();
+          //  Yii::app()->end();
         }
 
         $this->render('welcome/signup');

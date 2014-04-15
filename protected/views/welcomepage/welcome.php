@@ -13,6 +13,9 @@
                     var json = data;
                     var result = $.parseJSON(json);
                     $('#res').html(result.message);
+                    if(result.success){
+                        location.href = result.url;
+                    }
 //                    var json = $.parseJSON(data);
 //                    $('#res').html('Message : ' + json.message + '<br>Success : ' + json.success)
                 }
