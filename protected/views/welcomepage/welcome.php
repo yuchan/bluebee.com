@@ -24,7 +24,7 @@
     });
 </script>
 <!-- MAIN -->
-<div class="l-submain">
+<div class="l-submain" style="height: 100%">
     <div class="l-submain-h i-cf" style="width: 60%">
         <div class="l-content">
             <div class="l-content-h i-widgets">
@@ -32,7 +32,7 @@
                     <div class="one-half">
                         <div style="margin-top: 15%; text-align: center">
                             <h3>Welcome to Our Social</h3>
-                            <img style="height: 120px; width: 120px; margin: auto" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo.jpg" />
+                            <img style="height: 150px; width: 150px; margin: auto" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo.jpg" />
                             <h4>Ong Xanh Mặt Ngầu</h4>
                         </div>
                     </div>
@@ -83,26 +83,18 @@
                                                                         <button class="g-btn type_primary size_small" type="submit" name="Submit" value="Submit">Đăng Nhập</button>
                                                                     </div>
                                                                 </div>
-                                                                <div class="g-form-row">
-                                                                    <form action="<?php echo Yii::app()->createUrl('login/fb_login') ?>">
-                                                                        <div class="g-form-row-field">
-                                                                            <button class="g-btn type_primary size_small" style="background-color: #1265A8; width: 100%; margin: -10px 0 -5px 0" type="submit">
-                                                                                <i class="icon-facebook"></i>
-                                                                                <span>Đăng Nhập qua Facebook</span>
-                                                                            </button>
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
+                                                                </form>
+                                                                <?php $this->renderPartial('fb') ?>
                                                             </div>
                                                         </div>
-                                                    </form>
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="w-tabs-section" style="border-top: 2px dashed #429edb">
-                                   <?php $this->renderPartial('signup')?>
+                                    <?php $this->renderPartial('signup') ?>
                                 </div>
                             </div>
                         </div>
@@ -129,7 +121,11 @@
         <div id="learn-more">
             <a href="#rock"> Learn more <br><i class="icon-angle-down" style="margin-left: 3px"></i> </a>
         </div>
-        <div id="rock" style="border-top: 2px solid whitesmoke; margin-top: 80px"></div>
+    </div>
+</div>
+<div id="rock" style="border-top: 2px solid whitesmoke; margin-top: 80px"></div>
+<div class="l-submain">
+    <div class="l-submain-h i-cf" style="width: 60%">
         <div id="cbp-so-scroller" class="cbp-so-scroller">
             <section class="cbp-so-section">
                 <figure class="cbp-so-side cbp-so-side-left">
@@ -182,30 +178,27 @@
         </div>
     </div>
     <script>
-        new cbpScroller( document.getElementById( 'cbp-so-scroller' ) );
+        new cbpScroller(document.getElementById('cbp-so-scroller'));
         $(document).ready(function() {
-          $('#signup').click(function() {
-            $.smoothScroll({
-              scrollTarget: '#',
-              afterScroll: function() {
-                $('div#signuparea').trigger('click');
-              },
-              speed: 800,
-              easing: 'swing',
+            $('#signup').click(function() {
+                $.smoothScroll({
+                    scrollTarget: '#',
+                    afterScroll: function() {
+                        $('div#signuparea').trigger('click');
+                    },
+                    speed: 800,
+                    easing: 'swing',
+                });
+                return false;
             });
-            return false;
-          });
-          $('#learn-more').click(function() {
-            $.smoothScroll({
-              scrollTarget: '#rock',
-              speed: 800,
+            $('#learn-more').click(function() {
+                $.smoothScroll({
+                    scrollTarget: '#rock',
+                    speed: 800,
+                });
+                return false;
             });
-            return false;
-          });
         });
     </script>
-
-
-
 </div>
 <!-- /MAIN -->
