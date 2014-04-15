@@ -5,9 +5,10 @@
  *
  * The followings are the available columns in table 'tbl_faculty':
  * @property integer $faculty_id
+ * @property integer $faculty_university
  * @property string $faculty_name
- * @property integer $subject_id
- * @property integer $teacher_id
+ * @property string $faculty_code
+ * @property integer $faculty_active
  */
 class Faculty extends CActiveRecord
 {
@@ -27,11 +28,11 @@ class Faculty extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('subject_id, teacher_id', 'numerical', 'integerOnly'=>true),
-			array('faculty_name', 'length', 'max'=>100),
+			array('faculty_university, faculty_active', 'numerical', 'integerOnly'=>true),
+			array('faculty_name, faculty_code', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('faculty_id, faculty_name, subject_id, teacher_id', 'safe', 'on'=>'search'),
+			array('faculty_id, faculty_university, faculty_name, faculty_code, faculty_active', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -53,9 +54,10 @@ class Faculty extends CActiveRecord
 	{
 		return array(
 			'faculty_id' => 'Faculty',
+			'faculty_university' => 'Faculty University',
 			'faculty_name' => 'Faculty Name',
-			'subject_id' => 'Subject',
-			'teacher_id' => 'Teacher',
+			'faculty_code' => 'Faculty Code',
+			'faculty_active' => 'Faculty Active',
 		);
 	}
 
@@ -78,9 +80,10 @@ class Faculty extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('faculty_id',$this->faculty_id);
+		$criteria->compare('faculty_university',$this->faculty_university);
 		$criteria->compare('faculty_name',$this->faculty_name,true);
-		$criteria->compare('subject_id',$this->subject_id);
-		$criteria->compare('teacher_id',$this->teacher_id);
+		$criteria->compare('faculty_code',$this->faculty_code,true);
+		$criteria->compare('faculty_active',$this->faculty_active);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

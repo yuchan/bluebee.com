@@ -5,16 +5,24 @@
  *
  * The followings are the available columns in table 'tbl_user':
  * @property integer $user_id
- * @property string $user_name
- * @property string $user_password
- * @property integer $user_status
- * @property string $user_email
- * @property string $user_class
- * @property integer $user_faculty
- * @property string $user_about
- * @property integer $user_type
+ * @property integer $user_id_fb
+ * @property string $username
+ * @property string $password
+ * @property string $user_real_name
  * @property string $user_avatar
- * @property integer $user_favourite_doc_id
+ * @property string $user_cover
+ * @property string $user_student_code
+ * @property integer $user_university
+ * @property string $user_gender
+ * @property string $user_dob
+ * @property string $user_hometown
+ * @property string $user_phone
+ * @property string $user_description
+ * @property integer $user_faculty
+ * @property integer $user_class
+ * @property integer $user_active
+ * @property integer $user_status
+ * @property integer $user_group
  */
 class User extends CActiveRecord
 {
@@ -34,12 +42,11 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_status, user_faculty, user_type, user_favourite_doc_id', 'numerical', 'integerOnly'=>true),
-			array('user_name, user_password, user_email, user_class, user_avatar', 'length', 'max'=>100),
-			array('user_about', 'safe'),
+			array('user_id_fb, user_university, user_faculty, user_class, user_active, user_status, user_group', 'numerical', 'integerOnly'=>true),
+			array('username, password, user_real_name, user_avatar, user_cover, user_student_code, user_gender, user_dob, user_hometown, user_phone, user_description', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('user_id, user_name, user_password, user_status, user_email, user_class, user_faculty, user_about, user_type, user_avatar, user_favourite_doc_id', 'safe', 'on'=>'search'),
+			array('user_id, user_id_fb, username, password, user_real_name, user_avatar, user_cover, user_student_code, user_university, user_gender, user_dob, user_hometown, user_phone, user_description, user_faculty, user_class, user_active, user_status, user_group', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,16 +68,24 @@ class User extends CActiveRecord
 	{
 		return array(
 			'user_id' => 'User',
-			'user_name' => 'User Name',
-			'user_password' => 'User Password',
-			'user_status' => 'User Status',
-			'user_email' => 'User Email',
-			'user_class' => 'User Class',
-			'user_faculty' => 'User Faculty',
-			'user_about' => 'User About',
-			'user_type' => 'User Type',
+			'user_id_fb' => 'User Id Fb',
+			'username' => 'Username',
+			'password' => 'Password',
+			'user_real_name' => 'User Real Name',
 			'user_avatar' => 'User Avatar',
-			'user_favourite_doc_id' => 'User Favourite Doc',
+			'user_cover' => 'User Cover',
+			'user_student_code' => 'User Student Code',
+			'user_university' => 'User University',
+			'user_gender' => 'User Gender',
+			'user_dob' => 'User Dob',
+			'user_hometown' => 'User Hometown',
+			'user_phone' => 'User Phone',
+			'user_description' => 'User Description',
+			'user_faculty' => 'User Faculty',
+			'user_class' => 'User Class',
+			'user_active' => 'User Active',
+			'user_status' => 'User Status',
+			'user_group' => 'User Group',
 		);
 	}
 
@@ -93,16 +108,24 @@ class User extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('user_id',$this->user_id);
-		$criteria->compare('user_name',$this->user_name,true);
-		$criteria->compare('user_password',$this->user_password,true);
-		$criteria->compare('user_status',$this->user_status);
-		$criteria->compare('user_email',$this->user_email,true);
-		$criteria->compare('user_class',$this->user_class,true);
-		$criteria->compare('user_faculty',$this->user_faculty);
-		$criteria->compare('user_about',$this->user_about,true);
-		$criteria->compare('user_type',$this->user_type);
+		$criteria->compare('user_id_fb',$this->user_id_fb);
+		$criteria->compare('username',$this->username,true);
+		$criteria->compare('password',$this->password,true);
+		$criteria->compare('user_real_name',$this->user_real_name,true);
 		$criteria->compare('user_avatar',$this->user_avatar,true);
-		$criteria->compare('user_favourite_doc_id',$this->user_favourite_doc_id);
+		$criteria->compare('user_cover',$this->user_cover,true);
+		$criteria->compare('user_student_code',$this->user_student_code,true);
+		$criteria->compare('user_university',$this->user_university);
+		$criteria->compare('user_gender',$this->user_gender,true);
+		$criteria->compare('user_dob',$this->user_dob,true);
+		$criteria->compare('user_hometown',$this->user_hometown,true);
+		$criteria->compare('user_phone',$this->user_phone,true);
+		$criteria->compare('user_description',$this->user_description,true);
+		$criteria->compare('user_faculty',$this->user_faculty);
+		$criteria->compare('user_class',$this->user_class);
+		$criteria->compare('user_active',$this->user_active);
+		$criteria->compare('user_status',$this->user_status);
+		$criteria->compare('user_group',$this->user_group);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

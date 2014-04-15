@@ -7,12 +7,11 @@
  * @property integer $doc_id
  * @property string $doc_url
  * @property string $doc_name
- * @property integer $doc_status
- * @property integer $doc_user_id
  * @property string $doc_scribd_id
- * @property integer $doc_subject_id
- * @property integer $doc_faculty_id
  * @property string $doc_description
+ * @property string $doc_title
+ * @property string $doc_status
+ * @property integer $doc_aturhor
  */
 class Doc extends CActiveRecord
 {
@@ -32,11 +31,12 @@ class Doc extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('doc_status, doc_user_id, doc_subject_id, doc_faculty_id', 'numerical', 'integerOnly'=>true),
-			array('doc_url, doc_name, doc_scribd_id, doc_description', 'length', 'max'=>100),
+			array('doc_aturhor', 'numerical', 'integerOnly'=>true),
+			array('doc_url, doc_name, doc_scribd_id, doc_title, doc_status', 'length', 'max'=>45),
+			array('doc_description', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('doc_id, doc_url, doc_name, doc_status, doc_user_id, doc_scribd_id, doc_subject_id, doc_faculty_id, doc_description', 'safe', 'on'=>'search'),
+			array('doc_id, doc_url, doc_name, doc_scribd_id, doc_description, doc_title, doc_status, doc_aturhor', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -60,12 +60,11 @@ class Doc extends CActiveRecord
 			'doc_id' => 'Doc',
 			'doc_url' => 'Doc Url',
 			'doc_name' => 'Doc Name',
-			'doc_status' => 'Doc Status',
-			'doc_user_id' => 'Doc User',
 			'doc_scribd_id' => 'Doc Scribd',
-			'doc_subject_id' => 'Doc Subject',
-			'doc_faculty_id' => 'Doc Faculty',
 			'doc_description' => 'Doc Description',
+			'doc_title' => 'Doc Title',
+			'doc_status' => 'Doc Status',
+			'doc_aturhor' => 'Doc Aturhor',
 		);
 	}
 
@@ -90,12 +89,11 @@ class Doc extends CActiveRecord
 		$criteria->compare('doc_id',$this->doc_id);
 		$criteria->compare('doc_url',$this->doc_url,true);
 		$criteria->compare('doc_name',$this->doc_name,true);
-		$criteria->compare('doc_status',$this->doc_status);
-		$criteria->compare('doc_user_id',$this->doc_user_id);
 		$criteria->compare('doc_scribd_id',$this->doc_scribd_id,true);
-		$criteria->compare('doc_subject_id',$this->doc_subject_id);
-		$criteria->compare('doc_faculty_id',$this->doc_faculty_id);
 		$criteria->compare('doc_description',$this->doc_description,true);
+		$criteria->compare('doc_title',$this->doc_title,true);
+		$criteria->compare('doc_status',$this->doc_status,true);
+		$criteria->compare('doc_aturhor',$this->doc_aturhor);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

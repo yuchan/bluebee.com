@@ -6,15 +6,13 @@
  * The followings are the available columns in table 'tbl_teacher':
  * @property integer $teacher_id
  * @property string $teacher_name
+ * @property string $teacher_personal_page
+ * @property string $teacher_avatar
+ * @property string $teacher_description
  * @property integer $teacher_faculty
- * @property string $teacher_subject
- * @property string $teacher_advise
- * @property integer $teacher_rate
- * @property string $teacher_url
- * @property string $teacher_comment
- * @property string $teacher_profile
- * @property string $teacher_character
- * @property string $teacher_achive
+ * @property integer $teacher_active
+ * @property integer $teacher_status
+ * @property integer $teacher_university
  */
 class Teacher extends CActiveRecord
 {
@@ -34,12 +32,11 @@ class Teacher extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('teacher_faculty, teacher_rate', 'numerical', 'integerOnly'=>true),
-			array('teacher_name, teacher_subject, teacher_url', 'length', 'max'=>100),
-			array('teacher_advise, teacher_comment, teacher_profile, teacher_character, teacher_achive', 'safe'),
+			array('teacher_faculty, teacher_active, teacher_status, teacher_university', 'numerical', 'integerOnly'=>true),
+			array('teacher_name, teacher_personal_page, teacher_avatar, teacher_description', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('teacher_id, teacher_name, teacher_faculty, teacher_subject, teacher_advise, teacher_rate, teacher_url, teacher_comment, teacher_profile, teacher_character, teacher_achive', 'safe', 'on'=>'search'),
+			array('teacher_id, teacher_name, teacher_personal_page, teacher_avatar, teacher_description, teacher_faculty, teacher_active, teacher_status, teacher_university', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -62,15 +59,13 @@ class Teacher extends CActiveRecord
 		return array(
 			'teacher_id' => 'Teacher',
 			'teacher_name' => 'Teacher Name',
+			'teacher_personal_page' => 'Teacher Personal Page',
+			'teacher_avatar' => 'Teacher Avatar',
+			'teacher_description' => 'Teacher Description',
 			'teacher_faculty' => 'Teacher Faculty',
-			'teacher_subject' => 'Teacher Subject',
-			'teacher_advise' => 'Teacher Advise',
-			'teacher_rate' => 'Teacher Rate',
-			'teacher_url' => 'Teacher Url',
-			'teacher_comment' => 'Teacher Comment',
-			'teacher_profile' => 'Teacher Profile',
-			'teacher_character' => 'Teacher Character',
-			'teacher_achive' => 'Teacher Achive',
+			'teacher_active' => 'Teacher Active',
+			'teacher_status' => 'Teacher Status',
+			'teacher_university' => 'Teacher University',
 		);
 	}
 
@@ -94,15 +89,13 @@ class Teacher extends CActiveRecord
 
 		$criteria->compare('teacher_id',$this->teacher_id);
 		$criteria->compare('teacher_name',$this->teacher_name,true);
+		$criteria->compare('teacher_personal_page',$this->teacher_personal_page,true);
+		$criteria->compare('teacher_avatar',$this->teacher_avatar,true);
+		$criteria->compare('teacher_description',$this->teacher_description,true);
 		$criteria->compare('teacher_faculty',$this->teacher_faculty);
-		$criteria->compare('teacher_subject',$this->teacher_subject,true);
-		$criteria->compare('teacher_advise',$this->teacher_advise,true);
-		$criteria->compare('teacher_rate',$this->teacher_rate);
-		$criteria->compare('teacher_url',$this->teacher_url,true);
-		$criteria->compare('teacher_comment',$this->teacher_comment,true);
-		$criteria->compare('teacher_profile',$this->teacher_profile,true);
-		$criteria->compare('teacher_character',$this->teacher_character,true);
-		$criteria->compare('teacher_achive',$this->teacher_achive,true);
+		$criteria->compare('teacher_active',$this->teacher_active);
+		$criteria->compare('teacher_status',$this->teacher_status);
+		$criteria->compare('teacher_university',$this->teacher_university);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
