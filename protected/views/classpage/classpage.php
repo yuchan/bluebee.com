@@ -25,14 +25,7 @@
                 }
             </style>
             <div class="cover">
-                <div class="button-on-cover" style="position: relative">
-                    <script>
-                        $(document).ready(function($) {
-                            $('#changecover').click(function(event) {
-                                $(this).find('.cover')
-                            });
-                        });
-                    </script>
+                <div class="button-on-cover" style="position: absolute">
                     <button class="g-btn type_primary size_small" id="changecover" >
                         <span>Change Cover</span>
                     </button>
@@ -129,7 +122,7 @@
                                         }
                                         .teacher-block:after, .one-third li:after, .clearfix:after {
                                             clear: both;
-                                            content: "."
+                                            content: ".";
                                             display: block;
                                             height: 0;
                                             line-height: 0;
