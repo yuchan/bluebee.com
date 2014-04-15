@@ -83,26 +83,18 @@
                                                                         <button class="g-btn type_primary size_small" type="submit" name="Submit" value="Submit">Đăng Nhập</button>
                                                                     </div>
                                                                 </div>
-                                                                <div class="g-form-row">
-                                                                    <form action="<?php echo Yii::app()->createUrl('login/fb_login') ?>">
-                                                                        <div class="g-form-row-field">
-                                                                            <button class="g-btn type_primary size_small" style="background-color: #1265A8; width: 100%; margin: -10px 0 -5px 0" type="submit">
-                                                                                <i class="icon-facebook"></i>
-                                                                                <span>Đăng Nhập qua Facebook</span>
-                                                                            </button>
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
+                                                                </form>
+                                                                <?php $this->renderPartial('fb') ?>
                                                             </div>
                                                         </div>
-                                                    </form>
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="w-tabs-section" style="border-top: 2px dashed #429edb">
-                                   <?php $this->renderPartial('signup')?>
+                                    <?php $this->renderPartial('signup') ?>
                                 </div>
                             </div>
                         </div>
@@ -186,26 +178,26 @@
         </div>
     </div>
     <script>
-        new cbpScroller( document.getElementById( 'cbp-so-scroller' ) );
+        new cbpScroller(document.getElementById('cbp-so-scroller'));
         $(document).ready(function() {
-          $('#signup').click(function() {
-            $.smoothScroll({
-              scrollTarget: '#',
-              afterScroll: function() {
-                $('div#signuparea').trigger('click');
-              },
-              speed: 800,
-              easing: 'swing',
+            $('#signup').click(function() {
+                $.smoothScroll({
+                    scrollTarget: '#',
+                    afterScroll: function() {
+                        $('div#signuparea').trigger('click');
+                    },
+                    speed: 800,
+                    easing: 'swing',
+                });
+                return false;
             });
-            return false;
-          });
-          $('#learn-more').click(function() {
-            $.smoothScroll({
-              scrollTarget: '#rock',
-              speed: 800,
+            $('#learn-more').click(function() {
+                $.smoothScroll({
+                    scrollTarget: '#rock',
+                    speed: 800,
+                });
+                return false;
             });
-            return false;
-          });
         });
     </script>
 
