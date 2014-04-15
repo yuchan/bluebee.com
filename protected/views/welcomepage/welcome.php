@@ -1,3 +1,28 @@
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        var form = $('#loginform');
+        form.submit(function(event) {
+            $('#res').html('');
+            var data = form.serialize();
+            $.ajax({
+                type: "POST",
+                url: '<?php echo Yii::app()->createUrl('welcomepage/Login') ?>',
+                data: data,
+                success: function(data) {
+                    var json = data;
+                    var result = $.parseJSON(json);
+                    $('#res').html(result.message);
+//                    var json = $.parseJSON(data);
+//                    $('#res').html('Message : ' + json.message + '<br>Success : ' + json.success)
+                }
+            });
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+        });
+    });
+</script>
 <!-- MAIN -->
 <div class="l-submain">
     <div class="l-submain-h i-cf" style="width: 60%">
@@ -77,52 +102,7 @@
                                     </div>
                                 </div>
                                 <div class="w-tabs-section" style="border-top: 2px dashed #429edb">
-                                    <div id="signuparea" class="w-tabs-section-title">
-                                        <span class="w-tabs-section-title-text fix-g-form" style="margin: 0 0 0 5px; padding: 0">Chưa có Tài Khoản? Đăng Ký!</span>
-                                    </div>
-                                    <div class="w-tabs-section-content" style="display: none;">
-                                        <div class="w-tabs-section-content-h">
-                                            <div class="wpb_text_column ">
-                                                <div class="wpb_wrapper">
-                                                    <form class="g-form" action="<?php echo Yii::app()->createUrl('login/signup') ?>" method="POST" id="signupform">
-                                                        <input type="hidden" name="action" value="contact">
-                                                        <div class="g-form-group">
-                                                            <div class="g-form-group-rows">
-                                                                <div class="g-form-row">
-                                                                    <div class="g-form-row-field">
-                                                                        <div class="g-input">
-                                                                            <input type="text" name="contact_name" id="contact_name" value="" placeholder="Tên của bạn *">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="g-form-row">
-                                                                    <div class="g-form-row-field">
-                                                                        <div class="g-input">
-                                                                            <input type="text" name="contact_email" id="contact_email" value="" placeholder="Email của bạn *">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="g-form-row">
-                                                                    <div class="g-form-row-field">
-                                                                        <div class="g-input">
-                                                                            <input type="password" name="Password" id="Password" value="" placeholder="Mật Khẩu *">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="g-form-row">
-                                                                    <div class="g-form-row-field">
-                                                                        <button class="g-btn type_primary size_small" type="submit" name="Submit" value="Submit" style="width: 100%">
-                                                                            <i class="icon-pencil"></i>
-                                                                            Đăng Ký</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                   <?php $this->renderPartial('signup')?>
                                 </div>
                             </div>
                         </div>
