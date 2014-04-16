@@ -12,25 +12,23 @@
                 success: function(data) {
                     var json = data;
                     var result = $.parseJSON(json);
-             //       $('#res').html(result.message);
+                    //       $('#res').html(result.message);
                     if (result.success) {
                         location.href = result.url;
                     }
                     else {
-                        $('#alert').html('<div class="g-form-row-field">' +
+                        var item = $('<div class="g-form-row-field">' +
                                 '<div id="error" class="g-alert type_error with_close" style="position: absolute; z-index: 2; width: 89%; right:100%">' +
-                               
                                 '<div class="g-alert-body">' +
-                                '<p><b>' + result.message + '</b></p>' + 
+                                '<p><b>' + result.message + '</b></p>' +
                                 '</div>' +
                                 '</div>' +
-                                '</div>')
-                     //   var json = $.parseJSON(data);
-                      //  $('#res').html('Message : ' + json.message + '<br>Success : ' + json.success)
-
+                                '</div>').hide().fadeIn(100);
+                        $('#alert').html(item)
+                        //   var json = $.parseJSON(data);
+                        //  $('#res').html('Message : ' + json.message + '<br>Success : ' + json.success)
                     }
                 }
-
             });
             event.preventDefault();
             event.stopPropagation();
