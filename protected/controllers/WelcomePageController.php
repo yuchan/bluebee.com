@@ -33,7 +33,7 @@ class WelcomePageController extends BaseController {
                             $user = User::model()->findByAttributes(array('username' => $loginFormData['user_name']));
                             if ($user) {
                                 //user existed, check password
-                                if (strcmp($user->password, $loginFormData['user_password'] == 0)) {
+                                if ($user->password == $loginFormData['user_password']) {
                                     $this->retVal->message = "Dang nhap thanh cong";
                                     Yii::app()->session['user_id'] = $user->user_id;
                                     Yii::app()->session['user_real_name'] = $user->user_real_name;
@@ -41,8 +41,7 @@ class WelcomePageController extends BaseController {
                                     $this->retVal->url = Yii::app()->createUrl("user");
                                     $this->retVal->success = 1;
                                 } else {
-                                    //user not existed
-                                    //die("fail");
+                                  
                                     $this->retVal->message = "Sai ten nguoi dung hoac mat khau";
                                     $this->retVal->success = 0;
                                 }

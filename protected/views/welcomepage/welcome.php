@@ -12,20 +12,31 @@
                 success: function(data) {
                     var json = data;
                     var result = $.parseJSON(json);
-                    $('#res').html(result.message);
+             //       $('#res').html(result.message);
                     if (result.success) {
                         location.href = result.url;
                     }
-//                    var json = $.parseJSON(data);
-//                    $('#res').html('Message : ' + json.message + '<br>Success : ' + json.success)
+                    else {
+                        $('#alert').html('<div class="g-form-row-field">' +
+                                '<div id="error" class="g-alert type_error with_close" style="position: absolute; z-index: 2; width: 89%; right:100%">' +
+                                '<div class="g-alert-close"> ✕ </div>' +
+                                '<div class="g-alert-body">' +
+                                '<p><b>' + result.message + '</b></p>' + 
+                                '</div>' +
+                                '</div>' +
+                                '</div>')
+                     //   var json = $.parseJSON(data);
+                      //  $('#res').html('Message : ' + json.message + '<br>Success : ' + json.success)
+
+                    }
                 }
+
             });
             event.preventDefault();
             event.stopPropagation();
             return false;
         });
-    });
-</script>
+    });</script>
 <!-- MAIN -->
 <div class="l-submain" style="height: 100%">
     <div class="l-submain-h i-cf" style="width: 60%">
@@ -55,17 +66,15 @@
                                         <div class="w-tabs-section-content-h">
                                             <div class="wpb_text_column ">
                                                 <div class="wpb_wrapper">
-                                                    <form class="g-form" action="" method="POST" id="loginform">
+                                                    <form class="g-form" action="<?php $this->createUrl('welcomepage/login') ?>" method="POST" id="loginform">
                                                         <div class="g-form-group">
                                                             <div class="g-form-group-rows">
+                                                                <div class="g-form-row" id="alert">
+
+                                                                </div>
                                                                 <div class="g-form-row">
                                                                     <div class="g-form-row-field">
-                                                                        <div id="error" class="g-alert type_error with_close" style="position: absolute; z-index: 2; width: 89%; right:100%">
-                                                                            <div class="g-alert-close"> ✕ </div>
-                                                                            <div class="g-alert-body">
-                                                                                <p><b>Success Message</b></p>
-                                                                            </div>
-                                                                        </div>
+
                                                                         <div class="g-input">
                                                                             <input type="text" name="username" id="contact_username" value="" placeholder="Email">
                                                                         </div>
@@ -73,12 +82,7 @@
                                                                 </div>
                                                                 <div class="g-form-row">
                                                                     <div class="g-form-row-field">
-                                                                        <div id="error" class="g-alert type_error with_close" style="position: absolute; z-index: 2; width: 89%; right:100%">
-                                                                            <div class="g-alert-close"> ✕ </div>
-                                                                            <div class="g-alert-body">
-                                                                                <p><b>Success Message</b></p>
-                                                                            </div>
-                                                                        </div>
+
                                                                         <div class="g-input">
                                                                             <input type="password" name="Password" id="Password" value="" placeholder="Mật Khẩu *">
                                                                         </div>
