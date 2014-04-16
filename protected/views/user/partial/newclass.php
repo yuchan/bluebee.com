@@ -1,12 +1,33 @@
  
-
-<form class="g-form white-popup-block mfp-hide" id="newclassform" action="<?php $this->createUrl('classpage/createclass')?>">
+<script type="text/javascript">
+    $(document).ready(function() {
+        var form = $('#newclassform');
+        form.submit(function(event) {
+            $('#res').html('');
+            var data = form.serialize();
+            $.ajax({
+                type: "POST",
+                url: '<?php echo Yii::app()->createUrl('classpage/createclass') ?>',
+                data: data,
+                success: function(data) {
+                    var json = data;
+                    var result = $.parseJSON(json);
+                    //       $('#res').html(result.message);
+                    alert(result.message);
+                }
+            });
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+        });
+    });</script>
+<form class="g-form white-popup-block mfp-hide" id="newclassform" action="<?php $this->createUrl('classpage/createclass')?>" method="POST">
                         <h3>Create A New Class</h3>
                         <div class="g-form-group">
                             <div class="g-form-group-rows">
                                 <div class="g-form-row">
                                     <div class="g-form-row-label">
-                                        <label class="g-form-row-label-h" for="class_name">Mã lớp</label>
+                                        <label class="g-form-row-label-h" for="classcode">Mã lớp</label>
                                     </div>
                                     <div class="g-form-row-field">
                                         <div class="g-input">
@@ -16,7 +37,7 @@
                                 </div>
                                 <div class="g-form-row">
                                     <div class="g-form-row-label">
-                                        <label class="g-form-row-label-h" for="contact_email">Tên lớp</label>
+                                        <label class="g-form-row-label-h" for="classname">Tên lớp</label>
                                     </div>
                                     <div class="g-form-row-field">
                                         <div class="g-input">
@@ -26,7 +47,7 @@
                                 </div>
                                 <div class="g-form-group">
                                     <div class="g-form-row-label">
-                                        <label class="g-form-row-label-h" for="contact_email">Miêu tả</label>
+                                        <label class="g-form-row-label-h" for="description">Miêu tả</label>
                                     </div>
                                     <div class="g-form-group-rows">
                                         <div class="g-form-row">
