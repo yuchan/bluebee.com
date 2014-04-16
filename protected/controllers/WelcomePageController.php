@@ -40,8 +40,13 @@ class WelcomePageController extends BaseController {
                                     Yii::app()->session['user_email'] = $user->username;
                                     $this->retVal->url = Yii::app()->createUrl("user");
                                     $this->retVal->success = 1;
+                                    //token
+                                    $token = StringHelper::generateToken(16, 36);
+                                    $user->user_token = $token;
+                                    $user->save(FALSE);
+                                    $this->retVal->token = $token;
                                 } else {
-                                  
+
                                     $this->retVal->message = "Sai ten nguoi dung hoac mat khau";
                                     $this->retVal->success = 0;
                                 }
