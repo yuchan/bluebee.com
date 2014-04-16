@@ -14,7 +14,7 @@
                     var result = $.parseJSON(json);
                     //       $('#res').html(result.message);
                     if (result.success) {
-                         var item = $('<div class="g-form-row-field">' +
+                        var item = $('<div class="g-form-row-field">' +
                                 '<div id="success" class="g-alert type_success">' +
                                 '<div class="g-alert-body">' +
                                 '<p><b>' + result.message + '</b></p>' +
