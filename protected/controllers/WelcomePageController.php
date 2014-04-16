@@ -35,21 +35,11 @@ class WelcomePageController extends BaseController {
                                 //user existed, check password
                                 if (strcmp($user->password, $loginFormData['user_password'] == 0)) {
                                     $this->retVal->message = "Dang nhap thanh cong";
-<<<<<<< HEAD
-                                  //  Yii::app()->clientScript->registerMetaTag("10;url={$returnUri}", null, 'refresh');
-                                 //$this->redirect(Yii::app()->createUrl("user"));
-                                 Yii::app()->session['user_id'] = $user->user_id;
-                                 Yii::app()->session['user_real_name'] = $user->user_real_name;
-                                 Yii::app()->session['user_email'] = $user->username;
-                                  $this->retVal->url = Yii::app()->createUrl("user");
-                                  $this->retVal->success = 1;
-                                 
-=======
-                                    //  Yii::app()->clientScript->registerMetaTag("10;url={$returnUri}", null, 'refresh');
-                                    //$this->redirect(Yii::app()->createUrl("user"));
+                                    Yii::app()->session['user_id'] = $user->user_id;
+                                    Yii::app()->session['user_real_name'] = $user->user_real_name;
+                                    Yii::app()->session['user_email'] = $user->username;
                                     $this->retVal->url = Yii::app()->createUrl("user");
                                     $this->retVal->success = 1;
->>>>>>> ddc532274c1551bc969405d1186ae722bfe967d1
                                 } else {
                                     //user not existed
                                     //die("fail");
