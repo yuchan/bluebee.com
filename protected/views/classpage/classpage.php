@@ -461,8 +461,8 @@
                                     $("#invite-friends").tokenInput(
                                        arr
                                        , {
-                                        theme: "facebook",
-                                        preventDuplicates: true
+                                        theme: "facebook"
+//                                        preventDuplicates: true
                                     });
                                     $('button#invite-friends-button').click(function () {
                                         alert("Would submit: " + $(this).siblings("#invite-friends").val());

@@ -17,7 +17,7 @@
         queryParam: "q",
         searchDelay: 300,
         minChars: 1,
-        propertyToSearch: "username",
+        propertyToSearch: "name",
         jsonContainer: null,
 
         // Display settings
@@ -33,7 +33,7 @@
         preventDuplicates: false,
 
         // Output settings
-        tokenValue: "user_id",
+        tokenValue: "id",
 
         // Prepopulation settings
         prePopulate: null,
