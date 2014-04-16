@@ -9,8 +9,35 @@ class ClassPageController extends Controller {
     public function actionClassPage() {
         $this->render('classpage');
     }
-         
-    
+
+    public function actionCreateClass() {
+        $this->retVal = new stdClass();
+        $request = Yii::app()->request;
+        if ($request->isPostRequest && isset($_POST)) {
+            try {
+                $createClassFormData = array(
+                    'classcode' => @$_POST['classcode'],
+                    'classname' => @$_POST['classname'],
+                    'description' => @$_POST['description'],
+                );
+                if (!empty($loginFormData['classcode'])) {
+                    $newclass = class_model::model()->findByAttributes(array('class_code' => $createClassFormData['classcode']));
+                    if ($newclass) {
+                        $this->retVal->message = "Mã lớp đã tồn tại";
+                    } else {
+                        
+                    }
+                } else {
+                    $this->retVal->message = "Mã lớp không được để trống";
+                }
+            } catch (exception $e) {
+                $this->retVal->message = $e->getMessage();
+            }
+            echo CJSON::encode($this->retVal);
+            //     Yii::app()->end();
+        }
+    }
+
     // Uncomment the following methods and override them if needed
     /*
       public function filters()

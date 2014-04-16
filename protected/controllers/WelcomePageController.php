@@ -35,31 +35,32 @@ class WelcomePageController extends BaseController {
                                 //user existed, check password
                                 if (strcmp($user->password, $loginFormData['user_password'] == 0)) {
                                     $this->retVal->message = "Dang nhap thanh cong";
-                                    //  Yii::app()->clientScript->registerMetaTag("10;url={$returnUri}", null, 'refresh');
-                                    //$this->redirect(Yii::app()->createUrl("user"));
+                                    Yii::app()->session['user_id'] = $user->user_id;
+                                    Yii::app()->session['user_real_name'] = $user->user_real_name;
+                                    Yii::app()->session['user_email'] = $user->username;
                                     $this->retVal->url = Yii::app()->createUrl("user");
                                     $this->retVal->success = 1;
                                 } else {
                                     //user not existed
                                     //die("fail");
                                     $this->retVal->message = "Sai ten nguoi dung hoac mat khau";
-                                    //$this->render('welcome');
+                                    $this->retVal->success = 0;
                                 }
                             } else {
                                 $this->retVal->message = "Ten nguoi dung chua duoc danh ky";
-                                //$this->render('welcome');
+                                $this->retVal->success = 0;
                             }
                         } else {
                             $this->retVal->message = "Password khong duoc de trong";
-                            //$this->render('welcome');
+                            $this->retVal->success = 0;
                         }
                     } else {
                         $this->retVal->message = "Sai định dạng email";
-                        // $this->render('welcome');
+                        $this->retVal->success = 0;
                     }
                 } else {
                     $this->retVal->message = "User name khong duoc de trong";
-                    $this->render('welcome');
+                    $this->retVal->success = 0;
                 }
             } catch (exception $e) {
                 $this->retVal->message = $e->getMessage();
@@ -97,27 +98,35 @@ class WelcomePageController extends BaseController {
                                         $model->username = $loginFormData['user_email'];
                                         $model->user_status = 1;
                                         $model->user_active = 1;
+
                                         $model->save(FALSE);
                                         if ($model->save(FALSE)) {
                                             $this->retVal->message = "Đăng ký thành công, hãy đăng nhập bằng tài khoản của bạn";
+                                            $this->retVal->success = 1;
                                         } else {
                                             $this->retVal->message = "Không thể lưu user do lỗi server";
+                                            $this->retVal->success = 0;
                                         }
                                     } else {
                                         $this->retVal->message = "Không thể lưu user do lỗi server ";
+                                        $this->retVal->success = 0;
                                     }
                                 }
                             } else {
                                 $this->retVal->message = "Password phải nhiều hơn 5 kí tự";
+                                $this->retVal->success = 0;
                             }
                         } else {
                             $this->retVal->message = "Sai định dạng email";
+                            $this->retVal->success = 0;
                         }
                     } else {
                         $this->retVal->message = "Password không được để trống";
+                        $this->retVal->success = 0;
                     }
                 } else {
                     $this->retVal->message = "Email không được để trống";
+                    $this->retVal->success = 0;
                 }
             } catch (exception $e) {
                 $this->retVal->message = $e->getMessage();
