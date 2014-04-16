@@ -26,8 +26,6 @@
             </style>
             <div class="cover">
                 <div class="button-on-cover" style="position: absolute">
-<<<<<<< HEAD
-=======
                     <script>
                         $(document).ready(function($) {
                             $('#changecover').click(function(event) {
@@ -35,7 +33,6 @@
                             });
                         });
                     </script>
->>>>>>> c8a985cbb1cf574584d43afca33a639dc541f885
                     <button class="g-btn type_primary size_small" id="changecover" >
                         <span>Change Cover</span>
                     </button>
@@ -257,7 +254,7 @@
                                             <div class="activity-content">
                                                 <div class="activity-item">
                                                     <a class="other-user-avatar" href="/glang">
-                                                        <img class="" width="50" height="50" src="//gravatar.com/avatar/7b75aef92133d076da32941576f8d885?size=70&amp;d=https://koding-cdn.s3.amazonaws.com/images/default.avatar.70.png&amp;r=g" style="opacity: 1;">
+                                                        <img class="" width="50" height="50" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/GrangerLang.png" style="opacity: 1;">
                                                     </a>
                                                     <div  class="profile clearfix">
                                                         <a style="float: left" href="/glang">
@@ -281,7 +278,7 @@
                                                     <div class="list-item-comment-wrapper">
                                                         <div class="item-comment">
                                                             <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
-                                                                <img class="" width="40" height="40" src="https://koding.com/-/image/cache?endpoint=crop&amp;grow=true&amp;width=40&amp;height=40&amp;url=https%3A%2F%2Fkoding-uploads.s3.amazonaws.com%2F532039454615df7d6e1a4f1d%2Favatar.png%3F1396889384153" style="opacity: 1;">
+                                                                <img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/sancak.png" style="opacity: 1;">
                                                             </a>
                                                             <div class="comment-content">
                                                                 <div  class="profile clearfix" style="margin: 0; width: 100%">
@@ -300,7 +297,7 @@
                                                         </div>
                                                         <div class="item-comment">
                                                             <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
-                                                                <img class="" width="40" height="40" src="https://koding.com/-/image/cache?endpoint=crop&amp;grow=true&amp;width=40&amp;height=40&amp;url=https%3A%2F%2Fkoding-uploads.s3.amazonaws.com%2F52eb06de962cea7d390008ec%2Favatar.png%3F1397496157548" style="opacity: 1;">
+                                                                <img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/JoshMax.png" style="opacity: 1;">
                                                             </a>
                                                             <div class="comment-content">
                                                                 <div  class="profile clearfix" style="margin: 0; width: 100%">
@@ -319,7 +316,7 @@
                                                         </div>
                                                         <div class="item-comment">
                                                             <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
-                                                                <img class="" width="40" height="40" src="https://koding.com/-/image/cache?endpoint=crop&amp;grow=true&amp;width=40&amp;height=40&amp;url=https%3A%2F%2Fkoding-uploads.s3.amazonaws.com%2F525c1b392568dd110b0041ce%2Favatar.png%3F1397248877962" style="opacity: 1;">
+                                                                <img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/trillobite.png" style="opacity: 1;">
                                                             </a>
                                                             <div class="comment-content">
                                                                 <div  class="profile clearfix" style="margin: 0; width: 100%">

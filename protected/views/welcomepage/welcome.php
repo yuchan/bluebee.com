@@ -60,6 +60,12 @@
                                                             <div class="g-form-group-rows">
                                                                 <div class="g-form-row">
                                                                     <div class="g-form-row-field">
+                                                                        <div id="error" class="g-alert type_error with_close" style="position: absolute; z-index: 2; width: 89%; right:100%">
+                                                                            <div class="g-alert-close"> ✕ </div>
+                                                                            <div class="g-alert-body">
+                                                                                <p><b>Success Message</b></p>
+                                                                            </div>
+                                                                        </div>
                                                                         <div class="g-input">
                                                                             <input type="text" name="username" id="contact_username" value="" placeholder="Email">
                                                                         </div>
@@ -67,6 +73,12 @@
                                                                 </div>
                                                                 <div class="g-form-row">
                                                                     <div class="g-form-row-field">
+                                                                        <div id="error" class="g-alert type_error with_close" style="position: absolute; z-index: 2; width: 89%; right:100%">
+                                                                            <div class="g-alert-close"> ✕ </div>
+                                                                            <div class="g-alert-body">
+                                                                                <p><b>Success Message</b></p>
+                                                                            </div>
+                                                                        </div>
                                                                         <div class="g-input">
                                                                             <input type="password" name="Password" id="Password" value="" placeholder="Mật Khẩu *">
                                                                         </div>
@@ -82,18 +94,6 @@
                                                                 </div>
                                                                 <div class="g-form-row"  style="padding-bottom: 5px; margin-top: -10px">
                                                                     <div class="g-form-row-field">
-                                                                        <div class="g-alert type_success with_close" style="position: absolute; z-index: 2; width: 89%">
-                                                                            <div class="g-alert-close"> ✕ </div>
-                                                                            <div class="g-alert-body">
-                                                                                <p><b>Success Message</b>. Your Text Goes Here.</p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="g-alert type_error with_close" style="position: absolute; z-index: 2; width: 89%">
-                                                                            <div class="g-alert-close"> ✕ </div>
-                                                                            <div class="g-alert-body">
-                                                                                <p><b>Success Message</b>. Your Text Goes Here.</p>
-                                                                            </div>
-                                                                        </div>
                                                                         <button class="g-btn type_primary size_small" type="submit" name="Submit" value="Submit">Đăng Nhập</button>
                                                                         <a href="quenmatkhau" style="float:right; margin-top: 5px">Quên Mật Khẩu?</a>
                                                                     </div>
