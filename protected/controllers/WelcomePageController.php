@@ -37,6 +37,9 @@ class WelcomePageController extends BaseController {
                                     $this->retVal->message = "Dang nhap thanh cong";
                                   //  Yii::app()->clientScript->registerMetaTag("10;url={$returnUri}", null, 'refresh');
                                  //$this->redirect(Yii::app()->createUrl("user"));
+                                 Yii::app()->session['user_id'] = $user->user_id;
+                                 Yii::app()->session['user_real_name'] = $user->user_real_name;
+                                 Yii::app()->session['user_email'] = $user->username;
                                   $this->retVal->url = Yii::app()->createUrl("user");
                                   $this->retVal->success = 1;
                                  

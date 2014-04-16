@@ -9,7 +9,11 @@ class ClassPageController extends Controller {
     public function actionClassPage() {
         $this->render('classpage');
     }
-         
+      
+    public function actionCreateClass()
+    {
+        
+    }
     
     // Uncomment the following methods and override them if needed
     /*
