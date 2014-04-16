@@ -1,26 +1,4 @@
- 
-<script type="text/javascript">
-    $(document).ready(function() {
-        var form = $('#newclassform');
-        form.submit(function(event) {
-            $('#res').html('');
-            var data = form.serialize();
-            $.ajax({
-                type: "POST",
-                url: '<?php echo Yii::app()->createUrl('classpage/createclass') ?>',
-                data: data,
-                success: function(data) {
-                    var json = data;
-                    var result = $.parseJSON(json);
-                    //       $('#res').html(result.message);
-                    alert(result.message);
-                }
-            });
-            event.preventDefault();
-            event.stopPropagation();
-            return false;
-        });
-    });</script>
+
 <form class="g-form white-popup-block mfp-hide" id="newclassform" action="<?php $this->createUrl('classpage/createclass')?>" method="POST">
                         <h3>Create A New Class</h3>
                         <div class="g-form-group">

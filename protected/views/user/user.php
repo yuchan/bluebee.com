@@ -24,6 +24,30 @@
 
 </script>
 
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        var form = $('#newclassform');
+        form.submit(function(event) {
+            $('#res').html('');
+            var data = form.serialize();
+            $.ajax({
+                type: "POST",
+                url: '<?php echo Yii::app()->createUrl('classpage/createclass') ?>',
+                data: data,
+                success: function(data) {
+                    var json = data;
+                    var result = $.parseJSON(json);
+                    //       $('#res').html(result.message);
+                   alert(result.message);
+                   Location.href = result.url;
+                }
+            });
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+        });
+    });</script>
 <div class="l-main-h">
     <div class="l-submain">
         <div class="l-submain-h g-html i-cf">
@@ -34,8 +58,12 @@
     </div>
     <div class="l-submain-h g-html i-cf">
         <div class="g-cols">
+           
             <div class="two-thirds">
                 <div class="l-content">
+                     <div class="g-form-row"id="alert" style="position: absolute; z-index: 2; width: 89%; right:100%">
+
+            </div>
                     <h3>Kien's Profile</h3>
                     <div class='g-cols'>
                         <div class='full-width'>
@@ -322,7 +350,7 @@
                     <a class="popup-with-form" href="#newclassform">
                         <button class="g-btn type_outline"><span><i class="icon-heart"></i>Create your own class</span></button>
                     </a>
-                  <?php $this->renderPartial('partial/newclass')?>
+                    <?php $this->renderPartial('partial/newclass') ?>
 
                 </div>
 
