@@ -1,5 +1,5 @@
 <form id="box-invite-friends" style="clear: both; display: none">
-    <div contenteditable=true id="invite-friends"></div>
+    <input contenteditable=true id="invite-friends" type="text" name="friends"></input>
     <button type="submit" id="invite-friends-button" class="g-btn type_primary size_small" style="width: 100%">
         <span>Invite Your Friends</span>
     </button>

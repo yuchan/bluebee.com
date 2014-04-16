@@ -93,9 +93,36 @@ class ClassPageController extends BaseController {
         }
         echo CJSON::encode($users); // echo json o day
     }
-    
+
     public function actionInvite() {
-        
+        $this->retVal->invalid_access_token = FALSE;
+        $request = Yii::app()->request;
+        if ($request->isPostRequest && isset($_POST)) {
+            try {
+                $array_treatment_id = $_POST['friends'];
+                //$array_treatment_id = array($_POST['event_id']);
+                $array = explode(",", $array_treatment_id);
+                //echo strlen($array);
+                if (count($array) > 0) {
+
+                    foreach ($array as $a) {
+                        //echo $a;
+                      
+                    }
+
+                    $this->retVal->message = 'Delete Success';
+                    $this->retVal->success = TRUE;
+                } else {
+                    $this->retVal->message = 'Empty treatment_id';
+                    $this->retVal->success = FALSE;
+                }
+            } catch (exception $e) {
+                $this->retVal->message = $e->getMessage();
+            }
+            echo CJSON::encode($this->retVal);
+            Yii::app()->end();
+        }
+        $this->render('delete');
     }
 
     // Uncomment the following methods and override them if needed
