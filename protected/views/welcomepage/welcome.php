@@ -18,7 +18,7 @@
                     }
                     else {
                         $('#alert').html('<div class="g-form-row-field">' +
-                                '<div id="error" class="g-alert type_error with_close" style="position: absolute; z-index: 2; width: 89%; right:100%">' +
+                                '<div id="error" class="g-alert type_error">' +
                                
                                 '<div class="g-alert-body">' +
                                 '<p><b>' + result.message + '</b></p>' + 
@@ -69,12 +69,11 @@
                                                     <form class="g-form" action="<?php $this->createUrl('welcomepage/login') ?>" method="POST" id="loginform">
                                                         <div class="g-form-group">
                                                             <div class="g-form-group-rows">
-                                                                <div class="g-form-row"id="alert">
+                                                                <div class="g-form-row"id="alert" style="position: absolute; z-index: 2; width: 89%; right:100%">
 
                                                                 </div>
                                                                 <div class="g-form-row">
                                                                     <div class="g-form-row-field">
-
                                                                         <div class="g-input">
                                                                             <input type="text" name="username" id="contact_username" value="" placeholder="Email">
                                                                         </div>
