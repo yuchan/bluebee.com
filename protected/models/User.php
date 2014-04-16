@@ -23,6 +23,7 @@
  * @property integer $user_active
  * @property integer $user_status
  * @property integer $user_group
+ * @property string $user_token
  */
 class User extends CActiveRecord
 {
@@ -44,9 +45,10 @@ class User extends CActiveRecord
 		return array(
 			array('user_id_fb, user_university, user_faculty, user_class, user_active, user_status, user_group', 'numerical', 'integerOnly'=>true),
 			array('username, password, user_real_name, user_avatar, user_cover, user_student_code, user_gender, user_dob, user_hometown, user_phone, user_description', 'length', 'max'=>45),
+			array('user_token', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('user_id, user_id_fb, username, password, user_real_name, user_avatar, user_cover, user_student_code, user_university, user_gender, user_dob, user_hometown, user_phone, user_description, user_faculty, user_class, user_active, user_status, user_group', 'safe', 'on'=>'search'),
+			array('user_id, user_id_fb, username, password, user_real_name, user_avatar, user_cover, user_student_code, user_university, user_gender, user_dob, user_hometown, user_phone, user_description, user_faculty, user_class, user_active, user_status, user_group, user_token', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -86,6 +88,7 @@ class User extends CActiveRecord
 			'user_active' => 'User Active',
 			'user_status' => 'User Status',
 			'user_group' => 'User Group',
+			'user_token' => 'User Token',
 		);
 	}
 
@@ -126,6 +129,7 @@ class User extends CActiveRecord
 		$criteria->compare('user_active',$this->user_active);
 		$criteria->compare('user_status',$this->user_status);
 		$criteria->compare('user_group',$this->user_group);
+		$criteria->compare('user_token',$this->user_token,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
