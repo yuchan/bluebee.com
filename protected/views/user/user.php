@@ -40,7 +40,7 @@
                     var result = $.parseJSON(json);
                     //       $('#res').html(result.message);
                    alert(result.message);
-                   Location.href = result.url;
+                   location.href = result.url;
                 }
             });
             event.preventDefault();
