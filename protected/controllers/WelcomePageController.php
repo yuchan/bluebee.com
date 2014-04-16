@@ -46,7 +46,7 @@ class WelcomePageController extends BaseController {
                                     $this->retVal->success = 0;
                                 }
                             } else {
-                                $this->retVal->message = "Ten nguoi dung chua duoc danh ky";
+                                $this->retVal->message = "Ten nguoi dung chua duoc dang ky";
                                 $this->retVal->success = 0;
                             }
                         } else {

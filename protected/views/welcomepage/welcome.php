@@ -69,7 +69,7 @@
                                                     <form class="g-form" action="<?php $this->createUrl('welcomepage/login') ?>" method="POST" id="loginform">
                                                         <div class="g-form-group">
                                                             <div class="g-form-group-rows">
-                                                                <div class="g-form-row" id="alert">
+                                                                <div id="alert" style="position:absolute">
 
                                                                 </div>
                                                                 <div class="g-form-row">
