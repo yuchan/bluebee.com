@@ -93,6 +93,10 @@ class ClassPageController extends BaseController {
         }
         echo CJSON::encode($users); // echo json o day
     }
+    
+    public function actionInvite() {
+        
+    }
 
     // Uncomment the following methods and override them if needed
     /*
