@@ -17,19 +17,15 @@
                         location.href = result.url;
                     }
                     else {
-<<<<<<< HEAD
+
                         var item = $('<div class="g-form-row-field">' +
-                                '<div id="error" class="g-alert type_error with_close" style="position: absolute; z-index: 2; width: 89%; right:100%">' +
-=======
-                        $('#alert').html('<div class="g-form-row-field">' +
                                 '<div id="error" class="g-alert type_error">' +
-                               
->>>>>>> aab2b8d81142ab8f265be0e71d0dd659a956c7fd
                                 '<div class="g-alert-body">' +
                                 '<p><b>' + result.message + '</b></p>' +
                                 '</div>' +
                                 '</div>' +
-                                '</div>').hide().fadeIn(100);
+                                '</div>').hide().fadeIn(120);
+
                         $('#alert').html(item)
                         //   var json = $.parseJSON(data);
                         //  $('#res').html('Message : ' + json.message + '<br>Success : ' + json.success)
