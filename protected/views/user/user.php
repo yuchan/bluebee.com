@@ -319,7 +319,7 @@
                 <div>
                     <a href="" style="margin-left: 30px">More...</a>
                     <br/>
-                    <a class="popup-with-form" href="#novaLinha">
+                    <a class="popup-with-form" href="#newclassform">
                         <button class="g-btn type_outline"><span><i class="icon-heart"></i>Create your own class</span></button>
                     </a>
                   <?php $this->renderPartial('partial/newclass')?>
