@@ -452,18 +452,24 @@
                         </button>
                         <script type="text/javascript">
                         $(document).ready(function() {
-                            $("#invite-friends").tokenInput(
-                                [
-                                    {"id":"0","name":"vungocson94@gmail.com"},
-                                    {"id":"1","name":"sonvn_57@ctmail.com"},
-                                ]
-                                , {
-                                theme: "facebook",
-                                preventDuplicates: true
+                            
+                            $.ajax({
+                                type : "get",
+                                url : '<?php echo Yii::app()->createUrl('classpage/suggestfriend')?>', // loi o day nha,
+                                success : function(data){
+                                    var arr = $.parseJSON(data);
+                                    $("#invite-friends").tokenInput(
+                                       arr
+                                       , {
+                                        theme: "facebook",
+                                        preventDuplicates: true
+                                    });
+                                    $('button#invite-friends-button').click(function () {
+                                        alert("Would submit: " + $(this).siblings("#invite-friends").val());
+                                    });
+                                }
                             });
-                            $('button#invite-friends-button').click(function () {
-                                alert("Would submit: " + $(this).siblings("#invite-friends").val());
-                            });
+                            // chay thu phat, a 
                         });
                         </script>
                     </div>

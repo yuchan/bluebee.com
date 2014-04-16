@@ -81,6 +81,15 @@ class ClassPageController extends BaseController {
         }
     }
 
+    public function actionSuggestFriend() {
+        $user = Yii::app()->db->createCommand()
+                ->select('user_id, username')
+                ->from('tbl_user u')
+                ->queryAll();
+         echo CJSON::encode($user);// echo json o day
+    }
+    
+
     // Uncomment the following methods and override them if needed
     /*
       public function filters()
