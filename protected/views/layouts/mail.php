@@ -1,54 +1,3 @@
-<<<<<<< HEAD
-<!-- CANVAS -->
-<div class="l-canvas type_wide col_cont headerpos_fixed headertype_extended">
-    <div class="l-canvas-h">
-
-        <!-- HEADER -->
-        <div class="l-header">
-            <div class="l-header-h">
-                <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/mail.jpg"/>
-            </div>
-        </div>
-
-
-
-
-        <!-- FOOTER -->
-        <div class="l-footer type_normal">
-            <div class="l-footer-h">
-
-                <!-- subfooter: top -->
-                <div class="l-subfooter at_top">
-                    <div class="l-subfooter-h g-cols cols_fluid">
-
-                        <div class="l-footer-h">
-                            This notification has been sent to the email address associated with your website's account. 
-                            For information on privacy policy, visit http://blue-bee.uet.com. 
-                            This email message was auto-generated. Please do not respond.
-
-                        </div>
-                    </div>
-                </div>
-                <div class="l-subfooter at_bottom">
-                    <div class="l-subfooter-h i-cf">
-                        <div class='one-fourth'>
-                            <img style="float: left" src='<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/logo_1.jpg'/>
-                        </div>
-
-                        <div class='three-fourths'>
-                            <div class="w-copyright"> © 2014 All rights reserved. <br/> <a href='http://us-themes.com/'>BlueBee Team - K57CA - UET</a></div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-
-    </div>
-</div>
-=======
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
@@ -62,7 +11,7 @@
     </head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
-<body>
+
 <style>
 	* {
 		margin: 0;
@@ -128,63 +77,53 @@
     	border-radius: 5px;
     }
 </style>
+<!-- CANVAS -->
+<div class="l-canvas type_wide col_cont headerpos_fixed headertype_extended">
+    <div class="l-canvas-h">
 
-<div class="body">
-    <div class="header">
-	<div class="fix-margin-div clearfix">
-	    <div class="logo" style="display: block; height: 34px;">
-		<a href="bluebee-uet.com" style="position: relative">
-		    <div style="float: left; margin: auto">
-				<img id="logo" height="40px" width="40px" src="http://bluebee-uet.com/themes/classic/assets/img/logo.jpg"/>
-		    </div>
-		    <div style="float: left; margin-top: 10px; position: relative">
-				<p style="color: #429edb">BlueBee-uet.com</p>
-		    </div>
-		</a>
-	    </div>
-	    <div class="sub-footer" style="margin: auto">
-		<a href=""><img title="Facebook " src="https://ci5.googleusercontent.com/proxy/AdXYYWi6KfFe4TIuRnSQWGpehzttcMpkfw1FFZPf1IK4uuduOqAIWEGNVnbWeECVIbpOqTmpzklxOGUxHjADlc--suadk0BSST6Cx-Ic6phiiyDFDRuddd8pHHAiY5enmL0T05aqQqAKM1UbjKnG2yKQ3TYnLaDNzIYSICuRM-KMEd44kmdJTnZEv2KqxAvJDA=s0-d-e1-ft#http://static.sendgrid.com/uploads/UID_1131154_NL_2570008_ff73fbeeda7cd25cc908e6b63bb046f8/ed8a3813eca4c554f170a70a6fadef35" border="0" alt="Facebook Logo" width="30" height="30"></a>
-		<a href=""><img title="Twitter" src="https://ci4.googleusercontent.com/proxy/k0HCOPoCqJpSVdZYTuGiaqgZ1h309hfAkyfvib_64y2HBTTJSaPtphtOLdXnlqDXn_0joYP-F_3qfS4XKu9hWQZor-RSUZO_Q2k0QippDiWfMfmEEgN7yyf_qqwDNTYw9eRaXK0N-SD4EdJasTl6LdT73TEsFIjVZtddSEt2aAYjYehwDT1-pUouiHPAZFtcJA=s0-d-e1-ft#http://static.sendgrid.com/uploads/UID_1131154_NL_2570008_ff73fbeeda7cd25cc908e6b63bb046f8/f28629cad2c7bd36f95fa131d6563516" border="0" alt="Twitter Logo" width="30" height="30"></a>
-		<a href=""><img title="linkedin" src="https://ci4.googleusercontent.com/proxy/TaS4IcG_KeKhvkSOvAaPjArDzpRBtevIao_cJWlsuor8nn7JkOWDMSGF_4hxj6XCMRMKTnpGKIhanJLv_lSoBiVCfc5qIp7BT9AV47t0I_67JtUAZJoOd4GdpdGjt8Gh5jYIlqWM_NahTC7EW2tEGWJMlssGWzuOaubxh-yyTa8XHl7p8Mar55AbdA9Y4xDieQ=s0-d-e1-ft#http://static.sendgrid.com/uploads/UID_1131154_NL_2570008_ff73fbeeda7cd25cc908e6b63bb046f8/7efc81b7c6c149ec0669feb28feb6eaa" border="0" alt="LinkedIn Logo" width="30" height="30"></a>
-		<a href=""><img title="GooglePlus" src="https://ci5.googleusercontent.com/proxy/6-eMPZp6ZbL3ucaQXVH06orfghRlMB5TKqKKSfejbCGixzq_hjuWNvhNtyuKqpbNoBXYT8rbQNOSDZuQfNm82jgOdMd4wAlY83aB8OsMWA8uWD1JW_le1yGyDy5cWNeVCYAdL4JzCSkaiaaCD0XLVYuXVCb0FY6NZpTlnJVEMsU71EWQAQsWleRYZ8Y69aU0MQ=s0-d-e1-ft#http://static.sendgrid.com/uploads/UID_1131154_NL_2570008_ff73fbeeda7cd25cc908e6b63bb046f8/cd2af9cab2c56adc973cf210736823bc" border="0" alt="GooglePlus Logo" width="30" height="30"></a>
-	    </div>
-	</div>
-    </div>
-    <div class="main">
-    	<style>
-    		.User a img {
-    			border-radius: 50%;
-    			height: 70px;
-    			width: 70px;
-    			margin-top: -10px;
-    		}
-    	</style>
-        <div class="fix-margin-div" style="padding-top: 20px">
-        	<div class="clearfix">
-        		<p style="color: white; margin-bottom: 20px; font-size: 14px">Hi huynt57@gmail.com,</p>
-               	<div class="User" style="float: left">
-                            <a href="user.bluebee-uet.com">
-                                <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash1/t1.0-1/c0.0.160.160/p160x160/1964973_758228940861481_2115701723_n.jpg"/>
-                            </a>
-                        </div>
-                        <div class="content" style="float: left; margin: 5px 0 0 10px; color: white">
-                        	<a href="user.bluebee-uet.com"><p style="color: white; text-decoration: underline; font-size: 20px;">User</p></a>
-                            <p style="font-size:13px;">User want to add You to Him/Her group/class</p>
-                        </div>
-                        <div class="button" style="margin: auto; float: right">
-        		            <button>Accept</button>
-        		            <button>Deny</button>
-        		        </div>
-        		<p style="margin-top: 100px; clear: both;">Thanks!</p>
-        		<p style="margin-bottom: 20px">- The BlueBee Team</p>
+        <!-- HEADER -->
+        <div class="l-header">
+            <div class="l-header-h">
+                <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/mail.jpg"/>
             </div>
         </div>
 
-    </div>
-    <div>
+
+
+
+        <!-- FOOTER -->
+        <div class="l-footer type_normal">
+            <div class="l-footer-h">
+
+                <!-- subfooter: top -->
+                <div class="l-subfooter at_top">
+                    <div class="l-subfooter-h g-cols cols_fluid">
+
+                        <div class="l-footer-h">
+                            This notification has been sent to the email address associated with your website's account. 
+                            For information on privacy policy, visit http://blue-bee.uet.com. 
+                            This email message was auto-generated. Please do not respond.
+
+                        </div>
+                    </div>
+                </div>
+                <div class="l-subfooter at_bottom">
+                    <div class="l-subfooter-h i-cf">
+                        <div class='one-fourth'>
+                            <img style="float: left" src='<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/logo_1.jpg'/>
+                        </div>
+
+                        <div class='three-fourths'>
+                            <div class="w-copyright"> © 2014 All rights reserved. <br/> <a href='http://us-themes.com/'>BlueBee Team - K57CA - UET</a></div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
 
     </div>
 </div>
-</body>
-</html>
->>>>>>> e49edd2930c49439b14bb7c3b88743044a701689
+

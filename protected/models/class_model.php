@@ -11,6 +11,7 @@
  * @property string $class_description
  * @property string $class_name
  * @property string $class_active
+ * @property string $class_token
  */
 class class_model extends CActiveRecord
 {
@@ -30,10 +31,10 @@ class class_model extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('class_code, class_avatar, class_cover, class_description, class_name, class_active', 'length', 'max'=>45),
+			array('class_code, class_avatar, class_cover, class_description, class_name, class_active, class_token', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('class_id, class_code, class_avatar, class_cover, class_description, class_name, class_active', 'safe', 'on'=>'search'),
+			array('class_id, class_code, class_avatar, class_cover, class_description, class_name, class_active, class_token', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,6 +62,7 @@ class class_model extends CActiveRecord
 			'class_description' => 'Class Description',
 			'class_name' => 'Class Name',
 			'class_active' => 'Class Active',
+			'class_token' => 'Class Token',
 		);
 	}
 
@@ -89,6 +91,7 @@ class class_model extends CActiveRecord
 		$criteria->compare('class_description',$this->class_description,true);
 		$criteria->compare('class_name',$this->class_name,true);
 		$criteria->compare('class_active',$this->class_active,true);
+		$criteria->compare('class_token',$this->class_token,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

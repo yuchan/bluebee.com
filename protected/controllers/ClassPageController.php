@@ -95,34 +95,58 @@ class ClassPageController extends BaseController {
     }
 
     public function actionInvite() {
-        $this->retVal->invalid_access_token = FALSE;
-        $request = Yii::app()->request;
-        if ($request->isPostRequest && isset($_POST)) {
-            try {
-                $array_treatment_id = $_POST['friends'];
-                //$array_treatment_id = array($_POST['event_id']);
-                $array = explode(",", $array_treatment_id);
-                //echo strlen($array);
-                if (count($array) > 0) {
-
-                    foreach ($array as $a) {
-                        //echo $a;
-                      
+        if (isset($_GET["classid"])) {
+            $request = Yii::app()->request;
+            $token = md5($_GET["class_id"]);
+            if ($request->isPostRequest && isset($_POST)) {
+                try {
+                    $array_treatment_id = $_POST['friends'];
+                    //$array_treatment_id = array($_POST['event_id']);
+                    $array = explode(",", $array_treatment_id);
+                    //echo strlen($array);
+                    if (count($array) > 0) {
+                        $class = class_model::model()->findAllByAttributes(array('class_id' => $_GET["class_id"]));
+                        $class->class_token = $token;
+                        $class->save(FALSE);
+                        foreach ($array as $useremail) {
+                            //echo $a;
+                            $user = User::model()->findAllByAttributes(array('username' => $useremail));
+                            $user_id = $user->user_id;
+                            $link = $this->createUrl('classpage/accept?token=' . $token . '$user=' . $user_id);
+                            EmailHelper::sendInviteFriend($useremail, $link);
+                        }
+                        $this->retVal->message = 'Email mời đã được gửi đi, đang đợi phản hồi';
+                        $this->retVal->success = TRUE;
+                    } else {
+                        $this->retVal->message = 'Bạn phải nhập người cần mời';
+                        $this->retVal->success = FALSE;
                     }
-
-                    $this->retVal->message = 'Delete Success';
-                    $this->retVal->success = TRUE;
-                } else {
-                    $this->retVal->message = 'Empty treatment_id';
-                    $this->retVal->success = FALSE;
+                } catch (exception $e) {
+                    $this->retVal->message = $e->getMessage();
                 }
-            } catch (exception $e) {
-                $this->retVal->message = $e->getMessage();
+                echo CJSON::encode($this->retVal);
             }
-            echo CJSON::encode($this->retVal);
-            Yii::app()->end();
         }
-        $this->render('delete');
+    }
+
+    public function actionAccept() {
+        if (isset($_GET["token"])) {
+            if (isset($_GET["user"])) {
+                $token = class_model::model()->findAllByAttributes(array('class_token' => $_GET["class_token"]));
+                if ($token) {
+                    $user = User::model()->findAllByAttributes(array('user_id' => $_GET["user"]));
+                    if ($user)
+                    {
+                        $user_class = new ClassUser;
+                        $user_class->class_id = $token->class_id;
+                        $user_class->user_id = $user->user_id;
+                        $user_class->is_active = 1;
+                        
+                        $user_class->save(FALSE);
+                    } 
+                }
+            }
+        }
     }
 
     // Uncomment the following methods and override them if needed

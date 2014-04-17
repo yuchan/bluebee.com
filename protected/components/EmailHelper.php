@@ -17,15 +17,15 @@ class EmailHelper{
 		}
 	}
         
-        public static function sendInviteFriend($user, $newPassword){
+        public static function sendInviteFriend($user, $link){
 		$mail = new YiiMailer();
 		$mail->setLayout('mail');
-		$mail->setView('recoveryLink');
-		$mail->setData(array('administrator' => $user, 'new_password' => $newPassword));
+		$mail->setView('inviteFriend');
+		$mail->setData(array('administrator' => 'bluebee', 'link' => $link));
 		
 		$mail->setFrom('huynt57@gmail.com', Yii::app()->params['SITE_NAME']);
-		$mail->setTo($user->username);
-		$mail->setSubject(Yii::t(Yii::app()->params['TRANSLATE_FILE'],'Instruction to recovery password from '.Yii::app()->params['SITE_NAME'].' system'));
+		$mail->setTo($user);
+		$mail->setSubject("Invite class from Bluebee.com");
 		
 		if ($mail->send()) {
 			return null;

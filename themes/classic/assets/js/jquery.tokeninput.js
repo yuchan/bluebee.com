@@ -33,7 +33,7 @@
         preventDuplicates: false,
 
         // Output settings
-        tokenValue: "id",
+        tokenValue: "name",
 
         // Prepopulation settings
         prePopulate: null,
