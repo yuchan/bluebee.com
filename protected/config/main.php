@@ -11,7 +11,7 @@ return array(
 
 	// preloading 'log' component
 	'preload'=>array('log'),
-        'defaultController' => 'welcomepage',   
+        'defaultController' => 'welcomePage',   
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
@@ -67,21 +67,21 @@ return array(
 		),
 		// uncomment the following to use a MySQL database
 		
-//		'db'=>array(
-//			'connectionString' => 'mysql:host=localhost;dbname=bluebee',
-//			'emulatePrepare' => true,
-//			'username' => 'root',
-//			'password' => '',
-//			'charset' => 'utf8',
-//		),
-            
-            'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=bluebee_uet',
+		'db'=>array(
+			'connectionString' => 'mysql:host=localhost;dbname=bluebee',
 			'emulatePrepare' => true,
-			'username' => 'bluebee_acc',
-			'password' => 'minhhieu',
+			'username' => 'root',
+			'password' => '',
 			'charset' => 'utf8',
 		),
+            
+//            'db'=>array(
+//			'connectionString' => 'mysql:host=localhost;dbname=bluebee_uet',
+//			'emulatePrepare' => true,
+//			'username' => 'bluebee_acc',
+//			'password' => 'minhhieu',
+//			'charset' => 'utf8',
+//		),
 		
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors

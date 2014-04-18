@@ -49,14 +49,14 @@ class ClassPageController extends BaseController {
                         } else {
                             $this->retVal->message = "Mã lớp cho năm học này chưa tồn tại, nhưng đã có từ các năm học trước. Bạn có thể tải tài liệu của lớp học tương ứng của năm trước sau khi tạo class !";
                             $classid = $this->addClass($createClassFormData['classcode'], $createClassFormData['classname'], $createClassFormData['description']);
-                            $this->retVal->url = Yii::app()->createUrl('classpage/classpage?classid=' . $classid);
+                            $this->retVal->url = Yii::app()->createUrl('classPage?classid=' . $classid);
                         }
                     } else {
                         $classid = $this->addClass($createClassFormData['classcode'], $createClassFormData['classname'], $createClassFormData['description']);
 
                         $this->retVal->message = "Tạo lớp thành công, chúc bạn học tập tốt với bluebee";
                         $this->retVal->success = 1;
-                        $this->retVal->url = Yii::app()->createUrl('classpage/classpage?classid=' . $classid);
+                        $this->retVal->url = Yii::app()->createUrl('classPage?classid=' . $classid);
                     }
                 } else {
                     $this->retVal->message = "Mã lớp không được để trống";
@@ -77,7 +77,7 @@ class ClassPageController extends BaseController {
             $spCriteria->select = "*";
             $spCriteria->condition = "class_id = " . $_GET["classid"];
 
-            $this->render('classpage', array('detail_classpage' => class_model::model()->findAll($spCriteria)));
+            $this->render('classPage', array('detail_classpage' => class_model::model()->findAll($spCriteria)));
         }
     }
 
@@ -112,7 +112,7 @@ class ClassPageController extends BaseController {
                             //echo $a;
                             $user = User::model()->findAllByAttributes(array('username' => $useremail));
                             $user_id = $user->user_id;
-                            $link = $this->createUrl('classpage/accept?token=' . $token . '$user=' . $user_id);
+                            $link = $this->createUrl('classPage/accept?token=' . $token . '$user=' . $user_id);
                             EmailHelper::sendInviteFriend($useremail, $link);
                         }
                         $this->retVal->message = 'Email mời đã được gửi đi, đang đợi phản hồi';

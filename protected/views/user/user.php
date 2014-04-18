@@ -33,7 +33,7 @@
             var data = form.serialize();
             $.ajax({
                 type: "POST",
-                url: '<?php echo Yii::app()->createUrl('classpage/createclass') ?>',
+                url: '<?php echo Yii::app()->createUrl('classPage/createClass') ?>',
                 data: data,
                 success: function(data) {
                     var json = data;

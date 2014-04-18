@@ -6,7 +6,7 @@
             var data = form.serialize();
             $.ajax({
                 type: "POST",
-                url: '<?php echo Yii::app()->createUrl('welcomepage/signup') ?>',
+                url: '<?php echo Yii::app()->createUrl('welcomePage/signup') ?>',
                 data: data,
                 success: function(data) {
                     var json = data;
@@ -30,7 +30,7 @@
     <div class="w-tabs-section-content-h">
         <div class="wpb_text_column ">
             <div class="wpb_wrapper">
-                <form class="g-form" action="<?php echo Yii::app()->createUrl('welcomepage/signup') ?>" method="POST" id="signupform">
+                <form class="g-form" action="<?php echo Yii::app()->createUrl('welcomePage/signup') ?>" method="POST" id="signupform">
                     <input type="hidden" name="action" value="contact">
                     <div class="g-form-group">
                         <div class="g-form-group-rows">

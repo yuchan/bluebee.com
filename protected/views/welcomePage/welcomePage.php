@@ -7,7 +7,7 @@
             var data = form.serialize();
             $.ajax({
                 type: "POST",
-                url: '<?php echo Yii::app()->createUrl('welcomepage/Login') ?>',
+                url: '<?php echo Yii::app()->createUrl('welcomePage/Login') ?>',
                 data: data,
                 success: function(data) {
                     var json = data;
@@ -75,7 +75,7 @@
                                         <div class="w-tabs-section-content-h">
                                             <div class="wpb_text_column ">
                                                 <div class="wpb_wrapper">
-                                                    <form class="g-form" action="<?php $this->createUrl('welcomepage/login') ?>" method="POST" id="loginform">
+                                                    <form class="g-form" action="<?php $this->createUrl('welcomePage/Login') ?>" method="POST" id="loginform">
                                                         <div class="g-form-group">
                                                             <div class="g-form-group-rows">
                                                                 <div class="g-form-row"id="alert" style="position: absolute; z-index: 2; width: 89%; right:100%">
@@ -121,7 +121,7 @@
                                     </div>
                                 </div>
                                 <div class="w-tabs-section" style="border-top: 2px dashed #429edb">
-                                    <?php $this->renderPartial('signup') ?>
+                                    <?php $this->renderPartial('signUp') ?>
                                 </div>
                             </div>
                         </div>

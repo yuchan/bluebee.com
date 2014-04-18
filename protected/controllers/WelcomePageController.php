@@ -10,11 +10,11 @@ class WelcomePageController extends BaseController {
     }
 
     public function actionIndex() {
-        $this->actionWelcome();
+        $this->actionWelcomePage();
     }
 
-    public function actionWelcome() {
-        $this->render('welcome');
+    public function actionWelcomePage() {
+        $this->render('welcomePage');
     }
 
     public function actionLogin() {
@@ -74,7 +74,7 @@ class WelcomePageController extends BaseController {
         }
     }
 
-    public function actionSignup() {
+    public function actionSignUp() {
         $this->retVal = new stdClass();
         $request = Yii::app()->request;
         if ($request->isPostRequest && isset($_POST)) {
@@ -139,7 +139,7 @@ class WelcomePageController extends BaseController {
             //  Yii::app()->end();
         }
 
-        $this->render('welcome/signup');
+      //  $this->render('welcomePage/signUp');
     }
 
     function getFb() {

@@ -1,5 +1,5 @@
 
-<form class="g-form white-popup-block mfp-hide" id="newclassform" action="<?php $this->createUrl('classpage/createclass')?>" method="POST">
+<form class="g-form white-popup-block mfp-hide" id="newclassform" action="<?php $this->createUrl('classPage/createClass')?>" method="POST">
                         <h3>Create A New Class</h3>
                         <div class="g-form-group">
                             <div class="g-form-group-rows">
