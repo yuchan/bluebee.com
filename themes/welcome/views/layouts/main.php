@@ -64,9 +64,7 @@
             <!-- HEADER -->
             <div class="l-header">
                 <div class="l-header-h">
-                    <div class="l-subheader at_top" style="background-image: url('<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/header.jpg')">
-                    </div>
-
+                    
                     <div class="l-subheader at_middle" style="max-height: 60px">
                         <div class="l-subheader-h i-cf">
                             <!-- LOGO -->

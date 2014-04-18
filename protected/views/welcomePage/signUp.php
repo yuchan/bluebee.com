@@ -93,9 +93,10 @@
                                             <p><b>Success Message</b>. Your Text Goes Here.</p>
                                         </div>
                                     </div>-->
-                                    <button class="g-btn type_primary size_small" type="submit" name="Submit" value="Submit" style="width: 100%">
+                                    <button class="g-btn type_primary" type="submit" name="Submit" value="Submit" style="width: 100%">
                                         <i class="icon-pencil"></i>
-                                        Đăng Ký</button>
+                                        Đăng Ký
+                                    </button>
                                 </div>
                             </div>
                         </div>

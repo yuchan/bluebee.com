@@ -55,7 +55,7 @@
     });
 </script>
 <!-- MAIN -->
-<div class="l-submain" style="height: 100%">
+<div class="l-submain" style="height: 100%; padding-top: 10px">
     <div class="l-submain-h i-cf">
         <div class="l-content">
             <div class="l-content-h i-widgets"><div id="alert" style="position: absolute; z-index: 99; width: 100%; top: -55px; display: none;">
@@ -66,7 +66,7 @@
                         <div class="w-gallery type_slider">
                             <div class="w-gallery-h">
                                 <div class="w-gallery-main">
-                                    <div class="w-gallery-main-h flexslider flex-loading" style="height: 400px">
+                                    <div class="w-gallery-main-h flexslider flex-loading" style="margin: auto">
                                         <ul class="slides">
                                             <li>
                                                 <div style="margin-top: 15%">
@@ -137,11 +137,11 @@
                         <script type="text/javascript">
                             jQuery(window).load(function() {
                                 jQuery(".flexslider").flexslider({
-                                directionalNav: false,
+                                        directionalNav: true,
                                         controlNav: false,
                                         smoothHeight: true,
                                         pauseOnHover: true,
-                                        start: function() {
+                                        start: function(slider) {
                                                 jQuery(".flexslider").removeClass("flex-loading");
                                             }
                             });
@@ -183,16 +183,17 @@
                                                                 </div>
                                                                 <div class="g-form-row">
                                                                     <div class="checkbox" style="display: block; min-height: 20px; margin: -10px 0 0 0; padding-left: 20px;">
-                                                                        <label style="display: inline; margin-bottom: 0; font-weight: normal; cursor:pointer;">
+                                                                        <label style="margin-bottom: 0; font-weight: normal; cursor:pointer;float: left">
                                                                             <input type="checkbox" style="float:left; line-height: normal; margin: 5px 0 0 -20px;">
-                                                                            Duy trì Đăng Nhập
+                                                                            <p style="margin-left: -5px">Duy trì Đăng Nhập</p>
                                                                         </label>
+                                                                        <a href="quenmatkhau" style="float:right">Quên Mật Khẩu?</a>
                                                                     </div>
                                                                 </div>
-                                                                <div class="g-form-row"  style="padding-bottom: 5px; margin-top: -10px">
+                                                                <div class="g-form-row"  style="padding-bottom: 5px; margin-top: -5px">
                                                                     <div class="g-form-row-field">
-                                                                        <button class="g-btn type_primary size_small" type="submit" name="Submit" value="Submit">Đăng Nhập</button>
-                                                                        <a href="quenmatkhau" style="float:right; margin-top: 5px">Quên Mật Khẩu?</a>
+                                                                        <button class="g-btn type_primary" type="submit" name="Submit" value="Submit" style="width: 100%">Đăng Nhập</button>
+                                                                        
                                                                     </div>
                                                                 </div>
                                                                 </form>
@@ -214,28 +215,20 @@
                 </div>
             </div>
         </div>
-        <style type="text/css">
-            #learn-more {
-                margin:  50px auto 0 auto;
-                width: 20%;
-                text-align: center;
-                cursor: pointer;
-                float: none;
-                clear: both;
-            }
-            @media screen and (max-width: 73.5em) {
-                #learn-more {
-                    width: 40%;
-                    margin:  -20px auto 0 auto;
-                }
-            }
-        </style>
-        <div id="learn-more">
-            <a href="#rock"> Learn more <br><i class="icon-angle-down" style="margin-left: 3px"></i> </a>
+    </div>
+</div>
+<div class="w-actionbox controls_aside color_primary" style="padding: 20px 40px">
+    <div class="w-actionbox-h" style="max-width: 1000px; margin: 0 auto">
+        <div class="w-actionbox-text">
+            <h3>ActionBox with Primary Theme Colors</h3>
+            <p>It has some awesome features, unlimited colors, advanced theme options and so much more!</p>
+        </div>
+        <div class="w-actionbox-controls">
+            <a id="learn-more" class="w-actionbox-button g-btn type_primary size_big" href="#rock" target="_blank"><span>Learn More</span></a>
         </div>
     </div>
 </div>
-<div id="rock" style="border-top: 2px solid whitesmoke; margin-top: 80px"></div>
+<div id="rock"></div>
 <div class="l-submain">
     <div class="l-submain-h i-cf" style="width: 60%">
         <div id="cbp-so-scroller" class="cbp-so-scroller">
