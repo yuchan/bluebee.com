@@ -10,7 +10,7 @@ class UserController extends Controller {
         if (isset($_GET["token"])) {
             $spCriteria = new CDbCriteria();
             $spCriteria->select = "*";
-            $spCriteria->condition = "user_token = " . $_GET["token"];
+            $spCriteria->condition = "user_token = '" . $_GET["token"]."'";
             $this->render('user', array('user_detail_info' => User::model()->findAll($spCriteria)));
         }
     }
