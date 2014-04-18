@@ -104,7 +104,7 @@ class WelcomePageController extends BaseController {
                                 } else {
                                     $model = new User;
                                     if ($model) {
-                                        $activator = md5($singupFormData[]);
+                                        $activator = md5($singupFormData['user_email']);
                                         $link_activate = Yii::app()->createUrl('activate?token=' . $activator);
                                         $model->user_real_name = $singupFormData['user_name'];
                                         $model->password = $singupFormData['user_password'];
@@ -160,7 +160,7 @@ class WelcomePageController extends BaseController {
                 $user_activate->save(FALSE);
             }
 
-            $this->render('activate');
+        //    $this->render('activate');
         }
     }
 

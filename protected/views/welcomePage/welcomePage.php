@@ -7,8 +7,7 @@
             var data = form.serialize();
             $.ajax({
                 type: "POST",
-                url: '<?php
-echo Yii::app()->createUrl('welcomePage/Login') ?>',
+                url: '<?php echo Yii::app()->createUrl('welcomePage/Login') ?>',
                 data: data,
                 success: function(data) {
                     var json = data;
@@ -61,91 +60,90 @@ echo Yii::app()->createUrl('welcomePage/Login') ?>',
         <div class="l-content">
             <div class="l-content-h i-widgets"><div id="alert" style="position: absolute; z-index: 99; width: 100%; top: -55px; display: none;">
 
-                                                                </div>
+                </div>
                 <div class="g-cols" style="margin-top: 10%; margin-bottom: 0">
                     <div class="two-thirds">
                         <div class="w-gallery type_slider">
-                                    <div class="w-gallery-h">
-                                        <div class="w-gallery-main">
-                                            <div class="w-gallery-main-h flexslider flex-loading" style="max-height: 375px; height: 400px">
-                                                <ul class="slides">
-                                                    <li>
-                                                        <div style="margin-top: 15%">
-                                                            <h3>Welcome to Our Social</h3>
-                                                            <img style="height: 120px; width: 120px; margin: auto" alt="" src="img/logo.jpg" />
-                                                            <h4>Ong Xanh Mặt Ngầu</h4>
+                            <div class="w-gallery-h">
+                                <div class="w-gallery-main">
+                                    <div class="w-gallery-main-h flexslider flex-loading" style="max-height: 375px; height: 400px">
+                                        <ul class="slides">
+                                            <li>
+                                                <div style="margin-top: 15%">
+                                                    <h3>Welcome to Our Social</h3>
+                                                    <img style="height: 120px; width: 120px; margin: auto" alt="" src="img/logo.jpg" />
+                                                    <h4>Ong Xanh Mặt Ngầu</h4>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="margin-top: 5%">
+                                                    <div class="g-cols">
+                                                        <div class="one-half">
+                                                            <img height="375" alt="" src="img/demo/big-2.jpg" />
                                                         </div>
-                                                    </li>
-                                                    <li>
-                                                        <div style="margin-top: 5%">
-                                                            <div class="g-cols">
-                                                                <div class="one-half">
-                                                                    <img height="375" alt="" src="img/demo/big-2.jpg" />
-                                                                </div>
-                                                                <div class="one-half">
-                                                                    <div class="wpb_text_column ">
-                                                                        <div class="wpb_wrapper" style="text-align: left">
-                                                                            <h3>Project Info</h3>
-                                                                            <blockquote>
-                                                                                <b>Vu Ngoc Son</b>
-                                                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-                                                                                Aenean commodo ligula eget dolor. Aenean massa. Cum sociis 
-                                                                                natoque penatibus et magnis dis parturient montes.
-                                                                            </blockquote>
-                                                                        </div>
-                                                                    </div>
+                                                        <div class="one-half">
+                                                            <div class="wpb_text_column ">
+                                                                <div class="wpb_wrapper" style="text-align: left">
+                                                                    <h3>Project Info</h3>
+                                                                    <blockquote>
+                                                                        <b>Vu Ngoc Son</b>
+                                                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+                                                                        Aenean commodo ligula eget dolor. Aenean massa. Cum sociis 
+                                                                        natoque penatibus et magnis dis parturient montes.
+                                                                    </blockquote>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </li>
-                                                    <li>
-                                                        <div style="margin-top: 5%">
-                                                            <div class="g-cols">
-                                                                <div class="one-half">
-                                                                    <img height="375" alt="" src="img/our-goal.jpg" />
-                                                                </div>
-                                                                <div class="one-half">
-                                                                    <div class="wpb_text_column ">
-                                                                        <div class="wpb_wrapper" style="text-align: left">
-                                                                            <h3>Our Goal</h3>
-                                                                            <blockquote>
-                                                                                <ul>
-                                                                                    <li><b>mục tiêu 1</b> bla bla</li>
-                                                                                    <li><b>mục tiêu 2</b> bla bla</li>
-                                                                                    <li><b>mục tiêu 3</b> bla bla</li>
-                                                                                </ul>
-                                                                            </blockquote>
-                                                                        </div>
-                                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div style="margin-top: 5%">
+                                                    <div class="g-cols">
+                                                        <div class="one-half">
+                                                            <img height="375" alt="" src="img/our-goal.jpg" />
+                                                        </div>
+                                                        <div class="one-half">
+                                                            <div class="wpb_text_column ">
+                                                                <div class="wpb_wrapper" style="text-align: left">
+                                                                    <h3>Our Goal</h3>
+                                                                    <blockquote>
+                                                                        <ul>
+                                                                            <li><b>mục tiêu 1</b> bla bla</li>
+                                                                            <li><b>mục tiêu 2</b> bla bla</li>
+                                                                            <li><b>mục tiêu 3</b> bla bla</li>
+                                                                        </ul>
+                                                                    </blockquote>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </li>
-                                                </ul>
-                                                <style type="text/css"></style>
-                                                <ul class="flex-direction-nav">
-                                                    <li>
-                                                        <a href="#" class="flex-prev" style="color: black; border-bottom: none">Previous</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="flex-next" style="color: black; border-bottom: none">Next</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <style type="text/css"></style>
+                                        <ul class="flex-direction-nav">
+                                            <li>
+                                                <a href="#" class="flex-prev" style="color: black; border-bottom: none">Previous</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="flex-next" style="color: black; border-bottom: none">Next</a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
-                                <script type="text/javascript">
-                                    jQuery(window).load(function() {
-                                        jQuery(".flexslider").flexslider({
-                                            directionalNav: false,
-                                            controlNav: false,
-                                            smoothHeight: true,
-                                            animation: fade;
-                                            pauseOnHover: true;
-                                        });
-                                    });
-                                </script>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            jQuery(window).load(function() {
+                                jQuery(".flexslider").flexslider({
+                                directionalNav: false,
+                                        controlNav: false,
+                                        smoothHeight: true,
+                                        animation: fade;
+                                        pauseOnHover: true;
+                            });
+                            });</script>
                     </div>
                     <div class="one-third">
                         <style type="text/css">
@@ -163,8 +161,7 @@ echo Yii::app()->createUrl('welcomePage/Login') ?>',
                                         <div class="w-tabs-section-content-h">
                                             <div class="wpb_text_column ">
                                                 <div class="wpb_wrapper">
-                                                    <form class="g-form" action="<?php
-$this->createUrl('welcomePage/Login') ?>" method="POST" id="loginform">
+                                                    <form class="g-form" action="<?php $this->createUrl('welcomePage/Login') ?>" method="POST" id="loginform">
                                                         <div class="g-form-group">
                                                             <div class="g-form-group-rows">
                                                                 <div class="g-form-row">
@@ -197,8 +194,7 @@ $this->createUrl('welcomePage/Login') ?>" method="POST" id="loginform">
                                                                     </div>
                                                                 </div>
                                                                 </form>
-                                                                <?php
-$this->renderPartial('fb') ?>
+                                                                <?php $this->renderPartial('fb') ?>
                                                             </div>
                                                         </div>
 
@@ -208,8 +204,7 @@ $this->renderPartial('fb') ?>
                                     </div>
                                 </div>
                                 <div class="w-tabs-section" style="border-top: 2px dashed #429edb">
-                                    <?php
-$this->renderPartial('signUp') ?>
+                                    <?php $this->renderPartial('signUp') ?>
                                 </div>
                             </div>
                         </div>
@@ -244,8 +239,7 @@ $this->renderPartial('signUp') ?>
         <div id="cbp-so-scroller" class="cbp-so-scroller">
             <section class="cbp-so-section">
                 <figure class="cbp-so-side cbp-so-side-left">
-                    <img src="<?php
-echo Yii::app()->theme->baseUrl; ?>/assets/img/2.png" alt="img01">
+                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/2.png" alt="img01">
                 </figure>
                 <article class="cbp-so-side cbp-so-side-right">
                     <h2>Plum caramels</h2>
@@ -258,14 +252,12 @@ echo Yii::app()->theme->baseUrl; ?>/assets/img/2.png" alt="img01">
                     <p>Soufflé bonbon jelly cotton candy liquorice dessert jelly bear claw candy canes. Pudding halvah bonbon marzipan powder. Marzipan gingerbread sweet jelly.</p>
                 </article>
                 <figure class="cbp-so-side cbp-so-side-right">
-                    <img src="<?php
-echo Yii::app()->theme->baseUrl; ?>/assets/img/3.png" alt="img01">
+                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/3.png" alt="img01">
                 </figure>
             </section>
             <section class="cbp-so-section">
                 <figure class="cbp-so-side cbp-so-side-left">
-                    <img src="<?php
-echo Yii::app()->theme->baseUrl; ?>/assets/img/1.png" alt="img01">
+                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/1.png" alt="img01">
                 </figure>
                 <article class="cbp-so-side cbp-so-side-right">
                     <h2>Carrot cake</h2>
@@ -296,7 +288,7 @@ echo Yii::app()->theme->baseUrl; ?>/assets/img/1.png" alt="img01">
         </div>
     </div>
     <script>
-        new cbpScroller(document.getElementById('cbp-so-scroller'));
+                new cbpScroller(document.getElementById('cbp-so-scroller'));
         $(document).ready(function() {
             $('#signup').click(function() {
                 $.smoothScroll({
