@@ -27,11 +27,7 @@
             <div class="cover">
                 <div class="button-on-cover" style="position: absolute">
                     <script>
-                        $(document).ready(function($) {
-                            $('#changecover').click(function(event) {
-                                $(this).find('.cover')
-                            });
-                        });
+                        
                     </script>
                     <button class="g-btn type_primary size_small" id="changecover" >
                         <span>Change Cover</span>
