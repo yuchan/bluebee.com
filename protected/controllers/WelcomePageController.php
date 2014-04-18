@@ -160,7 +160,7 @@ class WelcomePageController extends BaseController {
                 $user_activate->save(FALSE);
             }
 
-        //    $this->render('activate');
+            $this->render('activate');
         }
     }
 
