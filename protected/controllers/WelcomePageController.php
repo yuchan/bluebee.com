@@ -33,29 +33,34 @@ class WelcomePageController extends BaseController {
                             $user = User::model()->findByAttributes(array('username' => $loginFormData['user_name']));
                             if ($user) {
                                 //user existed, check password
-                                if ($user->password == $loginFormData['user_password']) {
-                                    $this->retVal->message = "Dang nhap thanh cong";
-                                    Yii::app()->session['user_id'] = $user->user_id;
-                                    Yii::app()->session['user_real_name'] = $user->user_real_name;
-                                    Yii::app()->session['user_email'] = $user->username;
-                                    $this->retVal->url = Yii::app()->createUrl("user");
-                                    $this->retVal->success = 1;
-                                    //token
-                                    $token = StringHelper::generateToken(16, 36);
-                                    $user->user_token = $token;
-                                    $user->save(FALSE);
-                                    $this->retVal->token = $token;
+                                if ($user->user_active == 1) {
+                                    if ($user->password == $loginFormData['user_password']) {
+                                        $this->retVal->message = "Dang nhap thanh cong";
+                                        Yii::app()->session['user_id'] = $user->user_id;
+                                        Yii::app()->session['user_real_name'] = $user->user_real_name;
+                                        Yii::app()->session['user_email'] = $user->username;
+                                        $this->retVal->url = Yii::app()->createUrl("user");
+                                        $this->retVal->success = 1;
+                                        //token
+                                        $token = StringHelper::generateToken(16, 36);
+                                        $user->user_token = $token;
+                                        $user->save(FALSE);
+                                        $this->retVal->token = $token;
+                                    } else {
+                                        $this->retVal->message = "Sai tên người dùng hoặc mật khẩu";
+                                        $this->retVal->success = 0;
+                                    }
                                 } else {
 
-                                    $this->retVal->message = "Sai ten nguoi dung hoac mat khau";
+                                    $this->retVal->message = "Bạn chưa kích hoạt tài khoản. Hãy kiểm tra email của bạn để kích hoạt nhé";
                                     $this->retVal->success = 0;
                                 }
                             } else {
-                                $this->retVal->message = "Ten nguoi dung chua duoc dang ky";
+                                $this->retVal->message = "Tên người dùng chưa được đăng ký";
                                 $this->retVal->success = 0;
                             }
                         } else {
-                            $this->retVal->message = "Password khong duoc de trong";
+                            $this->retVal->message = "Password không được để trống";
                             $this->retVal->success = 0;
                         }
                     } else {
@@ -63,7 +68,7 @@ class WelcomePageController extends BaseController {
                         $this->retVal->success = 0;
                     }
                 } else {
-                    $this->retVal->message = "User name khong duoc de trong";
+                    $this->retVal->message = "Email không được để trống";
                     $this->retVal->success = 0;
                 }
             } catch (exception $e) {
@@ -79,30 +84,34 @@ class WelcomePageController extends BaseController {
         $request = Yii::app()->request;
         if ($request->isPostRequest && isset($_POST)) {
             try {
-                $loginFormData = array(
+                $singupFormData = array(
                     'user_name' => $_POST['contact_name'],
                     'user_password' => $_POST['Password'],
                     'user_email' => $_POST['contact_email'],
                 );
 
-                if (!empty($loginFormData['user_email'])) {
-                    if (!empty($loginFormData['user_password'])) {
+                if (!empty($singupFormData['user_email'])) {
+                    if (!empty($singupFormData['user_password'])) {
 
-                        if (Validator::validateEmail($loginFormData['user_email'])) {
-                            if (Validator::validatePassword($loginFormData['user_password'])) {
+                        if (Validator::validateEmail($singupFormData['user_email'])) {
+                            if (Validator::validatePassword($singupFormData['user_password'])) {
 
-                                $user = User::model()->findByAttributes(array('username' => $loginFormData['user_email']));
+                                $user = User::model()->findByAttributes(array('username' => $singupFormData['user_email']));
                                 if ($user) {
                                     $this->retVal->message = "Email đã được đăng ký";
+                                    $this->retVal->success = 0;
                                 } else {
                                     $model = new User;
                                     if ($model) {
-                                        $model->user_real_name = $loginFormData['user_name'];
-                                        $model->password = $loginFormData['user_password'];
-                                        $model->username = $loginFormData['user_email'];
+                                        $activator = md5($singupFormData[]);
+                                        $link_activate = Yii::app()->createUrl('activate?token=' . $activator);
+                                        $model->user_real_name = $singupFormData['user_name'];
+                                        $model->password = $singupFormData['user_password'];
+                                        $model->username = $singupFormData['user_email'];
+                                        $model->user_activator = $activator;
+                                        EmailHelper::sendVerifyAccount($singupFormData['user_email'], $link_activate);
                                         $model->user_status = 1;
-                                        $model->user_active = 1;
-
+                                        $model->user_active = 0;
                                         $model->save(FALSE);
                                         if ($model->save(FALSE)) {
                                             $this->retVal->message = "Đăng ký thành công, hãy đăng nhập bằng tài khoản của bạn";
@@ -139,7 +148,19 @@ class WelcomePageController extends BaseController {
             //  Yii::app()->end();
         }
 
-      //  $this->render('welcomePage/signUp');
+        //  $this->render('welcomePage/signUp');
+    }
+
+    public function actionActivate() {
+         if (isset($_GET["token"])) {
+            $user_activate = User::model()->findByAttributes(array('user_activator' => $_GET["token"]));
+            if ($user_activate) {
+                $user_activate -> user_active = 1;
+                $user_activate -> save(FALSE);
+            }
+            
+            $this->render('activate');
+        }
     }
 
     function getFb() {

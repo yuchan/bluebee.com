@@ -1,3 +1,4 @@
+
 <script type="text/javascript">
     $(document).ready(function() {
         var form = $('#signupform');
@@ -11,17 +12,40 @@
                 success: function(data) {
                     var json = data;
                     var result = $.parseJSON(json);
-                    $('#res2').html(result.message);
-//                    var json = $.parseJSON(data);
-//                    $('#res').html('Message : ' + json.message + '<br>Success : ' + json.success)
+                    //       $('#res').html(result.message);
+                    if (result.success) {
+                        var item = $('<div class="g-form-row-field">' +
+                                '<div id="success" class="g-alert type_success">' +
+                                '<div class="g-alert-body">' +
+                                '<p><b>' + result.message + '</b></p>' +
+                                '</div>' +
+                                '</div>' +
+                                '</div>').hide().fadeIn(120);
+
+                        $('#alert').html(item)
+                        location.href = result.url;
+                    }
+                    else {
+
+                        var item = $('<div class="g-form-row-field">' +
+                                '<div id="error" class="g-alert type_error">' +
+                                '<div class="g-alert-body">' +
+                                '<p><b>' + result.message + '</b></p>' +
+                                '</div>' +
+                                '</div>' +
+                                '</div>').hide().fadeIn(120);
+
+                        $('#alert').html(item)
+                        //   var json = $.parseJSON(data);
+                        //  $('#res').html('Message : ' + json.message + '<br>Success : ' + json.success)
+                    }
                 }
             });
             event.preventDefault();
             event.stopPropagation();
             return false;
         });
-    });
-</script>
+    });</script>
 
 <div id="signuparea" class="w-tabs-section-title">
     <span class="w-tabs-section-title-text fix-g-form" style="margin: 0 0 0 5px; padding: 0">Chưa có Tài Khoản? Đăng Ký!</span>
