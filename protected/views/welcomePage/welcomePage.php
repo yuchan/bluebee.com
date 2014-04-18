@@ -71,7 +71,7 @@
                                             <li>
                                                 <div style="margin-top: 15%">
                                                     <h3>Welcome to Our Social</h3>
-                                                    <img style="height: 120px; width: 120px; margin: auto" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/img/logo.jpg" />
+                                                    <img style="height: 120px; width: 120px; margin: auto" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo.jpg" />
                                                     <h4>Ong Xanh Mặt Ngầu</h4>
                                                 </div>
                                             </li>
@@ -79,7 +79,7 @@
                                                 <div style="margin-top: 5%">
                                                     <div class="g-cols">
                                                         <div class="one-half">
-                                                            <img height="375" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/img/demo/big-2.jpg" />
+                                                            <img height="375" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/big-2.jpg" />
                                                         </div>
                                                         <div class="one-half">
                                                             <div class="wpb_text_column ">
@@ -101,7 +101,7 @@
                                                 <div style="margin-top: 5%">
                                                     <div class="g-cols">
                                                         <div class="one-half">
-                                                            <img height="375" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/img/our-goal.jpg" />
+                                                            <img height="375" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/our-goal.jpg" />
                                                         </div>
                                                         <div class="one-half">
                                                             <div class="wpb_text_column ">
