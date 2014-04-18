@@ -119,10 +119,10 @@ class ClassPageController extends BaseController {
                             EmailHelper::sendInviteFriend($useremail, $link);
                         }
                         $this->retVal->message = 'Email mời đã được gửi đi, đang đợi phản hồi';
-                        $this->retVal->success = TRUE;
+                        $this->retVal->success = 1;
                     } else {
                         $this->retVal->message = 'Bạn phải nhập người cần mời';
-                        $this->retVal->success = FALSE;
+                        $this->retVal->success = 0;
                     }
                 } catch (exception $e) {
                     $this->retVal->message = $e->getMessage();
