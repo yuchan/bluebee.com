@@ -34,6 +34,23 @@ class EmailHelper{
 		}
 	}
         
+         public static function sendVerifyAccount($user, $link){
+		$mail = new YiiMailer();
+		$mail->setLayout('mail');
+		$mail->setView('verifyaccount');
+		$mail->setData(array('administrator' => 'bluebee', 'link' => $link));
+		
+		$mail->setFrom('huynt57@gmail.com', Yii::app()->params['SITE_NAME']);
+		$mail->setTo($user);
+		$mail->setSubject("Activate your account from bluebee");
+		
+		if ($mail->send()) {
+			return null;
+		} else {
+			return $mail->getError();
+		}
+	}
+        
         public static function sendRecoveryPasswordEmail($user, $newPassword){
 		$mail = new YiiMailer();
 		$mail->setLayout('mail');

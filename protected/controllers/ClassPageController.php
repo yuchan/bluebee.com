@@ -44,12 +44,15 @@ class ClassPageController extends BaseController {
                     $newclass = ClassYear::model()->findByAttributes(array('class_code' => $createClassFormData['classcode']));
                     if ($newclass) {
                         if ($newclass->class_year == date("Y")) {
-                            $this->retVal->message = "Mã lớp cho năm học này đã tồn tại, bạn hãy tìm xem lớp mình ở đâu nhé";
-                            $this->retVal->success = 0;
+                            $this->retVal->message = "Mã lớp cho năm học này đã tồn tại, bạn có thể tham gia lớp học tại ";
+                            $class_id = $newclass->class_id;
+                            $this->retVal->url_class_exist = Yii::app()->createUrl('classPage?classid=' . $class_id);
+                            $this->retVal->success = 2;
                         } else {
                             $this->retVal->message = "Mã lớp cho năm học này chưa tồn tại, nhưng đã có từ các năm học trước. Bạn có thể tải tài liệu của lớp học tương ứng của năm trước sau khi tạo class !";
                             $classid = $this->addClass($createClassFormData['classcode'], $createClassFormData['classname'], $createClassFormData['description']);
                             $this->retVal->url = Yii::app()->createUrl('classPage?classid=' . $classid);
+                            $this->retVal->success = 1;
                         }
                     } else {
                         $classid = $this->addClass($createClassFormData['classcode'], $createClassFormData['classname'], $createClassFormData['description']);
@@ -135,15 +138,14 @@ class ClassPageController extends BaseController {
                 $token = class_model::model()->findAllByAttributes(array('class_token' => $_GET["class_token"]));
                 if ($token) {
                     $user = User::model()->findAllByAttributes(array('user_id' => $_GET["user"]));
-                    if ($user)
-                    {
+                    if ($user) {
                         $user_class = new ClassUser;
                         $user_class->class_id = $token->class_id;
                         $user_class->user_id = $user->user_id;
                         $user_class->is_active = 1;
-                        
+
                         $user_class->save(FALSE);
-                    } 
+                    }
                 }
             }
         }

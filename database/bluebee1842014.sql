@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2014 at 12:26 AM
+-- Generation Time: Apr 18, 2014 at 08:23 PM
 -- Server version: 5.5.34
 -- PHP Version: 5.4.22
 
@@ -403,6 +403,7 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
   `user_status` int(11) DEFAULT NULL,
   `user_group` int(11) DEFAULT NULL,
   `user_token` varchar(200) DEFAULT NULL,
+  `user_activator` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
@@ -410,9 +411,9 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
 -- Dumping data for table `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`user_id`, `user_id_fb`, `username`, `password`, `user_real_name`, `user_avatar`, `user_cover`, `user_student_code`, `user_university`, `user_gender`, `user_dob`, `user_hometown`, `user_phone`, `user_description`, `user_faculty`, `user_class`, `user_active`, `user_status`, `user_group`, `user_token`) VALUES
-(2, NULL, 'huynt57@gmail.com', '12345678', 'huy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, 'sa559pvndlw0w8oco4wgowg0ws8cgg8'),
-(3, NULL, 'khanhnv3007@gmail.com', '12345678', 'khanh', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, NULL);
+INSERT INTO `tbl_user` (`user_id`, `user_id_fb`, `username`, `password`, `user_real_name`, `user_avatar`, `user_cover`, `user_student_code`, `user_university`, `user_gender`, `user_dob`, `user_hometown`, `user_phone`, `user_description`, `user_faculty`, `user_class`, `user_active`, `user_status`, `user_group`, `user_token`, `user_activator`) VALUES
+(2, NULL, 'huynt57@gmail.com', '12345678', 'huy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, 'sa559pvndlw0w8oco4wgowg0ws8cgg8', NULL),
+(3, NULL, 'khanhnv3007@gmail.com', '12345678', 'khanh', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
