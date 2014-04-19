@@ -90,56 +90,60 @@ class WelcomePageController extends BaseController {
                     'user_password' => $_POST['Password'],
                     'user_email' => $_POST['contact_email'],
                 );
+                if (!empty($singupFormData['user_name'])) {
+                    if (!empty($singupFormData['user_email'])) {
+                        if (!empty($singupFormData['user_password'])) {
 
-                if (!empty($singupFormData['user_email'])) {
-                    if (!empty($singupFormData['user_password'])) {
+                            if (Validator::validateEmail($singupFormData['user_email'])) {
+                                if (Validator::validatePassword($singupFormData['user_password'])) {
 
-                        if (Validator::validateEmail($singupFormData['user_email'])) {
-                            if (Validator::validatePassword($singupFormData['user_password'])) {
-
-                                $user = User::model()->findByAttributes(array('username' => $singupFormData['user_email']));
-                                if ($user) {
-                                    $this->retVal->message = "Email đã được đăng ký";
-                                    $this->retVal->success = 0;
-                                } else {
-                                    $model = new User;
-                                    if ($model) {
-                                        $activator = md5($singupFormData['user_email']);
-                                        $link_activate = Yii::app()->createUrl('activate?token=' . $activator);
-                                        $model->user_real_name = $singupFormData['user_name'];
-                                        $model->password = $singupFormData['user_password'];
-                                        $model->username = $singupFormData['user_email'];
-                                        $model->user_activator = $activator;
-                                        EmailHelper::sendVerifyAccount($singupFormData['user_email'], $link_activate);
-                                        $model->user_status = 1;
-                                        $model->user_active = 0;
-                                        $model->save(FALSE);
-                                        if ($model->save(FALSE)) {
-                                            $this->retVal->message = "Đăng ký thành công, hãy đăng nhập bằng tài khoản của bạn";
-                                            $this->retVal->success = 1;
+                                    $user = User::model()->findByAttributes(array('username' => $singupFormData['user_email']));
+                                    if ($user) {
+                                        $this->retVal->message = "Email đã được đăng ký";
+                                        $this->retVal->success = 0;
+                                    } else {
+                                        $model = new User;
+                                        if ($model) {
+                                            $activator = md5($singupFormData['user_email']);
+                                            $link_activate = Yii::app()->createUrl('activate?token=' . $activator);
+                                            $model->user_real_name = $singupFormData['user_name'];
+                                            $model->password = $singupFormData['user_password'];
+                                            $model->username = $singupFormData['user_email'];
+                                            $model->user_activator = $activator;
+                                            EmailHelper::sendVerifyAccount($singupFormData['user_email'], $link_activate);
+                                            $model->user_status = 1;
+                                            $model->user_active = 0;
+                                            $model->save(FALSE);
+                                            if ($model->save(FALSE)) {
+                                                $this->retVal->message = "Đăng ký thành công, hãy đăng nhập bằng tài khoản của bạn";
+                                                $this->retVal->success = 1;
+                                            } else {
+                                                $this->retVal->message = "Không thể lưu user do lỗi server";
+                                                $this->retVal->success = 0;
+                                            }
                                         } else {
-                                            $this->retVal->message = "Không thể lưu user do lỗi server";
+                                            $this->retVal->message = "Không thể lưu user do lỗi server ";
                                             $this->retVal->success = 0;
                                         }
-                                    } else {
-                                        $this->retVal->message = "Không thể lưu user do lỗi server ";
-                                        $this->retVal->success = 0;
                                     }
+                                } else {
+                                    $this->retVal->message = "Password phải nhiều hơn 5 kí tự";
+                                    $this->retVal->success = 0;
                                 }
                             } else {
-                                $this->retVal->message = "Password phải nhiều hơn 5 kí tự";
+                                $this->retVal->message = "Sai định dạng email";
                                 $this->retVal->success = 0;
                             }
                         } else {
-                            $this->retVal->message = "Sai định dạng email";
+                            $this->retVal->message = "Password không được để trống";
                             $this->retVal->success = 0;
                         }
                     } else {
-                        $this->retVal->message = "Password không được để trống";
+                        $this->retVal->message = "Email không được để trống";
                         $this->retVal->success = 0;
                     }
                 } else {
-                    $this->retVal->message = "Email không được để trống";
+                    $this->retVal->message = "Tên hiển thị không được để trống !. Bạn có thể thay đổi tên hiển thị sau khi đăng nhập";
                     $this->retVal->success = 0;
                 }
             } catch (exception $e) {
@@ -190,7 +194,7 @@ class WelcomePageController extends BaseController {
         $facebook = $this->getFb();
         $loginUrl = $facebook->getLoginUrl(array(
             'scope' => '',
-            'redirect_uri' => "http://bluebee-uet.com/user?token=".$user_id->user_token,
+            'redirect_uri' => "http://bluebee-uet.com/user?token=" . $user_id->user_token,
         ));
         $this->redirect($loginUrl);
     }
