@@ -8,14 +8,9 @@
                 type: "POST",
                 url: '<?php echo Yii::app()->createUrl('welcomePage/Login') ?>',
                 data: data,
-                beforeSend: function () {
-                        $('#alert').html('<img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax_loader_blue_128.gif" alt="" style="" id="loading"/>');
-                    },
                 success: function(data) {
                     var json = data;
                     var result = $.parseJSON(json);
-                    //       $('#res').html(result.message);
-                    $('#alert').html('');
                     if (result.success) {
                         var item = $('<div class="g-form-row-field">' +
                                 '<div id="success" class="g-alert type_success">' +
@@ -28,12 +23,15 @@
                         if (hide == 'none') {
                             $('#alert').html(item).slideDown('slow');
                         } else {
-                            $('#alert').slideUp('fast').html(item).slideDown('800');
+                            $('#alert').slideUp(function(){
+                                $('#alert').html(item).slideDown('slow');
+                            });
                         }
-                        setInterval(location.href = result.url, 3000);
+                        setTimeout( function() {
+                            window.location.href = result.url;
+                        },800);
                     }
                     else {
-
                         var item = $('<div class="g-form-row-field">' +
                                 '<div id="error" class="g-alert type_error">' +
                                 '<div class="g-alert-body" style="text-align: center">' +
@@ -45,15 +43,13 @@
                         if (hide == 'none') {
                             $('#alert').html(item).slideDown('slow');
                         } else {
-                            $('#alert').slideUp('fast').html(item).slideDown('800');
+                            $('#alert').slideUp(function(){
+                                $('#alert').html(item).slideDown('slow');
+                            });
                         }
-                        //   var json = $.parseJSON(data);
-                        //  $('#res').html('Message : ' + json.message + '<br>Success : ' + json.success)
                     }
                 }
             });
-            event.preventDefault();
-            event.stopPropagation();
             return false;
         });
         $('div#alert').click(function() {
@@ -225,14 +221,15 @@
         </div>
     </div>
 </div>
-<div class="w-actionbox controls_aside color_primary" style="padding: 20px 40px">
-    <div class="w-actionbox-h" style="max-width: 1000px; margin: 0 auto">
-        <div class="w-actionbox-text">
-            <h3>ActionBox with Primary Theme Colors</h3>
-            <p>It has some awesome features, unlimited colors, advanced theme options and so much more!</p>
+<div class="w-actionbox controls_aside color_primary" style="padding: 20px 40px; margin-top: -20px">
+    <div class="w-actionbox-h" style="max-width: 600px; margin: 0 auto">
+        <div class="w-actionbox-text" style="font-size: 26px">
+            <h3 style="float: left; margin-top: 7px">Click</h3>
+            <a id="learn-more" class="w-actionbox-button g-btn type_primary size_big" href="#rock" target="_blank" style="float: left; margin-right: 20px"><span>Learn More</span></a>
+            <p style="float: left; font-size: 16px">Add Some Text Here</p>
         </div>
         <div class="w-actionbox-controls">
-            <a id="learn-more" class="w-actionbox-button g-btn type_primary size_big" href="#rock" target="_blank"><span>Learn More</span></a>
+            Add Some Text Here
         </div>
     </div>
 </div>
