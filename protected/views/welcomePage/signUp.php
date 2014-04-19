@@ -27,7 +27,7 @@
                                 '</div>').hide().fadeIn(120);
 
                         $('#alert').html(item)
-                        location.href = result.url;
+
                     }
                     else {
 
