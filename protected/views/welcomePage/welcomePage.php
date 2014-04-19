@@ -23,11 +23,14 @@
                                 '<p><b>' + result.message + '</b></p>' +
                                 '</div>' +
                                 '</div>' +
-                                '</div>').hide().fadeIn(120);
-
-                        $('#alert').html(item);
+                                '</div>');
+                        var hide = $('#alert').css('display');
+                        if (hide == 'none') {
+                            $('#alert').html(item).slideDown('slow');
+                        } else {
+                            $('#alert').slideUp('fast').html(item).slideDown('800');
+                        }
                         setInterval(location.href = result.url, 3000);
-                        
                     }
                     else {
 
@@ -42,7 +45,7 @@
                         if (hide == 'none') {
                             $('#alert').html(item).slideDown('slow');
                         } else {
-                            $('#alert').html(item).slideUp('fast').slideDown('800');
+                            $('#alert').slideUp('fast').html(item).slideDown('800');
                         }
                         //   var json = $.parseJSON(data);
                         //  $('#res').html('Message : ' + json.message + '<br>Success : ' + json.success)

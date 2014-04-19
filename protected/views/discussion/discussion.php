@@ -80,7 +80,7 @@
     }
 </script>
 
-
+<!-- 
 <div class="l-main-h">
     <div class="l-submain for_pagehead">
         <div class="l-submain-h g-html i-cf">
@@ -186,4 +186,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
