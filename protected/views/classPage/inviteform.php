@@ -39,7 +39,7 @@
                             alert(result.message);
                         }
 
-                    });
+                    }});
                     event.preventDefault();
             event.stopPropagation();
             return false;
