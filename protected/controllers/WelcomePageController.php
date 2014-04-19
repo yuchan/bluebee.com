@@ -16,13 +16,11 @@ class WelcomePageController extends BaseController {
     public function actionWelcomePage() {
         $this->render('welcomePage');
     }
-    
-    public function checkSession() {
-        
-    }
+
+   
 
     public function actionLogin() {
-
+        
         $this->retVal = new stdClass();
         $request = Yii::app()->request;
         if ($request->isPostRequest && isset($_POST)) {
