@@ -49,9 +49,9 @@
                                 '</div>' +
                                 '</div>').hide().fadeIn(120);
 
-                        $('#alert').html(item) 
+                        $('#alert').html(item); 
                 }
-            });
+            }});
             event.preventDefault();
             event.stopPropagation();
             return false;
