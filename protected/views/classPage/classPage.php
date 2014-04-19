@@ -3,13 +3,11 @@
         <div class="l-content-h i-widgets">
             <style>
                 .cover {
-                    background-image: url(<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg);
-                    background-repeat: no-repeat;
-                    background-size: 100% 100%;
-                    min-height: 400px;
+                    max-height: 200px;
+                    overflow: hidden;
                 }
                 .button-on-cover {
-                    top: 350px;
+                    top: 150px;
                     left: 700px;
                 }
                 #fix-style-w-tab {
@@ -24,11 +22,9 @@
                     text-align: center;
                 }
             </style>
-            <div class="cover">
+            <div class="cover" style="">
+                <img style="width: 100%; position: relative; margin-top: -120px" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg"/>
                 <div class="button-on-cover" style="position: absolute">
-                    <script>
-                        
-                    </script>
                     <button class="g-btn type_primary size_small" id="changecover" >
                         <span>Change Cover</span>
                     </button>
@@ -48,19 +44,13 @@
                                         <span class="w-tabs-item-title">Activity</span>
                                     </div>
 
-                                    <div class="w-tabs-item fix-w-tab-item">
+                                    <div class="w-tabs-item fix-w-tab-item" style="display: none">
                                         <span class="w-tabs-item-icon"></span>
                                         <span class="w-tabs-item-title">Documents</span>
                                     </div>
-
                                     <div class="w-tabs-item fix-w-tab-item">
                                         <span class="w-tabs-item-icon"></span>
-                                        <span class="w-tabs-item-title">Information</span>
-                                    </div>
-
-                                    <div class="w-tabs-item fix-w-tab-item">
-                                        <span class="w-tabs-item-icon"></span>
-                                        <span class="w-tabs-item-title">Members</span>
+                                        <span class="w-tabs-item-title">Teacher</span>
                                     </div>
                                 </div>
 
@@ -119,7 +109,6 @@
                                             z-index: 1;
                                             margin: 0;
                                         }
-                                        
                                         .one-third li {
                                             clear: both;
                                         }
@@ -165,9 +154,9 @@
                                                     height: 100%;
                                                 }
                                                 .activity-item {
-                                                    border-radius: 5px;
                                                     position: relative;
-                                                    border: 1px solid #d8d8d8;
+                                                    border-top: 1px solid #d8d8d8;
+                                                    border-bottom: 1px solid #d8d8d8;
                                                     box-sizing: border-box;
                                                 }
                                                 .activity-item article {
@@ -212,7 +201,6 @@
                                                 }
                                                 .comment-container {
                                                     background-color: #f6f6f6;
-                                                    border-radius: 0 0 5px 5px;
                                                     position: relative;
                                                     width: 100%;
                                                     height: 100%;
@@ -336,7 +324,7 @@
                                     </div>
                                 </div>
 
-                                <div class="w-tabs-section">
+                                <div class="w-tabs-section" style="display: none">
                                     <div class="w-tabs-section-title">
                                         <span class="w-tabs-section-title-icon"></span>
                                         <span class="w-tabs-section-title-text">Documents</span>
@@ -344,17 +332,7 @@
                                     </div>
                                     <div class="w-tabs-section-content">
                                         <div class="w-tabs-section-content-h">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo. Nulla varius consequat magna, id molestie ipsum volutpat quis. Suspendisse consectetur fringilla suctus. Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                            <div class="g-cols">
-                                                <div class="one-half">
-                                                    <h4>One Half</h4>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo.</p>
-                                                </div>
-                                                <div class="one-half">
-                                                    <h4>One Half</h4>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo.</p>
-                                                </div>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -362,36 +340,7 @@
                                 <div class="w-tabs-section">
                                     <div class="w-tabs-section-title">
                                         <span class="w-tabs-section-title-icon"></span>
-                                        <span class="w-tabs-section-title-text">Information</span>
-                                        <span class="w-tabs-section-title-control"></span>
-                                    </div>
-                                    <div class="w-tabs-section-content">
-                                        <div class="w-tabs-section-content-h">
-                                            <div class="g-cols">
-                                                <div class="one-third">
-                                                    <img src="img/demo/team-1.jpg" alt="" />
-                                                </div>
-                                                <div class="one-third">
-                                                    <h4>One Third</h4>
-                                                    <p>At delectus doloremque dolores explicabo laudantium minima qui. Animi aperiam
-                                                        aspernatur atque debitis distinctio impedit inventore iure labore modi omnis,
-                                                        optio rerum ut veritatis voluptatum?</p>
-                                                </div>
-                                                <div class="one-third">
-                                                    <h4>One Third</h4>
-                                                    <p>Accusamus et hic inventore iure iusto modi reprehenderit soluta. Aliquam,
-                                                        assumenda at consequuntur cumque, enim, explicabo iusto libero maiores nisi
-                                                        numquam odio porro praesentium quis.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="w-tabs-section">
-                                    <div class="w-tabs-section-title">
-                                        <span class="w-tabs-section-title-icon"></span>
-                                        <span class="w-tabs-section-title-text">Members</span>
+                                        <span class="w-tabs-section-title-text">Teacher</span>
                                         <span class="w-tabs-section-title-control"></span>
                                     </div>
                                     <div class="w-tabs-section-content">
@@ -460,7 +409,7 @@
                                     <a href="">Thông tin cá nhân</a>
                                 </div>
                                 <div class="input select rating-f">
-                                    <p style="float: left">Rating: </p>
+                                    <p style="float: left">Độ yêu thích: </p>
                                     <select class="example-f" name="rating" style="display: none; float: right">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -479,7 +428,7 @@
                                     <a href="">Thông tin cá nhân</a>
                                 </div>
                                 <div class="input select rating-f">
-                                    <p style="float: left">Rating: </p>
+                                    <p style="float: left">Độ yêu thích: </p>
                                     <select class="example-f" name="rating" style="display: none; float: right">
                                         <option value="1">1</option>
                                         <option value="2">2</option>

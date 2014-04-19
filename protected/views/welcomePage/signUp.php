@@ -24,9 +24,13 @@
                                 '<p><b>' + result.message + '</b></p>' +
                                 '</div>' +
                                 '</div>' +
-                                '</div>').hide().fadeIn(120);
-
-                        $('#alert').html(item)
+                                '</div>');
+                        var hide = $('#alert').css('display');
+                        if (hide == 'none') {
+                            $('#alert').html(item).slideDown('slow');
+                        } else {
+                            $('#alert').html(item).slideUp('fast').slideDown('800');
+                        }
 
                     }
                     else {
