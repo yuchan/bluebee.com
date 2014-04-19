@@ -3,13 +3,11 @@
         <div class="l-content-h i-widgets">
             <style>
                 .cover {
-                    background-image: url(<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg);
-                    background-repeat: no-repeat;
-                    background-size: 100% 100%;
-                    min-height: 400px;
+                    max-height: 200px;
+                    overflow: hidden;
                 }
                 .button-on-cover {
-                    top: 350px;
+                    top: 150px;
                     left: 700px;
                 }
                 #fix-style-w-tab {
@@ -24,14 +22,9 @@
                     text-align: center;
                 }
             </style>
-            <div class="cover">
+            <div class="cover" style="">
+                <img style="width: 100%; position: relative; margin-top: -120px" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg"/>
                 <div class="button-on-cover" style="position: absolute">
-<<<<<<< HEAD
-=======
-                    <script>
-
-                    </script>
->>>>>>> d4d97f5f33ba3c8002681c4ca9959dbe877d9db6
                     <button class="g-btn type_primary size_small" id="changecover" >
                         <span>Change Cover</span>
                     </button>
@@ -51,7 +44,6 @@
                                         <span class="w-tabs-item-title">Activity</span>
                                     </div>
 
-<<<<<<< HEAD
                                     <div class="w-tabs-item fix-w-tab-item" style="display: none">
                                         <span class="w-tabs-item-icon"></span>
                                         <span class="w-tabs-item-title">Documents</span>
@@ -60,24 +52,8 @@
                                         <span class="w-tabs-item-icon"></span>
                                         <span class="w-tabs-item-title">Teacher</span>
                                     </div>
-=======
-                                <div class="w-tabs-item fix-w-tab-item">
-                                    <span class="w-tabs-item-icon"></span>
-                                    <span class="w-tabs-item-title">Documents</span>
                                 </div>
 
-                                <div class="w-tabs-item fix-w-tab-item">
-                                    <span class="w-tabs-item-icon"></span>
-                                    <span class="w-tabs-item-title">Information</span>
-                                </div>
-
-                                <div class="w-tabs-item fix-w-tab-item">
-                                    <span class="w-tabs-item-icon"></span>
-                                    <span class="w-tabs-item-title">Members</span>
->>>>>>> d4d97f5f33ba3c8002681c4ca9959dbe877d9db6
-                                </div>
-
-<<<<<<< HEAD
                                 <div class="w-tabs-section active">
                                     <div class="w-tabs-section-title">
                                         <span class="w-tabs-section-title-icon"></span>
@@ -166,96 +142,8 @@
                                                     <button type="submit" class="g-btn type_primary size_small submit-button">
                                                         <span>Post</span>
                                                     </button>
-=======
-                            <div class="w-tabs-section active">
-                                <div class="w-tabs-section-title">
-                                    <span class="w-tabs-section-title-icon"></span>
-                                    <span class="w-tabs-section-title-text">Activity</span>
-                                    <span class="w-tabs-section-title-control"></span>
-                                </div>
-                                <style>
-                                    .activity-input {
-                                        margin: 20px;
-                                        display: block;
-                                        width: auto;
-                                        height: auto;
-                                        position: relative;
-                                        overflow: visible;
-                                    }
-                                    .avatar-view {
-                                        width:35px;
-                                        height: 35px;
-                                        background-size: 35px;
-                                        border-radius: 50%;
-                                        top: 6px;
-                                        left: 6px;
-                                        z-index: 2;
-                                        position: absolute;
-                                    }
-                                    .activity-input-box {
-                                        border: 1px solid #d0d6d9;
-                                        border-radius: 5px;
-                                        box-sizing: border-box;
-                                        display: inline-block;
-                                        min-width: 50px;
-                                        width: 100%;
-                                        height: 100%;
-                                        overflow: hidden;
-                                        vertical-align: baseline;
-                                    }
-                                    .activity-input-content {
-                                        color: #3c4752;
-                                        width: 100%;
-                                        height: auto;
-                                        min-height: 45px;
-                                        line-height: 16px;
-                                        font-size: 14px;
-                                        padding: 15px 100px 14px 56px;
-                                    }
-                                    .placeholder {
-                                        color: #acacac;
-                                    }
-                                    .submit-button {
-                                        right: 9px;
-                                        top: 8px;
-                                        position: absolute;
-                                        z-index: 1;
-                                        margin: 0;
-                                    }
-
-                                    .one-third li {
-                                        clear: both;
-                                    }
-                                    .teacher-block:after, .one-third li:after, .clearfix:after {
-                                        clear: both;
-                                        content: ".";
-                                        display: block;
-                                        height: 0;
-                                        line-height: 0;
-                                        visibility: hidden;
-                                    }
-                                    .teacher-block {
-                                        clear: both;
-                                        min-height: 80px;
-                                        position: relative;
-                                        border: 1px solid #d0d6d9;
-                                        border-radius: 5px;
-                                        margin-bottom: 10px;
-                                    }
-                                </style>
-                                <div class="w-tabs-section-content">
-                                    <div class="w-tabs-section-content-h" style="padding-top: 10px;">
-                                        <div class="activity-input">
-                                            <a class="avatar-view" href="user">
-                                                <img class="" width="35" height="35" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
-                                            </a>
-                                            <div class="activity-input-box">
-                                                <div contenteditable="true" class="activity-input-content">
-                                                    What's new User?
->>>>>>> d4d97f5f33ba3c8002681c4ca9959dbe877d9db6
                                                 </div>
                                             </div>
-<<<<<<< HEAD
                                             <style>
                                                 .activity-content {
                                                     width: auto;
@@ -291,44 +179,6 @@
                                                     margin-right: 10px;
                                                     position: absolute;
                                                 }
-=======
-                                        </div>
-                                        <style>
-                                            .activity-content {
-                                                width: auto;
-                                                height: auto;
-                                                overflow: visible;
-                                                position: relative;
-                                                margin: 0 20px 0 80px;
-                                                height: 100%;
-                                            }
-                                            .activity-item {
-                                                border-radius: 5px;
-                                                position: relative;
-                                                border: 1px solid #d8d8d8;
-                                                box-sizing: border-box;
-                                            }
-                                            .activity-item article {
-                                                display: block;
-                                                color: #3c4572;
-                                                font-weight: 200;
-                                                margin-bottom: 16px;
-                                            }
-                                            .activity-item article p{
-                                                padding-left: 15px;
-                                                padding-right: 15px;
-                                            }
-                                            .other-user-avatar {
-                                                background-size: 50px;
-                                                width: 50px;
-                                                height: 50px;
-                                                display: block;
-                                                top:0;
-                                                right: 100%;
-                                                margin-right: 10px;
-                                                position: absolute;
-                                            }
->>>>>>> d4d97f5f33ba3c8002681c4ca9959dbe877d9db6
 
                                                 a.avatar-view-user {
                                                     left: 6px;
@@ -337,7 +187,6 @@
                                                     margin-top: 5px;
                                                 }
 
-<<<<<<< HEAD
                                                 a.avatar-view-user img, a.other-user-avatar img{
                                                     border-radius: 50%;
                                                 }
@@ -390,65 +239,6 @@
                                                 <div class="activity-item">
                                                     <a class="other-user-avatar" href="/glang">
                                                         <img class="" width="50" height="50" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/GrangerLang.png" style="opacity: 1;">
-=======
-                                            a.avatar-view-user img, a.other-user-avatar img{
-                                                border-radius: 50%;
-                                            }
-                                            .profile {
-                                                margin: 10px 15px;
-                                                display: inline-block;
-                                                width: 95%;
-                                            }
-                                            .fix-vote-button {
-                                                float: right;
-                                                margin-top: 6px;
-                                            }
-                                            .comment-container {
-                                                background-color: #f6f6f6;
-                                                border-radius: 0 0 5px 5px;
-                                                position: relative;
-                                                width: 100%;
-                                                height: 100%;
-                                                margin: 0;
-                                                padding: 0;
-                                            }
-                                            .show-more-comment {
-                                                background-color: #ececec;
-                                                border-top: 1px solid #d8d8d8;
-                                                border-bottom: 1px solid #d8d8d8;
-                                                text-align: center;
-                                                height: 40px;
-                                                line-height: 40px;
-                                                position: relative;
-                                            }
-                                            .view-more {
-                                                width: 100%;
-                                                display: block;
-                                            }
-                                            .list-item-comment-wrapper {
-                                                position: relative;
-                                                width: 100%;
-                                                height: 100%;
-                                                display: block;
-                                            }
-                                            .item-comment {
-                                                padding: 5px 10px;
-                                                border-top: 1px solid #d8d8d8;
-                                            }
-                                            .comment-content {
-                                                margin: 0 0 0 40px;
-                                                width: 92%;
-                                            }
-                                        </style>
-                                        <div class="activity-content">
-                                            <div class="activity-item">
-                                                <a class="other-user-avatar" href="/glang">
-                                                    <img class="" width="50" height="50" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/GrangerLang.png" style="opacity: 1;">
-                                                </a>
-                                                <div  class="profile clearfix">
-                                                    <a style="float: left" href="/glang">
-                                                        <span data-paths="profile.firstName profile.lastName" id="el-105">Granger Lang</span>
->>>>>>> d4d97f5f33ba3c8002681c4ca9959dbe877d9db6
                                                     </a>
                                                     <div  class="profile clearfix">
                                                         <a style="float: left" href="/glang">
@@ -534,7 +324,6 @@
                                     </div>
                                 </div>
 
-<<<<<<< HEAD
                                 <div class="w-tabs-section" style="display: none">
                                     <div class="w-tabs-section-title">
                                         <span class="w-tabs-section-title-icon"></span>
@@ -544,31 +333,10 @@
                                     <div class="w-tabs-section-content">
                                         <div class="w-tabs-section-content-h">
                                             
-=======
-                            <div class="w-tabs-section">
-                                <div class="w-tabs-section-title">
-                                    <span class="w-tabs-section-title-icon"></span>
-                                    <span class="w-tabs-section-title-text">Documents</span>
-                                    <span class="w-tabs-section-title-control"></span>
-                                </div>
-                                <div class="w-tabs-section-content">
-                                    <div class="w-tabs-section-content-h">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo. Nulla varius consequat magna, id molestie ipsum volutpat quis. Suspendisse consectetur fringilla suctus. Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        <div class="g-cols">
-                                            <div class="one-half">
-                                                <h4>One Half</h4>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo.</p>
-                                            </div>
-                                            <div class="one-half">
-                                                <h4>One Half</h4>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo.</p>
-                                            </div>
->>>>>>> d4d97f5f33ba3c8002681c4ca9959dbe877d9db6
                                         </div>
                                     </div>
                                 </div>
 
-<<<<<<< HEAD
                                 <div class="w-tabs-section">
                                     <div class="w-tabs-section-title">
                                         <span class="w-tabs-section-title-icon"></span>
@@ -593,60 +361,6 @@
                                                         assumenda at consequuntur cumque, enim, explicabo iusto libero maiores nisi
                                                         numquam odio porro praesentium quis.</p>
                                                 </div>
-=======
-                            <div class="w-tabs-section">
-                                <div class="w-tabs-section-title">
-                                    <span class="w-tabs-section-title-icon"></span>
-                                    <span class="w-tabs-section-title-text">Information</span>
-                                    <span class="w-tabs-section-title-control"></span>
-                                </div>
-                                <div class="w-tabs-section-content">
-                                    <div class="w-tabs-section-content-h">
-                                        <div class="g-cols">
-                                            <div class="one-third">
-                                                <img src="img/demo/team-1.jpg" alt="" />
-                                            </div>
-                                            <div class="one-third">
-                                                <h4>One Third</h4>
-                                                <p>At delectus doloremque dolores explicabo laudantium minima qui. Animi aperiam
-                                                    aspernatur atque debitis distinctio impedit inventore iure labore modi omnis,
-                                                    optio rerum ut veritatis voluptatum?</p>
-                                            </div>
-                                            <div class="one-third">
-                                                <h4>One Third</h4>
-                                                <p>Accusamus et hic inventore iure iusto modi reprehenderit soluta. Aliquam,
-                                                    assumenda at consequuntur cumque, enim, explicabo iusto libero maiores nisi
-                                                    numquam odio porro praesentium quis.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="w-tabs-section">
-                                <div class="w-tabs-section-title">
-                                    <span class="w-tabs-section-title-icon"></span>
-                                    <span class="w-tabs-section-title-text">Members</span>
-                                    <span class="w-tabs-section-title-control"></span>
-                                </div>
-                                <div class="w-tabs-section-content">
-                                    <div class="w-tabs-section-content-h">
-                                        <div class="g-cols">
-                                            <div class="one-third">
-                                                <img src="img/demo/team-1.jpg" alt="" />
-                                            </div>
-                                            <div class="one-third">
-                                                <h4>One Third</h4>
-                                                <p>At delectus doloremque dolores explicabo laudantium minima qui. Animi aperiam
-                                                    aspernatur atque debitis distinctio impedit inventore iure labore modi omnis,
-                                                    optio rerum ut veritatis voluptatum?</p>
-                                            </div>
-                                            <div class="one-third">
-                                                <h4>One Third</h4>
-                                                <p>Accusamus et hic inventore iure iusto modi reprehenderit soluta. Aliquam,
-                                                    assumenda at consequuntur cumque, enim, explicabo iusto libero maiores nisi
-                                                    numquam odio porro praesentium quis.</p>
->>>>>>> d4d97f5f33ba3c8002681c4ca9959dbe877d9db6
                                             </div>
                                         </div>
                                     </div>
@@ -695,7 +409,7 @@
                                     <a href="">Thông tin cá nhân</a>
                                 </div>
                                 <div class="input select rating-f">
-                                    <p style="float: left">Rating: </p>
+                                    <p style="float: left">Độ yêu thích: </p>
                                     <select class="example-f" name="rating" style="display: none; float: right">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -714,7 +428,7 @@
                                     <a href="">Thông tin cá nhân</a>
                                 </div>
                                 <div class="input select rating-f">
-                                    <p style="float: left">Rating: </p>
+                                    <p style="float: left">Độ yêu thích: </p>
                                     <select class="example-f" name="rating" style="display: none; float: right">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
