@@ -27,17 +27,17 @@
                                 '</div>').hide().fadeIn(120);
 
                         $('#alert').html(item)
-                        location.href = result.url;
+
                     }
                     else {
 
                         var item = $('<div class="g-form-row-field">' +
                                 '<div id="error" class="g-alert type_error">' +
-                                '<div class="g-alert-body">' +
+                                '<div class="g-alert-body" style="text-align: center">' +
                                 '<p><b>' + result.message + '</b></p>' +
                                 '</div>' +
                                 '</div>' +
-                                '</div>').hide().fadeIn(120);
+                                '</div>');
 
                         var hide = $('#alert').css('display');
                         if (hide == 'none') {

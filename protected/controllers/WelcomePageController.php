@@ -115,7 +115,7 @@ class WelcomePageController extends BaseController {
                                             $model->user_active = 0;
                                             $model->save(FALSE);
                                             if ($model->save(FALSE)) {
-                                                $this->retVal->message = "Đăng ký thành công, hãy đăng nhập bằng tài khoản của bạn";
+                                                $this->retVal->message = "Đăng ký thành công, hãy kiểm tra email kích hoạt tài khoản của bạn";
                                                 $this->retVal->success = 1;
                                             } else {
                                                 $this->retVal->message = "Không thể lưu user do lỗi server";
