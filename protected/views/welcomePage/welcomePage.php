@@ -63,7 +63,8 @@
 <div class="l-submain" style="height: 100%; padding-top: 10px">
     <div class="l-submain-h i-cf">
         <div class="l-content">
-            <div class="l-content-h i-widgets"><div id="alert" style="position: absolute; z-index: 99; width: 100%; top: -55px; display: none; text-align: center">
+            <div class="l-content-h i-widgets">
+                <div id="alert" style="position: absolute; z-index: 99; width: 100%; top: -55px; display: none; text-align: center">
 
                 </div>
                 <div class="g-cols" style="margin-top: 10%; margin-bottom: 0">
@@ -200,12 +201,11 @@
                                                                         <button class="g-btn type_primary" type="submit" name="Submit" value="Submit" style="width: 100%">Đăng Nhập</button>
                                                                         
                                                                     </div>
-                                                                </div>
-                                                                </form>
+                                                                </div>                                                   
                                                                 <?php $this->renderPartial('fb') ?>
                                                             </div>
                                                         </div>
-
+                                                     </form>
                                                 </div>
                                             </div>
                                         </div>
