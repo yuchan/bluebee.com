@@ -185,10 +185,12 @@ class WelcomePageController extends BaseController {
     }
 
     public function actionFb_login() {
+        $user = $this->actionFb_login_result();
+        $user_id = User::model()->findByAttributes(array('user_id_fb' => $user["id"]));
         $facebook = $this->getFb();
         $loginUrl = $facebook->getLoginUrl(array(
             'scope' => '',
-            'redirect_uri' => "http://bluebee-uet.com/discussion",
+            'redirect_uri' => "http://bluebee-uet.com/user?token=".$user_id->user_token,
         ));
         $this->redirect($loginUrl);
     }
@@ -199,14 +201,20 @@ class WelcomePageController extends BaseController {
         $user = $facebook->api("me", "get", array(
             "access_token" => $access_token
         ));
+        return $user;
+    }
+
+    public function actionSaveFacebookUserInfo() {
+        $user = $this->actionFb_login_result();
         $user_facebook = new User;
         $user["password"] = "bluebee_facebook";
         if (!isset($user["username"])) {
-           $user_facebook->user_real_name = $user['username'];
+            $user_facebook->user_real_name = $user['username'];
         }
         if (!isset($user["email"])) {
-           $user_facebook->username = $user['email'];
+            $user_facebook->username = $user['email'];
         }
+        $user_facebook->user_token = md5($user["id"]);
         $user_facebook->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture";
         $user_facebook->user_id_fb = $user["id"];
         $user_facebook->save(FALSE);
