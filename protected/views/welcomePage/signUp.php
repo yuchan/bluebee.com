@@ -9,8 +9,12 @@
                 type: "POST",
                 url: '<?php echo Yii::app()->createUrl('welcomePage/signup') ?>',
                 data: data,
+                beforeSend: function() {
+                    $('#alert').html('<img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax_loader_blue_128.gif" alt="" style="" id="loading"/>');
+                },
                 success: function(data) {
                     var json = data;
+                    $('#alert').html('');
                     var result = $.parseJSON(json);
                     //       $('#res').html(result.message);
                     if (result.success) {
@@ -86,18 +90,18 @@
                             </div>
                             <div class="g-form-row">
                                 <div class="g-form-row-field">
-<!--                                    <div class="g-alert type_success with_close" style="position: absolute; z-index: 2; width: 89%">
-                                        <div class="g-alert-close"> ✕ </div>
-                                        <div class="g-alert-body">
-                                            <p><b>Success Message</b>. Your Text Goes Here.</p>
-                                        </div>
-                                    </div>
-                                    <div class="g-alert type_error with_close" style="position: absolute; z-index: 2; width: 89%">
-                                        <div class="g-alert-close"> ✕ </div>
-                                        <div class="g-alert-body">
-                                            <p><b>Success Message</b>. Your Text Goes Here.</p>
-                                        </div>
-                                    </div>-->
+                                    <!--                                    <div class="g-alert type_success with_close" style="position: absolute; z-index: 2; width: 89%">
+                                                                            <div class="g-alert-close"> ✕ </div>
+                                                                            <div class="g-alert-body">
+                                                                                <p><b>Success Message</b>. Your Text Goes Here.</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="g-alert type_error with_close" style="position: absolute; z-index: 2; width: 89%">
+                                                                            <div class="g-alert-close"> ✕ </div>
+                                                                            <div class="g-alert-body">
+                                                                                <p><b>Success Message</b>. Your Text Goes Here.</p>
+                                                                            </div>
+                                                                        </div>-->
                                     <button class="g-btn type_primary" type="submit" name="Submit" value="Submit" style="width: 100%">
                                         <i class="icon-pencil"></i>
                                         Đăng Ký
