@@ -1,3 +1,4 @@
+<?php foreach ($detail_classpage as $class): ?>
 <div class="l-submain-h i-cf">
     <div class="l-content">
         <div class="l-content-h i-widgets">
@@ -421,8 +422,8 @@
                     </div>
                 </div>
                 <div class="one-third">
-                    <h3 style="margin-top: 20px">Lớp: <br>Công Nghệ Phần Mềm</h3>
-                    <p><strong>Mã Môn Học:</strong> INT2208</p>
+                    <h3 style="margin-top: 20px">Lớp: <br><?php echo $class->class_name ?></h3>
+                    <p><strong>Mã Môn Học:</strong> <?php echo $class->class_code ?></p>
                     <p><strong>Số tín chỉ:</strong> 3</p>
                     <p><strong>Website Môn Học:</strong> <a href="bluebee-uet.com">bluebee-uet.com</a></p>
                     <div class="clearfix">
@@ -496,3 +497,4 @@
         </div>
     </div>
 </div>
+<?php endforeach; ?>
