@@ -44,7 +44,7 @@ class ClassPageController extends BaseController {
                     $newclass = ClassYear::model()->findByAttributes(array('class_code' => $createClassFormData['classcode']));
                     if ($newclass) {
                         if ($newclass->class_year == date("Y")) {
-                            $this->retVal->message = "Mã lớp cho năm học này đã tồn tại, bạn có thể tham gia lớp học tại ";
+                            $this->retVal->message = "Mã lớp cho năm học này đã tồn tại, bạn có thể tham gia lớp học tại đây";
                             $class_id = $newclass->class_id;
                             $this->retVal->url_class_exist = Yii::app()->createUrl('classPage?classid=' . $class_id);
                             $this->retVal->success = 2;
