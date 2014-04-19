@@ -72,17 +72,17 @@
                         <div class="w-gallery type_slider">
                             <div class="w-gallery-h">
                                 <div class="w-gallery-main">
-                                    <div class="w-gallery-main-h flexslider flex-loading" style="margin: auto">
+                                    <div class="w-gallery-main-h flexslider flex-loading" style="margin: auto;<!--  border: 5px solid black -->">
                                         <ul class="slides">
                                             <li>
-                                                <div style="margin-top: 15%">
+                                                <div>
                                                     <h3>Welcome to Our Social</h3>
                                                     <img style="height: 120px; width: 120px; margin: auto" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo.jpg" />
                                                     <h4>Ong Xanh Mặt Ngầu</h4>
                                                 </div>
                                             </li>
                                             <li>
-                                                <div style="margin-top: 5%">
+                                                <div>
                                                     <div class="g-cols">
                                                         <div class="one-half">
                                                             <img height="375" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/big-2.jpg" />
@@ -104,7 +104,7 @@
                                                 </div>
                                             </li>
                                             <li>
-                                                <div style="margin-top: 5%">
+                                                <div>
                                                     <div class="g-cols">
                                                         <div class="one-half">
                                                             <img height="375" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/our-goal.jpg" />

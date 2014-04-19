@@ -1,29 +1,3 @@
-<script type="text/javascript">
-    $(document).ready(function()
-    {
-        $("#comments").hide();
-        $("#hidecmt").hide();
-
-    });
-
-
-    function opencomment()
-    {
-        $("#comments").show();
-        $("#opencmt").hide();
-        $("#hidecmt").show();
-    }
-
-    function closecomment()
-    {
-        $("#comments").hide();
-        $("#opencmt").show();
-        $("#hidecmt").hide();
-    }
-
-
-</script>
-
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -33,16 +7,59 @@
             var data = form.serialize();
             $.ajax({
                 type: "POST",
-                url: '<?php echo Yii::app()->createUrl('classPage/createClass') ?>',
+                url: '<?php echo Yii::app()->createUrl('classPage/createclass') ?>',
                 data: data,
+                beforeSend: function () {
+                        $('#alert').html('<img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax_loader_blue_128.gif" alt="" style="" id="loading"/>');
+                    },
                 success: function(data) {
                     var json = data;
                     var result = $.parseJSON(json);
                     //       $('#res').html(result.message);
-                   alert(result.message);
-                   location.href = result.url;
-                }
-            });
+                     $('#alert').html('');
+                    
+                    if (result.success == 1) {
+                        var item = $('<div class="g-form-row-field">' +
+                                '<div id="success" class="g-alert type_success">' +
+                                '<div class="g-alert-body">' +
+                                '<p><b>' + result.message + '</b></p>' +
+                                '</div>' +
+                                '</div>' +
+                                '</div>').hide().fadeIn(120);
+
+                        $('#alert').html(item)
+                        location.href = result.url;
+                    }
+                    else if (result.success == 2) {
+
+                        var item = $('<div class="g-form-row-field">' +
+                                '<div id="error" class="g-alert type_error">' +
+                                '<div class="g-alert-body">' +
+                                '<p><b>' + result.message + ' <a href = "'+result.url_class_exist+'">đây</a></b></p>' +
+                                '</div>' +
+                                '</div>' +
+                                '</div>').hide().fadeIn(120);
+
+                        $('#alert').html(item)
+                        //   var json = $.parseJSON(data);
+                        //  $('#res').html('Message : ' + json.message + '<br>Success : ' + json.success)
+                    }
+                    
+                     else {
+
+                        var item = $('<div class="g-form-row-field">' +
+                                '<div id="error" class="g-alert type_error">' +
+                                '<div class="g-alert-body">' +
+                                '<p><b>' + result.message + '</b></p>' +
+                                '</div>' +
+                                '</div>' +
+                                '</div>').hide().fadeIn(120);
+
+                        $('#alert').html(item)
+                        //   var json = $.parseJSON(data);
+                        //  $('#res').html('Message : ' + json.message + '<br>Success : ' + json.success)
+                    }
+                }});
             event.preventDefault();
             event.stopPropagation();
             return false;
@@ -58,12 +75,12 @@
     </div>
     <div class="l-submain-h g-html i-cf">
         <div class="g-cols">
-           
+
             <div class="two-thirds">
                 <div class="l-content">
-                     <div class="g-form-row"id="alert" style="position: absolute; z-index: 2; width: 89%; right:100%">
+                    <div class="g-form-row"id="alert" style="position: absolute; z-index: 2; width: 89%; right:100%">
 
-            </div>
+                    </div>
                     <h3>Kien's Profile</h3>
                     <div class='g-cols'>
                         <div class='full-width'>
