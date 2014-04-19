@@ -152,6 +152,13 @@ class WelcomePageController extends BaseController {
         //  $this->render('welcomePage/signUp');
     }
 
+    public function actionLogout() {
+        Yii::app()->session['user_id'] = $user->user_id;
+        Yii::app()->session['user_real_name'] = $user->user_real_name;
+        Yii::app()->session['user_email'] = $user->username;
+        $this->redirect(Yii::app()->createUrl('welcomepage'));
+    }
+    
     public function actionActivate() {
         if (isset($_GET["token"])) {
             $user_activate = User::model()->findByAttributes(array('user_activator' => $_GET["token"]));
