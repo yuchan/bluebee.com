@@ -3,16 +3,19 @@
     $(document).ready(function() {
         var form = $('#loginform');
         form.submit(function(event) {
-            $('#res').html('');
             var data = form.serialize();
             $.ajax({
                 type: "POST",
                 url: '<?php echo Yii::app()->createUrl('welcomePage/Login') ?>',
                 data: data,
+                beforeSend: function () {
+                        $('#alert').html('<img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax_loader_blue_128.gif" alt="" style="" id="loading"/>');
+                    },
                 success: function(data) {
                     var json = data;
                     var result = $.parseJSON(json);
                     //       $('#res').html(result.message);
+                    $('#alert').html('');
                     if (result.success) {
                         var item = $('<div class="g-form-row-field">' +
                                 '<div id="success" class="g-alert type_success">' +
@@ -22,8 +25,9 @@
                                 '</div>' +
                                 '</div>').hide().fadeIn(120);
 
-                        $('#alert').html(item)
-                        location.href = result.url;
+                        $('#alert').html(item);
+                        setInterval(location.href = result.url, 3000);
+                        
                     }
                     else {
 
@@ -54,11 +58,13 @@
         });
     });
 </script>
+
 <!-- MAIN -->
 <div class="l-submain" style="height: 100%; padding-top: 10px">
     <div class="l-submain-h i-cf">
         <div class="l-content">
-            <div class="l-content-h i-widgets"><div id="alert" style="position: absolute; z-index: 99; width: 100%; top: -55px; display: none;">
+            <div class="l-content-h i-widgets">
+                <div id="alert" style="position: absolute; z-index: 99; width: 100%; top: -55px; display: none; text-align: center">
 
                 </div>
                 <div class="g-cols" style="margin-top: 10%; margin-bottom: 0">
@@ -124,7 +130,7 @@
                                         <style type="text/css"></style>
                                         <ul class="flex-direction-nav">
                                             <li>
-                                                <a href="#" class="flex-prev" style="color: black; border-bottom: none">Previous</a>
+                                                <a href="#" class="flex-prev" style="color: black; border-bottom: none; ">Previous</a>
                                             </li>
                                             <li>
                                                 <a href="#" class="flex-next" style="color: black; border-bottom: none">Next</a>
@@ -195,12 +201,11 @@
                                                                         <button class="g-btn type_primary" type="submit" name="Submit" value="Submit" style="width: 100%">Đăng Nhập</button>
                                                                         
                                                                     </div>
-                                                                </div>
-                                                                </form>
+                                                                </div>                                                   
                                                                 <?php $this->renderPartial('fb') ?>
                                                             </div>
                                                         </div>
-
+                                                     </form>
                                                 </div>
                                             </div>
                                         </div>
