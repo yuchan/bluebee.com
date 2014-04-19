@@ -16,6 +16,10 @@ class WelcomePageController extends BaseController {
     public function actionWelcomePage() {
         $this->render('welcomePage');
     }
+    
+    public function checkSession() {
+        
+    }
 
     public function actionLogin() {
 
