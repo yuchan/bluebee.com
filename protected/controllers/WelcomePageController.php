@@ -17,8 +17,10 @@ class WelcomePageController extends BaseController {
         $this->render('welcomePage');
     }
 
-    public function actionLogin() {
+   
 
+    public function actionLogin() {
+        
         $this->retVal = new stdClass();
         $request = Yii::app()->request;
         if ($request->isPostRequest && isset($_POST)) {
