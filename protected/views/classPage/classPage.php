@@ -1,4 +1,130 @@
 <?php foreach($detail_classpage as $class): ?>
+<form class="g-form white-popup-block mfp-hide" id="edit-infomation-class" action="/bluebee.com/index.php/classPage/createClass" method="POST">
+                        <h3>Chỉnh Sửa Thông Tin</h3>
+                        <div class="g-form-group">
+                            <div class="g-form-group-rows">
+                                <div class="g-form-row">
+                                    <div class="g-form-row-label">
+                                        <label class="g-form-row-label-h" for="classcode">Mã lớp (*)</label>
+                                    </div>
+                                    <div class="g-form-row-field">
+                                        <div class="g-input">
+                                            <input type="text" name="classcode" id="contact_username" placeholder="Mã lớp" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="g-form-row">
+                                    <div class="g-form-row-label">
+                                        <label class="g-form-row-label-h" for="classname">Tên lớp (*)</label>
+                                    </div>
+                                    <div class="g-form-row-field">
+                                        <div class="g-input">
+                                            <input type="text" name="classname" id="contact_username" placeholder="Tên lớp" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="g-form-row">
+                                    <div class="g-form-row-label">
+                                        <label class="g-form-row-label-h" for="classname">Số tín chỉ (*)</label>
+                                    </div>
+                                    <div class="g-form-row-field">
+                                        <div class="g-input">
+                                            <input type="text" name="classname" id="contact_username" placeholder="Số tín chỉ" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="g-form-row">
+                                    <div class="g-form-row-label">
+                                        <label class="g-form-row-label-h" for="classname">Website Môn học (*)</label>
+                                    </div>
+                                    <div class="g-form-row-field">
+                                        <div class="g-input">
+                                            <input type="text" name="classname" id="contact_username" placeholder="Website Môn học" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="g-form-row">
+                                    <div class="g-form-row-field">
+                                        <button class="g-btn type_primary" type="submit" name="Submit" value="Submit" style="text-transform: inherit">Lưu thông tin</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div id="alert"></div>
+                        </div>
+                    </form>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var form = $('#edit-infomation-class');
+        form.submit(function(event) {
+            $('#res').html('');
+            var data = form.serialize();
+            $.ajax({
+                type: "POST",
+                url: '/bluebee.com/index.php/classPage/createclass',
+                data: data,
+                beforeSend: function () {
+                        $('#alert').html('<img class="w-blog-entry-img-h" src="/bluebee.com/themes/classic/assets/img/ajax_loader_blue_128.gif" alt="" style="" id="loading"/>');
+                    },
+                success: function(data) {
+                    var json = data;
+                    var result = $.parseJSON(json);
+                     $('#alert').html('');
+                    if (result.success == 1) {
+                        var item = $('<div class="g-form-row-field">' +
+                                '<div id="success" class="g-alert type_success">' +
+                                '<div class="g-alert-body">' +
+                                '<p><b>' + result.message + '</b></p>' +
+                                '</div>' +
+                                '</div>' +
+                                '</div>');
+                        var hide = $('#alert').css('display');
+                        if (hide == 'none') {
+                            $('#alert').html(item).slideDown('slow');
+                        } else {
+                            $('#alert').slideUp(function(){
+                                $('#alert').html(item).slideDown('slow');
+                            });
+                        }
+                    }
+                    else if (result.success == 2) {
+
+                        var item = $('<div class="g-form-row-field">' +
+                                '<div id="error" class="g-alert type_error">' +
+                                '<div class="g-alert-body">' +
+                                '<p><b>' + result.message + ' <a href = "'+result.url_class_exist+'">đây</a></b></p>' +
+                                '</div>' +
+                                '</div>' +
+                                '</div>');
+                        var hide = $('#alert').css('display');
+                        if (hide == 'none') {
+                            $('#alert').html(item).slideDown('slow');
+                        } else {
+                            $('#alert').slideUp(function(){
+                                $('#alert').html(item).slideDown('slow');
+                            });
+                        }
+                    }
+                     else {
+                        var item = $('<div class="g-form-row-field">' +
+                                '<div id="error" class="g-alert type_error">' +
+                                '<div class="g-alert-body" style="text-align: center">' +
+                                '<p><b>' + result.message + '</b></p>' +
+                                '</div>' +
+                                '</div>' +
+                                '</div>');
+                        var hide = $('#alert').css('display');
+                        if (hide == 'none') {
+                            $('#alert').html(item).slideDown('slow');
+                        } else {
+                            $('#alert').slideUp(function(){
+                                $('#alert').html(item).slideDown('slow');
+                            });
+                        }
+                    }
+                }});
+        });
+    });</script>
 <div class="l-submain-h i-cf">
     <div class="l-content">
         <div class="l-content-h i-widgets">
@@ -405,7 +531,6 @@
                                     </div>
                                     <div class="w-tabs-section-content">
                                         <div class="w-tabs-section-content-h">
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -434,60 +559,7 @@
                         Chỉnh Sửa
                         <i class="icon-pencil"></i>
                     </a>
-                    <form class="g-form white-popup-block mfp-hide" id="edit-infomation-class" action="/bluebee.com/index.php/classPage/createClass" method="POST">
-                        <h3>Chỉnh Sửa Thông Tin</h3>
-                        <div class="g-form-group">
-                            <div class="g-form-group-rows">
-                                <div class="g-form-row">
-                                    <div class="g-form-row-label">
-                                        <label class="g-form-row-label-h" for="classcode">Mã lớp (*)</label>
-                                    </div>
-                                    <div class="g-form-row-field">
-                                        <div class="g-input">
-                                            <input type="text" name="classcode" id="contact_username" placeholder="Mã lớp" value="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="g-form-row">
-                                    <div class="g-form-row-label">
-                                        <label class="g-form-row-label-h" for="classname">Tên lớp (*)</label>
-                                    </div>
-                                    <div class="g-form-row-field">
-                                        <div class="g-input">
-                                            <input type="text" name="classname" id="contact_username" placeholder="Tên lớp" value="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="g-form-row">
-                                    <div class="g-form-row-label">
-                                        <label class="g-form-row-label-h" for="classname">Số tín chỉ (*)</label>
-                                    </div>
-                                    <div class="g-form-row-field">
-                                        <div class="g-input">
-                                            <input type="text" name="classname" id="contact_username" placeholder="Số tín chỉ" value="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="g-form-row">
-                                    <div class="g-form-row-label">
-                                        <label class="g-form-row-label-h" for="classname">Website Môn học (*)</label>
-                                    </div>
-                                    <div class="g-form-row-field">
-                                        <div class="g-input">
-                                            <input type="text" name="classname" id="contact_username" placeholder="Website Môn học" value="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="g-form-row">
-                                    <div class="g-form-row-field">
-                                        <button class="g-btn type_primary" type="submit" name="Submit" value="Submit" style="text-transform: inherit">Lưu thông tin</button>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div id="alert"></div>
-                        </div>
-                    </form>
+                    
                     <p style="clear: both"><strong>Số tín chỉ:</strong> <?php echo $class->class_credit_number ?></p>
                     <p><strong>Website Môn Học:</strong> <a href="bluebee-uet.com"><?php echo $class->class_website ?></a></p>
                     <div class="clearfix">
