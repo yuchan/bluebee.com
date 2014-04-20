@@ -12,6 +12,9 @@ class ClassPageController extends BaseController {
     public function addClass($code, $name, $description) {
         $class_new = new class_model;
         $class_year = new ClassYear;
+        $class_user = new ClassUser;
+        
+        
 
         $class_new->class_code = $code;
         $class_new->class_name = $name;
@@ -26,6 +29,10 @@ class ClassPageController extends BaseController {
         $class_year->class_year = date("Y");
 
         $class_year->save(FALSE);
+        
+        $class_user->user_id = Yii::app()->session['user_id'];
+        $class_user->admin_id = Yii::app()->session['user_id'];
+        $class_user->class_id = $class_id->class_id;
 
         return $class_id->class_id;
     }
