@@ -231,6 +231,25 @@
                                                     margin: 0 0 0 40px;
                                                     width: 92%;
                                                 }
+                                                .button-in-activity-box{
+                                                    width: 100%;
+                                                    text-transform: none;
+                                                    font-size: 14px;
+                                                    font-weight: normal;
+                                                    margin: 0;
+                                                }
+                                                .item-add-comment-form {
+                                                    max-height: 70px;
+                                                    height: 47px;
+                                                    background-color: white;
+                                                    line-height: 24px;
+                                                    outline: none;
+                                                    margin-left: 47px;
+                                                    width: 91%;
+                                                }
+                                                .item-add-comment-form:focus {
+                                                    outline: none;
+                                                }
                                             </style>
                                             <div style="border-top: 1px solid #d8d8d8;">
                                                 <div class="activity-content">
@@ -250,13 +269,24 @@
                                                         <article data-paths="body" id="el-99">
                                                             <p>Sometimes, I would ask myself: "Is this possible?" Then answer my own question with: "What <em>isn't</em> possible?" and work on finding a solution to how to make it possible.</p>
                                                         </article>
-                                                        <button class=" g-btn type_primary size_small" id="opencmt"><span>Xem thêm</span></button>
-                                                        <div class="comment-container" style="display: none">
-                                                            <div class="show-more-comment">
-                                                                <a class="view-more" href="#">
-                                                                    View all <span data-paths="repliesCount" id="el-117">4</span> comments...
-                                                                </a>
-                                                            </div>
+                                                        <button class=" g-btn type_primary size_small opencmt button-in-activity-box" id="opencmt"><span>Xem thêm</span></button>
+                                                        <script>
+                                                            $(document).ready(function() {
+                                                                $('.comment-container').hide();
+                                                                $('.opencmt').click(function(event) {
+                                                                    var hide = $('.comment-container').css('display');
+                                                                    if(hide == 'none'){
+                                                                        $(this).html('<span>Đóng</span>');
+                                                                        $('.comment-container').slideDown('slow', function() {
+                                                                        });
+                                                                    } else {
+                                                                        $(this).html('<span>Xem thêm</span>');
+                                                                        $('.comment-container').slideUp();
+                                                                    }
+                                                                });
+                                                            });
+                                                        </script>
+                                                        <div class="comment-container">
                                                             <div class="list-item-comment-wrapper">
                                                                 <div class="item-comment">
                                                                     <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
@@ -315,9 +345,45 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                                <button class=" g-btn type_primary size_small more-comment button-in-activity-box" id="more-comment"><span>Xem thêm 4 bình luận nữa</span></button>
                                                             </div>
-                                                            <div>
-
+                                                        </div>
+                                                        <style type="text/css">
+                                                            .item-add-comment-box {
+                                                                display: block;
+                                                                width: auto;
+                                                                height: auto;
+                                                                position: relative;
+                                                                overflow: visible;
+                                                            }
+                                                            .comment-input-box {
+                                                                border: 1px solid #d0d6d9;
+                                                                box-sizing: border-box;
+                                                                display: inline-block;
+                                                                min-width: 50px;
+                                                                width: 100%;
+                                                                height: 100%;
+                                                                overflow: hidden;
+                                                                vertical-align: baseline;
+                                                            }
+                                                            .comment-input-content {
+                                                                color: #3c4752;
+                                                                width: 100%;
+                                                                height: auto;
+                                                                min-height: 45px;
+                                                                line-height: 16px;
+                                                                font-size: 14px;
+                                                                padding: 15px 100px 14px 56px;
+                                                            }
+                                                        </style>
+                                                        <div class="item-add-comment-box">
+                                                            <a class="avatar-view" href="user">
+                                                                <img class="" width="35" height="35" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
+                                                            </a>
+                                                            <div class="comment-input-box">
+                                                                <div contenteditable="true" class="comment-input-content">
+                                                                    Type your comment add hit enter
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
