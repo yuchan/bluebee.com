@@ -41,11 +41,12 @@ class WelcomePageController extends BaseController {
                                         Yii::app()->session['user_id'] = $user->user_id;
                                         Yii::app()->session['user_real_name'] = $user->user_real_name;
                                         Yii::app()->session['user_email'] = $user->username;
-
+                                        
                                         $this->retVal->success = 1;
                                         //token
                                         $token = StringHelper::generateToken(16, 36);
                                         $user->user_token = $token;
+                                        Yii::app()->session['token'] = $token;
                                         $user->save(FALSE);
                                         $this->retVal->token = $token;
                                         $this->retVal->url = Yii::app()->createUrl("user?token=" . $token);
@@ -159,9 +160,9 @@ class WelcomePageController extends BaseController {
     }
 
     public function actionLogout() {
-        Yii::app()->session['user_id'] = $user->user_id;
-        Yii::app()->session['user_real_name'] = $user->user_real_name;
-        Yii::app()->session['user_email'] = $user->username;
+        Yii::app()->session['user_id'] = "";
+        Yii::app()->session['user_real_name'] = "";
+        Yii::app()->session['user_email'] = "";
         $this->redirect(Yii::app()->createUrl('welcomepage'));
     }
 
