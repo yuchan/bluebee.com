@@ -223,10 +223,8 @@
 </div>
 <div class="w-actionbox controls_aside color_primary" style="padding: 20px 40px; margin-top: -20px">
     <div class="w-actionbox-h" style="max-width: 600px; margin: 0 auto">
-        <div class="w-actionbox-text" style="font-size: 26px">
-            <h3 style="float: left; margin-top: 7px">Click</h3>
-            <a id="learn-more" class="w-actionbox-button g-btn type_primary size_big" href="#rock" target="_blank" style="float: left; margin-right: 20px"><span>Learn More</span></a>
-            <p style="float: left; font-size: 16px">Add Some Text Here</p>
+        <div class="w-actionbox-text" style="font-size: 26px; width: 100%; text-align: center">
+            <a id="learn-more" class="w-actionbox-button g-btn type_primary size_big" href="#rock" target="_blank"><span>Learn More</span></a>
         </div>
         <div class="w-actionbox-controls">
             Add Some Text Here
