@@ -1,4 +1,4 @@
-
+<?php foreach ($user_detail_info as $user): ?>
 <script type="text/javascript">
     $(document).ready(function() {
         var form = $('#newclassform');
@@ -9,15 +9,15 @@
                 type: "POST",
                 url: '<?php echo Yii::app()->createUrl('classPage/createclass') ?>',
                 data: data,
-                beforeSend: function () {
-                        $('#alert').html('<img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax_loader_blue_128.gif" alt="" style="" id="loading"/>');
-                    },
+                beforeSend: function() {
+                    $('#alert').html('<img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax_loader_blue_128.gif" alt="" style="" id="loading"/>');
+                },
                 success: function(data) {
                     var json = data;
                     var result = $.parseJSON(json);
                     //       $('#res').html(result.message);
-                     $('#alert').html('');
-                    
+                    $('#alert').html('');
+
                     if (result.success == 1) {
                         var item = $('<div class="g-form-row-field">' +
                                 '<div id="success" class="g-alert type_success">' +
@@ -35,7 +35,7 @@
                         var item = $('<div class="g-form-row-field">' +
                                 '<div id="error" class="g-alert type_error">' +
                                 '<div class="g-alert-body">' +
-                                '<p><b>' + result.message + ' <a href = "'+result.url_class_exist+'">đây</a></b></p>' +
+                                '<p><b>' + result.message + ' <a href = "' + result.url_class_exist + '">đây</a></b></p>' +
                                 '</div>' +
                                 '</div>' +
                                 '</div>').hide().fadeIn(120);
@@ -44,8 +44,8 @@
                         //   var json = $.parseJSON(data);
                         //  $('#res').html('Message : ' + json.message + '<br>Success : ' + json.success)
                     }
-                    
-                     else {
+
+                    else {
 
                         var item = $('<div class="g-form-row-field">' +
                                 '<div id="error" class="g-alert type_error">' +
@@ -100,7 +100,7 @@
                             </div>
 
                             <div class="rounded1 color_alternate">
-                                <h6>Tài liệu yêu thích</h6>
+                                <h6>Tài liệu đã xem</h6>
                             </div>
 
                             <div class="w-gallery layout_tile size_s">
@@ -440,5 +440,5 @@
         </div>
     </div>
 </div>
-
+<?php endforeach; ?>
 
