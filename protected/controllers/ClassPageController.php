@@ -33,7 +33,8 @@ class ClassPageController extends BaseController {
         $class_user->user_id = Yii::app()->session['user_id'];
         $class_user->admin_id = Yii::app()->session['user_id'];
         $class_user->class_id = $class_id->class_id;
-        
+        $class_user->is_active = 1;
+
         $class_user->save(FALSE);
 
         return $class_id->class_id;
