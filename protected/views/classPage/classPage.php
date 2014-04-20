@@ -227,8 +227,8 @@
                                                     border-bottom: 1px solid #d8d8d8;
                                                 }
                                                 .comment-content {
-                                                    margin: 0 0 0 40px;
-                                                    width: 92%;
+                                                    margin: 10px 0 10px 60px;
+                                                    width: 90%;
                                                 }
                                                 .button-in-activity-box{
                                                     width: 100%;
@@ -248,6 +248,10 @@
                                                 }
                                                 .item-add-comment-form:focus {
                                                     outline: none;
+                                                }
+                                                .fix-style-profile {
+                                                    margin: 0 0 10px 0;
+                                                    width: 100%;
                                                 }
                                             </style>
                                             <div style="border-top: 1px solid #d8d8d8;">
@@ -292,7 +296,7 @@
                                                                         <img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/sancak.png" style="opacity: 1;">
                                                                     </a>
                                                                     <div class="comment-content">
-                                                                        <div  class="profile clearfix" style="margin: 0; width: 100%">
+                                                                        <div  class="fix-style-profile profile clearfix">
                                                                             <a style="float: left" href="/glang">
                                                                                 <span data-paths="profile.firstName profile.lastName" id="el-105">sancak</span>
                                                                             </a>
@@ -311,7 +315,7 @@
                                                                         <img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/JoshMax.png" style="opacity: 1;">
                                                                     </a>
                                                                     <div class="comment-content">
-                                                                        <div  class="profile clearfix" style="margin: 0; width: 100%">
+                                                                        <div  class="fix-style-profile profile clearfix">
                                                                             <a style="float: left" href="/glang">
                                                                                 <span data-paths="profile.firstName profile.lastName" id="el-105">Josh Max</span>
                                                                             </a>
@@ -330,7 +334,7 @@
                                                                         <img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/trillobite.png" style="opacity: 1;">
                                                                     </a>
                                                                     <div class="comment-content">
-                                                                        <div  class="profile clearfix" style="margin: 0; width: 100%">
+                                                                        <div  class="fix-style-profile profile clearfix">
                                                                             <a style="float: left" href="/glang">
                                                                                 <span data-paths="profile.firstName profile.lastName" id="el-105">trillobite</span>
                                                                             </a>
