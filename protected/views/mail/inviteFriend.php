@@ -39,14 +39,14 @@
                         </div>
                         <div class="content" style="float: left; margin: 5px 0 0 10px; color: white">
                         	<a href="user.bluebee-uet.com"><p style="color: white; text-decoration: underline; font-size: 20px;">User</p></a>
-                            <p style="font-size:13px;">User want to add You to Him/Her group/class</p>
+                            <p style="font-size:13px;">Có Đứa muốn mời bạn vào lớp/nhóm của nó</p>
                         </div>
                         <div class="button" style="margin: auto; float: right">
-                            <a href="<?php echo $link ?>"<button>Accept</button> </a>
-        		            <button>Deny</button>
+                            <a href="<?php echo $link ?>"<button>Đồng ý</button> </a>
+        		            <button>Bỏ qua</button>
         		        </div>
-        		<p style="margin-top: 100px; clear: both;">Thanks!</p>
-        		<p style="margin-bottom: 20px">- The BlueBee Team</p>
+        		<p style="margin-top: 100px; clear: both;">Cảm ơn!</p>
+        		<p style="margin-bottom: 20px">- Nhóm Blue Bee</p>
             </div>
         </div>
 
