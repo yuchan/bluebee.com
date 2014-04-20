@@ -418,7 +418,6 @@
                                     <div class="w-tabs-section-content">
                                         <div class="w-tabs-section-content-h">
                                             <div class="g-cols">
-                                                
                                             </div>
                                         </div>
                                     </div>
@@ -429,8 +428,66 @@
                 </div>
                 <div class="one-third">
                     <h3 style="margin-top: 20px">Lớp: <br>Công Nghệ Phần Mềm</h3>
-                    <p><strong>Mã Môn Học:</strong> INT2208</p>
-                    <p><strong>Số tín chỉ:</strong> 3</p>
+                    <p style="float: left"><strong>Mã Môn Học:</strong> INT2208</p>
+                    <a style="float: right; margin-top: 5px" href="#edit-infomation-class" class="popup-with-form">
+                        Chỉnh Sửa
+                        <i class="icon-pencil"></i>
+                    </a>
+                    <form class="g-form white-popup-block mfp-hide" id="edit-infomation-class" action="/bluebee.com/index.php/classPage/createClass" method="POST">
+                        <h3>Chỉnh Sửa Thông Tin</h3>
+                        <div class="g-form-group">
+                            <div class="g-form-group-rows">
+                                <div class="g-form-row">
+                                    <div class="g-form-row-label">
+                                        <label class="g-form-row-label-h" for="classcode">Mã lớp (*)</label>
+                                    </div>
+                                    <div class="g-form-row-field">
+                                        <div class="g-input">
+                                            <input type="text" name="classcode" id="contact_username" placeholder="Mã lớp" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="g-form-row">
+                                    <div class="g-form-row-label">
+                                        <label class="g-form-row-label-h" for="classname">Tên lớp (*)</label>
+                                    </div>
+                                    <div class="g-form-row-field">
+                                        <div class="g-input">
+                                            <input type="text" name="classname" id="contact_username" placeholder="Tên lớp" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="g-form-row">
+                                    <div class="g-form-row-label">
+                                        <label class="g-form-row-label-h" for="classname">Số tín chỉ (*)</label>
+                                    </div>
+                                    <div class="g-form-row-field">
+                                        <div class="g-input">
+                                            <input type="text" name="classname" id="contact_username" placeholder="Số tín chỉ" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="g-form-row">
+                                    <div class="g-form-row-label">
+                                        <label class="g-form-row-label-h" for="classname">Website Môn học (*)</label>
+                                    </div>
+                                    <div class="g-form-row-field">
+                                        <div class="g-input">
+                                            <input type="text" name="classname" id="contact_username" placeholder="Website Môn học" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="g-form-row">
+                                    <div class="g-form-row-field">
+                                        <button class="g-btn type_primary" type="submit" name="Submit" value="Submit">Tạo lớp mới</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div id="alert"></div>
+                        </div>
+                    </form>
+                    <p style="clear: both"><strong>Số tín chỉ:</strong> 3</p>
                     <p><strong>Website Môn Học:</strong> <a href="bluebee-uet.com">bluebee-uet.com</a></p>
                     <div class="clearfix">
                         <p style="float: left"><strong>Thành viên:</strong> <a>7 người</a></p>
