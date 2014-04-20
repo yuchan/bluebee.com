@@ -278,16 +278,16 @@
                         <span>&nbsp Tên &nbsp : &nbsp &nbsp &nbsp &nbsp &nbsp <span style="color: #B0B3B5"><?php echo $user->user_real_name ?></span> </span>
                         <br/>
                         <i class="icon-phone"></i>
-                        <span>&nbsp Phone &nbsp : &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span style="color: #B0B3B5">01666107083</span> </span>
+                        <span>&nbsp Phone &nbsp : &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span style="color: #B0B3B5"><?php echo $user->user_phone ?></span> </span>
                         <br/>
                         <i class="icon-home"></i>
-                        <span>&nbsp Live at &nbsp : &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span style="color: #B0B3B5">Ha Noi, Viet Nam</span> </span>
-                        <br/>
+                        <span>&nbsp Live at &nbsp : &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span style="color: #B0B3B5"><?php echo $user->user_hometown ?></span> </span>
+<!--                        <br/>
                         <i class="icon-heart"></i>
                         <span>&nbsp Relationship &nbsp : &nbsp &nbsp &nbsp <span style="color: #BABDBF">Forever alone</span> </span>
-                        <br/>
-                        <i class="icon-group"></i>
-                        <span>&nbsp Join in &nbsp : &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span style="color: #B0B3B5">13/1/2014</span> </span>
+                        <br/>-->
+                        <i class="icon-calendar"></i>
+                        <span>&nbsp Ngày sinh &nbsp : &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span style="color: #B0B3B5"><?php echo $user->user_dob ?></span> </span>
                         <br/>
                     </div>
 
