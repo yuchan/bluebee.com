@@ -429,8 +429,8 @@
                 </div>
                 <div class="one-third">
                     <h3 style="margin-top: 20px">Lớp: <br><?php echo $class->class_name ?></h3>
-                    <p><strong>Mã Môn Học:</strong><?php echo $class->class_code ?></p>
-                    <a style="float: right; margin-top: 5px" href="#edit-infomation-class" class="popup-with-form">
+                    <p style="float: left"><strong>Mã Môn Học:</strong><?php echo $class->class_code ?></p>
+                    <a style="float: right; margin-top: 0" href="#edit-infomation-class" class="popup-with-form">
                         Chỉnh Sửa
                         <i class="icon-pencil"></i>
                     </a>
@@ -480,7 +480,7 @@
                                 </div>
                                 <div class="g-form-row">
                                     <div class="g-form-row-field">
-                                        <button class="g-btn type_primary" type="submit" name="Submit" value="Submit">Tạo lớp mới</button>
+                                        <button class="g-btn type_primary" type="submit" name="Submit" value="Submit" style="text-transform: inherit">Lưu thông tin</button>
                                     </div>
                                 </div>
 
@@ -488,7 +488,7 @@
                             <div id="alert"></div>
                         </div>
                     </form>
-                    <p><strong>Số tín chỉ:</strong> <?php echo $class->class_credit_number ?></p>
+                    <p style="clear: both"><strong>Số tín chỉ:</strong> <?php echo $class->class_credit_number ?></p>
                     <p><strong>Website Môn Học:</strong> <a href="bluebee-uet.com"><?php echo $class->class_website ?></a></p>
                     <div class="clearfix">
                         <p style="float: left"><strong>Thành viên:</strong> <a>7 người</a></p>
