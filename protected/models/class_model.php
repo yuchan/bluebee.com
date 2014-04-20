@@ -12,6 +12,8 @@
  * @property string $class_name
  * @property string $class_active
  * @property string $class_token
+ * @property integer $class_credit_number
+ * @property string $class_website
  */
 class class_model extends CActiveRecord
 {
@@ -31,10 +33,12 @@ class class_model extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('class_credit_number', 'numerical', 'integerOnly'=>true),
 			array('class_code, class_avatar, class_cover, class_description, class_name, class_active, class_token', 'length', 'max'=>45),
+			array('class_website', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('class_id, class_code, class_avatar, class_cover, class_description, class_name, class_active, class_token', 'safe', 'on'=>'search'),
+			array('class_id, class_code, class_avatar, class_cover, class_description, class_name, class_active, class_token, class_credit_number, class_website', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,6 +67,8 @@ class class_model extends CActiveRecord
 			'class_name' => 'Class Name',
 			'class_active' => 'Class Active',
 			'class_token' => 'Class Token',
+			'class_credit_number' => 'Class Credit Number',
+			'class_website' => 'Class Website',
 		);
 	}
 
@@ -92,6 +98,8 @@ class class_model extends CActiveRecord
 		$criteria->compare('class_name',$this->class_name,true);
 		$criteria->compare('class_active',$this->class_active,true);
 		$criteria->compare('class_token',$this->class_token,true);
+		$criteria->compare('class_credit_number',$this->class_credit_number);
+		$criteria->compare('class_website',$this->class_website,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

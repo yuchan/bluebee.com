@@ -164,57 +164,64 @@ class ClassPageController extends BaseController {
 
     
     public function actionChangeClassInformation(){
-        $this->retVal = new stdClass();
-        $request = Yii::app()->request;
-        if ($request->isPostRequest && isset($_POST)) {
-            try {
-                $changeInformationData = array(
-                    'classcode' => @$_POST['classcode'],
-                    'classname' => @$_POST['classname'],
-                    'classcredit' => @$_POST['classCredit'],
-                    'classWebsite' => @$_POST['classWebsite'],
-                );
-                if (!empty($changeInformationData['classcode'])) {
-                    if (!empty($createClassFormData['classname'])) {
-                        if (!empty($createClassFormData['classWebsite'])) {
+        if(isset($_GET["classid"])){
+            $this->retVal = new stdClass();
+            $request = Yii::app()->request;
+            if ($request->isPostRequest && isset($_POST)) {
+                try {
+                    $changeInformationData = array(
+                        'classcode' => @$_POST['classcode'],
+                        'classname' => @$_POST['classname'],
+                        'classcredit' => @$_POST['classCredit'],
+                        'classWebsite' => @$_POST['classWebsite'],
+                    );
+                    if (!empty($changeInformationData['classcode'])) {
+                        if (!empty($createClassFormData['classname'])) {
+                            if(!empty($createClassFormData['classCredit'])) {
+                                if (!empty($createClassFormData['classWebsite'])) {
 
-                            $newclass = ClassYear::model()->findByAttributes(array('class_code' => $createClassFormData['classcode']));
-                            if ($newclass) {
-                                if ($newclass->class_year == date("Y")) {
-                                    $this->retVal->message = "Mã lớp cho năm học này đã tồn tại, bạn có thể tham gia lớp học tại ";
-                                    $class_id = $newclass->class_id;
-                                    $this->retVal->url_class_exist = Yii::app()->createUrl('classPage?classid=' . $class_id);
-                                    $this->retVal->success = 2;
+                                    $class = class_model::model()->findByAttributes(array('class_id' => $_GET["classid"]));
+                                    if ($class) {
+                                        if ($newclass->class_year == date("Y")) {
+                                            $this->retVal->message = "Mã lớp cho năm học này đã tồn tại, bạn có thể tham gia lớp học tại ";
+                                            $class_id = $newclass->class_id;
+                                            $this->retVal->url_class_exist = Yii::app()->createUrl('classPage?classid=' . $class_id);
+                                            $this->retVal->success = 2;
+                                        } else {
+                                            $this->retVal->message = "Mã lớp cho năm học này chưa tồn tại, nhưng đã có từ các năm học trước. Bạn có thể tải tài liệu của lớp học tương ứng của năm trước sau khi tạo class !";
+                                            $classid = $this->addClass($createClassFormData['classcode'], $createClassFormData['classname'], $createClassFormData['description']);
+                                            $this->retVal->url = Yii::app()->createUrl('classPage?classid=' . $classid);
+                                            $this->retVal->success = 1;
+                                        }
+                                    } else {
+                                        $classid = $this->addClass($createClassFormData['classcode'], $createClassFormData['classname'], $createClassFormData['description']);
+
+                                        $this->retVal->message = "Tạo lớp thành công, chúc bạn học tập tốt với bluebee";
+                                        $this->retVal->success = 1;
+                                        $this->retVal->url = Yii::app()->createUrl('classPage?classid=' . $classid);
+                                    }
                                 } else {
-                                    $this->retVal->message = "Mã lớp cho năm học này chưa tồn tại, nhưng đã có từ các năm học trước. Bạn có thể tải tài liệu của lớp học tương ứng của năm trước sau khi tạo class !";
-                                    $classid = $this->addClass($createClassFormData['classcode'], $createClassFormData['classname'], $createClassFormData['description']);
-                                    $this->retVal->url = Yii::app()->createUrl('classPage?classid=' . $classid);
-                                    $this->retVal->success = 1;
+                                    $this->retVal->message = "Website môn học không được để trống";
+                                    $this->retVal->success = 0;
                                 }
-                            } else {
-                                $classid = $this->addClass($createClassFormData['classcode'], $createClassFormData['classname'], $createClassFormData['description']);
-
-                                $this->retVal->message = "Tạo lớp thành công, chúc bạn học tập tốt với bluebee";
-                                $this->retVal->success = 1;
-                                $this->retVal->url = Yii::app()->createUrl('classPage?classid=' . $classid);
+                            } else{
+                                $this->retVal->message = "Số tín chỉ không được để trống";
+                                $this->retVal->success = 0;
                             }
                         } else {
-                            $this->retVal->message = "Website môn học không được để trống";
+                            $this->retVal->message = "Tên lớp không được để trống";
                             $this->retVal->success = 0;
                         }
                     } else {
-                        $this->retVal->message = "Tên lớp không được để trống";
+                        $this->retVal->message = "Mã lớp không được để trống";
                         $this->retVal->success = 0;
                     }
-                } else {
-                    $this->retVal->message = "Mã lớp không được để trống";
-                    $this->retVal->success = 0;
+                } catch (exception $e) {
+                    $this->retVal->message = $e->getMessage();
                 }
-            } catch (exception $e) {
-                $this->retVal->message = $e->getMessage();
+                echo CJSON::encode($this->retVal);
+                //     Yii::app()->end();
             }
-            echo CJSON::encode($this->retVal);
-            //     Yii::app()->end();
         }
     }
     // Uncomment the following methods and override them if needed
