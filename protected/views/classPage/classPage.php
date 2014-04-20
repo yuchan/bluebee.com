@@ -430,7 +430,7 @@
                 </div>
                 <div class="one-third">
                     <h3 style="margin-top: 20px">Lớp: <br><?php echo $class->class_name ?></h3>
-                    <p><strong>Mã Môn Học:</strong><?php echo $class->class_code ?></p>
+                    <p><strong>Mã Môn Học: </strong><?php echo $class->class_code ?></p>
                     <p><strong>Số tín chỉ:</strong> <?php echo $class->class_credit_number ?></p>
                     <p><strong>Website Môn Học:</strong> <a href="bluebee-uet.com"><?php echo $class->class_website ?></a></p>
                     <div class="clearfix">
