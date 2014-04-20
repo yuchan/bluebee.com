@@ -1,41 +1,167 @@
-<?php foreach($detail_classpage as $class): ?>
-<div class="l-submain-h i-cf">
-    <div class="l-content">
-        <div class="l-content-h i-widgets">
-            <style>
-                .cover {
-                    max-height: 200px;
-                    overflow: hidden;
-                }
-                .button-on-cover {
-                    top: 150px;
-                    left: 700px;
-                }
-                #fix-style-w-tab {
-                    border-top: none;
-                    border-left: 1px solid #d0d6d9;
-                    border-bottom: none;
-                    border-right: 1px solid #d0d6d9;
-                    min-height: 500px;
-                }
-                .fix-w-tab-item {
-                    width: 25%;
-                    text-align: center;
-                }
-            </style>
-            <div class="cover" style="">
-                <img style="width: 100%; position: relative; margin-top: -120px" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg"/>
-                <div class="button-on-cover" style="position: absolute">
-                    <button class="g-btn type_primary size_small" id="changecover" >
-                        <span>Change Cover</span>
-                    </button>
-                    <button class="g-btn type_primary size_small">
-                        <span>Create A Class</span>
-                    </button>
+<?php foreach ($detail_classpage as $class): ?>
+    <form class="g-form white-popup-block mfp-hide" id="edit-infomation-class" action="/bluebee.com/index.php/classPage/createClass" method="POST">
+        <h3>Chỉnh Sửa Thông Tin</h3>
+        <div class="g-form-group">
+            <div class="g-form-group-rows">
+                <div class="g-form-row">
+                    <div class="g-form-row-label">
+                        <label class="g-form-row-label-h" for="classcode">Mã lớp (*)</label>
+                    </div>
+                    <div class="g-form-row-field">
+                        <div class="g-input">
+                            <input type="text" name="classcode" id="contact_username" placeholder="Mã lớp" value="">
+                        </div>
+                    </div>
                 </div>
+                <div class="g-form-row">
+                    <div class="g-form-row-label">
+                        <label class="g-form-row-label-h" for="classname">Tên lớp (*)</label>
+                    </div>
+                    <div class="g-form-row-field">
+                        <div class="g-input">
+                            <input type="text" name="classname" id="contact_username" placeholder="Tên lớp" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="g-form-row">
+                    <div class="g-form-row-label">
+                        <label class="g-form-row-label-h" for="classname">Số tín chỉ (*)</label>
+                    </div>
+                    <div class="g-form-row-field">
+                        <div class="g-input">
+                            <input type="text" name="classname" id="contact_username" placeholder="Số tín chỉ" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="g-form-row">
+                    <div class="g-form-row-label">
+                        <label class="g-form-row-label-h" for="classname">Website Môn học (*)</label>
+                    </div>
+                    <div class="g-form-row-field">
+                        <div class="g-input">
+                            <input type="text" name="classname" id="contact_username" placeholder="Website Môn học" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="g-form-row">
+                    <div class="g-form-row-field">
+                        <button class="g-btn type_primary" type="submit" name="Submit" value="Submit" style="text-transform: inherit">Lưu thông tin</button>
+                    </div>
+                </div>
+
             </div>
-            <div class="g-cols">
-                <div class="two-thirds">
+            <div id="alert"></div>
+        </div>
+    </form>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var form = $('#edit-infomation-class');
+            form.submit(function(event) {
+                $('#res').html('');
+                var data = form.serialize();
+                $.ajax({
+                    type: "POST",
+                    url: '/bluebee.com/index.php/classPage/createclass',
+                    data: data,
+                    beforeSend: function() {
+                        $('#alert').html('<img class="w-blog-entry-img-h" src="/bluebee.com/themes/classic/assets/img/ajax_loader_blue_128.gif" alt="" style="" id="loading"/>');
+                    },
+                    success: function(data) {
+                        var json = data;
+                        var result = $.parseJSON(json);
+                        $('#alert').html('');
+                        if (result.success == 1) {
+                            var item = $('<div class="g-form-row-field">' +
+                                    '<div id="success" class="g-alert type_success">' +
+                                    '<div class="g-alert-body">' +
+                                    '<p><b>' + result.message + '</b></p>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>');
+                            var hide = $('#alert').css('display');
+                            if (hide == 'none') {
+                                $('#alert').html(item).slideDown('slow');
+                            } else {
+                                $('#alert').slideUp(function() {
+                                    $('#alert').html(item).slideDown('slow');
+                                });
+                            }
+                        }
+                        else if (result.success == 2) {
+
+                            var item = $('<div class="g-form-row-field">' +
+                                    '<div id="error" class="g-alert type_error">' +
+                                    '<div class="g-alert-body">' +
+                                    '<p><b>' + result.message + ' <a href = "' + result.url_class_exist + '">đây</a></b></p>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>');
+                            var hide = $('#alert').css('display');
+                            if (hide == 'none') {
+                                $('#alert').html(item).slideDown('slow');
+                            } else {
+                                $('#alert').slideUp(function() {
+                                    $('#alert').html(item).slideDown('slow');
+                                });
+                            }
+                        }
+                        else {
+                            var item = $('<div class="g-form-row-field">' +
+                                    '<div id="error" class="g-alert type_error">' +
+                                    '<div class="g-alert-body" style="text-align: center">' +
+                                    '<p><b>' + result.message + '</b></p>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>');
+                            var hide = $('#alert').css('display');
+                            if (hide == 'none') {
+                                $('#alert').html(item).slideDown('slow');
+                            } else {
+                                $('#alert').slideUp(function() {
+                                    $('#alert').html(item).slideDown('slow');
+                                });
+                            }
+                        }
+                    }});
+            });
+        });</script>
+    <div class="l-submain-h i-cf">
+        <div class="l-content">
+            <div class="l-content-h i-widgets">
+                <style>
+                    .cover {
+                        max-height: 200px;
+                        overflow: hidden;
+                    }
+                    .button-on-cover {
+                        top: 150px;
+                        left: 700px;
+                    }
+                    #fix-style-w-tab {
+                        border-top: none;
+                        border-left: 1px solid #d0d6d9;
+                        border-bottom: none;
+                        border-right: 1px solid #d0d6d9;
+                        min-height: 500px;
+                    }
+                    .fix-w-tab-item {
+                        width: 25%;
+                        text-align: center;
+                    }
+                </style>
+                <div class="cover" style="">
+                    <img style="width: 100%; position: relative; margin-top: -120px" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg"/>
+                    <div class="button-on-cover" style="position: absolute">
+                        <button class="g-btn type_primary size_small" id="changecover" >
+                            <span>Change Cover</span>
+                        </button>
+                        <button class="g-btn type_primary size_small">
+                            <span>Create A Class</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="g-cols">
+                    <div class="two-thirds">
                         <!-- w-tabs -->
                         <div class="w-tabs">
                             <div class="w-tabs-h" id="fix-style-w-tab">
@@ -279,7 +405,7 @@
                                                                 $('.comment-container').hide();
                                                                 $('.opencmt').click(function(event) {
                                                                     var hide = $('.comment-container').css('display');
-                                                                    if(hide == 'none'){
+                                                                    if (hide == 'none') {
                                                                         $(this).html('<span>Đóng</span>');
                                                                         $('.comment-container').slideDown('slow', function() {
                                                                         });
@@ -405,7 +531,6 @@
                                     </div>
                                     <div class="w-tabs-section-content">
                                         <div class="w-tabs-section-content-h">
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -426,145 +551,91 @@
 
                             </div>
                         </div>
-                </div>
-                <div class="one-third">
-                    <h3 style="margin-top: 20px">Lớp: <br><?php echo $class->class_name ?></h3>
+                    </div>
+                    <div class="one-third">
+                        <h3 style="margin-top: 20px">Lớp: <br><?php echo $class->class_name ?></h3>
+                        <p style="float: left"><strong>Mã Môn Học:</strong><?php echo $class->class_code ?></p>
+                        <a style="float: right; margin-top: 0" href="#edit-infomation-class" class="popup-with-form">
+                            Chỉnh Sửa
+                            <i class="icon-pencil"></i>
+                        </a>
 
-                    <p style="float:left"><strong>Mã Môn Học:</strong><?php echo $class->class_code ?></p>
-                    <a style="float: right; margin-top: 5px" href="#edit-infomation-class" class="popup-with-form">
-                        Chỉnh Sửa
-                        <i class="icon-pencil"></i>
-                    </a>
-                    <form class="g-form white-popup-block mfp-hide" id="edit-infomation-class" action="/bluebee.com/index.php/classPage/createClass" method="POST">
-                        <h3>Chỉnh Sửa Thông Tin</h3>
-                        <div class="g-form-group">
-                            <div class="g-form-group-rows">
-                                <div class="g-form-row">
-                                    <div class="g-form-row-label">
-                                        <label class="g-form-row-label-h" for="classcode">Mã lớp (*)</label>
-                                    </div>
-                                    <div class="g-form-row-field">
-                                        <div class="g-input">
-                                            <input type="text" name="classcode" id="contact_username" placeholder="Mã lớp" value="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="g-form-row">
-                                    <div class="g-form-row-label">
-                                        <label class="g-form-row-label-h" for="classname">Tên lớp (*)</label>
-                                    </div>
-                                    <div class="g-form-row-field">
-                                        <div class="g-input">
-                                            <input type="text" name="classname" id="contact_username" placeholder="Tên lớp" value="abcd">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="g-form-row">
-                                    <div class="g-form-row-label">
-                                        <label class="g-form-row-label-h" for="classCredit">Số tín chỉ (*)</label>
-                                    </div>
-                                    <div class="g-form-row-field">
-                                        <div class="g-input">
-                                            <input type="text" name="classCredit" id="contact_username" placeholder="Số tín chỉ" value="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="g-form-row">
-                                    <div class="g-form-row-label">
-                                        <label class="g-form-row-label-h" for="classWebsite">Website Môn học (*)</label>
-                                    </div>
-                                    <div class="g-form-row-field">
-                                        <div class="g-input">
-                                            <input type="text" name="classWebsite" id="contact_username" placeholder="Website Môn học" value="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="g-form-row">
-                                    <div class="g-form-row-field">
-                                        <button class="g-btn type_primary" type="submit" name="Submit" value="Submit">Tạo lớp mới</button>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div id="alert"></div>
-                        </div>
-                    </form>
-                    <p><strong>Số tín chỉ:</strong> <?php echo $class->class_credit_number ?></p>
-                    <p><strong>Website Môn Học:</strong> <a href="bluebee-uet.com"><?php echo $class->class_website ?></a></p>
-                    <div class="clearfix">
-                        <p style="float: left"><strong>Thành viên:</strong> <a>7 người</a></p>
-                        <a id="add-members" style="float: right" href="javascript:void(0)"><p id="add-members-contents">Thêm thành viên <i class="icon-plus"></i></p></a>
-                        <script>
-                            $(document).ready(function() {
-                                $('a#add-members').click(function(event) {
-                                    var hide = $('#box-invite-friends').css('display');
-                                    if (hide == 'none') {
-                                        $('#box-invite-friends').slideDown('400');
-                                    } else {
-                                        $('#box-invite-friends').slideUp('400');
-                                    }
-                                });
-                            });
-                        </script>
-                    </div>
-                <?php $this->renderPartial('inviteform')?>
-                    <div class="g-hr" style="clear: both">
-                        <span class="g-hr-h">
-                            <i class="icon-user"></i>
-                        </span>
-                    </div>
-                    <div class="clearfix">
-                        <h3 style="float: left">Giáo Viên</h3>
-                        <a style="float: right; margin-top: 10px" href="javascript:void(0)"><p id="add-members-contents">Thêm giáo viên <i class="icon-plus"></i></p></a>
-                    </div>
-                    <ul>
-                        <li>
-                            <div class="teacher-block">
-                                <script type="text/javascript">
-                                    $(function() {
-                                        $('.teacher-block-rating-outside').barrating({showSelectedRating: false, readonly: true});
+                        <p style="clear: both"><strong>Số tín chỉ:</strong> <?php echo $class->class_credit_number ?></p>
+                        <p><strong>Website Môn Học:</strong> <a href="bluebee-uet.com"><?php echo $class->class_website ?></a></p>
+                        <div class="clearfix">
+                            <p style="float: left"><strong>Thành viên:</strong> <a>7 người</a></p>
+                            <a id="add-members" style="float: right" href="javascript:void(0)"><p id="add-members-contents">Thêm thành viên <i class="icon-plus"></i></p></a>
+                            <script>
+                                $(document).ready(function() {
+                                    $('a#add-members').click(function(event) {
+                                        var hide = $('#box-invite-friends').css('display');
+                                        if (hide == 'none') {
+                                            $('#box-invite-friends').slideDown('400');
+                                        } else {
+                                            $('#box-invite-friends').slideUp('400');
+                                        }
                                     });
-                                </script>
-                                <img style="float: left" class="ava" src="http://localhost:7070/SE_2014_Group5/themes/classic/assets/img/demo/blog-1.jpg" />
-                                <div>
-                                    <p>Nguyễn Văn A</p>
-                                    <a href="">Thông tin cá nhân</a>
+                                });
+                            </script>
+                        </div>
+                        <?php $this->renderPartial('inviteform') ?>
+                        <div class="g-hr" style="clear: both">
+                            <span class="g-hr-h">
+                                <i class="icon-user"></i>
+                            </span>
+                        </div>
+                        <div class="clearfix">
+                            <h3 style="float: left">Giáo Viên</h3>
+                            <a style="float: right; margin-top: 10px" href="javascript:void(0)"><p id="add-members-contents">Thêm giáo viên <i class="icon-plus"></i></p></a>
+                        </div>
+                        <ul>
+                            <li>
+                                <div class="teacher-block">
+                                    <script type="text/javascript">
+                                        $(function() {
+                                            $('.teacher-block-rating-outside').barrating({showSelectedRating: false, readonly: true});
+                                        });
+                                    </script>
+                                    <img style="float: left" class="ava" src="http://localhost:7070/SE_2014_Group5/themes/classic/assets/img/demo/blog-1.jpg" />
+                                    <div>
+                                        <p>Nguyễn Văn A</p>
+                                        <a href="">Thông tin cá nhân</a>
+                                    </div>
+                                    <div class="input select rating-f read-only">
+                                        <p style="float: left">Độ yêu thích:&nbsp;&nbsp;</p>
+                                        <select class="teacher-block-rating-outside" name="rating" style="display: none; float: right">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="input select rating-f read-only">
-                                    <p style="float: left">Độ yêu thích:&nbsp;&nbsp;</p>
-                                    <select class="teacher-block-rating-outside" name="rating" style="display: none; float: right">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
+                            </li>
+                            <li>
+                                <div class="teacher-block">
+                                    <img style="float: left" class="ava" src="http://localhost:7070/SE_2014_Group5/themes/classic/assets/img/demo/blog-1.jpg" />
+                                    <div>
+                                        <p>Nguyễn Văn B</p>
+                                        <a href="">Thông tin cá nhân</a>
+                                    </div>
+                                    <div class="input select rating-f read-only">
+                                        <p style="float: left">Độ yêu thích:&nbsp;&nbsp;</p>
+                                        <select class="teacher-block-rating-outside" name="rating" style="display: none; float: right">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="teacher-block">
-                                <img style="float: left" class="ava" src="http://localhost:7070/SE_2014_Group5/themes/classic/assets/img/demo/blog-1.jpg" />
-                                <div>
-                                    <p>Nguyễn Văn B</p>
-                                    <a href="">Thông tin cá nhân</a>
-                                </div>
-                                <div class="input select rating-f read-only">
-                                    <p style="float: left">Độ yêu thích:&nbsp;&nbsp;</p>
-                                    <select class="teacher-block-rating-outside" name="rating" style="display: none; float: right">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 <?php endforeach; ?>
