@@ -13,8 +13,8 @@ class ClassPageController extends BaseController {
         $class_new = new class_model;
         $class_year = new ClassYear;
         $class_user = new ClassUser;
-        
-        
+
+
 
         $class_new->class_code = $code;
         $class_new->class_name = $name;
@@ -29,7 +29,7 @@ class ClassPageController extends BaseController {
         $class_year->class_year = date("Y");
 
         $class_year->save(FALSE);
-        
+
         $class_user->user_id = Yii::app()->session['user_id'];
         $class_user->admin_id = Yii::app()->session['user_id'];
         $class_user->class_id = $class_id->class_id;
@@ -169,9 +169,8 @@ class ClassPageController extends BaseController {
         }
     }
 
-    
-    public function actionChangeClassInformation(){
-        if(isset($_GET["classid"])){
+    public function actionChangeClassInformation() {
+        if (isset($_GET["classid"])) {
             $this->retVal = new stdClass();
             $request = Yii::app()->request;
             if ($request->isPostRequest && isset($_POST)) {
@@ -184,7 +183,7 @@ class ClassPageController extends BaseController {
                     );
                     if (!empty($changeInformationData['classcode'])) {
                         if (!empty($createClassFormData['classname'])) {
-                            if(!empty($createClassFormData['classCredit'])) {
+                            if (!empty($createClassFormData['classCredit'])) {
                                 if (!empty($createClassFormData['classWebsite'])) {
 
                                     $class = class_model::model()->findByAttributes(array('class_id' => $_GET["classid"]));
@@ -211,7 +210,7 @@ class ClassPageController extends BaseController {
                                     $this->retVal->message = "Website môn học không được để trống";
                                     $this->retVal->success = 0;
                                 }
-                            } else{
+                            } else {
                                 $this->retVal->message = "Số tín chỉ không được để trống";
                                 $this->retVal->success = 0;
                             }
@@ -231,6 +230,7 @@ class ClassPageController extends BaseController {
             }
         }
     }
+
     // Uncomment the following methods and override them if needed
     /*
       public function filters()
