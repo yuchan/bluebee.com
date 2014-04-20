@@ -475,14 +475,19 @@
                     <ul>
                         <li>
                             <div class="teacher-block">
+                                <script type="text/javascript">
+                                    $(function() {
+                                        $('.teacher-block-rating-outside').barrating({showSelectedRating: false, readonly: true});
+                                    });
+                                </script>
                                 <img style="float: left" class="ava" src="http://localhost:7070/SE_2014_Group5/themes/classic/assets/img/demo/blog-1.jpg" />
                                 <div>
                                     <p>Nguyễn Văn A</p>
                                     <a href="">Thông tin cá nhân</a>
                                 </div>
-                                <div class="input select rating-f">
-                                    <p style="float: left">Độ yêu thích: </p>
-                                    <select class="example-f" name="rating" style="display: none; float: right">
+                                <div class="input select rating-f read-only">
+                                    <p style="float: left">Độ yêu thích:&nbsp;&nbsp;</p>
+                                    <select class="teacher-block-rating-outside" name="rating" style="display: none; float: right">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -499,9 +504,9 @@
                                     <p>Nguyễn Văn B</p>
                                     <a href="">Thông tin cá nhân</a>
                                 </div>
-                                <div class="input select rating-f">
-                                    <p style="float: left">Độ yêu thích: </p>
-                                    <select class="example-f" name="rating" style="display: none; float: right">
+                                <div class="input select rating-f read-only">
+                                    <p style="float: left">Độ yêu thích:&nbsp;&nbsp;</p>
+                                    <select class="teacher-block-rating-outside" name="rating" style="display: none; float: right">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
