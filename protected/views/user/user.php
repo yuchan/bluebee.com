@@ -81,7 +81,7 @@
                     <div class="g-form-row"id="alert" style="position: absolute; z-index: 2; width: 89%; right:100%">
 
                     </div>
-                    <h3>Kien's Profile</h3>
+                    <h3>Sơ lược</h3>
                     <div class='g-cols'>
                         <div class='full-width'>
                             <a href=""><img class="circular float_left" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/blog-1.jpg"/></a>
@@ -100,7 +100,7 @@
                             </div>
 
                             <div class="rounded1 color_alternate">
-                                <h6>Kien's favorite books</h6>
+                                <h6>Tài liệu yêu thích</h6>
                             </div>
 
                             <div class="w-gallery layout_tile size_s">
@@ -154,7 +154,7 @@
                             <a href="" style="margin-left: 30px">More...</a>
 
                             <div class="rounded1 color_alternate">
-                                <h6>Kien's recent updates</h6>
+                                <h6>Cập nhật gần đây</h6>
                             </div>
 
                             <div class="w-blog imgpos_attop meta_all">
@@ -270,7 +270,7 @@
             <div class="one-third">
 
                 <div class="rounded2 color_alternate"  style="margin-top: 70px">
-                    <h6>Kien's Information</h6>
+                    <h6>Thông tin chi tiết</h6>
                 </div>
 
                 <div>
@@ -292,7 +292,7 @@
                 </div>
 
                 <div class="rounded2 color_alternate" style="margin-top: 10px">
-                    <h6>Class Kien follows</h6>
+                    <h6>Lớp môn học tham gia</h6>
                 </div>
 
                 <div class="w-portfolio columns_2 wide-margins type_sortable">
@@ -348,7 +348,7 @@
                                             <div class="w-portfolio-item-image">
                                                 <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-2.jpg" alt="" />
                                                 <div class="w-portfolio-item-meta">
-                                                    <h2 class="w-portfolio-item-title">Kien's Group</h2>
+                                                    <h2 class="w-portfolio-item-title">Nhóm Kiên tham gia</h2>
                                                     <i class="icon-mail-forward"></i>
                                                 </div>
                                             </div>
@@ -365,14 +365,14 @@
                     <a href="" style="margin-left: 30px">More...</a>
                     <br/>
                     <a class="popup-with-form" href="#newclassform">
-                        <button class="g-btn type_outline"><span><i class="icon-heart"></i>Create your own class</span></button>
+                        <button class="g-btn type_outline"><span><i class="icon-heart"></i>Tạo lớp môn học</span></button>
                     </a>
                     <?php $this->renderPartial('partial/newclass') ?>
 
                 </div>
 
                 <div class="rounded2 color_alternate">
-                    <h6>Kien's groups</h6>
+                    <h6>Nhóm đã tham gia</h6>
                 </div>
 
                 <div class="w-portfolio columns_2 wide-margins type_sortable">
@@ -414,7 +414,7 @@
                                             <div class="w-portfolio-item-image">
                                                 <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-2.jpg" alt="" />
                                                 <div class="w-portfolio-item-meta">
-                                                    <h2 class="w-portfolio-item-title">Kien's Group</h2>
+                                                    <h2 class="w-portfolio-item-title">Kien's </h2>
                                                     <i class="icon-mail-forward"></i>
                                                 </div>
                                             </div>
@@ -431,7 +431,7 @@
                     <a href="" style="margin-left: 30px">More...</a>
                     <br/>
                     <a href="">
-                        <button class="g-btn type_outline"><span><i class="icon-heart"></i>Create your own group</span></button>
+                        <button class="g-btn type_outline"><span><i class="icon-heart"></i>Tạo nhóm</span></button>
                     </a>
                 </div>
 
