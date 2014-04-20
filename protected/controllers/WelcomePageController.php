@@ -160,9 +160,9 @@ class WelcomePageController extends BaseController {
     }
 
     public function actionLogout() {
-        Yii::app()->session['user_id'] = $user->user_id;
-        Yii::app()->session['user_real_name'] = $user->user_real_name;
-        Yii::app()->session['user_email'] = $user->username;
+        Yii::app()->session['user_id'] = "";
+        Yii::app()->session['user_real_name'] = "";
+        Yii::app()->session['user_email'] = "";
         $this->redirect(Yii::app()->createUrl('welcomepage'));
     }
 
