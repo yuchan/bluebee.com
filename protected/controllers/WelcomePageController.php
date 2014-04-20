@@ -37,7 +37,7 @@ class WelcomePageController extends BaseController {
                                 //user existed, check password
                                 if ($user->user_active == 1) {
                                     if ($user->password == $loginFormData['user_password']) {
-                                        $this->retVal->message = "Dang nhap thanh cong";
+                                        $this->retVal->message = "Đăng nhập thành công";
                                         Yii::app()->session['user_id'] = $user->user_id;
                                         Yii::app()->session['user_real_name'] = $user->user_real_name;
                                         Yii::app()->session['user_email'] = $user->username;
