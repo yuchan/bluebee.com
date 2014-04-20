@@ -17,10 +17,8 @@ class WelcomePageController extends BaseController {
         $this->render('welcomePage');
     }
 
-   
-
     public function actionLogin() {
-        
+
         $this->retVal = new stdClass();
         $request = Yii::app()->request;
         if ($request->isPostRequest && isset($_POST)) {
@@ -41,7 +39,7 @@ class WelcomePageController extends BaseController {
                                         Yii::app()->session['user_id'] = $user->user_id;
                                         Yii::app()->session['user_real_name'] = $user->user_real_name;
                                         Yii::app()->session['user_email'] = $user->username;
-                                        
+
                                         $this->retVal->success = 1;
                                         //token
                                         $token = StringHelper::generateToken(16, 36);
@@ -160,10 +158,18 @@ class WelcomePageController extends BaseController {
     }
 
     public function actionLogout() {
+        $user_current_token = User::model()->findByAttributes(array('user_id' => Yii::app()->session['user_id']));
+
+        if ($user_current_token) {
+            $user_current_token->user_token = "";
+            $user_current_token->save(FALSE);
+        }
+
         Yii::app()->session['user_id'] = "";
         Yii::app()->session['user_real_name'] = "";
         Yii::app()->session['user_email'] = "";
         Yii::app()->session['token'] = "";
+
         $this->redirect(Yii::app()->createUrl('welcomepage'));
     }
 
