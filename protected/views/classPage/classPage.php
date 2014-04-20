@@ -227,8 +227,8 @@
                                                     border-bottom: 1px solid #d8d8d8;
                                                 }
                                                 .comment-content {
-                                                    margin: 10px 0 10px 60px;
-                                                    width: 90%;
+                                                    margin: 15px 0 15px 60px;
+                                                    width: 88%;
                                                 }
                                                 .button-in-activity-box{
                                                     width: 100%;
@@ -250,7 +250,7 @@
                                                     outline: none;
                                                 }
                                                 .fix-style-profile {
-                                                    margin: 0 0 10px 0;
+                                                    margin: 0 0 15px 0;
                                                     width: 100%;
                                                 }
                                             </style>
