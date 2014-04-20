@@ -290,7 +290,7 @@
                                                         <div class="w-nav-list-h">
                                                             <div class="w-nav-item level_2">
                                                                 <div class="w-nav-item-h">
-                                                                    <a href="home-landing.html" class="w-nav-anchor level_2">Đăng xuất</a>
+                                                                    <a href=<?php echo Yii::app()->createUrl("welcomepage/logout") ?> class="w-nav-anchor level_2">Đăng xuất</a>
                                                                 </div>
                                                             </div>
                                                             <div class="w-nav-item level_2">
