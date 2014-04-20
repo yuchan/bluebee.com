@@ -62,12 +62,12 @@
                                     </div>
                                     <style>
                                         .activity-input {
-                                            margin: 20px;
                                             display: block;
                                             width: auto;
                                             height: auto;
                                             position: relative;
                                             overflow: visible;
+                                            margin-top: 20px
                                         }
                                         .avatar-view {
                                             width:35px;
@@ -80,8 +80,7 @@
                                             position: absolute;
                                         }
                                         .activity-input-box {
-                                            border: 1px solid #d0d6d9;
-                                            border-radius: 5px;
+                                            border-top: 1px solid #d0d6d9;
                                             box-sizing: border-box;
                                             display: inline-block;
                                             min-width: 50px;
@@ -140,7 +139,7 @@
                                                         What's new User?
                                                     </div>
                                                     <button type="submit" class="g-btn type_primary size_small submit-button">
-                                                        <span>Post</span>
+                                                        <span>Đăng Tin</span>
                                                     </button>
                                                 </div>
                                             </div>
