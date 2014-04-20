@@ -42,14 +42,14 @@
                                 <div class="w-tabs-list">
                                     <div class="w-tabs-item fix-w-tab-item active">
                                         <span class="w-tabs-item-icon"></span>
-                                        <span class="w-tabs-item-title">Activity</span>
+                                        <span class="w-tabs-item-title">Hoạt động</span>
                                     </div>
 
                                     <div class="w-tabs-item fix-w-tab-item" style="display: none">
                                         <span class="w-tabs-item-icon"></span>
                                         <span class="w-tabs-item-title">Documents</span>
                                     </div>
-                                    <div class="w-tabs-item fix-w-tab-item">
+                                    <div class="w-tabs-item fix-w-tab-item" style="display: none">
                                         <span class="w-tabs-item-icon"></span>
                                         <span class="w-tabs-item-title">Teacher</span>
                                     </div>
@@ -58,7 +58,7 @@
                                 <div class="w-tabs-section active">
                                     <div class="w-tabs-section-title">
                                         <span class="w-tabs-section-title-icon"></span>
-                                        <span class="w-tabs-section-title-text">Activity</span>
+                                        <span class="w-tabs-section-title-text">Hoạt động</span>
                                         <span class="w-tabs-section-title-control"></span>
                                     </div>
                                     <style>
@@ -68,7 +68,7 @@
                                             height: auto;
                                             position: relative;
                                             overflow: visible;
-                                            margin-top: 20px
+                                            min-height: 60px;
                                         }
                                         .avatar-view {
                                             width:35px;
@@ -130,14 +130,14 @@
                                         }
                                     </style>
                                     <div class="w-tabs-section-content">
-                                        <div class="w-tabs-section-content-h" style="padding-top: 10px;">
+                                        <div class="w-tabs-section-content-h" style="padding-top: 0px;">
                                             <div class="activity-input">
                                                 <a class="avatar-view" href="user">
                                                     <img class="" width="35" height="35" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
                                                 </a>
                                                 <div class="activity-input-box">
                                                     <div contenteditable="true" class="activity-input-content">
-                                                        What's new User?
+                                                        Có Gì Hot?
                                                     </div>
                                                     <button type="submit" class="g-btn type_primary size_small submit-button">
                                                         <span>Đăng Tin</span>
@@ -413,27 +413,13 @@
                                 <div class="w-tabs-section">
                                     <div class="w-tabs-section-title">
                                         <span class="w-tabs-section-title-icon"></span>
-                                        <span class="w-tabs-section-title-text">Teacher</span>
+                                        <span class="w-tabs-section-title-text">Teacher(coming soon)</span>
                                         <span class="w-tabs-section-title-control"></span>
                                     </div>
                                     <div class="w-tabs-section-content">
                                         <div class="w-tabs-section-content-h">
                                             <div class="g-cols">
-                                                <div class="one-third">
-                                                    <img src="img/demo/team-1.jpg" alt="" />
-                                                </div>
-                                                <div class="one-third">
-                                                    <h4>One Third</h4>
-                                                    <p>At delectus doloremque dolores explicabo laudantium minima qui. Animi aperiam
-                                                        aspernatur atque debitis distinctio impedit inventore iure labore modi omnis,
-                                                        optio rerum ut veritatis voluptatum?</p>
-                                                </div>
-                                                <div class="one-third">
-                                                    <h4>One Third</h4>
-                                                    <p>Accusamus et hic inventore iure iusto modi reprehenderit soluta. Aliquam,
-                                                        assumenda at consequuntur cumque, enim, explicabo iusto libero maiores nisi
-                                                        numquam odio porro praesentium quis.</p>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>

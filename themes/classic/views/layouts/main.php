@@ -208,7 +208,7 @@
                                                 <div class="w-nav-item-h">
                                                     <a href="<?php echo Yii::app()->createUrl("discussion") ?>" class="w-nav-anchor level_1">
                                                         <span class="w-nav-icon"><i class="icon-star"></i></span>
-                                                        <span class="w-nav-title">Home</span>
+                                                        <span class="w-nav-title">Trang chủ</span>
                                                         <span class="w-nav-hint"></span>
                                                     </a>
                                                 </div>
@@ -217,7 +217,7 @@
                                                 <div class="w-nav-item-h">
                                                     <a href="<?php echo Yii::app()->createUrl("document") ?>" class="w-nav-anchor level_1">
                                                         <span class="w-nav-icon"><i class="icon-star"></i></span>
-                                                        <span class="w-nav-title">Book shelf</span>
+                                                        <span class="w-nav-title">Tài liệu</span>
                                                         <span class="w-nav-hint"></span>
                                                     </a>
                                                 </div>
@@ -227,7 +227,7 @@
                                                 <div class="w-nav-item-h">
                                                     <a href="<?php echo Yii::app()->createUrl("share") ?>" class="w-nav-anchor level_1">
                                                         <span class="w-nav-icon"><i class="icon-star"></i></span>
-                                                        <span class="w-nav-title">My classes</span>
+                                                        <span class="w-nav-title">Lớp môn học</span>
                                                         <span class="w-nav-hint"></span>
                                                     </a>
 
@@ -253,7 +253,7 @@
                                                 <div class="w-nav-item-h">
                                                     <a href="<?php echo Yii::app()->createUrl("share") ?>" class="w-nav-anchor level_1">
                                                         <span class="w-nav-icon"><i class="icon-star"></i></span>
-                                                        <span class="w-nav-title">Groups</span>
+                                                        <span class="w-nav-title">Nhóm</span>
                                                         <span class="w-nav-hint"></span>
                                                     </a>
 
@@ -290,12 +290,12 @@
                                                         <div class="w-nav-list-h">
                                                             <div class="w-nav-item level_2">
                                                                 <div class="w-nav-item-h">
-                                                                    <a href="home-landing.html" class="w-nav-anchor level_2">Sign out</a>
+                                                                    <a href="home-landing.html" class="w-nav-anchor level_2">Đăng xuất</a>
                                                                 </div>
                                                             </div>
                                                             <div class="w-nav-item level_2">
                                                                 <div class="w-nav-item-h">
-                                                                    <a href="home-parallax.html" class="w-nav-anchor level_2">Update information</a>
+                                                                    <a href="home-parallax.html" class="w-nav-anchor level_2">Cập nhật thông tin</a>
                                                                 </div>
                                                             </div>
 
