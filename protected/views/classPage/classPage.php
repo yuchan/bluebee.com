@@ -1,4 +1,5 @@
- <script type="text/javascript">
+ <?php foreach ($detail_classpage as $class): ?> 
+<script type="text/javascript">
         $(document).ready(function() {
             var form = $('#edit-infomation-class');
             form.submit(function(event) {
@@ -6,7 +7,7 @@
                 var data = form.serialize();
                 $.ajax({
                     type: "POST",
-                    url: '/bluebee.com/index.php/classPage/createclass',
+                    url: '<?php echo Yii::app()->createUrl('classPage/changeclassinformation?classid='. $class->class_id) ?>',
                     data: data,
                     beforeSend: function() {
                         $('#alert').html('<img class="w-blog-entry-img-h" src="/bluebee.com/themes/classic/assets/img/ajax_loader_blue_128.gif" alt="" style="" id="loading"/>');
@@ -31,24 +32,7 @@
                                     $('#alert').html(item).slideDown('slow');
                                 });
                             }
-                        }
-                        else if (result.success == 2) {
-
-                            var item = $('<div class="g-form-row-field">' +
-                                    '<div id="error" class="g-alert type_error">' +
-                                    '<div class="g-alert-body">' +
-                                    '<p><b>' + result.message + ' <a href = "' + result.url_class_exist + '">đây</a></b></p>' +
-                                    '</div>' +
-                                    '</div>' +
-                                    '</div>');
-                            var hide = $('#alert').css('display');
-                            if (hide == 'none') {
-                                $('#alert').html(item).slideDown('slow');
-                            } else {
-                                $('#alert').slideUp(function() {
-                                    $('#alert').html(item).slideDown('slow');
-                                });
-                            }
+                            location.href = result.url;
                         }
                         else {
                             var item = $('<div class="g-form-row-field">' +
@@ -70,7 +54,8 @@
                     }});
             });
         });</script>
-<form class="g-form white-popup-block mfp-hide" id="edit-infomation-class" action="/bluebee.com/index.php/classPage/createClass" method="POST">
+
+<form class="g-form white-popup-block mfp-hide" id="edit-infomation-class" action="<?php echo Yii::app()->createUrl('classPage/changeClassInformation?classid='. $class->class_id) ?>" method="POST">
         <h3>Chỉnh Sửa Thông Tin</h3>
         <div class="g-form-group">
             <div class="g-form-group-rows">
@@ -96,27 +81,27 @@
                 </div>
                 <div class="g-form-row">
                     <div class="g-form-row-label">
-                        <label class="g-form-row-label-h" for="classname">Số tín chỉ (*)</label>
+                        <label class="g-form-row-label-h" for="classCredit">Số tín chỉ (*)</label>
                     </div>
                     <div class="g-form-row-field">
                         <div class="g-input">
-                            <input type="text" name="classname" id="contact_username" placeholder="Số tín chỉ" value="">
+                            <input type="text" name="classCredit" id="contact_username" placeholder="Số tín chỉ" value="">
                         </div>
                     </div>
                 </div>
                 <div class="g-form-row">
                     <div class="g-form-row-label">
-                        <label class="g-form-row-label-h" for="classname">Website Môn học (*)</label>
+                        <label class="g-form-row-label-h" for="classWebsite">Website Môn học (*)</label>
                     </div>
                     <div class="g-form-row-field">
                         <div class="g-input">
-                            <input type="text" name="classname" id="contact_username" placeholder="Website Môn học" value="">
+                            <input type="text" name="classWebsite" id="contact_username" placeholder="Website Môn học" value="">
                         </div>
                     </div>
                 </div>
                 <div class="g-form-row">
                     <div class="g-form-row-field">
-                        <button class="g-btn type_primary" type="submit" name="Submit" value="Submit" style="text-transform: inherit">Lưu thông tin</button>
+                        <button class="g-btn type_primary" type="submit" name="Submit" value="Submit" style="text-transform: inherit" action="">Lưu thông tin</button>
                     </div>
                 </div>
 
@@ -125,7 +110,7 @@
         </div>
     </form>
    
-<?php foreach ($detail_classpage as $class): ?>
+
 
     <div class="l-submain-h i-cf">
         <div class="l-content">
