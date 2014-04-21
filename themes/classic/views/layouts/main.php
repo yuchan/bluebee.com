@@ -1,4 +1,4 @@
-<?php /* @var $this Controller */ ?>
+﻿<?php /* @var $this Controller */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
@@ -280,16 +280,32 @@
                                                 </div>
                                             </div>
 
+
+
                                             <div class="w-nav-item level_1">
                                                 <div class="w-nav-item-h">
+<<<<<<< HEAD
                                                     <a href="<?php echo Yii::app()->createUrl("user?token=".Yii::app()->session['token']) ?>" class="w-nav-anchor level_1">
                                                         <img style="border: 5px solid white;"class="ava" src="<?php echo Yii::app()->session['user_avatar']?>"/>
                                                     </a>
+=======
+                                                    <a href="<?php echo Yii::app()->createUrl("user?token=" . Yii::app()->session['token']) ?>" class="w-nav-anchor level_1">
+                                                        <img style="border: 5px solid white;"class="ava" src="<?php
+                                                        if (Yii::app()->session['user_avatar'] == "") {
+                                                            echo Yii::app()->theme->baseUrl,"/assets/img/demo/blog-1.jpg";
+                                                        } else {
+                                                            
+                                                            echo Yii::app()->session['user_avatar'];
+                                                        }
+                                                        ?>"/>
+                                                    </a>
+
+>>>>>>> c76214c776e3c7ce97360432acde0d4037078be4
                                                     <div class="w-nav-list place_down show_onhover level_2">
                                                         <div class="w-nav-list-h">
                                                             <div class="w-nav-item level_2">
                                                                 <div class="w-nav-item-h">
-                                                                    <a href=<?php echo Yii::app()->createUrl("welcomePage/logout") ?> class="w-nav-anchor level_2">Đăng xuất</a>
+                                                                    <a href=/index.php/welcomePage/logout class="w-nav-anchor level_2">Đăng xuất</a>
                                                                 </div>
                                                             </div>
                                                             <div class="w-nav-item level_2">
@@ -304,6 +320,7 @@
                                                 </div>
                                             </div>
 
+
                                         </div>
                                     </div>
                             </nav>
@@ -317,7 +334,7 @@
 
             <!-- MAIN -->
             <div class="l-main">
-                <?php echo $content; ?>
+<?php echo $content; ?>
             </div>
             <!-- /MAIN -->
         </div>
