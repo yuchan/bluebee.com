@@ -249,15 +249,16 @@ class WelcomePageController extends BaseController {
             "access_token" => $access_token
         )); //check login tai day
 
-        $user_facebook = User::model()->findByAttributes(array('user_id_fb' => $user["id"]));
+        $user_facebook_exist = User::model()->findByAttributes(array('user_id_fb' => $user["id"]));
 
-        if ($user_facebook) {
+        if ($user_facebook_exist) {
             $token = StringHelper::generateToken(16, 36);
-            $user_facebook->user_token = $token;
-            $user_facebook->save(FALSE);
-            Yii::app()->session['user_avatar'] = $user_facebook->user_avatar;
+            $user_facebook_exist->user_token = $token;
+            $user_facebook_exist->save(FALSE);
+            Yii::app()->session['user_avatar'] = $user_facebook_exist->user_avatar;
             Yii::app()->session['token'] = $token;
             $this->redirect(Yii::app()->createUrl('user?token=' . $token));
+           
         } else {
             $token = StringHelper::generateToken(16, 36);
             $user_facebook = new User;
@@ -278,6 +279,7 @@ class WelcomePageController extends BaseController {
             $user_facebook->save(FALSE);
             //return $user;
             $this->redirect(Yii::app()->createUrl('user?token=' . $token));
+            
         }
     }
 
