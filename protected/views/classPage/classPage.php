@@ -11,39 +11,39 @@
                     success: function(data) {
                         var json = data;
                         var result = $.parseJSON(json);
-                        $('#alert').html('');
+                        $('#alert1').html('');
                         if (result.success == 1) {
                             var item = $('<div class="g-form-row-field">' +
-                                    '<div id="success" class="g-alert type_success">' +
-                                    '<div class="g-alert-body">' +
+                                    '<div id="success" class="g-alert1 type_success">' +
+                                    '<div class="g-alert1-body">' +
                                     '<p><b>' + result.message + '</b></p>' +
                                     '</div>' +
                                     '</div>' +
                                     '</div>');
-                            var hide = $('#alert').css('display');
+                            var hide = $('#alert1').css('display');
                             if (hide == 'none') {
-                                $('#alert').html(item).slideDown('slow');
+                                $('#alert11').html(item).slideDown('slow');
                             } else {
-                                $('#alert').slideUp(function() {
-                                    $('#alert').html(item).slideDown('slow');
+                                $('#alert11').slideUp(function() {
+                                    $('#alert11').html(item).slideDown('slow');
                                 });
                             }
                             location.href = result.url;
                         }
                         else {
                             var item = $('<div class="g-form-row-field">' +
-                                    '<div id="error" class="g-alert type_error">' +
-                                    '<div class="g-alert-body" style="text-align: center">' +
+                                    '<div id="error" class="g-alert1 type_error">' +
+                                    '<div class="g-alert1-body" style="text-align: center">' +
                                     '<p><b>' + result.message + '</b></p>' +
                                     '</div>' +
                                     '</div>' +
                                     '</div>');
-                            var hide = $('#alert').css('display');
+                            var hide = $('#alert1').css('display');
                             if (hide == 'none') {
-                                $('#alert').html(item).slideDown('slow');
+                                $('#alert1').html(item).slideDown('slow');
                             } else {
-                                $('#alert').slideUp(function() {
-                                    $('#alert').html(item).slideDown('slow');
+                                $('#alert1').slideUp(function() {
+                                    $('#alert1').html(item).slideDown('slow');
                                 });
                             }
                         }
@@ -51,7 +51,7 @@
             });
         });</script>
 
-<form class="g-form white-popup-block mfp-hide" id="edit-infomation-class" action="<?php //echo Yii::app()->createUrl('classPage/changeClassInformation?classid='. $class->class_id) ?>" method="POST">
+<form class="g-form white-popup-block mfp-hide" id="edit-infomation-class" action="<?php //echo Yii::app()->createUrl('classPage?classid='. $class->class_id) ?>" method="POST">
 
         <h3>Chỉnh Sửa Thông Tin</h3>
         <div class="g-form-group">
@@ -103,7 +103,7 @@
                 </div>
 
             </div>
-            <div id="alert"></div>
+            <div id="alert11"></div>
         </div>
     </form>
    

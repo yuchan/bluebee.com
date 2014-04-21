@@ -6,7 +6,7 @@ class UserController extends Controller {
         $this->actionUser();
     }
 
-    public function actionUser() {
+   public function actionUser() {
         if (isset($_GET["token"])) {
             $spCriteria = new CDbCriteria();
             $spCriteria->select = "*";
