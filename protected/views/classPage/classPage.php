@@ -6,7 +6,7 @@
                 var data = form.serialize();
                 $.ajax({
                     type: "POST",
-                    url: '<?php echo Yii::app()->createUrl('classPage/changeclassinformation?classid='. $class->class_id) ?>',
+                    url: '<?php echo Yii::app()->createUrl('classPage/changeClassInformation?classid='. $class->class_id) ?>',
                     data: data,
                     success: function(data) {
                         var json = data;
@@ -51,7 +51,7 @@
             });
         });</script>
 
-<form class="g-form white-popup-block mfp-hide" id="edit-infomation-class" action="<?php echo Yii::app()->createUrl('classPage/changeClassInformation?classid='. $class->class_id) ?>" method="POST">
+<form class="g-form white-popup-block mfp-hide" id="edit-infomation-class" action="<?php //echo Yii::app()->createUrl('classPage/changeClassInformation?classid='. $class->class_id) ?>" method="POST">
         <h3>Chỉnh Sửa Thông Tin</h3>
         <div class="g-form-group">
             <div class="g-form-group-rows">
