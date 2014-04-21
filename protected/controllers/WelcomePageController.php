@@ -257,6 +257,7 @@ class WelcomePageController extends BaseController {
          //   die();
             $token = StringHelper::generateToken(16, 36);
             $user_facebook_exist->user_token = $token;
+              $user_facebook_exist->user_active = 1;
             $user_facebook_exist->save(FALSE);
             Yii::app()->session['user_avatar'] = $user_facebook_exist->user_avatar;
             Yii::app()->session['token'] = $token;
@@ -281,6 +282,7 @@ class WelcomePageController extends BaseController {
             Yii::app()->session['user_avatar'] = "http://graph.facebook.com/" . $user["id"] . "/picture";
             Yii::app()->session['token'] = $token;
             $user_facebook->user_id_fb = $user["id"];
+             $user_facebook->user_active = 1;
             $user_facebook->save(FALSE);
             //return $user;
             $this->redirect(Yii::app()->createUrl('user?token=' . $token));
