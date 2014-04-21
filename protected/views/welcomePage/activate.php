@@ -15,7 +15,7 @@
                             <div class="g-form-row-field"> 
                                 <div id="success" class="g-alert type_success">
                                     <div class="g-alert-body" style="text-align: center">
-                                        <p><b> Tài khoản của bạn đã được kích hoạt, chào mừng bạn đến với bluebee. Bạn có thể đăng nhập tại <a href="<?php echo Yii::app()->createUrl('welcomePage/login') ?>">đây </a> </b></p>
+                                        <p><b> Tài khoản của bạn đã được kích hoạt, chào mừng bạn đến với bluebee. Bạn có thể đăng nhập tại <a href="<?php echo Yii::app()->createUrl('/') ?>">đây </a> </b></p>
                                     </div>
                                 </div>
                             </div>
