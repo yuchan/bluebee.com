@@ -3,6 +3,7 @@
 Yii::import('application.controllers.BaseController');
 require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.phpmailer.php');
 require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.pop3.php');
+include_once (dirname(__FILE__) . '/../extensions/facebook.php');
 
 class WelcomePageController extends BaseController {
 
@@ -67,6 +68,7 @@ class WelcomePageController extends BaseController {
                                         Yii::app()->session['user_id'] = $user->user_id;
                                         Yii::app()->session['user_real_name'] = $user->user_real_name;
                                         Yii::app()->session['user_email'] = $user->username;
+                                        Yii::app()->session['user_avatar'] = $user->user_avatar;
 
                                         $this->retVal->success = 1;
                                         //token
@@ -228,12 +230,13 @@ class WelcomePageController extends BaseController {
     }
 
     public function actionFb_login() {
-        $user = $this->actionFb_login_result();
-        $user_id = User::model()->findByAttributes(array('user_id_fb' => $user["id"]));
+        // $user = $this->actionFb_login_result();
+        //$user_id = User::model()->findByAttributes(array('user_id_fb' => $user["id"]));
         $facebook = $this->getFb();
         $loginUrl = $facebook->getLoginUrl(array(
-            'scope' => '',
-            'redirect_uri' => "http://bluebee-uet.com/user?token=" . $user_id->user_token,
+            'scope' => 'read_stream, publish_stream, user_birthday, user_location, user_work_history, user_hometown, user_photos, email',
+            //'redirect_uri' => "http://bluebee-uet.com/user?token=" . $user_id->user_token,
+            "redirect_uri" => Yii::app()->createAbsoluteUrl('welcomePage/fb_login_result')
         ));
         $this->redirect($loginUrl);
     }
@@ -243,25 +246,49 @@ class WelcomePageController extends BaseController {
         $access_token = $facebook->getAccessToken();
         $user = $facebook->api("me", "get", array(
             "access_token" => $access_token
-        ));
-        return $user;
+        )); //check login tai day
+
+        $user_facebook = User::model()->findByAttributes(array('user_id_fb' => $user["id"]));
+
+        if ($user_facebook) {
+            $token = StringHelper::generateToken(16, 36);
+            $user_facebook->user_token = $token;
+            $user_facebook->save(FALSE);
+            $this->redirect(Yii::app()->createUrl('user?token=' . $token));
+        } else {
+            $token = StringHelper::generateToken(16, 36);
+            $user_facebook = new User;
+            $user["password"] = "bluebee_facebook";
+            if (isset($user["username"])) {
+                $user_facebook->user_real_name = $user['username'];
+            }
+            if (isset($user["email"])) {
+                $user_facebook->username = $user['email'];
+            }
+            $user_facebook->user_token = $token;
+            $user_facebook->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture";
+            $user_facebook->user_id_fb = $user["id"];
+            $user_facebook->save(FALSE);
+            //return $user;
+            $this->redirect(Yii::app()->createUrl('user?token=' . $token));
+        }
     }
 
-    public function actionSaveFacebookUserInfo() {
-        $user = $this->actionFb_login_result();
-        $user_facebook = new User;
-        $user["password"] = "bluebee_facebook";
-        if (!isset($user["username"])) {
-            $user_facebook->user_real_name = $user['username'];
-        }
-        if (!isset($user["email"])) {
-            $user_facebook->username = $user['email'];
-        }
-        $user_facebook->user_token = md5($user["id"]);
-        $user_facebook->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture";
-        $user_facebook->user_id_fb = $user["id"];
-        $user_facebook->save(FALSE);
-    }
+//    public function actionSaveFacebookUserInfo() {
+//        $user = $this->actionFb_login_result();
+//        $user_facebook = new User;
+//        $user["password"] = "bluebee_facebook";
+//        if (!isset($user["username"])) {
+//            $user_facebook->user_real_name = $user['username'];
+//        }
+//        if (!isset($user["email"])) {
+//            $user_facebook->username = $user['email'];
+//        }
+//        $user_facebook->user_token = md5($user["id"]);
+//        $user_facebook->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture";
+//        $user_facebook->user_id_fb = $user["id"];
+//        $user_facebook->save(FALSE);
+//    }
 
     public function actionloginFacebook() {
         $app_id = "1428478800723370";
@@ -288,7 +315,7 @@ class WelcomePageController extends BaseController {
             $logoutUrl = $facebook->getLogoutUrl();
         } else {
             $loginUrl = $facebook->getLoginUrl(array(
-                'scope' => 'read_stream, publish_stream, user_birthday, user_location, user_work_history, user_hometown, user_photos',
+                'scope' => 'read_stream, publish_stream, user_birthday, user_location, user_work_history, user_hometown, user_photos, email',
                 'redirect_uri' => $site_url,
             ));
             $this->redirect($loginUrl);
