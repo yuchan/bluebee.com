@@ -9,10 +9,15 @@
                 type: "POST",
                 url: '<?php echo Yii::app()->createUrl('welcomePage/signup') ?>',
                 data: data,
+                beforeSend: function() {
+                    $('#alert').html('<img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax_loader_blue_128.gif" alt="" style="" id="loading"/>');
+                },
                 success: function(data) {
                     var json = data;
+                    $('#alert').html('');
                     var result = $.parseJSON(json);
                     //       $('#res').html(result.message);
+                   // alert(json);
                     if (result.success) {
                         var item = $('<div class="g-form-row-field">' +
                                 '<div id="success" class="g-alert type_success">' +
@@ -20,35 +25,33 @@
                                 '<p><b>' + result.message + '</b></p>' +
                                 '</div>' +
                                 '</div>' +
-                                '</div>');
+                                '</div>').hide().fadeIn(120);
+
                         var hide = $('#alert').css('display');
                         if (hide == 'none') {
                             $('#alert').html(item).slideDown('slow');
                         } else {
-                            $('#alert').slideUp(function(){
-                                $('#alert').html(item).slideDown('slow');
-                            });
+                            $('#alert').html(item).slideUp('fast').slideDown('800');
                         }
-
                     }
                     else {
 
                         var item = $('<div class="g-form-row-field">' +
                                 '<div id="error" class="g-alert type_error">' +
-                                '<div class="g-alert-body" style="text-align: center">' +
+                                '<div class="g-alert-body">' +
                                 '<p><b>' + result.message + '</b></p>' +
                                 '</div>' +
                                 '</div>' +
-                                '</div>');
+                                '</div>').hide().fadeIn(120);
 
                         var hide = $('#alert').css('display');
                         if (hide == 'none') {
                             $('#alert').html(item).slideDown('slow');
                         } else {
-                            $('#alert').slideUp(function(){
-                                $('#alert').html(item).slideDown('slow');
-                            });
+                            $('#alert').html(item).slideUp('fast').slideDown('800');
                         }
+                        //   var json = $.parseJSON(data);
+                        //  $('#res').html('Message : ' + json.message + '<br>Success : ' + json.success)
                     }
                 }
             });

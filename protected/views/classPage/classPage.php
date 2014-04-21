@@ -3,15 +3,11 @@
         $(document).ready(function() {
             var form = $('#edit-infomation-class');
             form.submit(function(event) {
-                $('#res').html('');
                 var data = form.serialize();
                 $.ajax({
                     type: "POST",
                     url: '<?php echo Yii::app()->createUrl('classPage/changeclassinformation?classid='. $class->class_id) ?>',
                     data: data,
-                    beforeSend: function() {
-                        $('#alert').html('<img class="w-blog-entry-img-h" src="/bluebee.com/themes/classic/assets/img/ajax_loader_blue_128.gif" alt="" style="" id="loading"/>');
-                    },
                     success: function(data) {
                         var json = data;
                         var result = $.parseJSON(json);
@@ -184,12 +180,12 @@
                                             min-height: 60px;
                                         }
                                         .avatar-view {
-                                            width:35px;
-                                            height: 35px;
+                                            width:50px;
+                                            height: 50px;
                                             background-size: 35px;
                                             border-radius: 50%;
                                             top: 6px;
-                                            left: 6px;
+                                            left: 20px;
                                             z-index: 2;
                                             position: absolute;
                                         }
@@ -210,7 +206,11 @@
                                             min-height: 45px;
                                             line-height: 16px;
                                             font-size: 14px;
-                                            padding: 15px 100px 14px 56px;
+                                            padding: 15px 110px 14px 95px;
+                                        }
+                                        [contenteditable=true]:empty:not(:focus):before{
+                                          content:attr(data-placeholder);
+                                          color:grey;
                                         }
                                         .placeholder {
                                             color: #acacac;
@@ -241,17 +241,16 @@
                                             border-radius: 5px;
                                             margin-bottom: 10px;
                                         }
+
                                     </style>
                                     <div class="w-tabs-section-content">
                                         <div class="w-tabs-section-content-h" style="padding-top: 0px;">
                                             <div class="activity-input">
                                                 <a class="avatar-view" href="user">
-                                                    <img class="" width="35" height="35" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
+                                                    <img class="" width="50" height="50" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
                                                 </a>
                                                 <div class="activity-input-box">
-                                                    <div contenteditable="true" class="activity-input-content">
-                                                        Có Gì Hot?
-                                                    </div>
+                                                    <div contenteditable="true" class="activity-input-content" data-placeholder="Có Gì Hot?"></div>
                                                     <button type="submit" class="g-btn type_primary size_small submit-button">
                                                         <span>Đăng Tin</span>
                                                     </button>
@@ -492,15 +491,16 @@
                                                                 font-size: 14px;
                                                                 padding: 15px 100px 14px 56px;
                                                             }
+                                                            .fix-avatar-view{
+                                                                left: 6px;
+                                                            }
                                                         </style>
                                                         <div class="item-add-comment-box">
-                                                            <a class="avatar-view" href="user">
+                                                            <a class="avatar-view fix-avatar-view" href="user">
                                                                 <img class="" width="35" height="35" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
                                                             </a>
                                                             <div class="comment-input-box">
-                                                                <div contenteditable="true" class="comment-input-content">
-                                                                    Type your comment add hit enter
-                                                                </div>
+                                                                <div contenteditable="true" class="comment-input-content" data-placeholder="Bình luận?"></div>
                                                             </div>
                                                         </div>
                                                     </div>

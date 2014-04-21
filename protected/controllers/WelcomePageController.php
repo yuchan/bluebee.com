@@ -1,6 +1,9 @@
 <?php
 
 Yii::import('application.controllers.BaseController');
+require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.phpmailer.php');
+require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.pop3.php');
+include_once (dirname(__FILE__) . '/../extensions/facebook.php');
 
 class WelcomePageController extends BaseController {
 
@@ -15,6 +18,32 @@ class WelcomePageController extends BaseController {
 
     public function actionWelcomePage() {
         $this->render('welcomePage');
+    }
+
+    function smtpmailer($to, $from, $from_name, $subject, $body) {
+
+        $mail = new PHPMailer();      // tạo một đối tượng mới từ class PHPMailer
+        $mail->IsSMTP();       // bật chức năng SMTP
+        $mail->CharSet = "UTF-8";
+        $mail->IsHTML(true);
+        //     $mail->SMTPDebug = 1;       // kiểm tra ỗi : 1 là  hiển thị lỗi và thông báo cho ta biết, 2 = chỉ thông báo lỗi
+        $mail->SMTPAuth = true;      // bật chức năng đăng nhập vào SMTP này
+        //$mail->SMTPSecure = 'ssl'; 				// sử dụng giao thức SSL vì gmail bắt buộc dùng cái này
+        $mail->Host = 'localhost';   // smtp của gmail
+        $mail->Port = 25;       // port của smpt gmail
+        $mail->Username = "activate@bluebee-uet.com";
+        $mail->Password = "123456789";
+        $mail->SetFrom($from, $from_name);
+        $mail->Subject = $subject;
+        $mail->Body = $body;
+        $mail->AddAddress($to);
+        if (!$mail->Send()) {
+            $message = 'Gởi mail bị lỗi: ' . $mail->ErrorInfo;
+            return false;
+        } else {
+            $message = 'Thư của bạn đã được gởi đi ';
+            return true;
+        }
     }
 
     public function actionLogin() {
@@ -39,6 +68,7 @@ class WelcomePageController extends BaseController {
                                         Yii::app()->session['user_id'] = $user->user_id;
                                         Yii::app()->session['user_real_name'] = $user->user_real_name;
                                         Yii::app()->session['user_email'] = $user->username;
+                                        Yii::app()->session['user_avatar'] = $user->user_avatar;
 
                                         $this->retVal->success = 1;
                                         //token
@@ -106,22 +136,22 @@ class WelcomePageController extends BaseController {
                                         $model = new User;
                                         if ($model) {
                                             $activator = md5($singupFormData['user_email']);
-                                            $link_activate = Yii::app()->createUrl('activate?token=' . $activator);
+                                            $link_activate = Yii::app()->createAbsoluteUrl('welcomePage/activate?token=' . $activator);
                                             $model->user_real_name = $singupFormData['user_name'];
                                             $model->password = $singupFormData['user_password'];
                                             $model->username = $singupFormData['user_email'];
                                             $model->user_activator = $activator;
-                                            EmailHelper::sendVerifyAccount($singupFormData['user_email'], $link_activate);
                                             $model->user_status = 1;
                                             $model->user_active = 0;
                                             $model->save(FALSE);
-                                            if ($model->save(FALSE)) {
-                                                $this->retVal->message = "Đăng ký thành công, hãy kiểm tra email kích hoạt tài khoản của bạn";
+
+                                            //    $ress =  EmailHelper::sendVerifyAccount($singupFormData['user_email'], $link_activate);
+                                            $res = $this->smtpmailer($singupFormData['user_email'], "activate@bluebee-uet.com", "activate", "Kích hoạt tài khoản bluebee của bạn", "Chào bạn " . $singupFormData["user_name"] . "<br/> Đây là đường link kích hoạt tài khoản của bạn: " . $link_activate . "<br/> Chúc bạn học tốt với bluebee");
+                                            if ($res) {
+                                                $this->retVal->message = "Đăng kí thành công, hãy kiểm tra tài khoản email của bạn để kích hoạt (chú ý cả thư mục spam)";
                                                 $this->retVal->success = 1;
-                                            } else {
-                                                $this->retVal->message = "Không thể lưu user do lỗi server";
-                                                $this->retVal->success = 0;
                                             }
+                                            // echo $ress;
                                         } else {
                                             $this->retVal->message = "Không thể lưu user do lỗi server ";
                                             $this->retVal->success = 0;
@@ -151,7 +181,7 @@ class WelcomePageController extends BaseController {
                 $this->retVal->message = $e->getMessage();
             }
             echo CJSON::encode($this->retVal);
-            //  Yii::app()->end();
+            //     Yii::app()->end();
         }
 
         //  $this->render('welcomePage/signUp');
@@ -179,10 +209,11 @@ class WelcomePageController extends BaseController {
             if ($user_activate) {
                 $user_activate->user_active = 1;
                 $user_activate->save(FALSE);
+                $this->retVal->message = "Kích hoạt tài khoản thành công, hãy đăng nhập bằng tài khoản của bạn.";
+                $this->retVal->success = 1;
             }
-
-            $this->render('activate');
         }
+        $this->render('activate');
     }
 
     function getFb() {
@@ -199,12 +230,13 @@ class WelcomePageController extends BaseController {
     }
 
     public function actionFb_login() {
-        $user = $this->actionFb_login_result();
-        $user_id = User::model()->findByAttributes(array('user_id_fb' => $user["id"]));
+        // $user = $this->actionFb_login_result();
+        //$user_id = User::model()->findByAttributes(array('user_id_fb' => $user["id"]));
         $facebook = $this->getFb();
         $loginUrl = $facebook->getLoginUrl(array(
-            'scope' => '',
-            'redirect_uri' => "http://bluebee-uet.com/user?token=" . $user_id->user_token,
+            'scope' => 'read_stream, publish_stream, user_birthday, user_location, user_work_history, user_hometown, user_photos, email',
+            //'redirect_uri' => "http://bluebee-uet.com/user?token=" . $user_id->user_token,
+            "redirect_uri" => Yii::app()->createAbsoluteUrl('welcomePage/fb_login_result')
         ));
         $this->redirect($loginUrl);
     }
@@ -214,25 +246,51 @@ class WelcomePageController extends BaseController {
         $access_token = $facebook->getAccessToken();
         $user = $facebook->api("me", "get", array(
             "access_token" => $access_token
-        ));
-        return $user;
+        )); //check login tai day
+
+        $user_facebook = User::model()->findByAttributes(array('user_id_fb' => $user["id"]));
+
+        if ($user_facebook) {
+            $token = StringHelper::generateToken(16, 36);
+            $user_facebook->user_token = $token;
+            $user_facebook->save(FALSE);
+            $this->redirect(Yii::app()->createUrl('user?token=' . $token));
+        } else {
+            $token = StringHelper::generateToken(16, 36);
+            $user_facebook = new User;
+            $user["password"] = "bluebee_facebook";
+            if (isset($user["username"])) {
+                $user_facebook->user_real_name = $user['username'];
+            }
+            if (isset($user["email"])) {
+                $user_facebook->username = $user['email'];
+            }
+            $user_facebook->user_token = $token;
+            $user_facebook->user_dob = $user["user_birthday"];
+            $user_facebook->user_hometown = $user["user_hometown"];
+            $user_facebook->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture";
+            $user_facebook->user_id_fb = $user["id"];
+            $user_facebook->save(FALSE);
+            //return $user;
+            $this->redirect(Yii::app()->createUrl('user?token=' . $token));
+        }
     }
 
-    public function actionSaveFacebookUserInfo() {
-        $user = $this->actionFb_login_result();
-        $user_facebook = new User;
-        $user["password"] = "bluebee_facebook";
-        if (!isset($user["username"])) {
-            $user_facebook->user_real_name = $user['username'];
-        }
-        if (!isset($user["email"])) {
-            $user_facebook->username = $user['email'];
-        }
-        $user_facebook->user_token = md5($user["id"]);
-        $user_facebook->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture";
-        $user_facebook->user_id_fb = $user["id"];
-        $user_facebook->save(FALSE);
-    }
+//    public function actionSaveFacebookUserInfo() {
+//        $user = $this->actionFb_login_result();
+//        $user_facebook = new User;
+//        $user["password"] = "bluebee_facebook";
+//        if (!isset($user["username"])) {
+//            $user_facebook->user_real_name = $user['username'];
+//        }
+//        if (!isset($user["email"])) {
+//            $user_facebook->username = $user['email'];
+//        }
+//        $user_facebook->user_token = md5($user["id"]);
+//        $user_facebook->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture";
+//        $user_facebook->user_id_fb = $user["id"];
+//        $user_facebook->save(FALSE);
+//    }
 
     public function actionloginFacebook() {
         $app_id = "1428478800723370";
@@ -259,7 +317,7 @@ class WelcomePageController extends BaseController {
             $logoutUrl = $facebook->getLogoutUrl();
         } else {
             $loginUrl = $facebook->getLoginUrl(array(
-                'scope' => 'read_stream, publish_stream, user_birthday, user_location, user_work_history, user_hometown, user_photos',
+                'scope' => 'read_stream, publish_stream, user_birthday, user_location, user_work_history, user_hometown, user_photos, email',
                 'redirect_uri' => $site_url,
             ));
             $this->redirect($loginUrl);
