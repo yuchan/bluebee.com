@@ -282,15 +282,20 @@
 
                                             <div class="w-nav-item level_1">
                                                 <div class="w-nav-item-h">
-                                                    <a href="<?php echo Yii::app()->createUrl("user?token=".Yii::app()->session['token']) ?>" class="w-nav-anchor level_1">
-                                                        <img style="border: 5px solid white;"class="ava" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/blog-1.jpg"/>
+                                                    <a href="<?php echo Yii::app()->createUrl("user?token=" . Yii::app()->session['token']) ?>" class="w-nav-anchor level_1">
+                                                        <img style="border: 5px solid white;"class="ava" src="<?php
+                                                        if (Yii::app()->session['user_avatar']) {
+                                                            echo Yii::app()->session['user_avatar'];
+                                                        } else
+                                                            echo Yii::app()->theme->baseUrl + "/assets/img/demo/portfolio-1.jpg";
+                                                        ?> "/>
                                                     </a>
 
                                                     <div class="w-nav-list place_down show_onhover level_2">
                                                         <div class="w-nav-list-h">
                                                             <div class="w-nav-item level_2">
                                                                 <div class="w-nav-item-h">
-                                                                    <a href=<?php echo Yii::app()->createUrl("welcomepage/logout") ?> class="w-nav-anchor level_2">Đăng xuất</a>
+                                                                    <a href=<?php echo Yii::app()->createUrl("welcomePage/logout") ?> class="w-nav-anchor level_2">Đăng xuất</a>
                                                                 </div>
                                                             </div>
                                                             <div class="w-nav-item level_2">
