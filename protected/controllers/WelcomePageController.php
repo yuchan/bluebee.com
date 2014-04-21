@@ -25,7 +25,7 @@ class WelcomePageController extends BaseController {
         $mail->IsSMTP();       // bật chức năng SMTP
         $mail->CharSet = "UTF-8";
         $mail->IsHTML(true);
-        $mail->SMTPDebug = 1;       // kiểm tra ỗi : 1 là  hiển thị lỗi và thông báo cho ta biết, 2 = chỉ thông báo lỗi
+   //     $mail->SMTPDebug = 1;       // kiểm tra ỗi : 1 là  hiển thị lỗi và thông báo cho ta biết, 2 = chỉ thông báo lỗi
         $mail->SMTPAuth = true;      // bật chức năng đăng nhập vào SMTP này
         //$mail->SMTPSecure = 'ssl'; 				// sử dụng giao thức SSL vì gmail bắt buộc dùng cái này
         $mail->Host = 'localhost';   // smtp của gmail
@@ -134,7 +134,7 @@ class WelcomePageController extends BaseController {
                                         $model = new User;
                                         if ($model) {
                                             $activator = md5($singupFormData['user_email']);
-                                            $link_activate = Yii::app()->createAbsoluteUrl('activate?token=' . $activator);
+                                            $link_activate = Yii::app()->createAbsoluteUrl('welcomePage/activate?token=' . $activator);
                                             $model->user_real_name = $singupFormData['user_name'];
                                             $model->password = $singupFormData['user_password'];
                                             $model->username = $singupFormData['user_email'];
@@ -179,7 +179,7 @@ class WelcomePageController extends BaseController {
                 $this->retVal->message = $e->getMessage();
             }
             echo CJSON::encode($this->retVal);
-         //     Yii::app()->end();
+            //     Yii::app()->end();
         }
 
         //  $this->render('welcomePage/signUp');
@@ -207,10 +207,11 @@ class WelcomePageController extends BaseController {
             if ($user_activate) {
                 $user_activate->user_active = 1;
                 $user_activate->save(FALSE);
+                $this->retVal->message = "Kích hoạt tài khoản thành công, hãy đăng nhập bằng tài khoản của bạn.";
+                $this->retVal->success = 1;
             }
-
-            $this->render('activate');
         }
+        $this->render('activate');
     }
 
     function getFb() {
