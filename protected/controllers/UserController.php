@@ -6,7 +6,7 @@ class UserController extends Controller {
         $this->actionUser();
     }
 
-    public function actionUser() {
+   public function actionUser() {
         if (isset($_GET["token"])) {
             $spCriteria = new CDbCriteria();
             $spCriteria->select = "*";
@@ -17,7 +17,6 @@ class UserController extends Controller {
             $user_classCriteria = new CDbCriteria();
             $user_classCriteria->select = "*";
             $user_classCriteria->condition = "user_id = '".$user_current_token->user_id."'";
-            
             $this->render('user', array('user_detail_info' => User::model()->findAll($spCriteria),
                 'user_class_info' => ClassUser::model()->findAll($user_classCriteria)));
         }

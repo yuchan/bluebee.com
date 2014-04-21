@@ -9,15 +9,10 @@
                 type: "POST",
                 url: '<?php echo Yii::app()->createUrl('welcomePage/signup') ?>',
                 data: data,
-                beforeSend: function() {
-                    $('#alert').html('<img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax_loader_blue_128.gif" alt="" style="" id="loading"/>');
-                },
                 success: function(data) {
                     var json = data;
-                    $('#alert').html('');
                     var result = $.parseJSON(json);
                     //       $('#res').html(result.message);
-                   // alert(json);
                     if (result.success) {
                         var item = $('<div class="g-form-row-field">' +
                                 '<div id="success" class="g-alert type_success">' +
@@ -25,33 +20,35 @@
                                 '<p><b>' + result.message + '</b></p>' +
                                 '</div>' +
                                 '</div>' +
-                                '</div>').hide().fadeIn(120);
-
+                                '</div>');
                         var hide = $('#alert').css('display');
                         if (hide == 'none') {
                             $('#alert').html(item).slideDown('slow');
                         } else {
-                            $('#alert').html(item).slideUp('fast').slideDown('800');
+                            $('#alert').slideUp(function(){
+                                $('#alert').html(item).slideDown('slow');
+                            });
                         }
+
                     }
                     else {
 
                         var item = $('<div class="g-form-row-field">' +
                                 '<div id="error" class="g-alert type_error">' +
-                                '<div class="g-alert-body">' +
+                                '<div class="g-alert-body" style="text-align: center">' +
                                 '<p><b>' + result.message + '</b></p>' +
                                 '</div>' +
                                 '</div>' +
-                                '</div>').hide().fadeIn(120);
+                                '</div>');
 
                         var hide = $('#alert').css('display');
                         if (hide == 'none') {
                             $('#alert').html(item).slideDown('slow');
                         } else {
-                            $('#alert').html(item).slideUp('fast').slideDown('800');
+                            $('#alert').slideUp(function(){
+                                $('#alert').html(item).slideDown('slow');
+                            });
                         }
-                        //   var json = $.parseJSON(data);
-                        //  $('#res').html('Message : ' + json.message + '<br>Success : ' + json.success)
                     }
                 }
             });
@@ -59,7 +56,8 @@
             event.stopPropagation();
             return false;
         });
-    });</script>
+    });
+</script>
 
 <div id="signuparea" class="w-tabs-section-title">
     <span class="w-tabs-section-title-text fix-g-form" style="margin: 0 0 0 5px; padding: 0">Chưa có Tài Khoản? Đăng Ký!</span>

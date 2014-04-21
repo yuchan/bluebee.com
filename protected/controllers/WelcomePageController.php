@@ -199,8 +199,9 @@ class WelcomePageController extends BaseController {
         Yii::app()->session['user_real_name'] = "";
         Yii::app()->session['user_email'] = "";
         Yii::app()->session['token'] = "";
+        Yii::app()->session['user_avatar'] = "";
 
-        $this->redirect(Yii::app()->createUrl('welcomepage'));
+        $this->redirect(Yii::app()->createUrl('welcomePage'));
     }
 
     public function actionActivate() {
@@ -248,13 +249,16 @@ class WelcomePageController extends BaseController {
             "access_token" => $access_token
         )); //check login tai day
 
-        $user_facebook = User::model()->findByAttributes(array('user_id_fb' => $user["id"]));
+        $user_facebook_exist = User::model()->findByAttributes(array('user_id_fb' => $user["id"]));
 
-        if ($user_facebook) {
+        if ($user_facebook_exist) {
             $token = StringHelper::generateToken(16, 36);
-            $user_facebook->user_token = $token;
-            $user_facebook->save(FALSE);
+            $user_facebook_exist->user_token = $token;
+            $user_facebook_exist->save(FALSE);
+            Yii::app()->session['user_avatar'] = $user_facebook_exist->user_avatar;
+            Yii::app()->session['token'] = $token;
             $this->redirect(Yii::app()->createUrl('user?token=' . $token));
+           
         } else {
             $token = StringHelper::generateToken(16, 36);
             $user_facebook = new User;
@@ -266,13 +270,16 @@ class WelcomePageController extends BaseController {
                 $user_facebook->username = $user['email'];
             }
             $user_facebook->user_token = $token;
-            $user_facebook->user_dob = $user["user_birthday"];
-            $user_facebook->user_hometown = $user["user_hometown"];
+//            $user_facebook->user_dob = $user["user_birthday"];
+//            $user_facebook->user_hometown = $user["user_hometown"];
             $user_facebook->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture";
+            Yii::app()->session['user_avatar'] = "http://graph.facebook.com/" . $user["id"] . "/picture";
+            Yii::app()->session['token'] = $token;
             $user_facebook->user_id_fb = $user["id"];
             $user_facebook->save(FALSE);
             //return $user;
             $this->redirect(Yii::app()->createUrl('user?token=' . $token));
+            
         }
     }
 

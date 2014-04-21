@@ -11,45 +11,47 @@
                     success: function(data) {
                         var json = data;
                         var result = $.parseJSON(json);
-                        $('#alert').html('');
+                        $('#alert1').html('');
                         if (result.success == 1) {
                             var item = $('<div class="g-form-row-field">' +
-                                    '<div id="success" class="g-alert type_success">' +
-                                    '<div class="g-alert-body">' +
+                                    '<div id="success" class="g-alert1 type_success">' +
+                                    '<div class="g-alert1-body">' +
                                     '<p><b>' + result.message + '</b></p>' +
                                     '</div>' +
                                     '</div>' +
                                     '</div>');
-                            var hide = $('#alert').css('display');
+                            var hide = $('#alert1').css('display');
                             if (hide == 'none') {
-                                $('#alert').html(item).slideDown('slow');
+                                $('#alert11').html(item).slideDown('slow');
                             } else {
-                                $('#alert').slideUp(function() {
-                                    $('#alert').html(item).slideDown('slow');
+                                $('#alert11').slideUp(function() {
+                                    $('#alert11').html(item).slideDown('slow');
                                 });
                             }
                             location.href = result.url;
                         }
                         else {
                             var item = $('<div class="g-form-row-field">' +
-                                    '<div id="error" class="g-alert type_error">' +
-                                    '<div class="g-alert-body" style="text-align: center">' +
+                                    '<div id="error" class="g-alert1 type_error">' +
+                                    '<div class="g-alert1-body" style="text-align: center">' +
                                     '<p><b>' + result.message + '</b></p>' +
                                     '</div>' +
                                     '</div>' +
                                     '</div>');
-                            var hide = $('#alert').css('display');
+                            var hide = $('#alert1').css('display');
                             if (hide == 'none') {
-                                $('#alert').html(item).slideDown('slow');
+                                $('#alert1').html(item).slideDown('slow');
                             } else {
-                                $('#alert').slideUp(function() {
-                                    $('#alert').html(item).slideDown('slow');
+                                $('#alert1').slideUp(function() {
+                                    $('#alert1').html(item).slideDown('slow');
                                 });
                             }
                         }
                     }});
             });
-        });</script>
+        });
+    </script>
+
 
 
     <form class="g-form white-popup-block mfp-hide" id="edit-infomation-class" action="" method="POST">
@@ -96,6 +98,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="g-form-group">
+                                    <div class="g-form-row-label">
+                                        <label class="g-form-row-label-h" for="description">Miêu tả (*)</label>
+                                    </div>
+                                    <div class="g-form-group-rows">
+                                        <div class="g-form-row">
+                                            <div class="g-form-row-field">
+                                                <textarea name="description" id="input1x3" cols="30" rows="10"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                 <div class="g-form-row">
                     <div class="g-form-row-field">
                         <button class="g-btn type_primary" type="submit" name="Submit" value="Submit" style="text-transform: inherit" action="">Lưu thông tin</button>
@@ -103,7 +117,7 @@
                 </div>
 
             </div>
-            <div id="alert"></div>
+            <div id="alert11"></div>
         </div>
     </form>
 
