@@ -201,7 +201,7 @@ class WelcomePageController extends BaseController {
         Yii::app()->session['token'] = "";
         Yii::app()->session['user_avatar'] = "";
 
-        $this->redirect(Yii::app()->createUrl('welcomePage'));
+        $this->redirect(Yii::app()->createUrl('/'));
     }
 
     public function actionActivate() {
@@ -248,10 +248,13 @@ class WelcomePageController extends BaseController {
         $user = $facebook->api("me", "get", array(
             "access_token" => $access_token
         )); //check login tai day
-
+        //print_r($user["id"]);
+        //die();
         $user_facebook_exist = User::model()->findByAttributes(array('user_id_fb' => $user["id"]));
 
         if ($user_facebook_exist) {
+       //     echo 'huy';
+         //   die();
             $token = StringHelper::generateToken(16, 36);
             $user_facebook_exist->user_token = $token;
             $user_facebook_exist->save(FALSE);
@@ -260,6 +263,8 @@ class WelcomePageController extends BaseController {
             $this->redirect(Yii::app()->createUrl('user?token=' . $token));
            
         } else {
+         //   echo 'ok';
+         //   die();
             $token = StringHelper::generateToken(16, 36);
             $user_facebook = new User;
             $user["password"] = "bluebee_facebook";
