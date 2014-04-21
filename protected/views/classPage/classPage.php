@@ -52,8 +52,7 @@
         });</script>
 
 
-<form class="g-form white-popup-block mfp-hide" id="edit-infomation-class" action="<?php //echo Yii::app()->createUrl('classPage/changeClassInformation?classid='. $class->class_id) ?>" method="POST">
-
+<form class="g-form white-popup-block mfp-hide" id="edit-infomation-class" action="" method="POST">
         <h3>Chỉnh Sửa Thông Tin</h3>
         <div class="g-form-group">
             <div class="g-form-group-rows">
