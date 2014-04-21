@@ -154,7 +154,7 @@
                                 <a href="" style="margin-left: 30px">More...</a>
 
                                 <div class="rounded1 color_alternate">
-                                    <h6>Cập nhật gần đây</h6>
+                                    <h6>Hoạt động gần đây</h6>
                                 </div>
 
                                 <div class="w-blog imgpos_attop meta_all">
@@ -319,17 +319,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <div>
-                        <a href="" style="margin-left: 30px">More...</a>
-                        <br/>
-                        <a class="popup-with-form" href="#newclassform">
-                            <button class="g-btn type_outline"><span><i class="icon-heart"></i>Tạo lớp môn học</span></button>
-                        </a>
-                        <?php $this->renderPartial('partial/newclass') ?>
-
-                    </div>
-
+                    
                     <div class="rounded2 color_alternate">
                         <h6>Nhóm đã tham gia</h6>
                     </div>
@@ -385,17 +375,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <div>
-                        <a href="" style="margin-left: 30px">More...</a>
-                        <br/>
-                        <a href="">
-                            <button class="g-btn type_outline"><span><i class="icon-heart"></i>Tạo nhóm</span></button>
-                        </a>
-                    </div>
-
                 </div>
-
             </div>
         </div>
     </div>
