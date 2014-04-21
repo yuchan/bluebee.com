@@ -51,10 +51,7 @@
             });
         });</script>
 
-<<<<<<< HEAD
-<form class="g-form white-popup-block mfp-hide" id="edit-infomation-class" action="<?php //echo Yii::app()->createUrl('classPage?classid='. $class->class_id) ?>" method="POST">
-=======
->>>>>>> ce2dac4565e585e899a807ad9d38b2dbdcad2bac
+
 
 <form class="g-form white-popup-block mfp-hide" id="edit-infomation-class" action="" method="POST">
         <h3>Chỉnh Sửa Thông Tin</h3>
