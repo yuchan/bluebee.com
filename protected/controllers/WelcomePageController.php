@@ -1,6 +1,8 @@
 <?php
 
 Yii::import('application.controllers.BaseController');
+require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.phpmailer.php');
+require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.pop3.php');
 
 class WelcomePageController extends BaseController {
 
@@ -15,6 +17,32 @@ class WelcomePageController extends BaseController {
 
     public function actionWelcomePage() {
         $this->render('welcomePage');
+    }
+
+    function smtpmailer($to, $from, $from_name, $subject, $body) {
+
+        $mail = new PHPMailer();      // tạo một đối tượng mới từ class PHPMailer
+        $mail->IsSMTP();       // bật chức năng SMTP
+        $mail->CharSet = "UTF-8";
+        $mail->IsHTML(true);
+        $mail->SMTPDebug = 1;       // kiểm tra ỗi : 1 là  hiển thị lỗi và thông báo cho ta biết, 2 = chỉ thông báo lỗi
+        $mail->SMTPAuth = true;      // bật chức năng đăng nhập vào SMTP này
+        //$mail->SMTPSecure = 'ssl'; 				// sử dụng giao thức SSL vì gmail bắt buộc dùng cái này
+        $mail->Host = 'localhost';   // smtp của gmail
+        $mail->Port = 25;       // port của smpt gmail
+        $mail->Username = "activate@bluebee-uet.com";
+        $mail->Password = "123456789";
+        $mail->SetFrom($from, $from_name);
+        $mail->Subject = $subject;
+        $mail->Body = $body;
+        $mail->AddAddress($to);
+        if (!$mail->Send()) {
+            $message = 'Gởi mail bị lỗi: ' . $mail->ErrorInfo;
+            return false;
+        } else {
+            $message = 'Thư của bạn đã được gởi đi ';
+            return true;
+        }
     }
 
     public function actionLogin() {
@@ -106,22 +134,22 @@ class WelcomePageController extends BaseController {
                                         $model = new User;
                                         if ($model) {
                                             $activator = md5($singupFormData['user_email']);
-                                            $link_activate = Yii::app()->createUrl('activate?token=' . $activator);
+                                            $link_activate = Yii::app()->createAbsoluteUrl('activate?token=' . $activator);
                                             $model->user_real_name = $singupFormData['user_name'];
                                             $model->password = $singupFormData['user_password'];
                                             $model->username = $singupFormData['user_email'];
                                             $model->user_activator = $activator;
-                                            EmailHelper::sendVerifyAccount($singupFormData['user_email'], $link_activate);
                                             $model->user_status = 1;
                                             $model->user_active = 0;
                                             $model->save(FALSE);
-                                            if ($model->save(FALSE)) {
-                                                $this->retVal->message = "Đăng ký thành công, hãy kiểm tra email kích hoạt tài khoản của bạn";
+
+                                            //    $ress =  EmailHelper::sendVerifyAccount($singupFormData['user_email'], $link_activate);
+                                            $res = $this->smtpmailer($singupFormData['user_email'], "activate@bluebee-uet.com", "activate", "Kích hoạt tài khoản bluebee của bạn", "Chào bạn " . $singupFormData["user_name"] . "<br/> Đây là đường link kích hoạt tài khoản của bạn: " . $link_activate . "<br/> Chúc bạn học tốt với bluebee");
+                                            if ($res) {
+                                                $this->retVal->message = "Đăng kí thành công, hãy kiểm tra tài khoản email của bạn để kích hoạt (chú ý cả thư mục spam)";
                                                 $this->retVal->success = 1;
-                                            } else {
-                                                $this->retVal->message = "Không thể lưu user do lỗi server";
-                                                $this->retVal->success = 0;
                                             }
+                                            // echo $ress;
                                         } else {
                                             $this->retVal->message = "Không thể lưu user do lỗi server ";
                                             $this->retVal->success = 0;
@@ -151,7 +179,7 @@ class WelcomePageController extends BaseController {
                 $this->retVal->message = $e->getMessage();
             }
             echo CJSON::encode($this->retVal);
-            //  Yii::app()->end();
+         //     Yii::app()->end();
         }
 
         //  $this->render('welcomePage/signUp');
