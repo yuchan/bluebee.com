@@ -157,7 +157,7 @@
                             <!-- LOGO -->
                             <div class="w-logo">
                                 <div class="w-logo-h">
-                                    <a class="w-logo-link" href="<?php echo Yii::app()->createUrl("") ?>" class="w-nav-anchor level_1">
+                                    <a class="w-logo-link" href="<?php echo Yii::app()->createUrl("home") ?>" class="w-nav-anchor level_1">
                                         <img class="w-logo-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo.jpg" alt="BlueBee" />
                                         <span class="w-logo-title">
                                             <span class="w-logo-title-h">BlueBee</span>
@@ -167,7 +167,7 @@
                             </div>
                             <div class="w-logo">
                                 <div class="w-logo-h">
-                                    <a class="w-logo-link" href="<?php echo Yii::app()->createUrl("") ?>" class="w-nav-anchor level_1">
+                                    <a class="w-logo-link" href="<?php echo Yii::app()->createUrl("home") ?>" class="w-nav-anchor level_1">
                                         <img class="w-logo-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo2.jpg" alt="BlueBee" />
                                         <span class="w-logo-title">
                                             <span class="w-logo-title-h">BlueBee</span>
@@ -230,22 +230,6 @@
                                                         <span class="w-nav-title">Lớp môn học</span>
                                                         <span class="w-nav-hint"></span>
                                                     </a>
-
-                                                    <div class="w-nav-list place_down show_onhover level_2">
-                                                        <div class="w-nav-list-h">
-                                                            <div class="w-nav-item level_2">
-                                                                <div class="w-nav-item-h">
-                                                                    <a href="home-landing.html" class="w-nav-anchor level_2">Class - Vietnam National University</a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="w-nav-item level_2">
-                                                                <div class="w-nav-item-h">
-                                                                    <a href="home-parallax.html" class="w-nav-anchor level_2">Class - Blue UET team</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
                                                 </div>
                                             </div>
 
@@ -303,11 +287,11 @@
                                                                     <a href="<?php echo Yii::app()->createUrl('welcomePage/logout') ?>" class="w-nav-anchor level_2">Đăng xuất</a>
                                                                 </div>
                                                             </div>
-<!--                                                            <div class="w-nav-item level_2">
-                                                                <div class="w-nav-item-h">
-                                                                    <a href="home-parallax.html" class="w-nav-anchor level_2">Cập nhật thông tin</a>
-                                                                </div>
-                                                            </div>-->
+                                                            <!--                                                            <div class="w-nav-item level_2">
+                                                                                                                            <div class="w-nav-item-h">
+                                                                                                                                <a href="home-parallax.html" class="w-nav-anchor level_2">Cập nhật thông tin</a>
+                                                                                                                            </div>
+                                                                                                                        </div>-->
 
                                                         </div>
                                                     </div>
