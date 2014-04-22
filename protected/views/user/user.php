@@ -78,19 +78,13 @@
 
                 <div class="two-thirds">
                     <div class="l-content">
-                        <div class="g-form-row"id="alert" style="position: absolute; z-index: 2; width: 89%; right:100%">
-
-                        </div>
-                        <h3>Sơ lược</h3>
                         <div class='g-cols'>
                             <div class='full-width'>
                                 <a href=""><img class="circular float_left" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/blog-1.jpg"/></a>
                                 <div class="rounded">
-                                    <b>Details</b> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Hanoi, Vietnam.
+                                    <b>Trường học </b> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Đại học Quốc gia Hà Nội.
                                     <br/>
-                                    <b>Activity</b> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Joined in March 2013, Vip member of website - boss. 
-                                    <br/>
-                                    <b>Quote</b> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Change words, Change world.
+                                    <b>Hoạt động</b> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Tham gia ngày 12/3/2014, thành viên website. 
                                 </div>
 
                                 <div style="text-align: center">
