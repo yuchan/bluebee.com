@@ -29,7 +29,7 @@ class Group extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('group_avatar, group_cover, group_description, group_name, group_active', 'length', 'max'=>45),
+			array('group_avatar, group_cover, group_description, group_name, group_active', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('group_id, group_avatar, group_cover, group_description, group_name, group_active', 'safe', 'on'=>'search'),

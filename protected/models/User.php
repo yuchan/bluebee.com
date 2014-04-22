@@ -45,8 +45,8 @@ class User extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('user_university, user_faculty, user_class, user_active, user_status, user_group', 'numerical', 'integerOnly'=>true),
-			array('user_id_fb, user_avatar, user_cover, user_token, user_activator', 'length', 'max'=>200),
-			array('username, password, user_real_name, user_student_code, user_gender, user_dob, user_hometown, user_phone, user_description', 'length', 'max'=>45),
+			array('user_id_fb, user_avatar, user_cover, user_hometown, user_description, user_token, user_activator', 'length', 'max'=>200),
+			array('username, password, user_real_name, user_student_code, user_gender, user_dob, user_phone', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('user_id, user_id_fb, username, password, user_real_name, user_avatar, user_cover, user_student_code, user_university, user_gender, user_dob, user_hometown, user_phone, user_description, user_faculty, user_class, user_active, user_status, user_group, user_token, user_activator', 'safe', 'on'=>'search'),
