@@ -9,9 +9,6 @@
                 type: "POST",
                 url: '<?php echo Yii::app()->createUrl('welcomePage/signup') ?>',
                 data: data,
-                beforeSend: function() {
-                    $('#alert').html('<img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax_loader_blue_128.gif" alt="" style="" id="loading"/>');
-                },
                 success: function(data) {
                     var json = data;
                     $('#alert').html('');

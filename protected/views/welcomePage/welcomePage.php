@@ -8,9 +8,6 @@
                 type: "POST",
                 url: '<?php echo Yii::app()->createUrl('welcomePage/Login') ?>',
                 data: data,
-                beforeSend: function () {
-                        $('#alert').html('<img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax_loader_blue_128.gif" alt="" style="" id="loading"/>');
-                    },
                 success: function(data) {
                     var json = data;
                     var result = $.parseJSON(json);
@@ -27,7 +24,7 @@
 
                         $('#alert').html(item);
                         setInterval(location.href = result.url, 3000);
-                        
+
                     }
                     else {
 
@@ -93,8 +90,8 @@
                                                                     <h3>Project Info</h3>
                                                                     <blockquote>
                                                                         <b>Vu Ngoc Son</b>
-                                                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-                                                                        Aenean commodo ligula eget dolor. Aenean massa. Cum sociis 
+                                                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                                                                        Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
                                                                         natoque penatibus et magnis dis parturient montes.
                                                                     </blockquote>
                                                                 </div>
@@ -199,9 +196,9 @@
                                                                 <div class="g-form-row"  style="padding-bottom: 5px; margin-top: -5px">
                                                                     <div class="g-form-row-field">
                                                                         <button class="g-btn type_primary" type="submit" name="Submit" value="Submit" style="width: 100%">Đăng Nhập</button>
-                                                                        
+
                                                                     </div>
-                                                                </div>                                                   
+                                                                </div>
                                                                 <?php $this->renderPartial('fb') ?>
                                                             </div>
                                                         </div>
