@@ -17,7 +17,7 @@ class UserController extends Controller {
             $user_classCriteria = new CDbCriteria();
             $user_classCriteria->select = "*";
             $user_classCriteria->condition = "user_id = '".$user_current_token->user_id."'";
-            $user_classCriteria->join = "INNER JOIN tbl_class ON tbl_class_user.class_id = tbl_class.class_id";
+            $user_classCriteria->join = "INNER JOIN tbl_class u ON t.class_id = u.class_id";
             $this->render('user', array('user_detail_info' => User::model()->findAll($spCriteria),
                 'user_class_info' => ClassUser::model()->findAll($user_classCriteria)));
         }
