@@ -63,7 +63,7 @@ class WelcomePageController extends BaseController {
                             if ($user) {
                                 //user existed, check password
                                 if ($user->user_active == 1) {
-                                    if ($user->password == $loginFormData['user_password']) {
+                                    if ($user->password == md5($loginFormData['user_password'])) {
                                         $this->retVal->message = "Đăng nhập thành công";
                                         Yii::app()->session['user_id'] = $user->user_id;
                                         Yii::app()->session['user_real_name'] = $user->user_real_name;
@@ -138,7 +138,7 @@ class WelcomePageController extends BaseController {
                                             $activator = md5($singupFormData['user_email']);
                                             $link_activate = Yii::app()->createAbsoluteUrl('welcomePage/activate?token=' . $activator);
                                             $model->user_real_name = $singupFormData['user_name'];
-                                            $model->password = $singupFormData['user_password'];
+                                            $model->password = md5($singupFormData['user_password']);
                                             $model->username = $singupFormData['user_email'];
                                             $model->user_activator = $activator;
                                             $model->user_status = 1;
