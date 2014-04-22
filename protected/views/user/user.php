@@ -293,11 +293,11 @@
                                     <?php foreach ($user_class_info as $class): ?>
                                         <div class = "w-portfolio-item naming webdesign">
                                             <div class = "w-portfolio-item-h animate_afc">
-                                                <a class = "w-portfolio-item-anchor" href = "<?php echo Yii::app()->baseUrl,"/classPage/?classid=".$class->class_id ?>">
+                                                <a class = "w-portfolio-item-anchor" href = "<?php echo Yii::app()->baseUrl,"/classPage/?classid=".$class['class_id'] ?>">
                                                     <div class = "w-portfolio-item-image">
                                                         <img src = "<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-1.jpg" alt = "" />
                                                         <div class = "w-portfolio-item-meta">
-                                                            <h2 class = "w-portfolio-item-title"><?php echo $class->class_name ?></h2>
+                                                            <h2 class = "w-portfolio-item-title"><?php echo $class['class_name'] ?></h2>
                                                             <i class = "icon-mail-forward"></i>
                                                         </div>
                                                     </div>
