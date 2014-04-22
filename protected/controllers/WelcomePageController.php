@@ -41,7 +41,7 @@ class WelcomePageController extends BaseController {
             $message = 'Gởi mail bị lỗi: ' . $mail->ErrorInfo;
             return false;
         } else {
-            $message = 'Thư của bạn đã được gởi đi ';
+            $message = 'Thư của bạn đã được gửi đi ';
             return true;
         }
     }
