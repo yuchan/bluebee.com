@@ -253,19 +253,19 @@ class WelcomePageController extends BaseController {
         $user_facebook_exist = User::model()->findByAttributes(array('user_id_fb' => $user["id"]));
 
         if ($user_facebook_exist) {
-       //     echo 'huy';
-         //   die();
+            //     echo 'huy';
+            //   die();
             $token = StringHelper::generateToken(16, 36);
             $user_facebook_exist->user_token = $token;
-              $user_facebook_exist->user_active = 1;
+            $user_facebook_exist->user_active = 1;
             $user_facebook_exist->save(FALSE);
             Yii::app()->session['user_avatar'] = $user_facebook_exist->user_avatar;
             Yii::app()->session['token'] = $token;
+            Yii::app()->session['user_id'] = $user_facebook_exist->user_id;
             $this->redirect(Yii::app()->createUrl('user?token=' . $token));
-           
         } else {
-         //   echo 'ok';
-         //   die();
+            //   echo 'ok';
+            //   die();
             $token = StringHelper::generateToken(16, 36);
             $user_facebook = new User;
             $user["password"] = "bluebee_facebook";
@@ -282,11 +282,13 @@ class WelcomePageController extends BaseController {
             Yii::app()->session['user_avatar'] = "http://graph.facebook.com/" . $user["id"] . "/picture";
             Yii::app()->session['token'] = $token;
             $user_facebook->user_id_fb = $user["id"];
-             $user_facebook->user_active = 1;
+            $user_facebook->user_active = 1;
             $user_facebook->save(FALSE);
+            Yii::app()->session['user_id'] = $user_facebook->user_id;
+
+
             //return $user;
             $this->redirect(Yii::app()->createUrl('user?token=' . $token));
-            
         }
     }
 
