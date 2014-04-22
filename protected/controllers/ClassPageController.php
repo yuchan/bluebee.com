@@ -24,6 +24,7 @@ class ClassPageController extends BaseController {
         $class_id = class_model::model()->findByAttributes(array('class_id' => $class_new->class_id));
 
         $class_year->class_code = $code;
+        $class_year->is_active = 1;
 
         $class_year->class_id = $class_id->class_id;
         $class_year->class_year = date("Y");
