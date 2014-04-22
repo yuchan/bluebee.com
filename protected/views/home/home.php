@@ -25,35 +25,54 @@
                                         </div>
                                         <div class="w-iconbox-text  color_alternate">
                                             <div class="w-iconbox-text-description">
-                                                <a class="popup-modal" href="#test-modal">
+                                                <a class="popup-with-form" href="#test-modal">
                                                     <button class="g-btn type_primary size_big"><span><i class="icon-heart"></i>Tạo nhóm học tập</span></button>
                                                 </a>
 
-                                                <form id="test-modal" class="white-popup-block mfp-hide">
-                                                    <h1>Creat your class</h1>
-                                                    <fieldset style="size: 200px ; alignment-adjust: central">
-                                                        <ol>
-                                                            <li>
-                                                                <label for="name"><h4>Name Class</h4></label>
-                                                                <input id="name" name="name" placeholder="Name Class" required="" type="text">
-                                                            </li>
-                                                            <li>
-                                                                <label for="email"><h4>Your Email</h4></label>
-                                                                <input id="email" name="email" placeholder="example@domain.com" required="" type="email">
-                                                            </li>
-                                                            <li>
-                                                                <label for="phone"><h4>Your Phone number</h4></label>
-                                                                <input id="phone" name="phone" placeholder="Eg. +447500000000" required="" type="tel">
-                                                            </li>
-                                                            <li>
-                                                                <label for="textarea"><h4>Describle about class</h4></label><br>
-                                                                <textarea id="textarea">Try to resize me to see how popup CSS-based resizing works.</textarea>
-                                                            </li>
-                                                        </ol>
+                                                <form class="g-form white-popup-block mfp-hide" id="test-modal">
+                                                    <h3>Create A New Class</h3>
+                                                    <div class="g-form-group">
+                                                        <div class="g-form-group-rows">
+                                                            <div class="g-form-row">
+                                                                <div class="g-form-row-label">
+                                                                    <label class="g-form-row-label-h" for="class_name">Class' Name</label>
+                                                                </div>
+                                                                <div class="g-form-row-field">
+                                                                    <div class="g-input">
+                                                                        <input type="text" name="classname" id="contact_username" placeholder="Name" value="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="g-form-row">
+                                                                <div class="g-form-row-label">
+                                                                    <label class="g-form-row-label-h" for="contact_email">Email</label>
+                                                                </div>
+                                                                <div class="g-form-row-field">
+                                                                    <div class="g-input">
+                                                                        <input type="text" name="email" id="contact_username" placeholder="Email" value="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="g-form-group">
+                                                                <div class="g-form-row-label">
+                                                                    <label class="g-form-row-label-h" for="contact_email">Describle</label>
+                                                                </div>
+                                                                <div class="g-form-group-rows">
+                                                                    <div class="g-form-row">
+                                                                        <div class="g-form-row-field">
+                                                                            <textarea name="#" id="input1x3" cols="30" rows="10"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="g-form-row">
+                                                                <div class="g-form-row-field">
+                                                                    <button class="g-btn type_primary" type="submit" name="Submit" value="Submit">Submit</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
-                                                        <p><a class="popup-modal-dismiss" href="http://localhost/SE_project/index.php/class"><button class="g-btn type_default size_small"><span><i class="icon-arrow-up"></i>Submit</span></button></a></p>
-
-                                                    </fieldset>
                                                 </form>
                                             </div>
                                         </div>
