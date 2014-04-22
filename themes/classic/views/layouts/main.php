@@ -225,7 +225,7 @@
 
                                             <div class="w-nav-item level_1">
                                                 <div class="w-nav-item-h">
-                                                    <a href="<?php echo Yii::app()->createUrl("share") ?>" class="w-nav-anchor level_1">
+                                                    <a href="#" class="w-nav-anchor level_1">
                                                         <span class="w-nav-icon"><i class="icon-star"></i></span>
                                                         <span class="w-nav-title">Lớp môn học</span>
                                                         <span class="w-nav-hint"></span>
