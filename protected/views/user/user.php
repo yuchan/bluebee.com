@@ -93,7 +93,7 @@
                                     </p>
                                 </div>
 
-                                <div class="rounded1 color_alternate">
+<!--                                <div class="rounded1 color_alternate">
                                     <h6>Tài liệu đã xem</h6>
                                 </div>
 
@@ -145,7 +145,7 @@
                                     </div>
                                 </div>
 
-                                <a href="" style="margin-left: 30px">More...</a>
+                                <a href="" style="margin-left: 30px">More...</a>-->
 
                                 <div class="rounded1 color_alternate">
                                     <h6>Hoạt động gần đây</h6>
