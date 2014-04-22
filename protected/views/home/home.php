@@ -95,6 +95,8 @@
                                                 </a>
 
                                               <?php $this->renderPartial('newclass')?>
+
+                            
                                             </div>
                                         </div>
                                     </div>

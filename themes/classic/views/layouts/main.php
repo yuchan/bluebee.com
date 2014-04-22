@@ -215,11 +215,11 @@
                                             </div>
                                             <div class="w-nav-item level_1">
                                                 <div class="w-nav-item-h">
-                                                    <a href="<?php echo Yii::app()->createUrl("document") ?>" class="w-nav-anchor level_1">
+<!--                                                    <a href="<?php echo Yii::app()->createUrl("document") ?>" class="w-nav-anchor level_1">
                                                         <span class="w-nav-icon"><i class="icon-star"></i></span>
                                                         <span class="w-nav-title">Tài liệu</span>
                                                         <span class="w-nav-hint"></span>
-                                                    </a>
+                                                    </a>-->
                                                 </div>
                                             </div>
 
@@ -251,11 +251,11 @@
 
                                             <div class="w-nav-item level_1">
                                                 <div class="w-nav-item-h">
-                                                    <a href="<?php echo Yii::app()->createUrl("share") ?>" class="w-nav-anchor level_1">
+<!--                                                    <a href="<?php echo Yii::app()->createUrl("share") ?>" class="w-nav-anchor level_1">
                                                         <span class="w-nav-icon"><i class="icon-star"></i></span>
                                                         <span class="w-nav-title">Nhóm</span>
                                                         <span class="w-nav-hint"></span>
-                                                    </a>
+                                                    </a>-->
 
                                                     <div class="w-nav-list place_down show_onhover level_2">
                                                         <div class="w-nav-list-h">
@@ -303,11 +303,11 @@
                                                                     <a href="<?php echo Yii::app()->createUrl('welcomePage/logout') ?>" class="w-nav-anchor level_2">Đăng xuất</a>
                                                                 </div>
                                                             </div>
-                                                            <div class="w-nav-item level_2">
+<!--                                                            <div class="w-nav-item level_2">
                                                                 <div class="w-nav-item-h">
                                                                     <a href="home-parallax.html" class="w-nav-anchor level_2">Cập nhật thông tin</a>
                                                                 </div>
-                                                            </div>
+                                                            </div>-->
 
                                                         </div>
                                                     </div>
