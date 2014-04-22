@@ -100,8 +100,15 @@ class ClassPageController extends BaseController {
             $spCriteria = new CDbCriteria();
             $spCriteria->select = "*";
             $spCriteria->condition = "class_id = " . $_GET["classid"];
+            
+            $userCriteria = new CDbCriteria();
+            $userCriteria->select = "*";
+            $userCriteria->condition = "class_id = ".$_GET["classid"];
+            $user = ClassUser::model()->findAll($userCriteria);
+            $number_of_user = count($user);
 
-            $this->render('classPage', array('detail_classpage' => class_model::model()->findAll($spCriteria)));
+            $this->render('classPage',array('detail_classpage' => class_model::model()->findAll($spCriteria),
+                'number_of_user' => $number_of_user));
         }
     }
 

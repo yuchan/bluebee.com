@@ -1,4 +1,3 @@
-
 <script type="text/javascript">
     $(document).ready(function() {
         var form = $('#loginform');
@@ -11,8 +10,6 @@
                 success: function(data) {
                     var json = data;
                     var result = $.parseJSON(json);
-                    //       $('#res').html(result.message);
-                    $('#alert').html('');
                     if (result.success) {
                         var item = $('<div class="g-form-row-field">' +
                                 '<div id="success" class="g-alert type_success">' +
@@ -20,14 +17,20 @@
                                 '<p><b>' + result.message + '</b></p>' +
                                 '</div>' +
                                 '</div>' +
-                                '</div>').hide().fadeIn(120);
-
-                        $('#alert').html(item);
-                        setInterval(location.href = result.url, 3000);
-
+                                '</div>');
+                        var hide = $('#alert').css('display');
+                        if (hide == 'none') {
+                            $('#alert').html(item).slideDown('slow');
+                        } else {
+                            $('#alert').slideUp(function(){
+                                $('#alert').html(item).slideDown('slow');
+                            });
+                        }
+                        setTimeout( function() {
+                            window.location.href = result.url;
+                        },800);
                     }
                     else {
-
                         var item = $('<div class="g-form-row-field">' +
                                 '<div id="error" class="g-alert type_error">' +
                                 '<div class="g-alert-body" style="text-align: center">' +
@@ -39,15 +42,13 @@
                         if (hide == 'none') {
                             $('#alert').html(item).slideDown('slow');
                         } else {
-                            $('#alert').html(item).slideUp('fast').slideDown('800');
+                            $('#alert').slideUp(function(){
+                                $('#alert').html(item).slideDown('slow');
+                            });
                         }
-                        //   var json = $.parseJSON(data);
-                        //  $('#res').html('Message : ' + json.message + '<br>Success : ' + json.success)
                     }
                 }
             });
-            event.preventDefault();
-            event.stopPropagation();
             return false;
         });
         $('div#alert').click(function() {

@@ -1,12 +1,12 @@
- <?php foreach ($detail_classpage as $class): ?> 
-<script type="text/javascript">
+<?php foreach ($detail_classpage as $class): ?> 
+    <script type="text/javascript">
         $(document).ready(function() {
             var form = $('#edit-infomation-class');
             form.submit(function(event) {
                 var data = form.serialize();
                 $.ajax({
                     type: "POST",
-                    url: '<?php echo Yii::app()->createUrl('classPage/changeClassInformation?classid='. $class->class_id) ?>',
+                    url: '<?php echo Yii::app()->createUrl('classPage/changeClassInformation?classid=' . $class->class_id) ?>',
                     data: data,
                     success: function(data) {
                         var json = data;
@@ -49,11 +49,12 @@
                         }
                     }});
             });
-        });</script>
+        });
+    </script>
 
 
 
-<form class="g-form white-popup-block mfp-hide" id="edit-infomation-class" action="" method="POST">
+    <form class="g-form white-popup-block mfp-hide" id="edit-infomation-class" action="" method="POST">
         <h3>Chỉnh Sửa Thông Tin</h3>
         <div class="g-form-group">
             <div class="g-form-group-rows">
@@ -97,6 +98,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="g-form-group">
+                                    <div class="g-form-row-label">
+                                        <label class="g-form-row-label-h" for="description">Miêu tả (*)</label>
+                                    </div>
+                                    <div class="g-form-group-rows">
+                                        <div class="g-form-row">
+                                            <div class="g-form-row-field">
+                                                <textarea name="description" id="input1x3" cols="30" rows="10"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                 <div class="g-form-row">
                     <div class="g-form-row-field">
                         <button class="g-btn type_primary" type="submit" name="Submit" value="Submit" style="text-transform: inherit" action="">Lưu thông tin</button>
@@ -107,7 +120,7 @@
             <div id="alert11"></div>
         </div>
     </form>
-   
+
 
 
     <div class="l-submain-h i-cf">
@@ -211,8 +224,8 @@
                                             padding: 15px 110px 14px 95px;
                                         }
                                         [contenteditable=true]:empty:not(:focus):before{
-                                          content:attr(data-placeholder);
-                                          color:grey;
+                                            content:attr(data-placeholder);
+                                            color:grey;
                                         }
                                         .placeholder {
                                             color: #acacac;
@@ -552,7 +565,7 @@
                         <p style="clear: both"><strong>Số tín chỉ:</strong> <?php echo $class->class_credit_number ?></p>
                         <p><strong>Website Môn Học:</strong> <a href="bluebee-uet.com"><?php echo $class->class_website ?></a></p>
                         <div class="clearfix">
-                            <p style="float: left"><strong>Thành viên:</strong> <a>7 người</a></p>
+                            <p style="float: left"><strong>Thành viên:</strong><a><?php echo $number_of_user ?></a></p>
                             <a id="add-members" style="float: right" href="javascript:void(0)"><p id="add-members-contents">Thêm thành viên <i class="icon-plus"></i></p></a>
                             <script>
                                 $(document).ready(function() {
