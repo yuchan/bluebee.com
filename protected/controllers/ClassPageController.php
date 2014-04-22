@@ -24,6 +24,7 @@ class ClassPageController extends BaseController {
         $class_id = class_model::model()->findByAttributes(array('class_id' => $class_new->class_id));
 
         $class_year->class_code = $code;
+        $class_year->is_active = 1;
 
         $class_year->class_id = $class_id->class_id;
         $class_year->class_year = date("Y");
@@ -54,7 +55,7 @@ class ClassPageController extends BaseController {
                     if (!empty($createClassFormData['classname'])) {
                         if (!empty($createClassFormData['description'])) {
 
-                            $newclass = ClassYear::model()->findByAttributes(array('class_code' => $createClassFormData['classcode']));
+                            $newclass = class_model::model()->findByAttributes(array('class_code' => $createClassFormData['classcode']));
                             if ($newclass) {
                                 if ($newclass->class_year == date("Y")) {
                                     $this->retVal->message = "Mã lớp cho năm học này đã tồn tại, bạn có thể tham gia lớp học tại ";
