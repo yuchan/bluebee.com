@@ -32,8 +32,7 @@ class Doc extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('doc_aturhor', 'numerical', 'integerOnly'=>true),
-			array('doc_url, doc_name, doc_scribd_id, doc_title, doc_status', 'length', 'max'=>45),
-			array('doc_description', 'length', 'max'=>200),
+			array('doc_url, doc_name, doc_scribd_id, doc_description, doc_title, doc_status', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('doc_id, doc_url, doc_name, doc_scribd_id, doc_description, doc_title, doc_status, doc_aturhor', 'safe', 'on'=>'search'),

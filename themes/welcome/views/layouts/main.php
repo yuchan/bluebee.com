@@ -36,7 +36,7 @@
 
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.isotope.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.magnific-popup.js"></script>
-        
+
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.simpleplaceholder.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.smoothScroll.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.themepunch.revolution.min.js"></script>
@@ -52,6 +52,28 @@
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/w-switcher.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/classie.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/cbpScroller.js"></script>
+
+        <!-- Pop-up -->
+        <script>
+            $(document).ready(function() {
+                $('.popup-with-form').magnificPopup({
+                    type: 'inline',
+                    preloader: false,
+                    focus: '#name',
+                    // When elemened is focused, some mobile browsers in some cases zoom in
+                    // It looks not nice, so we disable it:
+                    callbacks: {
+                        beforeOpen: function() {
+                            if ($(window).width() < 700) {
+                                this.st.focus = false;
+                            } else {
+                                this.st.focus = '#name';
+                            }
+                        }
+                    }
+                });
+            });
+        </script>
     </head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
@@ -64,7 +86,7 @@
             <!-- HEADER -->
             <div class="l-header">
                 <div class="l-header-h">
-                    
+
                     <div class="l-subheader at_middle" style="max-height: 60px">
                         <div class="l-subheader-h i-cf">
                             <!-- LOGO -->

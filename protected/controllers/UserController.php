@@ -6,19 +6,18 @@ class UserController extends Controller {
         $this->actionUser();
     }
 
-   public function actionUser() {
+    public function actionUser() {
         if (isset($_GET["token"])) {
             $spCriteria = new CDbCriteria();
             $spCriteria->select = "*";
-            $spCriteria->condition = "user_token = '" . $_GET["token"]."'";
-            
+            $spCriteria->condition = "user_token = '" . $_GET["token"] . "'";
+
             $user_current_token = User::model()->findByAttributes(array('user_token' => $_GET["token"]));
-            
-            $user_classCriteria = new CDbCriteria();
-            $user_classCriteria->select = "*";
-            $user_classCriteria->condition = "user_id = '".$user_current_token->user_id."'";
+
+            $sql = "SELECT * FROM tbl_class_user INNER JOIN tbl_class ON tbl_class_user.class_id = tbl_class.class_id WHERE user_id = '" . $user_current_token->user_id . "'";
+            $user_class_info = Yii::app()->db->createCommand($sql)->queryAll();
             $this->render('user', array('user_detail_info' => User::model()->findAll($spCriteria),
-                'user_class_info' => ClassUser::model()->findAll($user_classCriteria)));
+                'user_class_info' => $user_class_info));
         }
     }
 

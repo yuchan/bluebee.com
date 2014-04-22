@@ -78,19 +78,13 @@
 
                 <div class="two-thirds">
                     <div class="l-content">
-                        <div class="g-form-row"id="alert" style="position: absolute; z-index: 2; width: 89%; right:100%">
-
-                        </div>
-                        <h3>Sơ lược</h3>
                         <div class='g-cols'>
                             <div class='full-width'>
                                 <a href=""><img class="circular float_left" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/blog-1.jpg"/></a>
                                 <div class="rounded">
-                                    <b>Details</b> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Hanoi, Vietnam.
+                                    <b>Trường học </b> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Đại học Quốc gia Hà Nội.
                                     <br/>
-                                    <b>Activity</b> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Joined in March 2013, Vip member of website - boss. 
-                                    <br/>
-                                    <b>Quote</b> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Change words, Change world.
+                                    <b>Hoạt động</b> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Tham gia ngày 12/3/2014, thành viên website. 
                                 </div>
 
                                 <div style="text-align: center">
@@ -99,7 +93,7 @@
                                     </p>
                                 </div>
 
-                                <div class="rounded1 color_alternate">
+<!--                                <div class="rounded1 color_alternate">
                                     <h6>Tài liệu đã xem</h6>
                                 </div>
 
@@ -151,7 +145,7 @@
                                     </div>
                                 </div>
 
-                                <a href="" style="margin-left: 30px">More...</a>
+                                <a href="" style="margin-left: 30px">More...</a>-->
 
                                 <div class="rounded1 color_alternate">
                                     <h6>Hoạt động gần đây</h6>
@@ -282,17 +276,14 @@
                         <br/>
                         <i class="icon-home"></i>
                         <span>&nbsp Live at &nbsp : &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span style="color: #B0B3B5"><?php echo $user->user_hometown ?></span> </span>
-                        <!--                        <br/>
-                                                <i class="icon-heart"></i>
-                                                <span>&nbsp Relationship &nbsp : &nbsp &nbsp &nbsp <span style="color: #BABDBF">Forever alone</span> </span>
-                                                <br/>-->
+                        <br/>
                         <i class="icon-calendar"></i>
                         <span>&nbsp Ngày sinh &nbsp : &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span style="color: #B0B3B5"><?php echo $user->user_dob ?></span> </span>
                         <br/>
                     </div>
 
                     <div class="rounded2 color_alternate" style="margin-top: 10px">
-                        <h6>Lớp môn học tham gia</h6>
+                        <h6>Lớp đang theo học</h6>
                     </div>
 
                     <div class="w-portfolio columns_2 wide-margins type_sortable">
@@ -300,86 +291,80 @@
                             <div class="w-portfolio-list">
                                 <div class="w-portfolio-list-h">
                                     <?php foreach ($user_class_info as $class): ?>
-                                        <div class="w-portfolio-item naming webdesign">
-                                            <div class="w-portfolio-item-h animate_afc">
-                                                <a class="w-portfolio-item-anchor" href="project-another-slider.html">
-                                                    <div class="w-portfolio-item-image">
-                                                        <img src="<?php
-                                                        if (Yii::app()->session['user_avatar']) {
-                                                            echo Yii::app()->session['user_avatar'];
-                                                        } else
-                                                            echo Yii::app()->theme->baseUrl+"/assets/img/demo/portfolio-1.jpg";
-                                                        ?> "/>
-                                                        <div class="w-portfolio-item-meta">
-                                                            <h2 class="w-portfolio-item-title">Vietnam National University</h2>
-                                                            <i class="icon-mail-forward"></i>
+                                        <div class = "w-portfolio-item naming webdesign">
+                                            <div class = "w-portfolio-item-h animate_afc">
+                                                <a class = "w-portfolio-item-anchor" href = "<?php echo Yii::app()->baseUrl,"/classPage/?classid=".$class['class_id'] ?>">
+                                                    <div class = "w-portfolio-item-image">
+                                                        <img src = "<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-1.jpg" alt = "" />
+                                                        <div class = "w-portfolio-item-meta">
+                                                            <h2 class = "w-portfolio-item-title"><?php echo $class['class_name'] ?></h2>
+                                                            <i class = "icon-mail-forward"></i>
                                                         </div>
                                                     </div>
                                                 </a>
                                             </div>
                                         </div>
-    <?php endforeach; ?>
-
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="rounded2 color_alternate">
-                        <h6>Nhóm đã tham gia</h6>
-                    </div>
-
-                    <div class="w-portfolio columns_2 wide-margins type_sortable">
-                        <div class="w-portfolio-h">
-                            <div class="w-portfolio-list">
-                                <div class="w-portfolio-list-h">
-
-                                    <div class="w-portfolio-item naming webdesign">
-                                        <div class="w-portfolio-item-h animate_afc">
-                                            <a class="w-portfolio-item-anchor" href="project-another-slider.html">
-                                                <div class="w-portfolio-item-image">
-                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-1.jpg" alt="" />
-                                                    <div class="w-portfolio-item-meta">
-                                                        <h2 class="w-portfolio-item-title">Vietnam National University</h2>
-                                                        <i class="icon-mail-forward"></i>
+                    <!--                    <div class = "rounded2 color_alternate">
+                                            <h6>Nhóm đã tham gia</h6>
+                                        </div>
+                    
+                                        <div class = "w-portfolio columns_2 wide-margins type_sortable">
+                                            <div class = "w-portfolio-h">
+                                                <div class = "w-portfolio-list">
+                                                    <div class = "w-portfolio-list-h">
+                    
+                                                        <div class = "w-portfolio-item naming webdesign">
+                                                            <div class = "w-portfolio-item-h animate_afc">
+                                                                <a class = "w-portfolio-item-anchor" href = "project-another-slider.html">
+                                                                    <div class = "w-portfolio-item-image">
+                                                                        <img src = "<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-1.jpg" alt = "" />
+                                                                        <div class = "w-portfolio-item-meta">
+                                                                            <h2 class = "w-portfolio-item-title">Vietnam National University</h2>
+                                                                            <i class = "icon-mail-forward"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                    
+                                                        <div class = "w-portfolio-item naming webdesign">
+                                                            <div class = "w-portfolio-item-h animate_afc">
+                                                                <a class = "w-portfolio-item-anchor" href = "project-another-slider.html">
+                                                                    <div class = "w-portfolio-item-image">
+                                                                        <img src = "<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-1.jpg" alt = "" />
+                                                                        <div class = "w-portfolio-item-meta">
+                                                                            <h2 class = "w-portfolio-item-title">Vietnam National University</h2>
+                                                                            <i class = "icon-mail-forward"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                    
+                                                        <div class = "w-portfolio-item naming branding">
+                                                            <div class = "w-portfolio-item-h animate_afc d1">
+                                                                <a class = "w-portfolio-item-anchor" href = "project-slider.html">
+                                                                    <div class = "w-portfolio-item-image">
+                                                                        <img src = "<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-2.jpg" alt = "" />
+                                                                        <div class = "w-portfolio-item-meta">
+                                                                            <h2 class = "w-portfolio-item-title">Kien's </h2>
+                                                                            <i class="icon-mail-forward"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                    
                                                     </div>
                                                 </div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="w-portfolio-item naming webdesign">
-                                        <div class="w-portfolio-item-h animate_afc">
-                                            <a class="w-portfolio-item-anchor" href="project-another-slider.html">
-                                                <div class="w-portfolio-item-image">
-                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-1.jpg" alt="" />
-                                                    <div class="w-portfolio-item-meta">
-                                                        <h2 class="w-portfolio-item-title">Vietnam National University</h2>
-                                                        <i class="icon-mail-forward"></i>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="w-portfolio-item naming branding">
-                                        <div class="w-portfolio-item-h animate_afc d1">
-                                            <a class="w-portfolio-item-anchor" href="project-slider.html">
-                                                <div class="w-portfolio-item-image">
-                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-2.jpg" alt="" />
-                                                    <div class="w-portfolio-item-meta">
-                                                        <h2 class="w-portfolio-item-title">Kien's </h2>
-                                                        <i class="icon-mail-forward"></i>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                            </div>
+                                        </div>-->
                 </div>
             </div>
         </div>

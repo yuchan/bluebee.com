@@ -30,7 +30,8 @@ class University extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('university_name, university_location, university_code, university_web, university_description, university_active', 'length', 'max'=>45),
+			array('university_name, university_location, university_code, university_web, university_description', 'length', 'max'=>200),
+			array('university_active', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('university_id, university_name, university_location, university_code, university_web, university_description, university_active', 'safe', 'on'=>'search'),
