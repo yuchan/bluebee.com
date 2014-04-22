@@ -297,7 +297,7 @@
                                                     <div class = "w-portfolio-item-image">
                                                         <img src = "<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-1.jpg" alt = "" />
                                                         <div class = "w-portfolio-item-meta">
-                                                            <h2 class = "w-portfolio-item-title"><?php echo $class->class_id ?></h2>
+                                                            <h2 class = "w-portfolio-item-title"><?php echo $class->class_name ?></h2>
                                                             <i class = "icon-mail-forward"></i>
                                                         </div>
                                                     </div>
