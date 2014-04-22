@@ -1,4 +1,69 @@
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var form = $('#newclassform');
+            form.submit(function(event) {
+                $('#res').html('');
+                var data = form.serialize();
+                $.ajax({
+                    type: "POST",
+                    url: '<?php echo Yii::app()->createUrl('classPage/createclass') ?>',
+                    data: data,
+                    beforeSend: function() {
+                        $('#alert').html('<img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax_loader_blue_128.gif" alt="" style="" id="loading"/>');
+                    },
+                    success: function(data) {
+                        var json = data;
+                        var result = $.parseJSON(json);
+                        //       $('#res').html(result.message);
+                        $('#alert').html('');
 
+                        if (result.success == 1) {
+                            var item = $('<div class="g-form-row-field">' +
+                                    '<div id="success" class="g-alert type_success">' +
+                                    '<div class="g-alert-body">' +
+                                    '<p><b>' + result.message + '</b></p>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>').hide().fadeIn(120);
+
+                            $('#alert').html(item)
+                            location.href = result.url;
+                        }
+                        else if (result.success == 2) {
+
+                            var item = $('<div class="g-form-row-field">' +
+                                    '<div id="error" class="g-alert type_error">' +
+                                    '<div class="g-alert-body">' +
+                                    '<p><b>' + result.message + ' <a href = "' + result.url_class_exist + '">đây</a></b></p>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>').hide().fadeIn(120);
+
+                            $('#alert').html(item)
+                            //   var json = $.parseJSON(data);
+                            //  $('#res').html('Message : ' + json.message + '<br>Success : ' + json.success)
+                        }
+
+                        else {
+
+                            var item = $('<div class="g-form-row-field">' +
+                                    '<div id="error" class="g-alert type_error">' +
+                                    '<div class="g-alert-body">' +
+                                    '<p><b>' + result.message + '</b></p>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>').hide().fadeIn(120);
+
+                            $('#alert').html(item)
+                            //   var json = $.parseJSON(data);
+                            //  $('#res').html('Message : ' + json.message + '<br>Success : ' + json.success)
+                        }
+                    }});
+                event.preventDefault();
+                event.stopPropagation();
+                return false;
+            });
+        });</script>
 
 <div class="l-main-h">
     <div class="l-main-h">
@@ -25,55 +90,11 @@
                                         </div>
                                         <div class="w-iconbox-text  color_alternate">
                                             <div class="w-iconbox-text-description">
-                                                <a class="popup-with-form" href="#test-modal">
-                                                    <button class="g-btn type_primary size_big"><span><i class="icon-heart"></i>Tạo nhóm học tập</span></button>
+                                                <a class="popup-with-form" href="#newclassform">
+                                                    <button class="g-btn type_primary size_big"><span><i class="icon-heart"></i>Tạo lớp môn học</span></button>
                                                 </a>
 
-                                                <form class="g-form white-popup-block mfp-hide" id="test-modal">
-                                                    <h3>Create A New Class</h3>
-                                                    <div class="g-form-group">
-                                                        <div class="g-form-group-rows">
-                                                            <div class="g-form-row">
-                                                                <div class="g-form-row-label">
-                                                                    <label class="g-form-row-label-h" for="class_name">Class' Name</label>
-                                                                </div>
-                                                                <div class="g-form-row-field">
-                                                                    <div class="g-input">
-                                                                        <input type="text" name="classname" id="contact_username" placeholder="Name" value="">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="g-form-row">
-                                                                <div class="g-form-row-label">
-                                                                    <label class="g-form-row-label-h" for="contact_email">Email</label>
-                                                                </div>
-                                                                <div class="g-form-row-field">
-                                                                    <div class="g-input">
-                                                                        <input type="text" name="email" id="contact_username" placeholder="Email" value="">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="g-form-group">
-                                                                <div class="g-form-row-label">
-                                                                    <label class="g-form-row-label-h" for="contact_email">Describle</label>
-                                                                </div>
-                                                                <div class="g-form-group-rows">
-                                                                    <div class="g-form-row">
-                                                                        <div class="g-form-row-field">
-                                                                            <textarea name="#" id="input1x3" cols="30" rows="10"></textarea>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="g-form-row">
-                                                                <div class="g-form-row-field">
-                                                                    <button class="g-btn type_primary" type="submit" name="Submit" value="Submit">Submit</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </form>
+                                              <?php $this->renderPartial('newclass')?>
                                             </div>
                                         </div>
                                     </div>
@@ -87,7 +108,7 @@
                                         </div>
                                         <div class="w-iconbox-text color_alternate">
                                             <div class="w-iconbox-text-description">
-                                                <button class="g-btn type_primary size_big"><span><i class="icon-arrow-up"></i>Tạo lớp môn học</span></button>
+                                                <button class="g-btn type_primary size_big"><span><i class="icon-arrow-up"></i>Tạo nhóm học tập</span></button>
                                             </div>
                                         </div>
                                     </div>
