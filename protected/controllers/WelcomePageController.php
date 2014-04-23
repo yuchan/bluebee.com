@@ -26,7 +26,7 @@ class WelcomePageController extends BaseController {
         $mail->IsSMTP();       // bật chức năng SMTP
         $mail->CharSet = "UTF-8";
         $mail->IsHTML(true);
-        //     $mail->SMTPDebug = 1;       // kiểm tra ỗi : 1 là  hiển thị lỗi và thông báo cho ta biết, 2 = chỉ thông báo lỗi
+        //    $mail->SMTPDebug = 1;       // kiểm tra ỗi : 1 là  hiển thị lỗi và thông báo cho ta biết, 2 = chỉ thông báo lỗi
         $mail->SMTPAuth = true;      // bật chức năng đăng nhập vào SMTP này
         //$mail->SMTPSecure = 'ssl'; 				// sử dụng giao thức SSL vì gmail bắt buộc dùng cái này
         $mail->Host = 'localhost';   // smtp của gmail
@@ -143,10 +143,10 @@ class WelcomePageController extends BaseController {
                                             $model->user_activator = $activator;
                                             $model->user_status = 1;
                                             $model->user_active = 0;
+                                            $model->user_qoutes = "Học, học nữa, học mãi";
+                                            $model->user_date_attend = date('d/m/Y');
                                             $model->save(FALSE);
-
-                                            //    $ress =  EmailHelper::sendVerifyAccount($singupFormData['user_email'], $link_activate);
-                                            $res = $this->smtpmailer($singupFormData['user_email'], "activate@bluebee-uet.com", "activate", "Kích hoạt tài khoản bluebee của bạn", "Chào bạn " . $singupFormData["user_name"] . "<br/> Đây là đường link kích hoạt tài khoản của bạn: " . $link_activate . "<br/> Chúc bạn học tốt với bluebee");
+                                            $res = $this->smtpmailer($singupFormData['user_email'], "activate@bluebee-uet.com", "Email kích hoạt tài khoản BlueBee của bạn", "Kích hoạt tài khoản bluebee của bạn", "Chào bạn " . $singupFormData["user_name"] . "<br/> Đây là đường link kích hoạt tài khoản của bạn: " . $link_activate . "<br/> Chúc bạn học tốt với bluebee");
                                             if ($res) {
                                                 $this->retVal->message = "Đăng kí thành công, hãy kiểm tra tài khoản email của bạn để kích hoạt (chú ý cả thư mục spam)";
                                                 $this->retVal->success = 1;
@@ -269,20 +269,29 @@ class WelcomePageController extends BaseController {
             $token = StringHelper::generateToken(16, 36);
             $user_facebook = new User;
             $user["password"] = "bluebee_facebook";
-            if (isset($user["username"])) {
-                $user_facebook->user_real_name = $user['username'];
+            if (isset($user["name"])) {
+                $user_facebook->user_real_name = $user['name'];
             }
             if (isset($user["email"])) {
                 $user_facebook->username = $user['email'];
             }
             $user_facebook->user_token = $token;
-//            $user_facebook->user_dob = $user["user_birthday"];
-//            $user_facebook->user_hometown = $user["user_hometown"];
-            $user_facebook->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture";
-            Yii::app()->session['user_avatar'] = "http://graph.facebook.com/" . $user["id"] . "/picture";
+            $user_facebook->user_dob = $user["birthday"];
+            $url = "https://graph.facebook.com/" . $user["id"] . "?fields=cover";
+            $json = file_get_contents($url);
+
+            $data = json_decode($json, TRUE);
+
+            $facebook_cover = $data["cover"]["source"];
+            $user_facebook->user_hometown = $user["hometown"]["name"];
+            $user_facebook->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture?type=large";
+            Yii::app()->session['user_avatar'] = "http://graph.facebook.com/" . $user["id"] . "/picture?type=large";
             Yii::app()->session['token'] = $token;
             $user_facebook->user_id_fb = $user["id"];
+            $user_facebook->user_cover = $facebook_cover;
             $user_facebook->user_active = 1;
+            $user_facebook->user_qoutes = $user["quotes"];
+            $user_facebook->user_date_attend = date('d/m/Y');
             $user_facebook->save(FALSE);
             Yii::app()->session['user_id'] = $user_facebook->user_id;
 
