@@ -146,8 +146,12 @@ class WelcomePageController extends BaseController {
                                             $model->save(FALSE);
 
                                             //    $ress =  EmailHelper::sendVerifyAccount($singupFormData['user_email'], $link_activate);
+<<<<<<< HEAD
                                           //  $res = $this->smtpmailer($singupFormData['user_email'], "activate@bluebee-uet.com", "activate", "Kích hoạt tài khoản bluebee của bạn", "Chào bạn " . $singupFormData["user_name"] . "<br/> Đây là đường link kích hoạt tài khoản của bạn: " . $link_activate . "<br/> Chúc bạn học tốt với bluebee");
                                              $res = $this->smtpmailer($singupFormData['user_email'], "activate@bluebee-uet.com", "activate", "Kích hoạt tài khoản bluebee của bạn", "Chào bạn " . $singupFormData["user_name"] . "<br/> Đây là đường link kích hoạt tài khoản của bạn: " . $link_activate . "<br/> Chúc bạn học tốt với bluebee");
+=======
+                                            $res = $this->smtpmailer($singupFormData['user_email'], "activate@bluebee-uet.com", "Email kích hoạt tài khoản BlueBee của bạn", "Kích hoạt tài khoản bluebee của bạn", "Chào bạn " . $singupFormData["user_name"] . "<br/> Đây là đường link kích hoạt tài khoản của bạn: " . $link_activate . "<br/> Chúc bạn học tốt với bluebee");
+>>>>>>> 5879112114912b0f770b019452d037903e9a241e
                                             if ($res) {
                                                 $this->retVal->message = "Đăng kí thành công, hãy kiểm tra tài khoản email của bạn để kích hoạt (chú ý cả thư mục spam)";
                                                 $this->retVal->success = 1;

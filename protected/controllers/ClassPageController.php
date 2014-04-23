@@ -175,7 +175,7 @@ class ClassPageController extends BaseController {
                             $user = User::model()->find('username=:username',array(':username' => $useremail));
                             $user_id = $user->user_id;
                             $link = $this->createUrl('classPage/accept?token=' . $token . '$user=' . $user_id);
-                            $this->smtpmailer($useremail, "activate@bluebee-uet.com", "activate", "Chấp nhận thư mời vào lớp " . $class->class_name, "Chào bạn " . $user->username . "</br>Đây là đường link chấp nhận thư mời vào lớp " . $class->class_name . "</br>" . $link);
+                            $this->smtpmailer($useremail, "accept@bluebee-uet.com", "Accept", "Chấp nhận thư mời vào lớp " . $class->class_name, "Chào bạn " . $user->username . "<br/>Đây là đường link chấp nhận thư mời vào lớp " . $class->class_name . "<br/>" . $link);
                             $countSuccess--;
                         }
                         if ($countSuccess === 0) {
