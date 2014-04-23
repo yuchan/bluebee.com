@@ -269,20 +269,22 @@ class WelcomePageController extends BaseController {
             $token = StringHelper::generateToken(16, 36);
             $user_facebook = new User;
             $user["password"] = "bluebee_facebook";
-            if (isset($user["username"])) {
-                $user_facebook->user_real_name = $user['username'];
+            if (isset($user["name"])) {
+                $user_facebook->user_real_name = $user['name'];
             }
             if (isset($user["email"])) {
                 $user_facebook->username = $user['email'];
             }
             $user_facebook->user_token = $token;
-//            $user_facebook->user_dob = $user["user_birthday"];
-//            $user_facebook->user_hometown = $user["user_hometown"];
+            $user_facebook->user_dob = $user["birthday"];
+            $user_facebook->user_hometown = $user["hometown"]["name"];
             $user_facebook->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture";
             Yii::app()->session['user_avatar'] = "http://graph.facebook.com/" . $user["id"] . "/picture";
             Yii::app()->session['token'] = $token;
             $user_facebook->user_id_fb = $user["id"];
             $user_facebook->user_active = 1;
+            $user_facebook->user_qoutes = $user["quotes"];
+            $user_facebook->user_date_attend = date('d/m/Y');
             $user_facebook->save(FALSE);
             Yii::app()->session['user_id'] = $user_facebook->user_id;
 
