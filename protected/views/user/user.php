@@ -70,15 +70,17 @@
         <div class="l-submain">
             <div class="l-submain-h g-html i-cf">
                 <div class="g-cols">
-                    <img class="round_ava" src="
-                    <?php
-                    if ($user['user_cover'] == "") {
-                        echo Yii::app()->theme->baseUrl, "/assets/img/demo/cover.jpg";
-                    } else {
+                    <div class="full-width">
+                        <img class="round_ava" src="
+                        <?php
+                        if ($user['user_cover'] == "") {
+                            echo Yii::app()->theme->baseUrl, "/assets/img/demo/cover.jpg";
+                        } else {
 
-                        echo $user['user_cover'];
-                    }
-                    ?>"/>
+                            echo $user['user_cover'];
+                        }
+                        ?>"/>
+                    </div>
                 </div>
             </div>
         </div>

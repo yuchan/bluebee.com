@@ -29,12 +29,10 @@
     border-color: #d0d6d9;
 }
 
-.round_ava img {
-    width: 1250px ;
-    height: 300 px;
+.round_ava {
+    width: 1200px;
+    height: 300px;
     display: inline-block;
-    border-style: hidden;
-    border-radius: 150px;
     overflow: hidden;
 }
 
