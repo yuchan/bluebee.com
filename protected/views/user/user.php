@@ -89,9 +89,9 @@
                                     }
                                     ?>"/></a>
                                 <div class="rounded">
-                                    <b>Trường học </b> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Đại học Quốc gia Hà Nội.
+                                    <b>Trích dẫn ưa thích:</b> <?php echo $user['user_qoutes'] ?>
                                     <br/>
-                                    <b>Hoạt động</b> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Tham gia ngày 12/3/2014, thành viên website. 
+                                    <b>Ngày tham gia:</b> <?php echo $user['user_date_attend'] ?>
                                 </div>
 
                                 <div style="text-align: center">
