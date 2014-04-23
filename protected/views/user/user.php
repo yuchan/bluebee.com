@@ -65,14 +65,8 @@
                 return false;
             });
         });</script>
-    
-    <div class="l-main-h" id="profile_tag">
-        <script>
-            $(document).ready(function() {
-                var top = $("#profile_tag").offset().top;
-                $("body,html").scrollTop(top);
-            });
-        </script>
+
+    <div class="l-main-h">
         <div class="l-submain">
             <div class="l-submain-h g-html i-cf">
                 <div class="g-cols">
@@ -88,7 +82,13 @@
                 </div>
             </div>
         </div>
-        <div class="l-submain-h g-html i-cf">
+        <div class="l-submain-h g-html i-cf" id="profile_tag">
+            <script>
+                $(document).ready(function() {
+                    var top = $("#profile_tag").offset().top;
+                    $("body,html").scrollTop(top);
+                });
+            </script>
             <div class="g-cols">
 
                 <div class="two-thirds">
