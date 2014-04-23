@@ -12,7 +12,7 @@
                         var json = data;
                         var result = $.parseJSON(json);
                         $('#alert1').html('');
-                        if (result.success == 1) {
+                        if (result.success) {
                             var item = $('<div class="g-form-row-field">' +
                                     '<div id="success" class="g-alert1 type_success">' +
                                     '<div class="g-alert1-body">' +
@@ -99,17 +99,17 @@
                     </div>
                 </div>
                 <div class="g-form-group">
-                                    <div class="g-form-row-label">
-                                        <label class="g-form-row-label-h" for="description">Miêu tả (*)</label>
-                                    </div>
-                                    <div class="g-form-group-rows">
-                                        <div class="g-form-row">
-                                            <div class="g-form-row-field">
-                                                <textarea name="description" id="input1x3" cols="30" rows="10"></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="g-form-row-label">
+                        <label class="g-form-row-label-h" for="description">Miêu tả (*)</label>
+                    </div>
+                    <div class="g-form-group-rows">
+                        <div class="g-form-row">
+                            <div class="g-form-row-field">
+                                <textarea name="description" id="input1x3" cols="30" rows="10"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="g-form-row">
                     <div class="g-form-row-field">
                         <button class="g-btn type_primary" type="submit" name="Submit" value="Submit" style="text-transform: inherit" action="">Lưu thông tin</button>
@@ -580,7 +580,7 @@
                                 });
                             </script>
                         </div>
-                        <?php $this->renderPartial('inviteform') ?>
+                        <?php $this->renderPartial('inviteform', array('classid' => $class->class_id)) ?>
                         <div class="g-hr" style="clear: both">
                             <span class="g-hr-h">
                                 <i class="icon-user"></i>
