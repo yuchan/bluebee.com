@@ -128,11 +128,11 @@
             <div class="l-content-h i-widgets">
                 <style>
                     .cover {
-                        max-height: 200px;
+                        max-height: 300px;
                         overflow: hidden;
                     }
                     .button-on-cover {
-                        top: 150px;
+                        top: 250px;
                         left: 700px;
                     }
                     #fix-style-w-tab {
@@ -149,7 +149,7 @@
                 </style>
                 <div class="cover" style="">
                     <img style="width: 100%; position: relative; margin-top: -120px" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg"/>
-                    <div class="button-on-cover" style="position: absolute">
+                    <div class="button-on-cover" style="position: absolute; display: none">
                         <button class="g-btn type_primary size_small" id="changecover" >
                             <span>Change Cover</span>
                         </button>
