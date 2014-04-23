@@ -69,7 +69,15 @@
         <div class="l-submain">
             <div class="l-submain-h g-html i-cf">
                 <div class="g-cols">
-                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg" alt="" width="1050" height="400"/>
+                    <img src="
+                    <?php
+                    if ($user['user_cover'] == "") {
+                        echo Yii::app()->theme->baseUrl, "/assets/img/demo/cover.jpg";
+                    } else {
+
+                        echo $user['user_cover'];
+                    }
+                    ?>" alt="" width="1050" height="400"/>
                 </div>
             </div>
         </div>

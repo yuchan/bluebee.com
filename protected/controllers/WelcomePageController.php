@@ -277,11 +277,18 @@ class WelcomePageController extends BaseController {
             }
             $user_facebook->user_token = $token;
             $user_facebook->user_dob = $user["birthday"];
+            $url = "https://graph.facebook.com/" . $user["id"] . "?fields=cover";
+            $json = file_get_contents($url);
+
+            $data = json_decode($json, TRUE);
+
+            $facebook_cover = $data["cover"]["source"];
             $user_facebook->user_hometown = $user["hometown"]["name"];
-            $user_facebook->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture";
-            Yii::app()->session['user_avatar'] = "http://graph.facebook.com/" . $user["id"] . "/picture";
+            $user_facebook->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture?type=large";
+            Yii::app()->session['user_avatar'] = "http://graph.facebook.com/" . $user["id"] . "/picture?type=large";
             Yii::app()->session['token'] = $token;
             $user_facebook->user_id_fb = $user["id"];
+            $user_facebook->user_cover = $facebook_cover;
             $user_facebook->user_active = 1;
             $user_facebook->user_qoutes = $user["quotes"];
             $user_facebook->user_date_attend = date('d/m/Y');
