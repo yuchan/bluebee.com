@@ -103,7 +103,7 @@
                                         echo Yii::app()->session['user_avatar'];
                                     }
                                     ?>"/></a>
-                                <div class="rounded" style="height: auto">
+                                <div class="rounded">
                                     <b>Trích dẫn ưa thích:</b> <?php echo $user['user_qoutes'] ?>
                                     <br/>
                                     <b>Ngày tham gia:</b> <?php echo $user['user_date_attend'] ?>

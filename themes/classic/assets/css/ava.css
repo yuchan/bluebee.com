@@ -1,6 +1,6 @@
 .circular {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     display: inline-block;
     border-radius: 150px;
     -webkit-border-radius: 150px;
@@ -20,7 +20,7 @@
 
 .rounded {
     width: 500px;
-    height: 80px;
+    height: auto;
     display: inline-block;
     border-style : solid;
     border-width : thin;
@@ -30,10 +30,12 @@
 }
 
 .round_ava img {
-    width: 1050px ;
+    width: 1250px ;
     height: 300 px;
     display: inline-block;
     border-style: hidden;
+    border-radius: 150px;
+    overflow: hidden;
 }
 
 .rounded1 {
@@ -78,7 +80,7 @@
 
 img.float_left{
     float: left;
-    margin-right: 20px;
+    margin-right: 18px;
 }
 
 .rectan {
