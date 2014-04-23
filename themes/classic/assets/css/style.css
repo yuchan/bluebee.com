@@ -1453,13 +1453,14 @@ button.g-btn.size_big {
 	height: 100%;
 	color: #666
 }
-.l-subheader.at_middle .w-nav-item.level_1:hover .w-nav-anchor.level_1 {
+.l-subheader.at_middle .w-nav-item.level_1:hover .w-nav-anchor.level_1, .w-nav-anchor.level_ava:hover {
 	background-color: #f5f5f5;
 	color: #f8862c
 }
 .l-subheader.at_middle .w-nav-item.level_1.active .w-nav-anchor.level_1,
 .l-subheader.at_middle .w-nav-item.level_1.current-menu-item .w-nav-anchor.level_1,
-.l-subheader.at_middle .w-nav-item.level_1.current-menu-ancestor .w-nav-anchor.level_1 {
+.l-subheader.at_middle .w-nav-item.level_1.current-menu-ancestor .w-nav-anchor.level_1, 
+.w-nav-anchor.level_ava{
 	font-weight: 700;
 	color: #666
 }
@@ -1472,6 +1473,18 @@ button.g-btn.size_big {
 .l-subheader.at_middle .w-nav-anchor.level_1 > .w-nav-title {
 	position: relative;
 	z-index: 1
+}
+.l-subheader.at_middle .w-nav-anchor.level_ava:after {
+	display: block;
+	position: relative;
+	left: 0;
+	top: -32px;
+	margin: 0 auto;
+	height: 2px;
+	width: 0;
+	-webkit-transition: width 0.25s ease;
+	transition: width 0.25s ease;
+	background-color: #f8862c
 }
 .l-subheader.at_middle .w-nav-anchor.level_1:after {
 	display: block;
