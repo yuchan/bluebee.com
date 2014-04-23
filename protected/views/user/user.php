@@ -78,7 +78,7 @@
 
                         echo $user['user_cover'];
                     }
-                    ?>" alt="" style=" width: 1050px ; height: 400 px"/>
+                    ?>" alt="" style=" width: 1050px ; height: 300 px"/>
                 </div>
             </div>
         </div>

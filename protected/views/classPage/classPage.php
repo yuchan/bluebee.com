@@ -128,7 +128,7 @@
             <div class="l-content-h i-widgets">
                 <style>
                     .cover {
-                        max-height: 200px;
+                        max-height: 300px;
                         overflow: hidden;
                     }
                     .button-on-cover {
