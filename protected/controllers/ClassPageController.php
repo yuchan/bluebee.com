@@ -139,7 +139,7 @@ class ClassPageController extends BaseController {
         //$mail->SMTPSecure = 'ssl'; 				// sử dụng giao thức SSL vì gmail bắt buộc dùng cái này
         $mail->Host = 'localhost';   // smtp của gmail
         $mail->Port = 25;       // port của smpt gmail
-        $mail->Username = "activate@bluebee-uet.com";
+        $mail->Username = "accept@bluebee-uet.com";
         $mail->Password = "123456789";
         $mail->SetFrom($from, $from_name);
         $mail->Subject = $subject;
@@ -174,8 +174,8 @@ class ClassPageController extends BaseController {
                             //echo $a;
                             $user = User::model()->find('username=:username',array(':username' => $useremail));
                             $user_id = $user->user_id;
-                            $link = $this->createUrl('classPage/accept?token=' . $token . '$user=' . $user_id);
-                            $this->smtpmailer($useremail, "accept@bluebee-uet.com", "Accept", "Chấp nhận thư mời vào lớp " . $class->class_name, "Chào bạn " . $user->username . "<br/>Đây là đường link chấp nhận thư mời vào lớp " . $class->class_name . "<br/>" . $link);
+                            $link = $this->createAbsoluteUrl('classPage/accept?token=' . $token . '$user=' . $user_id);
+                            $this->smtpmailer($useremail, "accept@bluebee-uet.com", "Accept", "Chấp nhận thư mời vào lớp " . $class->class_name, "Chào bạn " . $user->user_real_name . "<br/>Đây là đường link chấp nhận thư mời vào lớp " . $class->class_name . "<br/>" . $link);
                             $countSuccess--;
                         }
                         if ($countSuccess === 0) {

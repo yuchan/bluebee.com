@@ -22,7 +22,7 @@
 //                                    '</div>').hide().fadeIn(120);
 //                                    $('#alert').html(item)
                         alert(result.message);
-                        location.href = result.url;
+                        //location.href = result.url;
                     }
                     else {
 

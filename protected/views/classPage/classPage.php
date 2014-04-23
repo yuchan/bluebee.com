@@ -28,7 +28,7 @@
                                     $('#alert11').html(item).slideDown('slow');
                                 });
                             }
-                            location.href = result.url;
+                            //location.href = result.url;
                         }
                         else {
                             var item = $('<div class="g-form-row-field">' +
