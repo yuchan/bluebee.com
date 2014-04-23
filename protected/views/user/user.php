@@ -70,7 +70,7 @@
         <div class="l-submain">
             <div class="l-submain-h g-html i-cf">
                 <div class="g-cols">
-                    <img src="
+                    <img class="round_ava" src="
                     <?php
                     if ($user['user_cover'] == "") {
                         echo Yii::app()->theme->baseUrl, "/assets/img/demo/cover.jpg";
@@ -78,7 +78,7 @@
 
                         echo $user['user_cover'];
                     }
-                    ?>" alt="" style=" width: 1050px ; height: 300 px"/>
+                    ?>"/>
                 </div>
             </div>
         </div>

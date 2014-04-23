@@ -29,6 +29,13 @@
     border-color: #d0d6d9;
 }
 
+.round_ava img {
+    width: 1050px ;
+    height: 300 px;
+    display: inline-block;
+    border-style: hidden;
+}
+
 .rounded1 {
     width: 650px;
     height: 35px;
