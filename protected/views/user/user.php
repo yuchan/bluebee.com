@@ -70,15 +70,17 @@
         <div class="l-submain">
             <div class="l-submain-h g-html i-cf">
                 <div class="g-cols">
-                    <img class="round_ava" src="
-                    <?php
-                    if ($user['user_cover'] == "") {
-                        echo Yii::app()->theme->baseUrl, "/assets/img/demo/cover.jpg";
-                    } else {
+                    <div class="full-width">
+                        <img class="round_ava" src="
+                        <?php
+                        if ($user['user_cover'] == "") {
+                            echo Yii::app()->theme->baseUrl, "/assets/img/demo/cover.jpg";
+                        } else {
 
-                        echo $user['user_cover'];
-                    }
-                    ?>"/>
+                            echo $user['user_cover'];
+                        }
+                        ?>"/>
+                    </div>
                 </div>
             </div>
         </div>
@@ -103,7 +105,7 @@
                                         echo Yii::app()->session['user_avatar'];
                                     }
                                     ?>"/></a>
-                                <div class="rounded" style="height: auto">
+                                <div class="rounded">
                                     <b>Trích dẫn ưa thích:</b> <?php echo $user['user_qoutes'] ?>
                                     <br/>
                                     <b>Ngày tham gia:</b> <?php echo $user['user_date_attend'] ?>
@@ -290,17 +292,21 @@
                     </div>
 
                     <div>
-                        <i class="icon-user"></i>
-                        <span>&nbsp Tên &nbsp : &nbsp &nbsp &nbsp &nbsp &nbsp <span style="color: #B0B3B5"><?php echo $user->user_real_name ?></span> </span>
+                        
+                        <span class="dataTitle"><i class="icon-user"></i> Tên : </span>
+                        <span class="dataItem"><?php echo $user->user_real_name ?></span>
                         <br/>
-                        <i class="icon-phone"></i>
-                        <span>&nbsp Phone &nbsp : &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span style="color: #B0B3B5"><?php echo $user->user_phone ?></span> </span>
+
+                        <span class="dataTitle"><i class="icon-phone"></i> SĐT : </span>
+                        <span class="dataItem"><?php echo $user->user_phone ?></span>
                         <br/>
-                        <i class="icon-home"></i>
-                        <span>&nbsp Live at &nbsp : &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span style="color: #B0B3B5"><?php echo $user->user_hometown ?></span> </span>
+
+                        <span class="dataTitle"><i class="icon-home"></i> Sống tại : </span>
+                        <span class="dataItem"><?php echo $user->user_hometown ?></span>
                         <br/>
-                        <i class="icon-calendar"></i>
-                        <span>&nbsp Ngày sinh &nbsp : &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span style="color: #B0B3B5"><?php echo $user->user_dob ?></span> </span>
+                        
+                        <span class="dataTitle"><i class="icon-calendar"></i> Ngày sinh : </span>
+                        <span class="dataItem"><?php echo $user->user_dob ?></span>
                         <br/>
                     </div>
 
@@ -315,7 +321,7 @@
                                     <?php foreach ($user_class_info as $class): ?>
                                         <div class = "w-portfolio-item naming webdesign">
                                             <div class = "w-portfolio-item-h animate_afc">
-                                                <a class = "w-portfolio-item-anchor" href = "<?php echo Yii::app()->baseUrl, "/classPage/?classid=" . $class['class_id'] ?>">
+                                                <a class = "w-portfolio-item-anchor" href = "<?php echo Yii::app()->baseUrl, "/classPage?classid=" . $class['class_id'] ?>">
                                                     <div class = "w-portfolio-item-image">
                                                         <img src = "<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-1.jpg" alt = "" />
                                                         <div class = "w-portfolio-item-meta">

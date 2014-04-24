@@ -5,6 +5,10 @@ class SiteController extends Controller {
     /**
      * Declares class-based actions.
      */
+//     public function beforeAction() {
+//        if (Yii::app()->session['token'] == '')
+//            $this->redirect('welcomePage');
+//    }
     public function actions() {
         return array(
             // captcha action renders the CAPTCHA image displayed on the contact page
