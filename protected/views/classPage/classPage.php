@@ -556,16 +556,16 @@
                     </div>
                     <div class="one-third">
                         <h3 style="margin-top: 20px">Lớp: <br><?php echo $class->class_name ?></h3>
-                        <p style="float: left"><strong>Mã Môn Học:</strong><?php echo $class->class_code ?></p>
+                        <p style="float: left"><strong>Mã Môn Học: </strong><?php echo $class->class_code ?></p>
                         <a style="float: right; margin-top: 0" href="#edit-infomation-class" class="popup-with-form">
                             Chỉnh Sửa
                             <i class="icon-pencil"></i>
                         </a>
 
-                        <p style="clear: both"><strong>Số tín chỉ:</strong> <?php echo $class->class_credit_number ?></p>
-                        <p><strong>Website Môn Học:</strong> <a href="bluebee-uet.com"><?php echo $class->class_website ?></a></p>
+                        <p style="clear: both"><strong>Số tín chỉ: </strong> <?php echo $class->class_credit_number ?></p>
+                        <p><strong>Website Môn Học: </strong> <a href="bluebee-uet.com"><?php echo $class->class_website ?></a></p>
                         <div class="clearfix">
-                            <p style="float: left"><strong>Thành viên:</strong><a><?php echo $number_of_user ?></a></p>
+                            <p style="float: left"><strong>Thành viên: </strong><a><?php echo $number_of_user ?></a></p>
                             <a id="add-members" style="float: right" href="javascript:void(0)"><p id="add-members-contents">Thêm thành viên <i class="icon-plus"></i></p></a>
                             <script>
                                 $(document).ready(function() {
