@@ -287,7 +287,7 @@
 
                 <div class="one-third">
 
-                    <div class="rounded1 color_alternate"  style="margin-top: 70px">
+                    <div class="rounded2 color_alternate"  style="margin-top: 70px">
                         <h6>Thông tin chi tiết</h6>
                     </div>
 
@@ -310,7 +310,7 @@
                         <br/>
                     </div>
 
-                    <div class="rounded1 color_alternate" style="margin-top: 10px">
+                    <div class="rounded2 color_alternate" style="margin-top: 10px">
                         <h6>Lớp đang theo học</h6>
                     </div>
 

@@ -45,6 +45,15 @@
     border-radius: 8px;
 }
 
+.rounded2 {
+    width: 300px;
+    height: 35px;
+    display: inline-block;
+    padding: 7px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
 .border_bottom {
     border-bottom: solid;
     border-width : thin;
