@@ -193,7 +193,7 @@ class ClassPageController extends BaseController {
                             //echo $a;
                             $user = User::model()->find('username=:username', array(':username' => $useremail));
                             $user_id = $user->user_id;
-                            $link = $this->createAbsoluteUrl('classPage/accept?token=' . $token . 'user=' . $user_id);
+                            $link = $this->createAbsoluteUrl('classPage/accept?token=' . $token . '&user=' . $user_id);
                             $this->smtpmailer($useremail, "accept@bluebee-uet.com", "Accept", "Chấp nhận thư mời vào lớp " . $class->class_name, "Chào bạn " . $user->user_real_name . "<br/>Đây là đường link chấp nhận thư mời vào lớp " . $class->class_name . "<br/>" . $link);
                             $countSuccess--;
                         }
@@ -217,6 +217,9 @@ class ClassPageController extends BaseController {
     }
 
     public function actionAccept() {
+        $message = "";
+        $success = 0;
+        $link = "";
         if (isset($_GET["token"])) {
             if (isset($_GET["user"])) {
                 $token = class_model::model()->findByAttributes(array('class_token' => $_GET["token"]));
