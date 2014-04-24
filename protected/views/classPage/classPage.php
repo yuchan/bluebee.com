@@ -565,7 +565,7 @@
                         <p style="clear: both"><strong>Số tín chỉ: </strong> <?php echo $class->class_credit_number ?></p>
                         <p><strong>Website Môn Học: </strong> <a href="bluebee-uet.com"><?php echo $class->class_website ?></a></p>
                         <div class="clearfix">
-                            <p style="float: left"><strong>Thành viên:</strong><a><?php echo $number_of_user ?></a></p>
+                            <p style="float: left"><strong>Thành viên: </strong><a><?php echo $number_of_user ?></a></p>
                             <a id="add-members" style="float: right" href="javascript:void(0)"><p id="add-members-contents">Thêm thành viên <i class="icon-plus"></i></p></a>
                             <script>
                                 $(document).ready(function() {
