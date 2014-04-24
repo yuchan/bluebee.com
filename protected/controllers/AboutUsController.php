@@ -2,17 +2,19 @@
 
 class AboutUsController extends Controller {
 
-    public function beforeAction() {
-        if (Yii::app()->user->isGuest)
-            $this->redirect('welcomePage');
-    }
+//     public function beforeAction() {
+//        if (Yii::app()->session['token'] == '')
+//            $this->redirect('welcomePage');
+//    }
 
     public function actionIndex() {
+          if (Yii::app()->session['token'] == "")
+           $this->redirect('welcomePage');
         $this->actionAboutUs();
     }
 
     public function actionAboutUs() {
-        $this->render('aboutUs');
+        $this->render('AboutUs');
     }
 
     // Uncomment the following methods and override them if needed
