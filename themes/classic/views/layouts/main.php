@@ -104,6 +104,7 @@
 
             });
         </script>
+        
 
         <!-- GMap-->
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
@@ -344,13 +345,13 @@
                                     </div>
                                     <div class="w-nav-item level_1">
                                         <div class="w-nav-item-h">
-                                            <a href="<?php echo Yii::app()->createUrl("contact") ?>" class="w-nav-anchor level_1">Liên hệ</a>
+                                            <a href="<?php echo Yii::app()->createUrl("Contact") ?>" class="w-nav-anchor level_1">Liên hệ</a>
                                         </div>
                                     </div>
 
                                     <div class="w-nav-item level_1">
                                         <div class="w-nav-item-h">
-                                            <a href="<?php echo Yii::app()->createUrl("aboutus") ?>" class="w-nav-anchor level_1">Về chúng tôi</a>
+                                            <a href="<?php echo Yii::app()->createUrl("aboutUs") ?>" class="w-nav-anchor level_1">Về chúng tôi</a>
                                         </div>
                                     </div>
 

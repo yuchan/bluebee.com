@@ -6,11 +6,15 @@ require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_S
 Yii::import('application.controllers.BaseController');
 
 class ClassPageController extends BaseController {
-public function beforeAction() {
-        if (Yii::app()->user->isGuest)
-            $this->redirect('welcomePage');
-    }
+
+//    public function beforeAction() {
+//        if (Yii::app()->session['token'] == "")
+//            $this->redirect('welcomePage');
+//    }
+
     public function actionIndex() {
+        if (Yii::app()->session['token'] == "")
+           $this->redirect('welcomePage');
         $this->actionClassPage();
     }
 
@@ -114,7 +118,7 @@ public function beforeAction() {
 
             if ($user) {
 
-                if (Yii::app()->session['user_token'] == '') {
+                if (Yii::app()->session['token'] != "") {
                     $number_of_user = count($user);
 
                     $this->render('classPage', array('detail_classpage' => class_model::model()->findAll($spCriteria),
@@ -240,7 +244,7 @@ public function beforeAction() {
                 }
             }
         }
-        $this->render('accept', array($message => $message, $success => $success, $link => $link));
+        $this->render('accept', array('message' => $message, 'success' => $success, 'link' => $link));
     }
 
     public function actionChangeClassInformation() {
