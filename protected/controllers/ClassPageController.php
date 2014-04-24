@@ -13,8 +13,8 @@ class ClassPageController extends BaseController {
 //    }
 
     public function actionIndex() {
-        if (Yii::app()->session['token'] == "")
-           $this->redirect('welcomePage');
+//        if (Yii::app()->session['token'] == "")
+//           $this->redirect('welcomePage');
         $this->actionClassPage();
     }
 
@@ -116,21 +116,21 @@ class ClassPageController extends BaseController {
             $userCriteria->condition = "class_id = " . $_GET["classid"];
             $user = ClassUser::model()->findAll($userCriteria);
 
-            if ($user) {
-
-                if (Yii::app()->session['token'] != "") {
+//            if ($user) {
+//
+//                if (Yii::app()->session['token'] != "") {
                     $number_of_user = count($user);
 
                     $this->render('classPage', array('detail_classpage' => class_model::model()->findAll($spCriteria),
                         'number_of_user' => $number_of_user));
-                } else {
-                    $this->redirect('welcomePage');
-                }
-            } else {
-                $this->redirect('welcomePage');
-            }
-        } else {
-            $this->redirect('welcomePage');
+//                } else {
+//                    $this->redirect('welcomePage');
+//                }
+//            } else {
+//                $this->redirect('welcomePage');
+//            }
+//        } else {
+//            $this->redirect('welcomePage');
         }
     }
 
@@ -193,7 +193,7 @@ class ClassPageController extends BaseController {
                             //echo $a;
                             $user = User::model()->find('username=:username', array(':username' => $useremail));
                             $user_id = $user->user_id;
-                            $link = $this->createAbsoluteUrl('classPage/accept?token=' . $token . '$user=' . $user_id);
+                            $link = $this->createAbsoluteUrl('classPage/accept?token=' . $token . 'user=' . $user_id);
                             $this->smtpmailer($useremail, "accept@bluebee-uet.com", "Accept", "Chấp nhận thư mời vào lớp " . $class->class_name, "Chào bạn " . $user->user_real_name . "<br/>Đây là đường link chấp nhận thư mời vào lớp " . $class->class_name . "<br/>" . $link);
                             $countSuccess--;
                         }
@@ -219,9 +219,9 @@ class ClassPageController extends BaseController {
     public function actionAccept() {
         if (isset($_GET["token"])) {
             if (isset($_GET["user"])) {
-                $token = class_model::model()->findAllByAttributes(array('class_token' => $_GET["class_token"]));
+                $token = class_model::model()->findByAttributes(array('class_token' => $_GET["token"]));
                 if ($token) {
-                    $user = User::model()->findAllByAttributes(array('user_id' => $_GET["user"]));
+                    $user = User::model()->findByAttributes(array('user_id' => $_GET["user"]));
                     if ($user) {
                         $user_class = new ClassUser;
                         $user_class->class_id = $token->class_id;
@@ -229,18 +229,18 @@ class ClassPageController extends BaseController {
                         $user_class->is_active = 1;
 
                         $user_class->save(FALSE);
-                        $message = "Bạn đã chấp nhận lời mời vào lớp" . $token->class_name;
+                        $message = "Bạn đã chấp nhận lời mời vào lớp " . $token->class_name. ". Chúc bạn học tập tốt cùng bluebee!";
                         $success = 1;
                         $link = Yii::app()->createUrl('classpage?classid= ' . $token->class_id);
                     } else {
-                        $message = "Bạn chưa là thành viên bluebee. Hãy đăng ký để gia nhập bluebee";
+                        $message = 'Bạn chưa là thành viên bluebee. Hãy đăng ký để gia nhập bluebee';
                         $success = 0;
-                        $link = "";
+                        $link = '';
                     }
                 } else {
-                    $message = "Thư mời đã xảy ra lỗi. Không thể xác nhận lời mời!";
+                    $message = 'Thư mời đã xảy ra lỗi. Không thể xác nhận lời mời!';
                     $success = 0;
-                    $link = "";
+                    $link = '';
                 }
             }
         }

@@ -1,8 +1,8 @@
 <script type="text/javascript">
     $(document).ready(function() {
-        settimeout(function(){
-            location.href = $link;
-        }, 3000);
+            setTimeout(function() {
+                location.href = '<?php echo $link ?>'
+            }, 3000);
     });
 </script>
 <!-- MAIN -->
@@ -19,7 +19,7 @@
                             <div class="g-form-row-field"> 
                                 <div id="success" class="g-alert type_success">
                                     <div class="g-alert-body" style="text-align: center">
-                                        <p><b><?php if($success === 1) echo $message ?></b></p>
+                                        <p><b><?php echo $message ?></b></p>
                                     </div>
                                 </div>
                             </div>
