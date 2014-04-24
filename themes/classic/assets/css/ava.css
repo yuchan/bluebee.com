@@ -111,12 +111,10 @@ img.float_left{
     font-weight: bold;
     width: 45%;
     float: left;
-    margin: 1px 0px;
   }
   .dataItem1 {
     float: left;
     width: 55%;
-    margin: 1px 0px;
   }
 
 .right{float:right}
