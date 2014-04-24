@@ -225,7 +225,7 @@ class ClassPageController extends BaseController {
                 }
             }
         }
-        $this->render('accept', array($message => $message, $success => $success, $link => $link));
+        $this->render('accept', array('message' => $message, 'success' => $success, 'link' => $link));
     }
 
     public function actionChangeClassInformation() {
