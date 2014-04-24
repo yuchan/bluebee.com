@@ -292,17 +292,21 @@
                     </div>
 
                     <div>
-                        <i class="icon-user"></i>
-                        <span>&nbsp Tên &nbsp : &nbsp &nbsp &nbsp &nbsp &nbsp <span style="color: #B0B3B5"><?php echo $user->user_real_name ?></span> </span>
+                        
+                        <span class="dataTitle"><i class="icon-user"></i> Tên : </span>
+                        <span class="dataItem"><?php echo $user->user_real_name ?></span>
                         <br/>
-                        <i class="icon-phone"></i>
-                        <span>&nbsp Phone &nbsp : &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span style="color: #B0B3B5"><?php echo $user->user_phone ?></span> </span>
+
+                        <span class="dataTitle"><i class="icon-phone"></i> SĐT : </span>
+                        <span class="dataItem"><?php echo $user->user_phone ?></span>
                         <br/>
-                        <i class="icon-home"></i>
-                        <span>&nbsp Live at &nbsp : &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span style="color: #B0B3B5"><?php echo $user->user_hometown ?></span> </span>
+
+                        <span class="dataTitle"><i class="icon-home"></i> Sống tại : </span>
+                        <span class="dataItem"><?php echo $user->user_hometown ?></span>
                         <br/>
-                        <i class="icon-calendar"></i>
-                        <span>&nbsp Ngày sinh &nbsp : &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span style="color: #B0B3B5"><?php echo $user->user_dob ?></span> </span>
+                        
+                        <span class="dataTitle"><i class="icon-calendar"></i> Ngày sinh : </span>
+                        <span class="dataItem"><?php echo $user->user_dob ?></span>
                         <br/>
                     </div>
 
