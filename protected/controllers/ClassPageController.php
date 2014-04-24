@@ -6,7 +6,10 @@ require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_S
 Yii::import('application.controllers.BaseController');
 
 class ClassPageController extends BaseController {
-
+public function beforeAction() {
+        if (Yii::app()->user->isGuest)
+            $this->redirect('welcomePage');
+    }
     public function actionIndex() {
         $this->actionClassPage();
     }
