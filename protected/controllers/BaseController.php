@@ -1,15 +1,11 @@
 <?php
 
 class BaseController extends CController {
-     public $retVal;
-     public function checkSession() {
-        if (Yii::app()->session['user_id'] == '' || Yii::app()->session['user_real_name'] == '' || Yii::app()->session['user_email'] == '') {
-            $this->redirect(Yii::app()->createUrl('welcomepage'));
-        }
-    }
+
+    public $retVal;
+
     
-   
-    
+
     // Uncomment the following methods and override them if needed
     /*
       public function filters()

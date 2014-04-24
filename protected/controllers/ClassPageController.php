@@ -108,10 +108,22 @@ class ClassPageController extends BaseController {
             $userCriteria->select = "*";
             $userCriteria->condition = "class_id = " . $_GET["classid"];
             $user = ClassUser::model()->findAll($userCriteria);
-            $number_of_user = count($user);
 
-            $this->render('classPage', array('detail_classpage' => class_model::model()->findAll($spCriteria),
-                'number_of_user' => $number_of_user));
+            if ($user) {
+
+                if (Yii::app()->session['user_token'] == '') {
+                    $number_of_user = count($user);
+
+                    $this->render('classPage', array('detail_classpage' => class_model::model()->findAll($spCriteria),
+                        'number_of_user' => $number_of_user));
+                } else {
+                    $this->redirect('welcomePage');
+                }
+            } else {
+                $this->redirect('welcomePage');
+            }
+        } else {
+            $this->redirect('welcomePage');
         }
     }
 
@@ -166,13 +178,13 @@ class ClassPageController extends BaseController {
                     $array = explode(",", $array_treatment_id);
                     //echo strlen($array);
                     if (count($array) > 0) {
-                        $class = class_model::model()->find('class_id=:class_id',array(':class_id' => $_GET["classid"]));                      
+                        $class = class_model::model()->find('class_id=:class_id', array(':class_id' => $_GET["classid"]));
                         $class->class_token = $token;
                         $class->save(FALSE);
                         $countSuccess = count($array);
                         foreach ($array as $useremail) {
                             //echo $a;
-                            $user = User::model()->find('username=:username',array(':username' => $useremail));
+                            $user = User::model()->find('username=:username', array(':username' => $useremail));
                             $user_id = $user->user_id;
                             $link = $this->createAbsoluteUrl('classPage/accept?token=' . $token . '$user=' . $user_id);
                             $this->smtpmailer($useremail, "accept@bluebee-uet.com", "Accept", "Chấp nhận thư mời vào lớp " . $class->class_name, "Chào bạn " . $user->user_real_name . "<br/>Đây là đường link chấp nhận thư mời vào lớp " . $class->class_name . "<br/>" . $link);
@@ -310,4 +322,3 @@ class ClassPageController extends BaseController {
       }
      */
 }
-

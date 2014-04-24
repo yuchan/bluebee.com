@@ -2,6 +2,11 @@
 
 class AboutUsController extends Controller {
 
+    public function beforeAction() {
+        if (Yii::app()->user->isGuest)
+            $this->redirect('welcomePage');
+    }
+
     public function actionIndex() {
         $this->actionAboutUs();
     }
