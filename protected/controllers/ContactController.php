@@ -8,8 +8,8 @@ class ContactController extends Controller {
 //    }
 
     public function actionIndex() {
-          if (Yii::app()->session['token'] == "")
-           $this->redirect('welcomePage');
+        if (Yii::app()->session['token'] == "")
+            $this->redirect('welcomePage');
         $this->actionContact();
     }
 

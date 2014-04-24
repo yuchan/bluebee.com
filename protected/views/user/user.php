@@ -287,30 +287,30 @@
 
                 <div class="one-third">
 
-                    <div class="rounded2 color_alternate"  style="margin-top: 70px">
+                    <div class="rounded1 color_alternate"  style="margin-top: 70px">
                         <h6>Thông tin chi tiết</h6>
                     </div>
 
                     <div>
                         
-                        <span class="dataTitle"><i class="icon-user"></i> Tên : </span>
-                        <span class="dataItem"><?php echo $user->user_real_name ?></span>
-                        <br/>
-
-                        <span class="dataTitle"><i class="icon-phone"></i> SĐT : </span>
-                        <span class="dataItem"><?php echo $user->user_phone ?></span>
-                        <br/>
-
-                        <span class="dataTitle"><i class="icon-home"></i> Sống tại : </span>
-                        <span class="dataItem"><?php echo $user->user_hometown ?></span>
+                        <span class="dataTitle1"> <i class="icon-user"></i> Tên : </span>
+                        <span class="dataItem1"><?php echo $user->user_real_name ?></span>
                         <br/>
                         
-                        <span class="dataTitle"><i class="icon-calendar"></i> Ngày sinh : </span>
-                        <span class="dataItem"><?php echo $user->user_dob ?></span>
+                        <span class="dataTitle1"> <i class="icon-phone"></i> SĐT : </span>
+                        <span class="dataItem1"><?php echo $user->user_phone ?> </span>
+                        <br/>
+
+                        <span class="dataTitle1"> <i class="icon-home"></i> Sống tại : </span>
+                        <span class="dataItem1"><?php echo $user->user_hometown ?></span>
+                        <br/>
+                        
+                        <span class="dataTitle1"><i class="icon-calendar"></i> Ngày sinh : </span>
+                        <span class="dataItem1"><?php echo $user->user_dob ?></span>
                         <br/>
                     </div>
 
-                    <div class="rounded2 color_alternate" style="margin-top: 10px">
+                    <div class="rounded1 color_alternate" style="margin-top: 10px">
                         <h6>Lớp đang theo học</h6>
                     </div>
 

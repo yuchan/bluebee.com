@@ -19,7 +19,7 @@
 }
 
 .rounded {
-    width: 500px;
+    width: auto;
     height: auto;
     display: inline-block;
     border-style : solid;
@@ -30,14 +30,14 @@
 }
 
 .round_ava {
-    width: 1200px;
+    width: 100%;
     height: 315px;
     display: inline-block;
     overflow: hidden;
 }
 
 .rounded1 {
-    width: 650px;
+    width: 100%;
     height: 35px;
     display: inline-block;
     padding: 7px;
@@ -50,15 +50,6 @@
     border-width : thin;
     border-color: #d0d6d9;
     margin-bottom: 20px;
-}
-
-.rounded2 {
-    width: 310px;
-    height: 35px;
-    display: inline-block;
-    padding: 7px;
-    margin-bottom: 15px;
-    border-radius: 8px;
 }
 
 .ava {
@@ -114,6 +105,16 @@ img.float_left{
     float: left;
     width: 75%;
     margin: 1px 0px;
+  }
+  
+  .dataTitle1 {
+    font-weight: bold;
+    width: 45%;
+    float: left;
+  }
+  .dataItem1 {
+    float: left;
+    width: 55%;
   }
 
 .right{float:right}
