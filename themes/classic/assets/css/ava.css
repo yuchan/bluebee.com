@@ -19,7 +19,7 @@
 }
 
 .rounded {
-    width: auto;
+    width: 500px;
     height: auto;
     display: inline-block;
     border-style : solid;
