@@ -28,7 +28,6 @@
                                     $('#alert11').html(item).slideDown('slow');
                                 });
                             }
-                            //location.href = result.url;
                         }
                         else {
                             var item = $('<div class="g-form-row-field">' +
@@ -128,12 +127,13 @@
             <div class="l-content-h i-widgets">
                 <style>
                     .cover {
+                        height: 300px;
                         max-height: 300px;
                         overflow: hidden;
                     }
                     .button-on-cover {
                         top: 250px;
-                        left: 700px;
+                        right: 20px;
                     }
                     #fix-style-w-tab {
                         border-top: none;
@@ -148,13 +148,12 @@
                     }
                 </style>
                 <div class="cover" style="">
-                    <img style="width: 100%; position: relative; margin-top: -120px" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg"/>
-                    <div class="button-on-cover" style="position: absolute; display: none">
+                    <div class="cover-container">
+                        <img class="img-cover" style="width: 100%; position: relative; margin-top: -120px" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg"/>
+                    </div>
+                    <div class="button-on-cover" style="position: absolute;">
                         <button class="g-btn type_primary size_small" id="changecover" >
                             <span>Change Cover</span>
-                        </button>
-                        <button class="g-btn type_primary size_small">
-                            <span>Create A Class</span>
                         </button>
                     </div>
                 </div>
@@ -401,22 +400,6 @@
                                                             <p>Sometimes, I would ask myself: "Is this possible?" Then answer my own question with: "What <em>isn't</em> possible?" and work on finding a solution to how to make it possible.</p>
                                                         </article>
                                                         <button class=" g-btn type_primary size_small opencmt button-in-activity-box" id="opencmt"><span>Xem thêm</span></button>
-                                                        <script>
-                                                            $(document).ready(function() {
-                                                                $('.comment-container').hide();
-                                                                $('.opencmt').click(function(event) {
-                                                                    var hide = $('.comment-container').css('display');
-                                                                    if (hide == 'none') {
-                                                                        $(this).html('<span>Đóng</span>');
-                                                                        $('.comment-container').slideDown('slow', function() {
-                                                                        });
-                                                                    } else {
-                                                                        $(this).html('<span>Xem thêm</span>');
-                                                                        $('.comment-container').slideUp();
-                                                                    }
-                                                                });
-                                                            });
-                                                        </script>
                                                         <div class="comment-container">
                                                             <div class="list-item-comment-wrapper">
                                                                 <div class="item-comment">
@@ -556,7 +539,7 @@
                     </div>
                     <div class="one-third">
                         <h3 style="margin-top: 20px">Lớp: <br><?php echo $class->class_name ?></h3>
-                        <p style="float: left"><strong>Mã Môn Học: </strong><?php echo $class->class_code ?></p>
+                        <p style="float: left" id="show"><strong>Mã Môn Học: </strong><?php echo $class->class_code ?></p>
                         <a style="float: right; margin-top: 0" href="#edit-infomation-class" class="popup-with-form">
                             Chỉnh Sửa
                             <i class="icon-pencil"></i>
@@ -567,18 +550,6 @@
                         <div class="clearfix">
                             <p style="float: left"><strong>Thành viên: </strong><a><?php echo $number_of_user ?></a></p>
                             <a id="add-members" style="float: right" href="javascript:void(0)"><p id="add-members-contents">Thêm thành viên <i class="icon-plus"></i></p></a>
-                            <script>
-                                $(document).ready(function() {
-                                    $('a#add-members').click(function(event) {
-                                        var hide = $('#box-invite-friends').css('display');
-                                        if (hide == 'none') {
-                                            $('#box-invite-friends').slideDown('400');
-                                        } else {
-                                            $('#box-invite-friends').slideUp('400');
-                                        }
-                                    });
-                                });
-                            </script>
                         </div>
                         <?php $this->renderPartial('inviteform', array('classid' => $class->class_id)) ?>
                         <div class="g-hr" style="clear: both">
@@ -593,11 +564,6 @@
                         <ul>
                             <li>
                                 <div class="teacher-block">
-                                    <script type="text/javascript">
-                                        $(function() {
-                                            $('.teacher-block-rating-outside').barrating({showSelectedRating: false, readonly: true});
-                                        });
-                                    </script>
                                     <img style="float: left" class="ava" src="http://localhost:7070/SE_2014_Group5/themes/classic/assets/img/demo/blog-1.jpg" />
                                     <div>
                                         <p>Nguyễn Văn A</p>

@@ -285,7 +285,7 @@
         </div>
     </div>
     <script>
-                new cbpScroller(document.getElementById('cbp-so-scroller'));
+        new cbpScroller(document.getElementById('cbp-so-scroller'));
         $(document).ready(function() {
             $('#signup').click(function() {
                 $.smoothScroll({

@@ -147,3 +147,42 @@ jQuery(document).ready(function() {
         })
     })
 });
+$(document).ready(function() {
+    var old_distance = parseInt($('.img-cover').css('margin-top'));
+    $('#changecover').click(function(event) {
+        $('.cover').mousedown(function(event) {
+            $('.cover').mousemove(function(event) {
+                var $div = $('.cover');
+                var distance_top = event.pageY - $div.offset().top;
+                var new_distance = old_distance + distance_top;
+                $('#show').text("distance: " + distance_top + "; margin: " + old_distance + "; deta: " + new_distance);
+                $('.img-cover').css("margin-top", new_distance);
+            });
+        });
+    });
+    $('.comment-container').hide();
+    $('.opencmt').click(function(event) {
+        var hide = $('.comment-container').css('display');
+        if (hide == 'none') {
+            $(this).html('<span>Đóng</span>');
+            $('.comment-container').slideDown('slow', function() {});
+        } else {
+            $(this).html('<span>Xem thêm</span>');
+            $('.comment-container').slideUp();
+        }
+    });
+    $('a#add-members').click(function(event) {
+        var hide = $('#box-invite-friends').css('display');
+        if (hide == 'none') {
+            $('#box-invite-friends').slideDown('400');
+        } else {
+            $('#box-invite-friends').slideUp('400');
+        }
+    });
+});
+$(function() {
+    $('.teacher-block-rating-outside').barrating({
+        showSelectedRating: false,
+        readonly: true
+    });
+});
