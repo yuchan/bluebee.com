@@ -1,5 +1,4 @@
 <?php
-
 Yii::import('application.controllers.BaseController');
 require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.phpmailer.php');
 require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.pop3.php');
@@ -38,7 +37,7 @@ class WelcomePageController extends BaseController {
         $mail->Body = $body;
         $mail->AddAddress($to);
         if (!$mail->Send()) {
-            $message = 'Gởi mail bị lỗi: ' . $mail->ErrorInfo;
+            $message = 'Gửi mail bị lỗi: ' . $mail->ErrorInfo;
             return false;
         } else {
             $message = 'Thư của bạn đã được gửi đi ';

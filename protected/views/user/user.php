@@ -111,11 +111,11 @@
                                     <b>Ngày tham gia:</b> <?php echo $user['user_date_attend'] ?>
                                 </div>
 
-                                <div style="text-align: center">
+<!--                                <div style="text-align: center">
                                     <p>
                                         <a href="">Add he/she to a class</a> | <a href="">Add he/she to a group</a> | <a href="">Suggest he/she books</a>
                                     </p>
-                                </div>
+                                </div>-->
 
                                 <!--                                <div class="rounded1 color_alternate">
                                                                     <h6>Tài liệu đã xem</h6>

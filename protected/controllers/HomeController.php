@@ -8,14 +8,10 @@
 
 class HomeController extends Controller {
 
-//    public function beforeAction() {
-//        if (Yii::app()->session['token'] == '')
-//            $this->redirect('welcomePage');
-//    }
-
     public function actionIndex() {
-          if (Yii::app()->session['token'] == "")
-           $this->redirect('welcomePage');
+        if (Yii::app()->session['token'] == "") {
+            $redirect = $this->redirect('welcomePage');
+        }
         $this->actionHome();
     }
 
