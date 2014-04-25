@@ -1,6 +1,6 @@
 .circular {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
     display: inline-block;
     border-radius: 150px;
     -webkit-border-radius: 150px;
@@ -20,7 +20,7 @@
 
 .rounded {
     width: 500px;
-    height: 80px;
+    height: auto;
     display: inline-block;
     border-style : solid;
     border-width : thin;
@@ -29,8 +29,24 @@
     border-color: #d0d6d9;
 }
 
+.round_ava {
+    width: 100%;
+    height: 315px;
+    display: inline-block;
+    overflow: hidden;
+}
+
 .rounded1 {
-    width: 650px;
+    width: 100%;
+    height: 35px;
+    display: inline-block;
+    padding: 7px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.rounded2 {
+    width: 300px;
     height: 35px;
     display: inline-block;
     padding: 7px;
@@ -43,15 +59,6 @@
     border-width : thin;
     border-color: #d0d6d9;
     margin-bottom: 20px;
-}
-
-.rounded2 {
-    width: 310px;
-    height: 35px;
-    display: inline-block;
-    padding: 7px;
-    margin-bottom: 15px;
-    border-radius: 8px;
 }
 
 .ava {
@@ -71,21 +78,58 @@
 
 img.float_left{
     float: left;
-    margin-right: 70px;
+    margin-right: 18px;
 }
 
 .rectan {
-    width: 300px;
-    height: 150px;
+    width: 220px;
+    height: 220px;
+    margin-bottom: 20px;
 }
 
 .box1{
-    width:600px;
-    padding:10px;
-    border-style: solid;
-    border-width: thin;
-    border-color: #d0d6d9;
+    border:2px solid #d0d6d9;;
+    border-radius:10px;
+    padding:5px;
+    width: 100%;
+    height: fit-content;
 }
+
+.columnHeader{color:#382110;font-weight:bold;font-size: 1.1em}
+
+.box1 h1,.box1 h2{
+    margin:0;
+    color:#000000;
+    font-size:1.7em
+}
+
+.dataTitle {
+    color: #382110;
+    font-weight: bold;
+    width: 25%;
+    float: left;
+    margin: 1px 0px;
+  }
+  .dataItem {
+    float: left;
+    width: 75%;
+    margin: 1px 0px;
+  }
+  
+  .dataTitle1 {
+    font-weight: bold;
+    width: 45%;
+    float: left;
+  }
+  .dataItem1 {
+    float: left;
+    width: 55%;
+  }
+
+.right{float:right}
+
+.box1 li{margin-left:17px}.box1 .content{margin:8px}
+
 
 .inset-text {
     font-size: 40px;

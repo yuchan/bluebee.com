@@ -29,7 +29,7 @@ class Faculty extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('faculty_university, faculty_active', 'numerical', 'integerOnly'=>true),
-			array('faculty_name, faculty_code', 'length', 'max'=>45),
+			array('faculty_name, faculty_code', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('faculty_id, faculty_university, faculty_name, faculty_code, faculty_active', 'safe', 'on'=>'search'),

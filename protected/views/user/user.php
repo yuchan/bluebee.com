@@ -65,32 +65,50 @@
                 return false;
             });
         });</script>
+
     <div class="l-main-h">
         <div class="l-submain">
             <div class="l-submain-h g-html i-cf">
                 <div class="g-cols">
-                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg" alt="" width="1050" height="400"/>
+                    <div class="full-width">
+                        <img class="round_ava" src="
+                        <?php
+                        if ($user['user_cover'] == "") {
+                            echo Yii::app()->theme->baseUrl, "/assets/img/demo/cover.jpg";
+                        } else {
+
+                            echo $user['user_cover'];
+                        }
+                        ?>"/>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="l-submain-h g-html i-cf">
+        <div class="l-submain-h g-html i-cf" id="profile_tag">
+            <script>
+                $(document).ready(function() {
+                    var top = $("#profile_tag").offset().top;
+                    $("body,html").scrollTop(top);
+                });
+            </script>
             <div class="g-cols">
 
                 <div class="two-thirds">
                     <div class="l-content">
-                        <div class="g-form-row"id="alert" style="position: absolute; z-index: 2; width: 89%; right:100%">
-
-                        </div>
-                        <h3>Sơ lược</h3>
                         <div class='g-cols'>
                             <div class='full-width'>
-                                <a href=""><img class="circular float_left" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/blog-1.jpg"/></a>
+                                <a href=""><img class="circular float_left" src="<?php
+                                    if (Yii::app()->session['user_avatar'] == "") {
+                                        echo Yii::app()->theme->baseUrl, "/assets/img/logo.jpg";
+                                    } else {
+
+                                        echo Yii::app()->session['user_avatar'];
+                                    }
+                                    ?>"/></a>
                                 <div class="rounded">
-                                    <b>Details</b> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Hanoi, Vietnam.
+                                    <b>Trích dẫn ưa thích:</b> <?php echo $user['user_qoutes'] ?>
                                     <br/>
-                                    <b>Activity</b> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Joined in March 2013, Vip member of website - boss. 
-                                    <br/>
-                                    <b>Quote</b> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Change words, Change world.
+                                    <b>Ngày tham gia:</b> <?php echo $user['user_date_attend'] ?>
                                 </div>
 
                                 <div style="text-align: center">
@@ -99,59 +117,59 @@
                                     </p>
                                 </div>
 
-                                <div class="rounded1 color_alternate">
-                                    <h6>Tài liệu đã xem</h6>
-                                </div>
-
-                                <div class="w-gallery layout_tile size_s">
-                                    <div class="w-gallery-h">
-                                        <div class="w-gallery-tnails">
-                                            <div class="w-gallery-tnails-h">
-
-                                                <a class="w-gallery-tnail" href="img/demo/photo-1.jpg" title="Photo Title">
-                                                    <span class="w-gallery-tnail-h">
-                                                        <img class="w-gallery-tnail-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/thumb-1.jpg" alt="photo" />
-                                                        <span class="w-gallery-tnail-title"><i class="icon-mail-forward"></i></span>
-                                                    </span>
-                                                </a>
-                                                <a class="w-gallery-tnail" href="img/demo/photo-2.jpg">
-                                                    <span class="w-gallery-tnail-h">
-                                                        <img class="w-gallery-tnail-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/thumb-2.jpg" alt="photo" />
-                                                        <span class="w-gallery-tnail-title"><i class="icon-mail-forward"></i></span>
-                                                    </span>
-                                                </a>
-                                                <a class="w-gallery-tnail" href="img/demo/photo-3.jpg">
-                                                    <span class="w-gallery-tnail-h">
-                                                        <img class="w-gallery-tnail-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/thumb-3.jpg" alt="photo" />
-                                                        <span class="w-gallery-tnail-title"><i class="icon-mail-forward"></i></span>
-                                                    </span>
-                                                </a>
-                                                <a class="w-gallery-tnail" href="img/demo/photo-4.jpg">
-                                                    <span class="w-gallery-tnail-h">
-                                                        <img class="w-gallery-tnail-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/thumb-4.jpg" alt="photo" />
-                                                        <span class="w-gallery-tnail-title"><i class="icon-mail-forward"></i></span>
-                                                    </span>
-                                                </a>
-                                                <a class="w-gallery-tnail" href="img/demo/photo-5.jpg">
-                                                    <span class="w-gallery-tnail-h">
-                                                        <img class="w-gallery-tnail-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/thumb-5.jpg" alt="photo" />
-                                                        <span class="w-gallery-tnail-title"><i class="icon-mail-forward"></i></span>
-                                                    </span>
-                                                </a>
-
-                                                <a class="w-gallery-tnail" href="img/demo/project-2.jpg">
-                                                    <span class="w-gallery-tnail-h">
-                                                        <img class="w-gallery-tnail-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/thumb-6.jpg" alt="photo" />
-                                                        <span class="w-gallery-tnail-title"><i class="icon-mail-forward"></i></span>
-                                                    </span>
-                                                </a>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <a href="" style="margin-left: 30px">More...</a>
+                                <!--                                <div class="rounded1 color_alternate">
+                                                                    <h6>Tài liệu đã xem</h6>
+                                                                </div>
+                                
+                                                                <div class="w-gallery layout_tile size_s">
+                                                                    <div class="w-gallery-h">
+                                                                        <div class="w-gallery-tnails">
+                                                                            <div class="w-gallery-tnails-h">
+                                
+                                                                                <a class="w-gallery-tnail" href="img/demo/photo-1.jpg" title="Photo Title">
+                                                                                    <span class="w-gallery-tnail-h">
+                                                                                        <img class="w-gallery-tnail-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/thumb-1.jpg" alt="photo" />
+                                                                                        <span class="w-gallery-tnail-title"><i class="icon-mail-forward"></i></span>
+                                                                                    </span>
+                                                                                </a>
+                                                                                <a class="w-gallery-tnail" href="img/demo/photo-2.jpg">
+                                                                                    <span class="w-gallery-tnail-h">
+                                                                                        <img class="w-gallery-tnail-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/thumb-2.jpg" alt="photo" />
+                                                                                        <span class="w-gallery-tnail-title"><i class="icon-mail-forward"></i></span>
+                                                                                    </span>
+                                                                                </a>
+                                                                                <a class="w-gallery-tnail" href="img/demo/photo-3.jpg">
+                                                                                    <span class="w-gallery-tnail-h">
+                                                                                        <img class="w-gallery-tnail-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/thumb-3.jpg" alt="photo" />
+                                                                                        <span class="w-gallery-tnail-title"><i class="icon-mail-forward"></i></span>
+                                                                                    </span>
+                                                                                </a>
+                                                                                <a class="w-gallery-tnail" href="img/demo/photo-4.jpg">
+                                                                                    <span class="w-gallery-tnail-h">
+                                                                                        <img class="w-gallery-tnail-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/thumb-4.jpg" alt="photo" />
+                                                                                        <span class="w-gallery-tnail-title"><i class="icon-mail-forward"></i></span>
+                                                                                    </span>
+                                                                                </a>
+                                                                                <a class="w-gallery-tnail" href="img/demo/photo-5.jpg">
+                                                                                    <span class="w-gallery-tnail-h">
+                                                                                        <img class="w-gallery-tnail-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/thumb-5.jpg" alt="photo" />
+                                                                                        <span class="w-gallery-tnail-title"><i class="icon-mail-forward"></i></span>
+                                                                                    </span>
+                                                                                </a>
+                                
+                                                                                <a class="w-gallery-tnail" href="img/demo/project-2.jpg">
+                                                                                    <span class="w-gallery-tnail-h">
+                                                                                        <img class="w-gallery-tnail-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/thumb-6.jpg" alt="photo" />
+                                                                                        <span class="w-gallery-tnail-title"><i class="icon-mail-forward"></i></span>
+                                                                                    </span>
+                                                                                </a>
+                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                
+                                                                <a href="" style="margin-left: 30px">More...</a>-->
 
                                 <div class="rounded1 color_alternate">
                                     <h6>Hoạt động gần đây</h6>
@@ -274,25 +292,26 @@
                     </div>
 
                     <div>
-                        <i class="icon-user"></i>
-                        <span>&nbsp Tên &nbsp : &nbsp &nbsp &nbsp &nbsp &nbsp <span style="color: #B0B3B5"><?php echo $user->user_real_name ?></span> </span>
+                        
+                        <span class="dataTitle1"> <i class="icon-user"></i> Tên : </span>
+                        <span class="dataItem1"><?php echo $user->user_real_name ?></span>
                         <br/>
-                        <i class="icon-phone"></i>
-                        <span>&nbsp Phone &nbsp : &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span style="color: #B0B3B5"><?php echo $user->user_phone ?></span> </span>
+                        
+                        <span class="dataTitle1"> <i class="icon-phone"></i> SĐT : </span>
+                        <span class="dataItem1"><?php echo $user->user_phone ?> </span>
                         <br/>
-                        <i class="icon-home"></i>
-                        <span>&nbsp Live at &nbsp : &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span style="color: #B0B3B5"><?php echo $user->user_hometown ?></span> </span>
-                        <!--                        <br/>
-                                                <i class="icon-heart"></i>
-                                                <span>&nbsp Relationship &nbsp : &nbsp &nbsp &nbsp <span style="color: #BABDBF">Forever alone</span> </span>
-                                                <br/>-->
-                        <i class="icon-calendar"></i>
-                        <span>&nbsp Ngày sinh &nbsp : &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span style="color: #B0B3B5"><?php echo $user->user_dob ?></span> </span>
+
+                        <span class="dataTitle1"> <i class="icon-home"></i> Sống tại : </span>
+                        <span class="dataItem1"><?php echo $user->user_hometown ?></span>
+                        <br/>
+                        
+                        <span class="dataTitle1"><i class="icon-calendar"></i> Ngày sinh : </span>
+                        <span class="dataItem1"><?php echo $user->user_dob ?></span>
                         <br/>
                     </div>
 
                     <div class="rounded2 color_alternate" style="margin-top: 10px">
-                        <h6>Lớp môn học tham gia</h6>
+                        <h6>Lớp đang theo học</h6>
                     </div>
 
                     <div class="w-portfolio columns_2 wide-margins type_sortable">
@@ -300,86 +319,80 @@
                             <div class="w-portfolio-list">
                                 <div class="w-portfolio-list-h">
                                     <?php foreach ($user_class_info as $class): ?>
-                                        <div class="w-portfolio-item naming webdesign">
-                                            <div class="w-portfolio-item-h animate_afc">
-                                                <a class="w-portfolio-item-anchor" href="project-another-slider.html">
-                                                    <div class="w-portfolio-item-image">
-                                                        <img src="<?php
-                                                        if (Yii::app()->session['user_avatar']) {
-                                                            echo Yii::app()->session['user_avatar'];
-                                                        } else
-                                                            echo Yii::app()->theme->baseUrl+"/assets/img/demo/portfolio-1.jpg";
-                                                        ?> "/>
-                                                        <div class="w-portfolio-item-meta">
-                                                            <h2 class="w-portfolio-item-title">Vietnam National University</h2>
-                                                            <i class="icon-mail-forward"></i>
+                                        <div class = "w-portfolio-item naming webdesign">
+                                            <div class = "w-portfolio-item-h animate_afc">
+                                                <a class = "w-portfolio-item-anchor" href = "<?php echo Yii::app()->baseUrl, "/classPage?classid=" . $class['class_id'] ?>">
+                                                    <div class = "w-portfolio-item-image">
+                                                        <img src = "<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-1.jpg" alt = "" />
+                                                        <div class = "w-portfolio-item-meta">
+                                                            <h2 class = "w-portfolio-item-title"><?php echo $class['class_name'] ?></h2>
+                                                            <i class = "icon-mail-forward"></i>
                                                         </div>
                                                     </div>
                                                 </a>
                                             </div>
                                         </div>
-    <?php endforeach; ?>
-
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="rounded2 color_alternate">
-                        <h6>Nhóm đã tham gia</h6>
-                    </div>
-
-                    <div class="w-portfolio columns_2 wide-margins type_sortable">
-                        <div class="w-portfolio-h">
-                            <div class="w-portfolio-list">
-                                <div class="w-portfolio-list-h">
-
-                                    <div class="w-portfolio-item naming webdesign">
-                                        <div class="w-portfolio-item-h animate_afc">
-                                            <a class="w-portfolio-item-anchor" href="project-another-slider.html">
-                                                <div class="w-portfolio-item-image">
-                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-1.jpg" alt="" />
-                                                    <div class="w-portfolio-item-meta">
-                                                        <h2 class="w-portfolio-item-title">Vietnam National University</h2>
-                                                        <i class="icon-mail-forward"></i>
+                    <!--                    <div class = "rounded2 color_alternate">
+                                            <h6>Nhóm đã tham gia</h6>
+                                        </div>
+                    
+                                        <div class = "w-portfolio columns_2 wide-margins type_sortable">
+                                            <div class = "w-portfolio-h">
+                                                <div class = "w-portfolio-list">
+                                                    <div class = "w-portfolio-list-h">
+                    
+                                                        <div class = "w-portfolio-item naming webdesign">
+                                                            <div class = "w-portfolio-item-h animate_afc">
+                                                                <a class = "w-portfolio-item-anchor" href = "project-another-slider.html">
+                                                                    <div class = "w-portfolio-item-image">
+                                                                        <img src = "<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-1.jpg" alt = "" />
+                                                                        <div class = "w-portfolio-item-meta">
+                                                                            <h2 class = "w-portfolio-item-title">Vietnam National University</h2>
+                                                                            <i class = "icon-mail-forward"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                    
+                                                        <div class = "w-portfolio-item naming webdesign">
+                                                            <div class = "w-portfolio-item-h animate_afc">
+                                                                <a class = "w-portfolio-item-anchor" href = "project-another-slider.html">
+                                                                    <div class = "w-portfolio-item-image">
+                                                                        <img src = "<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-1.jpg" alt = "" />
+                                                                        <div class = "w-portfolio-item-meta">
+                                                                            <h2 class = "w-portfolio-item-title">Vietnam National University</h2>
+                                                                            <i class = "icon-mail-forward"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                    
+                                                        <div class = "w-portfolio-item naming branding">
+                                                            <div class = "w-portfolio-item-h animate_afc d1">
+                                                                <a class = "w-portfolio-item-anchor" href = "project-slider.html">
+                                                                    <div class = "w-portfolio-item-image">
+                                                                        <img src = "<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-2.jpg" alt = "" />
+                                                                        <div class = "w-portfolio-item-meta">
+                                                                            <h2 class = "w-portfolio-item-title">Kien's </h2>
+                                                                            <i class="icon-mail-forward"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                    
                                                     </div>
                                                 </div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="w-portfolio-item naming webdesign">
-                                        <div class="w-portfolio-item-h animate_afc">
-                                            <a class="w-portfolio-item-anchor" href="project-another-slider.html">
-                                                <div class="w-portfolio-item-image">
-                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-1.jpg" alt="" />
-                                                    <div class="w-portfolio-item-meta">
-                                                        <h2 class="w-portfolio-item-title">Vietnam National University</h2>
-                                                        <i class="icon-mail-forward"></i>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="w-portfolio-item naming branding">
-                                        <div class="w-portfolio-item-h animate_afc d1">
-                                            <a class="w-portfolio-item-anchor" href="project-slider.html">
-                                                <div class="w-portfolio-item-image">
-                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-2.jpg" alt="" />
-                                                    <div class="w-portfolio-item-meta">
-                                                        <h2 class="w-portfolio-item-title">Kien's </h2>
-                                                        <i class="icon-mail-forward"></i>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                            </div>
+                                        </div>-->
                 </div>
             </div>
         </div>

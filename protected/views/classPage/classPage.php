@@ -12,7 +12,7 @@
                         var json = data;
                         var result = $.parseJSON(json);
                         $('#alert1').html('');
-                        if (result.success == 1) {
+                        if (result.success) {
                             var item = $('<div class="g-form-row-field">' +
                                     '<div id="success" class="g-alert1 type_success">' +
                                     '<div class="g-alert1-body">' +
@@ -28,7 +28,7 @@
                                     $('#alert11').html(item).slideDown('slow');
                                 });
                             }
-                            location.href = result.url;
+                            //location.href = result.url;
                         }
                         else {
                             var item = $('<div class="g-form-row-field">' +
@@ -99,17 +99,17 @@
                     </div>
                 </div>
                 <div class="g-form-group">
-                                    <div class="g-form-row-label">
-                                        <label class="g-form-row-label-h" for="description">Miêu tả (*)</label>
-                                    </div>
-                                    <div class="g-form-group-rows">
-                                        <div class="g-form-row">
-                                            <div class="g-form-row-field">
-                                                <textarea name="description" id="input1x3" cols="30" rows="10"></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="g-form-row-label">
+                        <label class="g-form-row-label-h" for="description">Miêu tả (*)</label>
+                    </div>
+                    <div class="g-form-group-rows">
+                        <div class="g-form-row">
+                            <div class="g-form-row-field">
+                                <textarea name="description" id="input1x3" cols="30" rows="10"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="g-form-row">
                     <div class="g-form-row-field">
                         <button class="g-btn type_primary" type="submit" name="Submit" value="Submit" style="text-transform: inherit" action="">Lưu thông tin</button>
@@ -128,11 +128,11 @@
             <div class="l-content-h i-widgets">
                 <style>
                     .cover {
-                        max-height: 200px;
+                        max-height: 300px;
                         overflow: hidden;
                     }
                     .button-on-cover {
-                        top: 150px;
+                        top: 250px;
                         left: 700px;
                     }
                     #fix-style-w-tab {
@@ -149,7 +149,7 @@
                 </style>
                 <div class="cover" style="">
                     <img style="width: 100%; position: relative; margin-top: -120px" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg"/>
-                    <div class="button-on-cover" style="position: absolute">
+                    <div class="button-on-cover" style="position: absolute; display: none">
                         <button class="g-btn type_primary size_small" id="changecover" >
                             <span>Change Cover</span>
                         </button>
@@ -556,16 +556,16 @@
                     </div>
                     <div class="one-third">
                         <h3 style="margin-top: 20px">Lớp: <br><?php echo $class->class_name ?></h3>
-                        <p style="float: left"><strong>Mã Môn Học:</strong><?php echo $class->class_code ?></p>
+                        <p style="float: left"><strong>Mã Môn Học: </strong><?php echo $class->class_code ?></p>
                         <a style="float: right; margin-top: 0" href="#edit-infomation-class" class="popup-with-form">
                             Chỉnh Sửa
                             <i class="icon-pencil"></i>
                         </a>
 
-                        <p style="clear: both"><strong>Số tín chỉ:</strong> <?php echo $class->class_credit_number ?></p>
-                        <p><strong>Website Môn Học:</strong> <a href="bluebee-uet.com"><?php echo $class->class_website ?></a></p>
+                        <p style="clear: both"><strong>Số tín chỉ: </strong> <?php echo $class->class_credit_number ?></p>
+                        <p><strong>Website Môn Học: </strong> <a href="bluebee-uet.com"><?php echo $class->class_website ?></a></p>
                         <div class="clearfix">
-                            <p style="float: left"><strong>Thành viên:</strong><a><?php echo $number_of_user ?></a></p>
+                            <p style="float: left"><strong>Thành viên: </strong><a><?php echo $number_of_user ?></a></p>
                             <a id="add-members" style="float: right" href="javascript:void(0)"><p id="add-members-contents">Thêm thành viên <i class="icon-plus"></i></p></a>
                             <script>
                                 $(document).ready(function() {
@@ -580,7 +580,7 @@
                                 });
                             </script>
                         </div>
-                        <?php $this->renderPartial('inviteform') ?>
+                        <?php $this->renderPartial('inviteform', array('classid' => $class->class_id)) ?>
                         <div class="g-hr" style="clear: both">
                             <span class="g-hr-h">
                                 <i class="icon-user"></i>

@@ -1,6 +1,10 @@
-
-
-
+<script type="text/javascript">
+    $(document).ready(function() {
+            setTimeout(function() {
+                location.href = '<?php echo $link ?>'
+            }, 3000);
+    });
+</script>
 <!-- MAIN -->
 <div class="l-submain" style="height: 100%; padding-top: 10px">
     <div class="l-submain-h i-cf">
@@ -15,7 +19,7 @@
                             <div class="g-form-row-field"> 
                                 <div id="success" class="g-alert type_success">
                                     <div class="g-alert-body" style="text-align: center">
-                                        <p><b> Tài khoản của bạn đã được kích hoạt, chào mừng bạn đến với bluebee. Bạn có thể đăng nhập tại <a href="<?php echo Yii::app()->createUrl('welcomePage') ?>">đây </a> </b></p>
+                                        <p><b><?php echo $message ?></b></p>
                                     </div>
                                 </div>
                             </div>

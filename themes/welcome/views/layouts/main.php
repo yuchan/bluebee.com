@@ -36,7 +36,7 @@
 
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.isotope.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.magnific-popup.js"></script>
-        
+
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.simpleplaceholder.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.smoothScroll.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.themepunch.revolution.min.js"></script>
@@ -52,6 +52,28 @@
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/w-switcher.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/classie.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/cbpScroller.js"></script>
+
+        <!-- Pop-up -->
+        <script>
+            $(document).ready(function() {
+                $('.popup-with-form').magnificPopup({
+                    type: 'inline',
+                    preloader: false,
+                    focus: '#name',
+                    // When elemened is focused, some mobile browsers in some cases zoom in
+                    // It looks not nice, so we disable it:
+                    callbacks: {
+                        beforeOpen: function() {
+                            if ($(window).width() < 700) {
+                                this.st.focus = false;
+                            } else {
+                                this.st.focus = '#name';
+                            }
+                        }
+                    }
+                });
+            });
+        </script>
     </head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
@@ -64,7 +86,7 @@
             <!-- HEADER -->
             <div class="l-header">
                 <div class="l-header-h">
-                    
+
                     <div class="l-subheader at_middle" style="max-height: 60px">
                         <div class="l-subheader-h i-cf">
                             <!-- LOGO -->
@@ -121,36 +143,7 @@
                 <div class="l-subfooter-h i-cf">
                     <div class="w-copyright">© 2014 All rights reserved. <a href='http://us-themes.com/'>BlueBee Team - K57CA - UET</a></div>
                     <!-- NAV -->
-                    <nav class="w-nav">
-                        <div class="w-nav-h">
-                            <div class="w-nav-list layout_hor width_auto float_right level_1">
-                                <div class="w-nav-list-h">
-                                    <div class="w-nav-item level_1">
-                                        <div class="w-nav-item-h">
-                                            <a href="" class="w-nav-anchor level_1">Điều khoản và dịch vụ</a>
-                                        </div>
-                                    </div>
-                                    <div class="w-nav-item level_1">
-                                        <div class="w-nav-item-h">
-                                            <a href="" class="w-nav-anchor level_1">FAQ</a>
-                                        </div>
-                                    </div>
-                                    <div class="w-nav-item level_1">
-                                        <div class="w-nav-item-h">
-                                            <a href="<?php echo Yii::app()->createUrl("contact") ?>" class="w-nav-anchor level_1">Liên hệ</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="w-nav-item level_1">
-                                        <div class="w-nav-item-h">
-                                            <a href="<?php echo Yii::app()->createUrl("aboutus") ?>" class="w-nav-anchor level_1">Về chúng tôi</a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </nav>
+                   
                 </div>
 
 

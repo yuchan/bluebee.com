@@ -25,6 +25,8 @@
  * @property integer $user_group
  * @property string $user_token
  * @property string $user_activator
+ * @property string $user_qoutes
+ * @property string $user_date_attend
  */
 class User extends CActiveRecord
 {
@@ -45,11 +47,12 @@ class User extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('user_university, user_faculty, user_class, user_active, user_status, user_group', 'numerical', 'integerOnly'=>true),
-			array('user_id_fb, user_avatar, user_cover, user_token, user_activator', 'length', 'max'=>200),
-			array('username, password, user_real_name, user_student_code, user_gender, user_dob, user_hometown, user_phone, user_description', 'length', 'max'=>45),
+			array('user_id_fb, user_avatar, user_cover, user_hometown, user_description, user_token, user_activator, user_date_attend', 'length', 'max'=>200),
+			array('username, password, user_real_name, user_student_code, user_gender, user_dob, user_phone', 'length', 'max'=>45),
+			array('user_qoutes', 'length', 'max'=>400),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('user_id, user_id_fb, username, password, user_real_name, user_avatar, user_cover, user_student_code, user_university, user_gender, user_dob, user_hometown, user_phone, user_description, user_faculty, user_class, user_active, user_status, user_group, user_token, user_activator', 'safe', 'on'=>'search'),
+			array('user_id, user_id_fb, username, password, user_real_name, user_avatar, user_cover, user_student_code, user_university, user_gender, user_dob, user_hometown, user_phone, user_description, user_faculty, user_class, user_active, user_status, user_group, user_token, user_activator, user_qoutes, user_date_attend', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -91,6 +94,8 @@ class User extends CActiveRecord
 			'user_group' => 'User Group',
 			'user_token' => 'User Token',
 			'user_activator' => 'User Activator',
+			'user_qoutes' => 'User Qoutes',
+			'user_date_attend' => 'User Date Attend',
 		);
 	}
 
@@ -133,6 +138,8 @@ class User extends CActiveRecord
 		$criteria->compare('user_group',$this->user_group);
 		$criteria->compare('user_token',$this->user_token,true);
 		$criteria->compare('user_activator',$this->user_activator,true);
+		$criteria->compare('user_qoutes',$this->user_qoutes,true);
+		$criteria->compare('user_date_attend',$this->user_date_attend,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

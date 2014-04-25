@@ -104,6 +104,7 @@
 
             });
         </script>
+        
 
         <!-- GMap-->
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
@@ -157,7 +158,7 @@
                             <!-- LOGO -->
                             <div class="w-logo">
                                 <div class="w-logo-h">
-                                    <a class="w-logo-link" href="<?php echo Yii::app()->createUrl("") ?>" class="w-nav-anchor level_1">
+                                    <a class="w-logo-link" href="<?php echo Yii::app()->createUrl("home") ?>" class="w-nav-anchor level_1">
                                         <img class="w-logo-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo.jpg" alt="BlueBee" />
                                         <span class="w-logo-title">
                                             <span class="w-logo-title-h">BlueBee</span>
@@ -167,7 +168,7 @@
                             </div>
                             <div class="w-logo">
                                 <div class="w-logo-h">
-                                    <a class="w-logo-link" href="<?php echo Yii::app()->createUrl("") ?>" class="w-nav-anchor level_1">
+                                    <a class="w-logo-link" href="<?php echo Yii::app()->createUrl("home") ?>" class="w-nav-anchor level_1">
                                         <img class="w-logo-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo2.jpg" alt="BlueBee" />
                                         <span class="w-logo-title">
                                             <span class="w-logo-title-h">BlueBee</span>
@@ -206,7 +207,7 @@
                                         <div class="w-nav-list-h">
                                             <div class="w-nav-item level_1 active">
                                                 <div class="w-nav-item-h">
-                                                    <a href="<?php echo Yii::app()->createUrl("discussion") ?>" class="w-nav-anchor level_1">
+                                                    <a href="<?php echo Yii::app()->createUrl("home") ?>" class="w-nav-anchor level_1">
                                                         <span class="w-nav-icon"><i class="icon-star"></i></span>
                                                         <span class="w-nav-title">Trang chủ</span>
                                                         <span class="w-nav-hint"></span>
@@ -215,47 +216,31 @@
                                             </div>
                                             <div class="w-nav-item level_1">
                                                 <div class="w-nav-item-h">
-                                                    <a href="<?php echo Yii::app()->createUrl("document") ?>" class="w-nav-anchor level_1">
+<!--                                                    <a href="<?php echo Yii::app()->createUrl("document") ?>" class="w-nav-anchor level_1">
                                                         <span class="w-nav-icon"><i class="icon-star"></i></span>
                                                         <span class="w-nav-title">Tài liệu</span>
                                                         <span class="w-nav-hint"></span>
-                                                    </a>
+                                                    </a>-->
                                                 </div>
                                             </div>
 
                                             <div class="w-nav-item level_1">
                                                 <div class="w-nav-item-h">
-                                                    <a href="<?php echo Yii::app()->createUrl("share") ?>" class="w-nav-anchor level_1">
+                                                    <a href="#" class="w-nav-anchor level_1">
                                                         <span class="w-nav-icon"><i class="icon-star"></i></span>
                                                         <span class="w-nav-title">Lớp môn học</span>
                                                         <span class="w-nav-hint"></span>
                                                     </a>
-
-                                                    <div class="w-nav-list place_down show_onhover level_2">
-                                                        <div class="w-nav-list-h">
-                                                            <div class="w-nav-item level_2">
-                                                                <div class="w-nav-item-h">
-                                                                    <a href="home-landing.html" class="w-nav-anchor level_2">Class - Vietnam National University</a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="w-nav-item level_2">
-                                                                <div class="w-nav-item-h">
-                                                                    <a href="home-parallax.html" class="w-nav-anchor level_2">Class - Blue UET team</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
                                                 </div>
                                             </div>
 
                                             <div class="w-nav-item level_1">
                                                 <div class="w-nav-item-h">
-                                                    <a href="<?php echo Yii::app()->createUrl("share") ?>" class="w-nav-anchor level_1">
+<!--                                                    <a href="<?php echo Yii::app()->createUrl("share") ?>" class="w-nav-anchor level_1">
                                                         <span class="w-nav-icon"><i class="icon-star"></i></span>
                                                         <span class="w-nav-title">Nhóm</span>
                                                         <span class="w-nav-hint"></span>
-                                                    </a>
+                                                    </a>-->
 
                                                     <div class="w-nav-list place_down show_onhover level_2">
                                                         <div class="w-nav-list-h">
@@ -284,7 +269,7 @@
 
                                             <div class="w-nav-item level_1">
                                                 <div class="w-nav-item-h">
-                                                    <a href="<?php echo Yii::app()->createUrl("user?token=" . Yii::app()->session['token']) ?>" class="w-nav-anchor level_1">
+                                                    <a href="<?php echo Yii::app()->createUrl("user?token=" . Yii::app()->session['token']) ?>" class="w-nav-anchor level_ava">
                                                         <img style="border: 5px solid white;"class="ava" src="<?php
                                                         if (Yii::app()->session['user_avatar'] == "") {
                                                             echo Yii::app()->theme->baseUrl, "/assets/img/logo.jpg";
@@ -303,11 +288,11 @@
                                                                     <a href="<?php echo Yii::app()->createUrl('welcomePage/logout') ?>" class="w-nav-anchor level_2">Đăng xuất</a>
                                                                 </div>
                                                             </div>
-                                                            <div class="w-nav-item level_2">
-                                                                <div class="w-nav-item-h">
-                                                                    <a href="home-parallax.html" class="w-nav-anchor level_2">Cập nhật thông tin</a>
-                                                                </div>
-                                                            </div>
+                                                            <!--                                                            <div class="w-nav-item level_2">
+                                                                                                                            <div class="w-nav-item-h">
+                                                                                                                                <a href="home-parallax.html" class="w-nav-anchor level_2">Cập nhật thông tin</a>
+                                                                                                                            </div>
+                                                                                                                        </div>-->
 
                                                         </div>
                                                     </div>
@@ -360,13 +345,13 @@
                                     </div>
                                     <div class="w-nav-item level_1">
                                         <div class="w-nav-item-h">
-                                            <a href="<?php echo Yii::app()->createUrl("contact") ?>" class="w-nav-anchor level_1">Liên hệ</a>
+                                            <a href="<?php echo Yii::app()->createUrl("Contact") ?>" class="w-nav-anchor level_1">Liên hệ</a>
                                         </div>
                                     </div>
 
                                     <div class="w-nav-item level_1">
                                         <div class="w-nav-item-h">
-                                            <a href="<?php echo Yii::app()->createUrl("aboutus") ?>" class="w-nav-anchor level_1">Về chúng tôi</a>
+                                            <a href="<?php echo Yii::app()->createUrl("aboutUs") ?>" class="w-nav-anchor level_1">Về chúng tôi</a>
                                         </div>
                                     </div>
 
@@ -422,6 +407,6 @@
         })(document, window, "yandex_metrika_callbacks");
     </script>
     <noscript><div><img src="//mc.yandex.ru/watch/21110668" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
+
 </body>
 </html>

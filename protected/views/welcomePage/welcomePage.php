@@ -91,8 +91,8 @@
                                                                     <h3>Project Info</h3>
                                                                     <blockquote>
                                                                         <b>Vu Ngoc Son</b>
-                                                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-                                                                        Aenean commodo ligula eget dolor. Aenean massa. Cum sociis 
+                                                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                                                                        Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
                                                                         natoque penatibus et magnis dis parturient montes.
                                                                     </blockquote>
                                                                 </div>
@@ -197,9 +197,9 @@
                                                                 <div class="g-form-row"  style="padding-bottom: 5px; margin-top: -5px">
                                                                     <div class="g-form-row-field">
                                                                         <button class="g-btn type_primary" type="submit" name="Submit" value="Submit" style="width: 100%">Đăng Nhập</button>
-                                                                        
+
                                                                     </div>
-                                                                </div>                                                   
+                                                                </div>
                                                                 <?php $this->renderPartial('fb') ?>
                                                             </div>
                                                         </div>

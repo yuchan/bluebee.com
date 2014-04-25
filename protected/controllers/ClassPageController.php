@@ -1,11 +1,20 @@
 <?php
 
 date_default_timezone_set('Asia/Ho_Chi_Minh');
+require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.phpmailer.php');
+require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.pop3.php');
 Yii::import('application.controllers.BaseController');
 
 class ClassPageController extends BaseController {
 
+//    public function beforeAction() {
+//        if (Yii::app()->session['token'] == "")
+//            $this->redirect('welcomePage');
+//    }
+
     public function actionIndex() {
+//        if (Yii::app()->session['token'] == "")
+//           $this->redirect('welcomePage');
         $this->actionClassPage();
     }
 
@@ -24,6 +33,7 @@ class ClassPageController extends BaseController {
         $class_id = class_model::model()->findByAttributes(array('class_id' => $class_new->class_id));
 
         $class_year->class_code = $code;
+        $class_year->is_active = 1;
 
         $class_year->class_id = $class_id->class_id;
         $class_year->class_year = date("Y");
@@ -100,15 +110,27 @@ class ClassPageController extends BaseController {
             $spCriteria = new CDbCriteria();
             $spCriteria->select = "*";
             $spCriteria->condition = "class_id = " . $_GET["classid"];
-            
+
             $userCriteria = new CDbCriteria();
             $userCriteria->select = "*";
-            $userCriteria->condition = "class_id = ".$_GET["classid"];
+            $userCriteria->condition = "class_id = " . $_GET["classid"];
             $user = ClassUser::model()->findAll($userCriteria);
-            $number_of_user = count($user);
 
-            $this->render('classPage',array('detail_classpage' => class_model::model()->findAll($spCriteria),
-                'number_of_user' => $number_of_user));
+//            if ($user) {
+//
+//                if (Yii::app()->session['token'] != "") {
+                    $number_of_user = count($user);
+
+                    $this->render('classPage', array('detail_classpage' => class_model::model()->findAll($spCriteria),
+                        'number_of_user' => $number_of_user));
+//                } else {
+//                    $this->redirect('welcomePage');
+//                }
+//            } else {
+//                $this->redirect('welcomePage');
+//            }
+//        } else {
+//            $this->redirect('welcomePage');
         }
     }
 
@@ -125,10 +147,37 @@ class ClassPageController extends BaseController {
         echo CJSON::encode($users); // echo json o day
     }
 
+    public function smtpmailer($to, $from, $from_name, $subject, $body) {
+
+        $mail = new PHPMailer();      // tạo một đối tượng mới từ class PHPMailer
+        $mail->IsSMTP();       // bật chức năng SMTP
+        $mail->CharSet = "UTF-8";
+        $mail->IsHTML(true);
+        //     $mail->SMTPDebug = 1;       // kiểm tra ỗi : 1 là  hiển thị lỗi và thông báo cho ta biết, 2 = chỉ thông báo lỗi
+        $mail->SMTPAuth = true;      // bật chức năng đăng nhập vào SMTP này
+        //$mail->SMTPSecure = 'ssl'; 				// sử dụng giao thức SSL vì gmail bắt buộc dùng cái này
+        $mail->Host = 'localhost';   // smtp của gmail
+        $mail->Port = 25;       // port của smpt gmail
+        $mail->Username = "accept@bluebee-uet.com";
+        $mail->Password = "123456789";
+        $mail->SetFrom($from, $from_name);
+        $mail->Subject = $subject;
+        $mail->Body = $body;
+        $mail->AddAddress($to);
+        if (!$mail->Send()) {
+            $message = 'Gửi thư mời bị lỗi: ' . $mail->ErrorInfo;
+            return false;
+        } else {
+            $message = 'Thư mời của bạn đã được gửi đi ';
+            return true;
+        }
+    }
+
     public function actionInvite() {
+        $this->retVal = new stdClass();
         if (isset($_GET["classid"])) {
             $request = Yii::app()->request;
-            $token = md5($_GET["class_id"]);
+            $token = md5($_GET["classid"]);
             if ($request->isPostRequest && isset($_POST)) {
                 try {
                     $array_treatment_id = $_POST['friends'];
@@ -136,18 +185,25 @@ class ClassPageController extends BaseController {
                     $array = explode(",", $array_treatment_id);
                     //echo strlen($array);
                     if (count($array) > 0) {
-                        $class = class_model::model()->findAllByAttributes(array('class_id' => $_GET["class_id"]));
+                        $class = class_model::model()->find('class_id=:class_id', array(':class_id' => $_GET["classid"]));
                         $class->class_token = $token;
                         $class->save(FALSE);
+                        $countSuccess = count($array);
                         foreach ($array as $useremail) {
                             //echo $a;
-                            $user = User::model()->findAllByAttributes(array('username' => $useremail));
+                            $user = User::model()->find('username=:username', array(':username' => $useremail));
                             $user_id = $user->user_id;
-                            $link = $this->createUrl('classPage/accept?token=' . $token . '$user=' . $user_id);
-                            EmailHelper::sendInviteFriend($useremail, $link);
+                            $link = $this->createAbsoluteUrl('classPage/accept?token=' . $token . '&user=' . $user_id);
+                            $this->smtpmailer($useremail, "accept@bluebee-uet.com", "Accept", "Chấp nhận thư mời vào lớp " . $class->class_name, "Chào bạn " . $user->user_real_name . "<br/>Đây là đường link chấp nhận thư mời vào lớp " . $class->class_name . "<br/>" . $link);
+                            $countSuccess--;
                         }
-                        $this->retVal->message = 'Email mời đã được gửi đi, đang đợi phản hồi';
-                        $this->retVal->success = 1;
+                        if ($countSuccess === 0) {
+                            $this->retVal->success = 1;
+                            $this->retVal->message = 'Email mời đã được gửi đi, đang đợi phản hồi';
+                        } else {
+                            $this->retVal->message = 'Thư mời gửi lỗi! Chưa gửi hết lời mời';
+                            $this->retVal->success = 1;
+                        }
                     } else {
                         $this->retVal->message = 'Bạn phải nhập người cần mời';
                         $this->retVal->success = 0;
@@ -161,11 +217,14 @@ class ClassPageController extends BaseController {
     }
 
     public function actionAccept() {
+        $message = "";
+        $success = 0;
+        $link = "";
         if (isset($_GET["token"])) {
             if (isset($_GET["user"])) {
-                $token = class_model::model()->findAllByAttributes(array('class_token' => $_GET["class_token"]));
+                $token = class_model::model()->findByAttributes(array('class_token' => $_GET["token"]));
                 if ($token) {
-                    $user = User::model()->findAllByAttributes(array('user_id' => $_GET["user"]));
+                    $user = User::model()->findByAttributes(array('user_id' => $_GET["user"]));
                     if ($user) {
                         $user_class = new ClassUser;
                         $user_class->class_id = $token->class_id;
@@ -173,10 +232,22 @@ class ClassPageController extends BaseController {
                         $user_class->is_active = 1;
 
                         $user_class->save(FALSE);
+                        $message = "Bạn đã chấp nhận lời mời vào lớp " . $token->class_name. ". Chúc bạn học tập tốt cùng bluebee!";
+                        $success = 1;
+                        $link = Yii::app()->createUrl('classpage?classid= ' . $token->class_id);
+                    } else {
+                        $message = 'Bạn chưa là thành viên bluebee. Hãy đăng ký để gia nhập bluebee';
+                        $success = 0;
+                        $link = '';
                     }
+                } else {
+                    $message = 'Thư mời đã xảy ra lỗi. Không thể xác nhận lời mời!';
+                    $success = 0;
+                    $link = '';
                 }
             }
         }
+        $this->render('accept', array('message' => $message, 'success' => $success, 'link' => $link));
     }
 
     public function actionChangeClassInformation() {
