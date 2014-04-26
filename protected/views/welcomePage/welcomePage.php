@@ -236,14 +236,19 @@
                     <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/2.png" alt="img01">
                 </figure>
                 <article class="cbp-so-side cbp-so-side-right">
-                    <h2>Plum caramels</h2>
-                    <p>Lollipop powder danish sugar plum caramels liquorice sweet cookie. Gummi bears caramels gummi bears candy canes cheesecake sweet roll icing dragée. Gummies jelly-o tart. Cheesecake unerdwear.com candy canes apple pie halvah chocolate tiramisu.</p>
+                    <h2>Blue-Bee</h2>
+                    <p> Chúng tôi là những sinh viên tại trường đại học, là học sinh chuẩn bị bước vào năm nhất thời sinh viên.
+                        Chúng tôi đã từng suy nghĩ và có nhu cầu về vấn đề môi trường học tập, tiếng nói của bản thân, những tài liệu cần thiết…</p>
                 </article>
             </section>
             <section class="cbp-so-section">
-                <article class="cbp-so-side cbp-so-side-left">
-                    <h2>Marzipan gingerbread</h2>
-                    <p>Soufflé bonbon jelly cotton candy liquorice dessert jelly bear claw candy canes. Pudding halvah bonbon marzipan powder. Marzipan gingerbread sweet jelly.</p>
+                <article class="cbp-so-side cbp-so-side-right">
+                    <h2>Trăn trở</h2>
+                    <ul>
+                        <li>Làm thế nào để tiếp thu bài dễ dàng hơn?</li>
+                        <li>Làm thế nào để tìm được tài liệu mình cần?</li>
+                        <li>Làm thế nào để nhận lời khuyên từ những người cùng ngành?</li>
+                    </ul>
                 </article>
                 <figure class="cbp-so-side cbp-so-side-right">
                     <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/3.png" alt="img01">
@@ -254,10 +259,12 @@
                     <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/1.png" alt="img01">
                 </figure>
                 <article class="cbp-so-side cbp-so-side-right">
-                    <h2>Carrot cake</h2>
-                    <p>Sesame snaps sweet wafer danish. Chupa chups carrot cake icing donut halvah bonbon. Chocolate cake candy marshmallow pudding dessert marzipan jujubes sugar plum.</p>
+                    <h2>Lời khuyên</h2>
+                    <p>Hãy tới và cùng chúng tôi lập nên 1 cộng đồng sinh viên vững chắc. Những trăn trở đó cũng là những trăn trở của chúng tôi, hãy cùng lập nên 1 website
+                    hữu ích nhất với sinh viên</p>
                 </article>
             </section>
+            <!--
             <section class="cbp-so-section"  style="margin-bottom:0">
                 <article class="cbp-so-side cbp-so-side-left" style="padding: 0; width: 100%; min-height: 0; text-align: center;">
                     <h2>Take A Tour</h2>
@@ -272,6 +279,7 @@
                     </div>
                 </figure>
             </section>
+            -->
             <div class="cbp-so-section">
                 <div class="cbp-so-side cbp-so-side-left" style="padding: 0; width: 100%; min-height: 0; text-align: center;">
                     <a id="signup" href="#">

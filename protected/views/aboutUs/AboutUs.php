@@ -54,7 +54,7 @@
                                         <div class="g-cols">
                                             <div class="one-third">
                                                 <h4>Động lực</h4>
-                                                <p>Với 2 năm trải nghiệm quãng đời sinh viên, chúng tôi nhận thấy hệ thống hỗ trợ sinh viên Việt Nam
+                                                <p>Với những trải nghiệm quãng đời sinh viên, chúng tôi nhận thấy hệ thống hỗ trợ sinh viên Việt Nam
                                                 còn rất ít và có nhiều hạn chế. </p>
                                                 <p>Chính điều này đã thúc đẩy nhóm chúng tôi nghĩ ra ý tưởng thành lập 1 
                                                 website trợ giúp sinh viên học tập 1 cách dễ dàng hơn, chuyên nghiệp hơn.</p>
