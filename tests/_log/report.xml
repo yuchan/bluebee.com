@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="acceptance" tests="10" assertions="7" failures="1" errors="0" time="1.266305">
+    <testcase file="Click_subjectCept.php" name="view information about a subject (Click_subjectCept.php)" assertions="1" time="0.279795"/>
+    <testcase file="Click_teacher_in_subjectCept.php" name="view information about a teacher that teach this subject (Click_teacher_in_subjectCept.php)" assertions="1" time="0.136896"/>
+    <testcase file="DiscussionPageCept.php" name="ensure that frontpage works (DiscussionPageCept.php)" assertions="1" time="0.072653"/>
+    <testcase file="DocumentCept.php" name="ensure that frontpage works (DocumentCept.php)" assertions="0" time="0.112099"/>
+    <testcase file="Login-wrong_accountCept.php" name="login (Login-wrong_accountCept.php)" assertions="1" time="0.307539"/>
+    <testcase file="Login_correct_accountCept.php" name="login (Login_correct_accountCept.php)" assertions="1" time="0.175025"/>
+    <testcase file="Login_did_not_have_accountCept.php" name="sign up (Login_did_not_have_accountCept.php)" assertions="1" time="0.070448"/>
+    <testcase file="Login_leave_password_blankCept.php" name="login (Login_leave_password_blankCept.php)" assertions="1" time="0.080542"/>
+    <testcase file="Login_leave_username_blankCept.php" name="perform actions and see result (Login_leave_username_blankCept.php)" assertions="0" time="0.002257"/>
+    <testcase file="Post_statusCept.php" name="post a status (Post_statusCept.php)" assertions="0" time="0.029051">
+      <failure type="Codeception\Exception\ElementNotFound">post a status (Post_statusCept.php)
+Field by name, label, CSS or XPath 'what do you want to post?' was not found on page.
+
+C:\xampp\htdocs\bluebee.com\tests\acceptance\WebGuy.php:972
+C:\xampp\htdocs\bluebee.com\tests\acceptance\Post_statusCept.php:4
+C:\xampp\htdocs\bluebee.com\codecept.phar:7
+</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="functional" tests="0" assertions="0" failures="0" errors="0" time="0.000000"/>
+  <testsuite name="unit" tests="0" assertions="0" failures="0" errors="0" time="0.000000"/>
+</testsuites>

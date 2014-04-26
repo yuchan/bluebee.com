@@ -1,28 +1,0 @@
-[2014-03-21 03:39:45] DiscussionPageCept.php.INFO: am on page "/" [] []
-[2014-03-21 03:39:46] DiscussionPageCept.php.INFO: see "Thảo luận" [] []
-[2014-03-21 03:39:46] DiscussionPageCept.php.INFO: PASSED [] []
-[2014-03-21 03:39:46] DocumentCept.php.INFO: am on page "/document" [] []
-[2014-03-21 03:39:47] DocumentCept.php.INFO: see "" [] []
-[2014-03-21 03:39:47] DocumentCept.php.ALERT: Failed asserting that 
--->  <bold>/SE2014-Project_Website/index.php/document</bold><info>﻿    $(function () { $('#example-f').barrating(); });  jQuery(document).ready(function() { jQuery('.w-map-h').gMap({ controls: { panControl: false, zoomControl: true, mapTypeControl: true, scaleControl: false, streetViewControl: false, overviewMapControl: false }, address: "&#272</info>
-<debug>[Content too long to display. See complete response in '_log' directory]</debug>
---> contains "". [] []
-[2014-03-21 03:39:47] DocumentCept.php.INFO: # FAILED # [] []
-[2014-03-21 03:39:47] DocumentCept.php.INFO: PASSED [] []
-[2014-03-21 03:39:47] LoginCept.php.INFO: am on page "/login" [] []
-[2014-03-21 03:39:47] LoginCept.php.INFO: fill field "username","davert" [] []
-[2014-03-21 03:39:47] LoginCept.php.INFO: fill field "Password","qwerty" [] []
-[2014-03-21 03:39:47] LoginCept.php.INFO: click "Submit" [] []
-[2014-03-21 03:39:48] LoginCept.php.INFO: see "Ten nguoi dung chua dc dang ky" [] []
-[2014-03-21 03:39:48] LoginCept.php.INFO: PASSED [] []
-[2014-03-21 03:41:05] DiscussionPageCept.php.INFO: am on page "/" [] []
-[2014-03-21 03:41:06] DiscussionPageCept.php.INFO: see "Thảo luận" [] []
-[2014-03-21 03:41:06] DiscussionPageCept.php.INFO: PASSED [] []
-[2014-03-21 03:41:06] DocumentCept.php.INFO: am on page "/document" [] []
-[2014-03-21 03:41:07] DocumentCept.php.INFO: PASSED [] []
-[2014-03-21 03:41:07] LoginCept.php.INFO: am on page "/login" [] []
-[2014-03-21 03:41:07] LoginCept.php.INFO: fill field "username","davert" [] []
-[2014-03-21 03:41:07] LoginCept.php.INFO: fill field "Password","qwerty" [] []
-[2014-03-21 03:41:07] LoginCept.php.INFO: click "Submit" [] []
-[2014-03-21 03:41:08] LoginCept.php.INFO: see "Ten nguoi dung chua dc dang ky" [] []
-[2014-03-21 03:41:08] LoginCept.php.INFO: PASSED [] []

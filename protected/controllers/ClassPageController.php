@@ -305,6 +305,30 @@ class ClassPageController extends BaseController {
         }
     }
 
+    
+    public function actionCreatePost(){
+        $this->retVal = new stdClass();
+        $request = Yii::app()->request;
+        if($request->isPostRequest && isset($_POST)){
+            try {
+                $post = array('post_content' => @$_POST['post_content']);
+                $model = new Post();
+                $model->post_content = $post['post_content'];
+                if($model->save(FALSE)){
+                    $this->retVal->message = @$_POST['post_content'];
+                    $this->retVal->success = 1;
+                }
+                else {
+                    $this->retVal->message = 'khong tao duoc post record';
+                    $this->retVal->success = 0;
+                }
+            }  catch (Exception $e){       
+                $this->retVal->message = $e->getMessage();
+            }
+        }        
+        echo CJSON::encode($this->retVal);
+        
+    }
     // Uncomment the following methods and override them if needed
     /*
       public function filters()
