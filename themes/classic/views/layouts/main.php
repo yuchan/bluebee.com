@@ -327,7 +327,7 @@
             <!-- subfooter: bottom -->
             <div class="l-subfooter at_bottom">
                 <div class="l-subfooter-h i-cf">
-                    <div class="w-copyright">© 2014 All rights reserved. <a href='http://us-themes.com/'>BlueBee Team - K57CA - UET</a></div>
+                    <div class="w-copyright">© 2014 All rights reserved. <a href='#'>BlueBee Team - K57CA - UET</a></div>
                     <!-- NAV -->
                     <nav class="w-nav">
                         <div class="w-nav-h">
