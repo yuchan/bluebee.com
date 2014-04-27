@@ -162,13 +162,14 @@ $(document).ready(function() {
     });
     $('.comment-container').hide();
     $('.opencmt').click(function(event) {
-        var hide = $('.comment-container').css('display');
+        var current = $(this);
+        var hide = current.next().css('display');
         if (hide == 'none') {
             $(this).html('<span>Đóng</span>');
-            $('.comment-container').slideDown('slow', function() {});
+            current.next().slideDown('slow', function() {});
         } else {
             $(this).html('<span>Xem thêm</span>');
-            $('.comment-container').slideUp();
+            current.next().slideUp();
         }
     });
     $('a#add-members').click(function(event) {

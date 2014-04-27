@@ -115,14 +115,18 @@ class ClassPageController extends BaseController {
             $userCriteria->select = "*";
             $userCriteria->condition = "class_id = " . $_GET["classid"];
             $user = ClassUser::model()->findAll($userCriteria);
-
+            
+            $postCriteria = new CDbCriteria();
+            $postCriteria->select = "*";
+            $postCriteria->order = "post_id DESC";
+            $post = Post::model()->findAll($postCriteria);
 //            if ($user) {
 //
 //                if (Yii::app()->session['token'] != "") {
-                    $number_of_user = count($user);
+            $number_of_user = count($user);
 
-                    $this->render('classPage', array('detail_classpage' => class_model::model()->findAll($spCriteria),
-                        'number_of_user' => $number_of_user));
+            $this->render('classPage', array('detail_classpage' => class_model::model()->findAll($spCriteria),
+                'number_of_user' => $number_of_user, 'post' => $post));
 //                } else {
 //                    $this->redirect('welcomePage');
 //                }
@@ -232,7 +236,7 @@ class ClassPageController extends BaseController {
                         $user_class->is_active = 1;
 
                         $user_class->save(FALSE);
-                        $message = "Bạn đã chấp nhận lời mời vào lớp " . $token->class_name. ". Chúc bạn học tập tốt cùng bluebee!";
+                        $message = "Bạn đã chấp nhận lời mời vào lớp " . $token->class_name . ". Chúc bạn học tập tốt cùng bluebee!";
                         $success = 1;
                         $link = Yii::app()->createUrl('classpage?classid= ' . $token->class_id);
                     } else {
@@ -305,30 +309,56 @@ class ClassPageController extends BaseController {
         }
     }
 
-    
-    public function actionCreatePost(){
+    public function actionCreatePost() {
         $this->retVal = new stdClass();
         $request = Yii::app()->request;
-        if($request->isPostRequest && isset($_POST)){
+        if ($request->isPostRequest && isset($_POST)) {
             try {
-                $post = array('post_content' => @$_POST['post_content']);
-                $model = new Post();
+                $post = array('post_content' => $_POST['post_content']);
+                $model = new Post;
                 $model->post_content = $post['post_content'];
-                if($model->save(FALSE)){
-                    $this->retVal->message = @$_POST['post_content'];
-                    $this->retVal->success = 1;
-                }
-                else {
+                $model->save(FALSE);
+                if ($model->save(FALSE)) {
+                    $this->retVal->message = $_POST['post_content'];
+                    $this->retVal->success = TRUE;
+                } else {
                     $this->retVal->message = 'khong tao duoc post record';
-                    $this->retVal->success = 0;
+                    $this->retVal->success = FALSE;
                 }
-            }  catch (Exception $e){       
+            } catch (Exception $e) {
                 $this->retVal->message = $e->getMessage();
             }
-        }        
-        echo CJSON::encode($this->retVal);
+        }
         
+        echo CJSON::encode($this->retVal);
+        Yii::app()->end();
     }
+
+//    public function actionMakePost() {
+//
+//        $this->retVal = new stdClass();
+//        $request = Yii::app()->request;
+//        if ($request->isPostRequest && isset($_POST)) {
+//            try {
+//                $loginFormData = array(
+//                    'post_content' => $_POST['post_content'],
+//                );
+//                $post_model = new Post;
+//                $post_model->post_content = $loginFormData['post_content'];
+//                $post_model->save(FALSE);
+//                if ($post_model->save(FALSE)) {
+//                    $this->retVal->success = TRUE;
+//                } else {
+//                    $this->retVal->success = FALSE;
+//                }
+//            } catch (exception $e) {
+//                // $this->retVal->message = $e->getMessage();
+//            }
+//        }
+//        $this->retVal->message = $loginFormData['post_content'];
+//        echo CJSON::encode($this->retVal);
+//        Yii::app()->end();
+//    }
     // Uncomment the following methods and override them if needed
     /*
       public function filters()
