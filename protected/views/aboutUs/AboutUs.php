@@ -54,22 +54,24 @@
                                         <div class="g-cols">
                                             <div class="one-third">
                                                 <h4>Động lực</h4>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo.</p>
-                                                <p>Suspendisse consectetur fringilla suctus. Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor. Morbi sagittis, sem quis lacinia faucibus orci. Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor.</p>
+                                                <p>Với những trải nghiệm quãng đời sinh viên, chúng tôi nhận thấy hệ thống hỗ trợ sinh viên Việt Nam
+                                                còn rất ít và có nhiều hạn chế. </p>
+                                                <p>Chính điều này đã thúc đẩy nhóm chúng tôi nghĩ ra ý tưởng thành lập 1 
+                                                website trợ giúp sinh viên học tập 1 cách dễ dàng hơn, chuyên nghiệp hơn.</p>
                                             </div>
                                             <div class="one-third">
                                                 <h4>Ý tưởng-Triển khai</h4>
-                                                <p>Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo.</p>
-                                                <ul>
-                                                    <li>Design</li>
-                                                    <li>HTML + CSS</li>
-                                                    <li>Coding</li>
-                                                    <li>Illustration</li>
-                                                    <li>Branding</li>
-                                                </ul>
+                                                Thành lập 1 website với chức năng chuyên biệt :
+                                                    <ul>
+                                                        <li>Bàn luận về bài học, học tập</li>
+                                                        <li>Chia sẻ tài liệu (có thể dùng qua DropBox)</li>
+                                                        <li>Tạo 1 môi trường đoàn kết cho lớp học</li>
+                                                        <li>Đánh giá chất lượng của môn học</li>
+                                                        <li>Nhắc nhở những việc cần thiết trong môn học</li>
+                                                    </ul>
                                             </div>
                                             <div class="one-third">
-                                                <img src="img/demo/blog-3.jpg" alt="" />
+                                                <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/blog-3.jpg" alt="" />
                                             </div>
                                         </div>
                                     </div>
@@ -87,11 +89,13 @@
                                     <div class="w-timeline-section-content">
                                         <div class="g-cols">
                                             <div class="one-third">
-                                                <img src="img/demo/team-1.jpg" alt="" />
+                                                <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/blog-2.jpg" alt="" />
                                             </div>
                                             <div class="two-thirds">
                                                 <h4>Những bước đi đầu tiên</h4>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo. Nulla varius consequat magna, id molestie ipsum volutpat quis. Suspendisse consectetur fringilla suctus. Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor.</p>
+                                                <p>Cùng với ý tưởng đã có sẵn và sự giúp đỡ nhiệt tình tới từ các thầy cô giáo trong trường,
+                                                nhóm chúng tôi đã từng bước xây dựng website 1 cách đơn giản, thân thiện và dễ hiểu nhất
+                                                đối với các bạn để có thể đưa vào thực tế nhanh nhất.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -110,20 +114,20 @@
                                         <div class="g-cols">
                                             <div class="one-third">
                                                 <h4>Một tháng nỗ lực</h4>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo.</p>
-                                                <p>Suspendisse consectetur fringilla suctus. Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor. Morbi sagittis, sem quis lacinia faucibus orci.</p>
+                                                <p>Với sự cố gắng và nghiên cứu công nghệ, nhóm xây dựng được 1 website để đưa tới các bạn sinh viên.Mong các bạn ủng hộ phiên bản
+                                                đầu tiên của website.</p>
                                             </div>
                                             <div class="one-third">
-                                                <img src="img/demo/member-1.jpg" alt="" />
+                                                <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/blog-1.jpg" alt="" />
                                             </div>
                                             <div class="one-third">
                                                 <h4>Kết quả</h4>
-                                                <p>Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo.</p>
+                                                <p>Website bluebee-uet.com phiên bản đầu tiên (1.0) được hoàn thành.</p>
                                                 <ul>
-                                                    <li>Powerfull Design</li>
-                                                    <li>HTML + CSS</li>
-                                                    <li>Clean Coding</li>
-                                                    <li>Excellent Illustration</li>
+                                                    <li>Trợ giúp về học tập</li>
+                                                    <li>Đánh giá môn học</li>
+                                                    <li>Chia sẻ tài liệu</li>
+                                                    <li>Trình bày ý kiến cá nhân</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -163,7 +167,7 @@
                                                 </div>
                                                 <div class="w-team-member-meta">
                                                     <h4 class="w-team-member-name">Huy Nguyễn</h4>
-                                                    <div class="w-team-member-role">Leader</div>
+                                                    <div class="w-team-member-role">Trưởng nhóm</div>
                                                     <div class="w-team-member-description">
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor.</p>
                                                     </div>
@@ -188,7 +192,7 @@
                                                 </div>
                                                 <div class="w-team-member-meta">
                                                     <h4 class="w-team-member-name">Sơn Nguyễn</h4>
-                                                    <div class="w-team-member-role">Design team</div>
+                                                    <div class="w-team-member-role">Nhóm thiết kế</div>
                                                     <div class="w-team-member-description">
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor.</p>
                                                     </div>
@@ -214,7 +218,7 @@
                                                 </div>
                                                 <div class="w-team-member-meta">
                                                     <h4 class="w-team-member-name">Kiên Nguyễn</h4>
-                                                    <div class="w-team-member-role">Design team</div>
+                                                    <div class="w-team-member-role">Nhóm thiết kế</div>
                                                     <div class="w-team-member-description">
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor.</p>
                                                     </div>
@@ -240,7 +244,7 @@
                                                 </div>
                                                 <div class="w-team-member-meta">
                                                     <h4 class="w-team-member-name">Khánh Nguyễn</h4>
-                                                    <div class="w-team-member-role">Code team</div>
+                                                    <div class="w-team-member-role">Nhóm lập trình</div>
                                                     <div class="w-team-member-description">
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor.</p>
                                                     </div>
@@ -266,7 +270,7 @@
                                                 </div>
                                                 <div class="w-team-member-meta">
                                                     <h4 class="w-team-member-name">Khoa Lê</h4>
-                                                    <div class="w-team-member-role">Code team</div>
+                                                    <div class="w-team-member-role">Nhóm lập trình</div>
                                                     <div class="w-team-member-description">
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor.</p>
                                                     </div>

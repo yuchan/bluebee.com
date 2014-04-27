@@ -22,13 +22,13 @@
                         if (hide == 'none') {
                             $('#alert').html(item).slideDown('slow');
                         } else {
-                            $('#alert').slideUp(function(){
+                            $('#alert').slideUp(function() {
                                 $('#alert').html(item).slideDown('slow');
                             });
                         }
-                        setTimeout( function() {
+                        setTimeout(function() {
                             window.location.href = result.url;
-                        },800);
+                        }, 800);
                     }
                     else {
                         var item = $('<div class="g-form-row-field">' +
@@ -42,7 +42,7 @@
                         if (hide == 'none') {
                             $('#alert').html(item).slideDown('slow');
                         } else {
-                            $('#alert').slideUp(function(){
+                            $('#alert').slideUp(function() {
                                 $('#alert').html(item).slideDown('slow');
                             });
                         }
@@ -74,7 +74,7 @@
                                         <ul class="slides">
                                             <li>
                                                 <div>
-                                                    <h3>Welcome to Our Social</h3>
+                                                    <h3>Chào mừng tới website BlueBee-UET</h3>
                                                     <img style="height: 120px; width: 120px; margin: auto" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo.jpg" />
                                                     <h4>Ong Xanh Mặt Ngầu</h4>
                                                 </div>
@@ -88,12 +88,9 @@
                                                         <div class="one-half">
                                                             <div class="wpb_text_column ">
                                                                 <div class="wpb_wrapper" style="text-align: left">
-                                                                    <h3>Project Info</h3>
+                                                                    <h3>Thông tin sơ lược</h3>
                                                                     <blockquote>
-                                                                        <b>Vu Ngoc Son</b>
-                                                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                                                        Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-                                                                        natoque penatibus et magnis dis parturient montes.
+                                                                        Đây là 1 dự án website với mong muốn giúp đỡ đắc lực cho việc đánh giá học tập của các bạn.
                                                                     </blockquote>
                                                                 </div>
                                                             </div>
@@ -110,12 +107,12 @@
                                                         <div class="one-half">
                                                             <div class="wpb_text_column ">
                                                                 <div class="wpb_wrapper" style="text-align: left">
-                                                                    <h3>Our Goal</h3>
+                                                                    <h3>Mục tiêu</h3>
                                                                     <blockquote>
                                                                         <ul>
-                                                                            <li><b>mục tiêu 1</b> bla bla</li>
-                                                                            <li><b>mục tiêu 2</b> bla bla</li>
-                                                                            <li><b>mục tiêu 3</b> bla bla</li>
+                                                                            <li><b>mục tiêu 1</b> Đăng ký môn học dễ dễ dàng hơn</li>
+                                                                            <li><b>mục tiêu 2</b> Bàn luận học tập tốt hơn</li>
+                                                                            <li><b>mục tiêu 3</b> Nêu ý kiến của mình 1 cách thẳng thắn</li>
                                                                         </ul>
                                                                     </blockquote>
                                                                 </div>
@@ -141,14 +138,14 @@
                         <script type="text/javascript">
                             jQuery(window).load(function() {
                                 jQuery(".flexslider").flexslider({
-                                        directionalNav: true,
-                                        controlNav: false,
-                                        smoothHeight: true,
-                                        pauseOnHover: true,
-                                        start: function(slider) {
-                                                jQuery(".flexslider").removeClass("flex-loading");
-                                            }
-                            });
+                                    directionalNav: true,
+                                    controlNav: false,
+                                    smoothHeight: true,
+                                    pauseOnHover: true,
+                                    start: function(slider) {
+                                        jQuery(".flexslider").removeClass("flex-loading");
+                                    }
+                                });
                             });</script>
                     </div>
                     <div class="one-third">
@@ -203,7 +200,7 @@
                                                                 <?php $this->renderPartial('fb') ?>
                                                             </div>
                                                         </div>
-                                                     </form>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -223,7 +220,7 @@
 <div class="w-actionbox controls_aside color_primary" style="padding: 20px 40px; margin-top: -20px">
     <div class="w-actionbox-h" style="max-width: 600px; margin: 0 auto">
         <div class="w-actionbox-text" style="font-size: 26px; width: 100%; text-align: center">
-            <a id="learn-more" class="w-actionbox-button g-btn type_primary size_big" href="#rock" target="_blank"><span>Learn More</span></a>
+            <a id="learn-more" class="w-actionbox-button g-btn type_primary size_big" href="#rock" target="_blank"><span>Tìm hiểu thêm</span></a>
         </div>
         <div class="w-actionbox-controls">
             Add Some Text Here
@@ -239,14 +236,19 @@
                     <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/2.png" alt="img01">
                 </figure>
                 <article class="cbp-so-side cbp-so-side-right">
-                    <h2>Plum caramels</h2>
-                    <p>Lollipop powder danish sugar plum caramels liquorice sweet cookie. Gummi bears caramels gummi bears candy canes cheesecake sweet roll icing dragée. Gummies jelly-o tart. Cheesecake unerdwear.com candy canes apple pie halvah chocolate tiramisu.</p>
+                    <h2>Blue-Bee</h2>
+                    <p> Chúng tôi là những sinh viên tại trường đại học, là học sinh chuẩn bị bước vào năm nhất thời sinh viên.
+                        Chúng tôi đã từng suy nghĩ và có nhu cầu về vấn đề môi trường học tập, tiếng nói của bản thân, những tài liệu cần thiết…</p>
                 </article>
             </section>
             <section class="cbp-so-section">
-                <article class="cbp-so-side cbp-so-side-left">
-                    <h2>Marzipan gingerbread</h2>
-                    <p>Soufflé bonbon jelly cotton candy liquorice dessert jelly bear claw candy canes. Pudding halvah bonbon marzipan powder. Marzipan gingerbread sweet jelly.</p>
+                <article class="cbp-so-side cbp-so-side-right">
+                    <h2>Trăn trở</h2>
+                    <ul>
+                        <li>Làm thế nào để tiếp thu bài dễ dàng hơn?</li>
+                        <li>Làm thế nào để tìm được tài liệu mình cần?</li>
+                        <li>Làm thế nào để nhận lời khuyên từ những người cùng ngành?</li>
+                    </ul>
                 </article>
                 <figure class="cbp-so-side cbp-so-side-right">
                     <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/3.png" alt="img01">
@@ -257,10 +259,12 @@
                     <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/1.png" alt="img01">
                 </figure>
                 <article class="cbp-so-side cbp-so-side-right">
-                    <h2>Carrot cake</h2>
-                    <p>Sesame snaps sweet wafer danish. Chupa chups carrot cake icing donut halvah bonbon. Chocolate cake candy marshmallow pudding dessert marzipan jujubes sugar plum.</p>
+                    <h2>Lời khuyên</h2>
+                    <p>Hãy tới và cùng chúng tôi lập nên 1 cộng đồng sinh viên vững chắc. Những trăn trở đó cũng là những trăn trở của chúng tôi, hãy cùng lập nên 1 website
+                    hữu ích nhất với sinh viên</p>
                 </article>
             </section>
+            <!--
             <section class="cbp-so-section"  style="margin-bottom:0">
                 <article class="cbp-so-side cbp-so-side-left" style="padding: 0; width: 100%; min-height: 0; text-align: center;">
                     <h2>Take A Tour</h2>
@@ -275,10 +279,11 @@
                     </div>
                 </figure>
             </section>
+            -->
             <div class="cbp-so-section">
                 <div class="cbp-so-side cbp-so-side-left" style="padding: 0; width: 100%; min-height: 0; text-align: center;">
                     <a id="signup" href="#">
-                        <button class="g-btn type_secondary size_big" style="background-color: #429edb"><span>Sign up now and join the fun!</span></button>
+                        <button class="g-btn type_secondary size_big" style="background-color: #429edb"><span>Đăng ký và trải nghiệm ngay!</span></button>
                     </a>
                 </div>
             </div>
