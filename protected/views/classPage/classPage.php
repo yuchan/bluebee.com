@@ -53,6 +53,16 @@
         });
     </script>
     <script type="text/javascript">
+        function copyContent () {
+            var $div = $('#myContentEditable div');
+            $div.replaceWith(function () {
+                return $('<p/>', {html: this.innerHTML});
+            });
+            document.getElementById("hiddenTextarea").value =  
+                document.getElementById("myContentEditable").innerHTML;
+            $('#myContentEditable').html('');
+            return true;
+        }
         $(document).ready(function() {
             $('#loading').hide();
             var post = $('#post_form');
@@ -140,19 +150,6 @@
                                 '</div>').hide().fadeIn(800);
                         $('#activity_content').prepend(item);
                         $('#loading').hide();
-                        $('.comment-container').hide();
-                        $('.opencmt').click(function(event) {
-                            var current = $(this);
-                            var hide = current.next().css('display');
-                            if (hide == 'none') {
-                                $(this).html('<span>Đóng</span>');
-                                current.next().slideDown('slow', function() {
-                                });
-                            } else {
-                                $(this).html('<span>Xem thêm</span>');
-                                current.next().slideUp();
-                            }
-                        });
                         $('#post_form').reset();
                     },
                     error: function(event) {
@@ -162,13 +159,6 @@
                 });
             });
         });
-        var r = {
-            'special': /['<>']/g,
-        }
-
-        function valid(o, w) {
-            o.value = o.value.replace(r[w], '');
-        }
     </script>
     <form class="g-form white-popup-block mfp-hide" id="edit-infomation-class" action="" method="POST">
         <h3>Chỉnh Sửa Thông Tin</h3>
@@ -286,8 +276,9 @@
                                                 <a class="avatar-view" href="user">
                                                     <img class="" width="50" height="50" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
                                                 </a>
-                                                <form class="activity-input-box" id="post_form" action ="<?php echo Yii::app()->createUrl('classpage/createpost') ?>" method="post">
-                                                    <textarea contenteditable="true" name ="post_content" class="activity-input-content" data-placeholder="Có Gì Hot?"></textarea>
+                                                <form class="activity-input-box" id="post_form" onsubmit='return copyContent()' action ="<?php echo Yii::app()->createUrl('classpage/createpost') ?>" method="post">
+                                                <div contenteditable="true" id="myContentEditable" class="activity-input-content" data-placeholder="Có Gì Hot?"></div>
+                                                    <textarea id="hiddenTextarea" name ="post_content" style="display:none"></textarea>
                                                     <button type="submit" class="g-btn type_primary size_small submit-button">
                                                         <span>Đăng Tin</span>
                                                     </button>
