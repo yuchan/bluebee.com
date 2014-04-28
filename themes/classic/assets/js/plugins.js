@@ -160,17 +160,6 @@ $(document).ready(function() {
             });
         });
     });
-    $('.comment-container').hide();
-    $('.opencmt').click(function(event) {
-        var hide = $('.comment-container').css('display');
-        if (hide == 'none') {
-            $(this).html('<span>Đóng</span>');
-            $('.comment-container').slideDown('slow', function() {});
-        } else {
-            $(this).html('<span>Xem thêm</span>');
-            $('.comment-container').slideUp();
-        }
-    });
     $('a#add-members').click(function(event) {
         var hide = $('#box-invite-friends').css('display');
         if (hide == 'none') {

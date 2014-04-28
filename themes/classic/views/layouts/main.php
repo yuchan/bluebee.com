@@ -327,7 +327,11 @@
             <!-- subfooter: bottom -->
             <div class="l-subfooter at_bottom">
                 <div class="l-subfooter-h i-cf">
-                    <div class="w-copyright">© 2014 All rights reserved. <a href='bluebêe-uet.com'>BlueBee Team - K57CA - UET</a></div>
+<<<<<<< HEAD
+                    <div class="w-copyright">© 2014 All rights reserved. <a href='bluebee-uet.com'>BlueBee Team - K57CA - UET</a></div>
+=======
+                    <div class="w-copyright">© 2014 All rights reserved. <a href='#'>BlueBee Team - K57CA - UET</a></div>
+>>>>>>> origin/master
                     <!-- NAV -->
                     <nav class="w-nav">
                         <div class="w-nav-h">
@@ -369,8 +373,22 @@
     <!-- /FOOTER -->
 
     <a class="w-toplink" href="#"><i class="icon-angle-up" style="line-height: inherit"></i></a>
-
     <script>
+        $(document).ready(function () {
+            $('.comment-container').hide();
+            $('.opencmt').click(function(event) {
+                var current = $(this);
+                var hide = current.next().css('display');
+                if (hide == 'none') {
+                    $(this).html('<span>Đóng</span>');
+                    current.next().slideDown('slow', function() {
+                    });
+                } else {
+                    $(this).html('<span>Xem thêm</span>');
+                    current.next().slideUp();
+                }
+            });
+        });
         window.color_scheme = "color_11";
         window.body_layout = "wide";
     </script>
