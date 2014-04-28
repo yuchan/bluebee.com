@@ -1,4 +1,3 @@
-<div class="l-main-h">
 	<div class="l-submain">
 		<div class="l-submain-h g-html">
 		
