@@ -380,11 +380,11 @@
                 var current = $(this);
                 var hide = current.next().css('display');
                 if (hide == 'none') {
-                    $(this).html('<span>Đóng</span>');
+                    $(this).html('<i class="icon-chevron-up"></i><span>&nbsp;Đóng</span>');
                     current.next().slideDown('slow', function() {
                     });
                 } else {
-                    $(this).html('<span>Xem thêm</span>');
+                    $(this).html('<i class="icon-chevron-down"></i><span>&nbsp;Xem thêm</span>');
                     current.next().slideUp();
                 }
             });

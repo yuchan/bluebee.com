@@ -148,6 +148,7 @@
                                 '</div>' +
                                 '</div>' +
                                 '</div>').hide().fadeIn(800);
+                        
                         $('#activity_content').prepend(item);
                         $('#loading').hide();
                         $('#post_form').reset();
@@ -257,7 +258,7 @@
                                         <span class="w-tabs-item-icon"></span>
                                         <span class="w-tabs-item-title">Documents</span>
                                     </div>
-                                    <div class="w-tabs-item fix-w-tab-item" style="display: none">
+                                    <div class="w-tabs-item fix-w-tab-item">
                                         <span class="w-tabs-item-icon"></span>
                                         <span class="w-tabs-item-title">Teacher</span>
                                     </div>
@@ -288,6 +289,7 @@
                                                 <div> <img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax-loader.gif" alt="" style="" id="loading"></div>
                                                 <div class="activity-content" id="activity_content">
                                                     <?php foreach ($post as $post): ?>
+                                                        <div style="margin-top: 20px">
                                                         <div class="activity-item">
                                                             <a class="other-user-avatar" href="/glang">
                                                                 <img class="" width="50" height="50" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/GrangerLang.png" style="opacity: 1;">
@@ -296,15 +298,36 @@
                                                                 <a style="float: left" href="/glang">
                                                                     <span data-paths="profile.firstName profile.lastName" id="el-105">Granger Lang</span>
                                                                 </a>
-                                                                <p style="color: #dadcdd; float: left">&nbsp;&nbsp;12 hours ago</p>
-                                                                <a class="fix-vote-button"><i class="icon-chevron-right"></i></a>
+                                                                <i class="icon-time" style="float: left; margin-top: 5px; margin-left: 15px; color: #dadcdd;"></i>
+                                                                <p style="color: #dadcdd; float: left">&nbsp;12 hours ago</p>
+                                                                <!-- <a class="fix-vote-button"><i class="icon-chevron-right"></i></a>
                                                                 <p style="float: right"><strong>&nbsp; 69 &nbsp;</strong></p>
-                                                                <a class="fix-vote-button"><i class="icon-chevron-left"></i></a>
+                                                                <a class="fix-vote-button"><i class="icon-chevron-left"></i></a> -->
                                                             </div>
                                                             <article data-paths="body" id="el-99">
                                                                 <p><?php echo $post->post_content ?></p>
                                                             </article>
-                                                            <button class=" g-btn type_primary size_small opencmt button-in-activity-box" id="opencmt"><span>Xem thêm</span></button>
+                                                            <style type="text/css">
+                                                                .vote {
+                                                                    margin-left: 15px;
+                                                                    display: inline-block;
+                                                                }
+                                                                .vote * {
+                                                                    float: left;
+                                                                }
+                                                                .vote a {
+                                                                    margin-top: 5px;
+                                                                    margin-left: 5px;
+                                                                    margin-right: 5px;
+                                                                }
+                                                            </style>
+                                                            <div class="vote">
+                                                                <a><i class="icon-thumbs-up"></i></a>
+                                                                <p style="color: #dadcdd">1&nbsp;</p>
+                                                                <a><i class="icon-thumbs-down"></i></a>
+                                                                <p style="color: #dadcdd">2&nbsp;</p>
+                                                            </div>
+                                                            <button class=" g-btn type_primary size_small opencmt button-in-activity-box" id="opencmt"><i class="icon-chevron-down"></i><span>&nbsp;Xem thêm</span></button>
                                                             <div class="comment-container">
                                                                 <div class="list-item-comment-wrapper">
                                                                     <div class="item-comment">
@@ -376,6 +399,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        </div>
                                                     <?php endforeach; ?>
                                                 </div>
                                             </div>
@@ -398,12 +422,13 @@
                                 <div class="w-tabs-section">
                                     <div class="w-tabs-section-title">
                                         <span class="w-tabs-section-title-icon"></span>
-                                        <span class="w-tabs-section-title-text">Teacher(coming soon)</span>
+                                        <span class="w-tabs-section-title-text">Teacher</span>
                                         <span class="w-tabs-section-title-control"></span>
                                     </div>
                                     <div class="w-tabs-section-content">
                                         <div class="w-tabs-section-content-h">
                                             <div class="g-cols">
+
                                             </div>
                                         </div>
                                     </div>
