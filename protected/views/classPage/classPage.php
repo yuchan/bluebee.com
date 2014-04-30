@@ -285,11 +285,11 @@
                                                     </button>
                                                 </form>
                                             </div>
-                                            <div style="border-top: 1px solid #d8d8d8;">
+                                            <div style="border-top: 1px solid #d8d8d8; background-color: whitesmoke">
                                                 <div> <img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax-loader.gif" alt="" style="" id="loading"></div>
                                                 <div class="activity-content" id="activity_content">
                                                     <?php foreach ($post as $post): ?>
-                                                        <div style="margin-top: 20px">
+                                                        <div style="margin-top: 20px; background-color: white">
                                                         <div class="activity-item">
                                                             <a class="other-user-avatar" href="/glang">
                                                                 <img class="" width="50" height="50" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/GrangerLang.png" style="opacity: 1;">
@@ -451,6 +451,7 @@
                             <p style="float: left"><strong>Thành viên: </strong><a><?php echo $number_of_user ?></a></p>
                             <a id="add-members" style="float: right" href="javascript:void(0)"><p id="add-members-contents">Thêm thành viên <i class="icon-plus"></i></p></a>
                         </div>
+                        <div id="alert-invite" style="display: none; position: absolute; overflow: visible; z-index: 2"></div>
                         <?php $this->renderPartial('inviteform', array('classid' => $class->class_id)) ?>
                         <div class="g-hr" style="clear: both">
                             <span class="g-hr-h">
