@@ -82,7 +82,7 @@
                             }
                             ?>"/>
                             <div class="content">
-                              <?php $this->renderPartial('partial/changeCover')?>
+                                <?php $this->renderPartial('partial/changeCover') ?>
                             </div>
                         </div> 
                     </div>
