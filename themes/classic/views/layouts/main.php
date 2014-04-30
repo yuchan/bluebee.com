@@ -327,11 +327,8 @@
             <!-- subfooter: bottom -->
             <div class="l-subfooter at_bottom">
                 <div class="l-subfooter-h i-cf">
-<<<<<<< HEAD
                     <div class="w-copyright">© 2014 All rights reserved. <a href='bluebee-uet.com'>BlueBee Team - K57CA - UET</a></div>
-=======
-                    <div class="w-copyright">© 2014 All rights reserved. <a href='#'>BlueBee Team - K57CA - UET</a></div>
->>>>>>> origin/master
+
                     <!-- NAV -->
                     <nav class="w-nav">
                         <div class="w-nav-h">

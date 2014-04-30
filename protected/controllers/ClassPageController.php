@@ -12,6 +12,7 @@ class ClassPageController extends BaseController {
 //            $this->redirect('welcomePage');
 //    }
 
+
     public function actionIndex() {
 //        if (Yii::app()->session['token'] == "")
 //           $this->redirect('welcomePage');
@@ -115,10 +116,11 @@ class ClassPageController extends BaseController {
             $userCriteria->select = "*";
             $userCriteria->condition = "class_id = " . $_GET["classid"];
             $user = ClassUser::model()->findAll($userCriteria);
-            
+
             $postCriteria = new CDbCriteria();
             $postCriteria->select = "*";
             $postCriteria->order = "post_id DESC";
+            $postCriteria->condition = "post_class =" . $_GET["classid"];
             $post = Post::model()->findAll($postCriteria);
 //            if ($user) {
 //
@@ -312,11 +314,17 @@ class ClassPageController extends BaseController {
     public function actionCreatePost() {
         $this->retVal = new stdClass();
         $request = Yii::app()->request;
+
         if ($request->isPostRequest && isset($_POST)) {
             try {
                 $post = array('post_content' => $_POST['post_content']);
                 $model = new Post;
-                $model->post_content = $post['post_content'];
+                $model->post_active = 1;
+                $model->post_author = Yii::app()->session['user_id'];
+                $model->post_date = \date('d/m/Y H:i');
+                $model->post_type = 'class_post';
+                $model->post_content = strip_tags($post['post_content']);
+                $model->post_class = $_POST['class_id_post'];
                 $model->save(FALSE);
                 if ($model->save(FALSE)) {
                     $this->retVal->message = $_POST['post_content'];
@@ -329,36 +337,14 @@ class ClassPageController extends BaseController {
                 $this->retVal->message = $e->getMessage();
             }
         }
-        
+
         echo CJSON::encode($this->retVal);
         Yii::app()->end();
     }
 
-//    public function actionMakePost() {
-//
-//        $this->retVal = new stdClass();
-//        $request = Yii::app()->request;
-//        if ($request->isPostRequest && isset($_POST)) {
-//            try {
-//                $loginFormData = array(
-//                    'post_content' => $_POST['post_content'],
-//                );
-//                $post_model = new Post;
-//                $post_model->post_content = $loginFormData['post_content'];
-//                $post_model->save(FALSE);
-//                if ($post_model->save(FALSE)) {
-//                    $this->retVal->success = TRUE;
-//                } else {
-//                    $this->retVal->success = FALSE;
-//                }
-//            } catch (exception $e) {
-//                // $this->retVal->message = $e->getMessage();
-//            }
-//        }
-//        $this->retVal->message = $loginFormData['post_content'];
-//        echo CJSON::encode($this->retVal);
-//        Yii::app()->end();
-//    }
+    public function actionChangeCover() {
+        
+    }
     // Uncomment the following methods and override them if needed
     /*
       public function filters()
