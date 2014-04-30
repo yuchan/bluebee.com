@@ -26,6 +26,7 @@
 }
 
 .activity-input {
+    background-color: white !important;
     display: block;
     width: auto;
     height: auto;
@@ -104,6 +105,7 @@
     height: 100%;
 }
 .activity-item {
+    background-color: white !important;
     position: relative;
     box-sizing: border-box;
 }

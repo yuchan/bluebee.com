@@ -168,6 +168,9 @@ $(document).ready(function() {
             $('#box-invite-friends').slideUp('400');
         }
     });
+    $('div.alert').click(function() {
+        $('.alert').slideUp();
+    });
 });
 $(function() {
     $('.teacher-block-rating-outside').barrating({

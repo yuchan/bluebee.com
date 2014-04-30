@@ -214,7 +214,7 @@
                                         <span class="w-tabs-section-title-control"></span>
                                     </div>
 
-                                    <div class="w-tabs-section-content">
+                                    <div class="w-tabs-section-content" style=" background-color: #ebf0f0; min-height: 500px">
                                         <div class="w-tabs-section-content-h" style="padding-top: 0px;">
                                             <div class="activity-input">
                                                 <a class="avatar-view" href="user">
@@ -233,13 +233,13 @@
                                                 <div> <img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax-loader.gif" alt="" style="" id="loading"></div>
                                                 <div class="activity-content" id="activity_content">
                                                     <?php foreach ($post as $post): ?>
-                                                        <div style="margin-top: 20px">
-                                                            <div class="activity-item">
-                                                                <a class="other-user-avatar" href="/glang">
-                                                                    <img class="" width="50" height="50" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/GrangerLang.png" style="opacity: 1;">
-                                                                </a>
-                                                                <div  class="profile clearfix">
-                                                                    <a style="float: left" href="/glang">
+                                                        <div style="margin-top: 20px; background-color: white">
+                                                        <div class="activity-item">
+                                                            <a class="other-user-avatar" href="/glang">
+                                                                <img class="" width="50" height="50" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/GrangerLang.png" style="opacity: 1;">
+                                                            </a>
+                                                            <div  class="profile clearfix">
+                                                                <a style="float: left" href="/glang">
                                                                         <span data-paths="profile.firstName profile.lastName" id="el-105">Granger Lang</span>
                                                                     </a>
                                                                     <i class="icon-time" style="float: left; margin-top: 5px; margin-left: 15px; color: #dadcdd;"></i>
@@ -395,6 +395,7 @@
                             <p style="float: left"><strong>Thành viên: </strong><a><?php echo $number_of_user ?></a></p>
                             <a id="add-members" style="float: right" href="javascript:void(0)"><p id="add-members-contents">Thêm thành viên <i class="icon-plus"></i></p></a>
                         </div>
+                        <div id="alert-invite" style="display: none; position: absolute; overflow: visible; z-index: 2"></div>
                         <?php $this->renderPartial('inviteform', array('classid' => $class->class_id)) ?>
                         <div class="g-hr" style="clear: both">
                             <span class="g-hr-h">

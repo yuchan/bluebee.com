@@ -51,9 +51,6 @@
             });
             return false;
         });
-        $('div#alert').click(function() {
-            $('#alert').slideUp();
-        });
     });
 </script>
 
@@ -62,7 +59,7 @@
     <div class="l-submain-h i-cf">
         <div class="l-content">
             <div class="l-content-h i-widgets">
-                <div id="alert" style="position: absolute; z-index: 99; width: 100%; top: -55px; display: none; text-align: center">
+                <div class="alert" id="alert" style="position: absolute; z-index: 99; width: 100%; top: -55px; display: none; text-align: center">
 
                 </div>
                 <div class="g-cols" style="margin-top: 10%; margin-bottom: 0">
