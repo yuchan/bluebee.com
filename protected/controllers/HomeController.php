@@ -22,5 +22,12 @@ class HomeController extends Controller {
         }
         $this->render('home', array('class_user_attend' => $class_user_attend));
     }
+    
+    public function activityInClass()
+    {
+        $class_activity = PostClass::model()->findAll();
+        
+    }
+    
 
 }

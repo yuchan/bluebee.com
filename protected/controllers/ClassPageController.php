@@ -115,7 +115,7 @@ class ClassPageController extends BaseController {
             $userCriteria->select = "*";
             $userCriteria->condition = "class_id = " . $_GET["classid"];
             $user = ClassUser::model()->findAll($userCriteria);
-            
+
             $postCriteria = new CDbCriteria();
             $postCriteria->select = "*";
             $postCriteria->order = "post_id DESC";
@@ -316,7 +316,11 @@ class ClassPageController extends BaseController {
             try {
                 $post = array('post_content' => $_POST['post_content']);
                 $model = new Post;
-                $model->post_content = $post['post_content'];
+                $model->post_active = 1;
+                $model->post_author = Yii::app()->session['user_id'];
+                $model->post_date = date('d/m/Y H:i:s');
+                $model->post_type = 'class_post';
+                $model->post_content = strip_tags($post['post_content']);
                 $model->save(FALSE);
                 if ($model->save(FALSE)) {
                     $this->retVal->message = $_POST['post_content'];
@@ -329,7 +333,7 @@ class ClassPageController extends BaseController {
                 $this->retVal->message = $e->getMessage();
             }
         }
-        
+
         echo CJSON::encode($this->retVal);
         Yii::app()->end();
     }
