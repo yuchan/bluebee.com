@@ -343,30 +343,32 @@ class ClassPageController extends BaseController {
     }
 
     public function actionChangeCover() {
-         $relativePath = '\\images\\' . Yii::app()->request->getPost('class_id_cover') . '\\';
-        $dir = "images\\" . Yii::app()->request->getPost('class_id_cover');
+        $this->retVal = new stdClass();
+        $relativePath = '\\images\\class_cover\\' . Yii::app()->request->getPost('class_id_cover') . '\\';
+        $dir = "images\\class_cover\\" . Yii::app()->request->getPost('class_id_cover');
         @mkdir(Yii::getPathOfAlias('webroot') . '\\' . $dir, 0777, true);
         $image = "";
-        if (isset($_FILES['file_upload']['name'])) {
-            if ((($_FILES["file_upload"]["type"] == "image/jpeg") || ($_FILES["file_upload"]["type"] == "image/jpg") || ($_FILES["file_upload"]["type"] == "image/pjpeg") || ($_FILES["file_upload"]["type"] == "image/x-png") || ($_FILES["file_upload"]["type"] == "image/png"))
+        if (isset($_FILES["file_upload_cover"]["name"])) {
+            if ((($_FILES["file_upload_cover"]["type"] == "image/jpeg") || ($_FILES["file_upload_cover"]["type"] == "image/jpg") || ($_FILES["file_upload_cover"]["type"] == "image/pjpeg") || ($_FILES["file_upload_cover"]["type"] == "image/x-png") || ($_FILES["file_upload_cover"]["type"] == "image/png"))
             ) {
-                if ($_FILES["file_upload"]["error"] > 0) {
-                    $arr->message = "Return Code: " . $_FILES["file_upload"]["error"];
+                if ($_FILES["file_upload_cover"]["error"] > 0) {
+                    $arr->message = "Return Code: " . $_FILES["file_upload_cover"]["error"];
                 }
-                $tempFile = $_FILES['file_upload']['tmp_name'];          //3             
+                $tempFile = $_FILES["file_upload_cover"]["tmp_name"];          //3             
                 $targetPath = Yii::getPathOfAlias('webroot') . '\\' . $dir . "\\";  //4
-                $targetFile = $targetPath . $_FILES['file_upload']['name'];  //5
-                move_uploaded_file_upload($tempFile, $targetFile); //6
-                $image = $relativePath . $_FILES["file_upload"]["name"];
+                $targetFile = $targetPath . $_FILES["file_upload_cover"]["name"];  //5
+                move_uploaded_file($tempFile, $targetFile); //6
+                $image = $relativePath . $_FILES["file_upload_cover"]["name"];
             }
         }
-        
+        $this->retVal->message = $image;
         $class_cover = class_model::model()->findByAttributes(array('class_id' => Yii::app()->request->getPost('class_id_cover')));
         $class_cover->class_cover = $image;
         $class_cover->save(FALSE);
         echo CJSON::encode($this->retVal);
         Yii::app()->end();
     }
+
     // Uncomment the following methods and override them if needed
     /*
       public function filters()
