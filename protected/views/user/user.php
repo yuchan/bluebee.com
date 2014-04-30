@@ -71,15 +71,24 @@
             <div class="l-submain-h g-html i-cf">
                 <div class="g-cols">
                     <div class="full-width">
-                        <img class="round_ava" src="
-                        <?php
-                        if ($user['user_cover'] == "") {
-                            echo Yii::app()->theme->baseUrl, "/assets/img/demo/cover.jpg";
-                        } else {
+                        <div class="view effect">  
+                            <img class="round_ava" src="
+                            <?php
+                            if ($user['user_cover'] == "") {
+                                echo Yii::app()->theme->baseUrl, "/assets/img/demo/cover.jpg";
+                            } else {
 
-                            echo $user['user_cover'];
-                        }
-                        ?>"/>
+                                echo $user['user_cover'];
+                            }
+                            ?>"/>
+                            <div class="content">
+                                <div class="custom_file_upload info">
+                                    <div class=" file_upload">  
+                                        <input type="file" id="file_upload" name="file_upload" class="">
+                                    </div>  
+                                </div>
+                            </div>
+                        </div> 
                     </div>
                 </div>
             </div>
@@ -111,11 +120,11 @@
                                     <b>Ngày tham gia:</b> <?php echo $user['user_date_attend'] ?>
                                 </div>
 
-<!--                                <div style="text-align: center">
-                                    <p>
-                                        <a href="">Add he/she to a class</a> | <a href="">Add he/she to a group</a> | <a href="">Suggest he/she books</a>
-                                    </p>
-                                </div>-->
+                                <!--                                <div style="text-align: center">
+                                                                    <p>
+                                                                        <a href="">Add he/she to a class</a> | <a href="">Add he/she to a group</a> | <a href="">Suggest he/she books</a>
+                                                                    </p>
+                                                                </div>-->
 
                                 <!--                                <div class="rounded1 color_alternate">
                                                                     <h6>Tài liệu đã xem</h6>
@@ -292,11 +301,11 @@
                     </div>
 
                     <div>
-                        
+
                         <span class="dataTitle1"> <i class="icon-user"></i> Tên : </span>
                         <span class="dataItem1"><?php echo $user->user_real_name ?></span>
                         <br/>
-                        
+
                         <span class="dataTitle1"> <i class="icon-phone"></i> SĐT : </span>
                         <span class="dataItem1"><?php echo $user->user_phone ?> </span>
                         <br/>
@@ -304,7 +313,7 @@
                         <span class="dataTitle1"> <i class="icon-home"></i> Sống tại : </span>
                         <span class="dataItem1"><?php echo $user->user_hometown ?></span>
                         <br/>
-                        
+
                         <span class="dataTitle1"><i class="icon-calendar"></i> Ngày sinh : </span>
                         <span class="dataItem1"><?php echo $user->user_dob ?></span>
                         <br/>
