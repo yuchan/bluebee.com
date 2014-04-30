@@ -17,7 +17,7 @@
                                     <div class="w-blog-entry-h">
                                         <a class="w-blog-entry-link" href="blog-post.html">
                                             <span class="w-blog-entry-img animate_afc">
-                                                <img class="w-blog-entry-img-h" style="width: 100px;height: 100px" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/blog-1.jpg" alt="" />
+                                                <img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/blog-1.jpg" alt="" />
                                             </span>
 
                                             <h2 class="w-blog-entry-title">
