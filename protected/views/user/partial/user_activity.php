@@ -1,10 +1,10 @@
-
 <div class="rounded1 color_alternate">
     <h6>Hoạt động gần đây</h6>
 </div>
-<?php foreach ($user_activity as $user_activity_info) : ?>
-    <div class="w-blog imgpos_attop meta_all">
-        <div class="w-blog-h">
+<div class="w-blog imgpos_attop meta_all">
+    <div class="w-blog-h">
+
+        <?php foreach ($user_activity as $user_activity_info) : ?>
             <div class="w-blog-list">
                 <div class="w-blog-entry">
                     <div class="w-blog-entry-h">
@@ -34,6 +34,7 @@
                     </div>
                 </div>
             </div>
+
         <?php endforeach; ?>
         <div class="w-blog-pagination">
             <div class="g-pagination">
@@ -47,12 +48,4 @@
             </div>
         </div>
     </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>

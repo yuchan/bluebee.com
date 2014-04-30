@@ -82,11 +82,7 @@
                             }
                             ?>"/>
                             <div class="content">
-                                <div class="custom_file_upload info">
-                                    <div class=" file_upload">  
-                                        <input type="file" id="file_upload" name="file_upload" class="">
-                                    </div>  
-                                </div>
+                                <?php $this->renderPartial('partial/changeCover') ?>
                             </div>
                         </div> 
                     </div>

@@ -266,7 +266,7 @@ input.file {
     outline: none;
 }
 
-div.file_upload {
+form.file_upload {
     width: 150px;
     height: 20px;
     background: #7abcff;
@@ -287,7 +287,7 @@ div.file_upload {
     color: #FFF;
     text-align: center;
 }
-div.file_upload:before {
+form.file_upload:before {
     content: 'Thay đổi ảnh bìa';
     position: absolute;
     left: 0; right: 0;
@@ -295,7 +295,7 @@ div.file_upload:before {
     cursor: pointer;
 }
 
-div.file_upload input {
+form.file_upload input {
     position: relative;
     height: 30px;
     width: 150px;
