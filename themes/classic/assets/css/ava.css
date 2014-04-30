@@ -196,3 +196,97 @@ img.float_left{
   background-size: auto auto;
   border-bottom-color: rgba(0, 0, 0, 0.4);
 }
+
+.view {
+    position: relative;
+    width: 100%;
+    height: 315px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.view img{
+    width: 100%;
+    height: 100%;
+}
+
+.view .content {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    overflow: hidden;
+    padding: 230px 80%;
+    top: 0;
+    left: 0;
+}
+
+.effect img {
+    opacity:1;
+    transition: all 0.2s ease-in;
+}
+
+.effect div.info {
+    opacity:0;
+    transform:translateY(200px);
+    transition: transform 0.3s ease-in, opacity 0.1s ease-in-out;
+}
+
+.effect:hover img {
+    opacity:0.7;
+    transform:scale(2,2);
+}
+
+.effect:hover div.info {
+    opacity:1;
+    transform:translateY(300px);
+}
+
+div.custom_file_upload {
+    width: 150px;
+    height: 20px;
+}
+
+input.file {
+    width: 150px;
+    height: 20px;
+    color: #888;
+    outline: none;
+}
+
+div.file_upload {
+    width: 150px;
+    height: 24px;
+    background: #7abcff;
+    background: -moz-linear-gradient(top,  #7abcff 0%, #60abf8 44%, #4096ee 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7abcff), color-stop(44%,#60abf8), color-stop(100%,#4096ee));
+    background: -webkit-linear-gradient(top,  #7abcff 0%,#60abf8 44%,#4096ee 100%);
+    background: -o-linear-gradient(top,  #7abcff 0%,#60abf8 44%,#4096ee 100%);
+    background: -ms-linear-gradient(top,  #7abcff 0%,#60abf8 44%,#4096ee 100%);
+    background: linear-gradient(top,  #7abcff 0%,#60abf8 44%,#4096ee 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7abcff', endColorstr='#4096ee',GradientType=0 );
+
+    display: inline;
+    position: absolute;
+    overflow: hidden;
+    cursor: pointer;
+
+    font-weight: bold;
+    color: #FFF;
+    text-align: center;
+}
+div.file_upload:before {
+    content: 'Thay đổi ảnh bìa';
+    position: absolute;
+    left: 0; right: 0;
+    text-align: center;
+    cursor: pointer;
+}
+
+div.file_upload input {
+    position: relative;
+    height: 30px;
+    width: 150px;
+    display: inline;
+    cursor: pointer;
+    opacity: 0;
+}
