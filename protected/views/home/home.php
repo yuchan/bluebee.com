@@ -112,7 +112,7 @@
                     </div>
 
                     <div class="one-third">
-                        <?php $this->renderPartial('partial/user_class') ?>
+                        <?php $this->renderPartial('partial/user_class', array('class_user_attend' => $class_user_attend)) ?>
                         <?php $this->renderPartial('partial/user_group') ?>
                         <?php $this->renderPartial('partial/user_document') ?>                    
 
