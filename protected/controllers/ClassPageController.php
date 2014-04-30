@@ -12,6 +12,7 @@ class ClassPageController extends BaseController {
 //            $this->redirect('welcomePage');
 //    }
 
+
     public function actionIndex() {
 //        if (Yii::app()->session['token'] == "")
 //           $this->redirect('welcomePage');
@@ -119,7 +120,7 @@ class ClassPageController extends BaseController {
             $postCriteria = new CDbCriteria();
             $postCriteria->select = "*";
             $postCriteria->order = "post_id DESC";
-            $postCriteria->condition = "post_class =".$_GET["classid"];
+            $postCriteria->condition = "post_class =" . $_GET["classid"];
             $post = Post::model()->findAll($postCriteria);
 //            if ($user) {
 //
@@ -313,6 +314,7 @@ class ClassPageController extends BaseController {
     public function actionCreatePost() {
         $this->retVal = new stdClass();
         $request = Yii::app()->request;
+       
         if ($request->isPostRequest && isset($_POST)) {
             try {
                 $post = array('post_content' => $_POST['post_content']);
@@ -322,7 +324,7 @@ class ClassPageController extends BaseController {
                 $model->post_date = date('d/m/Y H:i:s');
                 $model->post_type = 'class_post';
                 $model->post_content = strip_tags($post['post_content']);
-                $model->post_class = $_SERVER['REQUEST_URI'];
+                $model->post_class = $_POST['class_id_post'];
                 $model->save(FALSE);
                 if ($model->save(FALSE)) {
                     $this->retVal->message = $_POST['post_content'];

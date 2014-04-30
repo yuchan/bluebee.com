@@ -28,9 +28,8 @@
                                             <div class="w-blog-entry-meta">
                                                 <div class="w-blog-entry-meta-date">
                                                     <i class="icon-time"></i>
-                                                    <span class="w-blog-entry-meta-date-month">March</span>
-                                                    <span class="w-blog-entry-meta-date-day">23,</span>
-                                                    <span class="w-blog-entry-meta-date-year">2013</span>
+                                                    <span class="w-blog-entry-meta-date-month"><?php echo $post_info->post_date?></span>
+                                                    
                                                 </div>
 
                                                 <div class="w-blog-entry-meta-author">
