@@ -16,7 +16,11 @@ class HomeController extends Controller {
     }
 
     public function actionHome() {
-        $this->render('home');
+        if (isset(Yii::app()->session['user_id'])) {
+            $class_user_attend = ClassUser::model()->findAllByAttributes(array('user_id' => Yii::app()->session['user_id']));
+           
+        }
+        $this->render('home', array('class_user_attend' => $class_user_attend));
     }
 
 }
