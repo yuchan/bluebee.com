@@ -17,7 +17,7 @@
                                     <div class="w-blog-entry-h">
                                         <a class="w-blog-entry-link" href="blog-post.html">
                                             <span class="w-blog-entry-img animate_afc">
-                                                <img class="circular1 float_left"  src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/blog-1.jpg" alt="" />
+                                                <img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/blog-2.jpg" alt="" />" alt="" />
                                             </span>
 
                                             <h2 class="w-blog-entry-title">
@@ -28,8 +28,8 @@
                                             <div class="w-blog-entry-meta">
                                                 <div class="w-blog-entry-meta-date">
                                                     <i class="icon-time"></i>
-                                                    <span class="w-blog-entry-meta-date-month"><?php echo $post_info->post_date?></span>
-                                                    
+                                                    <span class="w-blog-entry-meta-date-month"><?php echo $post_info->post_date ?></span>
+
                                                 </div>
 
                                                 <div class="w-blog-entry-meta-author">
