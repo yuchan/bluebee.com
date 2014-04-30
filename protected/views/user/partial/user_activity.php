@@ -1,9 +1,10 @@
 <div class="rounded1 color_alternate">
     <h6>Hoạt động gần đây</h6>
 </div>
-<?php foreach ($user_activity as $user_activity_info) : ?>
-    <div class="w-blog imgpos_attop meta_all">
-        <div class="w-blog-h">
+<div class="w-blog imgpos_attop meta_all">
+    <div class="w-blog-h">
+
+        <?php foreach ($user_activity as $user_activity_info) : ?>
             <div class="w-blog-list">
                 <div class="w-blog-entry">
                     <div class="w-blog-entry-h">
@@ -33,18 +34,18 @@
                     </div>
                 </div>
             </div>
-            <div class="w-blog-pagination">
-                <div class="g-pagination">
-                    <a href="javascript:void(0);" class="g-pagination-item to_prev">Prev</a>
-                    <a href="javascript:void(0);" class="g-pagination-item">1</a>
-                    <a href="javascript:void(0);" class="g-pagination-item active">2</a>
-                    <a href="javascript:void(0);" class="g-pagination-item">3</a>
-                    <a href="javascript:void(0);" class="g-pagination-item">4</a>
-                    <a href="javascript:void(0);" class="g-pagination-item">5</a>
-                    <a href="javascript:void(0);" class="g-pagination-item to_next">Next</a>
-                </div>
+
+        <?php endforeach; ?>
+        <div class="w-blog-pagination">
+            <div class="g-pagination">
+                <a href="javascript:void(0);" class="g-pagination-item to_prev">Prev</a>
+                <a href="javascript:void(0);" class="g-pagination-item">1</a>
+                <a href="javascript:void(0);" class="g-pagination-item active">2</a>
+                <a href="javascript:void(0);" class="g-pagination-item">3</a>
+                <a href="javascript:void(0);" class="g-pagination-item">4</a>
+                <a href="javascript:void(0);" class="g-pagination-item">5</a>
+                <a href="javascript:void(0);" class="g-pagination-item to_next">Next</a>
             </div>
         </div>
     </div>
-
-<?php endforeach; ?>
+</div>
