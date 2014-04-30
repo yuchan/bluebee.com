@@ -18,6 +18,23 @@
     filter: alpha(opacity=0);
 }
 
+.circular1 {
+    width: 120px;
+    height: 120px;
+    display: inline-block;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    margin-right: 50px;
+    overflow: hidden;
+    border-color: #d0d6d9;
+}
+
+.circular1 img {
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
 .rounded {
     width: 500px;
     height: auto;
