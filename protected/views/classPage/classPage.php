@@ -233,14 +233,18 @@
     <div class="l-submain-h i-cf">
         <div class="l-content">
             <div class="l-content-h i-widgets">
-                <div class="cover" style="">
-                    <div class="cover-container">
-                        <img class="img-cover" style="width: 100%; position: relative; margin-top: -120px" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg"/>
-                    </div>
-                    <div class="button-on-cover" style="position: absolute;">
-                        <button class="g-btn type_primary size_small" id="changecover" >
-                            <span>Change Cover</span>
-                        </button>
+                <div class="g-cols">
+                    <div class="full-width">
+                        <div class="view effect">  
+                            <img class="round_ava" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg"/>
+                            <div class="content">
+                                <div class="custom_file_upload info">
+                                    <div class=" file_upload">  
+                                        <input type="file" id="file_upload" name="file_upload" class="">
+                                    </div>  
+                                </div>
+                            </div>
+                        </div> 
                     </div>
                 </div>
                 <div class="g-cols">
