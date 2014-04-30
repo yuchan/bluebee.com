@@ -183,8 +183,8 @@
                             <div class="content">
                                 <div class="custom_file_upload info">
                                     <div class=" file_upload">  
-                                        <input type="file" id="file_upload" name="file_upload" class="">
-                                    </div>  
+                                        <input class="g-btn type_primary size_small" type="file" id="file_upload" name="file_upload">
+                                    </div>
                                 </div>
                             </div>
                         </div> 
