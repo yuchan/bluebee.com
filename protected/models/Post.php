@@ -12,6 +12,8 @@
  * @property integer $post_active
  * @property integer $post_rate
  * @property string $post_type
+ * @property integer $post_class
+ * @property integer $post_group
  */
 class Post extends CActiveRecord
 {
@@ -31,14 +33,14 @@ class Post extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('post_author, post_active, post_rate', 'numerical', 'integerOnly'=>true),
+			array('post_author, post_active, post_rate, post_class, post_group', 'numerical', 'integerOnly'=>true),
 			array('post_content', 'length', 'max'=>500),
 			array('post_title', 'length', 'max'=>200),
 			array('post_type', 'length', 'max'=>45),
 			array('post_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('post_id, post_author, post_date, post_content, post_title, post_active, post_rate, post_type', 'safe', 'on'=>'search'),
+			array('post_id, post_author, post_date, post_content, post_title, post_active, post_rate, post_type, post_class, post_group', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,6 +69,8 @@ class Post extends CActiveRecord
 			'post_active' => 'Post Active',
 			'post_rate' => 'Post Rate',
 			'post_type' => 'Post Type',
+			'post_class' => 'Post Class',
+			'post_group' => 'Post Group',
 		);
 	}
 
@@ -96,6 +100,8 @@ class Post extends CActiveRecord
 		$criteria->compare('post_active',$this->post_active);
 		$criteria->compare('post_rate',$this->post_rate);
 		$criteria->compare('post_type',$this->post_type,true);
+		$criteria->compare('post_class',$this->post_class);
+		$criteria->compare('post_group',$this->post_group);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
