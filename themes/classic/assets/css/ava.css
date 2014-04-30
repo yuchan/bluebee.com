@@ -303,3 +303,133 @@ form.file_upload input {
     cursor: pointer;
     opacity: 0;
 }
+
+.roundedBorder
+{
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+
+.navigation
+{
+  float: right;
+  width: 100%;
+  margin-top: 0px;
+}
+
+/* Line 1 */
+.teacherList .navigation
+{
+  background-color: #f1f1f1;
+  font-family: Helvetica,Arial,sans-serif;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  width: 180px;
+}
+
+.auto_complete_field_input
+{
+  width: 230px;
+  padding-right: 25px;
+}
+
+/* Line 1 */
+.teacherList .navigation
+{
+  width: 148px;
+}
+
+a
+{
+  color: #666600;
+}
+
+/* Line 1 */
+.actionLinkLite
+{
+  color: #215625;
+  font-family: Helvetica,Arial,sans-serif;
+}
+
+/* Line 1 */
+a:hover
+{
+}
+
+/* Line 1 */
+.teacherList .navigationLinks a
+{
+  clear: left;
+  display: block;
+  height: 20px;
+  vertical-align: middle;
+}
+
+.teacherList .navigationLinks a.selected
+{
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-image: url('arrow.png');
+  color: white;
+  font-weight: bold;
+  height: 23px;
+  left: -5px;
+  padding-top: 3px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 15px;
+  position: absolute;
+  top: -3px;
+  vertical-align: middle;
+  width: 200px;
+}
+
+.teacherImage
+{
+  margin-left: auto;
+  margin-right: auto;
+  height: 180px;
+  bottom: 0px;
+}
+
+.coverWrapper
+{
+  width: 125px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  text-align: center;
+  height: 180px;
+  position: relative;
+  margin-left: 12px;
+  margin-right: 13px;
+  margin-bottom: 10px;
+}
+
+.teacherList .leftAlignedImage
+{
+  margin: 10px;
+  width: 150px;
+  overflow-x: visible;
+  overflow-y: visible;
+  position: relative;
+  text-align: center;
+  float: left;
+}
+
+.ratingMargin{
+    margin-left: 14px;
+}
+
+#teacherListHeader
+{
+  background-color: #e4f4da;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  text-align: center;
+}
