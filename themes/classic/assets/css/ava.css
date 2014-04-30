@@ -211,8 +211,8 @@ img.float_left{
 }
 
 .view .content {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 24px;
     position: absolute;
     overflow: hidden;
     padding: 230px 80%;
@@ -243,12 +243,12 @@ img.float_left{
 
 div.custom_file_upload {
     width: 150px;
-    height: 20px;
+    height: 24px;
 }
 
 input.file {
     width: 150px;
-    height: 20px;
+    height: 24px;
     color: #888;
     outline: none;
 }
