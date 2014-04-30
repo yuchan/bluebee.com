@@ -53,13 +53,13 @@
         });
     </script>
     <script type="text/javascript">
-        function copyContent () {
+        function copyContent() {
             var $div = $('#myContentEditable div');
-            $div.replaceWith(function () {
+            $div.replaceWith(function() {
                 return $('<p/>', {html: this.innerHTML});
             });
-            document.getElementById("hiddenTextarea").value =  
-                document.getElementById("myContentEditable").innerHTML;
+            document.getElementById("hiddenTextarea").value =
+                    document.getElementById("myContentEditable").innerHTML;
             $('#myContentEditable').html('');
             return true;
         }
@@ -148,7 +148,7 @@
                                 '</div>' +
                                 '</div>' +
                                 '</div>').hide().fadeIn(800);
-                        
+
                         $('#activity_content').prepend(item);
                         $('#loading').hide();
                         $('#post_form').reset();
@@ -159,6 +159,14 @@
                     }
                 });
             });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            var urlstring = window.location;
+            var realurlstring = urlstring.toString();
+            var classid = realurlstring.substr(realurlstring.lastIndexOf('=') + 1);
+            $('#class_id_post').val(classid);
         });
     </script>
     <form class="g-form white-popup-block mfp-hide" id="edit-infomation-class" action="" method="POST">
@@ -282,7 +290,8 @@
                                                     <img class="" width="50" height="50" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
                                                 </a>
                                                 <form class="activity-input-box" id="post_form" onsubmit='return copyContent()' action ="<?php echo Yii::app()->createUrl('classpage/createpost') ?>" method="post">
-                                                <div contenteditable="true" id="myContentEditable" class="activity-input-content" data-placeholder="Có Gì Hot?"></div>
+                                                    <div contenteditable="true" id="myContentEditable" class="activity-input-content" data-placeholder="Có Gì Hot?"></div>
+                                                    <input type="hidden" id="class_id_post" name="class_id_post">
                                                     <textarea id="hiddenTextarea" name ="post_content" style="display:none"></textarea>
                                                     <button type="submit" class="g-btn type_primary size_small submit-button">
                                                         <span>Đăng Tin</span>
@@ -294,115 +303,115 @@
                                                 <div class="activity-content" id="activity_content">
                                                     <?php foreach ($post as $post): ?>
                                                         <div style="margin-top: 20px">
-                                                        <div class="activity-item">
-                                                            <a class="other-user-avatar" href="/glang">
-                                                                <img class="" width="50" height="50" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/GrangerLang.png" style="opacity: 1;">
-                                                            </a>
-                                                            <div  class="profile clearfix">
-                                                                <a style="float: left" href="/glang">
-                                                                    <span data-paths="profile.firstName profile.lastName" id="el-105">Granger Lang</span>
+                                                            <div class="activity-item">
+                                                                <a class="other-user-avatar" href="/glang">
+                                                                    <img class="" width="50" height="50" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/GrangerLang.png" style="opacity: 1;">
                                                                 </a>
-                                                                <i class="icon-time" style="float: left; margin-top: 5px; margin-left: 15px; color: #dadcdd;"></i>
-                                                                <p style="color: #dadcdd; float: left">&nbsp;12 hours ago</p>
-                                                                <!-- <a class="fix-vote-button"><i class="icon-chevron-right"></i></a>
-                                                                <p style="float: right"><strong>&nbsp; 69 &nbsp;</strong></p>
-                                                                <a class="fix-vote-button"><i class="icon-chevron-left"></i></a> -->
-                                                            </div>
-                                                            <article data-paths="body" id="el-99">
-                                                                <p><?php echo $post->post_content ?></p>
-                                                            </article>
-                                                            <style type="text/css">
-                                                                .vote {
-                                                                    margin-left: 15px;
-                                                                    display: inline-block;
-                                                                }
-                                                                .vote * {
-                                                                    float: left;
-                                                                }
-                                                                .vote a {
-                                                                    margin-top: 5px;
-                                                                    margin-left: 5px;
-                                                                    margin-right: 5px;
-                                                                }
-                                                            </style>
-                                                            <div class="vote">
-                                                                <a><i class="icon-thumbs-up"></i></a>
-                                                                <p style="color: #dadcdd">1&nbsp;</p>
-                                                                <a><i class="icon-thumbs-down"></i></a>
-                                                                <p style="color: #dadcdd">2&nbsp;</p>
-                                                            </div>
-                                                            <button class=" g-btn type_primary size_small opencmt button-in-activity-box" id="opencmt"><i class="icon-chevron-down"></i><span>&nbsp;Xem thêm</span></button>
-                                                            <div class="comment-container">
-                                                                <div class="list-item-comment-wrapper">
-                                                                    <div class="item-comment">
-                                                                        <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
-                                                                            <img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/sancak.png" style="opacity: 1;">
-                                                                        </a>
-                                                                        <div class="comment-content">
-                                                                            <div  class="fix-style-profile profile clearfix">
-                                                                                <a style="float: left" href="/glang">
-                                                                                    <span data-paths="profile.firstName profile.lastName" id="el-105">sancak</span>
-                                                                                </a>
-                                                                                <p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>
-                                                                                <a class="fix-vote-button"><i class="icon-chevron-right"></i></a>
-                                                                                <p style="float: right"><strong>&nbsp; 2 &nbsp;</strong></p>
-                                                                                <a class="fix-vote-button"><i class="icon-chevron-left"></i></a>
-                                                                            </div>
-                                                                            <div class="comment-body-container">
-                                                                                <p data-paths="body" id="el-1140">think it harder, make it possible! :)</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="item-comment">
-                                                                        <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
-                                                                            <img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/JoshMax.png" style="opacity: 1;">
-                                                                        </a>
-                                                                        <div class="comment-content">
-                                                                            <div  class="fix-style-profile profile clearfix">
-                                                                                <a style="float: left" href="/glang">
-                                                                                    <span data-paths="profile.firstName profile.lastName" id="el-105">Josh Max</span>
-                                                                                </a>
-                                                                                <p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>
-                                                                                <a class="fix-vote-button"><i class="icon-chevron-right"></i></a>
-                                                                                <p style="float: right"><strong>&nbsp; 2 &nbsp;</strong></p>
-                                                                                <a class="fix-vote-button"><i class="icon-chevron-left"></i></a>
-                                                                            </div>
-                                                                            <div class="comment-body-container">
-                                                                                <p data-paths="body" id="el-1140">I never ask "is this possible?" pertaining to web development. I ask "how long will this take me and is it worth the end result?" Then I start, get stuck somewhere and ask one of the guys on SO for advice, and they ask "is this even possible?" for me ;)</p>
+                                                                <div  class="profile clearfix">
+                                                                    <a style="float: left" href="/glang">
+                                                                        <span data-paths="profile.firstName profile.lastName" id="el-105">Granger Lang</span>
+                                                                    </a>
+                                                                    <i class="icon-time" style="float: left; margin-top: 5px; margin-left: 15px; color: #dadcdd;"></i>
+                                                                    <p style="color: #dadcdd; float: left">&nbsp;12 hours ago</p>
+                                                                    <!-- <a class="fix-vote-button"><i class="icon-chevron-right"></i></a>
+                                                                    <p style="float: right"><strong>&nbsp; 69 &nbsp;</strong></p>
+                                                                    <a class="fix-vote-button"><i class="icon-chevron-left"></i></a> -->
+                                                                </div>
+                                                                <article data-paths="body" id="el-99">
+                                                                    <p><?php echo $post->post_content ?></p>
+                                                                </article>
+                                                                <style type="text/css">
+                                                                    .vote {
+                                                                        margin-left: 15px;
+                                                                        display: inline-block;
+                                                                    }
+                                                                    .vote * {
+                                                                        float: left;
+                                                                    }
+                                                                    .vote a {
+                                                                        margin-top: 5px;
+                                                                        margin-left: 5px;
+                                                                        margin-right: 5px;
+                                                                    }
+                                                                </style>
+                                                                <div class="vote">
+                                                                    <a><i class="icon-thumbs-up"></i></a>
+                                                                    <p style="color: #dadcdd">1&nbsp;</p>
+                                                                    <a><i class="icon-thumbs-down"></i></a>
+                                                                    <p style="color: #dadcdd">2&nbsp;</p>
+                                                                </div>
+                                                                <button class=" g-btn type_primary size_small opencmt button-in-activity-box" id="opencmt"><i class="icon-chevron-down"></i><span>&nbsp;Xem thêm</span></button>
+                                                                <div class="comment-container">
+                                                                    <div class="list-item-comment-wrapper">
+                                                                        <div class="item-comment">
+                                                                            <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
+                                                                                <img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/sancak.png" style="opacity: 1;">
+                                                                            </a>
+                                                                            <div class="comment-content">
+                                                                                <div  class="fix-style-profile profile clearfix">
+                                                                                    <a style="float: left" href="/glang">
+                                                                                        <span data-paths="profile.firstName profile.lastName" id="el-105">sancak</span>
+                                                                                    </a>
+                                                                                    <p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>
+                                                                                    <a class="fix-vote-button"><i class="icon-chevron-right"></i></a>
+                                                                                    <p style="float: right"><strong>&nbsp; 2 &nbsp;</strong></p>
+                                                                                    <a class="fix-vote-button"><i class="icon-chevron-left"></i></a>
+                                                                                </div>
+                                                                                <div class="comment-body-container">
+                                                                                    <p data-paths="body" id="el-1140">think it harder, make it possible! :)</p>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="item-comment">
-                                                                        <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
-                                                                            <img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/trillobite.png" style="opacity: 1;">
-                                                                        </a>
-                                                                        <div class="comment-content">
-                                                                            <div  class="fix-style-profile profile clearfix">
-                                                                                <a style="float: left" href="/glang">
-                                                                                    <span data-paths="profile.firstName profile.lastName" id="el-105">trillobite</span>
-                                                                                </a>
-                                                                                <p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>
-                                                                                <a class="fix-vote-button"><i class="icon-chevron-right"></i></a>
-                                                                                <p style="float: right"><strong>&nbsp; 2 &nbsp;</strong></p>
-                                                                                <a class="fix-vote-button"><i class="icon-chevron-left"></i></a>
-                                                                            </div>
-                                                                            <div class="comment-body-container">
-                                                                                <p data-paths="body" id="el-1140">Is it possible that the core of the moon could just be peanut butter? I mean, think about it, it weighs less than it should if it's supposed to contain matter from earth from a horrific meteor strike, and peanut butter probably weighs less than iron/rock. How awesome would that be, aliens come to earth, and we explain to them that world hunger vanished after we discovered the moon, and the info came public :P Then North Korea got pissed off and blew up the moon, cause it made no sense, and now there is peanut butter all over the earth..Show more.... the end.</p>
+                                                                        <div class="item-comment">
+                                                                            <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
+                                                                                <img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/JoshMax.png" style="opacity: 1;">
+                                                                            </a>
+                                                                            <div class="comment-content">
+                                                                                <div  class="fix-style-profile profile clearfix">
+                                                                                    <a style="float: left" href="/glang">
+                                                                                        <span data-paths="profile.firstName profile.lastName" id="el-105">Josh Max</span>
+                                                                                    </a>
+                                                                                    <p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>
+                                                                                    <a class="fix-vote-button"><i class="icon-chevron-right"></i></a>
+                                                                                    <p style="float: right"><strong>&nbsp; 2 &nbsp;</strong></p>
+                                                                                    <a class="fix-vote-button"><i class="icon-chevron-left"></i></a>
+                                                                                </div>
+                                                                                <div class="comment-body-container">
+                                                                                    <p data-paths="body" id="el-1140">I never ask "is this possible?" pertaining to web development. I ask "how long will this take me and is it worth the end result?" Then I start, get stuck somewhere and ask one of the guys on SO for advice, and they ask "is this even possible?" for me ;)</p>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
+                                                                        <div class="item-comment">
+                                                                            <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
+                                                                                <img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/trillobite.png" style="opacity: 1;">
+                                                                            </a>
+                                                                            <div class="comment-content">
+                                                                                <div  class="fix-style-profile profile clearfix">
+                                                                                    <a style="float: left" href="/glang">
+                                                                                        <span data-paths="profile.firstName profile.lastName" id="el-105">trillobite</span>
+                                                                                    </a>
+                                                                                    <p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>
+                                                                                    <a class="fix-vote-button"><i class="icon-chevron-right"></i></a>
+                                                                                    <p style="float: right"><strong>&nbsp; 2 &nbsp;</strong></p>
+                                                                                    <a class="fix-vote-button"><i class="icon-chevron-left"></i></a>
+                                                                                </div>
+                                                                                <div class="comment-body-container">
+                                                                                    <p data-paths="body" id="el-1140">Is it possible that the core of the moon could just be peanut butter? I mean, think about it, it weighs less than it should if it's supposed to contain matter from earth from a horrific meteor strike, and peanut butter probably weighs less than iron/rock. How awesome would that be, aliens come to earth, and we explain to them that world hunger vanished after we discovered the moon, and the info came public :P Then North Korea got pissed off and blew up the moon, cause it made no sense, and now there is peanut butter all over the earth..Show more.... the end.</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <button class=" g-btn type_primary size_small more-comment button-in-activity-box" id="more-comment"><span>Xem thêm 4 bình luận nữa</span></button>
                                                                     </div>
-                                                                    <button class=" g-btn type_primary size_small more-comment button-in-activity-box" id="more-comment"><span>Xem thêm 4 bình luận nữa</span></button>
+                                                                </div>
+                                                                <div class="item-add-comment-box">
+                                                                    <a class="avatar-view fix-avatar-view" href="user">
+                                                                        <img class="" width="35" height="35" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
+                                                                    </a>
+                                                                    <div class="comment-input-box">
+                                                                        <div contenteditable="true" class="comment-input-content" data-placeholder="Bình luận?"></div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="item-add-comment-box">
-                                                                <a class="avatar-view fix-avatar-view" href="user">
-                                                                    <img class="" width="35" height="35" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
-                                                                </a>
-                                                                <div class="comment-input-box">
-                                                                    <div contenteditable="true" class="comment-input-content" data-placeholder="Bình luận?"></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                         </div>
                                                     <?php endforeach; ?>
                                                 </div>
