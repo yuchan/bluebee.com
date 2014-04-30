@@ -19,10 +19,6 @@
                                             <span class="w-blog-entry-img animate_afc">
                                                 <img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/blog-1.jpg" alt="" />
                                             </span>
-
-                                            <h2 class="w-blog-entry-title">
-                                                <span class="w-blog-entry-title-h"><?php echo $post_info->post_title ?></span>
-                                            </h2>
                                         </a>
                                         <div class="w-blog-entry-body">
                                             <div class="w-blog-entry-meta">

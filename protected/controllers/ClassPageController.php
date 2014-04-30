@@ -314,14 +314,14 @@ class ClassPageController extends BaseController {
     public function actionCreatePost() {
         $this->retVal = new stdClass();
         $request = Yii::app()->request;
-       
+
         if ($request->isPostRequest && isset($_POST)) {
             try {
                 $post = array('post_content' => $_POST['post_content']);
                 $model = new Post;
                 $model->post_active = 1;
                 $model->post_author = Yii::app()->session['user_id'];
-                $model->post_date = date('d/m/Y H:i:s');
+                $model->post_date = \date('d/m/Y H:i');
                 $model->post_type = 'class_post';
                 $model->post_content = strip_tags($post['post_content']);
                 $model->post_class = $_POST['class_id_post'];
@@ -342,31 +342,9 @@ class ClassPageController extends BaseController {
         Yii::app()->end();
     }
 
-//    public function actionMakePost() {
-//
-//        $this->retVal = new stdClass();
-//        $request = Yii::app()->request;
-//        if ($request->isPostRequest && isset($_POST)) {
-//            try {
-//                $loginFormData = array(
-//                    'post_content' => $_POST['post_content'],
-//                );
-//                $post_model = new Post;
-//                $post_model->post_content = $loginFormData['post_content'];
-//                $post_model->save(FALSE);
-//                if ($post_model->save(FALSE)) {
-//                    $this->retVal->success = TRUE;
-//                } else {
-//                    $this->retVal->success = FALSE;
-//                }
-//            } catch (exception $e) {
-//                // $this->retVal->message = $e->getMessage();
-//            }
-//        }
-//        $this->retVal->message = $loginFormData['post_content'];
-//        echo CJSON::encode($this->retVal);
-//        Yii::app()->end();
-//    }
+    public function actionChangeCover() {
+        
+    }
     // Uncomment the following methods and override them if needed
     /*
       public function filters()
