@@ -119,6 +119,7 @@ class ClassPageController extends BaseController {
             $postCriteria = new CDbCriteria();
             $postCriteria->select = "*";
             $postCriteria->order = "post_id DESC";
+            $postCriteria->condition = "post_class =".$_GET["classid"];
             $post = Post::model()->findAll($postCriteria);
 //            if ($user) {
 //
@@ -321,6 +322,7 @@ class ClassPageController extends BaseController {
                 $model->post_date = date('d/m/Y H:i:s');
                 $model->post_type = 'class_post';
                 $model->post_content = strip_tags($post['post_content']);
+                $model->post_class = $_SERVER['REQUEST_URI'];
                 $model->save(FALSE);
                 if ($model->save(FALSE)) {
                     $this->retVal->message = $_POST['post_content'];

@@ -10,7 +10,7 @@
                 <div class="w-portfolio-list-h">
                     <div class="w-portfolio-item naming webdesign">
                         <div class="w-portfolio-item-h animate_afc">
-                            <a class="w-portfolio-item-anchor" href="project-another-slider.html">
+                            <a class="w-portfolio-item-anchor" href="<?php echo Yii::app()->createUrl('classPage?classid='.$class_id->class_id)?>">
                                 <div class="w-portfolio-item-image">
                                     <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-1.jpg" alt="" />
                                     <div class="w-portfolio-item-meta">

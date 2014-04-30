@@ -19,13 +19,6 @@ class HomeController extends Controller {
         if (isset(Yii::app()->session['user_id'])) {
             $class_user_attend = ClassUser::model()->findAllByAttributes(array('user_id' => Yii::app()->session['user_id']));
         }
-       
-        foreach ($class_user_attend as $class_id) {
-            $class_activity = PostClass::model()->findAllByAttributes(array('class_id' => $class_id->class_id));
-        }
-        $this->render('home', array('class_user_attend' => $class_user_attend,
-            'class_activity' => $class_activity));
+        $this->render('home', array('class_user_attend' => $class_user_attend));
     }
-
-
 }

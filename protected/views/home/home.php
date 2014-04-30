@@ -108,7 +108,7 @@
                                 </div>
                             </div>
                         </div>
-                        <?php $this->renderPartial('partial/activity', array('class_activity' => $class_activity)) ?>
+                        <?php $this->renderPartial('partial/activity', array('class_user_attend' => $class_user_attend)) ?>
                     </div>
 
                     <div class="one-third">
