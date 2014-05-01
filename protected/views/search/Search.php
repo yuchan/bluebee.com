@@ -4,9 +4,9 @@
 </div>
 
 <div class="tabs">
-    <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked">
+    <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1">
     <label for="tab-1" class="tab-label-1">người dùng (2 kết quả)</label>
-    <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2">
+    <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2" checked="checked">
     <label for="tab-2" class="tab-label-2">giáo viên (3 kết quả)</label>
     <input id="tab-3" type="radio" name="radio-set" class="tab-selector-3">
     <label for="tab-3" class="tab-label-3">lớp (4 kết quả)</label>
@@ -50,7 +50,7 @@
         <div class="child content-2">
             <h2>Giáo viên</h2>
             <div class="result-teacher clearfix">
-                <a class="search-avatar-view relative float-left" href="user">
+                <a class="search-avatar-view relative float-left" href="user" style="margin-top: 5px">
                     <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1;">
                 </a>
                 <div class="info">
@@ -70,7 +70,7 @@
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                            <option value="5">5</option>
+                            <option value="5" selected="selected">5</option>
                         </select>
                     </div>
                     <button class="g-btn type_primary size_small" style="text-transform: none; font-weight: normal"><i class="icon-plus"></i>Thêm vào lớp nào đó</button>
