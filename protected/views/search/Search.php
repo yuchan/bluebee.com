@@ -26,7 +26,7 @@
         position: absolute;
         z-index: 1000;
         width: 250px;
-        height: 40px;
+        height: 80px;
         left: 0px;
         top: 0px;
         opacity: 0;
@@ -35,20 +35,20 @@
         cursor: pointer;
     }
     .tabs input#tab-2{
-        top: 40px;
-    }
-    .tabs input#tab-3{
         top: 80px;
     }
+    .tabs input#tab-3{
+        top: 160px;
+    }
     .tabs input#tab-4{
-        top: 120px;
+        top: 240px;
     }
 
     .tabs label {
         background: #ebf0f0;
         font-size: 15px;
         line-height: 40px;
-        height: 40px;
+        height: 80px;
         position: relative;
         padding: 0 20px;
         display: block;
@@ -108,17 +108,18 @@
         background: #fff;
         position: relative;
         width: auto;
-        margin: -160px 0 0 250px;
+        margin: -320px 0 0 250px;
         height: 400px;
         z-index: 5;
         overflow: hidden;
     }
 
     .content .child{
+        width: 100%;
         position: absolute;
         top: 0;
         left: 0;
-        padding: 10px 40px;
+        padding: 10px 0px 10px 40px;
         z-index: 1;
         opacity: 0;
 
@@ -191,19 +192,41 @@
                 .float-left {
                     float: left;
                 }
+                .info {
+                    margin-left: 10px;
+                    float: left;
+                }
+                .search-avatar-view {
+                    width:70px;
+                    height: 70px;
+                    background-size: 35px;
+                    border-radius: 50%;
+                }
+                .add-to-a-class {
+                    float: right;
+                    margin-top: 20px;
+                }
+                .result-user {
+                    width: 100%; 
+                    position: relative;
+                    border-bottom: 1px solid #d8d8d8;
+                    height: 80px;
+                }
             </style>
-            <div style="width: 100%">
-                <a class="avatar-view relative float-left" href="user">
-                    <img class="" width="50" height="50" src="http://localhost:7070/bluebee.com/themes/classic/assets/img/default-avatar.png" style="opacity: 1;">
+            <div class="result-user clearfix">
+                <a class="search-avatar-view relative float-left" href="user">
+                    <img class="" width="70" height="70" src="http://localhost:7070/bluebee.com/themes/classic/assets/img/default-avatar.png" style="opacity: 1;">
                 </a>
-                <a style="float: left" href="/glang">
-                    <span data-paths="profile.firstName profile.lastName" id="el-105">Granger Lang</span>
-                </a>
-            </div>
-            <div style="width: 100%">
-                <a class="avatar-view" href="user">
-                    <img class="" width="50" height="50" src="http://localhost:7070/bluebee.com/themes/classic/assets/img/default-avatar.png" style="opacity: 1;">
-                </a>
+                <div class="info">
+                    <a href="/glang">
+                        <span data-paths="profile.firstName profile.lastName" id="el-105">Granger Lang</span>
+                    </a>
+                    <p>Lớp: K57CA</p>
+                    <p>Trường: Đại học công nghệ - Đại học quốc gia Hà Nội</p>
+                </div>
+                <div class="add-to-a-class">
+                    <button class="g-btn type_primary" style="text-transform: none; font-weight: normal"><i class="icon-plus"></i>Thêm vào lớp nào đó</button>
+                </div>
             </div>
         </div>
         <div class="child content-2">
