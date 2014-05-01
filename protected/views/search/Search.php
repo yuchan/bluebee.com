@@ -18,31 +18,72 @@
             <h2>Người dùng</h2>
             <div class="result-user clearfix">
                 <a class="search-avatar-view relative float-left" href="user">
-                    <img class="" width="70" height="70" src="http://localhost:7070/bluebee.com/themes/classic/assets/img/default-avatar.png" style="opacity: 1;">
+                    <img class="" width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
                 </a>
                 <div class="info">
                     <a href="/glang">
-                        <span data-paths="profile.firstName profile.lastName" id="el-105">Granger Lang</span>
+                        <span id="el-105">Granger Sơn</span>
                     </a>
                     <p>Lớp: K57CA</p>
                     <p>Trường: Đại học công nghệ - Đại học quốc gia Hà Nội</p>
                 </div>
                 <div class="add-to-a-class">
-                    <button class="g-btn type_primary" style="text-transform: none; font-weight: normal"><i class="icon-plus"></i>Thêm vào lớp nào đó</button>
+                    <button class="g-btn type_primary size_small" style="text-transform: none; font-weight: normal"><i class="icon-plus"></i>Mời vào lớp nào đó</button>
+                </div>
+            </div>
+            <div class="result-user clearfix">
+                <a class="search-avatar-view relative float-left" href="user">
+                    <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1;">
+                </a>
+                <div class="info">
+                    <a href="/glang">
+                        <span id="el-105">Sơn Vũ</span>
+                    </a>
+                    <p>Lớp: K57CA</p>
+                    <p>Trường: Đại học công nghệ - Đại học quốc gia Hà Nội</p>
+                </div>
+                <div class="add-to-a-class">
+                    <button class="g-btn type_primary size_small" style="text-transform: none; font-weight: normal"><i class="icon-plus"></i>Mời vào lớp nào đó</button>
                 </div>
             </div>
         </div>
         <div class="child content-2">
             <h2>Giáo viên</h2>
-            
+            <div class="result-teacher clearfix">
+                <a class="search-avatar-view relative float-left" href="user">
+                    <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1;">
+                </a>
+                <div class="info">
+                    <a href="/glang">
+                        <span id="el-105">Sơn Vũ</span>
+                    </a>
+                    <p>Học vị: PGS.TS</p>
+                    <p>Nơi công tác: Đại học công nghệ - Đại học quốc gia Hà Nội</p>
+                    <p>Môn dạy: Đường đời, Chém gió,...</p>
+                </div>
+                <div class="float_right">
+                    <div class="input select rating-f read-only">
+                        <p style="float: left">Độ yêu thích:</p>
+                        <br>
+                        <select class="teacher-block-rating-outside" name="rating" style="display: none; float: right">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <button class="g-btn type_primary size_small" style="text-transform: none; font-weight: normal"><i class="icon-plus"></i>Thêm vào lớp nào đó</button>
+                </div>
+            </div>
         </div>
         <div class="child content-3">
             <h2>Lớp</h2>
-            
+
         </div>
         <div class="child content-4">
             <h2>Khác</h2>
-            
+
         </div>
     </div>
 </div>

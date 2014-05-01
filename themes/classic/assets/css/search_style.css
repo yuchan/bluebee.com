@@ -189,6 +189,9 @@ and open the template in the editor.
     background-size: 35px;
     border-radius: 50%;
 }
+.search-avatar-view img{
+    border-radius: 50%;
+}
 .add-to-a-class {
     float: right;
     margin-top: 20px;
@@ -198,5 +201,17 @@ and open the template in the editor.
     position: relative;
     border-bottom: 1px solid #d8d8d8;
     height: 80px;
+    margin-bottom: 30px;
+}
+.result-teacher {
+    width: 100%; 
+    position: relative;
+    border-bottom: 1px solid #d8d8d8;
+    height: 100px;
+    margin-bottom: 30px;
+}
+
+.float_right {
+    float: right;
 }
 
