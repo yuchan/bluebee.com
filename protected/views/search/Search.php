@@ -6,9 +6,9 @@
 <div class="tabs">
     <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1">
     <label for="tab-1" class="tab-label-1">người dùng (2 kết quả)</label>
-    <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2" checked="checked">
+    <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2">
     <label for="tab-2" class="tab-label-2">giáo viên (3 kết quả)</label>
-    <input id="tab-3" type="radio" name="radio-set" class="tab-selector-3">
+    <input id="tab-3" type="radio" name="radio-set" class="tab-selector-3" checked="checked">
     <label for="tab-3" class="tab-label-3">lớp (4 kết quả)</label>
     <input id="tab-4" type="radio" name="radio-set" class="tab-selector-4">
     <label for="tab-4" class="tab-label-4">khác (69 kết quả)</label>
@@ -79,7 +79,19 @@
         </div>
         <div class="child content-3">
             <h2>Lớp</h2>
-
+            <div class="result-class clearfix">
+                <div class="info-teacher float-left">
+                    <a href="/glang">
+                        <span style="font-size: 18px">Công Nghệ Phần Mềm</span>
+                    </a>
+                    <p>Học Kỳ: 2  Năm: 2014</p>
+                    <p>Giáo viên: Trương Anh Hoàng,...</p>
+                    <p>Người tham gia: 20 người</p>
+                </div>
+                <div class="float_right">
+                    <button class="g-btn type_primary size_small" style="text-transform: none; font-weight: normal"><i class="icon-plus"></i>Tham gia vào lớp đó</button>
+                </div>
+            </div>
         </div>
         <div class="child content-4">
             <h2>Khác</h2>
