@@ -1,5 +1,4 @@
-<?php foreach ($detail_classpage as $class): ?> 
-    <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/post_style.css" />
+<?php foreach ($detail_classpage as $class): ?>
     <script type="text/javascript">
         $(document).ready(function() {
             $('#loading').hide();

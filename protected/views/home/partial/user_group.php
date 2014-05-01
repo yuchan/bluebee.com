@@ -1,4 +1,4 @@
-  <div class="rounded2 color_alternate">
+<div class="none-display">  <div class="rounded2 color_alternate">
                             <h6>Nhóm bạn tham gia</h6>
                         </div>
 
@@ -52,4 +52,4 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div></div>

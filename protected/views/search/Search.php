@@ -1,216 +1,101 @@
-<style>
-    #styleforsearchbar{
-        background-color: white;
-        min-height: 60px;
-        font-size: 30px;
-        border: none;
-        outline: none;
-        border-radius: 0px;
-    }
-    #styleforsearchbar:focus{
-        border: none;
-        box-shadow: none;
-        border-bottom: 2px solid black !important;
-    }
-    .clear-shadow {
-        clear: both;
-    }
-    .tabs {
-        position: relative;
-        margin: 40px auto;
-        width: 1000px;
-        border-top: 1px solid #d8d8d8;
-    }
-
-    .tabs input {
-        position: absolute;
-        z-index: 1000;
-        width: 250px;
-        height: 40px;
-        left: 0px;
-        top: 0px;
-        opacity: 0;
-        -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-        filter: alpha(opacity=0);
-        cursor: pointer;
-    }
-    .tabs input#tab-2{
-        top: 40px;
-    }
-    .tabs input#tab-3{
-        top: 80px;
-    }
-    .tabs input#tab-4{
-        top: 120px;
-    }
-
-    .tabs label {
-        background: #ebf0f0;
-        font-size: 15px;
-        line-height: 40px;
-        height: 40px;
-        position: relative;
-        padding: 0 20px;
-        display: block;
-        width: 80px;
-        color: #385c5b;
-        letter-spacing: 1px;
-        font-weight: bold;
-        text-align: right;
-        float: left;
-        clear: both;
-        text-shadow: 1px 1px 1px rgba(255,255,255,0.3);
-        box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
-        width: 250px;
-    }
-
-    .tabs input:hover + label {
-        background-color: rgba(0, 0, 0, 0.03);
-    }
-
-    .tabs label:first-of-type {
-        z-index: 4;
-    }
-
-    .tab-label-2 {
-        z-index: 3;
-    }
-
-    .tab-label-3 {
-        z-index: 2;
-    }
-
-    .tab-label-4 {
-        z-index: 1;
-    }
-
-    .tabs input:checked + label {
-        background: #fff;
-        z-index: 6;
-        border-left: 5px solid #429edb;
-    }
-
-    .tabs label:after {
-        content: '';
-        background: #fff;
-        position: absolute;
-        right: -2px;
-        top: 0;
-        width: 2px;
-        height: 100%;
-    }
-
-    .clear-shadow {
-        clear: both;
-    }
-
-    .content {
-        border-left: 1px solid #d8d8d8;
-        background: #fff;
-        position: relative;
-        width: auto;
-        margin: -160px 0 0 250px;
-        height: 400px;
-        z-index: 5;
-        overflow: hidden;
-    }
-
-    .content div {
-        position: absolute;
-        top: 0;
-        padding: 10px 40px;
-        z-index: 1;
-        opacity: 0;
-        -webkit-transition: all linear 0.5s;
-        -moz-transition: all linear 0.5s;
-        -o-transition: all linear 0.5s;
-        -ms-transition: all linear 0.5s;
-        transition: all linear 0.5s;
-    }
-
-    .content div{
-        position: absolute;
-        top: 0;
-        left: 0;
-        padding: 10px 40px;
-        z-index: 1;
-        opacity: 0;
-
-        -webkit-transition: opacity linear 0.1s;
-        -moz-transition: opacity linear 0.1s;
-        -o-transition: opacity linear 0.1s;
-        -ms-transition: opacity linear 0.1s;
-        transition: opacity linear 0.1s;
-    }
-
-    .tabs input.tab-selector-1:checked ~ .content .content-1,
-    .tabs input.tab-selector-2:checked ~ .content .content-2,
-    .tabs input.tab-selector-3:checked ~ .content .content-3,
-    .tabs input.tab-selector-4:checked ~ .content .content-4 {
-        -webkit-transform: translateY(0px);
-        -moz-transform: translateY(0px);
-        -o-transform: translateY(0px);
-        -ms-transform: translateY(0px);
-        transform: translateY(0px);
-        z-index: 100;
-        -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-        filter: alpha(opacity=100);
-        opacity: 1;
-        -webkit-transition: ease-out 0.3s 0.3s;
-        -moz-transition: ease-out 0.3s 0.3s;
-        -o-transition: ease-out 0.3s 0.3s;
-        -ms-transition: ease-out 0.3s 0.3s;
-        transition: ease-out 0.3s 0.3s;
-    }
-
-    .content div h2,
-    .content div h3{
-        color: #398080;
-    }
-    .content div p {
-        font-size: 14px;
-        line-height: 22px;
-        font-style: italic;
-        text-align: left;
-        margin: 0;
-        color: #777;
-        padding-left: 15px;
-        font-family: Cambria, Georgia, serif;
-        border-left: 8px solid rgba(63,148,148, 0.1);
-    }
-</style>
-
 <div class="l-submain-h" style="margin-top: 2%">
-    <h1>kết quả cho: "Sơn"</h1>
+    <h1>Kết quả cho: "Sơn"</h1>
     <input class="none-display" type="text" id="styleforsearchbar" value="" placeholder="Bạn muốn tìm gì ?"/>
 </div>
 
 <div class="tabs">
-    <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked">
+    <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1">
     <label for="tab-1" class="tab-label-1">người dùng (2 kết quả)</label>
     <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2">
     <label for="tab-2" class="tab-label-2">giáo viên (3 kết quả)</label>
-    <input id="tab-3" type="radio" name="radio-set" class="tab-selector-3">
+    <input id="tab-3" type="radio" name="radio-set" class="tab-selector-3" checked="checked">
     <label for="tab-3" class="tab-label-3">lớp (4 kết quả)</label>
     <input id="tab-4" type="radio" name="radio-set" class="tab-selector-4">
     <label for="tab-4" class="tab-label-4">khác (69 kết quả)</label>
     <div class="clear-shadow"></div>
     <div class="content">
-        <div class="content-1">
+        <div class="child content-1">
             <h2>Người dùng</h2>
-            
+            <div class="result-user clearfix">
+                <a class="search-avatar-view relative float-left" href="user">
+                    <img class="" width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
+                </a>
+                <div class="info">
+                    <a href="/glang">
+                        <span id="el-105">Granger Sơn</span>
+                    </a>
+                    <p>Lớp: K57CA</p>
+                    <p>Trường: Đại học công nghệ - Đại học quốc gia Hà Nội</p>
+                </div>
+                <div class="add-to-a-class">
+                    <button class="g-btn type_primary size_small" style="text-transform: none; font-weight: normal"><i class="icon-plus"></i>Mời vào lớp nào đó</button>
+                </div>
+            </div>
+            <div class="result-user clearfix">
+                <a class="search-avatar-view relative float-left" href="user">
+                    <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1;">
+                </a>
+                <div class="info">
+                    <a href="/glang">
+                        <span id="el-105">Sơn Vũ</span>
+                    </a>
+                    <p>Lớp: K57CA</p>
+                    <p>Trường: Đại học công nghệ - Đại học quốc gia Hà Nội</p>
+                </div>
+                <div class="add-to-a-class">
+                    <button class="g-btn type_primary size_small" style="text-transform: none; font-weight: normal"><i class="icon-plus"></i>Mời vào lớp nào đó</button>
+                </div>
+            </div>
         </div>
-        <div class="content-2">
+        <div class="child content-2">
             <h2>Giáo viên</h2>
-            
+            <div class="result-teacher clearfix">
+                <a class="search-avatar-view relative float-left" href="user" style="margin-top: 5px">
+                    <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1;">
+                </a>
+                <div class="info">
+                    <a href="/glang">
+                        <span id="el-105">Sơn Vũ</span>
+                    </a>
+                    <p>Học vị: PGS.TS</p>
+                    <p>Nơi công tác: Đại học công nghệ - Đại học quốc gia Hà Nội</p>
+                    <p>Môn dạy: Đường đời, Chém gió,...</p>
+                </div>
+                <div class="float_right">
+                    <div class="input select rating-f read-only">
+                        <p style="float: left">Độ yêu thích:</p>
+                        <br>
+                        <select class="teacher-block-rating-outside" name="rating" style="display: none; float: right">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5" selected="selected">5</option>
+                        </select>
+                    </div>
+                    <button class="g-btn type_primary size_small" style="text-transform: none; font-weight: normal"><i class="icon-plus"></i>Thêm vào lớp nào đó</button>
+                </div>
+            </div>
         </div>
-        <div class="content-3">
+        <div class="child content-3">
             <h2>Lớp</h2>
-            
+            <div class="result-class clearfix">
+                <div class="info-teacher float-left">
+                    <a href="/glang">
+                        <span style="font-size: 18px">Công Nghệ Phần Mềm</span>
+                    </a>
+                    <p>Học Kỳ: 2  Năm: 2014</p>
+                    <p>Giáo viên: Trương Anh Hoàng,...</p>
+                    <p>Người tham gia: 20 người</p>
+                </div>
+                <div class="float_right">
+                    <button class="g-btn type_primary size_small" style="text-transform: none; font-weight: normal"><i class="icon-plus"></i>Tham gia vào lớp đó</button>
+                </div>
+            </div>
         </div>
-        <div class="content-4">
+        <div class="child content-4">
             <h2>Khác</h2>
-            
+
         </div>
     </div>
 </div>

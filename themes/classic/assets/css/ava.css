@@ -343,21 +343,11 @@ form.file_upload input {
   width: 148px;
 }
 
-a
-{
-  color: #666600;
-}
-
 /* Line 1 */
 .actionLinkLite
 {
   color: #215625;
   font-family: Helvetica,Arial,sans-serif;
-}
-
-/* Line 1 */
-a:hover
-{
 }
 
 /* Line 1 */
