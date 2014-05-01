@@ -1,4 +1,4 @@
-
+<div class="none-display">
 <div class="rounded2 color_alternate">
     <h6>Cuốn sách bạn theo dõi</h6>
 </div>
@@ -54,4 +54,4 @@
 <div>
     <a href="" style="margin-left: 30px">More...</a>
     <br/>
-</div>
+</div></div>

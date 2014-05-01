@@ -29,6 +29,7 @@
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/token-input-facebook.css" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/token-input-mac.css" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/component.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="/bluebee.com/themes/classic/assets/css/post_style.css">
 
 
         <!-- javascript -->
