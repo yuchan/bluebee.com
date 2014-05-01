@@ -5,13 +5,13 @@
 
 <div class="tabs">
     <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1">
-    <label for="tab-1" class="tab-label-1">người dùng (2 kết quả)</label>
+    <label for="tab-1" class="tab-label-1">Người dùng (2 kết quả)</label>
     <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2">
-    <label for="tab-2" class="tab-label-2">giáo viên (3 kết quả)</label>
+    <label for="tab-2" class="tab-label-2">Giáo viên (3 kết quả)</label>
     <input id="tab-3" type="radio" name="radio-set" class="tab-selector-3" checked="checked">
-    <label for="tab-3" class="tab-label-3">lớp (4 kết quả)</label>
+    <label for="tab-3" class="tab-label-3">Lớp (4 kết quả)</label>
     <input id="tab-4" type="radio" name="radio-set" class="tab-selector-4">
-    <label for="tab-4" class="tab-label-4">khác (69 kết quả)</label>
+    <label for="tab-4" class="tab-label-4">Khác (69 kết quả)</label>
     <div class="clear-shadow"></div>
     <div class="content">
         <div class="child content-1">

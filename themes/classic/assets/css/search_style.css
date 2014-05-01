@@ -54,7 +54,7 @@ and open the template in the editor.
 
 .tabs label {
     background: #ebf0f0;
-    font-size: 15px;
+    font-size: 18px;
     line-height: 40px;
     height: 80px;
     position: relative;
@@ -62,7 +62,7 @@ and open the template in the editor.
     display: block;
     width: 80px;
     color: #385c5b;
-    letter-spacing: 1px;
+    letter-spacing: .8px;
     text-align: right;
     float: left;
     clear: both;
