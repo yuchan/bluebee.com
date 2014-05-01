@@ -1,5 +1,5 @@
 <div class="l-main-h">
-    
+
     <div class="l-submain" id="teacherListHeader">
         <p>
             <strong>Hãy tìm kiếm giáo viên của lớp bạn. Nếu chưa có, hãy thêm giáo viên ngay ------> <button class="g-btn type_primary size_small"><span>Nhập giáo viên</span></button></strong>
@@ -43,7 +43,7 @@
                                             return false;">Young Adult</a>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,27 @@
                     <div class="teacherList">
                         <div class="leftAlignedImage">
                             <div class="coverWrapper">
-                                <img class="teacherImage" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-1.jpg"/>
+                                <div class="w-team-member">
+                                    <div class="w-team-member-h">
+                                        <div class="w-team-member-image">
+                                            <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/member-5.jpg" alt="Item picture" />
+                                            <div class="w-team-member-links">
+                                                <div class="w-team-member-links-list">
+                                                    <a class="w-team-member-links-item" href="http://www.twitter.com/" target="_blank"><i class="icon-twitter"></i></a>
+                                                    <a class="w-team-member-links-item" href="http://www.linkedin.com/" target="_blank"><i class="icon-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="w-team-member-meta">
+                                            <h4 class="w-team-member-name">Jane Smith</h4>
+                                            <div class="w-team-member-role">Project Manager</div>
+                                            <!--<div class="w-team-member-description">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor.</p>						
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="input select rating-f read-only ratingMargin" >
                                 <select class="teacher-block-rating-outside" name="rating">
@@ -64,11 +84,31 @@
                                     <option value="5">5</option>
                                 </select>
                             </div>
-                            <button class="g-btn type_outline size_small"><span>Thêm giáo viên</span></button>
+                            <button class="g-btn type_outline size_small"><span>Chọn giáo viên</span></button>
                         </div>
                         <div class="leftAlignedImage">
                             <div class="coverWrapper">
-                                <img class="teacherImage" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-2.jpg"/>
+                                <div class="w-team-member">
+                                    <div class="w-team-member-h">
+                                        <div class="w-team-member-image">
+                                            <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/member-1.jpg" alt="Item picture" />
+                                            <div class="w-team-member-links">
+                                                <div class="w-team-member-links-list">
+                                                    <a class="w-team-member-links-item" href="http://www.twitter.com/" target="_blank"><i class="icon-twitter"></i></a>
+                                                    <a class="w-team-member-links-item" href="http://www.linkedin.com/" target="_blank"><i class="icon-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="w-team-member-meta">
+                                            <h4 class="w-team-member-name">Jane Smith</h4>
+                                            <div class="w-team-member-role">Project Manager</div>
+                                            <!--<div class="w-team-member-description">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor.</p>						
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="input select rating-f read-only ratingMargin" >
                                 <select class="teacher-block-rating-outside" name="rating">
@@ -79,11 +119,31 @@
                                     <option value="5">5</option>
                                 </select>
                             </div>
-                            <button class="g-btn type_outline size_small"><span>Thêm giáo viên</span></button>
+                            <button class="g-btn type_outline size_small"><span>Chọn giáo viên</span></button>
                         </div>
                         <div class="leftAlignedImage">
                             <div class="coverWrapper">
-                                <img class="teacherImage" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-3.jpg"/>
+                                <div class="w-team-member">
+                                    <div class="w-team-member-h">
+                                        <div class="w-team-member-image">
+                                            <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/member-2.jpg" alt="Item picture" />
+                                            <div class="w-team-member-links">
+                                                <div class="w-team-member-links-list">
+                                                    <a class="w-team-member-links-item" href="http://www.twitter.com/" target="_blank"><i class="icon-twitter"></i></a>
+                                                    <a class="w-team-member-links-item" href="http://www.linkedin.com/" target="_blank"><i class="icon-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="w-team-member-meta">
+                                            <h4 class="w-team-member-name">Jane Smith</h4>
+                                            <div class="w-team-member-role">Project Manager</div>
+                                            <!--<div class="w-team-member-description">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor.</p>						
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="input select rating-f read-only ratingMargin" >
                                 <select class="teacher-block-rating-outside" name="rating">
@@ -94,11 +154,31 @@
                                     <option value="5">5</option>
                                 </select>
                             </div>
-                            <button class="g-btn type_outline size_small"><span>Thêm giáo viên</span></button>
+                            <button class="g-btn type_outline size_small"><span>Chọn giáo viên</span></button>
                         </div>
                         <div class="leftAlignedImage">
                             <div class="coverWrapper">
-                                <img class="teacherImage" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-4.jpg"/>
+                                <div class="w-team-member">
+                                    <div class="w-team-member-h">
+                                        <div class="w-team-member-image">
+                                            <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/member-3.jpg" alt="Item picture" />
+                                            <div class="w-team-member-links">
+                                                <div class="w-team-member-links-list">
+                                                    <a class="w-team-member-links-item" href="http://www.twitter.com/" target="_blank"><i class="icon-twitter"></i></a>
+                                                    <a class="w-team-member-links-item" href="http://www.linkedin.com/" target="_blank"><i class="icon-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="w-team-member-meta">
+                                            <h4 class="w-team-member-name">Jane Smith</h4>
+                                            <div class="w-team-member-role">Project Manager</div>
+                                            <!--<div class="w-team-member-description">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor.</p>						
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="input select rating-f read-only ratingMargin" >
                                 <select class="teacher-block-rating-outside" name="rating">
@@ -109,11 +189,31 @@
                                     <option value="5">5</option>
                                 </select>
                             </div>
-                            <button class="g-btn type_outline size_small"><span>Thêm giáo viên</span></button>
+                            <button class="g-btn type_outline size_small"><span>Chọn giáo viên</span></button>
                         </div>
                         <div class="leftAlignedImage">
                             <div class="coverWrapper">
-                                <img class="teacherImage" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-5.jpg"/>
+                                <div class="w-team-member">
+                                    <div class="w-team-member-h">
+                                        <div class="w-team-member-image">
+                                            <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/member-4.jpg" alt="Item picture" />
+                                            <div class="w-team-member-links">
+                                                <div class="w-team-member-links-list">
+                                                    <a class="w-team-member-links-item" href="http://www.twitter.com/" target="_blank"><i class="icon-twitter"></i></a>
+                                                    <a class="w-team-member-links-item" href="http://www.linkedin.com/" target="_blank"><i class="icon-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="w-team-member-meta">
+                                            <h4 class="w-team-member-name">Jane Smith</h4>
+                                            <div class="w-team-member-role">Project Manager</div>
+                                            <!--<div class="w-team-member-description">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor.</p>						
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="input select rating-f read-only ratingMargin" >
                                 <select class="teacher-block-rating-outside" name="rating">
@@ -124,7 +224,7 @@
                                     <option value="5">5</option>
                                 </select>
                             </div>
-                            <button class="g-btn type_outline size_small"><span>Thêm giáo viên</span></button>
+                            <button class="g-btn type_outline size_small"><span>Chọn giáo viên</span></button>
                         </div>
                     </div>
                 </div>

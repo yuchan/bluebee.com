@@ -388,21 +388,20 @@ form.file_upload input {
 
 .coverWrapper
 {
-  width: 125px;
+  width: 170px;
   overflow-x: hidden;
   overflow-y: hidden;
   text-align: center;
-  height: 180px;
+  height: 250px;
   position: relative;
-  margin-left: 12px;
-  margin-right: 13px;
+  margin-left: 6px;
   margin-bottom: 10px;
 }
 
 .teacherList .leftAlignedImage
 {
   margin: 10px;
-  width: 150px;
+  width: 23%;
   overflow-x: visible;
   overflow-y: visible;
   position: relative;
@@ -411,7 +410,7 @@ form.file_upload input {
 }
 
 .ratingMargin{
-    margin-left: 14px;
+    margin-left: 32px;
 }
 
 #teacherListHeader
