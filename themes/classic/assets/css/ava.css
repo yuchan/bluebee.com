@@ -125,22 +125,22 @@ img.float_left{
     width: 25%;
     float: left;
     margin: 1px 0px;
-  }
-  .dataItem {
+}
+.dataItem {
     float: left;
     width: 75%;
     margin: 1px 0px;
-  }
-  
-  .dataTitle1 {
+}
+
+.dataTitle1 {
     font-weight: bold;
     width: 45%;
     float: left;
-  }
-  .dataItem1 {
+}
+.dataItem1 {
     float: left;
     width: 55%;
-  }
+}
 
 .right{float:right}
 
@@ -175,42 +175,42 @@ img.float_left{
 
 .coverBorder
 {
-  border-top-width: 1px;
-  border-right-width-value: 1px;
-  border-bottom-width: 1px;
-  border-left-width-value: 1px;
-  border-top-style: solid;
-  border-right-style-value: solid;
-  border-bottom-style: solid;
-  border-left-style-value: solid;
-  border-image-source: none;
-  border-image-slice: 100% 100% 100% 100%;
-  border-image-width: 1 1 1 1;
-  border-image-outset: 0 0 0 0;
-  border-image-repeat: stretch stretch;
-  border-right-color-value: rgba(0, 0, 0, 0.25);
-  border-bottom-color: rgba(0, 0, 0, 0.25);
-  border-left-color-value: rgba(0, 0, 0, 0.25);
-  border-top-color: rgba(0, 0, 0, 0.1);
-  bottom: 0px;
-  left: 0px;
-  position: absolute;
-  right: 0px;
-  top: 0px;
+    border-top-width: 1px;
+    border-right-width-value: 1px;
+    border-bottom-width: 1px;
+    border-left-width-value: 1px;
+    border-top-style: solid;
+    border-right-style-value: solid;
+    border-bottom-style: solid;
+    border-left-style-value: solid;
+    border-image-source: none;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-width: 1 1 1 1;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-right-color-value: rgba(0, 0, 0, 0.25);
+    border-bottom-color: rgba(0, 0, 0, 0.25);
+    border-left-color-value: rgba(0, 0, 0, 0.25);
+    border-top-color: rgba(0, 0, 0, 0.1);
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
 }
 
 /* Line 28 */
 .coverNoImage, .coverBorder
 {
-  background-color: transparent;
-  background-image: url("/rsrc.php/v2/yJ/r/UgNUNkKQar6.png");
-  background-repeat: repeat-x;
-  background-attachment: scroll;
-  background-position: left bottom;
-  background-clip: border-box;
-  background-origin: padding-box;
-  background-size: auto auto;
-  border-bottom-color: rgba(0, 0, 0, 0.4);
+    background-color: transparent;
+    background-image: url("/rsrc.php/v2/yJ/r/UgNUNkKQar6.png");
+    background-repeat: repeat-x;
+    background-attachment: scroll;
+    background-position: left bottom;
+    background-clip: border-box;
+    background-origin: padding-box;
+    background-size: auto auto;
+    border-bottom-color: rgba(0, 0, 0, 0.4);
 }
 
 .view {
@@ -306,119 +306,184 @@ form.file_upload input {
 
 .roundedBorder
 {
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
-  border-bottom-right-radius: 7px;
-  border-bottom-left-radius: 7px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d3d6db;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    background-color: #F6F7F8;
 }
 
 .navigation
 {
-  float: right;
-  width: 100%;
-  margin-top: 0px;
+    float: right;
+    width: 100%;
 }
 
 /* Line 1 */
-.teacherList .navigation
+.teacherList-nav .navigation
 {
-  background-color: #f1f1f1;
-  font-family: Helvetica,Arial,sans-serif;
-  padding-top: 5px;
-  padding-right: 5px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  width: 180px;
+    font-family: Helvetica,Arial,sans-serif;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    width: 250px;
 }
 
 .auto_complete_field_input
 {
-  width: 230px;
-  padding-right: 25px;
+    width: 230px;
+    padding-right: 25px;
 }
 
 /* Line 1 */
-.teacherList .navigation
+.teacherList-nav .navigation
 {
-  width: 148px;
+    width: 100%;
 }
 
 /* Line 1 */
 .actionLinkLite
 {
-  color: #215625;
-  font-family: Helvetica,Arial,sans-serif;
+    color: #215625;
+    font-family: Helvetica,Arial,sans-serif;
 }
 
 /* Line 1 */
-.teacherList .navigationLinks a
+.teacherList-nav .navigationLinks a
 {
-  clear: left;
-  display: block;
-  height: 20px;
-  vertical-align: middle;
+    clear: left;
+    display: block;
+    height: 30px;
+    vertical-align: middle;
 }
 
-.teacherList .navigationLinks a.selected
+.teacherList-nav .navigationLinks a.selected
 {
-  background-color: transparent;
-  background-repeat: no-repeat;
-  background-image: url('arrow.png');
-  color: white;
-  font-weight: bold;
-  height: 23px;
-  left: -5px;
-  padding-top: 3px;
-  padding-right: 0px;
-  padding-bottom: 0px;
-  padding-left: 15px;
-  position: absolute;
-  top: -3px;
-  vertical-align: middle;
-  width: 200px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-image: url('arrow.png');
+    color: white;
+    font-weight: bold;
+    height: 23px;
+    left: -5px;
+    padding-top: 3px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 15px;
+    position: absolute;
+    top: -3px;
+    vertical-align: middle;
+    width: 200px;
 }
 
 .teacherImage
 {
-  margin-left: auto;
-  margin-right: auto;
-  height: 180px;
-  bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 180px;
+    bottom: 0px;
 }
 
 .coverWrapper
 {
-  width: 170px;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  text-align: center;
-  height: 250px;
-  position: relative;
-  margin-left: 6px;
-  margin-bottom: 10px;
+    width: 130px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-align: center;
+    height: 220px;
+    position: relative;
+    margin-left: 6px;
+}
+
+.teacherList { 
+    height: 300px;
+    margin-bottom: 10px;
 }
 
 .teacherList .leftAlignedImage
 {
-  margin: 10px;
-  width: 23%;
-  overflow-x: visible;
-  overflow-y: visible;
-  position: relative;
-  text-align: center;
-  float: left;
+    margin: 10px;
+    width: 20%;
+    overflow-x: visible;
+    overflow-y: visible;
+    position: relative;
+    text-align: center;
+    float: left;
 }
 
-.ratingMargin{
-    margin-left: 32px;
+.ratingMargin {
+    margin-left: 10px;
 }
 
 #teacherListHeader
 {
-  background-color: #e4f4da;
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  text-align: center;
+    background-color: #e4f4da;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    text-align: center;
+}
+
+.Side {
+    background-color: #F6F7F8;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d3d6db;
+}
+
+.header-teacher {
+    background-color: #D0F2BB;
+}
+
+.header-margin {
+    margin-top: 20px;
+}
+
+.header-color {
+    width: 100%;
+    background-color: #F6F7F8;
+    height: 50px;
+    margin-bottom: 0px;
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: #d3d6db;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: #d3d6db;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #d3d6db;
+    padding-top: 10px;
+    padding-right: 0px;
+    padding-bottom: 8px;
+    padding-left: 12px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    
+    background-color: #ebf0f0;
+}
+
+.body-color {
+    background-color: #ebf0f0;
+}
+
+.navRow { 
+
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #e9eaed;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 0px;
+    margin-right: 12px;
+    margin-bottom: 0px;
+    margin-left: 12px;
+    padding-top: 10px;
+    padding-right: 0px;
+    padding-bottom: 10px;
+    padding-left: 0px;
 }
