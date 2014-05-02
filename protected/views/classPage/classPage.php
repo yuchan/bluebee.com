@@ -168,7 +168,7 @@
             $('#class_id_post').val(classid);
         });
     </script>
-    <?php $this->renderPartial('updateinfoclass')?>
+    <?php $this->renderPartial('updateinfoclass') ?>
 
 
 
@@ -180,7 +180,7 @@
                         <div class="view effect">  
                             <img class="round_ava" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg"/>
                             <div class="content">
-                               <?php $this->renderPartial('changeCover')?>
+                                <?php $this->renderPartial('changeCover') ?>
                             </div>
                         </div>
                     </div>
@@ -191,7 +191,7 @@
                         <div class="w-tabs">
                             <div class="w-tabs-h" id="fix-style-w-tab">
                                 <div class="w-tabs-list">
-                                    <div class="w-tabs-item fix-w-tab-item active">
+                                    <div class="w-tabs-item fix-w-tab-item">
                                         <span class="w-tabs-item-icon"></span>
                                         <span class="w-tabs-item-title">Hoạt động</span>
                                     </div>
@@ -200,13 +200,13 @@
                                         <span class="w-tabs-item-icon"></span>
                                         <span class="w-tabs-item-title">Documents</span>
                                     </div>
-                                    <div class="w-tabs-item fix-w-tab-item">
+                                    <div class="w-tabs-item fix-w-tab-item active">
                                         <span class="w-tabs-item-icon"></span>
-                                        <span class="w-tabs-item-title">Teacher</span>
+                                        <span class="w-tabs-item-title">Giáo viên</span>
                                     </div>
                                 </div>
 
-                                <div class="w-tabs-section active">
+                                <div class="w-tabs-section">
                                     <div class="w-tabs-section-title">
                                         <span class="w-tabs-section-title-icon"></span>
                                         <span class="w-tabs-section-title-text">Hoạt động</span>
@@ -233,12 +233,12 @@
                                                 <div class="activity-content" id="activity_content">
                                                     <?php foreach ($post as $post): ?>
                                                         <div style="margin-top: 20px; background-color: white">
-                                                        <div class="activity-item">
-                                                            <a class="other-user-avatar" href="/glang">
-                                                                <img class="" width="50" height="50" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/GrangerLang.png" style="opacity: 1;">
-                                                            </a>
-                                                            <div  class="profile clearfix">
-                                                                <a style="float: left" href="/glang">
+                                                            <div class="activity-item">
+                                                                <a class="other-user-avatar" href="/glang">
+                                                                    <img class="" width="50" height="50" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/GrangerLang.png" style="opacity: 1;">
+                                                                </a>
+                                                                <div  class="profile clearfix">
+                                                                    <a style="float: left" href="/glang">
                                                                         <span data-paths="profile.firstName profile.lastName" id="el-105">Granger Lang</span>
                                                                     </a>
                                                                     <i class="icon-time" style="float: left; margin-top: 5px; margin-left: 15px; color: #dadcdd;"></i>
@@ -358,20 +358,187 @@
                                     </div>
                                     <div class="w-tabs-section-content">
                                         <div class="w-tabs-section-content-h">
+
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="w-tabs-section">
+                                <div class="w-tabs-section active">
                                     <div class="w-tabs-section-title">
                                         <span class="w-tabs-section-title-icon"></span>
-                                        <span class="w-tabs-section-title-text">Teacher</span>
+                                        <span class="w-tabs-section-title-text">Giáo viên</span>
                                         <span class="w-tabs-section-title-control"></span>
                                     </div>
-                                    <div class="w-tabs-section-content">
-                                        <div class="w-tabs-section-content-h">
-                                            <div class="g-cols">
+                                    <script>
+                                        $(document).ready(function() {
+                                            $('a#add-teacher').click(function() {
+                                                var hide = $('.current-list').css('display');
+                                                if (hide != 'none') {
+                                                    $('.search-input').slideToggle();
+                                                    $('.current-list').fadeOut(800);
+                                                    $('.suggest-list').delay(800).fadeIn(800);
+                                                    $('.suggest-info').fadeOut(800, function() {
+                                                        $(this).delay(800).html('<p>Tổng số giáo viên được gợi ý: 3</p>').fadeIn(800)
+                                                    });
+                                                } else {
+                                                    $('.search-input').slideToggle();
+                                                    $('.suggest-list').fadeOut(800);
+                                                    $('.current-list').delay(800).fadeIn(800);
+                                                    $('.suggest-info').fadeOut(800, function() {
+                                                        $(this).delay(800).html('<p>Tổng số giáo viên: 1</p>').fadeIn(800)
+                                                    });
+                                                }
+                                            });
+                                        });
+                                        (function($) {
+                                            "use strict";
 
+                                            $.fn.RemoveResult = function() {
+
+                                                return this.each(function() {
+                                                    var result = $(this),
+                                                            close = result.find('.add-to-this-class');
+
+                                                    if (close) {
+                                                        close.click(function() {
+                                                            result.animate({height: '0', margin: 0}, 400, function() {
+                                                                result.css('display', 'none');
+                                                            });
+                                                        });
+                                                    }
+                                                });
+                                            };
+                                        })(jQuery);
+
+                                        jQuery(document).ready(function() {
+                                            "use strict";
+
+                                            jQuery('.result-teacher').RemoveResult();
+                                        });
+
+                                    </script>
+                                    <div class="w-tabs-section-content">
+                                        <div class="w-tabs-section-content-h" style="padding-top: 10px">
+                                            <div class="g-cols" style="margin-left: 10px; margin-right: 10px; position: relative;">
+                                                <div class="navigation-teacher-tab clearfix">
+                                                    <div class="float-left suggest-info"><p>Tổng số giáo viên: 1</p></div>
+                                                    <div class="float_right">
+                                                        <a id="add-teacher"style="margin-top: 10px" href="javascript:void(0)"><p id="add-teacher-contents">Thêm giáo viên <i class="icon-plus"></i></p></a>
+                                                    </div>
+                                                    <div class="float_right search-input" style="margin-right: 20px; display: none"><input type="text" placeholder="gõ tên 1 giáo viên vào đây" style="height: 24px; background-color: white;"></div>
+                                                </div>
+                                                <div class="current-list">
+                                                    <div class="result-teacher clearfix" style="margin: 0px">
+                                                        <a class="search-avatar-view relative float-left" href="user" style="margin-top: 5px">
+                                                            <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1;">
+                                                        </a>
+                                                        <div class="info">
+                                                            <a href="/glang">
+                                                                <span id="el-105">Sơn Vũ</span>
+                                                            </a>
+                                                            <p>Học vị: PGS.TS</p>
+                                                            <p>Nơi công tác: Đại học công nghệ - Đại học quốc gia Hà Nội</p>
+                                                            <p>Môn dạy: A, B,...</p>
+                                                        </div>
+                                                        <div class="float_right">
+                                                            <div class="input select rating-f read-only">
+                                                                <p style="float: left">Độ yêu thích:</p>
+                                                                <br>
+                                                                <select class="teacher-block-rating-outside" name="rating" style="display: none; float: right">
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="5" selected="selected">5</option>
+                                                                </select>
+                                                            </div>
+                                                            <button class="g-btn type_primary size_small float_right" style="text-transform: none; font-weight: normal; width: 120px"><i class="icon-comment"></i>Ý kiến</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="suggest-list">
+                                                    <div class="result-teacher clearfix" style="margin: 0px">
+                                                        <a class="search-avatar-view relative float-left" href="user" style="margin-top: 5px">
+                                                            <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1;">
+                                                        </a>
+                                                        <div class="info">
+                                                            <a href="/glang">
+                                                                <span id="el-105">Sơn Vũ</span>
+                                                            </a>
+                                                            <p>Học vị: PGS.TS</p>
+                                                            <p>Nơi công tác: Đại học công nghệ - Đại học quốc gia Hà Nội</p>
+                                                            <p>Môn dạy: A, B,...</p>
+                                                        </div>
+                                                        <div class="float_right">
+                                                            <div class="input select rating-f read-only">
+                                                                <p style="float: left">Độ yêu thích:</p>
+                                                                <br>
+                                                                <select class="teacher-block-rating-outside" name="rating" style="display: none; float: right">
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="5" selected="selected">5</option>
+                                                                </select>
+                                                            </div>
+                                                            <button class="add-to-this-class g-btn type_primary size_small float_right" style="text-transform: none; font-weight: normal; width: 120px"><i class="icon-plus"></i>Thêm vào lớp</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="result-teacher clearfix" style="margin: 0px">
+                                                        <a class="search-avatar-view relative float-left" href="user" style="margin-top: 5px">
+                                                            <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1;">
+                                                        </a>
+                                                        <div class="info">
+                                                            <a href="/glang">
+                                                                <span id="el-105">Sơn Vũ 2</span>
+                                                            </a>
+                                                            <p>Học vị: PGS.TS</p>
+                                                            <p>Nơi công tác: Đại học công nghệ - Đại học quốc gia Hà Nội</p>
+                                                            <p>Môn dạy: A, B,...</p>
+                                                        </div>
+                                                        <div class="float_right">
+                                                            <div class="input select rating-f read-only">
+                                                                <p style="float: left">Độ yêu thích:</p>
+                                                                <br>
+                                                                <select class="teacher-block-rating-outside" name="rating" style="display: none; float: right">
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="5" selected="selected">5</option>
+                                                                </select>
+                                                            </div>
+                                                            <button class="add-to-this-class g-btn type_primary size_small float_right" style="text-transform: none; font-weight: normal; width: 120px"><i class="icon-plus"></i>Thêm vào lớp</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="result-teacher clearfix" style="margin: 0px">
+                                                        <a class="search-avatar-view relative float-left" href="user" style="margin-top: 5px">
+                                                            <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1;">
+                                                        </a>
+                                                        <div class="info">
+                                                            <a href="/glang">
+                                                                <span id="el-105">Sơn Vũ 3</span>
+                                                            </a>
+                                                            <p>Học vị: PGS.TS</p>
+                                                            <p>Nơi công tác: Đại học công nghệ - Đại học quốc gia Hà Nội</p>
+                                                            <p>Môn dạy: A, B,...</p>
+                                                        </div>
+                                                        <div class="float_right">
+                                                            <div class="input select rating-f read-only">
+                                                                <p style="float: left">Độ yêu thích:</p>
+                                                                <br>
+                                                                <select class="teacher-block-rating-outside" name="rating" style="display: none; float: right">
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="5" selected="selected">5</option>
+                                                                </select>
+                                                            </div>
+                                                            <button class="add-to-this-class g-btn type_primary size_small float_right" style="text-transform: none; font-weight: normal; width: 120px"><i class="icon-plus"></i>Thêm vào lớp</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -395,17 +562,17 @@
                             <a id="add-members" style="float: right" href="javascript:void(0)"><p id="add-members-contents">Thêm thành viên <i class="icon-plus"></i></p></a>
                         </div>
                         <div id="alert-invite" style="display: none; position: absolute; overflow: visible; z-index: 2"></div>
-                        <?php $this->renderPartial('inviteform', array('classid' => $class->class_id)) ?>
-                        <div class="g-hr" style="clear: both">
+    <?php $this->renderPartial('inviteform', array('classid' => $class->class_id)) ?>
+                        <div class="g-hr none-display" style="clear: both">
                             <span class="g-hr-h">
                                 <i class="icon-user"></i>
                             </span>
                         </div>
-                        <div class="clearfix">
+                        <div class="clearfix none-display">
                             <h3 style="float: left">Giáo Viên</h3>
                             <a style="float: right; margin-top: 10px" href="javascript:void(0)"><p id="add-members-contents">Thêm giáo viên <i class="icon-plus"></i></p></a>
                         </div>
-                        <ul>
+                        <ul class="none-display">
                             <li>
                                 <div class="teacher-block">
                                     <img style="float: left" class="ava" src="http://localhost:7070/bluebee.com/themes/classic/assets/img/demo/blog-1.jpg" />
