@@ -179,7 +179,7 @@
                     <div class="full-width">
                         <div class="view effect">  
                             <img class="round_ava" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg"/>
-                            <div class="content">
+                            <div class="content-1">
                                 <?php $this->renderPartial('changeCover') ?>
                             </div>
                         </div>
@@ -562,7 +562,7 @@
                             <a id="add-members" style="float: right" href="javascript:void(0)"><p id="add-members-contents">Thêm thành viên <i class="icon-plus"></i></p></a>
                         </div>
                         <div id="alert-invite" style="display: none; position: absolute; overflow: visible; z-index: 2"></div>
-    <?php $this->renderPartial('inviteform', array('classid' => $class->class_id)) ?>
+                        <?php $this->renderPartial('inviteform', array('classid' => $class->class_id)) ?>
                         <div class="g-hr none-display" style="clear: both">
                             <span class="g-hr-h">
                                 <i class="icon-user"></i>
