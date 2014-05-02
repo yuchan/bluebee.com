@@ -84,7 +84,6 @@
                                     <option value="5">5</option>
                                 </select>
                             </div>
-                            <button class="g-btn type_outline size_small"><span>Chọn giáo viên</span></button>
                         </div>
                         <div class="leftAlignedImage">
                             <div class="coverWrapper">
@@ -119,7 +118,6 @@
                                     <option value="5">5</option>
                                 </select>
                             </div>
-                            <button class="g-btn type_outline size_small"><span>Chọn giáo viên</span></button>
                         </div>
                         <div class="leftAlignedImage">
                             <div class="coverWrapper">
@@ -154,7 +152,6 @@
                                     <option value="5">5</option>
                                 </select>
                             </div>
-                            <button class="g-btn type_outline size_small"><span>Chọn giáo viên</span></button>
                         </div>
                         <div class="leftAlignedImage">
                             <div class="coverWrapper">
@@ -189,7 +186,6 @@
                                     <option value="5">5</option>
                                 </select>
                             </div>
-                            <button class="g-btn type_outline size_small"><span>Chọn giáo viên</span></button>
                         </div>
                         <div class="leftAlignedImage">
                             <div class="coverWrapper">
@@ -224,7 +220,6 @@
                                     <option value="5">5</option>
                                 </select>
                             </div>
-                            <button class="g-btn type_outline size_small"><span>Chọn giáo viên</span></button>
                         </div>
                     </div>
                 </div>
