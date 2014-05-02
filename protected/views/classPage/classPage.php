@@ -460,8 +460,8 @@
                                                     <div class="float_right search-input" style="margin-right: 20px; display: none"><input class="search-input-box" type="text" placeholder="gõ tên 1 giáo viên vào đây" style="height: 24px; background-color: white;"></div>
                                                 </div>
                                                 <div class="add-new-teacher" style="display: none">
-                                                    <h2>Không tìm thấy giáo viên</h2>
-                                                    <button class="g-btn type_primary" style="text-transform: none; font-weight: normal;"><i class="icon-plus"></i>Thêm giáo viên mới</button>
+                                                    <h2 style="text-align: center; margin-top: 40px;">Không tìm thấy giáo viên</h2>
+                                                    <button class="g-btn type_primary" style="text-transform: none; font-weight: normal; margin-left: 200px"><i class="icon-plus"></i>Thêm giáo viên mới</button>
                                                 </div>
                                                 <div class="current-list">
                                                     <div class="result-teacher clearfix" style="margin: 0px">
