@@ -415,7 +415,39 @@
 
                                             jQuery('.result-teacher').RemoveResult();
                                         });
-
+                                        $(function() {
+                                            var json = {
+                                                "people": {
+                                                    "person": [{
+                                                            "name": "Sơn Vũ",
+                                                            "id": "1"},
+                                                        {
+                                                            "name": "Sơn Vũ 2",
+                                                            "id": "2"},
+                                                        {
+                                                            "name": "Sơn Vũ 3",
+                                                            "id": "3"}]
+                                                }
+                                            };
+                                            $(".search-input-box").keyup(function() {
+                                                $('.add-new-teacher').hide();
+                                                var value = $(".search-input-box").val();
+                                                if (value.length != 0) {
+                                                    $('.suggest-teacher').hide();
+                                                    $.each(json.people.person, function(i, v) {
+                                                        if (v.name.search(new RegExp(value + "", "i")) != -1) {
+                                                            var id = "#" + v.id;
+                                                            $(id).show();
+                                                            return;
+                                                        } else {
+                                                            $('.add-new-teacher').show();
+                                                        }
+                                                    });
+                                                } else {
+                                                    $('.suggest-teacher').show();
+                                                }
+                                            });
+                                        });
                                     </script>
                                     <div class="w-tabs-section-content">
                                         <div class="w-tabs-section-content-h" style="padding-top: 10px">
@@ -425,7 +457,11 @@
                                                     <div class="float_right">
                                                         <a id="add-teacher"style="margin-top: 10px" href="javascript:void(0)"><p id="add-teacher-contents">Thêm giáo viên <i class="icon-plus"></i></p></a>
                                                     </div>
-                                                    <div class="float_right search-input" style="margin-right: 20px; display: none"><input type="text" placeholder="gõ tên 1 giáo viên vào đây" style="height: 24px; background-color: white;"></div>
+                                                    <div class="float_right search-input" style="margin-right: 20px; display: none"><input class="search-input-box" type="text" placeholder="gõ tên 1 giáo viên vào đây" style="height: 24px; background-color: white;"></div>
+                                                </div>
+                                                <div class="add-new-teacher" style="display: none">
+                                                    <h2>Không tìm thấy giáo viên</h2>
+                                                    <button class="g-btn type_primary" style="text-transform: none; font-weight: normal;"><i class="icon-plus"></i>Thêm giáo viên mới</button>
                                                 </div>
                                                 <div class="current-list">
                                                     <div class="result-teacher clearfix" style="margin: 0px">
@@ -452,12 +488,12 @@
                                                                     <option value="5" selected="selected">5</option>
                                                                 </select>
                                                             </div>
-                                                            <button class="g-btn type_primary size_small float_right" style="text-transform: none; font-weight: normal; width: 120px"><i class="icon-comment"></i>Ý kiến</button>
+                                                            <button class="g-btn type_primary size_small float_right none-display" style="text-transform: none; font-weight: normal; width: 120px"><i class="icon-comment"></i>Ý kiến</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="suggest-list">
-                                                    <div class="result-teacher clearfix" style="margin: 0px">
+                                                    <div class="suggest-teacher clearfix" style="margin: 0px" id="1">
                                                         <a class="search-avatar-view relative float-left" href="user" style="margin-top: 5px">
                                                             <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1;">
                                                         </a>
@@ -484,7 +520,7 @@
                                                             <button class="add-to-this-class g-btn type_primary size_small float_right" style="text-transform: none; font-weight: normal; width: 120px"><i class="icon-plus"></i>Thêm vào lớp</button>
                                                         </div>
                                                     </div>
-                                                    <div class="result-teacher clearfix" style="margin: 0px">
+                                                    <div class="suggest-teacher clearfix" style="margin: 0px" id="2">
                                                         <a class="search-avatar-view relative float-left" href="user" style="margin-top: 5px">
                                                             <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1;">
                                                         </a>
@@ -511,7 +547,7 @@
                                                             <button class="add-to-this-class g-btn type_primary size_small float_right" style="text-transform: none; font-weight: normal; width: 120px"><i class="icon-plus"></i>Thêm vào lớp</button>
                                                         </div>
                                                     </div>
-                                                    <div class="result-teacher clearfix" style="margin: 0px">
+                                                    <div class="suggest-teacher clearfix" style="margin: 0px" id="3">
                                                         <a class="search-avatar-view relative float-left" href="user" style="margin-top: 5px">
                                                             <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1;">
                                                         </a>

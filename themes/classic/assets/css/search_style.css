@@ -236,3 +236,12 @@ and open the template in the editor.
     display: none;
     margin-left: 0px !important;
 }
+
+.suggest-teacher {
+    width: 100%; 
+    position: relative;
+    border-bottom: 1px solid #d8d8d8;
+    height: 100px;
+    margin-bottom: 30px;
+    background-color: white;
+}
