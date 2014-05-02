@@ -381,12 +381,15 @@
                                                         $(this).delay(800).html('<p>Tổng số giáo viên được gợi ý: 3</p>').fadeIn(800)
                                                     });
                                                 } else {
+                                                    $('.add-new-teacher').hide();
                                                     $('.search-input').slideToggle();
                                                     $('.suggest-list').fadeOut(800);
                                                     $('.current-list').delay(800).fadeIn(800);
                                                     $('.suggest-info').fadeOut(800, function() {
                                                         $(this).delay(800).html('<p>Tổng số giáo viên: 1</p>').fadeIn(800)
                                                     });
+                                                    $(".search-input-box").val('');
+                                                    $('.suggest-teacher').show();
                                                 }
                                             });
                                         });
