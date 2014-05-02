@@ -81,10 +81,10 @@
                                 echo $user['user_cover'];
                             }
                             ?>"/>
-                            <div class="content">
+                            <div class="content-1">
                                 <?php $this->renderPartial('partial/changeCover') ?>
                             </div>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -97,7 +97,6 @@
                 });
             </script>
             <div class="g-cols">
-
                 <div class="two-thirds">
                     <div class="l-content">
                         <div class='g-cols'>
