@@ -416,7 +416,7 @@
                                         jQuery(document).ready(function() {
                                             "use strict";
 
-                                            jQuery('.result-teacher').RemoveResult();
+                                            jQuery('.suggest-teacher').RemoveResult();
                                         });
                                         $(function() {
                                             var json = {
