@@ -236,6 +236,32 @@ img.float_left{
     left: 0;
 }
 
+.view1 {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    display: inline-block;
+    overflow: hidden;
+    padding: 5px;
+    float:left;
+    margin-right: 10px;
+}
+
+.view1 img{
+    width: 120px;
+    height: 120px;
+}
+
+.view1 .content-2 {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    overflow: hidden;
+    padding: 55px 20%;
+    top: 0;
+    left: 0;
+}
+
 .effect img {
     opacity:1;
     transition: all 0.2s ease-in;
@@ -297,8 +323,51 @@ form.file_upload:before {
 
 form.file_upload input {
     position: relative;
-    height: 30px;
+    height: 20px;
     width: 150px;
+    display: inline;
+    cursor: pointer;
+    opacity: 0;
+}
+
+div.custom_file_upload1 {
+    width: 70px;
+    height: 20px;
+}
+
+form.file_upload1 {
+    width: 70px;
+    height: 20px;
+    background: #7abcff;
+    background: -moz-linear-gradient(top,  #7abcff 0%, #60abf8 44%, #4096ee 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7abcff), color-stop(44%,#60abf8), color-stop(100%,#4096ee));
+    background: -webkit-linear-gradient(top,  #7abcff 0%,#60abf8 44%,#4096ee 100%);
+    background: -o-linear-gradient(top,  #7abcff 0%,#60abf8 44%,#4096ee 100%);
+    background: -ms-linear-gradient(top,  #7abcff 0%,#60abf8 44%,#4096ee 100%);
+    background: linear-gradient(top,  #7abcff 0%,#60abf8 44%,#4096ee 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7abcff', endColorstr='#4096ee',GradientType=0 );
+
+    display: inline;
+    position: absolute;
+    overflow: hidden;
+    cursor: pointer;
+
+    font-weight: bold;
+    color: #FFF;
+    text-align: center;
+}
+form.file_upload1:before {
+    content: 'chọn ảnh';
+    position: absolute;
+    left: 0; right: 0;
+    text-align: center;
+    cursor: pointer;
+}
+
+form.file_upload1 input {
+    position: relative;
+    height: 20px;
+    width: 70px;
     display: inline;
     cursor: pointer;
     opacity: 0;

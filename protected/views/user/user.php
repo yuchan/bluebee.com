@@ -101,14 +101,23 @@
                     <div class="l-content">
                         <div class='g-cols'>
                             <div class='full-width'>
-                                <a href=""><img class="circular float_left" src="<?php
+                                <div class="view1 effect ">
+                                    <img class="circular " src="<?php
                                     if (Yii::app()->session['user_avatar'] == "") {
                                         echo Yii::app()->theme->baseUrl, "/assets/img/logo.jpg";
                                     } else {
 
                                         echo Yii::app()->session['user_avatar'];
                                     }
-                                    ?>"/></a>
+                                    ?>"/>
+                                    <div class="content-2">
+                                        <div class="custom_file_upload1 info">
+                                            <form class=" file_upload1">  
+                                                <input type="file" id="file_upload1" name="file_upload" class="">
+                                            </form>  
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="rounded">
                                     <b>Trích dẫn ưa thích:</b> <?php echo $user['user_qoutes'] ?>
                                     <br/>
