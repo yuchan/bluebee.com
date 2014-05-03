@@ -405,7 +405,10 @@
                                                     if (close) {
                                                         close.click(function() {
                                                             result.animate({height: '0', margin: 0}, 400, function() {
-                                                                result.css('display', 'none');
+                                                                var id = result.attr('id');
+                                                                result.css('display','none');
+                                                                alert(id);
+                                                                result.remove();
                                                             });
                                                         });
                                                     }
