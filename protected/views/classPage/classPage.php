@@ -370,6 +370,19 @@
                                         <span class="w-tabs-section-title-control"></span>
                                     </div>
                                     <script>
+                                        var json = {
+                                            "people": {
+                                                "person": [{
+                                                        "name": "Sơn Vũ",
+                                                        "id": "1"},
+                                                    {
+                                                        "name": "Sơn Vũ 2",
+                                                        "id": "2"},
+                                                    {
+                                                        "name": "Sơn Vũ 3",
+                                                        "id": "3"}]
+                                            }
+                                        };
                                         $(document).ready(function() {
                                             $('a#add-teacher').click(function() {
                                                 var hide = $('.current-list').css('display');
@@ -406,7 +419,7 @@
                                                         close.click(function() {
                                                             result.animate({height: '0', margin: 0}, 400, function() {
                                                                 var id = result.attr('id');
-                                                                result.css('display','none');
+                                                                result.css('display', 'none');
                                                                 alert(id);
                                                                 result.remove();
                                                             });
@@ -422,20 +435,9 @@
                                             jQuery('.suggest-teacher').RemoveResult();
                                         });
                                         $(function() {
-                                            var json = {
-                                                "people": {
-                                                    "person": [{
-                                                            "name": "Sơn Vũ",
-                                                            "id": "1"},
-                                                        {
-                                                            "name": "Sơn Vũ 2",
-                                                            "id": "2"},
-                                                        {
-                                                            "name": "Sơn Vũ 3",
-                                                            "id": "3"}]
-                                                }
-                                            };
+
                                             $(".search-input-box").keyup(function() {
+                                                var num_display = 0;
                                                 $('.add-new-teacher').hide();
                                                 var value = $(".search-input-box").val();
                                                 if (value.length != 0) {
@@ -444,11 +446,13 @@
                                                         if (v.name.search(new RegExp(value + "", "i")) != -1) {
                                                             var id = "#" + v.id;
                                                             $(id).show();
+                                                            num_display++;
                                                             return;
-                                                        } else {
-                                                            $('.add-new-teacher').show();
                                                         }
                                                     });
+                                                    if (num_display == 0) {
+                                                        $('.add-new-teacher').show();
+                                                    }
                                                 } else {
                                                     $('.suggest-teacher').show();
                                                 }
