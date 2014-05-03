@@ -450,10 +450,12 @@
                                                             return;
                                                         }
                                                     });
+                                                    $('.suggest-info').html('<p>Tổng số giáo viên được gợi ý: '+num_display+'</p>');
                                                     if (num_display == 0) {
                                                         $('.add-new-teacher').show();
                                                     }
                                                 } else {
+                                                    $('.suggest-info').html('<p>Tổng số giáo viên được gợi ý: '+json.people.person.length+'</p>');
                                                     $('.suggest-teacher').show();
                                                 }
                                             });
