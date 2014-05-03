@@ -388,21 +388,23 @@
                                                 var hide = $('.current-list').css('display');
                                                 if (hide != 'none') {
                                                     $('.search-input').slideToggle();
-                                                    $('.current-list').fadeOut(800);
+                                                    $('.current-list').fadeOut('fast');
                                                     $('.suggest-list').delay(800).fadeIn(800);
                                                     $('.suggest-info').fadeOut(800, function() {
                                                         $(this).delay(800).html('<p>Tổng số giáo viên được gợi ý: ' + json.people.person.length + '</p>').fadeIn(800)
                                                     });
+                                                    $('a#add-teacher').html('<p id="add-teacher-contents">Thêm giáo viên <span style="font-size: 20px"> ✕ </span></p>');
                                                 } else {
                                                     $('.add-new-teacher').hide();
                                                     $('.search-input').slideToggle();
-                                                    $('.suggest-list').fadeOut(800);
+                                                    $('.suggest-list').fadeOut('fast');
                                                     $('.current-list').delay(800).fadeIn(800);
-                                                    $('.suggest-info').fadeOut(800, function() {
+                                                    $('.suggest-info').fadeOut('fast', function() {
                                                         $(this).delay(800).html('<p>Tổng số giáo viên: 1</p>').fadeIn(800)
                                                     });
                                                     $(".search-input-box").val('');
                                                     $('.suggest-teacher').show();
+                                                    $('a#add-teacher').html('<p id="add-teacher-contents">Thêm giáo viên <i class="icon-plus"></i></p>');
                                                 }
                                             });
                                         });
@@ -477,7 +479,7 @@
                                                 <div class="navigation-teacher-tab clearfix">
                                                     <div class="float-left suggest-info"><p>Tổng số giáo viên: 1</p></div>
                                                     <div class="float_right">
-                                                        <a id="add-teacher"style="margin-top: 10px" href="javascript:void(0)"><p id="add-teacher-contents">Thêm giáo viên <i class="icon-plus"></i></p></a>
+                                                        <a id="add-teacher" style="margin-top: 10px" href="javascript:void(0)"><p id="add-teacher-contents">Thêm giáo viên <i class="icon-plus"></i></p></a>
                                                     </div>
                                                     <div class="float_right search-input" style="margin-right: 20px; display: none"><input class="search-input-box" type="text" placeholder="gõ tên 1 giáo viên vào đây" style="height: 24px; background-color: white;"></div>
                                                 </div>
