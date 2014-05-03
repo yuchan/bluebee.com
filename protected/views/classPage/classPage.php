@@ -391,7 +391,7 @@
                                                     $('.current-list').fadeOut(800);
                                                     $('.suggest-list').delay(800).fadeIn(800);
                                                     $('.suggest-info').fadeOut(800, function() {
-                                                        $(this).delay(800).html('<p>Tổng số giáo viên được gợi ý: 3</p>').fadeIn(800)
+                                                        $(this).delay(800).html('<p>Tổng số giáo viên được gợi ý: ' + json.people.person.length + '</p>').fadeIn(800)
                                                     });
                                                 } else {
                                                     $('.add-new-teacher').hide();
@@ -410,18 +410,25 @@
                                             "use strict";
 
                                             $.fn.RemoveResult = function() {
+                                                Array.prototype.removeValue = function(name, value) {
+                                                    var array = $.map(this, function(v, i) {
+                                                        return v[name] === value ? null : v;
+                                                    });
+                                                    this.length = 0; //clear original array
+                                                    this.push.apply(this, array); //push all elements except the one we want to delete
+                                                }
 
                                                 return this.each(function() {
                                                     var result = $(this),
                                                             close = result.find('.add-to-this-class');
-
                                                     if (close) {
                                                         close.click(function() {
                                                             result.animate({height: '0', margin: 0}, 400, function() {
                                                                 var id = result.attr('id');
                                                                 result.css('display', 'none');
-                                                                alert(id);
                                                                 result.remove();
+                                                                json.people.person.removeValue('id',id);
+                                                                search_teacher();
                                                             });
                                                         });
                                                     }
@@ -434,30 +441,33 @@
 
                                             jQuery('.suggest-teacher').RemoveResult();
                                         });
+                                        function search_teacher() {
+                                            var num_display = 0;
+                                            $('.add-new-teacher').hide();
+                                            var value = $(".search-input-box").val();
+                                            if (value.length != 0) {
+                                                $('.suggest-teacher').hide();
+                                                $.each(json.people.person, function(i, v) {
+                                                    if (v.name.search(new RegExp(value + "", "i")) != -1) {
+                                                        var id = "#" + v.id;
+                                                        $(id).show();
+                                                        num_display++;
+                                                        return;
+                                                    }
+                                                });
+                                                $('.suggest-info').html('<p>Tổng số giáo viên được gợi ý: ' + num_display + '</p>');
+                                                if (num_display == 0) {
+                                                    $('.add-new-teacher').show();
+                                                }
+                                            } else {
+                                                $('.suggest-info').html('<p>Tổng số giáo viên được gợi ý: ' + json.people.person.length + '</p>');
+                                                $('.suggest-teacher').show();
+                                            }
+                                        }
                                         $(function() {
 
                                             $(".search-input-box").keyup(function() {
-                                                var num_display = 0;
-                                                $('.add-new-teacher').hide();
-                                                var value = $(".search-input-box").val();
-                                                if (value.length != 0) {
-                                                    $('.suggest-teacher').hide();
-                                                    $.each(json.people.person, function(i, v) {
-                                                        if (v.name.search(new RegExp(value + "", "i")) != -1) {
-                                                            var id = "#" + v.id;
-                                                            $(id).show();
-                                                            num_display++;
-                                                            return;
-                                                        }
-                                                    });
-                                                    $('.suggest-info').html('<p>Tổng số giáo viên được gợi ý: '+num_display+'</p>');
-                                                    if (num_display == 0) {
-                                                        $('.add-new-teacher').show();
-                                                    }
-                                                } else {
-                                                    $('.suggest-info').html('<p>Tổng số giáo viên được gợi ý: '+json.people.person.length+'</p>');
-                                                    $('.suggest-teacher').show();
-                                                }
+                                                search_teacher();
                                             });
                                         });
                                     </script>
