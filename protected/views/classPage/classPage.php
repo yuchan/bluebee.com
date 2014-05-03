@@ -391,7 +391,8 @@
                                                     $('.current-list').fadeOut('fast');
                                                     $('.suggest-list').delay(800).fadeIn(800);
                                                     $('.suggest-info').fadeOut(800, function() {
-                                                        $(this).delay(800).html('<p>Tổng số giáo viên được gợi ý: ' + json.people.person.length + '</p>').fadeIn(800)
+                                                        search_teacher();
+                                                        $(this).html('<p>Tổng số giáo viên được gợi ý: ' + json.people.person.length + '</p>').fadeIn(800)
                                                     });
                                                     $('a#add-teacher').html('<p id="add-teacher-contents">Thêm giáo viên <span style="font-size: 20px"> ✕ </span></p>');
                                                 } else {
@@ -429,7 +430,7 @@
                                                                 var id = result.attr('id');
                                                                 result.css('display', 'none');
                                                                 result.remove();
-                                                                json.people.person.removeValue('id',id);
+                                                                json.people.person.removeValue('id', id);
                                                                 search_teacher();
                                                             });
                                                         });
@@ -458,16 +459,18 @@
                                                     }
                                                 });
                                                 $('.suggest-info').html('<p>Tổng số giáo viên được gợi ý: ' + num_display + '</p>');
-                                                if (num_display == 0) {
+                                                if (num_display == 0 || json.people.person.length == 0) {
                                                     $('.add-new-teacher').show();
                                                 }
                                             } else {
                                                 $('.suggest-info').html('<p>Tổng số giáo viên được gợi ý: ' + json.people.person.length + '</p>');
                                                 $('.suggest-teacher').show();
                                             }
+                                            if (json.people.person.length == 0) {
+                                                $('.add-new-teacher').show();
+                                            }
                                         }
                                         $(function() {
-
                                             $(".search-input-box").keyup(function() {
                                                 search_teacher();
                                             });
