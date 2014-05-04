@@ -115,7 +115,7 @@ class ClassPageController extends BaseController {
             $userCriteria->select = "*";
             $userCriteria->condition = "class_id = " . $_GET["classid"];
             $user = ClassUser::model()->findAll($userCriteria);
-            
+
             $postCriteria = new CDbCriteria();
             $postCriteria->select = "*";
             $postCriteria->order = "post_id DESC";
@@ -329,36 +329,45 @@ class ClassPageController extends BaseController {
                 $this->retVal->message = $e->getMessage();
             }
         }
-        
+
         echo CJSON::encode($this->retVal);
         Yii::app()->end();
     }
 
-//    public function actionMakePost() {
-//
-//        $this->retVal = new stdClass();
-//        $request = Yii::app()->request;
-//        if ($request->isPostRequest && isset($_POST)) {
-//            try {
-//                $loginFormData = array(
-//                    'post_content' => $_POST['post_content'],
-//                );
-//                $post_model = new Post;
-//                $post_model->post_content = $loginFormData['post_content'];
-//                $post_model->save(FALSE);
-//                if ($post_model->save(FALSE)) {
-//                    $this->retVal->success = TRUE;
-//                } else {
-//                    $this->retVal->success = FALSE;
-//                }
-//            } catch (exception $e) {
-//                // $this->retVal->message = $e->getMessage();
-//            }
-//        }
-//        $this->retVal->message = $loginFormData['post_content'];
-//        echo CJSON::encode($this->retVal);
-//        Yii::app()->end();
-//    }
+    public function actionCreateComment() {
+        $this->retVal = new stdClass();
+        $request = Yii::app()->request;
+        if ($request->isPostRequest && isset($_POST)) {
+            if (isset($_GET)) {
+                try {
+                    $comment = array('comment_content' => $_POST['comment_content'],
+                        'comment_class_id' => $_GET['class_id'],
+                        'comment_post_id' => $_GET['post_id']);
+                    $comment_model = new Comment();
+                    $comment_model->comment_content = $comment['comment_content'];
+                    $comment_model->comment_class_id = $comment['comment_class_id'];
+                    $comment_model->comment_post_id = $comment['comment_post_id'];
+
+                    $comment_model->save(FALSE);
+
+                    if ($comment_model->save(FALSE)) {
+                        $this->retVal->comment_content = $comment['comment_content'];
+                        $this->retVal->comment_class_id = $comment['comment_class_id'];
+                        $this->retVal->comment_post_id = $comment['comment_post_id'];
+                        $this->retVal->success = TRUE;
+                    } else {
+                        $this->retVal->message = 'Bình luận xảy ra lỗi. Vui lòng bình luận lại cho bài đăng.';
+                        $this->retVal->success = FALSE;
+                    }
+                } catch (Exception $e) {
+                    $this->retVal->message = $e->getMessage();
+                }
+            }
+        }
+        echo CJSON::encode($this->retVal);
+        Yii::app()->end();
+    }
+
     // Uncomment the following methods and override them if needed
     /*
       public function filters()

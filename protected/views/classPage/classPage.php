@@ -107,25 +107,6 @@
                                 '</div>' +
                                 '</div>' +
                                 '</div>' +
-                                '<div class="item-comment">' +
-                                '<a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">' +
-                                '<img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/JoshMax.png" style="opacity: 1;">' +
-                                '</a>' +
-                                '<div class="comment-content">' +
-                                '<div  class="fix-style-profile profile clearfix">' +
-                                '<a style="float: left" href="/glang">' +
-                                '<span data-paths="profile.firstName profile.lastName" id="el-105">Josh Max</span>' +
-                                '</a>' +
-                                '<p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>' +
-                                '<a class="fix-vote-button"><i class="icon-chevron-right"></i></a>' +
-                                '<p style="float: right"><strong>&nbsp; 2 &nbsp;</strong></p>' +
-                                '<a class="fix-vote-button"><i class="icon-chevron-left"></i></a>' +
-                                '</div>' +
-                                '<div class="comment-body-container">' +
-                                '<p data-paths="body" id="el-1140">I never ask "is this possible?" pertaining to web development. I ask "how long will this take me and is it worth the end result?" Then I start, get stuck somewhere and ask one of the guys on SO for advice, and they ask "is this even possible?" for me ;)</p>' +
-                                '</div>' +
-                                '</div>' +
-                                '</div>' +
                                 '<button class=" g-btn type_primary size_small more-comment button-in-activity-box" id="more-comment"><span>Xem thêm 4 bình luận nữa</span></button>' +
                                 '</div>' +
                                 '</div>' +
@@ -169,6 +150,66 @@
         function valid(o, w) {
             o.value = o.value.replace(r[w], '');
         }
+    </script>
+
+    <script type="text/javascript">
+    //        function pressed(e, element) {
+    //            if ( (window.event ? event.keyCode : e.which) === 13) { 
+    //                // If it has been so, manually submit the <form>
+    //                element.parents(".comment-form").submit();
+    //            }
+    //        }
+        $(document).ready(function() {
+            var opencmt = $('.opencmt');
+            var hide_state = opencmt.next().css('display');
+            $('.comment-input-content').keypress(function(e) {
+
+                if (e.which === 13) {
+                    var form = $(this).parents(".comment-form");
+                    var id = form.attr("id");
+
+                    //e.preventDefault();
+
+                    var data = form.serialize();
+                    $.ajax({
+                        type: "POST",
+                        url: form.attr('action'),
+                        data: data,
+                        success: function(data) {
+                            var json = data;
+                            var result = $.parseJSON(json);
+                            if(result.success === true){
+                            var item = $('<div class="item-comment">' +
+                                    '<a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">' +
+                                    '<img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/sancak.png" style="opacity: 1;">' +
+                                    '</a>' +
+                                    '<div class="comment-content">' +
+                                    '<div  class="fix-style-profile profile clearfix">' +
+                                    '<a style="float: left" href="/glang">' +
+                                    '<span data-paths="profile.firstName profile.lastName" id="el-105">sancak</span>' +
+                                    '</a>' +
+                                    '<p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>' +
+                                    '<a class="fix-vote-button"><i class="icon-chevron-right"></i></a>' +
+                                    '<p style="float: right"><strong>&nbsp; 2 &nbsp;</strong></p>' +
+                                    '<a class="fix-vote-button"><i class="icon-chevron-left"></i></a>' +
+                                    '</div>' +
+                                    '<div class="comment-body-container">' +
+                                    '<p data-paths="body" id="el-1140">' + result.comment_content + '</p>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>').hide().fadeIn(800);
+                            form.siblings('.comment-container').append(item);
+                            $('.comment-form').reset();
+                            }else{
+                                alert(result.message);
+                            }
+                        }
+                    });
+                    return false;
+                }
+                ;
+            });
+        });
     </script>
     <form class="g-form white-popup-block mfp-hide" id="edit-infomation-class" action="" method="POST">
         <h3>Chỉnh Sửa Thông Tin</h3>
@@ -335,55 +376,20 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="item-comment">
-                                                                        <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
-                                                                            <img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/JoshMax.png" style="opacity: 1;">
-                                                                        </a>
-                                                                        <div class="comment-content">
-                                                                            <div  class="fix-style-profile profile clearfix">
-                                                                                <a style="float: left" href="/glang">
-                                                                                    <span data-paths="profile.firstName profile.lastName" id="el-105">Josh Max</span>
-                                                                                </a>
-                                                                                <p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>
-                                                                                <a class="fix-vote-button"><i class="icon-chevron-right"></i></a>
-                                                                                <p style="float: right"><strong>&nbsp; 2 &nbsp;</strong></p>
-                                                                                <a class="fix-vote-button"><i class="icon-chevron-left"></i></a>
-                                                                            </div>
-                                                                            <div class="comment-body-container">
-                                                                                <p data-paths="body" id="el-1140">I never ask "is this possible?" pertaining to web development. I ask "how long will this take me and is it worth the end result?" Then I start, get stuck somewhere and ask one of the guys on SO for advice, and they ask "is this even possible?" for me ;)</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="item-comment">
-                                                                        <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
-                                                                            <img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/trillobite.png" style="opacity: 1;">
-                                                                        </a>
-                                                                        <div class="comment-content">
-                                                                            <div  class="fix-style-profile profile clearfix">
-                                                                                <a style="float: left" href="/glang">
-                                                                                    <span data-paths="profile.firstName profile.lastName" id="el-105">trillobite</span>
-                                                                                </a>
-                                                                                <p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>
-                                                                                <a class="fix-vote-button"><i class="icon-chevron-right"></i></a>
-                                                                                <p style="float: right"><strong>&nbsp; 2 &nbsp;</strong></p>
-                                                                                <a class="fix-vote-button"><i class="icon-chevron-left"></i></a>
-                                                                            </div>
-                                                                            <div class="comment-body-container">
-                                                                                <p data-paths="body" id="el-1140">Is it possible that the core of the moon could just be peanut butter? I mean, think about it, it weighs less than it should if it's supposed to contain matter from earth from a horrific meteor strike, and peanut butter probably weighs less than iron/rock. How awesome would that be, aliens come to earth, and we explain to them that world hunger vanished after we discovered the moon, and the info came public :P Then North Korea got pissed off and blew up the moon, cause it made no sense, and now there is peanut butter all over the earth..Show more.... the end.</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+
                                                                     <button class=" g-btn type_primary size_small more-comment button-in-activity-box" id="more-comment"><span>Xem thêm 4 bình luận nữa</span></button>
                                                                 </div>
                                                             </div>
-                                                            <div class="item-add-comment-box">
-                                                                <a class="avatar-view fix-avatar-view" href="user">
-                                                                    <img class="" width="35" height="35" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
-                                                                </a>
-                                                                <div class="comment-input-box">
-                                                                    <div contenteditable="true" class="comment-input-content" data-placeholder="Bình luận?"></div>
+                                                            <form class="comment-form" id="comment-form<?php echo $post->post_id ?>" action ="<?php echo Yii::app()->createUrl('classpage/createComment?class_id=' . $class->class_id . '&post_id=' . $post->post_id) ?>" method="post">
+                                                                <div class="item-add-comment-box">
+                                                                    <a class="avatar-view fix-avatar-view" href="user">
+                                                                        <img class="" width="35" height="35" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
+                                                                    </a>
+                                                                    <div class="comment-input-box">
+                                                                        <textarea contenteditable="true" class="comment-input-content" id="text_comment" name="comment_content" data-placeholder="Bình luận?"></textarea>                                     
+                                                                    </div>
                                                                 </div>
-                                                            </div>
+                                                            </form>
                                                         </div>
                                                     <?php endforeach; ?>
                                                 </div>
