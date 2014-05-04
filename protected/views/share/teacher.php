@@ -4,8 +4,17 @@
             <div class="g-cols">
                 <div class="one-third">
                     <img class="rectan" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg"/>
+                    <div class="input select rating-f read-only">
+                        <select class="teacher-block-rating-outside" name="rating" style="display: none; float: right">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
                     <a href=""><button class="g-btn type_outline size_small"><span>Thêm vào nhóm/lớp</span></button></a>
-                    
+
                     <div class="rounded1 color_alternate" style="margin-top: 50px">
                         <h6>Lớp giáo viên đang dạy</h6>
                     </div>
@@ -177,28 +186,6 @@
                                                     </div>
                                                 </div>
                                                 </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="w-tabs-section with_icon">
-                                        <div class="w-tabs-section-title">
-                                            <span class="w-tabs-section-title-icon icon-male"></span>
-                                            <span class="w-tabs-section-title-text">Rate</span>
-                                            <span class="w-tabs-section-title-control"><i class="icon-angle-down"></i></span>
-                                        </div>
-                                        <div class="w-tabs-section-content">
-                                            <div class="w-tabs-section-content-h">
-                                                <div class="input select rating-f">
-                                                    <label for="example-f">Đánh giá:</label>
-                                                    <select id="example-f" name="rating">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                    </select>
-
-                                                </div>
                                             </div>
                                         </div>
                                     </div>

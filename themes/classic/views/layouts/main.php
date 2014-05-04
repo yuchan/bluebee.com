@@ -29,7 +29,8 @@
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/token-input-facebook.css" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/token-input-mac.css" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/component.css" />
-
+        <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/post_style.css">
+        <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/search_style.css">
 
         <!-- javascript -->
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery-1.9.1.js"></script>
@@ -216,6 +217,15 @@
                                             </div>
                                             <div class="w-nav-item level_1">
                                                 <div class="w-nav-item-h">
+                                                    <a href="<?php echo Yii::app()->createUrl("share/teacherListPage") ?>" class="w-nav-anchor level_1">
+                                                        <span class="w-nav-icon"><i class="icon-star"></i></span>
+                                                        <span class="w-nav-title">Giáo viên</span>
+                                                        <span class="w-nav-hint"></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="w-nav-item level_1">
+                                                <div class="w-nav-item-h">
 <!--                                                    <a href="<?php echo Yii::app()->createUrl("document") ?>" class="w-nav-anchor level_1">
                                                         <span class="w-nav-icon"><i class="icon-star"></i></span>
                                                         <span class="w-nav-title">Tài liệu</span>
@@ -327,7 +337,8 @@
             <!-- subfooter: bottom -->
             <div class="l-subfooter at_bottom">
                 <div class="l-subfooter-h i-cf">
-                    <div class="w-copyright">© 2014 All rights reserved. <a href='#'>BlueBee Team - K57CA - UET</a></div>
+                    <div class="w-copyright">© 2014 All rights reserved. <a href='bluebee-uet.com'>BlueBee Team - K57CA - UET</a></div>
+
                     <!-- NAV -->
                     <nav class="w-nav">
                         <div class="w-nav-h">
@@ -369,8 +380,22 @@
     <!-- /FOOTER -->
 
     <a class="w-toplink" href="#"><i class="icon-angle-up" style="line-height: inherit"></i></a>
-
     <script>
+        $(document).ready(function () {
+            $('.comment-container').hide();
+            $('.opencmt').click(function(event) {
+                var current = $(this);
+                var hide = current.next().css('display');
+                if (hide == 'none') {
+                    $(this).html('<i class="icon-chevron-up"></i><span>&nbsp;Đóng</span>');
+                    current.next().slideDown('slow', function() {
+                    });
+                } else {
+                    $(this).html('<i class="icon-chevron-down"></i><span>&nbsp;Xem thêm</span>');
+                    current.next().slideUp();
+                }
+            });
+        });
         window.color_scheme = "color_11";
         window.body_layout = "wide";
     </script>

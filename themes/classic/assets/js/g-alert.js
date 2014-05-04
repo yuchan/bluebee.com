@@ -1,20 +1,25 @@
-(function(e) {
+(function($) {
     "use strict";
-    e.fn.gAlert = function() {
+
+    $.fn.gAlert = function() {
+
         return this.each(function() {
-            var t = e(this),
-                n = t.find(".g-alert-close");
-            n && n.click(function() {
-                t.animate({
-                    height: "0",
-                    margin: 0
-                }, 400, function() {
-                    t.css("display", "none")
-                })
-            })
-        })
-    }
-})(jQuery), jQuery(document).ready(function() {
+            var alert = $(this),
+                    alertClose = alert.find('.g-alert-close');
+
+            if (alertClose) {
+                alertClose.click(function() {
+                    alert.animate({height: '0', margin: 0}, 400, function() {
+                        alert.css('display', 'none');
+                    });
+                });
+            }
+        });
+    };
+})(jQuery);
+
+jQuery(document).ready(function() {
     "use strict";
-    jQuery(".g-alert").gAlert()
+
+    jQuery('.g-alert').gAlert();
 });

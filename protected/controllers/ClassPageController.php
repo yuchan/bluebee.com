@@ -12,6 +12,7 @@ class ClassPageController extends BaseController {
 //            $this->redirect('welcomePage');
 //    }
 
+
     public function actionIndex() {
 //        if (Yii::app()->session['token'] == "")
 //           $this->redirect('welcomePage');
@@ -119,6 +120,7 @@ class ClassPageController extends BaseController {
             $postCriteria = new CDbCriteria();
             $postCriteria->select = "*";
             $postCriteria->order = "post_id DESC";
+            $postCriteria->condition = "post_class =" . $_GET["classid"];
             $post = Post::model()->findAll($postCriteria);
 //            if ($user) {
 //
@@ -312,11 +314,17 @@ class ClassPageController extends BaseController {
     public function actionCreatePost() {
         $this->retVal = new stdClass();
         $request = Yii::app()->request;
+
         if ($request->isPostRequest && isset($_POST)) {
             try {
                 $post = array('post_content' => $_POST['post_content']);
                 $model = new Post;
-                $model->post_content = $post['post_content'];
+                $model->post_active = 1;
+                $model->post_author = Yii::app()->session['user_id'];
+                $model->post_date = \date('d/m/Y H:i');
+                $model->post_type = 'class_post';
+                $model->post_content = strip_tags($post['post_content']);
+                $model->post_class = $_POST['class_id_post'];
                 $model->save(FALSE);
                 if ($model->save(FALSE)) {
                     $this->retVal->message = $_POST['post_content'];
@@ -364,6 +372,30 @@ class ClassPageController extends BaseController {
                 }
             }
         }
+    }
+    public function actionChangeCover() {
+        $this->retVal = new stdClass();
+        $relativePath = '\\images\\class_cover\\' . Yii::app()->request->getPost('class_id_cover') . '\\';
+        $dir = "images\\class_cover\\" . Yii::app()->request->getPost('class_id_cover');
+        @mkdir(Yii::getPathOfAlias('webroot') . '\\' . $dir, 0777, true);
+        $image = "";
+        if (isset($_FILES["file_upload_cover"]["name"])) {
+            if ((($_FILES["file_upload_cover"]["type"] == "image/jpeg") || ($_FILES["file_upload_cover"]["type"] == "image/jpg") || ($_FILES["file_upload_cover"]["type"] == "image/pjpeg") || ($_FILES["file_upload_cover"]["type"] == "image/x-png") || ($_FILES["file_upload_cover"]["type"] == "image/png"))
+            ) {
+                if ($_FILES["file_upload_cover"]["error"] > 0) {
+                    $arr->message = "Return Code: " . $_FILES["file_upload_cover"]["error"];
+                }
+                $tempFile = $_FILES["file_upload_cover"]["tmp_name"];          //3             
+                $targetPath = Yii::getPathOfAlias('webroot') . '\\' . $dir . "\\";  //4
+                $targetFile = $targetPath . $_FILES["file_upload_cover"]["name"];  //5
+                move_uploaded_file($tempFile, $targetFile); //6
+                $image = $relativePath . $_FILES["file_upload_cover"]["name"];
+            }
+        }
+        $this->retVal->message = $image;
+        $class_cover = class_model::model()->findByAttributes(array('class_id' => Yii::app()->request->getPost('class_id_cover')));
+        $class_cover->class_cover = $image;
+        $class_cover->save(FALSE);
         echo CJSON::encode($this->retVal);
         Yii::app()->end();
     }

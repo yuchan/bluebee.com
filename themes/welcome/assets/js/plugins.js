@@ -1,4 +1,7 @@
 jQuery(document).ready(function() {
+    $('div.alert').click(function() {
+            $('.alert').slideUp();
+        });
     "use strict";
     jQuery(".w-nav-list.layout_hor.level_1").navToSelect({
         select: ".w-nav-select-h",

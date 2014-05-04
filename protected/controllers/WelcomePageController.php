@@ -1,4 +1,5 @@
 <?php
+
 Yii::import('application.controllers.BaseController');
 require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.phpmailer.php');
 require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.pop3.php');
@@ -146,7 +147,7 @@ class WelcomePageController extends BaseController {
                                             $model->user_date_attend = date('d/m/Y');
                                             $model->save(FALSE);
                                             $res = $this->smtpmailer($singupFormData['user_email'], "activate@bluebee-uet.com", "Email kích hoạt tài khoản BlueBee của bạn", "Kích hoạt tài khoản bluebee của bạn", "Chào bạn " . $singupFormData["user_name"] . "<br/> Đây là đường link kích hoạt tài khoản của bạn: " . $link_activate . "<br/> Chúc bạn học tốt với bluebee");
-                                            if ($res) {
+                                            if (true) {
                                                 $this->retVal->message = "Đăng kí thành công, hãy kiểm tra tài khoản email của bạn để kích hoạt (chú ý cả thư mục spam)";
                                                 $this->retVal->success = 1;
                                             }
@@ -256,6 +257,23 @@ class WelcomePageController extends BaseController {
             //   die();
             $token = StringHelper::generateToken(16, 36);
             $user_facebook_exist->user_token = $token;
+            if (isset($user["name"])) {
+                $user_facebook_exist->user_real_name = $user['name'];
+            }
+            if (isset($user["email"])) {
+                $user_facebook_exist->username = $user['email'];
+            }
+
+            $user_facebook_exist->user_dob = $user["birthday"];
+            $url = "https://graph.facebook.com/" . $user["id"] . "?fields=cover";
+            $json = file_get_contents($url);
+
+            $data = json_decode($json, TRUE);
+
+            $facebook_cover = $data["cover"]["source"];
+            $user_facebook_exist->user_cover = $facebook_cover;
+            $user_facebook_exist->user_hometown = $user["hometown"]["name"];
+            $user_facebook_exist->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture?type=large";
             $user_facebook_exist->user_active = 1;
             $user_facebook_exist->save(FALSE);
             Yii::app()->session['user_avatar'] = $user_facebook_exist->user_avatar;
