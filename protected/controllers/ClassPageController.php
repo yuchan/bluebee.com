@@ -120,7 +120,7 @@ class ClassPageController extends BaseController {
             $postCriteria = new CDbCriteria();
             $postCriteria->select = "*";
             $postCriteria->order = "post_id DESC";
-            //$postCriteria->condition = "post_class =" . $_GET["classid"];
+            $postCriteria->condition = "post_class =" . $_GET["classid"];
             $post = Post::model()->findAll($postCriteria);
 //            if ($user) {
 //
@@ -357,7 +357,7 @@ class ClassPageController extends BaseController {
                     $comment_model->comment_post_id = $comment['comment_post_id'];
 
                     $comment_model->save(FALSE);
-
+                    
                     if ($comment_model->save(FALSE)) {
                         $this->retVal->comment_content = $comment['comment_content'];
                         $this->retVal->comment_class_id = $comment['comment_class_id'];

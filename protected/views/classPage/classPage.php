@@ -131,6 +131,19 @@
 
                         $('#activity_content').prepend(item);
                         $('#loading').hide();
+                        $('.comment-container').hide();
+                        $('.opencmt').click(function(event) {
+                            var current = $(this);
+                            var hide = current.next().css('display');
+                            if (hide == 'none') {
+                                $(this).html('<span>Đóng</span>');
+                                current.next().slideDown('slow', function() {
+                                });
+                            } else {
+                                $(this).html('<span>Xem thêm</span>');
+                                current.next().slideUp();
+                            }
+                        });
                         $('#post_form').reset();
                     },
                     error: function(event) {
@@ -157,7 +170,6 @@
                 if (e.which === 13) {
                     var form = $(this).parents(".comment-form");
                     var id = form.attr("id");
-
                     var data = form.serialize();
                     $.ajax({
                         type: "POST",
@@ -408,8 +420,7 @@
                                                                         <img class="" width="35" height="35" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
                                                                     </a>
                                                                     <div class="comment-input-box">
-                                                                        <textarea contenteditable="true" class="comment-input-content" id="text_comment" name="comment_content" data-placeholder="Bình luận?"></textarea>                                     
-<!--                                                                        <div contenteditable="true" class="comment-input-content" data-placeholder="Bình luận?"></div>-->
+                                                                        <textarea contenteditable="true" class="comment-input-content" id="text_comment" name="comment_content" data-placeholder="Bình luận?"></textarea>                                
                                                                     </div>
                                                                 </div>
                                                             </form>
