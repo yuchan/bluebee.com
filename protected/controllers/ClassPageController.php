@@ -372,6 +372,8 @@ class ClassPageController extends BaseController {
                 }
             }
         }
+        echo CJSON::encode($this->retVal);
+        Yii::app()->end();
     }
     public function actionChangeCover() {
         $this->retVal = new stdClass();

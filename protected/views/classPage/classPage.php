@@ -199,6 +199,25 @@
                                     '</div>' +
                                     '</div>').hide().fadeIn(800);
                             form.siblings('.comment-container').append(item);
+     //show comment if comment is closing
+                            if(hide_state == "none"){
+                                $(this).html('<span>Đóng</span>');
+                                opencmt.next().slideDown('slow', function() {
+                                });
+                            };
+   //add function close comment after prepend new comment                         
+                            $('.opencmt').click(function(event) {
+                            var current = $(this);
+                            var hide = current.next().css('display');
+                            if (hide == 'none') {
+                                $(this).html('<span>Đóng</span>');
+                                current.next().slideDown('slow', function() {
+                                });
+                            } else {
+                                $(this).html('<span>Xem thêm</span>');
+                                current.next().slideUp();
+                            }
+                            });
                             $('.comment-form').reset();
                             }else{
                                 alert(result.message);
