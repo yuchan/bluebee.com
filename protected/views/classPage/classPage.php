@@ -141,7 +141,6 @@
             });
         });
     </script>
-<<<<<<< HEAD
 
     <script type="text/javascript">
     //        function pressed(e, element) {
@@ -158,8 +157,6 @@
                 if (e.which === 13) {
                     var form = $(this).parents(".comment-form");
                     var id = form.attr("id");
-
-                    //e.preventDefault();
 
                     var data = form.serialize();
                     $.ajax({
@@ -400,7 +397,6 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-<<<<<<< HEAD
                                                                     </div>
 
                                                                     <button class=" g-btn type_primary size_small more-comment button-in-activity-box" id="more-comment"><span>Xem thêm 4 bình luận nữa</span></button>

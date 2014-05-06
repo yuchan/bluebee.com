@@ -120,7 +120,7 @@ class ClassPageController extends BaseController {
             $postCriteria = new CDbCriteria();
             $postCriteria->select = "*";
             $postCriteria->order = "post_id DESC";
-            $postCriteria->condition = "post_class =" . $_GET["classid"];
+            //$postCriteria->condition = "post_class =" . $_GET["classid"];
             $post = Post::model()->findAll($postCriteria);
 //            if ($user) {
 //
