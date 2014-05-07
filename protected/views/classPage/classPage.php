@@ -163,8 +163,7 @@
     //            }
     //        }
         $(document).ready(function() {
-            var opencmt = $('.opencmt');
-            var hide_state = opencmt.next().css('display');
+            
             $('.comment-input-content').keypress(function(e) {
 
                 if (e.which === 13) {
@@ -175,51 +174,41 @@
                         type: "POST",
                         url: form.attr('action'),
                         data: data,
-                        success: function(data) {
+                        success: function(data) {                           
                             var json = data;
                             var result = $.parseJSON(json);
-                            if(result.success === true){
-                            var item = $('<div class="item-comment">' +
-                                    '<a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">' +
-                                    '<img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/sancak.png" style="opacity: 1;">' +
-                                    '</a>' +
-                                    '<div class="comment-content">' +
-                                    '<div  class="fix-style-profile profile clearfix">' +
-                                    '<a style="float: left" href="/glang">' +
-                                    '<span data-paths="profile.firstName profile.lastName" id="el-105">sancak</span>' +
-                                    '</a>' +
-                                    '<p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>' +
-                                    '<a class="fix-vote-button"><i class="icon-chevron-right"></i></a>' +
-                                    '<p style="float: right"><strong>&nbsp; 2 &nbsp;</strong></p>' +
-                                    '<a class="fix-vote-button"><i class="icon-chevron-left"></i></a>' +
-                                    '</div>' +
-                                    '<div class="comment-body-container">' +
-                                    '<p data-paths="body" id="el-1140">' + result.comment_content + '</p>' +
-                                    '</div>' +
-                                    '</div>' +
-                                    '</div>').hide().fadeIn(800);
-                            form.siblings('.comment-container').append(item);
-     //show comment if comment is closing
-                            if(hide_state == "none"){
-                                $(this).html('<span>Đóng</span>');
-                                opencmt.next().slideDown('slow', function() {
-                                });
-                            };
-   //add function close comment after prepend new comment                         
-                            $('.opencmt').click(function(event) {
-                            var current = $(this);
-                            var hide = current.next().css('display');
-                            if (hide == 'none') {
-                                $(this).html('<span>Đóng</span>');
-                                current.next().slideDown('slow', function() {
-                                });
+                            if (result.success) {
+                                var item = $('<div class="item-comment">' +
+                                        '<a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">' +
+                                        '<img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/sancak.png" style="opacity: 1;">' +
+                                        '</a>' +
+                                        '<div class="comment-content">' +
+                                        '<div  class="fix-style-profile profile clearfix">' +
+                                        '<a style="float: left" href="/glang">' +
+                                        '<span data-paths="profile.firstName profile.lastName" id="el-105">sancak</span>' +
+                                        '</a>' +
+                                        '<p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>' +
+                                        '<a class="fix-vote-button"><i class="icon-chevron-right"></i></a>' +
+                                        '<p style="float: right"><strong>&nbsp; 2 &nbsp;</strong></p>' +
+                                        '<a class="fix-vote-button"><i class="icon-chevron-left"></i></a>' +
+                                        '</div>' +
+                                        '<div class="comment-body-container">' +
+                                        '<p data-paths="body" id="el-1140">' + result.comment_content + '</p>' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '</div>').hide().fadeIn(800);
+                                $(".list-item-comment-wrapper-" + result.comment_post_id).append(item);
+                                document.getElementById("comment-form-" + result.comment_post_id).reset();
+    //show comment if comment is closing
+                                var opencmt = $('#opencmt-' + result.comment_post_id);
+                                var hide_state = opencmt.next().css('display');
+                                if (hide_state == "none") {
+                                    $(this).html('<span>Đóng</span>');
+                                    opencmt.next().slideDown('slow', function() {
+                                    });
+                                };
+    //add function close comment after prepend new comment                         
                             } else {
-                                $(this).html('<span>Xem thêm</span>');
-                                current.next().slideUp();
-                            }
-                            });
-                            $('.comment-form').reset();
-                            }else{
                                 alert(result.message);
                             }
                         }
@@ -316,7 +305,7 @@
                         <div class="view effect">  
                             <img class="round_ava" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg"/>
                             <div class="content-1">
-                                <?php $this->renderPartial('changeCover') ?>
+    <?php $this->renderPartial('changeCover') ?>
                             </div>
                         </div>
                     </div>
@@ -366,8 +355,9 @@
                                             </div>
                                             <div style="border-top: 1px solid #d8d8d8;">
                                                 <div> <img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax-loader.gif" alt="" style="" id="loading"></div>
-                                                <div class="activity-content" id="activity_content">
-                                                    <?php foreach ($post as $post): ?>
+                                                <div class="activity-content" id="activity_content">   
+    <?php foreach ($post as $post): ?>
+                                                    
                                                         <div style="margin-top: 20px; background-color: white">
                                                             <div class="activity-item">
                                                                 <a class="other-user-avatar" href="/glang">
@@ -406,9 +396,12 @@
                                                                     <a><i class="icon-thumbs-down"></i></a>
                                                                     <p style="color: #dadcdd">2&nbsp;</p>
                                                                 </div>
-                                                                <button class=" g-btn type_primary size_small opencmt button-in-activity-box" id="opencmt"><i class="icon-chevron-down"></i><span>&nbsp;Xem thêm</span></button>
+                                                                <button class=" g-btn type_primary size_small opencmt button-in-activity-box" id="opencmt-<?php echo $post->post_id ?>"><i class="icon-chevron-down"></i><span>&nbsp;Xem thêm</span></button>
                                                                 <div class="comment-container">
-                                                                    <div class="list-item-comment-wrapper">
+                                                                    <div class="list-item-comment-wrapper-<?php echo $post->post_id ?>">
+                                                                        <?php foreach ($comment_array as $comment): 
+                                                                                if($post->post_id == $comment->comment_post_id):
+                                                                        ?>
                                                                         <div class="item-comment">
                                                                             <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
                                                                                 <img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/sancak.png" style="opacity: 1;">
@@ -424,16 +417,18 @@
                                                                                     <a class="fix-vote-button"><i class="icon-chevron-left"></i></a>
                                                                                 </div>
                                                                                 <div class="comment-body-container">
-                                                                                    <p data-paths="body" id="el-1140">think it harder, make it possible! :)</p>
+                                                                                    <p data-paths="body" id="el-1140"><?php echo $comment->comment_content ?></p>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                        <?php endif; ?>
+                                                                        <?php endforeach; ?>
                                                                     </div>
 
                                                                     <button class=" g-btn type_primary size_small more-comment button-in-activity-box" id="more-comment"><span>Xem thêm 4 bình luận nữa</span></button>
                                                                 </div>
                                                             </div>
-                                                            <form class="comment-form" id="comment-form<?php echo $post->post_id ?>" action ="<?php echo Yii::app()->createUrl('classpage/createComment?class_id=' . $class->class_id . '&post_id=' . $post->post_id) ?>" method="post">
+                                                            <form class="comment-form" id="comment-form-<?php echo $post->post_id ?>" action ="<?php echo Yii::app()->createUrl('classpage/createComment?class_id=' . $class->class_id . '&post_id=' . $post->post_id) ?>" method="post">
                                                                 <div class="item-add-comment-box">
                                                                     <a class="avatar-view fix-avatar-view" href="user">
                                                                         <img class="" width="35" height="35" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
@@ -444,7 +439,8 @@
                                                                 </div>
                                                             </form>
                                                         </div>
-                                                    <?php endforeach; ?>
+    
+    <?php endforeach; ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -471,111 +467,111 @@
                                         <span class="w-tabs-section-title-control"></span>
                                     </div>
                                     <script>
-                                        var json = {
-                                            "people": {
-                                                "person": [{
-                                                        "name": "Sơn Vũ",
-                                                        "id": "1"},
-                                                    {
-                                                        "name": "Sơn Vũ 2",
-                                                        "id": "2"},
-                                                    {
-                                                        "name": "Sơn Vũ 3",
-                                                        "id": "3"}]
-                                            }
-                                        };
-                                        $(document).ready(function() {
-                                            $('a#add-teacher').click(function() {
-                                                var hide = $('.current-list').css('display');
-                                                if (hide != 'none') {
-                                                    $('.search-input').slideToggle();
-                                                    $('.current-list').fadeOut('fast');
-                                                    $('.suggest-list').delay(800).fadeIn(800);
-                                                    $('.suggest-info').fadeOut(800, function() {
-                                                        search_teacher();
-                                                        $(this).html('<p>Tổng số giáo viên được gợi ý: ' + json.people.person.length + '</p>').fadeIn(800)
-                                                    });
-                                                    $('a#add-teacher').html('<p id="add-teacher-contents">Thêm giáo viên <span style="font-size: 20px"> ✕ </span></p>');
-                                                } else {
-                                                    $('.add-new-teacher').hide();
-                                                    $('.search-input').slideToggle();
-                                                    $('.suggest-list').fadeOut('fast');
-                                                    $('.current-list').delay(800).fadeIn(800);
-                                                    $('.suggest-info').fadeOut('fast', function() {
-                                                        $(this).delay(800).html('<p>Tổng số giáo viên: 1</p>').fadeIn(800)
-                                                    });
-                                                    $(".search-input-box").val('');
-                                                    $('.suggest-teacher').show();
-                                                    $('a#add-teacher').html('<p id="add-teacher-contents">Thêm giáo viên <i class="icon-plus"></i></p>');
-                                                }
-                                            });
-                                        });
-                                        (function($) {
-                                            "use strict";
+        var json = {
+            "people": {
+                "person": [{
+                        "name": "Sơn Vũ",
+                        "id": "1"},
+                    {
+                        "name": "Sơn Vũ 2",
+                        "id": "2"},
+                    {
+                        "name": "Sơn Vũ 3",
+                        "id": "3"}]
+            }
+        };
+        $(document).ready(function() {
+            $('a#add-teacher').click(function() {
+                var hide = $('.current-list').css('display');
+                if (hide != 'none') {
+                    $('.search-input').slideToggle();
+                    $('.current-list').fadeOut('fast');
+                    $('.suggest-list').delay(800).fadeIn(800);
+                    $('.suggest-info').fadeOut(800, function() {
+                        search_teacher();
+                        $(this).html('<p>Tổng số giáo viên được gợi ý: ' + json.people.person.length + '</p>').fadeIn(800)
+                    });
+                    $('a#add-teacher').html('<p id="add-teacher-contents">Thêm giáo viên <span style="font-size: 20px"> ✕ </span></p>');
+                } else {
+                    $('.add-new-teacher').hide();
+                    $('.search-input').slideToggle();
+                    $('.suggest-list').fadeOut('fast');
+                    $('.current-list').delay(800).fadeIn(800);
+                    $('.suggest-info').fadeOut('fast', function() {
+                        $(this).delay(800).html('<p>Tổng số giáo viên: 1</p>').fadeIn(800)
+                    });
+                    $(".search-input-box").val('');
+                    $('.suggest-teacher').show();
+                    $('a#add-teacher').html('<p id="add-teacher-contents">Thêm giáo viên <i class="icon-plus"></i></p>');
+                }
+            });
+        });
+        (function($) {
+            "use strict";
 
-                                            $.fn.RemoveResult = function() {
-                                                Array.prototype.removeValue = function(name, value) {
-                                                    var array = $.map(this, function(v, i) {
-                                                        return v[name] === value ? null : v;
-                                                    });
-                                                    this.length = 0; //clear original array
-                                                    this.push.apply(this, array); //push all elements except the one we want to delete
-                                                }
+            $.fn.RemoveResult = function() {
+                Array.prototype.removeValue = function(name, value) {
+                    var array = $.map(this, function(v, i) {
+                        return v[name] === value ? null : v;
+                    });
+                    this.length = 0; //clear original array
+                    this.push.apply(this, array); //push all elements except the one we want to delete
+                }
 
-                                                return this.each(function() {
-                                                    var result = $(this),
-                                                            close = result.find('.add-to-this-class');
-                                                    if (close) {
-                                                        close.click(function() {
-                                                            result.animate({height: '0', margin: 0}, 400, function() {
-                                                                var id = result.attr('id');
-                                                                result.css('display', 'none');
-                                                                result.remove();
-                                                                json.people.person.removeValue('id', id);
-                                                                search_teacher();
-                                                            });
-                                                        });
-                                                    }
-                                                });
-                                            };
-                                        })(jQuery);
+                return this.each(function() {
+                    var result = $(this),
+                            close = result.find('.add-to-this-class');
+                    if (close) {
+                        close.click(function() {
+                            result.animate({height: '0', margin: 0}, 400, function() {
+                                var id = result.attr('id');
+                                result.css('display', 'none');
+                                result.remove();
+                                json.people.person.removeValue('id', id);
+                                search_teacher();
+                            });
+                        });
+                    }
+                });
+            };
+        })(jQuery);
 
-                                        jQuery(document).ready(function() {
-                                            "use strict";
+        jQuery(document).ready(function() {
+            "use strict";
 
-                                            jQuery('.suggest-teacher').RemoveResult();
-                                        });
-                                        function search_teacher() {
-                                            var num_display = 0;
-                                            $('.add-new-teacher').hide();
-                                            var value = $(".search-input-box").val();
-                                            if (value.length != 0) {
-                                                $('.suggest-teacher').hide();
-                                                $.each(json.people.person, function(i, v) {
-                                                    if (v.name.search(new RegExp(value + "", "i")) != -1) {
-                                                        var id = "#" + v.id;
-                                                        $(id).show();
-                                                        num_display++;
-                                                        return;
-                                                    }
-                                                });
-                                                $('.suggest-info').html('<p>Tổng số giáo viên được gợi ý: ' + num_display + '</p>');
-                                                if (num_display == 0 || json.people.person.length == 0) {
-                                                    $('.add-new-teacher').show();
-                                                }
-                                            } else {
-                                                $('.suggest-info').html('<p>Tổng số giáo viên được gợi ý: ' + json.people.person.length + '</p>');
-                                                $('.suggest-teacher').show();
-                                            }
-                                            if (json.people.person.length == 0) {
-                                                $('.add-new-teacher').show();
-                                            }
-                                        }
-                                        $(function() {
-                                            $(".search-input-box").keyup(function() {
-                                                search_teacher();
-                                            });
-                                        });
+            jQuery('.suggest-teacher').RemoveResult();
+        });
+        function search_teacher() {
+            var num_display = 0;
+            $('.add-new-teacher').hide();
+            var value = $(".search-input-box").val();
+            if (value.length != 0) {
+                $('.suggest-teacher').hide();
+                $.each(json.people.person, function(i, v) {
+                    if (v.name.search(new RegExp(value + "", "i")) != -1) {
+                        var id = "#" + v.id;
+                        $(id).show();
+                        num_display++;
+                        return;
+                    }
+                });
+                $('.suggest-info').html('<p>Tổng số giáo viên được gợi ý: ' + num_display + '</p>');
+                if (num_display == 0 || json.people.person.length == 0) {
+                    $('.add-new-teacher').show();
+                }
+            } else {
+                $('.suggest-info').html('<p>Tổng số giáo viên được gợi ý: ' + json.people.person.length + '</p>');
+                $('.suggest-teacher').show();
+            }
+            if (json.people.person.length == 0) {
+                $('.add-new-teacher').show();
+            }
+        }
+        $(function() {
+            $(".search-input-box").keyup(function() {
+                search_teacher();
+            });
+        });
                                     </script>
                                     <div class="w-tabs-section-content">
                                         <div class="w-tabs-section-content-h" style="padding-top: 10px">
@@ -726,7 +722,7 @@
                             <a id="add-members" style="float: right" href="javascript:void(0)"><p id="add-members-contents">Thêm thành viên <i class="icon-plus"></i></p></a>
                         </div>
                         <div id="alert-invite" style="display: none; position: absolute; overflow: visible; z-index: 2"></div>
-                        <?php $this->renderPartial('inviteform', array('classid' => $class->class_id)) ?>
+    <?php $this->renderPartial('inviteform', array('classid' => $class->class_id)) ?>
                         <div class="g-hr none-display" style="clear: both">
                             <span class="g-hr-h">
                                 <i class="icon-user"></i>

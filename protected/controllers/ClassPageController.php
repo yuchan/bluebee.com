@@ -127,8 +127,15 @@ class ClassPageController extends BaseController {
 //                if (Yii::app()->session['token'] != "") {
             $number_of_user = count($user);
 
+            $commentCriteria = new CDbCriteria();
+            $commentCriteria->select = "*";
+            $commentCriteria->order = "comment_id ASC";
+            $comment = Comment::model()->findAll($commentCriteria);
+            
             $this->render('classPage', array('detail_classpage' => class_model::model()->findAll($spCriteria),
-                'number_of_user' => $number_of_user, 'post' => $post));
+                'number_of_user' => $number_of_user,
+                'post' => $post,
+                'comment_array' => $comment));
 //                } else {
 //                    $this->redirect('welcomePage');
 //                }
