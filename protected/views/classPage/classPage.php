@@ -199,12 +199,13 @@
                                         '</div>').hide().fadeIn(800);
                                 $(".list-item-comment-wrapper-" + result.comment_post_id).append(item);
                                 document.getElementById("comment-form-" + result.comment_post_id).reset();
+                                $('#more-comment-' + result.comment_post_id).hide();
     //show comment if comment is closing
                                 var opencmt = $('#opencmt-' + result.comment_post_id);
                                 var hide_state = opencmt.next().css('display');
                                 if (hide_state == "none") {
                                     $(this).html('<span>Đóng</span>');
-                                    opencmt.next().slideDown('slow', function() {
+                                    opencmt.next().slideDown('slow', function() {                                   
                                     });
                                 };
     //add function close comment after prepend new comment                         
@@ -356,7 +357,7 @@
                                             <div style="border-top: 1px solid #d8d8d8;">
                                                 <div> <img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax-loader.gif" alt="" style="" id="loading"></div>
                                                 <div class="activity-content" id="activity_content">   
-    <?php foreach ($post as $post): ?>
+    <?php foreach ($post as $post):  $number_comment = 0;?>
                                                     
                                                         <div style="margin-top: 20px; background-color: white">
                                                             <div class="activity-item">
@@ -399,8 +400,9 @@
                                                                 <button class=" g-btn type_primary size_small opencmt button-in-activity-box" id="opencmt-<?php echo $post->post_id ?>"><i class="icon-chevron-down"></i><span>&nbsp;Xem thêm</span></button>
                                                                 <div class="comment-container">
                                                                     <div class="list-item-comment-wrapper-<?php echo $post->post_id ?>">
-                                                                        <?php foreach ($comment_array as $comment): 
+                                                                        <?php foreach ($comment_array as $comment):                                                                             
                                                                                 if($post->post_id == $comment->comment_post_id):
+                                                                                    $number_comment = $number_comment + 1;
                                                                         ?>
                                                                         <div class="item-comment">
                                                                             <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
@@ -424,8 +426,9 @@
                                                                         <?php endif; ?>
                                                                         <?php endforeach; ?>
                                                                     </div>
-
-                                                                    <button class=" g-btn type_primary size_small more-comment button-in-activity-box" id="more-comment"><span>Xem thêm 4 bình luận nữa</span></button>
+                                                                    <?php if($number_comment >= 2): ?>
+                                                                    <button class=" g-btn type_primary size_small more-comment button-in-activity-box" id="more-comment-<?php echo $post->post_id ?>"><span>Xem thêm <?php echo ($number_comment-1) ?> bình luận nữa</span></button>
+                                                                    <?php endif; ?>
                                                                 </div>
                                                             </div>
                                                             <form class="comment-form" id="comment-form-<?php echo $post->post_id ?>" action ="<?php echo Yii::app()->createUrl('classpage/createComment?class_id=' . $class->class_id . '&post_id=' . $post->post_id) ?>" method="post">
