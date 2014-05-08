@@ -114,7 +114,6 @@
                                 '</div>' +
                                 '</div>' +
                                 '</div>').hide().fadeIn(800);
-
                         $('#activity_content').prepend(item);
                         $('#loading').hide();
                         $('.comment-container').hide();
@@ -598,7 +597,8 @@
                                                 </div>
                                                 <div class="add-new-teacher" style="display: none">
                                                     <h2 style="text-align: center; margin-top: 40px;">Không tìm thấy giáo viên</h2>
-                                                    <button class="g-btn type_primary" style="text-transform: none; font-weight: normal; margin-left: 200px"><i class="icon-plus"></i>Thêm giáo viên mới</button>
+                                                    <a class="g-btn type_primary popup-with-form" style="text-transform: none; font-weight: normal; margin-left: 200px" href="#add-brand-new-teacher"><i class="icon-plus"></i>Thêm giáo viên mới</a>
+                                                    <?php $this->renderPartial('formaddteacher') ?>
                                                 </div>
                                                 <div class="current-list">
                                                     <div class="result-teacher clearfix" style="margin: 0px">
@@ -811,3 +811,4 @@
     window.color_scheme = "color_11";
     window.body_layout = "wide";
 </script>
+
