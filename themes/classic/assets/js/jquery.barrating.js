@@ -1,14 +1,3 @@
-/**
- * jQuery Bar Rating Plugin v1.0.4
- *
- * http://github.com/netboy/jquery-bar-rating
- *
- * Copyright (c) 2012-2014 Kazik Pietruszewski
- *
- * Dual licensed under the MIT and GPL licenses:
- * http://www.opensource.org/licenses/mit-license.php
- * http://www.gnu.org/licenses/gpl.html
- */
 (function ($) {
     var BarRating, root;
 
@@ -98,7 +87,7 @@
                             text = text ? text : $this.data('barrating').currentRatingText;
 
                             // change selected OPTION in the select box (now hidden)
-                            $this.find('option[value= "' + value + '"]').prop('selected', true);
+                            $this.find('option[value="' + value + '"]').prop('selected', true);
 
                             // update .br-current-rating div
                             if (userOptions.showSelectedRating) { 
@@ -112,7 +101,7 @@
                         function (event) {
 
                             // add classes
-                            $(this).find('a[data-rating-value= "' + $this.data('barrating').currentRatingValue + '"]')
+                            $(this).find('a[data-rating-value="' + $this.data('barrating').currentRatingValue + '"]')
                                 .addClass('br-selected br-current')[nextAllorPreviousAll]()
                                 .addClass('br-selected');
 

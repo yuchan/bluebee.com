@@ -96,27 +96,7 @@
                                 '</article>' +
                                 '<button class=" g-btn type_primary size_small opencmt button-in-activity-box" id="opencmt"><span>Xem thêm</span></button>' +
                                 '<div class="comment-container">' +
-                                '<div class="list-item-comment-wrapper">' +
-                                '<div class="item-comment">' +
-                                '<a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">' +
-                                '<img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/sancak.png" style="opacity: 1;">' +
-                                '</a>' +
-                                '<div class="comment-content">' +
-                                '<div  class="fix-style-profile profile clearfix">' +
-                                '<a style="float: left" href="/glang">' +
-                                '<span data-paths="profile.firstName profile.lastName" id="el-105">sancak</span>' +
-                                '</a>' +
-                                '<p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>' +
-                                '<a class="fix-vote-button"><i class="icon-chevron-right"></i></a>' +
-                                '<p style="float: right"><strong>&nbsp; 2 &nbsp;</strong></p>' +
-                                '<a class="fix-vote-button"><i class="icon-chevron-left"></i></a>' +
-                                '</div>' +
-                                '<div class="comment-body-container">' +
-                                '<p data-paths="body" id="el-1140">think it harder, make it possible! :)</p>' +
-                                '</div>' +
-                                '</div>' +
-                                '</div>' +
-                                '<button class=" g-btn type_primary size_small more-comment button-in-activity-box" id="more-comment"><span>Xem thêm 4 bình luận nữa</span></button>' +
+                                '<div class="list-item-comment-wrapper">' +                                                           
                                 '</div>' +
                                 '</div>' +
                                 '<div class="item-add-comment-box">' +
@@ -317,7 +297,7 @@
                         <div class="w-tabs">
                             <div class="w-tabs-h" id="fix-style-w-tab">
                                 <div class="w-tabs-list">
-                                    <div class="w-tabs-item fix-w-tab-item">
+                                    <div class="w-tabs-item fix-w-tab-item active">
                                         <span class="w-tabs-item-icon"></span>
                                         <span class="w-tabs-item-title">Hoạt động</span>
                                     </div>
@@ -326,13 +306,13 @@
                                         <span class="w-tabs-item-icon"></span>
                                         <span class="w-tabs-item-title">Documents</span>
                                     </div>
-                                    <div class="w-tabs-item fix-w-tab-item active">
+                                    <div class="w-tabs-item fix-w-tab-item">
                                         <span class="w-tabs-item-icon"></span>
                                         <span class="w-tabs-item-title">Giáo viên</span>
                                     </div>
                                 </div>
 
-                                <div class="w-tabs-section">
+                                <div class="w-tabs-section active">
                                     <div class="w-tabs-section-title">
                                         <span class="w-tabs-section-title-icon"></span>
                                         <span class="w-tabs-section-title-text">Hoạt động</span>
@@ -404,7 +384,7 @@
                                                                                 if($post->post_id == $comment->comment_post_id):
                                                                                     $number_comment = $number_comment + 1;
                                                                         ?>
-                                                                        <div class="item-comment">
+                                                                        <div class="item-comment" id="item-comment-<?php echo $post->post_id ?>">
                                                                             <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
                                                                                 <img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/sancak.png" style="opacity: 1;">
                                                                             </a>
@@ -463,7 +443,7 @@
                                     </div>
                                 </div>
 
-                                <div class="w-tabs-section active">
+                                <div class="w-tabs-section">
                                     <div class="w-tabs-section-title">
                                         <span class="w-tabs-section-title-icon"></span>
                                         <span class="w-tabs-section-title-text">Giáo viên</span>
@@ -608,11 +588,11 @@
                                                                 <p style="float: left">Độ yêu thích:</p>
                                                                 <br>
                                                                 <select class="teacher-block-rating-outside" name="rating" style="display: none; float: right">
-                                                                    <option value="1">1</option>
+                                                                    <option value="1" selected="selected">1</option>
                                                                     <option value="2">2</option>
                                                                     <option value="3">3</option>
                                                                     <option value="4">4</option>
-                                                                    <option value="5" selected="selected">5</option>
+                                                                    <option value="5">5</option>
                                                                 </select>
                                                             </div>
                                                             <button class="g-btn type_primary size_small float_right none-display" style="text-transform: none; font-weight: normal; width: 120px"><i class="icon-comment"></i>Ý kiến</button>
@@ -781,3 +761,23 @@
         </div>
     </div>
 <?php endforeach; ?>
+
+    <script>
+        $(document).ready(function () {
+            $('.comment-container').hide();
+            $('.opencmt').click(function(event) {
+                var current = $(this);
+                var hide = current.next().css('display');
+                if (hide == 'none') {
+                    $(this).html('<i class="icon-chevron-up"></i><span>&nbsp;Đóng</span>');
+                    current.next().slideDown('slow', function() {
+                    });
+                } else {
+                    $(this).html('<i class="icon-chevron-down"></i><span>&nbsp;Xem thêm</span>');
+                    current.next().slideUp();
+                }
+            });
+        });
+        window.color_scheme = "color_11";
+        window.body_layout = "wide";
+    </script>
