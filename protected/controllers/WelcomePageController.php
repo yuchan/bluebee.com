@@ -264,6 +264,9 @@ class WelcomePageController extends BaseController {
                 $user_facebook_exist->username = $user['email'];
             }
 
+            if (isset($user["quotes"])) {
+                $user_facebook_exist->user_qoutes = $user["quotes"];
+            }
             $user_facebook_exist->user_dob = $user["birthday"];
             $url = "https://graph.facebook.com/" . $user["id"] . "?fields=cover";
             $json = file_get_contents($url);
@@ -307,7 +310,9 @@ class WelcomePageController extends BaseController {
             $user_facebook->user_id_fb = $user["id"];
             $user_facebook->user_cover = $facebook_cover;
             $user_facebook->user_active = 1;
-            $user_facebook->user_qoutes = $user["quotes"];
+            if (isset($user["quotes"])) {
+                $user_facebook->user_qoutes = $user["quotes"];
+            }
             $user_facebook->user_date_attend = date('d/m/Y');
             $user_facebook->save(FALSE);
             Yii::app()->session['user_id'] = $user_facebook->user_id;
