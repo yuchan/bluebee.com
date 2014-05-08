@@ -355,10 +355,10 @@
                                                             <div class="activity-item">
                                                                 <a class="other-user-avatar" href="/glang">
                                                                     <img class="" width="50" height="50" src="<?php foreach ($postUser as $user) {
-            if ($user->user_id === $post->post_author)
-                echo $user->user_avatar;
-        }
-        ?>" style="opacity: 1;">
+                                                                                                                    if ($user->user_id === $post->post_author)
+                                                                                                                        echo $user->user_avatar;
+                                                                                                                }
+                                                                                                                ?>" style="opacity: 1;">
                                                                 </a>
                                                                 <div  class="profile clearfix">
                                                                     <a style="float: left" href="/glang">
@@ -403,7 +403,11 @@
                 ?>
                                                                                 <div class="item-comment" id="item-comment-<?php echo $post->post_id ?>">
                                                                                     <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
-                                                                                        <img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/sancak.png" style="opacity: 1;">
+                                                                                        <img class="" width="40" height="40" src="<?php foreach ($postUser as $user) {
+                                                                                                                    if ($user->user_id === $comment->comment_author_id)
+                                                                                                                        echo $user->user_avatar;
+                                                                                                                }
+                                                                                                                ?>" style="opacity: 1;">
                                                                                     </a>
                                                                                     <div class="comment-content">
                                                                                         <div  class="fix-style-profile profile clearfix">
