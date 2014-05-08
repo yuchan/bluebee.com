@@ -122,6 +122,12 @@ class ClassPageController extends BaseController {
             $postCriteria->order = "post_id DESC";
             $postCriteria->condition = "post_class =" . $_GET["classid"];
             $post = Post::model()->findAll($postCriteria);
+            
+            $postUserCriteria = new CDbCriteria();
+            $postUserCriteria->select = "*";
+            $postUserCriteria->order = "user_id ASC";
+            $postUser = User::model()->findAll($postUserCriteria);
+            
 //            if ($user) {
 //
 //                if (Yii::app()->session['token'] != "") {
@@ -135,6 +141,7 @@ class ClassPageController extends BaseController {
             $this->render('classPage', array('detail_classpage' => class_model::model()->findAll($spCriteria),
                 'number_of_user' => $number_of_user,
                 'post' => $post,
+                'postUser'=> $postUser,
                 'comment_array' => $comment));
 //                } else {
 //                    $this->redirect('welcomePage');
@@ -409,6 +416,35 @@ class ClassPageController extends BaseController {
         Yii::app()->end();
     }
 
+    public function actionAddTeacher(){
+        $this->retVal = new stdClass();
+        $request = Yii::app()->request;
+        if($request->isPostRequest){
+            if(isset($_GET)){
+                try{
+                    if($_GET['found_result'] == 0){
+                        
+                    }else{
+                        
+                    }
+                    $class_teacher = new ClassTeacher();
+                    $class_teacher->teacher_id = $_GET['teacher_id'];
+                    $class_teacher->class_id = $_GET['class_id'];
+                    
+                    $class_teacher->save(FALSE);
+                    
+                    if($class_teacher->save(FALSE)) $this->retVal->add_success = 1;
+                    else $this->retVal->add_success = 0;
+                }catch (Exception $e) {
+                    $this->retVal->message = $e->getMessage();
+                }
+            }
+        }
+        
+        echo CJSON::encode($this->retVal);
+        Yii::app()->end();
+    }
+    
     // Uncomment the following methods and override them if needed
     /*
       public function filters()

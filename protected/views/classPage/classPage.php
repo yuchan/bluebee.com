@@ -80,7 +80,13 @@
                         var result = $.parseJSON(json);
                         var item = $('<div class="activity-item">' +
                                 '<a class="other-user-avatar" href="/glang">' +
-                                '<img class="" width="50" height="50" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/GrangerLang.png" style="opacity: 1;">' +
+                                '<img class="" width="50" height="50" src="<?php
+                                if (Yii::app()->session['user_avatar'] == "") {
+                                    echo Yii::app()->theme->baseUrl, "/assets/img/logo.jpg";
+                                } else {
+                                    echo Yii::app()->session['user_avatar'];
+                                }
+                                ?>" style="opacity: 1;">' +
                                 '</a>' +
                                 '<div  class="profile clearfix">' +
                                 '<a style="float: left" href="/glang">' +
@@ -96,7 +102,7 @@
                                 '</article>' +
                                 '<button class=" g-btn type_primary size_small opencmt button-in-activity-box" id="opencmt"><span>Xem thêm</span></button>' +
                                 '<div class="comment-container">' +
-                                '<div class="list-item-comment-wrapper">' +                                                           
+                                '<div class="list-item-comment-wrapper">' +
                                 '</div>' +
                                 '</div>' +
                                 '<div class="item-add-comment-box">' +
@@ -136,14 +142,14 @@
     </script>
 
     <script type="text/javascript">
-    //        function pressed(e, element) {
-    //            if ( (window.event ? event.keyCode : e.which) === 13) { 
-    //                // If it has been so, manually submit the <form>
-    //                element.parents(".comment-form").submit();
-    //            }
-    //        }
+        //        function pressed(e, element) {
+        //            if ( (window.event ? event.keyCode : e.which) === 13) { 
+        //                // If it has been so, manually submit the <form>
+        //                element.parents(".comment-form").submit();
+        //            }
+        //        }
         $(document).ready(function() {
-            
+
             $('.comment-input-content').keypress(function(e) {
 
                 if (e.which === 13) {
@@ -154,13 +160,19 @@
                         type: "POST",
                         url: form.attr('action'),
                         data: data,
-                        success: function(data) {                           
+                        success: function(data) {
                             var json = data;
                             var result = $.parseJSON(json);
                             if (result.success) {
                                 var item = $('<div class="item-comment">' +
                                         '<a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">' +
-                                        '<img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/sancak.png" style="opacity: 1;">' +
+                                        '<img class="" width="40" height="40" src="<?php
+                                        if (Yii::app()->session['user_avatar'] == "") {
+                                            echo Yii::app()->theme->baseUrl, "/assets/img/logo.jpg";
+                                        } else {
+                                            echo Yii::app()->session['user_avatar'];
+                                        }
+                                        ?>" style="opacity: 1;">' +
                                         '</a>' +
                                         '<div class="comment-content">' +
                                         '<div  class="fix-style-profile profile clearfix">' +
@@ -180,15 +192,16 @@
                                 $(".list-item-comment-wrapper-" + result.comment_post_id).append(item);
                                 document.getElementById("comment-form-" + result.comment_post_id).reset();
                                 $('#more-comment-' + result.comment_post_id).hide();
-    //show comment if comment is closing
+                                //show comment if comment is closing
                                 var opencmt = $('#opencmt-' + result.comment_post_id);
                                 var hide_state = opencmt.next().css('display');
                                 if (hide_state == "none") {
                                     $(this).html('<span>Đóng</span>');
-                                    opencmt.next().slideDown('slow', function() {                                   
+                                    opencmt.next().slideDown('slow', function() {
                                     });
-                                };
-    //add function close comment after prepend new comment                         
+                                }
+                                ;
+                                //add function close comment after prepend new comment                         
                             } else {
                                 alert(result.message);
                             }
@@ -337,12 +350,16 @@
                                             <div style="border-top: 1px solid #d8d8d8;">
                                                 <div> <img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax-loader.gif" alt="" style="" id="loading"></div>
                                                 <div class="activity-content" id="activity_content">   
-    <?php foreach ($post as $post):  $number_comment = 0;?>
-                                                    
+    <?php foreach ($post as $post): $number_comment = 0; ?>
+
                                                         <div style="margin-top: 20px; background-color: white">
                                                             <div class="activity-item">
                                                                 <a class="other-user-avatar" href="/glang">
-                                                                    <img class="" width="50" height="50" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/GrangerLang.png" style="opacity: 1;">
+                                                                    <img class="" width="50" height="50" src="<?php foreach ($postUser as $user) {
+            if ($user->user_id === $post->post_author)
+                echo $user->user_avatar;
+        }
+        ?>" style="opacity: 1;">
                                                                 </a>
                                                                 <div  class="profile clearfix">
                                                                     <a style="float: left" href="/glang">
@@ -380,35 +397,36 @@
                                                                 <button class=" g-btn type_primary size_small opencmt button-in-activity-box" id="opencmt-<?php echo $post->post_id ?>"><i class="icon-chevron-down"></i><span>&nbsp;Xem thêm</span></button>
                                                                 <div class="comment-container">
                                                                     <div class="list-item-comment-wrapper-<?php echo $post->post_id ?>">
-                                                                        <?php foreach ($comment_array as $comment):                                                                             
-                                                                                if($post->post_id == $comment->comment_post_id):
-                                                                                    $number_comment = $number_comment + 1;
-                                                                        ?>
-                                                                        <div class="item-comment" id="item-comment-<?php echo $post->post_id ?>">
-                                                                            <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
-                                                                                <img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/sancak.png" style="opacity: 1;">
-                                                                            </a>
-                                                                            <div class="comment-content">
-                                                                                <div  class="fix-style-profile profile clearfix">
-                                                                                    <a style="float: left" href="/glang">
-                                                                                        <span data-paths="profile.firstName profile.lastName" id="el-105">sancak</span>
+        <?php
+        foreach ($comment_array as $comment):
+            if ($post->post_id == $comment->comment_post_id):
+                $number_comment = $number_comment + 1;
+                ?>
+                                                                                <div class="item-comment" id="item-comment-<?php echo $post->post_id ?>">
+                                                                                    <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
+                                                                                        <img class="" width="40" height="40" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/sancak.png" style="opacity: 1;">
                                                                                     </a>
-                                                                                    <p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>
-                                                                                    <a class="fix-vote-button"><i class="icon-chevron-right"></i></a>
-                                                                                    <p style="float: right"><strong>&nbsp; 2 &nbsp;</strong></p>
-                                                                                    <a class="fix-vote-button"><i class="icon-chevron-left"></i></a>
+                                                                                    <div class="comment-content">
+                                                                                        <div  class="fix-style-profile profile clearfix">
+                                                                                            <a style="float: left" href="/glang">
+                                                                                                <span data-paths="profile.firstName profile.lastName" id="el-105">sancak</span>
+                                                                                            </a>
+                                                                                            <p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>
+                                                                                            <a class="fix-vote-button"><i class="icon-chevron-right"></i></a>
+                                                                                            <p style="float: right"><strong>&nbsp; 2 &nbsp;</strong></p>
+                                                                                            <a class="fix-vote-button"><i class="icon-chevron-left"></i></a>
+                                                                                        </div>
+                                                                                        <div class="comment-body-container">
+                                                                                            <p data-paths="body" id="el-1140"><?php echo $comment->comment_content ?></p>
+                                                                                        </div>
+                                                                                    </div>
                                                                                 </div>
-                                                                                <div class="comment-body-container">
-                                                                                    <p data-paths="body" id="el-1140"><?php echo $comment->comment_content ?></p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <?php endif; ?>
-                                                                        <?php endforeach; ?>
+            <?php endif; ?>
+        <?php endforeach; ?>
                                                                     </div>
-                                                                    <?php if($number_comment >= 2): ?>
-                                                                    <button class=" g-btn type_primary size_small more-comment button-in-activity-box" id="more-comment-<?php echo $post->post_id ?>"><span>Xem thêm <?php echo ($number_comment-1) ?> bình luận nữa</span></button>
-                                                                    <?php endif; ?>
+        <?php if ($number_comment >= 2): ?>
+            <!--                                                                    <button class=" g-btn type_primary size_small more-comment button-in-activity-box" id="more-comment-//<?php echo $post->post_id ?>"><span>Xem thêm <?php echo ($number_comment - 1) ?> bình luận nữa</span></button>-->
+        <?php endif; ?>
                                                                 </div>
                                                             </div>
                                                             <form class="comment-form" id="comment-form-<?php echo $post->post_id ?>" action ="<?php echo Yii::app()->createUrl('classpage/createComment?class_id=' . $class->class_id . '&post_id=' . $post->post_id) ?>" method="post">
@@ -422,7 +440,7 @@
                                                                 </div>
                                                             </form>
                                                         </div>
-    
+
     <?php endforeach; ?>
                                                 </div>
                                             </div>
@@ -506,6 +524,18 @@
                             close = result.find('.add-to-this-class');
                     if (close) {
                         close.click(function() {
+                            var teacher_id = result.attr('id');
+                            $.ajax({
+                                type: "POST",
+                                url: "<?php echo Yii::app()->createUrl('classPage/addTeacher?class_id=' . $class->class_id . '&teacher_id=') ?>" + teacher_id + "&found_result=1",
+                                data: "",
+                                success: function(data) {
+                                    var json = data;
+                                    var result = $.parseJSON(json);
+                                    alert(result.id);
+                                }
+                            });
+
                             result.animate({height: '0', margin: 0}, 400, function() {
                                 var id = result.attr('id');
                                 result.css('display', 'none');
@@ -762,22 +792,22 @@
     </div>
 <?php endforeach; ?>
 
-    <script>
-        $(document).ready(function () {
-            $('.comment-container').hide();
-            $('.opencmt').click(function(event) {
-                var current = $(this);
-                var hide = current.next().css('display');
-                if (hide == 'none') {
-                    $(this).html('<i class="icon-chevron-up"></i><span>&nbsp;Đóng</span>');
-                    current.next().slideDown('slow', function() {
-                    });
-                } else {
-                    $(this).html('<i class="icon-chevron-down"></i><span>&nbsp;Xem thêm</span>');
-                    current.next().slideUp();
-                }
-            });
+<script>
+    $(document).ready(function() {
+        $('.comment-container').hide();
+        $('.opencmt').click(function(event) {
+            var current = $(this);
+            var hide = current.next().css('display');
+            if (hide == 'none') {
+                $(this).html('<i class="icon-chevron-up"></i><span>&nbsp;Đóng</span>');
+                current.next().slideDown('slow', function() {
+                });
+            } else {
+                $(this).html('<i class="icon-chevron-down"></i><span>&nbsp;Xem thêm</span>');
+                current.next().slideUp();
+            }
         });
-        window.color_scheme = "color_11";
-        window.body_layout = "wide";
-    </script>
+    });
+    window.color_scheme = "color_11";
+    window.body_layout = "wide";
+</script>
