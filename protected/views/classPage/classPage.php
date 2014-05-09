@@ -294,9 +294,11 @@
         <div class="l-content">
             <div class="l-content-h i-widgets">
                 <div class="g-cols">
+                      <div id="loading"></div>
                     <div class="full-width">
-                        <div class="view effect">  
-                            <img class="round_ava" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg"/>
+                        <div class="view effect">
+                          
+                            <img class="round_ava" src="<?php echo Yii::app()->createUrl($class->class_cover); ?>"/>
                             <div class="content-1">
                                 <?php $this->renderPartial('changeCover') ?>
                             </div>

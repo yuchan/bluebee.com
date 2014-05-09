@@ -9,21 +9,26 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#loading').hide();
+
 
         var form = $('#file_upload');
         form.change(function(event) {
             var formdata = new FormData($('#file_upload')[0]);
             $.ajax({
+                beforeSend: function() {
+                    $('#loading').html('<img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax_loader_blue_128.gif">');
+                },
                 type: "POST",
                 url: '<?php echo Yii::app()->createUrl('classPage/changecover') ?>',
                 data: formdata,
                 success: function(data) {
+                    $('#loading').html('');
                     var json = data;
                     var result = $.parseJSON(json);
-                   // document.cookie = 'link='+result.message;
-                  //  $(".round_ava").attr("src","<?php //echo Yii::app()->createUrl($_COOKIE["link"]) ?>");
-                  
+                    // document.cookie = 'link='+result.message;
+                    $('.round_ava').show();
+                    $(".round_ava").attr("src", result.message);
+
                 },
                 cache: false,
                 contentType: false,

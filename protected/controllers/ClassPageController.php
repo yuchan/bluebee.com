@@ -4,6 +4,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.phpmailer.php');
 require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.pop3.php');
 Yii::import('application.controllers.BaseController');
+Yii::import('application.components.imageresize');
 
 class ClassPageController extends BaseController {
 
@@ -122,12 +123,12 @@ class ClassPageController extends BaseController {
             $postCriteria->order = "post_id DESC";
             $postCriteria->condition = "post_class =" . $_GET["classid"];
             $post = Post::model()->findAll($postCriteria);
-            
+
             $postUserCriteria = new CDbCriteria();
             $postUserCriteria->select = "*";
             $postUserCriteria->order = "user_id ASC";
             $postUser = User::model()->findAll($postUserCriteria);
-            
+
 //            if ($user) {
 //
 //                if (Yii::app()->session['token'] != "") {
@@ -137,11 +138,11 @@ class ClassPageController extends BaseController {
             $commentCriteria->select = "*";
             $commentCriteria->order = "comment_id ASC";
             $comment = Comment::model()->findAll($commentCriteria);
-            
+
             $this->render('classPage', array('detail_classpage' => class_model::model()->findAll($spCriteria),
                 'number_of_user' => $number_of_user,
                 'post' => $post,
-                'postUser'=> $postUser,
+                'postUser' => $postUser,
                 'comment_array' => $comment));
 //                } else {
 //                    $this->redirect('welcomePage');
@@ -371,7 +372,7 @@ class ClassPageController extends BaseController {
                     $comment_model->comment_post_id = $comment['comment_post_id'];
 
                     $comment_model->save(FALSE);
-                    
+
                     if ($comment_model->save(FALSE)) {
                         $this->retVal->comment_content = $comment['comment_content'];
                         $this->retVal->comment_class_id = $comment['comment_class_id'];
@@ -389,6 +390,7 @@ class ClassPageController extends BaseController {
         echo CJSON::encode($this->retVal);
         Yii::app()->end();
     }
+
     public function actionChangeCover() {
         $this->retVal = new stdClass();
         $relativePath = '/images/class_cover/' . Yii::app()->request->getPost('class_id_cover') . '/';
@@ -408,43 +410,48 @@ class ClassPageController extends BaseController {
                 $image = $relativePath . $_FILES["file_upload_cover"]["name"];
             }
         }
-        $this->retVal->message = $image;
+        $image_resize = $relativePath . 'coverresize' . $_FILES["file_upload_cover"]["name"];
+       
+        imageresize::resize_image(Yii::getPathOfAlias('webroot') .$image, null, 1000, 315, false,Yii::getPathOfAlias('webroot') .$image_resize, false, false, 100);
+         $this->retVal->message = Yii::app()->createUrl($image_resize);
         $class_cover = class_model::model()->findByAttributes(array('class_id' => Yii::app()->request->getPost('class_id_cover')));
-        $class_cover->class_cover = $image;
+        $class_cover->class_cover = $image_resize;
         $class_cover->save(FALSE);
         echo CJSON::encode($this->retVal);
         Yii::app()->end();
     }
 
-    public function actionAddTeacher(){
+    public function actionAddTeacher() {
         $this->retVal = new stdClass();
         $request = Yii::app()->request;
-        if($request->isPostRequest){
-            if(isset($_GET)){
-                try{
-                    if($_GET['found_result'] == 0){
+        if ($request->isPostRequest) {
+            if (isset($_GET)) {
+                try {
+                    if ($_GET['found_result'] == 0) {
                         
-                    }else{
+                    } else {
                         
                     }
                     $class_teacher = new ClassTeacher();
                     $class_teacher->teacher_id = $_GET['teacher_id'];
                     $class_teacher->class_id = $_GET['class_id'];
-                    
+
                     $class_teacher->save(FALSE);
-                    
-                    if($class_teacher->save(FALSE)) $this->retVal->add_success = 1;
-                    else $this->retVal->add_success = 0;
-                }catch (Exception $e) {
+
+                    if ($class_teacher->save(FALSE))
+                        $this->retVal->add_success = 1;
+                    else
+                        $this->retVal->add_success = 0;
+                } catch (Exception $e) {
                     $this->retVal->message = $e->getMessage();
                 }
             }
         }
-        
+
         echo CJSON::encode($this->retVal);
         Yii::app()->end();
     }
-    
+
     // Uncomment the following methods and override them if needed
     /*
       public function filters()
