@@ -411,9 +411,9 @@ class ClassPageController extends BaseController {
             }
         }
         $image_resize = $relativePath . 'coverresize' . $_FILES["file_upload_cover"]["name"];
-       
-        imageresize::resize_image(Yii::getPathOfAlias('webroot') .$image, null, 1000, 315, false,Yii::getPathOfAlias('webroot') .$image_resize, false, false, 100);
-         $this->retVal->message = Yii::app()->createUrl($image_resize);
+
+        imageresize::resize_image(Yii::getPathOfAlias('webroot') . $image, null, 1000, 315, false, Yii::getPathOfAlias('webroot') . $image_resize, false, false, 100);
+        $this->retVal->message = Yii::app()->createUrl($image_resize);
         $class_cover = class_model::model()->findByAttributes(array('class_id' => Yii::app()->request->getPost('class_id_cover')));
         $class_cover->class_cover = $image_resize;
         $class_cover->save(FALSE);

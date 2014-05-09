@@ -8,7 +8,7 @@ class UserController extends Controller {
 
     public function actionUser() {
         if (isset($_GET["token"])) {
-            
+
             $user_activity = $this->userActivity();
             $spCriteria = new CDbCriteria();
             $spCriteria->select = "*";
@@ -28,8 +28,8 @@ class UserController extends Controller {
         } else
             $this->redirect('welcomePage');
     }
-    
-     public function actionUser_Visitor() {
+
+    public function actionUser_Visitor() {
         if (isset($_GET["userid"])) {
             $spCriteria = new CDbCriteria();
             $spCriteria->select = "*";
@@ -49,15 +49,14 @@ class UserController extends Controller {
         } else
             $this->redirect('welcomePage');
     }
-    
-    
+
     public function userActivity() {
-        $user_activity = Post::model()->findAllByAttributes(array('post_author' =>  Yii::app()->session["user_id"] ));
+        $user_activity = Post::model()->findAllByAttributes(array('post_author' => Yii::app()->session["user_id"]));
         return $user_activity;
     }
-    
-     public function actionChangeCover() {
-        $this->retVal = new stdClass();
+
+    public function actionChangeCover() {
+        $this->retVal = new stdClass;
         $relativePath = '/images/class_cover/' . Yii::app()->request->getPost('class_id_cover') . '/';
         $dir = "images/class_cover/" . Yii::app()->request->getPost('class_id_cover');
         @mkdir(Yii::getPathOfAlias('webroot') . '/' . $dir, 0777, true);
@@ -76,9 +75,9 @@ class UserController extends Controller {
             }
         }
         $image_resize = $relativePath . 'coverresize' . $_FILES["file_upload_cover"]["name"];
-       
-        imageresize::resize_image(Yii::getPathOfAlias('webroot') .$image, null, 1000, 315, false,Yii::getPathOfAlias('webroot') .$image_resize, false, false, 100);
-         $this->retVal->message = Yii::app()->createUrl($image_resize);
+
+        imageresize::resize_image(Yii::getPathOfAlias('webroot') . $image, null, 1000, 315, false, Yii::getPathOfAlias('webroot') . $image_resize, false, false, 100);
+        $this->retVal->message = Yii::app()->createUrl($image_resize);
         $class_cover = class_model::model()->findByAttributes(array('class_id' => Yii::app()->request->getPost('class_id_cover')));
         $class_cover->class_cover = $image_resize;
         $class_cover->save(FALSE);

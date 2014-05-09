@@ -300,7 +300,7 @@
                           
                             <img class="round_ava" src="<?php echo Yii::app()->createUrl($class->class_cover); ?>"/>
                             <div class="content-1">
-                                <?php $this->renderPartial('changeCover') ?>
+                                <?php $this->renderPartial('user/changeCover') ?>
                             </div>
                         </div>
                     </div>

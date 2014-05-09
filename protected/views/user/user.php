@@ -134,13 +134,13 @@
                         <div class='full-width'>
                             <!--<div class="view1 effect ">
                                 <img class="circular " src="<?php
-                                if (Yii::app()->session['user_avatar'] == "") {
-                                    echo Yii::app()->theme->baseUrl, "/assets/img/logo.jpg";
-                                } else {
+                            if (Yii::app()->session['user_avatar'] == "") {
+                                echo Yii::app()->theme->baseUrl, "/assets/img/logo.jpg";
+                            } else {
 
-                                    echo Yii::app()->session['user_avatar'];
-                                }
-                                ?>"/>
+                                echo Yii::app()->session['user_avatar'];
+                            }
+                            ?>"/>
                                 <div class="content-2">
                                     <div class="custom_file_upload1 info">
                                         <form class=" file_upload1">  
