@@ -294,10 +294,10 @@
         <div class="l-content">
             <div class="l-content-h i-widgets">
                 <div class="g-cols">
-                      <div id="loading"></div>
+                    <div id="loading"></div>
                     <div class="full-width">
                         <div class="view effect">
-                          
+
                             <img class="round_ava" src="<?php echo Yii::app()->createUrl($class->class_cover); ?>"/>
                             <div class="content-1">
                                 <?php $this->renderPartial('user/changeCover') ?>
@@ -428,12 +428,12 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                        <?php endif; ?>
-                                                                    <?php endforeach; ?>
+                                                                            <?php endif; ?>
+                                                                        <?php endforeach; ?>
                                                                     </div>
                                                                     <?php if ($number_comment >= 2): ?>
-                <!--                                                                    <button class=" g-btn type_primary size_small more-comment button-in-activity-box" id="more-comment-//<?php echo $post->post_id ?>"><span>Xem thêm <?php echo ($number_comment - 1) ?> bình luận nữa</span></button>-->
-        <?php endif; ?>
+                    <!--                                                                    <button class=" g-btn type_primary size_small more-comment button-in-activity-box" id="more-comment-//<?php echo $post->post_id ?>"><span>Xem thêm <?php echo ($number_comment - 1) ?> bình luận nữa</span></button>-->
+                                                                    <?php endif; ?>
                                                                 </div>
                                                             </div>
                                                             <form class="comment-form" id="comment-form-<?php echo $post->post_id ?>" action ="<?php echo Yii::app()->createUrl('classpage/createComment?class_id=' . $class->class_id . '&post_id=' . $post->post_id) ?>" method="post">
@@ -448,7 +448,7 @@
                                                             </form>
                                                         </div>
 
-    <?php endforeach; ?>
+                                                    <?php endforeach; ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -606,7 +606,7 @@
                                                 <div class="add-new-teacher" style="display: none">
                                                     <h2 style="text-align: center; margin-top: 40px;">Không tìm thấy giáo viên</h2>
                                                     <a class="g-btn type_primary popup-with-form" style="text-transform: none; font-weight: normal; margin-left: 200px" href="#add-brand-new-teacher"><i class="icon-plus"></i>Thêm giáo viên mới</a>
-    <?php $this->renderPartial('formaddteacher') ?>
+                                                    <?php $this->renderPartial('formaddteacher') ?>
                                                 </div>
                                                 <div class="current-list">
                                                     <div class="result-teacher clearfix" style="margin: 0px">
@@ -743,7 +743,7 @@
                             <a id="add-members" style="float: right" href="javascript:void(0)"><p id="add-members-contents">Thêm thành viên <i class="icon-plus"></i></p></a>
                         </div>
                         <div id="alert-invite" style="display: none; position: absolute; overflow: visible; z-index: 2"></div>
-    <?php $this->renderPartial('inviteform', array('classid' => $class->class_id)) ?>
+                        <?php $this->renderPartial('inviteform', array('classid' => $class->class_id)) ?>
                         <div class="g-hr none-display" style="clear: both">
                             <span class="g-hr-h">
                                 <i class="icon-user"></i>
