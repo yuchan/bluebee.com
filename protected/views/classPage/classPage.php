@@ -81,12 +81,12 @@
                         var item = $('<div class="activity-item">' +
                                 '<a class="other-user-avatar" href="/glang">' +
                                 '<img class="" width="50" height="50" src="<?php
-                                if (Yii::app()->session['user_avatar'] == "") {
-                                    echo Yii::app()->theme->baseUrl, "/assets/img/logo.jpg";
-                                } else {
-                                    echo Yii::app()->session['user_avatar'];
-                                }
-                                ?>" style="opacity: 1;">' +
+    if (Yii::app()->session['user_avatar'] == "") {
+        echo Yii::app()->theme->baseUrl, "/assets/img/logo.jpg";
+    } else {
+        echo Yii::app()->session['user_avatar'];
+    }
+    ?>" style="opacity: 1;">' +
                                 '</a>' +
                                 '<div  class="profile clearfix">' +
                                 '<a style="float: left" href="/glang">' +
@@ -166,12 +166,12 @@
                                 var item = $('<div class="item-comment">' +
                                         '<a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">' +
                                         '<img class="" width="40" height="40" src="<?php
-                                        if (Yii::app()->session['user_avatar'] == "") {
-                                            echo Yii::app()->theme->baseUrl, "/assets/img/logo.jpg";
-                                        } else {
-                                            echo Yii::app()->session['user_avatar'];
-                                        }
-                                        ?>" style="opacity: 1;">' +
+    if (Yii::app()->session['user_avatar'] == "") {
+        echo Yii::app()->theme->baseUrl, "/assets/img/logo.jpg";
+    } else {
+        echo Yii::app()->session['user_avatar'];
+    }
+    ?>" style="opacity: 1;">' +
                                         '</a>' +
                                         '<div class="comment-content">' +
                                         '<div  class="fix-style-profile profile clearfix">' +
@@ -298,7 +298,7 @@
                         <div class="view effect">  
                             <img class="round_ava" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg"/>
                             <div class="content-1">
-    <?php $this->renderPartial('changeCover') ?>
+                                <?php $this->renderPartial('changeCover') ?>
                             </div>
                         </div>
                     </div>
@@ -349,16 +349,17 @@
                                             <div style="border-top: 1px solid #d8d8d8;">
                                                 <div> <img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax-loader.gif" alt="" style="" id="loading"></div>
                                                 <div class="activity-content" id="activity_content">   
-    <?php foreach ($post as $post): $number_comment = 0; ?>
+                                                    <?php foreach ($post as $post): $number_comment = 0; ?>
 
                                                         <div style="margin-top: 20px; background-color: white">
                                                             <div class="activity-item">
-                                                                <a class="other-user-avatar" href="/glang">
-                                                                    <img class="" width="50" height="50" src="<?php foreach ($postUser as $user) {
-                                                                                                                    if ($user->user_id === $post->post_author)
-                                                                                                                        echo $user->user_avatar;
-                                                                                                                }
-                                                                                                                ?>" style="opacity: 1;">
+                                                                <a href="/glang">
+                                                                    <img class="ava" width="50px" height="50px" src="<?php
+                                                                    foreach ($postUser as $user) {
+                                                                        if ($user->user_id === $post->post_author)
+                                                                            echo $user->user_avatar;
+                                                                    }
+                                                                    ?>" style="opacity: 1;">
                                                                 </a>
                                                                 <div  class="profile clearfix">
                                                                     <a style="float: left" href="/glang">
@@ -396,18 +397,19 @@
                                                                 <button class=" g-btn type_primary size_small opencmt button-in-activity-box" id="opencmt-<?php echo $post->post_id ?>"><i class="icon-chevron-down"></i><span>&nbsp;Xem thêm</span></button>
                                                                 <div class="comment-container">
                                                                     <div class="list-item-comment-wrapper-<?php echo $post->post_id ?>">
-        <?php
-        foreach ($comment_array as $comment):
-            if ($post->post_id == $comment->comment_post_id):
-                $number_comment = $number_comment + 1;
-                ?>
+                                                                        <?php
+                                                                        foreach ($comment_array as $comment):
+                                                                            if ($post->post_id == $comment->comment_post_id):
+                                                                                $number_comment = $number_comment + 1;
+                                                                                ?>
                                                                                 <div class="item-comment" id="item-comment-<?php echo $post->post_id ?>">
                                                                                     <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
-                                                                                        <img class="" width="40" height="40" src="<?php foreach ($postUser as $user) {
-                                                                                                                    if ($user->user_id === $comment->comment_author_id)
-                                                                                                                        echo $user->user_avatar;
-                                                                                                                }
-                                                                                                                ?>" style="opacity: 1;">
+                                                                                        <img class="" width="40" height="40" src="<?php
+                                                                                        foreach ($postUser as $user) {
+                                                                                            if ($user->user_id === $comment->comment_author_id)
+                                                                                                echo $user->user_avatar;
+                                                                                        }
+                                                                                        ?>" style="opacity: 1;">
                                                                                     </a>
                                                                                     <div class="comment-content">
                                                                                         <div  class="fix-style-profile profile clearfix">
@@ -424,11 +426,11 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-            <?php endif; ?>
-        <?php endforeach; ?>
+                                                                        <?php endif; ?>
+                                                                    <?php endforeach; ?>
                                                                     </div>
-        <?php if ($number_comment >= 2): ?>
-            <!--                                                                    <button class=" g-btn type_primary size_small more-comment button-in-activity-box" id="more-comment-//<?php echo $post->post_id ?>"><span>Xem thêm <?php echo ($number_comment - 1) ?> bình luận nữa</span></button>-->
+                                                                    <?php if ($number_comment >= 2): ?>
+                <!--                                                                    <button class=" g-btn type_primary size_small more-comment button-in-activity-box" id="more-comment-//<?php echo $post->post_id ?>"><span>Xem thêm <?php echo ($number_comment - 1) ?> bình luận nữa</span></button>-->
         <?php endif; ?>
                                                                 </div>
                                                             </div>
@@ -471,123 +473,123 @@
                                         <span class="w-tabs-section-title-control"></span>
                                     </div>
                                     <script>
-        var json = {
-            "people": {
-                "person": [{
-                        "name": "Sơn Vũ",
-                        "id": "1"},
-                    {
-                        "name": "Sơn Vũ 2",
-                        "id": "2"},
-                    {
-                        "name": "Sơn Vũ 3",
-                        "id": "3"}]
-            }
-        };
-        $(document).ready(function() {
-            $('a#add-teacher').click(function() {
-                var hide = $('.current-list').css('display');
-                if (hide != 'none') {
-                    $('.search-input').slideToggle();
-                    $('.current-list').fadeOut('fast');
-                    $('.suggest-list').delay(800).fadeIn(800);
-                    $('.suggest-info').fadeOut(800, function() {
-                        search_teacher();
-                        $(this).html('<p>Tổng số giáo viên được gợi ý: ' + json.people.person.length + '</p>').fadeIn(800)
-                    });
-                    $('a#add-teacher').html('<p id="add-teacher-contents">Thêm giáo viên <span style="font-size: 20px"> ✕ </span></p>');
-                } else {
-                    $('.add-new-teacher').hide();
-                    $('.search-input').slideToggle();
-                    $('.suggest-list').fadeOut('fast');
-                    $('.current-list').delay(800).fadeIn(800);
-                    $('.suggest-info').fadeOut('fast', function() {
-                        $(this).delay(800).html('<p>Tổng số giáo viên: 1</p>').fadeIn(800)
-                    });
-                    $(".search-input-box").val('');
-                    $('.suggest-teacher').show();
-                    $('a#add-teacher').html('<p id="add-teacher-contents">Thêm giáo viên <i class="icon-plus"></i></p>');
-                }
-            });
-        });
-        (function($) {
-            "use strict";
+                                        var json = {
+                                            "people": {
+                                                "person": [{
+                                                        "name": "Sơn Vũ",
+                                                        "id": "1"},
+                                                    {
+                                                        "name": "Sơn Vũ 2",
+                                                        "id": "2"},
+                                                    {
+                                                        "name": "Sơn Vũ 3",
+                                                        "id": "3"}]
+                                            }
+                                        };
+                                        $(document).ready(function() {
+                                            $('a#add-teacher').click(function() {
+                                                var hide = $('.current-list').css('display');
+                                                if (hide != 'none') {
+                                                    $('.search-input').slideToggle();
+                                                    $('.current-list').fadeOut('fast');
+                                                    $('.suggest-list').delay(800).fadeIn(800);
+                                                    $('.suggest-info').fadeOut(800, function() {
+                                                        search_teacher();
+                                                        $(this).html('<p>Tổng số giáo viên được gợi ý: ' + json.people.person.length + '</p>').fadeIn(800)
+                                                    });
+                                                    $('a#add-teacher').html('<p id="add-teacher-contents">Thêm giáo viên <span style="font-size: 20px"> ✕ </span></p>');
+                                                } else {
+                                                    $('.add-new-teacher').hide();
+                                                    $('.search-input').slideToggle();
+                                                    $('.suggest-list').fadeOut('fast');
+                                                    $('.current-list').delay(800).fadeIn(800);
+                                                    $('.suggest-info').fadeOut('fast', function() {
+                                                        $(this).delay(800).html('<p>Tổng số giáo viên: 1</p>').fadeIn(800)
+                                                    });
+                                                    $(".search-input-box").val('');
+                                                    $('.suggest-teacher').show();
+                                                    $('a#add-teacher').html('<p id="add-teacher-contents">Thêm giáo viên <i class="icon-plus"></i></p>');
+                                                }
+                                            });
+                                        });
+                                        (function($) {
+                                            "use strict";
 
-            $.fn.RemoveResult = function() {
-                Array.prototype.removeValue = function(name, value) {
-                    var array = $.map(this, function(v, i) {
-                        return v[name] === value ? null : v;
-                    });
-                    this.length = 0; //clear original array
-                    this.push.apply(this, array); //push all elements except the one we want to delete
-                }
+                                            $.fn.RemoveResult = function() {
+                                                Array.prototype.removeValue = function(name, value) {
+                                                    var array = $.map(this, function(v, i) {
+                                                        return v[name] === value ? null : v;
+                                                    });
+                                                    this.length = 0; //clear original array
+                                                    this.push.apply(this, array); //push all elements except the one we want to delete
+                                                }
 
-                return this.each(function() {
-                    var result = $(this),
-                            close = result.find('.add-to-this-class');
-                    if (close) {
-                        close.click(function() {
-                            var teacher_id = result.attr('id');
-                            $.ajax({
-                                type: "POST",
-                                url: "<?php echo Yii::app()->createUrl('classPage/addTeacher?class_id=' . $class->class_id . '&teacher_id=') ?>" + teacher_id + "&found_result=1",
-                                data: "",
-                                success: function(data) {
-                                    var json = data;
-                                    var result = $.parseJSON(json);
-                                    alert(result.id);
-                                }
-                            });
+                                                return this.each(function() {
+                                                    var result = $(this),
+                                                            close = result.find('.add-to-this-class');
+                                                    if (close) {
+                                                        close.click(function() {
+                                                            var teacher_id = result.attr('id');
+                                                            $.ajax({
+                                                                type: "POST",
+                                                                url: "<?php echo Yii::app()->createUrl('classPage/addTeacher?class_id=' . $class->class_id . '&teacher_id=') ?>" + teacher_id + "&found_result=1",
+                                                                data: "",
+                                                                success: function(data) {
+                                                                    var json = data;
+                                                                    var result = $.parseJSON(json);
+                                                                    alert(result.id);
+                                                                }
+                                                            });
 
-                            result.animate({height: '0', margin: 0}, 400, function() {
-                                var id = result.attr('id');
-                                result.css('display', 'none');
-                                result.remove();
-                                json.people.person.removeValue('id', id);
-                                search_teacher();
-                            });
-                        });
-                    }
-                });
-            };
-        })(jQuery);
+                                                            result.animate({height: '0', margin: 0}, 400, function() {
+                                                                var id = result.attr('id');
+                                                                result.css('display', 'none');
+                                                                result.remove();
+                                                                json.people.person.removeValue('id', id);
+                                                                search_teacher();
+                                                            });
+                                                        });
+                                                    }
+                                                });
+                                            };
+                                        })(jQuery);
 
-        jQuery(document).ready(function() {
-            "use strict";
+                                        jQuery(document).ready(function() {
+                                            "use strict";
 
-            jQuery('.suggest-teacher').RemoveResult();
-        });
-        function search_teacher() {
-            var num_display = 0;
-            $('.add-new-teacher').hide();
-            var value = $(".search-input-box").val();
-            if (value.length != 0) {
-                $('.suggest-teacher').hide();
-                $.each(json.people.person, function(i, v) {
-                    if (v.name.search(new RegExp(value + "", "i")) != -1) {
-                        var id = "#" + v.id;
-                        $(id).show();
-                        num_display++;
-                        return;
-                    }
-                });
-                $('.suggest-info').html('<p>Tổng số giáo viên được gợi ý: ' + num_display + '</p>');
-                if (num_display == 0 || json.people.person.length == 0) {
-                    $('.add-new-teacher').show();
-                }
-            } else {
-                $('.suggest-info').html('<p>Tổng số giáo viên được gợi ý: ' + json.people.person.length + '</p>');
-                $('.suggest-teacher').show();
-            }
-            if (json.people.person.length == 0) {
-                $('.add-new-teacher').show();
-            }
-        }
-        $(function() {
-            $(".search-input-box").keyup(function() {
-                search_teacher();
-            });
-        });
+                                            jQuery('.suggest-teacher').RemoveResult();
+                                        });
+                                        function search_teacher() {
+                                            var num_display = 0;
+                                            $('.add-new-teacher').hide();
+                                            var value = $(".search-input-box").val();
+                                            if (value.length != 0) {
+                                                $('.suggest-teacher').hide();
+                                                $.each(json.people.person, function(i, v) {
+                                                    if (v.name.search(new RegExp(value + "", "i")) != -1) {
+                                                        var id = "#" + v.id;
+                                                        $(id).show();
+                                                        num_display++;
+                                                        return;
+                                                    }
+                                                });
+                                                $('.suggest-info').html('<p>Tổng số giáo viên được gợi ý: ' + num_display + '</p>');
+                                                if (num_display == 0 || json.people.person.length == 0) {
+                                                    $('.add-new-teacher').show();
+                                                }
+                                            } else {
+                                                $('.suggest-info').html('<p>Tổng số giáo viên được gợi ý: ' + json.people.person.length + '</p>');
+                                                $('.suggest-teacher').show();
+                                            }
+                                            if (json.people.person.length == 0) {
+                                                $('.add-new-teacher').show();
+                                            }
+                                        }
+                                        $(function() {
+                                            $(".search-input-box").keyup(function() {
+                                                search_teacher();
+                                            });
+                                        });
                                     </script>
                                     <div class="w-tabs-section-content">
                                         <div class="w-tabs-section-content-h" style="padding-top: 10px">
@@ -602,7 +604,7 @@
                                                 <div class="add-new-teacher" style="display: none">
                                                     <h2 style="text-align: center; margin-top: 40px;">Không tìm thấy giáo viên</h2>
                                                     <a class="g-btn type_primary popup-with-form" style="text-transform: none; font-weight: normal; margin-left: 200px" href="#add-brand-new-teacher"><i class="icon-plus"></i>Thêm giáo viên mới</a>
-                                                    <?php $this->renderPartial('formaddteacher') ?>
+    <?php $this->renderPartial('formaddteacher') ?>
                                                 </div>
                                                 <div class="current-list">
                                                     <div class="result-teacher clearfix" style="margin: 0px">

@@ -10,24 +10,31 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('#loading').hide();
+
         var form = $('#file_upload');
         form.change(function(event) {
-            var data = form.serialize();
+            var formdata = new FormData($('#file_upload')[0]);
             $.ajax({
                 type: "POST",
                 url: '<?php echo Yii::app()->createUrl('classPage/changecover') ?>',
-                data: data,
+                data: formdata,
                 success: function(data) {
                     var json = data;
                     var result = $.parseJSON(json);
-                    alert(json);
-                }});
+                   // document.cookie = 'link='+result.message;
+                  //  $(".round_ava").attr("src","<?php //echo Yii::app()->createUrl($_COOKIE["link"]) ?>");
+                  
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+            });
         });
     });
 </script>
 <div class="custom_file_upload info">
 
-    <form class="file_upload" id ="file_upload" enctype="multipart/form-data" action="<?php echo Yii::app()->createUrl('classPage/changecover') ?>" method="POST">  
+    <form class="file_upload" id ="file_upload"  action="<?php echo Yii::app()->createUrl('classPage/changecover') ?>" method="POST" enctype="multipart/form-data">  
         <input type="hidden" id="class_id_cover" name="class_id_cover">
         <input type="file" id="file_upload_cover" name="file_upload_cover" class="">
     </form>  

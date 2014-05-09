@@ -277,7 +277,7 @@ class WelcomePageController extends BaseController {
 
             $facebook_cover = $data["cover"]["source"];
             $facebook_cover_resize = Yii::getPathOfAlias('webroot') . '/images/coverfacebook' . $user["id"] . '.png';
-            imageresize::resize_image($facebook_cover, null, 851, 315, false, $facebook_cover_resize, false, false, 100);
+            imageresize::resize_image($facebook_cover, null, 1000, 315, false, $facebook_cover_resize, false, false, 100);
             $user_facebook_exist->user_cover = '/images/coverfacebook' . $user["id"] . '.png';
             $user_facebook_exist->user_hometown = $user["hometown"]["name"];
             $user_facebook_exist->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture?type=large";
@@ -313,7 +313,7 @@ class WelcomePageController extends BaseController {
             Yii::app()->session['token'] = $token;
             $user_facebook->user_id_fb = $user["id"];
             $facebook_cover_resize = Yii::getPathOfAlias('webroot') . '/images/coverfacebook' . $user["id"] . '.png';
-            imageresize::resize_image($facebook_cover, null, 851, 315, false, $facebook_cover_resize, false, false, 100);
+            imageresize::resize_image($facebook_cover, null, 1000, 315, false, $facebook_cover_resize, false, false, 100);
             $user_facebook_exist->user_cover = '/images/coverfacebook' . $user["id"] . '.png';
             $user_facebook->user_active = 1;
             if (isset($user["quotes"])) {
