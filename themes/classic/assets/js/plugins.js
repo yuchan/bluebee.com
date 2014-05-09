@@ -174,7 +174,6 @@ $(document).ready(function() {
 });
 $(function() {
     $('.teacher-block-rating-outside').barrating({
-        showSelectedRating: false,
-        readonly: true
+        showSelectedRating: false
     });
 });

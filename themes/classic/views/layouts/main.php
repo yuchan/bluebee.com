@@ -380,25 +380,7 @@
     <!-- /FOOTER -->
 
     <a class="w-toplink" href="#"><i class="icon-angle-up" style="line-height: inherit"></i></a>
-    <script>
-        $(document).ready(function () {
-            $('.comment-container').hide();
-            $('.opencmt').click(function(event) {
-                var current = $(this);
-                var hide = current.next().css('display');
-                if (hide == 'none') {
-                    $(this).html('<i class="icon-chevron-up"></i><span>&nbsp;Đóng</span>');
-                    current.next().slideDown('slow', function() {
-                    });
-                } else {
-                    $(this).html('<i class="icon-chevron-down"></i><span>&nbsp;Xem thêm</span>');
-                    current.next().slideUp();
-                }
-            });
-        });
-        window.color_scheme = "color_11";
-        window.body_layout = "wide";
-    </script>
+    
 
 </body>
 </html>
