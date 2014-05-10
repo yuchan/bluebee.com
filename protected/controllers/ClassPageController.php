@@ -370,7 +370,7 @@ class ClassPageController extends BaseController {
                     $comment_model->comment_content = $comment['comment_content'];
                     $comment_model->comment_class_id = $comment['comment_class_id'];
                     $comment_model->comment_post_id = $comment['comment_post_id'];
-
+                    $comment_model->comment_author_id = Yii::app()->session['user_id'];
                     $comment_model->save(FALSE);
 
                     if ($comment_model->save(FALSE)) {

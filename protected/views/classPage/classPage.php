@@ -162,7 +162,7 @@
                         });
 //                        document.getElementById("text_comment_hidden").value =
 //                                document.getElementById("text_comment_display").innerHTML;
-                        alert(comment_input_content.html());
+                        //alert(comment_input_content.html());
                         text_comment_hidden.val(comment_input_content.html());
                         comment_input_content.html('');
                         var form = $(this).parents(".comment-form");
@@ -366,17 +366,14 @@
 
                                                         <div style="margin-top: 20px; background-color: white">
                                                             <div class="activity-item">
+                                                                <?php foreach ($postUser as $user):
+                                                                    if ($user->user_id == $post->post_author): ?>
                                                                 <a class="other-user-avatar" href="/glang">
-                                                                    <img width="50px" height="50px" src="<?php
-                                                                    foreach ($postUser as $user) {
-                                                                        if ($user->user_id === $post->post_author)
-                                                                            echo $user->user_avatar;
-                                                                    }
-                                                                    ?>" style="opacity: 1;height: 50px;">
+                                                                    <img class="" width="50" height="50" src="<?php echo $user->user_avatar; ?>" style="opacity: 1;">
                                                                 </a>
                                                                 <div  class="profile clearfix">
                                                                     <a style="float: left" href="/glang">
-                                                                        <span data-paths="profile.firstName profile.lastName" id="el-105">Granger Lang</span>
+                                                                        <span data-paths="profile.firstName profile.lastName" id="el-105"><?php echo $user->user_real_name ?></span>
                                                                     </a>
                                                                     <i class="icon-time" style="float: left; margin-top: 5px; margin-left: 15px; color: #dadcdd;"></i>
                                                                     <p style="color: #dadcdd; float: left">&nbsp;12 hours ago</p>
@@ -384,6 +381,8 @@
                                                                     <p style="float: right"><strong>&nbsp; 69 &nbsp;</strong></p>
                                                                     <a class="fix-vote-button"><i class="icon-chevron-left"></i></a> -->
                                                                 </div>
+                                                                <?php endif; ?>
+                                                                <?php endforeach; ?>
                                                                 <article data-paths="body" id="el-99">
                                                                     <p><?php echo $post->post_content ?></p>
                                                                 </article>
@@ -396,24 +395,23 @@
                                                                 <button class=" g-btn type_primary size_small opencmt button-in-activity-box" id="opencmt-<?php echo $post->post_id ?>"><i class="icon-chevron-down"></i><span>&nbsp;Xem thêm</span></button>
                                                                 <div class="comment-container">
                                                                     <div class="list-item-comment-wrapper-<?php echo $post->post_id ?>">
-                                                                        <?php
-                                                                        foreach ($comment_array as $comment):
-                                                                            if ($post->post_id == $comment->comment_post_id):
-                                                                                $number_comment = $number_comment + 1;
-                                                                                ?>
+        <?php
+        foreach ($comment_array as $comment):
+            if ($post->post_id == $comment->comment_post_id):
+                $number_comment = $number_comment + 1;
+                ?>
+                                                                        
                                                                                 <div class="item-comment" id="item-comment-<?php echo $post->post_id ?>">
+                                                                                    <?php foreach ($postUser as $user):
+                                                                                          if ($user->user_id === $comment->comment_author_id): ?>
                                                                                     <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
-                                                                                        <img class="" width="40" height="40" src="<?php
-                                                                                        foreach ($postUser as $user) {
-                                                                                            if ($user->user_id === $comment->comment_author_id)
-                                                                                                echo $user->user_avatar;
-                                                                                        }
-                                                                                        ?>" style="opacity: 1;">
+                                                                                        <img class="" width="40" height="40" src="<?php echo $user->user_avatar;?>" style="opacity: 1;">
+
                                                                                     </a>
                                                                                     <div class="comment-content">
                                                                                         <div  class="fix-style-profile profile clearfix">
                                                                                             <a style="float: left" href="/glang">
-                                                                                                <span data-paths="profile.firstName profile.lastName" id="el-105">sancak</span>
+                                                                                                <span data-paths="profile.firstName profile.lastName" id="el-105"><?php echo $user->user_real_name ?></span>
                                                                                             </a>
                                                                                             <p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>
                                                                                         </div>
@@ -421,6 +419,8 @@
                                                                                             <p data-paths="body" id="el-1140"><?php echo $comment->comment_content ?></p>
                                                                                         </div>
                                                                                     </div>
+                                                                                    <?php endif; ?>
+                                                                                    <?php endforeach; ?>
                                                                                 </div>
                                                                             <?php endif; ?>
                                                                         <?php endforeach; ?>
