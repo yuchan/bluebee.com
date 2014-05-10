@@ -92,7 +92,7 @@
     } else {
         echo Yii::app()->session['user_avatar'];
     }
-    ?>" style="opacity: 1;">' +
+    ?>" style="opacity: 1; height: 50px;">' +
                                 '</a>' +
                                 '<div  class="profile clearfix">' +
                                 '<a style="float: left" href="/glang">' +
@@ -103,7 +103,6 @@
                                 '<article data-paths="body" id="el-99">' +
                                 '<p>' + result.message + '</p>' +
                                 '</article>' +
-                                '<button class=" g-btn type_primary size_small opencmt button-in-activity-box" id="opencmt"><span>Xem thêm</span></button>' +
                                 '<div class="comment-container">' +
                                 '<div class="list-item-comment-wrapper">' +
                                 '</div>' +
@@ -179,13 +178,13 @@
                                 if (result.success) {
                                     var item = $('<div class="item-comment">' +
                                             '<a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">' +
-                                            '<img class="" width="40" height="40" src="<?php
+                                            '<img width="40" height="40" src="<?php
     if (Yii::app()->session['user_avatar'] == "") {
         echo Yii::app()->theme->baseUrl, "/assets/img/logo.jpg";
     } else {
         echo Yii::app()->session['user_avatar'];
     }
-    ?>" style="opacity: 1;">' +
+    ?>" style="opacity: 1; height: 40px;">' +
                                             '</a>' +
                                             '<div class="comment-content">' +
                                             '<div  class="fix-style-profile profile clearfix">' +
@@ -388,21 +387,7 @@
                                                                 <article data-paths="body" id="el-99">
                                                                     <p><?php echo $post->post_content ?></p>
                                                                 </article>
-                                                                <style type="text/css">
-                                                                    .vote {
-                                                                        margin-left: 15px;
-                                                                        display: inline-block;
-                                                                    }
-                                                                    .vote * {
-                                                                        float: left;
-                                                                    }
-                                                                    .vote a {
-                                                                        margin-top: 5px;
-                                                                        margin-left: 5px;
-                                                                        margin-right: 5px;
-                                                                    }
-                                                                </style>
-                                                                <div class="vote">
+                                                                <div class="vote none-display">
                                                                     <a><i class="icon-thumbs-up"></i></a>
                                                                     <p style="color: #dadcdd">1&nbsp;</p>
                                                                     <a><i class="icon-thumbs-down"></i></a>
@@ -549,7 +534,6 @@
                                                                 success: function(data) {
                                                                     var json = data;
                                                                     var result = $.parseJSON(json);
-                                                                    alert(result.id);
                                                                 }
                                                             });
 
