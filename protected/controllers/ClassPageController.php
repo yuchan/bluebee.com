@@ -338,7 +338,7 @@ class ClassPageController extends BaseController {
                 $model->post_author = Yii::app()->session['user_id'];
                 $model->post_date = \date('d/m/Y H:i');
                 $model->post_type = 'class_post';
-                $model->post_content = strip_tags($post['post_content']);
+                $model->post_content = strip_tags($post['post_content'], '<p>');
                 $model->post_class = $_POST['class_id_post'];
                 $model->save(FALSE);
                 if ($model->save(FALSE)) {

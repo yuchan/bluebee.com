@@ -1,3 +1,8 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#loading').hide();
+    });
+</script>
 <?php foreach ($detail_classpage as $class): ?>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -78,7 +83,8 @@
                     success: function(dataview) {
                         var json = dataview;
                         var result = $.parseJSON(json);
-                        var item = $('<div class="activity-item">' +
+                        var item = $('<div style="margin-top: 20px; background-color: white">' +
+                                '<div class="activity-item">' +
                                 '<a class="other-user-avatar" href="/glang">' +
                                 '<img class="" width="50" height="50" src="<?php
     if (Yii::app()->session['user_avatar'] == "") {
@@ -93,9 +99,6 @@
                                 '<span data-paths="profile.firstName profile.lastName" id="el-105">Granger Lang</span>' +
                                 '</a>' +
                                 '<p style="color: #dadcdd; float: left">&nbsp;&nbsp;12 hours ago</p>' +
-                                '<a class="fix-vote-button"><i class="icon-chevron-right"></i></a>' +
-                                '<p style="float: right"><strong>&nbsp; 69 &nbsp;</strong></p>' +
-                                '<a class="fix-vote-button"><i class="icon-chevron-left"></i></a>' +
                                 '</div>' +
                                 '<article data-paths="body" id="el-99">' +
                                 '<p>' + result.message + '</p>' +
@@ -110,7 +113,9 @@
                                 '<img class="" width="35" height="35" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">' +
                                 '</a>' +
                                 '<div class="comment-input-box">' +
-                                '<div contenteditable="true" class="comment-input-content" data-placeholder="Bình luận?">' + '</div>' +
+                                '<div contenteditable="true" class="comment-input-content text_comment_display" data-placeholder="Bình luận?"></div>' +
+                                '<textarea class="none-display text_comment_hidden" name="comment_content"></textarea>' +
+                                '</div>' +
                                 '</div>' +
                                 '</div>' +
                                 '</div>').hide().fadeIn(800);
@@ -129,7 +134,6 @@
                                 current.next().slideUp();
                             }
                         });
-                        $('#post_form').reset();
                     },
                     error: function(event) {
                         console.log(dataview);
@@ -148,67 +152,75 @@
         //            }
         //        }
         $(document).ready(function() {
-
-            $('.comment-input-content').keypress(function(e) {
-
-                if (e.which === 13) {
-                    var form = $(this).parents(".comment-form");
-                    var id = form.attr("id");
-                    var data = form.serialize();
-                    $.ajax({
-                        type: "POST",
-                        url: form.attr('action'),
-                        data: data,
-                        success: function(data) {
-                            var json = data;
-                            var result = $.parseJSON(json);
-                            if (result.success) {
-                                var item = $('<div class="item-comment">' +
-                                        '<a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">' +
-                                        '<img class="" width="40" height="40" src="<?php
+            $('.comment-input-box').each(function() {
+                var text_comment_hidden = $(this).find('textarea.text_comment_hidden');
+                var comment_input_content = $(this).find('.comment-input-content');
+                comment_input_content.keypress(function(e) {
+                    if (e.which === 13 && !event.shiftKey) {
+                        var $div = comment_input_content.find('div');
+                        $div.replaceWith(function() {
+                            return $('<p/>', {html: this.innerHTML});
+                        });
+//                        document.getElementById("text_comment_hidden").value =
+//                                document.getElementById("text_comment_display").innerHTML;
+                        alert(comment_input_content.html());
+                        text_comment_hidden.val(comment_input_content.html());
+                        comment_input_content.html('');
+                        var form = $(this).parents(".comment-form");
+                        var id = form.attr("id");
+                        var data = form.serialize();
+                        $.ajax({
+                            type: "POST",
+                            url: form.attr('action'),
+                            data: data,
+                            success: function(data) {
+                                var json = data;
+                                var result = $.parseJSON(json);
+                                if (result.success) {
+                                    var item = $('<div class="item-comment">' +
+                                            '<a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">' +
+                                            '<img class="" width="40" height="40" src="<?php
     if (Yii::app()->session['user_avatar'] == "") {
         echo Yii::app()->theme->baseUrl, "/assets/img/logo.jpg";
     } else {
         echo Yii::app()->session['user_avatar'];
     }
     ?>" style="opacity: 1;">' +
-                                        '</a>' +
-                                        '<div class="comment-content">' +
-                                        '<div  class="fix-style-profile profile clearfix">' +
-                                        '<a style="float: left" href="/glang">' +
-                                        '<span data-paths="profile.firstName profile.lastName" id="el-105"><?php echo Yii::app()->session['user_real_name'] ?></span>' +
-                                        '</a>' +
-                                        '<p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>' +
-                                        '<a class="fix-vote-button"><i class="icon-chevron-right"></i></a>' +
-                                        '<p style="float: right"><strong>&nbsp; 2 &nbsp;</strong></p>' +
-                                        '<a class="fix-vote-button"><i class="icon-chevron-left"></i></a>' +
-                                        '</div>' +
-                                        '<div class="comment-body-container">' +
-                                        '<p data-paths="body" id="el-1140">' + result.comment_content + '</p>' +
-                                        '</div>' +
-                                        '</div>' +
-                                        '</div>').hide().fadeIn(800);
-                                $(".list-item-comment-wrapper-" + result.comment_post_id).append(item);
-                                document.getElementById("comment-form-" + result.comment_post_id).reset();
-                                $('#more-comment-' + result.comment_post_id).hide();
-                                //show comment if comment is closing
-                                var opencmt = $('#opencmt-' + result.comment_post_id);
-                                var hide_state = opencmt.next().css('display');
-                                if (hide_state == "none") {
-                                    $(this).html('<span>Đóng</span>');
-                                    opencmt.next().slideDown('slow', function() {
-                                    });
+                                            '</a>' +
+                                            '<div class="comment-content">' +
+                                            '<div  class="fix-style-profile profile clearfix">' +
+                                            '<a style="float: left" href="/glang">' +
+                                            '<span data-paths="profile.firstName profile.lastName" id="el-105">sancak</span>' +
+                                            '</a>' +
+                                            '<p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>' +
+                                            '</div>' +
+                                            '<div class="comment-body-container">' +
+                                            '<p data-paths="body" id="el-1140">' + result.comment_content + '</p>' +
+                                            '</div>' +
+                                            '</div>' +
+                                            '</div>').hide().fadeIn(800);
+                                    $(".list-item-comment-wrapper-" + result.comment_post_id).append(item);
+                                    document.getElementById("comment-form-" + result.comment_post_id).reset();
+                                    $('#more-comment-' + result.comment_post_id).hide();
+                                    //show comment if comment is closing
+                                    var opencmt = $('#opencmt-' + result.comment_post_id);
+                                    var hide_state = opencmt.next().css('display');
+                                    if (hide_state == "none") {
+                                        $(this).html('<span>Đóng</span>');
+                                        opencmt.next().slideDown('slow', function() {
+                                        });
+                                    }
+                                    ;
+                                    //add function close comment after prepend new comment                         
+                                } else {
+                                    alert(result.message);
                                 }
-                                ;
-                                //add function close comment after prepend new comment                         
-                            } else {
-                                alert(result.message);
                             }
-                        }
-                    });
-                    return false;
-                }
-                ;
+                        });
+                        return false;
+                    }
+                    ;
+                });
             });
         });
     </script>
@@ -294,12 +306,12 @@
         <div class="l-content">
             <div class="l-content-h i-widgets">
                 <div class="g-cols">
-                    <div id="loading"></div>
+
                     <div class="full-width">
-                        <div class="view effect">
+                        <div class="view2 effect">
 
                             <img class="round_ava" src="<?php echo Yii::app()->createUrl($class->class_cover); ?>"/>
-                            <div class="content-1">
+                            <div class="content-3">
                                 <?php $this->renderPartial('changeCover') ?>
                             </div>
                         </div>
@@ -339,7 +351,7 @@
                                                 <a class="avatar-view" href="user">
                                                     <img class="" width="50" height="50" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
                                                 </a>
-                                                <form class="activity-input-box" id="post_form" onsubmit='return copyContent()' action ="<?php echo Yii::app()->createUrl('classpage/createpost') ?>" method="post">
+                                                <form class="activity-input-box" id="post_form" onsubmit='return copyContent()' action ="<?php echo Yii::app()->createUrl('classPage/createpost') ?>" method="post">
                                                     <div contenteditable="true" id="myContentEditable" class="activity-input-content" data-placeholder="Có Gì Hot?"></div>
                                                     <input type="hidden" id="class_id_post" name="class_id_post">
                                                     <textarea id="hiddenTextarea" name ="post_content" style="display:none"></textarea>
@@ -349,7 +361,7 @@
                                                 </form>
                                             </div>
                                             <div style="border-top: 1px solid #d8d8d8;">
-                                                <div> <img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax-loader.gif" alt="" style="" id="loading"></div>
+                                                <div id="loading" style="margin-left: 324px"> <img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax-loader.gif" alt="" style="" id=""></div>
                                                 <div class="activity-content" id="activity_content">   
                                                     <?php foreach ($post as $post): $number_comment = 0; ?>
 
@@ -417,9 +429,6 @@
                                                                                                 <span data-paths="profile.firstName profile.lastName" id="el-105"><?php echo $user->user_real_name ?></span>
                                                                                             </a>
                                                                                             <p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>
-                                                                                            <a class="fix-vote-button"><i class="icon-chevron-right"></i></a>
-                                                                                            <p style="float: right"><strong>&nbsp; 2 &nbsp;</strong></p>
-                                                                                            <a class="fix-vote-button"><i class="icon-chevron-left"></i></a>
                                                                                         </div>
                                                                                         <div class="comment-body-container">
                                                                                             <p data-paths="body" id="el-1140"><?php echo $comment->comment_content ?></p>
@@ -432,17 +441,18 @@
                                                                         <?php endforeach; ?>
                                                                     </div>
                                                                     <?php if ($number_comment >= 2): ?>
-                    <!--                                                                    <button class=" g-btn type_primary size_small more-comment button-in-activity-box" id="more-comment-//<?php echo $post->post_id ?>"><span>Xem thêm <?php echo ($number_comment - 1) ?> bình luận nữa</span></button>-->
+                            <!--                                                                    <button class=" g-btn type_primary size_small more-comment button-in-activity-box" id="more-comment-//<?php echo $post->post_id ?>"><span>Xem thêm <?php echo ($number_comment - 1) ?> bình luận nữa</span></button>-->
                                                                     <?php endif; ?>
                                                                 </div>
                                                             </div>
-                                                            <form class="comment-form" id="comment-form-<?php echo $post->post_id ?>" action ="<?php echo Yii::app()->createUrl('classpage/createComment?class_id=' . $class->class_id . '&post_id=' . $post->post_id) ?>" method="post">
+                                                            <form class="comment-form" id="comment-form-<?php echo $post->post_id ?>" action ="<?php echo Yii::app()->createUrl('classPage/createComment?class_id=' . $class->class_id . '&post_id=' . $post->post_id) ?>" method="post">
                                                                 <div class="item-add-comment-box">
                                                                     <a class="avatar-view fix-avatar-view" href="user">
                                                                         <img class="" width="35" height="35" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
                                                                     </a>
                                                                     <div class="comment-input-box">
-                                                                        <textarea contenteditable="true" class="comment-input-content" id="text_comment" name="comment_content" data-placeholder="Bình luận?"></textarea>                                
+                                                                        <div contenteditable="true" class="comment-input-content" data-placeholder="Bình luận?"></div>                                
+                                                                        <textarea class="none-display text_comment_hidden" name="comment_content"></textarea>
                                                                     </div>
                                                                 </div>
                                                             </form>

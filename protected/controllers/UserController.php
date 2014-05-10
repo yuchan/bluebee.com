@@ -1,6 +1,8 @@
 <?php
 
-class UserController extends Controller {
+Yii::import('application.controllers.BaseController');
+
+class UserController extends BaseController {
 
     public function actionIndex() {
         $this->actionUser();
@@ -57,8 +59,8 @@ class UserController extends Controller {
 
     public function actionChangeCover() {
         $this->retVal = new stdClass;
-        $relativePath = '/images/class_cover/' . Yii::app()->request->getPost('class_id_cover') . '/';
-        $dir = "images/class_cover/" . Yii::app()->request->getPost('class_id_cover');
+        $relativePath = '/images/user_cover/' . Yii::app()->session["user_id"]. '/';
+        $dir = "images/user_cover/" . Yii::app()->session["user_id"];
         @mkdir(Yii::getPathOfAlias('webroot') . '/' . $dir, 0777, true);
         $image = "";
         if (isset($_FILES["file_upload_cover"]["name"])) {
@@ -78,9 +80,9 @@ class UserController extends Controller {
 
         imageresize::resize_image(Yii::getPathOfAlias('webroot') . $image, null, 1000, 315, false, Yii::getPathOfAlias('webroot') . $image_resize, false, false, 100);
         $this->retVal->message = Yii::app()->createUrl($image_resize);
-        $class_cover = class_model::model()->findByAttributes(array('class_id' => Yii::app()->request->getPost('class_id_cover')));
-        $class_cover->class_cover = $image_resize;
-        $class_cover->save(FALSE);
+        $user_cover = User::model()->findByAttributes(array('user_id' => Yii::app()->session["user_id"]));
+        $user_cover->user_cover = $image_resize;
+        $user_cover->save(FALSE);
         echo CJSON::encode($this->retVal);
         Yii::app()->end();
     }

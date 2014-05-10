@@ -7,10 +7,10 @@
     <orderEntry type="module-library">
       <library name="PHARS">
         <CLASSES>
-          <root url="phar://D:/xampp/htdocs/SE_2014_Group5/codecept.phar" />
+          <root url="phar://$MODULE_DIR$/codecept.phar" />
         </CLASSES>
         <SOURCES>
-          <root url="phar://D:/xampp/htdocs/SE_2014_Group5/codecept.phar" />
+          <root url="phar://$MODULE_DIR$/codecept.phar" />
         </SOURCES>
       </library>
     </orderEntry>
