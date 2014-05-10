@@ -74,15 +74,10 @@
 
                         <div class="cover1">
                             <div class="view effect1">
-                                <div id='cover_container' style="background:url('<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg');">
+                                <img id='cover_container' src="<?php echo Yii::app()->createUrl($user['user_cover'])?>"/>
                                     <div class="content-1">
-                                        <div class="custom_file_upload info1">
-                                            <form class=" file_upload">  
-                                                <input type="file" id="file_upload" name="file_upload" class="">
-                                            </form>  
-                                        </div>
+                                        <?php $this->renderPartial('changeCover') ?>
                                     </div>
-                                </div>
                             </div>
 
                             <div id="profile_img">
@@ -111,11 +106,11 @@
 
                         echo $user['user_cover'];
                     }
-                    ?>"/>
+                    ?>
                         <div class="content-1">
-                    <?php $this->renderPartial('partial/changeCover') ?>
-                        </div>
-                    </div>-->
+                    
+                        </div><!--\
+                    </div>
                 </div>
             </div>
         </div>
@@ -134,13 +129,13 @@
                         <div class='full-width'>
                             <!--<div class="view1 effect ">
                                 <img class="circular " src="<?php
-                                if (Yii::app()->session['user_avatar'] == "") {
-                                    echo Yii::app()->theme->baseUrl, "/assets/img/logo.jpg";
-                                } else {
+                            if (Yii::app()->session['user_avatar'] == "") {
+                                echo Yii::app()->theme->baseUrl, "/assets/img/logo.jpg";
+                            } else {
 
-                                    echo Yii::app()->session['user_avatar'];
-                                }
-                                ?>"/>
+                                echo Yii::app()->session['user_avatar'];
+                            }
+                            ?>"/>
                                 <div class="content-2">
                                     <div class="custom_file_upload1 info">
                                         <form class=" file_upload1">  

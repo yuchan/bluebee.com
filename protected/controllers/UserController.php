@@ -1,6 +1,8 @@
 <?php
 
-class UserController extends Controller {
+Yii::import('application.controllers.BaseController');
+
+class UserController extends BaseController {
 
     public function actionIndex() {
         $this->actionUser();
@@ -8,7 +10,7 @@ class UserController extends Controller {
 
     public function actionUser() {
         if (isset($_GET["token"])) {
-            
+
             $user_activity = $this->userActivity();
             $spCriteria = new CDbCriteria();
             $spCriteria->select = "*";
@@ -28,8 +30,8 @@ class UserController extends Controller {
         } else
             $this->redirect('welcomePage');
     }
-    
-     public function actionUser_Visitor() {
+
+    public function actionUser_Visitor() {
         if (isset($_GET["userid"])) {
             $spCriteria = new CDbCriteria();
             $spCriteria->select = "*";
@@ -49,11 +51,40 @@ class UserController extends Controller {
         } else
             $this->redirect('welcomePage');
     }
-    
-    
+
     public function userActivity() {
-        $user_activity = Post::model()->findAllByAttributes(array('post_author' =>  Yii::app()->session["user_id"] ));
+        $user_activity = Post::model()->findAllByAttributes(array('post_author' => Yii::app()->session["user_id"]));
         return $user_activity;
+    }
+
+    public function actionChangeCover() {
+        $this->retVal = new stdClass;
+        $relativePath = '/images/user_cover/' . Yii::app()->session["user_id"]. '/';
+        $dir = "images/user_cover/" . Yii::app()->session["user_id"];
+        @mkdir(Yii::getPathOfAlias('webroot') . '/' . $dir, 0777, true);
+        $image = "";
+        if (isset($_FILES["file_upload_cover"]["name"])) {
+            if ((($_FILES["file_upload_cover"]["type"] == "image/jpeg") || ($_FILES["file_upload_cover"]["type"] == "image/jpg") || ($_FILES["file_upload_cover"]["type"] == "image/pjpeg") || ($_FILES["file_upload_cover"]["type"] == "image/x-png") || ($_FILES["file_upload_cover"]["type"] == "image/png"))
+            ) {
+                if ($_FILES["file_upload_cover"]["error"] > 0) {
+                    $arr->message = "Return Code: " . $_FILES["file_upload_cover"]["error"];
+                }
+                $tempFile = $_FILES["file_upload_cover"]["tmp_name"];          //3             
+                $targetPath = Yii::getPathOfAlias('webroot') . '/' . $dir . "/";  //4
+                $targetFile = $targetPath . $_FILES["file_upload_cover"]["name"];  //5
+                move_uploaded_file($tempFile, $targetFile); //6
+                $image = $relativePath . $_FILES["file_upload_cover"]["name"];
+            }
+        }
+        $image_resize = $relativePath . 'coverresize' . $_FILES["file_upload_cover"]["name"];
+
+        imageresize::resize_image(Yii::getPathOfAlias('webroot') . $image, null, 1000, 315, false, Yii::getPathOfAlias('webroot') . $image_resize, false, false, 100);
+        $this->retVal->message = Yii::app()->createUrl($image_resize);
+        $user_cover = user::model()->findByAttributes(array('user_id' => Yii::app()->session["user_id"]));
+        $user_cover->user_cover = $image_resize;
+        $user_cover->save(FALSE);
+        echo CJSON::encode($this->retVal);
+        Yii::app()->end();
     }
 
     // Uncomment the following methods and override them if needed
