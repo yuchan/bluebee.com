@@ -343,6 +343,7 @@ class ClassPageController extends BaseController {
                 $model->save(FALSE);
                 if ($model->save(FALSE)) {
                     $this->retVal->message = $_POST['post_content'];
+                    $this->retVal->post_id = $model->post_id;
                     $this->retVal->success = TRUE;
                 } else {
                     $this->retVal->message = 'khong tao duoc post record';
