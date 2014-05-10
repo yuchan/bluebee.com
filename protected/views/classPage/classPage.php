@@ -339,7 +339,7 @@
                                                 <a class="avatar-view" href="user">
                                                     <img class="" width="50" height="50" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
                                                 </a>
-                                                <form class="activity-input-box" id="post_form" onsubmit='return copyContent()' action ="<?php echo Yii::app()->createUrl('classpage/createpost') ?>" method="post">
+                                                <form class="activity-input-box" id="post_form" onsubmit='return copyContent()' action ="<?php echo Yii::app()->createUrl('classPage/createpost') ?>" method="post">
                                                     <div contenteditable="true" id="myContentEditable" class="activity-input-content" data-placeholder="Có Gì Hot?"></div>
                                                     <input type="hidden" id="class_id_post" name="class_id_post">
                                                     <textarea id="hiddenTextarea" name ="post_content" style="display:none"></textarea>
@@ -436,7 +436,7 @@
         <?php endif; ?>
                                                                 </div>
                                                             </div>
-                                                            <form class="comment-form" id="comment-form-<?php echo $post->post_id ?>" action ="<?php echo Yii::app()->createUrl('classpage/createComment?class_id=' . $class->class_id . '&post_id=' . $post->post_id) ?>" method="post">
+                                                            <form class="comment-form" id="comment-form-<?php echo $post->post_id ?>" action ="<?php echo Yii::app()->createUrl('classPage/createComment?class_id=' . $class->class_id . '&post_id=' . $post->post_id) ?>" method="post">
                                                                 <div class="item-add-comment-box">
                                                                     <a class="avatar-view fix-avatar-view" href="user">
                                                                         <img class="" width="35" height="35" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
