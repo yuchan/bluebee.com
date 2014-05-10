@@ -177,10 +177,10 @@ a.avatar-view-user img, .other-user-avatar img{
 }
 .item-comment {
     padding: 5px 10px;
-    border-bottom: 1px solid #d8d8d8;
+    border-top: 1px solid #d8d8d8;
 }
 .comment-content {
-    margin: 15px 0 15px 60px;
+    margin: 15px 0 15px 50px;
     width: 88%;
 }
 .button-in-activity-box{
