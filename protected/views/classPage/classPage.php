@@ -109,7 +109,7 @@
                                 '</div>' +
                                 '<div class="item-add-comment-box">' +
                                 '<a class="avatar-view fix-avatar-view" href="user">' +
-                                '<img class="" width="35" height="35" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">' +
+                                '<img class="" width="35" height="35" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1; height: 35px">' +
                                 '</a>' +
                                 '<div class="comment-input-box">' +
                                 '<div contenteditable="true" class="comment-input-content text_comment_display" data-placeholder="Bình luận?"></div>' +
@@ -348,7 +348,7 @@
                                         <div class="w-tabs-section-content-h" style="padding-top: 0px;">
                                             <div class="activity-input">
                                                 <a class="avatar-view" href="user">
-                                                    <img class="" width="50" height="50" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
+                                                    <img class="" width="50" height="50" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1; height: 50px">
                                                 </a>
                                                 <form class="activity-input-box" id="post_form" onsubmit='return copyContent()' action ="<?php echo Yii::app()->createUrl('classPage/createpost') ?>" method="post">
                                                     <div contenteditable="true" id="myContentEditable" class="activity-input-content" data-placeholder="Có Gì Hot?"></div>
@@ -369,7 +369,7 @@
                                                                 <?php foreach ($postUser as $user):
                                                                     if ($user->user_id == $post->post_author): ?>
                                                                 <a class="other-user-avatar" href="/glang">
-                                                                    <img class="" width="50" height="50" src="<?php echo $user->user_avatar; ?>" style="opacity: 1;">
+                                                                    <img class="" width="50" height="50" src="<?php echo $user->user_avatar; ?>" style="opacity: 1; height: 50px">
                                                                 </a>
                                                                 <div  class="profile clearfix">
                                                                     <a style="float: left" href="/glang">
@@ -405,7 +405,7 @@
                                                                                     <?php foreach ($postUser as $user):
                                                                                           if ($user->user_id === $comment->comment_author_id): ?>
                                                                                     <a class="avatar-view-user" href="/sancak" style="width: 40px; height: 40px; background-size: 40px; background-image: none;">
-                                                                                        <img class="" width="40" height="40" src="<?php echo $user->user_avatar;?>" style="opacity: 1;">
+                                                                                        <img class="" width="40" height="40" src="<?php echo $user->user_avatar;?>" style="opacity: 1; height: 40px">
 
                                                                                     </a>
                                                                                     <div class="comment-content">
@@ -433,7 +433,7 @@
                                                             <form class="comment-form" id="comment-form-<?php echo $post->post_id ?>" action ="<?php echo Yii::app()->createUrl('classPage/createComment?class_id=' . $class->class_id . '&post_id=' . $post->post_id) ?>" method="post">
                                                                 <div class="item-add-comment-box">
                                                                     <a class="avatar-view fix-avatar-view" href="user">
-                                                                        <img class="" width="35" height="35" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
+                                                                        <img class="" width="35" height="35" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1; height: 35px">
                                                                     </a>
                                                                     <div class="comment-input-box">
                                                                         <div contenteditable="true" class="comment-input-content" data-placeholder="Bình luận?"></div>                                
@@ -605,7 +605,7 @@
                                                 <div class="current-list">
                                                     <div class="result-teacher clearfix" style="margin: 0px">
                                                         <a class="search-avatar-view relative float-left" href="user" style="margin-top: 5px">
-                                                            <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1;">
+                                                            <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1; height: 70px">
                                                         </a>
                                                         <div class="info">
                                                             <a href="/glang">
@@ -634,7 +634,7 @@
                                                 <div class="suggest-list">
                                                     <div class="suggest-teacher clearfix" style="margin: 0px" id="1">
                                                         <a class="search-avatar-view relative float-left" href="user" style="margin-top: 5px">
-                                                            <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1;">
+                                                            <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1; height: 70px">
                                                         </a>
                                                         <div class="info">
                                                             <a href="/glang">
@@ -661,7 +661,7 @@
                                                     </div>
                                                     <div class="suggest-teacher clearfix" style="margin: 0px" id="2">
                                                         <a class="search-avatar-view relative float-left" href="user" style="margin-top: 5px">
-                                                            <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1;">
+                                                            <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1; height: 70px">
                                                         </a>
                                                         <div class="info">
                                                             <a href="/glang">
@@ -688,7 +688,7 @@
                                                     </div>
                                                     <div class="suggest-teacher clearfix" style="margin: 0px" id="3">
                                                         <a class="search-avatar-view relative float-left" href="user" style="margin-top: 5px">
-                                                            <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1;">
+                                                            <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1; height: 70px">
                                                         </a>
                                                         <div class="info">
                                                             <a href="/glang">
