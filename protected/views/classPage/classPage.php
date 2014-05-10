@@ -296,10 +296,10 @@
                 <div class="g-cols">
                       <div id="loading"></div>
                     <div class="full-width">
-                        <div class="view effect">
+                        <div class="view2 effect">
                           
                             <img class="round_ava" src="<?php echo Yii::app()->createUrl($class->class_cover); ?>"/>
-                            <div class="content-1">
+                            <div class="content-3">
                                 <?php $this->renderPartial('changeCover') ?>
                             </div>
                         </div>
