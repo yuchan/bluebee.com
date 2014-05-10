@@ -163,7 +163,7 @@
                         });
 //                        document.getElementById("text_comment_hidden").value =
 //                                document.getElementById("text_comment_display").innerHTML;
-                        alert(comment_input_content.html());
+                        //alert(comment_input_content.html());
                         text_comment_hidden.val(comment_input_content.html());
                         comment_input_content.html('');
                         var form = $(this).parents(".comment-form");
