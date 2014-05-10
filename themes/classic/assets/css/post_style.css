@@ -237,3 +237,16 @@ a.avatar-view-user img, .other-user-avatar img{
     height: 35px !important;
     left: 6px;
 }
+
+.vote {
+    margin-left: 15px;
+    display: inline-block;
+}
+.vote * {
+    float: left;
+}
+.vote a {
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
