@@ -61,7 +61,7 @@
     min-height: 45px;
     line-height: 16px;
     font-size: 14px;
-    padding: 15px 110px 14px 95px;
+    padding: 20px 110px 14px 95px;
 }
 [contenteditable=true]:empty:not(:focus):before{
     content:attr(data-placeholder);
@@ -72,7 +72,7 @@
 }
 .submit-button {
     right: 9px;
-    top: 8px;
+    top: 13px;
     position: absolute;
     z-index: 1;
     margin: 0;
@@ -137,7 +137,7 @@ a.avatar-view-user {
     margin-top: 5px;
 }
 
-a.avatar-view-user img, a.other-user-avatar img{
+a.avatar-view-user img, .other-user-avatar img{
     border-radius: 50%;
 }
 .profile {
@@ -233,5 +233,7 @@ a.avatar-view-user img, a.other-user-avatar img{
     padding: 15px 100px 14px 56px;
 }
 .fix-avatar-view{
+    width: 35px !important;
+    height: 35px !important;
     left: 6px;
 }

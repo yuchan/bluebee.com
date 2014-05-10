@@ -65,6 +65,7 @@
             document.getElementById("hiddenTextarea").value =
                     document.getElementById("myContentEditable").innerHTML;
             $('#myContentEditable').html('');
+            alert(document.getElementById("hiddenTextarea").value);
             return true;
         }
         $(document).ready(function() {
@@ -83,7 +84,8 @@
                     success: function(dataview) {
                         var json = dataview;
                         var result = $.parseJSON(json);
-                        var item = $('<div class="activity-item">' +
+                        var item = $('<div style="margin-top: 20px; background-color: white">' +
+                                '<div class="activity-item">' +
                                 '<a class="other-user-avatar" href="/glang">' +
                                 '<img class="" width="50" height="50" src="<?php
     if (Yii::app()->session['user_avatar'] == "") {
@@ -98,9 +100,6 @@
                                 '<span data-paths="profile.firstName profile.lastName" id="el-105">Granger Lang</span>' +
                                 '</a>' +
                                 '<p style="color: #dadcdd; float: left">&nbsp;&nbsp;12 hours ago</p>' +
-                                '<a class="fix-vote-button"><i class="icon-chevron-right"></i></a>' +
-                                '<p style="float: right"><strong>&nbsp; 69 &nbsp;</strong></p>' +
-                                '<a class="fix-vote-button"><i class="icon-chevron-left"></i></a>' +
                                 '</div>' +
                                 '<article data-paths="body" id="el-99">' +
                                 '<p>' + result.message + '</p>' +
@@ -116,6 +115,7 @@
                                 '</a>' +
                                 '<div class="comment-input-box">' +
                                 '<div contenteditable="true" class="comment-input-content" data-placeholder="Bình luận?">' + '</div>' +
+                                '</div>' +
                                 '</div>' +
                                 '</div>' +
                                 '</div>').hide().fadeIn(800);
@@ -134,7 +134,6 @@
                                 current.next().slideUp();
                             }
                         });
-                        $('#post_form').reset();
                     },
                     error: function(event) {
                         console.log(dataview);
@@ -360,13 +359,13 @@
 
                                                         <div style="margin-top: 20px; background-color: white">
                                                             <div class="activity-item">
-                                                                <a href="/glang">
-                                                                    <img class="ava" width="50px" height="50px" src="<?php
+                                                                <a class="other-user-avatar" href="/glang">
+                                                                    <img width="50px" height="50px" src="<?php
                                                                     foreach ($postUser as $user) {
                                                                         if ($user->user_id === $post->post_author)
                                                                             echo $user->user_avatar;
                                                                     }
-                                                                    ?>" style="opacity: 1;">
+                                                                    ?>" style="opacity: 1;height: 50px;">
                                                                 </a>
                                                                 <div  class="profile clearfix">
                                                                     <a style="float: left" href="/glang">
@@ -447,7 +446,7 @@
                                                                         <img class="" width="35" height="35" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">
                                                                     </a>
                                                                     <div class="comment-input-box">
-                                                                        <textarea contenteditable="true" class="comment-input-content" id="text_comment" name="comment_content" data-placeholder="Bình luận?"></textarea>                                
+                                                                        <div contenteditable="true" class="comment-input-content" id="text_comment" name="comment_content" data-placeholder="Bình luận?"></div>                                
                                                                     </div>
                                                                 </div>
                                                             </form>
