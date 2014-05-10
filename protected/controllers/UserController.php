@@ -80,7 +80,7 @@ class UserController extends BaseController {
 
         imageresize::resize_image(Yii::getPathOfAlias('webroot') . $image, null, 1000, 315, false, Yii::getPathOfAlias('webroot') . $image_resize, false, false, 100);
         $this->retVal->message = Yii::app()->createUrl($image_resize);
-        $user_cover = user::model()->findByAttributes(array('user_id' => Yii::app()->session["user_id"]));
+        $user_cover = User::model()->findByAttributes(array('user_id' => Yii::app()->session["user_id"]));
         $user_cover->user_cover = $image_resize;
         $user_cover->save(FALSE);
         echo CJSON::encode($this->retVal);
