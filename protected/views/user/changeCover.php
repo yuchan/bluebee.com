@@ -2,8 +2,8 @@
     $(document).ready(function() {
         var urlstring = window.location;
         var realurlstring = urlstring.toString();
-        var classid = realurlstring.substr(realurlstring.lastIndexOf('=') + 1);
-        $('#class_id_cover').val(classid);
+//        var classid = realurlstring.substr(realurlstring.lastIndexOf('=') + 1);
+//        $('#class_id_cover').val(classid);
     });
 </script>
 
@@ -19,7 +19,7 @@
                     $('#loading').html('<img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax_loader_blue_128.gif">');
                 },
                 type: "POST",
-                url: '<?php echo Yii::app()->createUrl('classPage/changecover') ?>',
+                url: '<?php echo Yii::app()->createUrl('user/changecover') ?>',
                 data: formdata,
                 success: function(data) {
                     $('#loading').html('');
@@ -39,8 +39,8 @@
 </script>
 <div class="custom_file_upload info">
 
-    <form class="file_upload" id ="file_upload"  action="<?php echo Yii::app()->createUrl('classPage/changecover') ?>" method="POST" enctype="multipart/form-data">  
-        <input type="hidden" id="class_id_cover" name="class_id_cover">
-        <input type="file" id="file_upload_cover" name="file_upload_cover" class="">
+    <form class="file_upload" id ="file_upload"  action="<?php echo Yii::app()->createUrl('user/changecover') ?>" method="POST" enctype="multipart/form-data">  
+<!--        <input type="hidden" id="class_id_cover" name="class_id_cover">
+        <input type="file" id="file_upload_cover" name="file_upload_cover" class="">-->
     </form>  
 </div>

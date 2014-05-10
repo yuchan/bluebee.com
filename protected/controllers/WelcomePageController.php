@@ -4,6 +4,8 @@ Yii::import('application.controllers.BaseController');
 require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.phpmailer.php');
 require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.pop3.php');
 include_once (dirname(__FILE__) . '/../extensions/facebook.php');
+Yii::import('ext.ImageResize.imageresize');
+Yii::import('application.components.imageresize');
 
 class WelcomePageController extends BaseController {
 
@@ -274,7 +276,9 @@ class WelcomePageController extends BaseController {
             $data = json_decode($json, TRUE);
 
             $facebook_cover = $data["cover"]["source"];
-            $user_facebook_exist->user_cover = $facebook_cover;
+            $facebook_cover_resize = Yii::getPathOfAlias('webroot') . '/images/coverfacebook' . $user["id"] . '.png';
+            imageresize::resize_image($facebook_cover, null, 1000, 315, false, $facebook_cover_resize, false, false, 100);
+            $user_facebook_exist->user_cover = '/images/coverfacebook' . $user["id"] . '.png';
             $user_facebook_exist->user_hometown = $user["hometown"]["name"];
             $user_facebook_exist->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture?type=large";
             $user_facebook_exist->user_active = 1;
@@ -308,7 +312,9 @@ class WelcomePageController extends BaseController {
             Yii::app()->session['user_avatar'] = "http://graph.facebook.com/" . $user["id"] . "/picture?type=large";
             Yii::app()->session['token'] = $token;
             $user_facebook->user_id_fb = $user["id"];
-            $user_facebook->user_cover = $facebook_cover;
+            $facebook_cover_resize = Yii::getPathOfAlias('webroot') . '/images/coverfacebook' . $user["id"] . '.png';
+            imageresize::resize_image($facebook_cover, null, 1000, 315, false, $facebook_cover_resize, false, false, 100);
+            $user_facebook_exist->user_cover = '/images/coverfacebook' . $user["id"] . '.png';
             $user_facebook->user_active = 1;
             if (isset($user["quotes"])) {
                 $user_facebook->user_qoutes = $user["quotes"];
