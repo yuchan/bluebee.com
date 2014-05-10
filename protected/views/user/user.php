@@ -82,7 +82,7 @@
 
                             <div id="profile_img">
                                 <div class="view1 effect"> 
-                                    <img src='<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg' class='avatar_img'/>
+                                    <img src='<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg'/>
                                     <div class="content-2">
                                         <div class="custom_file_upload1 info">
                                             <form class=" file_upload1">  
@@ -218,7 +218,7 @@
 
     <div class="one-third">
 
-        <div class="rounded2 color_alternate"  style="margin-top: 70px">
+        <div class="rounded2 color_alternate" >
             <h6>Thông tin chi tiết</h6>
         </div>
 
