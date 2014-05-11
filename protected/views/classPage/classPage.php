@@ -3,6 +3,7 @@
         $('#loading').hide();
     });
 </script>
+
 <?php foreach ($detail_classpage as $class): ?>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -86,7 +87,7 @@
                         var result = $.parseJSON(json);
                         var item = $('<div style="margin-top: 20px; background-color: white">' +
                                 '<div class="activity-item">' +
-                                '<a class="other-user-avatar" href="/glang">' +
+                                '<a class="other-user-avatar" href="#">' +
                                 '<img class="" width="50" height="50" src="<?php
     if (Yii::app()->session['user_avatar'] == "") {
         echo Yii::app()->theme->baseUrl, "/assets/img/logo.jpg";
@@ -96,7 +97,7 @@
     ?>" style="opacity: 1; height: 50px;">' +
                                 '</a>' +
                                 '<div  class="profile clearfix">' +
-                                '<a style="float: left" href="/glang">' +
+                                '<a style="float: left" href="#">' +
                                 '<span data-paths="profile.firstName profile.lastName" id="el-105"><?php echo Yii::app()->session['user_real_name'] ?></span>' +
                                 '</a>' +
                                 '<p style="color: #dadcdd; float: left">&nbsp;&nbsp;12 hours ago</p>' +
@@ -110,7 +111,7 @@
                                 '</div>' +
                                 '<form class="comment-form" id="comment-form-' + result.post_id + '" action ="<?php echo Yii::app()->createUrl('classPage/createComment?class_id=' . $class->class_id . '&post_id=') ?>' + result.post_id + '" method="post">'+
                                     '<div class="item-add-comment-box">'+
-                                        '<a class="avatar-view fix-avatar-view" href="user">'+
+                                        '<a class="avatar-view fix-avatar-view" href="#">'+
                                             '<img class="" width="35" height="35" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="opacity: 1;">'+
                                         '</a>'+
                                         '<div class="comment-input-box">'+
@@ -176,7 +177,7 @@
                                             '</a>' +
                                             '<div class="comment-content">' +
                                             '<div  class="fix-style-profile profile clearfix">' +
-                                            '<a style="float: left" href="/glang">' +
+                                            '<a style="float: left" href="<?php echo Yii::app()->createUrl("user?token=" . Yii::app()->session['token']) ?>" ' +
                                             '<span data-paths="profile.firstName profile.lastName" id="el-105"><?php echo Yii::app()->session['user_real_name'] ?></span>' +
                                             '</a>' +
                                             '<p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>' +
@@ -264,7 +265,7 @@
                                             '</a>' +
                                             '<div class="comment-content">' +
                                             '<div  class="fix-style-profile profile clearfix">' +
-                                            '<a style="float: left" href="/glang">' +
+                                            '<a style="float: left" href="#">' +
                                             '<span data-paths="profile.firstName profile.lastName" id="el-105"><?php echo Yii::app()->session['user_real_name'] ?></span>' +
                                             '</a>' +
                                             '<p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>' +
@@ -444,11 +445,11 @@
                                                             <div class="activity-item">
                                                                 <?php foreach ($postUser as $user):
                                                                     if ($user->user_id == $post->post_author): ?>
-                                                                <a class="other-user-avatar" href="/glang">
+                                                                <a class="other-user-avatar" href="#">
                                                                     <img class="" width="50" height="50" src="<?php echo $user->user_avatar; ?>" style="opacity: 1; height: 50px">
                                                                 </a>
                                                                 <div  class="profile clearfix">
-                                                                    <a style="float: left" href="/glang">
+                                                                    <a style="float: left" href="#">
                                                                         <span data-paths="profile.firstName profile.lastName" id="el-105"><?php echo $user->user_real_name ?></span>
                                                                     </a>
                                                                     <i class="icon-time" style="float: left; margin-top: 5px; margin-left: 15px; color: #dadcdd;"></i>
@@ -486,7 +487,7 @@
                                                                                     </a>
                                                                                     <div class="comment-content">
                                                                                         <div  class="fix-style-profile profile clearfix">
-                                                                                            <a style="float: left" href="/glang">
+                                                                                            <a style="float: left" href="#">
                                                                                                 <span data-paths="profile.firstName profile.lastName" id="el-105"><?php echo $user->user_real_name ?></span>
                                                                                             </a>
                                                                                             <p style="color: #dadcdd; float: left">&nbsp;&nbsp;16 hours ago</p>
@@ -684,7 +685,7 @@
                                                             <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1; height: 70px">
                                                         </a>
                                                         <div class="info">
-                                                            <a href="/glang">
+                                                            <a href="#">
                                                                 <span id="el-105">Sơn Vũ</span>
                                                             </a>
                                                             <p>Học vị: PGS.TS</p>
@@ -713,7 +714,7 @@
                                                             <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1; height: 70px">
                                                         </a>
                                                         <div class="info">
-                                                            <a href="/glang">
+                                                            <a href="#">
                                                                 <span id="el-105">Sơn Vũ</span>
                                                             </a>
                                                             <p>Học vị: PGS.TS</p>
@@ -740,7 +741,7 @@
                                                             <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1; height: 70px">
                                                         </a>
                                                         <div class="info">
-                                                            <a href="/glang">
+                                                            <a href="#">
                                                                 <span id="el-105">Sơn Vũ 2</span>
                                                             </a>
                                                             <p>Học vị: PGS.TS</p>
@@ -767,7 +768,7 @@
                                                             <img width="70" height="70" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ava_son.png" style="opacity: 1; height: 70px">
                                                         </a>
                                                         <div class="info">
-                                                            <a href="/glang">
+                                                            <a href="#">
                                                                 <span id="el-105">Sơn Vũ 3</span>
                                                             </a>
                                                             <p>Học vị: PGS.TS</p>
