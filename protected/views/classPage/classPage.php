@@ -327,7 +327,7 @@
                                         <span class="w-tabs-item-title">Hoạt động</span>
                                     </div>
 
-                                    <div class="w-tabs-item fix-w-tab-item" style="display: none">
+                                    <div class="w-tabs-item fix-w-tab-item">
                                         <span class="w-tabs-item-icon"></span>
                                         <span class="w-tabs-item-title">Documents</span>
                                     </div>
@@ -450,15 +450,15 @@
                                     </div>
                                 </div>
 
-                                <div class="w-tabs-section" style="display: none">
+                                <div class="w-tabs-section">
                                     <div class="w-tabs-section-title">
                                         <span class="w-tabs-section-title-icon"></span>
                                         <span class="w-tabs-section-title-text">Documents</span>
                                         <span class="w-tabs-section-title-control"></span>
                                     </div>
                                     <div class="w-tabs-section-content">
-                                        <div class="w-tabs-section-content-h">
-
+                                        <div class="w-tabs-section-content-h" disabled="disabled">
+                                            <!--<p>'<script>alert('123');</script>'</p>-->
                                         </div>
                                     </div>
                                 </div>
@@ -718,7 +718,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -729,7 +728,6 @@
                             Chỉnh Sửa
                             <i class="icon-pencil"></i>
                         </a>
-
                         <p style="clear: both"><strong>Số tín chỉ: </strong> <?php echo $class->class_credit_number ?></p>
                         <p><strong>Website Môn Học: </strong> <a href="bluebee-uet.com"><?php echo $class->class_website ?></a></p>
                         <div class="clearfix">
@@ -738,55 +736,6 @@
                         </div>
                         <div id="alert-invite" style="display: none; position: absolute; overflow: visible; z-index: 2"></div>
                         <?php $this->renderPartial('inviteform', array('classid' => $class->class_id)) ?>
-                        <div class="g-hr none-display" style="clear: both">
-                            <span class="g-hr-h">
-                                <i class="icon-user"></i>
-                            </span>
-                        </div>
-                        <div class="clearfix none-display">
-                            <h3 style="float: left">Giáo Viên</h3>
-                            <a style="float: right; margin-top: 10px" href="javascript:void(0)"><p id="add-members-contents">Thêm giáo viên <i class="icon-plus"></i></p></a>
-                        </div>
-                        <ul class="none-display">
-                            <li>
-                                <div class="teacher-block">
-                                    <img style="float: left" class="ava" src="http://localhost:7070/bluebee.com/themes/classic/assets/img/demo/blog-1.jpg" />
-                                    <div>
-                                        <p>Nguyễn Văn A</p>
-                                        <a href="">Thông tin cá nhân</a>
-                                    </div>
-                                    <div class="input select rating-f read-only">
-                                        <p style="float: left">Độ yêu thích:&nbsp;&nbsp;</p>
-                                        <select class="teacher-block-rating-outside" name="rating" style="display: none; float: right">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="teacher-block">
-                                    <img style="float: left" class="ava" src="http://localhost:7070/bluebee.com/themes/classic/assets/img/demo/blog-1.jpg" />
-                                    <div>
-                                        <p>Nguyễn Văn B</p>
-                                        <a href="">Thông tin cá nhân</a>
-                                    </div>
-                                    <div class="input select rating-f read-only">
-                                        <p style="float: left">Độ yêu thích:&nbsp;&nbsp;</p>
-                                        <select class="teacher-block-rating-outside" name="rating" style="display: none; float: right">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
