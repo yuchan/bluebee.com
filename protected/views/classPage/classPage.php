@@ -384,7 +384,7 @@
                 <div class="g-cols">
 
                     <div class="full-width">
-                        <div class="view2 effect">
+                        <div class="view2 effect1">
 
                             <img class="round_ava" src="<?php echo Yii::app()->createUrl($class->class_cover); ?>"/>
                             <div class="content-3">
