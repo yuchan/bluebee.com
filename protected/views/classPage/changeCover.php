@@ -37,7 +37,7 @@
         });
     });
 </script>
-<div class="custom_file_upload info">
+<div class="custom_file_upload info1">
 
     <form class="file_upload" id ="file_upload"  action="<?php echo Yii::app()->createUrl('classPage/changecover') ?>" method="POST" enctype="multipart/form-data">  
         <input type="hidden" id="class_id_cover" name="class_id_cover">
