@@ -1,4 +1,14 @@
-
+coverage:
+    enabled: true
+    remote: true
+    whitelist:
+        include:
+            - index.php
+            - protected/controllers/WelcomePageController.php
+            - protected/controllers/BaseController.php
+    blacklist:
+        include: 
+            - tests/*
 paths:
     tests: tests
     log: tests/_log
@@ -16,4 +26,4 @@ modules:
             dsn: ''
             user: ''
             password: ''
-            dump: tests/_data/dump.sql		
+            dump: tests/_data/dump.sql
