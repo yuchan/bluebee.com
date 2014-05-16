@@ -14,7 +14,7 @@
                         var item = $('<div class="g-form-row-field">' +
                                 '<div id="success" class="g-alert type_success">' +
                                 '<div class="g-alert-body" style="text-align: center">' +
-                                '<p id="login-result"><b>' + result.message + '</b></p>' +
+                                '<label id="login-result"><b>' + result.message + '</b></label>' +
                                 '</div>' +
                                 '</div>' +
                                 '</div>');
@@ -34,7 +34,7 @@
                         var item = $('<div class="g-form-row-field">' +
                                 '<div id="error" class="g-alert type_error">' +
                                 '<div class="g-alert-body" style="text-align: center">' +
-                                '<p id="login-result"><b>' + result.message + '</b></p>' +
+                                '<label id="login-result"><b>' + result.message + '</b></label>' +
                                 '</div>' +
                                 '</div>' +
                                 '</div>');
