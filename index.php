@@ -1,6 +1,7 @@
 <?php
+require 'c3.php';
 error_reporting(E_ALL);
- ini_set('display_errors', '1');
+//ini_set('display_errors', '1');
 
 // change the following paths if necessary
 // error_reporting(E_ALL);

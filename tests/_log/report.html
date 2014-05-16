@@ -10,13 +10,13 @@
 		 width: 960px;
 
 		 }
-		 body { font-family: arial, serif; margin: 0; padding: 0; background: #333;}
-		 h1,h2,h3 { font: serif; color: white; }
+		 body { font-family: arial, serif; margin: 0; padding 0; background: #333;}
+		 h1,h2,h3 { arial, serif; color: white; }
 		 h1 { font-size: 2.5em; }
 		 h2 { font-size: 1.3em; }
          h3 { font-size: 1em; color: #84BBDD; margin: 0.5em 0;}
 
-		 table {border: none; margin: 0; padding: 0;}
+		 table {border: none; margin: 0; padding 0;}
 		 .scenarioStepsTable .stepName { padding: 5px }
 
 		 .scenarioStepsTable td {
@@ -110,7 +110,7 @@
 
  <body>
  <div class="layout">
- <h1>Codeception Results <small><span style="color: red">FAILED</span> (1.3s)</small></h1>
+ <h1>Codeception Results <small><span style="color: green">OK</span> (0.5s)</small></h1>
 
 
 	 <table border="0" style="width: 100%;">
@@ -120,197 +120,18 @@
  </td>
 </tr>   <tr>
     <td>
-     <p class="scenarioSuccess" onclick="showHide('1', this)">[+] view information about a subject (Click_subjectCept.php) (0.28s)</p>
+     <p class="scenarioSuccess" onclick="showHide('1', this)">[+] login and see result (Login_with_blank_passwordCept.php) (0.53s)</p>
     </td>
    </tr>
    <tr>
     <td>
      <table border="0" width="100%" class="scenarioSuccess scenarioStepsTable" id="stepContainer1">
       <tr>
-       <td class="stepName">I am on page <span style="color: #732E81;">"/share"</span></td>
+       <td class="stepName">I am on page <span style="color: #732E81;">""</span></td>
       </tr>
 
       <tr>
-       <td class="stepName">I click <span style="color: #732E81;">"Đại số"</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName">I see <span style="color: #732E81;">"Upload tài liệu về môn này"</span></td>
-      </tr>
-
-
-     </table>
-    </td>
-   </tr>
-
-   <tr>
-    <td>
-     <p class="scenarioSuccess" onclick="showHide('2', this)">[+] view information about a teacher that teach this subject (Click_teacher_in_subjectCept.php) (0.14s)</p>
-    </td>
-   </tr>
-   <tr>
-    <td>
-     <table border="0" width="100%" class="scenarioSuccess scenarioStepsTable" id="stepContainer2">
-      <tr>
-       <td class="stepName">I am on page <span style="color: #732E81;">"/share/subject"</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName">I click <span style="color: #732E81;">"Huy Nguyễn"</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName">I see <span style="color: #732E81;">"Giáo viên"</span></td>
-      </tr>
-
-
-     </table>
-    </td>
-   </tr>
-
-   <tr>
-    <td>
-     <p class="scenarioSuccess" onclick="showHide('3', this)">[+] ensure that frontpage works (DiscussionPageCept.php) (0.07s)</p>
-    </td>
-   </tr>
-   <tr>
-    <td>
-     <table border="0" width="100%" class="scenarioSuccess scenarioStepsTable" id="stepContainer3">
-      <tr>
-       <td class="stepName">I am on page <span style="color: #732E81;">"/"</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName">I see <span style="color: #732E81;">"Thảo luận"</span></td>
-      </tr>
-
-
-     </table>
-    </td>
-   </tr>
-
-   <tr>
-    <td>
-     <p class="scenarioSuccess" onclick="showHide('4', this)">[+] ensure that frontpage works (DocumentCept.php) (0.11s)</p>
-    </td>
-   </tr>
-   <tr>
-    <td>
-     <table border="0" width="100%" class="scenarioSuccess scenarioStepsTable" id="stepContainer4">
-      <tr>
-       <td class="stepName">I am on page <span style="color: #732E81;">"/document"</span></td>
-      </tr>
-
-
-     </table>
-    </td>
-   </tr>
-
-   <tr>
-    <td>
-     <p class="scenarioSuccess" onclick="showHide('5', this)">[+] login (Login-wrong_accountCept.php) (0.31s)</p>
-    </td>
-   </tr>
-   <tr>
-    <td>
-     <table border="0" width="100%" class="scenarioSuccess scenarioStepsTable" id="stepContainer5">
-      <tr>
-       <td class="stepName">I am on page <span style="color: #732E81;">"/login"</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName">I fill field <span style="color: #732E81;">"username","nguyen"</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName">I fill field <span style="color: #732E81;">"Password","123"</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName">I click <span style="color: #732E81;">"Submit"</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName">I see <span style="color: #732E81;">"Ten nguoi dung chua duoc danh ky"</span></td>
-      </tr>
-
-
-     </table>
-    </td>
-   </tr>
-
-   <tr>
-    <td>
-     <p class="scenarioSuccess" onclick="showHide('6', this)">[+] login (Login_correct_accountCept.php) (0.18s)</p>
-    </td>
-   </tr>
-   <tr>
-    <td>
-     <table border="0" width="100%" class="scenarioSuccess scenarioStepsTable" id="stepContainer6">
-      <tr>
-       <td class="stepName">I am on page <span style="color: #732E81;">"/login"</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName">I fill field <span style="color: #732E81;">"username","khoalevan"</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName">I fill field <span style="color: #732E81;">"Password","123456"</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName">I click <span style="color: #732E81;">"Submit"</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName">I see <span style="color: #732E81;">"Dang nhap thanh cong"</span></td>
-      </tr>
-
-
-     </table>
-    </td>
-   </tr>
-
-   <tr>
-    <td>
-     <p class="scenarioSuccess" onclick="showHide('7', this)">[+] sign up (Login_did_not_have_accountCept.php) (0.07s)</p>
-    </td>
-   </tr>
-   <tr>
-    <td>
-     <table border="0" width="100%" class="scenarioSuccess scenarioStepsTable" id="stepContainer7">
-      <tr>
-       <td class="stepName">I am on page <span style="color: #732E81;">"/login"</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName">I click <span style="color: #732E81;">"Dang ky"</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName">I see <span style="color: #732E81;">"Username khong duoc de trong"</span></td>
-      </tr>
-
-
-     </table>
-    </td>
-   </tr>
-
-   <tr>
-    <td>
-     <p class="scenarioSuccess" onclick="showHide('8', this)">[+] login (Login_leave_password_blankCept.php) (0.08s)</p>
-    </td>
-   </tr>
-   <tr>
-    <td>
-     <table border="0" width="100%" class="scenarioSuccess scenarioStepsTable" id="stepContainer8">
-      <tr>
-       <td class="stepName">I am on page <span style="color: #732E81;">"/login"</span></td>
-      </tr>
-
-      <tr>
-       <td class="stepName">I fill field <span style="color: #732E81;">"username","khoalevan"</span></td>
+       <td class="stepName">I fill field <span style="color: #732E81;">"username","k@gmail.com"</span></td>
       </tr>
 
       <tr>
@@ -322,37 +143,7 @@
       </tr>
 
       <tr>
-       <td class="stepName">I see <span style="color: #732E81;">"Password khong duoc de trong"</span></td>
-      </tr>
-
-
-     </table>
-    </td>
-   </tr>
-
-   <tr>
-    <td>
-     <p class="scenarioSuccess" onclick="showHide('9', this)">[+] perform actions and see result (Login_leave_username_blankCept.php) (0s)</p>
-    </td>
-   </tr>
-   <tr>
-    <td>
-     <table border="0" width="100%" class="scenarioSuccess scenarioStepsTable" id="stepContainer9">
-
-     </table>
-    </td>
-   </tr>
-
-   <tr>
-    <td>
-     <p class="scenarioFailed" onclick="showHide('10', this)">[+] post a status (Post_statusCept.php) (0.03s)</p>
-    </td>
-   </tr>
-   <tr>
-    <td>
-     <table border="0" width="100%" class="scenarioFailed scenarioStepsTable" id="stepContainer10">
-      <tr>
-       <td class="stepName">I fill field <span style="color: #732E81;">"what do you want to post?","nguyen the huy"</span></td>
+       <td class="stepName">I see <span style="color: #732E81;">"result.message"</span></td>
       </tr>
 
 
@@ -376,11 +167,11 @@
       <table border="0">
        <tr>
         <td width="250" class="scenarioSuccess">Successful scenarios:</td>
-        <td class="scenarioSuccessValue"><strong>9</strong></td>
+        <td class="scenarioSuccessValue"><strong>1</strong></td>
        </tr>
        <tr>
         <td class="scenarioFailed">Failed scenarios:</td>
-        <td class="scenarioFailedValue"><strong>1</strong></td>
+        <td class="scenarioFailedValue"><strong>0</strong></td>
        </tr>
        <tr>
         <td class="scenarioSkipped">Skipped scenarios:</td>
