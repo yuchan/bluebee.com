@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1400160840">
-  <project timestamp="1400160840">
+<coverage generated="1400160841">
+  <project timestamp="1400160841">
     <file name="C:\xampp\htdocs\bluebee.com/index.php">
       <line num="3" type="stmt" count="2"/>
       <line num="8" type="stmt" count="2"/>

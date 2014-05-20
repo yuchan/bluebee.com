@@ -94,7 +94,7 @@ class WelcomePageController extends BaseController {
                                 $this->retVal->success = 0;
                             }
                         } else {
-                            $this->retVal->message = "Password không được để trống";
+                            $this->retVal->message = "Password k duoc de trong";
                             $this->retVal->success = 0;
                         }
                     } else {
