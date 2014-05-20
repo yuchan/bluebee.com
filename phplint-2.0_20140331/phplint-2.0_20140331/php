@@ -1,0 +1,3 @@
+#!/bin/bash
+__DIR__="$(dirname "$0")"
+/bin/php-cli "-c$__DIR__/stdlib" $@

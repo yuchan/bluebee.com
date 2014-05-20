@@ -1,0 +1,213 @@
+<HTML>
+<HEAD>
+<TITLE>PHPLint Reference Manual</TITLE>
+<META name=description content="PHPLint Reference Manual">
+<META name=author      content="icosaedro.it di Umberto Salsi">
+<META name=owner       content="icosaedro.it di Umberto Salsi">
+<META HTTP-EQUIV="Content-Language"    content="en">
+<LINK rel=stylesheet type='text/css' href='styles.css'>
+</HEAD><BODY>
+
+<h2>PHPLint's Standard Library</h2>
+
+<p>
+PHPLint comes with its own library of real PHP code named <i>PHPLint
+Standard Library</i>. These libraries provide features intended to be
+strictly tight to the PHPLint validator. These libraries are available
+under the <tt>stdlib/</tt> directory of the PHPLint package.
+</p>
+
+
+<h3>Handling errors -- errors.h</h3>
+
+<p>
+The <tt>stdlib/errors.php</tt> sets the error log level to the maximum
+value and maps errors, warnings and notices into exceptions, to be
+more precise into <tt>ErrorException</tt>. This provides two benefits:
+</p>
+
+<ul>
+
+<li>
+Errors can be now managed with only one tool, that is the try/catch statements.
+Note that <tt>ErrorException</tt> is checked, so you must choose to either
+handle these errors, or declare them as thrown by the function or method.
+This improves the safety of the program because it is garanteed the
+error is handled somewhere.
+</li>
+
+<li>
+Protects the program against the access to missing entries in arrays. In fact,
+by default under PHP accessing an unexisting array element produces a simple
+E_NOTICE, altought this error might have severe conseguences on the safety of
+the program. Moreover, selecting an invalid entry generates NULL as value,
+which might bring to unexpected errors several statement later, making
+debugging more difficult. So detecting these events may be really important for
+the safety of the whole program.
+</li>
+
+</ul>
+
+<p>
+The following example illustrates how simple can become error handling
+of I/O functions using exceptions:
+</p>
+
+<blockquote><pre>
+require_once "stdlib/errors.php";
+
+$fn = "doesNotExist.txt";
+try {
+    $f = fopen($fn, "r");
+    $content = fgets($f, filesize($fn));
+    fclose($f);
+}
+catch( ErrorException $e ){
+    echo $e-&gt;getMessage(), ", using default empty content.\n";
+    $content = "";
+}
+echo $content;
+
+<b>=&gt; WARNING [2] fopen(doesNotExist.txt): failed to open stream:
+   No such file or directory in /home/salsi/test.php:18, using
+   default empty content.</b>
+
+</pre></blockquote>
+
+
+<p>
+The following example illustrates what happen accessing an invalid index
+of an array:
+</p>
+
+
+<blockquote><pre>
+$a = array("zero", "one", "three");
+echo $a[0];
+echo $a[1];
+echo $a[2];
+echo $a[3];
+<b>=&gt; Uncaught exception 'ErrorException' with message
+   'WARNING: Undefined offset: 3 in /home/salsi/test.php:13'</b>
+</pre></blockquote>
+
+<p>
+If you are unsure if a certain entry of an array does exist of not, you must
+then use the function <tt>array_key_exists($key, $array)</tt>.
+</p>
+
+
+
+
+<h3>Autoloading classes -- autoload.php</h3>
+
+<p>
+This package contains the magic <tt>__autoload($class)</tt> which is invoked
+automatically by PHP (and then by PHPLint too) in order to resolve unknown
+classes. Using this package you don't need to <tt>require_once</tt> every class
+your source require, as this is performed automatically by PHP at runtime.
+PHPLint applies this algorithms also to classes that appear in the meta-code,
+in DocBlocks and in the <tt>cast()</tt> function.
+</p>
+
+<p>
+This package should be located in the root directory of all your PHP sources
+as the path of the path of the class it contruct is made relative to the
+directory where the package <tt>autoload.php</tt> resides:
+</p>
+
+<blockquote><pre>
+const SRC_BASE_DIR = __DIR__;
+
+/*. unchecked .*/ class AutoloadException extends Exception {}
+
+/*. void .*/ function __autoload(/*. string .*/ $name)
+{
+    /*. pragma 'autoload' './' '/' '.php'; .*/
+    $fn = (string) str_replace("\\", "/", $name) . ".php";
+    if( ! is_readable($fn) )
+        throw new AutoloadException("__autoload($name): file $fn does not exist or not readable");
+    require_once $fn;
+}
+</pre></blockquote>
+
+<p>
+The <code>SRC_BASE_DIR</code> constant can also be used to load packages that
+are not bare classes:
+</p>
+
+<blockquote><pre>
+require_once SRC_BASE_DIR . "/mylib/mypkg.php";
+</pre></blockquote>
+
+<p>
+To improve the safety of yours programs, this package also checks that the
+proper php.ini file had been loaded, that is the php.ini file that resides
+in the root directory.
+</p>
+
+
+<p>
+The final structure of the PHP's source directory might then look similar
+to this one:
+</p>
+
+<blockquote>
+<pre>
+(PHP's sources root)
+|-- all.php
+|-- autoload.php
+|-- cast.php
+|-- errors.php
+|-- php.ini
+|-- com
+|   `-- acme
+|       |-- framework
+|       |   `-- ...
+|       |-- utils
+|       |   `-- ...
+|       `-- website
+|           `-- ...
+`-- it
+    `-- icosaedro
+        |-- bignumbers
+        |   |-- BigFloat.php
+        |   `-- BigInt.php
+        |-- examples
+        |   |-- FunnyMessages.php (class it\icosaedro\examples\FunnyMessages)
+        |   |-- User.php (class it\icosaedro\examples\User)
+        |   |-- cast-test.php
+        |   |-- err-test.php
+        |   `-- serialize-test.php
+        `-- utils
+            |-- Floats.php (class it\icosaedro\examples\Floats)
+            |-- Floats-test.php
+            |-- Integers.php (class it\icosaedro\examples\Integers)
+            |-- Integers-test.php
+            |-- Strings.php (class it\icosaedro\examples\Strings)
+            `-- Strings-test.php
+</pre>
+</blockquote>
+
+
+<h3>The typecast magic function -- cast.php</h3>
+
+<p>
+The <tt>cast.php</tt> package provides the <tt>cast()</tt> magic function as
+described in the chapter <b>Typecasting</b>. It also defines the
+<tt>CastException</tt> unchecked exception derived from <tt>Exception</tt>.
+</p>
+
+
+
+
+<h3>Include all -- all.php</h3>
+
+<p>
+Finally, the <tt>all.php</tt> package simply loads all the packages above,
+so providing full support for class autoloading, safe error handling and
+safe typecasting in your programs.
+</p>
+
+</body>
+</html>
