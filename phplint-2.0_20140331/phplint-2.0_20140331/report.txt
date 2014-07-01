@@ -1,0 +1,1171 @@
+BEGIN parsing of ../../protected/controllers/WelcomePageController.php
+1:	<?php
+2:	
+3:	Yii::import('application.controllers.BaseController');
+
+	Yii::import('application.controllers.BaseController');
+	     \_ HERE
+==== 3: ERROR: unknown class Yii
+4:	require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.phpmailer.php');
+
+	require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.phpmailer.php');
+	                     \_ HERE
+==== 4: ERROR: unresolved function dirname
+
+	require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.phpmailer.php');
+	                                                      \_ HERE
+==== 4: ERROR: unknown constant DIRECTORY_SEPARATOR
+
+	require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.phpmailer.php');
+	                                                                                          \_ HERE
+==== 4: ERROR: unknown constant DIRECTORY_SEPARATOR
+5:	require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.pop3.php');
+
+	require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.pop3.php');
+	                     \_ HERE
+==== 5: ERROR: unresolved function dirname
+
+	require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.pop3.php');
+	                                                      \_ HERE
+==== 5: ERROR: unknown constant DIRECTORY_SEPARATOR
+
+	require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'PHPMailer' . DIRECTORY_SEPARATOR . 'class.pop3.php');
+	                                                                                          \_ HERE
+==== 5: ERROR: unknown constant DIRECTORY_SEPARATOR
+6:	include_once (dirname(__FILE__) . '/../extensions/facebook.php');
+
+	include_once (dirname(__FILE__) . '/../extensions/facebook.php');
+	                      \_ HERE
+==== 6: ERROR: unresolved function dirname
+7:	Yii::import('ext.ImageResize.imageresize');
+
+	Yii::import('ext.ImageResize.imageresize');
+	     \_ HERE
+==== 7: ERROR: unknown class Yii
+8:	Yii::import('application.components.imageresize');
+
+	Yii::import('application.components.imageresize');
+	     \_ HERE
+==== 8: ERROR: unknown class Yii
+9:	
+10:	class WelcomePageController extends BaseController {
+
+	class WelcomePageController extends BaseController {
+	                                                   \_ HERE
+==== 10: ERROR: undeclared parent class BaseController
+11:	
+12:	    public function init() {
+13:	        Yii::app()->theme = 'welcome';
+
+	        Yii::app()->theme = 'welcome';
+	             \_ HERE
+==== 13: ERROR: unknown class Yii
+14:	        parent::init();
+
+	        parent::init();
+	                     \_ HERE
+==== 14: ERROR: unknown method object::init
+15:	    }
+16:	
+17:	    public function actionIndex() {
+18:	        $this->actionWelcomePage();
+
+	        $this->actionWelcomePage();
+	                                 \_ HERE
+==== 18: ERROR: unknown method WelcomePageController::actionWelcomePage
+19:	    }
+20:	
+21:	    public function actionWelcomePage() {
+22:	        $this->render('welcomePage');
+
+	        $this->render('welcomePage');
+	                      \_ HERE
+==== 22: ERROR: unknown method WelcomePageController::render
+23:	    }
+24:	
+25:	    function smtpmailer($to, $from, $from_name, $subject, $body) {
+
+	    function smtpmailer($to, $from, $from_name, $subject, $body) {
+	                            \_ HERE
+==== 25: ERROR: undefined type for argument $to. Hint: you may indicate an explicit type (example: `/*.int.*/ $to') or assign a default value (example: `$to=123') or add a DocBlock line tag (example: `@param int $to').
+
+	    function smtpmailer($to, $from, $from_name, $subject, $body) {
+	                                   \_ HERE
+==== 25: ERROR: undefined type for argument $from. Hint: you may indicate an explicit type (example: `/*.int.*/ $from') or assign a default value (example: `$from=123') or add a DocBlock line tag (example: `@param int $from').
+
+	    function smtpmailer($to, $from, $from_name, $subject, $body) {
+	                                               \_ HERE
+==== 25: ERROR: undefined type for argument $from_name. Hint: you may indicate an explicit type (example: `/*.int.*/ $from_name') or assign a default value (example: `$from_name=123') or add a DocBlock line tag (example: `@param int $from_name').
+
+	    function smtpmailer($to, $from, $from_name, $subject, $body) {
+	                                                         \_ HERE
+==== 25: ERROR: undefined type for argument $subject. Hint: you may indicate an explicit type (example: `/*.int.*/ $subject') or assign a default value (example: `$subject=123') or add a DocBlock line tag (example: `@param int $subject').
+
+	    function smtpmailer($to, $from, $from_name, $subject, $body) {
+	                                                                \_ HERE
+==== 25: ERROR: undefined type for argument $body. Hint: you may indicate an explicit type (example: `/*.int.*/ $body') or assign a default value (example: `$body=123') or add a DocBlock line tag (example: `@param int $body').
+26:	
+27:	        $mail = new PHPMailer();      // tạo một đối tượng mới từ class PHPMailer
+
+	        $mail = new PHPMailer();      // tạo một đối tượng mới từ class PHPMailer
+	                             \_ HERE
+==== 27: ERROR: unknown class PHPMailer
+28:	        $mail->IsSMTP();       // bật chức năng SMTP
+29:	        $mail->CharSet = "UTF-8";
+30:	        $mail->IsHTML(true);
+31:	        //    $mail->SMTPDebug = 1;       // kiểm tra ỗi : 1 là  hiển thị lỗi và thông báo cho ta biết, 2 = chỉ thông báo lỗi
+32:	        $mail->SMTPAuth = true;      // bật chức năng đăng nhập vào SMTP này
+33:	        //$mail->SMTPSecure = 'ssl'; 				// sử dụng giao thức SSL vì gmail bắt buộc dùng cái này
+34:	        $mail->Host = 'localhost';   // smtp của gmail
+35:	        $mail->Port = 25;       // port của smpt gmail
+36:	        $mail->Username = "activate@bluebee-uet.com";
+37:	        $mail->Password = "123456789";
+38:	        $mail->SetFrom($from, $from_name);
+39:	        $mail->Subject = $subject;
+40:	        $mail->Body = $body;
+41:	        $mail->AddAddress($to);
+42:	        if (!$mail->Send()) {
+43:	            $message = 'Gửi mail bị lỗi: ' . $mail->ErrorInfo;
+
+	            $message = 'Gửi mail bị lỗi: ' . $mail->ErrorInfo;
+	                         \_ HERE
+==== 43: Warning: non-ASCII character code in literal string (code 225). This msg is reported only once for each literal string
+44:	            return false;
+45:	        } else {
+46:	            $message = 'Thư của bạn đã được gửi đi ';
+
+	            $message = 'Thư của bạn đã được gửi đi ';
+	                          \_ HERE
+==== 46: Warning: non-ASCII character code in literal string (code 198). This msg is reported only once for each literal string
+47:	            return true;
+48:	        }
+49:	    }
+50:	
+51:	    public function actionLogin() {
+
+	            $message = 'Gửi mail bị lỗi: ' . $mail->ErrorInfo;
+	                    \_ HERE
+==== 43: notice: variable $message assigned but never used
+52:	
+53:	        $this->retVal = new stdClass();
+
+	        $this->retVal = new stdClass();
+	                       \_ HERE
+==== 53: ERROR: unknown property WelcomePageController::$retVal
+
+	        $this->retVal = new stdClass();
+	                                    \_ HERE
+==== 53: ERROR: unknown class stdClass
+54:	        $request = Yii::app()->request;
+
+	        $request = Yii::app()->request;
+	                        \_ HERE
+==== 54: ERROR: unknown class Yii
+55:	        if ($request->isPostRequest && isset($_POST)) {
+56:	            try {
+57:	                $loginFormData = array(
+58:	                    'user_name' => @$_POST['username'],
+59:	                    'user_password' => @$_POST['Password'],
+60:	                );
+61:	                if (!empty($loginFormData['user_name'])) {
+
+	                if (!empty($loginFormData['user_name'])) {
+	                           \_ HERE
+==== 61: ERROR: unresolved function empty
+62:	                    if (Validator::validateEmail($loginFormData['user_name'])) {
+
+	                    if (Validator::validateEmail($loginFormData['user_name'])) {
+	                                   \_ HERE
+==== 62: ERROR: unknown class Validator
+63:	                        if (!empty($loginFormData['user_password'])) {
+
+	                        if (!empty($loginFormData['user_password'])) {
+	                                   \_ HERE
+==== 63: ERROR: unresolved function empty
+64:	                            $user = User::model()->findByAttributes(array('username' => $loginFormData['user_name']));
+
+	                            $user = User::model()->findByAttributes(array('username' => $loginFormData['user_name']));
+	                                          \_ HERE
+==== 64: ERROR: unknown class User
+65:	                            if ($user) {
+66:	                                //user existed, check password
+67:	                                if ($user->user_active == 1) {
+68:	                                    if ($user->password == md5($loginFormData['user_password'])) {
+
+	                                    if ($user->password == md5($loginFormData['user_password'])) {
+	                                                               \_ HERE
+==== 68: ERROR: unresolved function md5
+69:	                                        $this->retVal->message = "Đăng nhập thành công";
+
+	                                        $this->retVal->message = "Đăng nhập thành công";
+	                                                       \_ HERE
+==== 69: ERROR: unknown property WelcomePageController::$retVal
+
+	                                        $this->retVal->message = "Đăng nhập thành công";
+	                                                                  \_ HERE
+==== 69: Warning: non-ASCII character code in literal string (code 196). This msg is reported only once for each literal string
+70:	                                        Yii::app()->session['user_id'] = $user->user_id;
+
+	                                        Yii::app()->session['user_id'] = $user->user_id;
+	                                             \_ HERE
+==== 70: ERROR: unknown class Yii
+71:	                                        Yii::app()->session['user_real_name'] = $user->user_real_name;
+
+	                                        Yii::app()->session['user_real_name'] = $user->user_real_name;
+	                                             \_ HERE
+==== 71: ERROR: unknown class Yii
+72:	                                        Yii::app()->session['user_email'] = $user->username;
+
+	                                        Yii::app()->session['user_email'] = $user->username;
+	                                             \_ HERE
+==== 72: ERROR: unknown class Yii
+73:	                                        Yii::app()->session['user_avatar'] = $user->user_avatar;
+
+	                                        Yii::app()->session['user_avatar'] = $user->user_avatar;
+	                                             \_ HERE
+==== 73: ERROR: unknown class Yii
+74:	
+75:	                                        $this->retVal->success = 1;
+
+	                                        $this->retVal->success = 1;
+	                                                       \_ HERE
+==== 75: ERROR: unknown property WelcomePageController::$retVal
+76:	                                        //token
+77:	                                        $token = StringHelper::generateToken(16, 36);
+
+	                                        $token = StringHelper::generateToken(16, 36);
+	                                                               \_ HERE
+==== 77: ERROR: unknown class StringHelper
+78:	                                        $user->user_token = $token;
+79:	                                        Yii::app()->session['token'] = $token;
+
+	                                        Yii::app()->session['token'] = $token;
+	                                             \_ HERE
+==== 79: ERROR: unknown class Yii
+80:	                                        $user->save(FALSE);
+81:	                                        $this->retVal->token = $token;
+
+	                                        $this->retVal->token = $token;
+	                                                       \_ HERE
+==== 81: ERROR: unknown property WelcomePageController::$retVal
+82:	                                        $this->retVal->url = Yii::app()->createUrl("user?token=" . $token);
+
+	                                        $this->retVal->url = Yii::app()->createUrl("user?token=" . $token);
+	                                                       \_ HERE
+==== 82: ERROR: unknown property WelcomePageController::$retVal
+
+	                                        $this->retVal->url = Yii::app()->createUrl("user?token=" . $token);
+	                                                                  \_ HERE
+==== 82: ERROR: unknown class Yii
+83:	                                    } else {
+84:	                                        $this->retVal->message = "Sai tên người dùng hoặc mật khẩu";
+
+	                                        $this->retVal->message = "Sai tên người dùng hoặc mật khẩu";
+	                                                       \_ HERE
+==== 84: ERROR: unknown property WelcomePageController::$retVal
+
+	                                        $this->retVal->message = "Sai tên người dùng hoặc mật khẩu";
+	                                                                       \_ HERE
+==== 84: Warning: non-ASCII character code in literal string (code 195). This msg is reported only once for each literal string
+85:	                                        $this->retVal->success = 0;
+
+	                                        $this->retVal->success = 0;
+	                                                       \_ HERE
+==== 85: ERROR: unknown property WelcomePageController::$retVal
+86:	                                    }
+87:	                                } else {
+88:	
+89:	                                    $this->retVal->message = "Bạn chưa kích hoạt tài khoản. Hãy kiểm tra email của bạn để kích hoạt nhé";
+
+	                                    $this->retVal->message = "Bạn chưa kích hoạt tài khoản. Hãy kiểm tra email của bạn để kích hoạt nhé";
+	                                                   \_ HERE
+==== 89: ERROR: unknown property WelcomePageController::$retVal
+
+	                                    $this->retVal->message = "Bạn chưa kích hoạt tài khoản. Hãy kiểm tra email của bạn để kích hoạt nhé";
+	                                                               \_ HERE
+==== 89: Warning: non-ASCII character code in literal string (code 225). This msg is reported only once for each literal string
+90:	                                    $this->retVal->success = 0;
+
+	                                    $this->retVal->success = 0;
+	                                                   \_ HERE
+==== 90: ERROR: unknown property WelcomePageController::$retVal
+91:	                                }
+92:	                            } else {
+93:	                                $this->retVal->message = "Tên người dùng chưa được đăng ký";
+
+	                                $this->retVal->message = "Tên người dùng chưa được đăng ký";
+	                                               \_ HERE
+==== 93: ERROR: unknown property WelcomePageController::$retVal
+
+	                                $this->retVal->message = "Tên người dùng chưa được đăng ký";
+	                                                           \_ HERE
+==== 93: Warning: non-ASCII character code in literal string (code 195). This msg is reported only once for each literal string
+94:	                                $this->retVal->success = 0;
+
+	                                $this->retVal->success = 0;
+	                                               \_ HERE
+==== 94: ERROR: unknown property WelcomePageController::$retVal
+95:	                            }
+96:	                        } else {
+97:	                            $this->retVal->message = "Password không được để trống";
+
+	                            $this->retVal->message = "Password không được để trống";
+	                                           \_ HERE
+==== 97: ERROR: unknown property WelcomePageController::$retVal
+
+	                            $this->retVal->message = "Password không được để trống";
+	                                                                 \_ HERE
+==== 97: Warning: non-ASCII character code in literal string (code 195). This msg is reported only once for each literal string
+98:	                            $this->retVal->success = 0;
+
+	                            $this->retVal->success = 0;
+	                                           \_ HERE
+==== 98: ERROR: unknown property WelcomePageController::$retVal
+99:	                        }
+100:	                    } else {
+101:	                        $this->retVal->message = "Sai định dạng email";
+
+	                        $this->retVal->message = "Sai định dạng email";
+	                                       \_ HERE
+==== 101: ERROR: unknown property WelcomePageController::$retVal
+
+	                        $this->retVal->message = "Sai định dạng email";
+	                                                      \_ HERE
+==== 101: Warning: non-ASCII character code in literal string (code 196). This msg is reported only once for each literal string
+102:	                        $this->retVal->success = 0;
+
+	                        $this->retVal->success = 0;
+	                                       \_ HERE
+==== 102: ERROR: unknown property WelcomePageController::$retVal
+103:	                    }
+104:	                } else {
+105:	                    $this->retVal->message = "Email không được để trống";
+
+	                    $this->retVal->message = "Email không được để trống";
+	                                   \_ HERE
+==== 105: ERROR: unknown property WelcomePageController::$retVal
+
+	                    $this->retVal->message = "Email không được để trống";
+	                                                      \_ HERE
+==== 105: Warning: non-ASCII character code in literal string (code 195). This msg is reported only once for each literal string
+106:	                    $this->retVal->success = 0;
+
+	                    $this->retVal->success = 0;
+	                                   \_ HERE
+==== 106: ERROR: unknown property WelcomePageController::$retVal
+107:	                }
+108:	            } catch (exception $e) {
+
+	            } catch (exception $e) {
+	                               \_ HERE
+==== 108: ERROR: undefined class exception
+109:	                $this->retVal->message = $e->getMessage();
+
+	                $this->retVal->message = $e->getMessage();
+	                               \_ HERE
+==== 109: ERROR: unknown property WelcomePageController::$retVal
+110:	            }
+111:	            echo CJSON::encode($this->retVal);
+
+	            echo CJSON::encode($this->retVal);
+	                        \_ HERE
+==== 111: ERROR: unknown class CJSON
+
+	            echo CJSON::encode($this->retVal);
+	                                             \_ HERE
+==== 111: ERROR: unknown property WelcomePageController::$retVal
+112:	            //     Yii::app()->end();
+113:	        }
+114:	    }
+115:	
+116:	    public function actionSignUp() {
+117:	        $this->retVal = new stdClass();
+
+	        $this->retVal = new stdClass();
+	                       \_ HERE
+==== 117: ERROR: unknown property WelcomePageController::$retVal
+
+	        $this->retVal = new stdClass();
+	                                    \_ HERE
+==== 117: ERROR: unknown class stdClass
+118:	        $request = Yii::app()->request;
+
+	        $request = Yii::app()->request;
+	                        \_ HERE
+==== 118: ERROR: unknown class Yii
+119:	        if ($request->isPostRequest && isset($_POST)) {
+120:	            try {
+121:	                $singupFormData = array(
+122:	                    'user_name' => $_POST['contact_name'],
+123:	                    'user_password' => $_POST['Password'],
+124:	                    'user_email' => $_POST['contact_email'],
+125:	                );
+126:	                if (!empty($singupFormData['user_name'])) {
+
+	                if (!empty($singupFormData['user_name'])) {
+	                           \_ HERE
+==== 126: ERROR: unresolved function empty
+127:	                    if (!empty($singupFormData['user_email'])) {
+
+	                    if (!empty($singupFormData['user_email'])) {
+	                               \_ HERE
+==== 127: ERROR: unresolved function empty
+128:	                        if (!empty($singupFormData['user_password'])) {
+
+	                        if (!empty($singupFormData['user_password'])) {
+	                                   \_ HERE
+==== 128: ERROR: unresolved function empty
+129:	
+130:	                            if (Validator::validateEmail($singupFormData['user_email'])) {
+
+	                            if (Validator::validateEmail($singupFormData['user_email'])) {
+	                                           \_ HERE
+==== 130: ERROR: unknown class Validator
+131:	                                if (Validator::validatePassword($singupFormData['user_password'])) {
+
+	                                if (Validator::validatePassword($singupFormData['user_password'])) {
+	                                               \_ HERE
+==== 131: ERROR: unknown class Validator
+132:	
+133:	                                    $user = User::model()->findByAttributes(array('username' => $singupFormData['user_email']));
+
+	                                    $user = User::model()->findByAttributes(array('username' => $singupFormData['user_email']));
+	                                                  \_ HERE
+==== 133: ERROR: unknown class User
+134:	                                    if ($user) {
+135:	                                        $this->retVal->message = "Email đã được đăng ký";
+
+	                                        $this->retVal->message = "Email đã được đăng ký";
+	                                                       \_ HERE
+==== 135: ERROR: unknown property WelcomePageController::$retVal
+
+	                                        $this->retVal->message = "Email đã được đăng ký";
+	                                                                        \_ HERE
+==== 135: Warning: non-ASCII character code in literal string (code 196). This msg is reported only once for each literal string
+136:	                                        $this->retVal->success = 0;
+
+	                                        $this->retVal->success = 0;
+	                                                       \_ HERE
+==== 136: ERROR: unknown property WelcomePageController::$retVal
+137:	                                    } else {
+138:	                                        $model = new User;
+
+	                                        $model = new User;
+	                                                         \_ HERE
+==== 138: ERROR: unknown class User
+139:	                                        if ($model) {
+140:	                                            $activator = md5($singupFormData['user_email']);
+
+	                                            $activator = md5($singupFormData['user_email']);
+	                                                             \_ HERE
+==== 140: ERROR: unresolved function md5
+141:	                                            $link_activate = Yii::app()->createAbsoluteUrl('welcomePage/activate?token=' . $activator);
+
+	                                            $link_activate = Yii::app()->createAbsoluteUrl('welcomePage/activate?token=' . $activator);
+	                                                                  \_ HERE
+==== 141: ERROR: unknown class Yii
+142:	                                            $model->user_real_name = $singupFormData['user_name'];
+143:	                                            $model->password = md5($singupFormData['user_password']);
+
+	                                            $model->password = md5($singupFormData['user_password']);
+	                                                                   \_ HERE
+==== 143: ERROR: unresolved function md5
+144:	                                            $model->username = $singupFormData['user_email'];
+145:	                                            $model->user_activator = $activator;
+146:	                                            $model->user_status = 1;
+147:	                                            $model->user_active = 0;
+148:	                                            $model->user_qoutes = "Học, học nữa, học mãi";
+
+	                                            $model->user_qoutes = "Học, học nữa, học mãi";
+	                                                                    \_ HERE
+==== 148: Warning: non-ASCII character code in literal string (code 225). This msg is reported only once for each literal string
+149:	                                            $model->user_date_attend = date('d/m/Y');
+
+	                                            $model->user_date_attend = date('d/m/Y');
+	                                                                            \_ HERE
+==== 149: ERROR: unresolved function date
+150:	                                            $model->save(FALSE);
+151:	                                            $res = $this->smtpmailer($singupFormData['user_email'], "activate@bluebee-uet.com", "Email kích hoạt tài khoản BlueBee của bạn", "Kích hoạt tài khoản bluebee của bạn", "Chào bạn " . $singupFormData["user_name"] . "<br/> Đây là đường link kích hoạt tài khoản của bạn: " . $link_activate . "<br/> Chúc bạn học tốt với bluebee");
+
+	                                            $res = $this->smtpmailer($singupFormData['user_email'], "activate@bluebee-uet.com", "Email kích hoạt tài khoản BlueBee của bạn", "Kích hoạt tài khoản bluebee của bạn", "Chào bạn " . $singupFormData["user_name"] . "<br/> Đây là đường link kích hoạt tài khoản của bạn: " . $link_activate . "<br/> Chúc bạn học tốt với bluebee");
+	                                                                                                                                        \_ HERE
+==== 151: Warning: non-ASCII character code in literal string (code 195). This msg is reported only once for each literal string
+
+	                                            $res = $this->smtpmailer($singupFormData['user_email'], "activate@bluebee-uet.com", "Email kích hoạt tài khoản BlueBee của bạn", "Kích hoạt tài khoản bluebee của bạn", "Chào bạn " . $singupFormData["user_name"] . "<br/> Đây là đường link kích hoạt tài khoản của bạn: " . $link_activate . "<br/> Chúc bạn học tốt với bluebee");
+	                                                                                                                                                                                         \_ HERE
+==== 151: Warning: non-ASCII character code in literal string (code 195). This msg is reported only once for each literal string
+
+	                                            $res = $this->smtpmailer($singupFormData['user_email'], "activate@bluebee-uet.com", "Email kích hoạt tài khoản BlueBee của bạn", "Kích hoạt tài khoản bluebee của bạn", "Chào bạn " . $singupFormData["user_name"] . "<br/> Đây là đường link kích hoạt tài khoản của bạn: " . $link_activate . "<br/> Chúc bạn học tốt với bluebee");
+	                                                                                                                                                                                                                                           \_ HERE
+==== 151: Warning: non-ASCII character code in literal string (code 195). This msg is reported only once for each literal string
+
+	                                            $res = $this->smtpmailer($singupFormData['user_email'], "activate@bluebee-uet.com", "Email kích hoạt tài khoản BlueBee của bạn", "Kích hoạt tài khoản bluebee của bạn", "Chào bạn " . $singupFormData["user_name"] . "<br/> Đây là đường link kích hoạt tài khoản của bạn: " . $link_activate . "<br/> Chúc bạn học tốt với bluebee");
+	                                                                                                                                                                                                                                                        \_ HERE
+==== 151: ERROR: no suitable implicit conversion to string for mixed
+
+	                                            $res = $this->smtpmailer($singupFormData['user_email'], "activate@bluebee-uet.com", "Email kích hoạt tài khoản BlueBee của bạn", "Kích hoạt tài khoản bluebee của bạn", "Chào bạn " . $singupFormData["user_name"] . "<br/> Đây là đường link kích hoạt tài khoản của bạn: " . $link_activate . "<br/> Chúc bạn học tốt với bluebee");
+	                                                                                                                                                                                                                                                                                               \_ HERE
+==== 151: Warning: non-ASCII character code in literal string (code 196). This msg is reported only once for each literal string
+
+	                                            $res = $this->smtpmailer($singupFormData['user_email'], "activate@bluebee-uet.com", "Email kích hoạt tài khoản BlueBee của bạn", "Kích hoạt tài khoản bluebee của bạn", "Chào bạn " . $singupFormData["user_name"] . "<br/> Đây là đường link kích hoạt tài khoản của bạn: " . $link_activate . "<br/> Chúc bạn học tốt với bluebee");
+	                                                                                                                                                                                                                                                                                                                                                                                             \_ HERE
+==== 151: Warning: non-ASCII character code in literal string (code 195). This msg is reported only once for each literal string
+152:	                                            if (true) {
+153:	                                                $this->retVal->message = "Đăng kí thành công, hãy kiểm tra tài khoản email của bạn để kích hoạt (chú ý cả thư mục spam)";
+
+	                                                $this->retVal->message = "Đăng kí thành công, hãy kiểm tra tài khoản email của bạn để kích hoạt (chú ý cả thư mục spam)";
+	                                                               \_ HERE
+==== 153: ERROR: unknown property WelcomePageController::$retVal
+
+	                                                $this->retVal->message = "Đăng kí thành công, hãy kiểm tra tài khoản email của bạn để kích hoạt (chú ý cả thư mục spam)";
+	                                                                          \_ HERE
+==== 153: Warning: non-ASCII character code in literal string (code 196). This msg is reported only once for each literal string
+154:	                                                $this->retVal->success = 1;
+
+	                                                $this->retVal->success = 1;
+	                                                               \_ HERE
+==== 154: ERROR: unknown property WelcomePageController::$retVal
+155:	                                            }
+156:	                                            // echo $ress;
+157:	                                        } else {
+158:	                                            $this->retVal->message = "Không thể lưu user do lỗi server ";
+
+	                                            $this->retVal->message = "Không thể lưu user do lỗi server ";
+	                                                           \_ HERE
+==== 158: ERROR: unknown property WelcomePageController::$retVal
+
+	                                            $this->retVal->message = "Không thể lưu user do lỗi server ";
+	                                                                        \_ HERE
+==== 158: Warning: non-ASCII character code in literal string (code 195). This msg is reported only once for each literal string
+159:	                                            $this->retVal->success = 0;
+
+	                                            $this->retVal->success = 0;
+	                                                           \_ HERE
+==== 159: ERROR: unknown property WelcomePageController::$retVal
+160:	                                        }
+161:	                                    }
+162:	                                } else {
+163:	                                    $this->retVal->message = "Password phải nhiều hơn 5 kí tự";
+
+	                                    $this->retVal->message = "Password phải nhiều hơn 5 kí tự";
+	                                                   \_ HERE
+==== 163: ERROR: unknown property WelcomePageController::$retVal
+
+	                                    $this->retVal->message = "Password phải nhiều hơn 5 kí tự";
+	                                                                         \_ HERE
+==== 163: Warning: non-ASCII character code in literal string (code 225). This msg is reported only once for each literal string
+164:	                                    $this->retVal->success = 0;
+
+	                                    $this->retVal->success = 0;
+	                                                   \_ HERE
+==== 164: ERROR: unknown property WelcomePageController::$retVal
+165:	                                }
+166:	                            } else {
+167:	                                $this->retVal->message = "Sai định dạng email";
+
+	                                $this->retVal->message = "Sai định dạng email";
+	                                               \_ HERE
+==== 167: ERROR: unknown property WelcomePageController::$retVal
+
+	                                $this->retVal->message = "Sai định dạng email";
+	                                                              \_ HERE
+==== 167: Warning: non-ASCII character code in literal string (code 196). This msg is reported only once for each literal string
+168:	                                $this->retVal->success = 0;
+
+	                                $this->retVal->success = 0;
+	                                               \_ HERE
+==== 168: ERROR: unknown property WelcomePageController::$retVal
+169:	                            }
+170:	                        } else {
+171:	                            $this->retVal->message = "Password không được để trống";
+
+	                            $this->retVal->message = "Password không được để trống";
+	                                           \_ HERE
+==== 171: ERROR: unknown property WelcomePageController::$retVal
+
+	                            $this->retVal->message = "Password không được để trống";
+	                                                                 \_ HERE
+==== 171: Warning: non-ASCII character code in literal string (code 195). This msg is reported only once for each literal string
+172:	                            $this->retVal->success = 0;
+
+	                            $this->retVal->success = 0;
+	                                           \_ HERE
+==== 172: ERROR: unknown property WelcomePageController::$retVal
+173:	                        }
+174:	                    } else {
+175:	                        $this->retVal->message = "Email không được để trống";
+
+	                        $this->retVal->message = "Email không được để trống";
+	                                       \_ HERE
+==== 175: ERROR: unknown property WelcomePageController::$retVal
+
+	                        $this->retVal->message = "Email không được để trống";
+	                                                          \_ HERE
+==== 175: Warning: non-ASCII character code in literal string (code 195). This msg is reported only once for each literal string
+176:	                        $this->retVal->success = 0;
+
+	                        $this->retVal->success = 0;
+	                                       \_ HERE
+==== 176: ERROR: unknown property WelcomePageController::$retVal
+177:	                    }
+178:	                } else {
+179:	                    $this->retVal->message = "Tên hiển thị không được để trống !. Bạn có thể thay đổi tên hiển thị sau khi đăng nhập";
+
+	                    $this->retVal->message = "Tên hiển thị không được để trống !. Bạn có thể thay đổi tên hiển thị sau khi đăng nhập";
+	                                   \_ HERE
+==== 179: ERROR: unknown property WelcomePageController::$retVal
+
+	                    $this->retVal->message = "Tên hiển thị không được để trống !. Bạn có thể thay đổi tên hiển thị sau khi đăng nhập";
+	                                               \_ HERE
+==== 179: Warning: non-ASCII character code in literal string (code 195). This msg is reported only once for each literal string
+180:	                    $this->retVal->success = 0;
+
+	                    $this->retVal->success = 0;
+	                                   \_ HERE
+==== 180: ERROR: unknown property WelcomePageController::$retVal
+181:	                }
+182:	            } catch (exception $e) {
+
+	            } catch (exception $e) {
+	                               \_ HERE
+==== 182: ERROR: undefined class exception
+183:	                $this->retVal->message = $e->getMessage();
+
+	                $this->retVal->message = $e->getMessage();
+	                               \_ HERE
+==== 183: ERROR: unknown property WelcomePageController::$retVal
+184:	            }
+185:	            echo CJSON::encode($this->retVal);
+
+	            echo CJSON::encode($this->retVal);
+	                        \_ HERE
+==== 185: ERROR: unknown class CJSON
+
+	            echo CJSON::encode($this->retVal);
+	                                             \_ HERE
+==== 185: ERROR: unknown property WelcomePageController::$retVal
+186:	            //     Yii::app()->end();
+187:	        }
+188:	
+189:	        //  $this->render('welcomePage/signUp');
+190:	    }
+191:	
+192:	    public function actionLogout() {
+
+	                                            $res = $this->smtpmailer($singupFormData['user_email'], "activate@bluebee-uet.com", "Email kích hoạt tài khoản BlueBee của bạn", "Kích hoạt tài khoản bluebee của bạn", "Chào bạn " . $singupFormData["user_name"] . "<br/> Đây là đường link kích hoạt tài khoản của bạn: " . $link_activate . "<br/> Chúc bạn học tốt với bluebee");
+	                                                \_ HERE
+==== 151: notice: variable $res assigned but never used
+193:	        $user_current_token = User::model()->findByAttributes(array('user_id' => Yii::app()->session['user_id']));
+
+	        $user_current_token = User::model()->findByAttributes(array('user_id' => Yii::app()->session['user_id']));
+	                                    \_ HERE
+==== 193: ERROR: unknown class User
+
+	        $user_current_token = User::model()->findByAttributes(array('user_id' => Yii::app()->session['user_id']));
+	                                                                                      \_ HERE
+==== 193: ERROR: unknown class Yii
+194:	
+195:	        if ($user_current_token) {
+196:	            $user_current_token->user_token = "";
+197:	            $user_current_token->save(FALSE);
+198:	        }
+199:	
+200:	        Yii::app()->session['user_id'] = "";
+
+	        Yii::app()->session['user_id'] = "";
+	             \_ HERE
+==== 200: ERROR: unknown class Yii
+201:	        Yii::app()->session['user_real_name'] = "";
+
+	        Yii::app()->session['user_real_name'] = "";
+	             \_ HERE
+==== 201: ERROR: unknown class Yii
+202:	        Yii::app()->session['user_email'] = "";
+
+	        Yii::app()->session['user_email'] = "";
+	             \_ HERE
+==== 202: ERROR: unknown class Yii
+203:	        Yii::app()->session['token'] = "";
+
+	        Yii::app()->session['token'] = "";
+	             \_ HERE
+==== 203: ERROR: unknown class Yii
+204:	        Yii::app()->session['user_avatar'] = "";
+
+	        Yii::app()->session['user_avatar'] = "";
+	             \_ HERE
+==== 204: ERROR: unknown class Yii
+205:	
+206:	        $this->redirect(Yii::app()->createUrl('welcomePage'));
+
+	        $this->redirect(Yii::app()->createUrl('welcomePage'));
+	                        \_ HERE
+==== 206: ERROR: unknown method WelcomePageController::redirect
+
+	        $this->redirect(Yii::app()->createUrl('welcomePage'));
+	                             \_ HERE
+==== 206: ERROR: unknown class Yii
+207:	    }
+208:	
+209:	    public function actionActivate() {
+210:	        if (isset($_GET["token"])) {
+211:	            $user_activate = User::model()->findByAttributes(array('user_activator' => $_GET["token"]));
+
+	            $user_activate = User::model()->findByAttributes(array('user_activator' => $_GET["token"]));
+	                                   \_ HERE
+==== 211: ERROR: unknown class User
+212:	            if ($user_activate) {
+213:	                $user_activate->user_active = 1;
+214:	                $user_activate->save(FALSE);
+215:	                $this->retVal->message = "Kích hoạt tài khoản thành công, hãy đăng nhập bằng tài khoản của bạn.";
+
+	                $this->retVal->message = "Kích hoạt tài khoản thành công, hãy đăng nhập bằng tài khoản của bạn.";
+	                               \_ HERE
+==== 215: ERROR: unknown property WelcomePageController::$retVal
+
+	                $this->retVal->message = "Kích hoạt tài khoản thành công, hãy đăng nhập bằng tài khoản của bạn.";
+	                                           \_ HERE
+==== 215: Warning: non-ASCII character code in literal string (code 195). This msg is reported only once for each literal string
+216:	                $this->retVal->success = 1;
+
+	                $this->retVal->success = 1;
+	                               \_ HERE
+==== 216: ERROR: unknown property WelcomePageController::$retVal
+217:	            }
+218:	        }
+219:	        $this->render('activate');
+
+	        $this->render('activate');
+	                      \_ HERE
+==== 219: ERROR: unknown method WelcomePageController::render
+220:	    }
+221:	
+222:	    function getFb() {
+223:	        $app_id = "1428478800723370";
+224:	        $app_secret = "64b21e0ab23ec7db82979f9607065704";
+225:	        $site_url = "bluebee-uet.com";
+226:	
+227:	        $facebook = new Facebook(array(
+
+	        $facebook = new Facebook(array(
+	                                \_ HERE
+==== 227: ERROR: unknown class Facebook
+228:	            'appId' => $app_id,
+229:	            'secret' => $app_secret,
+230:	            "cookie" => true
+231:	        ));
+
+	        ));
+	         \_ HERE
+==== 231: Warning: mixing elements of different types in array: found boolean, expected string
+232:	        return $facebook;
+233:	    }
+234:	
+235:	    public function actionFb_login() {
+
+	        $site_url = "bluebee-uet.com";
+	                 \_ HERE
+==== 225: notice: variable $site_url assigned but never used
+236:	        // $user = $this->actionFb_login_result();
+237:	        //$user_id = User::model()->findByAttributes(array('user_id_fb' => $user["id"]));
+238:	        $facebook = $this->getFb();
+239:	        $loginUrl = $facebook->getLoginUrl(array(
+
+	        $loginUrl = $facebook->getLoginUrl(array(
+	                               \_ HERE
+==== 239: ERROR: `->' operator applied to non-object type void
+240:	            'scope' => 'read_stream, publish_stream, user_birthday, user_location, user_work_history, user_hometown, user_photos, email',
+241:	            //'redirect_uri' => "http://bluebee-uet.com/user?token=" . $user_id->user_token,
+242:	            "redirect_uri" => Yii::app()->createAbsoluteUrl('welcomePage/fb_login_result')
+
+	            "redirect_uri" => Yii::app()->createAbsoluteUrl('welcomePage/fb_login_result')
+	                                   \_ HERE
+==== 242: ERROR: unknown class Yii
+243:	        ));
+244:	        $this->redirect($loginUrl);
+
+	        $this->redirect($loginUrl);
+	                        \_ HERE
+==== 244: ERROR: unknown method WelcomePageController::redirect
+245:	    }
+246:	
+247:	    public function actionFb_login_result() {
+248:	        $facebook = $this->getFb();
+249:	        $access_token = $facebook->getAccessToken();
+
+	        $access_token = $facebook->getAccessToken();
+	                                   \_ HERE
+==== 249: ERROR: `->' operator applied to non-object type void
+250:	        $user = $facebook->api("me", "get", array(
+
+	        $user = $facebook->api("me", "get", array(
+	                           \_ HERE
+==== 250: ERROR: `->' operator applied to non-object type void
+251:	            "access_token" => $access_token
+252:	        )); //check login tai day
+253:	        //print_r($user["id"]);
+254:	        //die();
+255:	        $user_facebook_exist = User::model()->findByAttributes(array('user_id_fb' => $user["id"]));
+
+	        $user_facebook_exist = User::model()->findByAttributes(array('user_id_fb' => $user["id"]));
+	                                     \_ HERE
+==== 255: ERROR: unknown class User
+256:	
+257:	        if ($user_facebook_exist) {
+258:	            //     echo 'huy';
+259:	            //   die();
+260:	            $token = StringHelper::generateToken(16, 36);
+
+	            $token = StringHelper::generateToken(16, 36);
+	                                   \_ HERE
+==== 260: ERROR: unknown class StringHelper
+261:	            $user_facebook_exist->user_token = $token;
+262:	            if (isset($user["name"])) {
+263:	                $user_facebook_exist->user_real_name = $user['name'];
+264:	            }
+265:	            if (isset($user["email"])) {
+266:	                $user_facebook_exist->username = $user['email'];
+267:	            }
+268:	
+269:	            if (isset($user["quotes"])) {
+270:	                $user_facebook_exist->user_qoutes = $user["quotes"];
+271:	            }
+272:	            $user_facebook_exist->user_dob = $user["birthday"];
+273:	            $url = "https://graph.facebook.com/" . $user["id"] . "?fields=cover";
+274:	            $json = file_get_contents($url);
+
+	            $json = file_get_contents($url);
+	                                      \_ HERE
+==== 274: ERROR: unresolved function file_get_contents
+275:	
+276:	            $data = json_decode($json, TRUE);
+
+	            $data = json_decode($json, TRUE);
+	                                \_ HERE
+==== 276: ERROR: unresolved function json_decode
+277:	
+278:	            $facebook_cover = $data["cover"]["source"];
+279:	            $facebook_cover_resize = Yii::getPathOfAlias('webroot') . '/images/coverfacebook' . $user["id"] . '.png';
+
+	            $facebook_cover_resize = Yii::getPathOfAlias('webroot') . '/images/coverfacebook' . $user["id"] . '.png';
+	                                          \_ HERE
+==== 279: ERROR: unknown class Yii
+280:	            imageresize::resize_image($facebook_cover, null, 1000, 315, false, $facebook_cover_resize, false, false, 100);
+
+	            imageresize::resize_image($facebook_cover, null, 1000, 315, false, $facebook_cover_resize, false, false, 100);
+	                         \_ HERE
+==== 280: ERROR: unknown class imageresize
+281:	            // $user_facebook_exist->user_cover = '/images/coverfacebook' . $user["id"] . '.png';
+282:	            $user_facebook_exist->user_hometown = $user["hometown"]["name"];
+283:	            //$user_facebook_exist->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture?type=large";
+284:	            $user_facebook_exist->user_active = 1;
+285:	            $user_facebook_exist->save(FALSE);
+286:	            Yii::app()->session['user_avatar'] = $user_facebook_exist->user_avatar;
+
+	            Yii::app()->session['user_avatar'] = $user_facebook_exist->user_avatar;
+	                 \_ HERE
+==== 286: ERROR: unknown class Yii
+287:	            Yii::app()->session['token'] = $token;
+
+	            Yii::app()->session['token'] = $token;
+	                 \_ HERE
+==== 287: ERROR: unknown class Yii
+288:	            Yii::app()->session['user_id'] = $user_facebook_exist->user_id;
+
+	            Yii::app()->session['user_id'] = $user_facebook_exist->user_id;
+	                 \_ HERE
+==== 288: ERROR: unknown class Yii
+289:	            $this->redirect(Yii::app()->createUrl('user?token=' . $token));
+
+	            $this->redirect(Yii::app()->createUrl('user?token=' . $token));
+	                            \_ HERE
+==== 289: ERROR: unknown method WelcomePageController::redirect
+
+	            $this->redirect(Yii::app()->createUrl('user?token=' . $token));
+	                                 \_ HERE
+==== 289: ERROR: unknown class Yii
+290:	        } else {
+291:	            //   echo 'ok';
+292:	            //   die();
+293:	            $token = StringHelper::generateToken(16, 36);
+
+	            $token = StringHelper::generateToken(16, 36);
+	                                   \_ HERE
+==== 293: ERROR: unknown class StringHelper
+294:	            $user_facebook = new User;
+
+	            $user_facebook = new User;
+	                                     \_ HERE
+==== 294: ERROR: unknown class User
+295:	            $user["password"] = "bluebee_facebook";
+296:	            if (isset($user["name"])) {
+297:	                $user_facebook->user_real_name = $user['name'];
+298:	            }
+299:	            if (isset($user["email"])) {
+300:	                $user_facebook->username = $user['email'];
+301:	            }
+302:	            $user_facebook->user_token = $token;
+303:	            $user_facebook->user_dob = $user["birthday"];
+304:	            $url = "https://graph.facebook.com/" . $user["id"] . "?fields=cover";
+305:	            $json = file_get_contents($url);
+
+	            $json = file_get_contents($url);
+	                                      \_ HERE
+==== 305: ERROR: unresolved function file_get_contents
+306:	
+307:	            $data = json_decode($json, TRUE);
+
+	            $data = json_decode($json, TRUE);
+	                                \_ HERE
+==== 307: ERROR: unresolved function json_decode
+308:	
+309:	            $facebook_cover = $data["cover"]["source"];
+310:	            $user_facebook->user_hometown = $user["hometown"]["name"];
+311:	            $user_facebook->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture?type=large";
+312:	            Yii::app()->session['user_avatar'] = "http://graph.facebook.com/" . $user["id"] . "/picture?type=large";
+
+	            Yii::app()->session['user_avatar'] = "http://graph.facebook.com/" . $user["id"] . "/picture?type=large";
+	                 \_ HERE
+==== 312: ERROR: unknown class Yii
+313:	            Yii::app()->session['token'] = $token;
+
+	            Yii::app()->session['token'] = $token;
+	                 \_ HERE
+==== 313: ERROR: unknown class Yii
+314:	            $user_facebook->user_id_fb = $user["id"];
+315:	            $facebook_cover_resize = Yii::getPathOfAlias('webroot') . '/images/coverfacebook' . $user["id"] . '.png';
+
+	            $facebook_cover_resize = Yii::getPathOfAlias('webroot') . '/images/coverfacebook' . $user["id"] . '.png';
+	                                          \_ HERE
+==== 315: ERROR: unknown class Yii
+316:	            imageresize::resize_image($facebook_cover, null, 1000, 315, false, $facebook_cover_resize, false, false, 100);
+
+	            imageresize::resize_image($facebook_cover, null, 1000, 315, false, $facebook_cover_resize, false, false, 100);
+	                         \_ HERE
+==== 316: ERROR: unknown class imageresize
+317:	            $user_facebook_exist->user_cover = '/images/coverfacebook' . $user["id"] . '.png';
+318:	            $user_facebook->user_active = 1;
+319:	            if (isset($user["quotes"])) {
+320:	                $user_facebook->user_qoutes = $user["quotes"];
+321:	            }
+322:	            $user_facebook->user_date_attend = date('d/m/Y');
+
+	            $user_facebook->user_date_attend = date('d/m/Y');
+	                                                    \_ HERE
+==== 322: ERROR: unresolved function date
+323:	            $user_facebook->save(FALSE);
+324:	            Yii::app()->session['user_id'] = $user_facebook->user_id;
+
+	            Yii::app()->session['user_id'] = $user_facebook->user_id;
+	                 \_ HERE
+==== 324: ERROR: unknown class Yii
+325:	
+326:	
+327:	            //return $user;
+328:	            $this->redirect(Yii::app()->createUrl('user?token=' . $token));
+
+	            $this->redirect(Yii::app()->createUrl('user?token=' . $token));
+	                            \_ HERE
+==== 328: ERROR: unknown method WelcomePageController::redirect
+
+	            $this->redirect(Yii::app()->createUrl('user?token=' . $token));
+	                                 \_ HERE
+==== 328: ERROR: unknown class Yii
+329:	        }
+330:	    }
+331:	
+332:	//    public function actionSaveFacebookUserInfo() {
+333:	//        $user = $this->actionFb_login_result();
+334:	//        $user_facebook = new User;
+335:	//        $user["password"] = "bluebee_facebook";
+336:	//        if (!isset($user["username"])) {
+337:	//            $user_facebook->user_real_name = $user['username'];
+338:	//        }
+339:	//        if (!isset($user["email"])) {
+340:	//            $user_facebook->username = $user['email'];
+341:	//        }
+342:	//        $user_facebook->user_token = md5($user["id"]);
+343:	//        $user_facebook->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture";
+344:	//        $user_facebook->user_id_fb = $user["id"];
+345:	//        $user_facebook->save(FALSE);
+346:	//    }
+347:	
+348:	    public function actionloginFacebook() {
+349:	        $app_id = "1428478800723370";
+350:	        $app_secret = "64b21e0ab23ec7db82979f9607065704";
+351:	        $site_url = "bluebee-uet.com";
+352:	
+353:	        $facebook = new Facebook(array(
+
+	        $facebook = new Facebook(array(
+	                                \_ HERE
+==== 353: ERROR: unknown class Facebook
+354:	            'appId' => $app_id,
+355:	            'secret' => $app_secret,
+356:	        ));
+357:	
+358:	        $user = $facebook->getUser();
+359:	
+360:	        if ($user) {
+361:	            try {
+362:	                $user_profile = $facebook->api('/me');
+363:	            } catch (FacebookApiException $e) {
+
+	            } catch (FacebookApiException $e) {
+	                                          \_ HERE
+==== 363: ERROR: undefined class FacebookApiException
+364:	                error_log($e);
+
+	                error_log($e);
+	                          \_ HERE
+==== 364: ERROR: unresolved function error_log
+365:	                $user = NULL;
+366:	            }
+367:	        }
+368:	
+369:	        if ($user) {
+370:	            $logoutUrl = $facebook->getLogoutUrl();
+371:	        } else {
+372:	            $loginUrl = $facebook->getLoginUrl(array(
+373:	                'scope' => 'read_stream, publish_stream, user_birthday, user_location, user_work_history, user_hometown, user_photos, email',
+374:	                'redirect_uri' => $site_url,
+375:	            ));
+376:	            $this->redirect($loginUrl);
+
+	            $this->redirect($loginUrl);
+	                            \_ HERE
+==== 376: ERROR: unknown method WelcomePageController::redirect
+377:	        }
+378:	
+379:	        if ($user) {
+380:	            $queries = array(
+381:	                array('method' => 'GET', 'relative_url' => '/' . $user),
+382:	                array('method' => 'GET', 'relative_url' => '/' . $user . '/home?limit=50'),
+383:	                array('method' => 'GET', 'relative_url' => '/' . $user . '/friends'),
+384:	                array('method' => 'GET', 'relative_url' => '/' . $user . '/photos?limit=6'),
+385:	            );
+386:	
+387:	            try {
+388:	                $batchResponse = $facebook->api('?batch=' . json_encode($queries), 'POST');
+
+	                $batchResponse = $facebook->api('?batch=' . json_encode($queries), 'POST');
+	                                                                        \_ HERE
+==== 388: ERROR: unresolved function json_encode
+389:	            } catch (Exception $o) {
+
+	            } catch (Exception $o) {
+	                               \_ HERE
+==== 389: ERROR: undefined class Exception
+390:	                error_log($o);
+
+	                error_log($o);
+	                          \_ HERE
+==== 390: ERROR: unresolved function error_log
+391:	            }
+392:	
+393:	            $user_info = json_decode($batchResponse[0]['body'], TRUE);
+
+	            $user_info = json_decode($batchResponse[0]['body'], TRUE);
+	                                     \_ HERE
+==== 393: ERROR: unresolved function json_decode
+
+	            $user_info = json_decode($batchResponse[0]['body'], TRUE);
+	                                                   \_ HERE
+==== 393: ERROR: variable $batchResponse might not have been assigned
+394:	            $feed = json_decode($batchResponse[1]['body'], TRUE);
+
+	            $feed = json_decode($batchResponse[1]['body'], TRUE);
+	                                \_ HERE
+==== 394: ERROR: unresolved function json_decode
+
+	            $feed = json_decode($batchResponse[1]['body'], TRUE);
+	                                              \_ HERE
+==== 394: ERROR: variable $batchResponse might not have been assigned
+395:	            $friends_list = json_decode($batchResponse[2]['body'], TRUE);
+
+	            $friends_list = json_decode($batchResponse[2]['body'], TRUE);
+	                                        \_ HERE
+==== 395: ERROR: unresolved function json_decode
+
+	            $friends_list = json_decode($batchResponse[2]['body'], TRUE);
+	                                                      \_ HERE
+==== 395: ERROR: variable $batchResponse might not have been assigned
+396:	            $photos = json_decode($batchResponse[3]['body'], TRUE);
+
+	            $photos = json_decode($batchResponse[3]['body'], TRUE);
+	                                  \_ HERE
+==== 396: ERROR: unresolved function json_decode
+
+	            $photos = json_decode($batchResponse[3]['body'], TRUE);
+	                                                \_ HERE
+==== 396: ERROR: variable $batchResponse might not have been assigned
+397:	        }
+398:	        $this->render('fb');
+
+	        $this->render('fb');
+	                      \_ HERE
+==== 398: ERROR: unknown method WelcomePageController::render
+399:	    }
+400:	
+401:	
+402:	//    public function actionWelcomePage() {
+403:	//        $this->render('index');
+404:	//    }
+405:	    // Uncomment the following methods and override them if needed
+406:	    /*
+407:	      public function filters()
+408:	      {
+409:	      // return the filter configuration for this controller, e.g.:
+410:	      return array(
+411:	      'inlineFilterName',
+412:	      array(
+413:	      'class'=>'path.to.FilterClass',
+414:	      'propertyName'=>'propertyValue',
+415:	      ),
+416:	      );
+417:	      }
+418:	
+419:	      public function actions()
+420:	      {
+421:	      // return external action classes, e.g.:
+422:	      return array(
+423:	      'action1'=>'path.to.ActionClass',
+424:	      'action2'=>array(
+425:	      'class'=>'path.to.AnotherActionClass',
+426:	      'propertyName'=>'propertyValue',
+427:	      ),
+428:	      );
+429:	      }
+430:	     */
+431:	}
+
+	            $photos = json_decode($batchResponse[3]['body'], TRUE);
+	                   \_ HERE
+==== 396: notice: variable $photos assigned but never used
+
+	            $friends_list = json_decode($batchResponse[2]['body'], TRUE);
+	                         \_ HERE
+==== 395: notice: variable $friends_list assigned but never used
+
+	            $feed = json_decode($batchResponse[1]['body'], TRUE);
+	                 \_ HERE
+==== 394: notice: variable $feed assigned but never used
+
+	            $user_info = json_decode($batchResponse[0]['body'], TRUE);
+	                      \_ HERE
+==== 393: notice: variable $user_info assigned but never used
+
+	                $batchResponse = $facebook->api('?batch=' . json_encode($queries), 'POST');
+	                              \_ HERE
+==== 388: notice: variable $batchResponse assigned but never used
+
+	            $logoutUrl = $facebook->getLogoutUrl();
+	                      \_ HERE
+==== 370: notice: variable $logoutUrl assigned but never used
+
+	                $user_profile = $facebook->api('/me');
+	                             \_ HERE
+==== 362: notice: variable $user_profile assigned but never used
+END parsing of ../../protected/controllers/WelcomePageController.php
+Overall test results: 149 errors, 25 warnings.
+Total execution time: 206 ms

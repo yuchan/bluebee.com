@@ -1,0 +1,2 @@
+1. Bug when add user to class, user can add themself
+2. Bug display avatar in user page 
