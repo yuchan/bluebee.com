@@ -15,7 +15,7 @@
                             <ul class="document_status clearfix">
                                 <li class="score"><i class="icon-heart"></i>2000</li>
                                 <li class="view"><i class="icon-eye-open"></i>1999</li>
-                                <li class="comment"><i class="icon-comments"></i>1203</li>
+                                <li class="comment"><i class="icon-comment"></i>1203</li>
                             </ul>
                             <span class="attribution-user">
                                 <a href="/sonvn" class="url_user" title="Sonvn">
@@ -40,7 +40,7 @@
                             <ul class="document_status clearfix">
                                 <li class="score"><i class="icon-heart"></i>2000</li>
                                 <li class="view"><i class="icon-eye-open"></i>1999</li>
-                                <li class="comment"><i class="icon-comments"></i>1203</li>
+                                <li class="comment"><i class="icon-comment"></i>1203</li>
                             </ul>
                             <span class="attribution-user">
                                 <a href="/sonvn" class="url_user" title="Sonvn">
@@ -65,7 +65,7 @@
                             <ul class="document_status clearfix">
                                 <li class="score"><i class="icon-heart"></i>2000</li>
                                 <li class="view"><i class="icon-eye-open"></i>1999</li>
-                                <li class="comment"><i class="icon-comments"></i>1203</li>
+                                <li class="comment"><i class="icon-comment"></i>1203</li>
                             </ul>
                             <span class="attribution-user">
                                 <a href="/sonvn" class="url_user" title="Sonvn">
@@ -90,7 +90,7 @@
                             <ul class="document_status clearfix">
                                 <li class="score"><i class="icon-heart"></i>2000</li>
                                 <li class="view"><i class="icon-eye-open"></i>1999</li>
-                                <li class="comment"><i class="icon-comments"></i>1203</li>
+                                <li class="comment"><i class="icon-comment"></i>1203</li>
                             </ul>
                             <span class="attribution-user">
                                 <a href="/sonvn" class="url_user" title="Sonvn">
@@ -115,7 +115,7 @@
                             <ul class="document_status clearfix">
                                 <li class="score"><i class="icon-heart"></i>2000</li>
                                 <li class="view"><i class="icon-eye-open"></i>1999</li>
-                                <li class="comment"><i class="icon-comments"></i>1203</li>
+                                <li class="comment"><i class="icon-comment"></i>1203</li>
                             </ul>
                             <span class="attribution-user">
                                 <a href="/sonvn" class="url_user" title="Sonvn">
@@ -140,7 +140,7 @@
                             <ul class="document_status clearfix">
                                 <li class="score"><i class="icon-heart"></i>2000</li>
                                 <li class="view"><i class="icon-eye-open"></i>1999</li>
-                                <li class="comment"><i class="icon-comments"></i>1203</li>
+                                <li class="comment"><i class="icon-comment"></i>1203</li>
                             </ul>
                             <span class="attribution-user">
                                 <a href="/sonvn" class="url_user" title="Sonvn">
@@ -165,7 +165,7 @@
                             <ul class="document_status clearfix">
                                 <li class="score"><i class="icon-heart"></i>2000</li>
                                 <li class="view"><i class="icon-eye-open"></i>1999</li>
-                                <li class="comment"><i class="icon-comments"></i>1203</li>
+                                <li class="comment"><i class="icon-comment"></i>1203</li>
                             </ul>
                             <span class="attribution-user">
                                 <a href="/sonvn" class="url_user" title="Sonvn">
@@ -190,7 +190,7 @@
                             <ul class="document_status clearfix">
                                 <li class="score"><i class="icon-heart"></i>2000</li>
                                 <li class="view"><i class="icon-eye-open"></i>1999</li>
-                                <li class="comment"><i class="icon-comments"></i>1203</li>
+                                <li class="comment"><i class="icon-comment"></i>1203</li>
                             </ul>
                             <span class="attribution-user">
                                 <a href="/sonvn" class="url_user" title="Sonvn">
@@ -214,32 +214,7 @@
                             <ul class="document_status clearfix">
                                 <li class="score"><i class="icon-heart"></i>2000</li>
                                 <li class="view"><i class="icon-eye-open"></i>1999</li>
-                                <li class="comment"><i class="icon-comments"></i>1203</li>
-                            </ul>
-                            <span class="attribution-user">
-                                <a href="/sonvn" class="url_user" title="Sonvn">
-                                    <img class="photo_user" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png"> Sonvn
-                                </a>
-                            </span>
-                        </div>
-                    </div>
-                    <a class="name_document" href=""><strong>Công nghệ phần mềm</strong></a>
-                </li>
-
-                <li class="item_document">
-                    <div class="box_item">
-                        <div class="short_info_document clearfix">
-                            <div class="document_img">
-                                <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/photo-11.jpg">
-                                <a href="" class="document_img_hover">
-                                    <span class="describe_document">blah blah blah</span>
-                                    <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>
-                                </a>
-                            </div>
-                            <ul class="document_status clearfix">
-                                <li class="score"><i class="icon-heart"></i>2000</li>
-                                <li class="view"><i class="icon-eye-open"></i>1999</li>
-                                <li class="comment"><i class="icon-comments"></i>1203</li>
+                                <li class="comment"><i class="icon-comment"></i>1203</li>
                             </ul>
                             <span class="attribution-user">
                                 <a href="/sonvn" class="url_user" title="Sonvn">
@@ -264,7 +239,7 @@
                             <ul class="document_status clearfix">
                                 <li class="score"><i class="icon-heart"></i>2000</li>
                                 <li class="view"><i class="icon-eye-open"></i>1999</li>
-                                <li class="comment"><i class="icon-comments"></i>1203</li>
+                                <li class="comment"><i class="icon-comment"></i>1203</li>
                             </ul>
                             <span class="attribution-user">
                                 <a href="/sonvn" class="url_user" title="Sonvn">
@@ -289,7 +264,32 @@
                             <ul class="document_status clearfix">
                                 <li class="score"><i class="icon-heart"></i>2000</li>
                                 <li class="view"><i class="icon-eye-open"></i>1999</li>
-                                <li class="comment"><i class="icon-comments"></i>1203</li>
+                                <li class="comment"><i class="icon-comment"></i>1203</li>
+                            </ul>
+                            <span class="attribution-user">
+                                <a href="/sonvn" class="url_user" title="Sonvn">
+                                    <img class="photo_user" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png"> Sonvn
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                    <a class="name_document" href=""><strong>Công nghệ phần mềm</strong></a>
+                </li>
+
+                <li class="item_document">
+                    <div class="box_item">
+                        <div class="short_info_document clearfix">
+                            <div class="document_img">
+                                <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/photo-11.jpg">
+                                <a href="" class="document_img_hover">
+                                    <span class="describe_document">blah blah blah</span>
+                                    <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>
+                                </a>
+                            </div>
+                            <ul class="document_status clearfix">
+                                <li class="score"><i class="icon-heart"></i>2000</li>
+                                <li class="view"><i class="icon-eye-open"></i>1999</li>
+                                <li class="comment"><i class="icon-comment"></i>1203</li>
                             </ul>
                             <span class="attribution-user">
                                 <a href="/sonvn" class="url_user" title="Sonvn">
@@ -304,8 +304,17 @@
             <button class="g-btn type_primary" style="width: 100%; text-transform: none; font-weight: 500">Xem thêm, còn nhiều tài liệu hay lắm</button>
         </div>
         <div class="one-third">
-            <div class="upload_document">
-            </div>
+            <div class="morph-button morph-button-modal morph-button-fixed">
+                <button type="button">Đăng một tài liệu lên</button>
+                <div class="morph-content">
+                    <div class="content-style-text">
+                        <span class="icon icon-close">✕</span>
+                        <h3>Hãy chọn một tài liệu mà bạn muốn đăng</h3>
+
+
+                    </div>
+                </div>
+            </div><!-- morph-button -->
             <div class="wrap_fliter">
                 <div class="clearfix">
                     <span>Lọc theo tình trạng</span>
@@ -381,3 +390,66 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/uiMorphingButton_fixed.js"></script>
+<script>
+    (function() {
+        var docElem = window.document.documentElement, didScroll, scrollPosition;
+
+        // trick to prevent scrolling when opening/closing button
+        function noScrollFn() {
+            window.scrollTo( scrollPosition ? scrollPosition.x : 0, scrollPosition ? scrollPosition.y : 0 );
+        }
+
+        function noScroll() {
+            window.removeEventListener( 'scroll', scrollHandler );
+            window.addEventListener( 'scroll', noScrollFn );
+        }
+
+        function scrollFn() {
+            window.addEventListener( 'scroll', scrollHandler );
+        }
+
+        function canScroll() {
+            window.removeEventListener( 'scroll', noScrollFn );
+            scrollFn();
+        }
+
+        function scrollHandler() {
+            if( !didScroll ) {
+                didScroll = true;
+                setTimeout( function() { scrollPage(); }, 60 );
+            }
+        };
+
+        function scrollPage() {
+            scrollPosition = { x : window.pageXOffset || docElem.scrollLeft, y : window.pageYOffset || docElem.scrollTop };
+            didScroll = false;
+        };
+
+        scrollFn();
+
+        var UIBtnn = new UIMorphingButton( document.querySelector( '.morph-button' ), {
+            closeEl : '.icon-close',
+            onBeforeOpen : function() {
+                // don't allow to scroll
+                noScroll();
+            },
+            onAfterOpen : function() {
+                // can scroll again
+                canScroll();
+            },
+            onBeforeClose : function() {
+                // don't allow to scroll
+                noScroll();
+            },
+            onAfterClose : function() {
+                // can scroll again
+                canScroll();
+            }
+        } );
+
+        document.getElementById( 'terms' ).addEventListener( 'change', function() {
+            UIBtnn.toggle();
+        } );
+    })();
+</script>

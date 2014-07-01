@@ -150,7 +150,7 @@
         <div class="l-canvas-h">
 
             <!-- HEADER -->
-            <div class="l-header">
+            <div class="l-header" style="z-index: 1">
                 <div class="l-header-h">
                     <div class="l-subheader at_top" style="background-image: url('<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/header.jpg')">
                     </div>
@@ -324,7 +324,7 @@
             <!-- /HEADER -->
 
             <!-- MAIN -->
-            <div class="l-main">
+            <div style="padding-top: 126px">
                 <?php echo $content; ?>
             </div>
             <!-- /MAIN -->
