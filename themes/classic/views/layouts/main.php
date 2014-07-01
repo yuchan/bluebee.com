@@ -31,6 +31,7 @@
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/component.css" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/post_style.css">
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/search_style.css">
+        <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/documentpage.css">
 
         <!-- javascript -->
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery-1.9.1.js"></script>
@@ -105,7 +106,7 @@
 
             });
         </script>
-        
+
 
         <!-- GMap-->
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
@@ -380,7 +381,7 @@
     <!-- /FOOTER -->
 
     <a class="w-toplink" href="#"><i class="icon-angle-up" style="line-height: inherit"></i></a>
-    
+
 
 </body>
 </html>

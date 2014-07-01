@@ -17,7 +17,7 @@ class DocumentController extends BaseController {
     }
 
     public function actionDocument() {
-        $Criteria = new CDbCriteria(); //represent for query such as conditions, ordering by, limit/offset. 
+        $Criteria = new CDbCriteria(); //represent for query such as conditions, ordering by, limit/offset.
         $Criteria->select = "*";
         $Criteria->order = "doc_id DESC";
 
@@ -25,18 +25,7 @@ class DocumentController extends BaseController {
     }
 
     public function actionViewDocument() {
-        if (isset($_GET["docid"])) {
-            $spCriteria = new CDbCriteria();
-            $spCriteria->select = "*";
-            $spCriteria->condition = "doc_scribd_id = " . $_GET["docid"];
-
-            $comCriteria = new CDbCriteria();
-            $comCriteria->select = "*";
-            $comCriteria->condition = "comment_doc_id = " . $_GET["docid"];
-
-            $this->render('viewdocument', array('detaildoc' => Doc::model()->findAll($spCriteria),
-                'detailcomment' => Comment::model()->findAll($comCriteria)));
-        }
+        $this->render('viewdocument');
     }
 
     public function actionUpload() {
@@ -51,7 +40,7 @@ class DocumentController extends BaseController {
         $storeFolder = Yii::app()->basePath . '/uploads/';   //2
 
 
-        $tempFile = $_FILES['file']['tmp_name'];          //3             
+        $tempFile = $_FILES['file']['tmp_name'];          //3
         $targetPath = $storeFolder;  //4
         $targetFile = $targetPath . $_FILES['file']['name'];  //5
         move_uploaded_file($tempFile, $targetFile); //6
