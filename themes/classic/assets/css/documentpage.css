@@ -292,10 +292,25 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    color: rgba(0, 0, 0, 0.2);
+}
+.content-style-text .icon-close:hover, .cancel_file:hover {
+    color: rgba(0, 0, 0, 0.5);
+}
+.info_file {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+    padding: 6px 10px 7px 10px;
+    border-radius: 3px;
+    margin: 5px 0;
+}
+.cancel_file, .content-style-text .icon-close {
     font-size: 20px;
     cursor: pointer;
+    color: rgba(0, 0, 0, 0.2);
 }
-.content-style-text .icon-close:hover {
-    color: rgba(0, 0, 0, 0.5);
+.cancel_file {
+    float: right;
+}
+#name_document, #description_document {
+    background-color: white !important;
+    margin: 5px 0;
 }
