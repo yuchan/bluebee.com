@@ -166,6 +166,10 @@
     box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.15) inset;
     transition: all 0.25s ease;
 }
+.morph-button > button:active {
+    box-shadow: 0 0 #ab3c3c;
+    top: 1px;
+}
 .morph-button:hover > button {
     box-shadow: 0 0 0 26px rgba(0, 0, 0, 0.1) inset;
 }
@@ -173,7 +177,6 @@
     border-radius: 3px;
     background-color: #429edb;
 }
-
 .morph-button.open > button {
     pointer-events: none;
 }
@@ -184,7 +187,7 @@
     pointer-events: auto;
 }
 /* Common styles for overlay and modal type (fixed morph) */
-.morph-button-fixed, .morph-button-fixed .morph-content {
+ .morph-button-fixed, .morph-button-fixed .morph-content {
     width: 306px;
     height: 50px;
 }
@@ -231,7 +234,7 @@
     z-index: 1900;
 }
 /* Morph Button Style: Modal */
- .morph-button-modal::before {
+.morph-button-modal::before {
     position: fixed;
     top: 0;
     left: 0;
@@ -267,7 +270,7 @@
     transition: width 0.4s 0.1s, height 0.4s 0.1s, top 0.4s 0.1s, left 0.4s 0.1s, margin 0.4s 0.1s, background-color 1s ease-out;
 }
 /* Let's add some nice easing for all cases */
- .morph-button .morph-content, .morph-button.open .morph-content, .morph-button-modal-4 .morph-clone {
+ .morph-button .morph-content, .morph-button.open .morph-content,{
     -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
     transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
 }
@@ -275,28 +278,24 @@
     padding: 40px;
     text-align: left;
 }
-
 .content-style-text p {
     font-weight: 300;
     font-size: 1.15em;
     line-height: 1.4;
 }
-
 .content-style-text label {
     padding: 10px;
     color: #f9e1c9;
     font-weight: bold;
 }
-
 .content-style-text .icon-close {
     position: absolute;
     top: 20px;
     right: 20px;
-    color: rgba(0,0,0,0.2);
+    color: rgba(0, 0, 0, 0.2);
     font-size: 20px;
     cursor: pointer;
 }
-
 .content-style-text .icon-close:hover {
-    color: rgba(0,0,0,0.5);
+    color: rgba(0, 0, 0, 0.5);
 }

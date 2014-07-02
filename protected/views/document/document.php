@@ -305,12 +305,12 @@
         </div>
         <div class="one-third">
             <div class="morph-button morph-button-modal morph-button-fixed">
-                <button type="button">Đăng một tài liệu lên</button>
+                <button class="btn-2 btn-2a" type="button">Đăng một tài liệu lên</button>
                 <div class="morph-content">
                     <div class="content-style-text">
                         <span class="icon icon-close">✕</span>
-                        <h3>Hãy chọn một tài liệu mà bạn muốn đăng</h3>
-
+                        <h4>Hãy chọn một tài liệu mà bạn muốn đăng</h4>
+                        <input type="button" class="g-btn size_small type_secondary" placeholder="Chọn 1 tệp tin"></input>
 
                     </div>
                 </div>
