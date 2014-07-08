@@ -344,6 +344,9 @@
                             </p>
                         </div>
                     </div>
+                    <a style="position: absolute; right: 16px; top: 20px; cursor: pointer; color: #18bacd; visibility: visible; font-size: 14px;" title="Close" class="close-onboarding" rel="no-follow">
+                        <i class="icon-x-alt"></i>                      
+                    </a>
                 </div>
             </div>
             <!-- MAIN -->

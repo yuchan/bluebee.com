@@ -122,6 +122,19 @@ a:active {
     float: left;
 }
 
+.icon-x-alt{
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    vertical-align: text-top;
+    background-image: url("http://cungnghe.com/img/glyphicons-halflings.png");
+    background-position: 14px 14px;
+    background-repeat: no-repeat;
+    margin-top: 1px;
+    cursor: pointer;
+    color: #18bacd;
+}
+
 .l-main {
 	z-index: 1
 }
