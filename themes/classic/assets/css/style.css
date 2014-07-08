@@ -2023,17 +2023,20 @@ button.g-btn.size_big {
 }
 .w-tabs-list {
 	background-color: #f0f0f0;
-	box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05) inset
+	box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05) inset;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
 }
 .w-tabs-item {
 	padding: 12px 20px;
 	border-top: 2px solid transparent;
 	-webkit-transition: background-color 0.25s ease, color 0.25s ease;
-	transition: background-color 0.25s ease, color 0.25s ease
+	transition: background-color 0.25s ease, color 0.25s ease;
 }
 .w-tabs-item:hover {
 	background-color: rgba(0, 0, 0, 0.03);
-	color: #333
+	color: #333;
 }
 .w-tabs-item.active {
 	box-shadow: none;
