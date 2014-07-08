@@ -31,6 +31,7 @@
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/component.css" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/post_style.css">
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/search_style.css">
+        <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/documentpage.css">
 
         <!-- javascript -->
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery-1.9.1.js"></script>
@@ -105,7 +106,7 @@
 
             });
         </script>
-        
+
 
         <!-- GMap-->
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
@@ -149,7 +150,7 @@
         <div class="l-canvas-h">
 
             <!-- HEADER -->
-            <div class="l-header">
+            <div class="l-header" style="z-index: 1">
                 <div class="l-header-h">
                     <div class="l-subheader at_top" style="background-image: url('<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/header.jpg')">
                     </div>
@@ -178,25 +179,8 @@
                                 </div>
                             </div>
 
-                            <!-- SEARCH -->
-                            <div class="w-search submit_inside">
-                                <div class="w-search-h">
-                                    <a class="w-search-show" href="javascript:void(0)" style="margin: auto;">
-                                        <i class="icon-search" style="line-height: inherit"></i>
-                                    </a>
-                                    <form class="w-search-form show_hidden" action="#" />
-                                    <div class="w-search-input">
-                                        <input type="text" value="" placeholder="Bạn muốn tìm gì ?" />
-                                    </div>
-                                    <div class="w-search-submit">
-                                        <input type="submit" value="Search" />
-
-                                    </div>
-                                    <a class="w-search-close" href="javascript:void(0)" title="Close search"> &#10005; </a>
-                                    </form>
-                                </div>
-                            </div>
-
+                            
+                             
                             <!-- NAV -->
                             <nav class="w-nav ">
                                 <div class="w-nav-h align_center">
@@ -314,16 +298,56 @@
                                         </div>
                                     </div>
                             </nav>
-
+                            
                         </div>
+                        <a id="login" href="#">Đăng nhập</a>
+                        <!-- SEARCH -->
+                            <div class="w-search submit_inside">
+                                <div class="w-search-h">
+                                    <a class="w-search-show" href="javascript:void(0)" style="margin: auto;">
+                                        <i class="icon-search" style="line-height: inherit"></i>
+                                    </a>
+                                    <form class="w-search-form show_hidden" action="#" />
+                                    <div class="w-search-input">
+                                        <input type="text" value="" placeholder="Bạn muốn tìm gì ?" />
+                                    </div>
+                                    <div class="w-search-submit">
+                                        <input type="submit" value="Search" />
+
+                                    </div>
+                                    <a class="w-search-close" href="javascript:void(0)" title="Close search"> &#10005; </a>
+                                    </form>
+                                </div>
+                            </div>
                     </div>
 
                 </div>
             </div>
             <!-- /HEADER -->
-
+            <div id="login_overlay" style="visibility: visible; transition: visibility 0s ease 0.2s, opacity 0.6s ease-in-out 0s; -webkit-transition: visibility 0s ease 0.2s, opacity 0.6s ease-in-out 0s;">
+                <div style="background-color: rgba(255, 255, 255, 0.88); position: fixed; top: 0px; left: 0px; right: 0px; bottom: 0px; transition: visibility 0s ease 0.2s, opacity 0.6s ease-in-out 0s; z-index: 994;"></div>
+                <div id="login_dialog" style="border-radius: 8px; position: fixed; top: 50%; left: 50%; width: 600px; height: 456px; margin-top: -265px; z-index: 995; margin-left: -300px; background: url(http://cungnghe.com/img/login_welcome.png) 0px 0px no-repeat scroll rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.298039) 0px 2px 5px;transition: visibility 0s ease 0.2s, opacity 0.6s ease-in-out 0s; -webkit-transition: visibility 0s ease 0.2s, opacity 0.6s ease-in-out 0s;">
+                    <div style="padding: 13px 140px; height: 430px; text-align: center;">
+                        <h2 style="color: rgb(255, 255, 255); font-weight: bold; line-height: normal; padding: 0px; margin: 70px 0px 25px; letter-spacing: -1px; font-size: 30px;">
+                            Welcome to Bluebee!
+                        </h2>
+                        <p style="color: rgb(255, 255, 255); font-size: 16px; font-weight: 500; line-height: 22px; margin: 15px 0px; font-family: Helvetica, Arial,sans-serif;">
+                            "Nơi giao lưu, hỗ trợ học tập hiệu quả cho sinh viên UET!"
+                        </p>
+                        <div style="margin-top: 105px; height: 100px;">
+                            <div style="width: 322px; height: 50px; padding: 12px 0px;" class="colorbutton fbbutton">
+                                <span style="background-size: 30px 30px; height: 26px; margin-left: 16px; margin-top: 0; margin-right: 0px; width: 30px;" class="fb-icon"></span>
+                                <span style="font-weight: normal; font-size: 21px; -webkit-font-smoothing: antialiased">Đăng nhập với Facebook</span>
+                            </div>
+                            <p style="margin-top: 10px; font-size: 13px; font-family: Helvetica,Arial,sans-serif; color: #333333;">
+                                Đăng nhập để khám phá một môi trường học tập thú vị mang bản sắc UET!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- MAIN -->
-            <div class="l-main">
+            <div style="padding-top: 126px">
                 <?php echo $content; ?>
             </div>
             <!-- /MAIN -->
@@ -380,7 +404,7 @@
     <!-- /FOOTER -->
 
     <a class="w-toplink" href="#"><i class="icon-angle-up" style="line-height: inherit"></i></a>
-    
+
 
 </body>
 </html>

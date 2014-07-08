@@ -1,332 +1,232 @@
-<?php foreach ($user_detail_info as $user): ?>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            var form = $('#newclassform');
-            form.submit(function(event) {
-                $('#res').html('');
-                var data = form.serialize();
-                $.ajax({
-                    type: "POST",
-                    url: '<?php echo Yii::app()->createUrl('classPage/createclass') ?>',
-                    data: data,
-                    beforeSend: function() {
-                        $('#alert').html('<img class="w-blog-entry-img-h" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax_loader_blue_128.gif" alt="" style="" id="loading"/>');
-                    },
-                    success: function(data) {
-                        var json = data;
-                        var result = $.parseJSON(json);
-                        //       $('#res').html(result.message);
-                        $('#alert').html('');
-
-                        if (result.success == 1) {
-                            var item = $('<div class="g-form-row-field">' +
-                                    '<div id="success" class="g-alert type_success">' +
-                                    '<div class="g-alert-body">' +
-                                    '<p><b>' + result.message + '</b></p>' +
-                                    '</div>' +
-                                    '</div>' +
-                                    '</div>').hide().fadeIn(120);
-
-                            $('#alert').html(item)
-                            location.href = result.url;
-                        }
-                        else if (result.success == 2) {
-
-                            var item = $('<div class="g-form-row-field">' +
-                                    '<div id="error" class="g-alert type_error">' +
-                                    '<div class="g-alert-body">' +
-                                    '<p><b>' + result.message + ' <a href = "' + result.url_class_exist + '">đây</a></b></p>' +
-                                    '</div>' +
-                                    '</div>' +
-                                    '</div>').hide().fadeIn(120);
-
-                            $('#alert').html(item)
-                            //   var json = $.parseJSON(data);
-                            //  $('#res').html('Message : ' + json.message + '<br>Success : ' + json.success)
-                        }
-
-                        else {
-
-                            var item = $('<div class="g-form-row-field">' +
-                                    '<div id="error" class="g-alert type_error">' +
-                                    '<div class="g-alert-body">' +
-                                    '<p><b>' + result.message + '</b></p>' +
-                                    '</div>' +
-                                    '</div>' +
-                                    '</div>').hide().fadeIn(120);
-
-                            $('#alert').html(item)
-                            //   var json = $.parseJSON(data);
-                            //  $('#res').html('Message : ' + json.message + '<br>Success : ' + json.success)
-                        }
-                    }});
-                event.preventDefault();
-                event.stopPropagation();
-                return false;
-            });
-        });</script>
-
-    <div class="l-main-h">
-        <div class="l-submain">
-            <div class="l-submain-h g-html i-cf">
-                <div class="g-cols">
-                    <div class="full-width">
-
-                        <div class="cover1">
-                            <div class="view effect1">
-                                <img id='cover_container' src="<?php echo Yii::app()->createUrl($user['user_cover']) ?>"/>
-                                <div class="content-1">
-                                    <?php $this->renderPartial('changeCover') ?>
-                                </div>
-                            </div>
-
-                            <div id="profile_img">
-                                <div class="view1 effect"> 
-                                    <img src='<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg'/>
-                                    <div class="content-2">
-                                        <div class="custom_file_upload1 info">
-                                            <form class=" file_upload1">  
-                                                <input type="file" id="file_upload1" name="file_upload" class="">
-                                            </form>  
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
+<div class="l-main-h">
+    <div class="l-submain">
+        <div class="l-submain-h g-html">
+            <div class="g-cols">
+                <div class="one-third">
+                    <div class="g-cols">
+                        <div class="full-width">
+                            <img class="rectan left" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg"/>
+                            <h4><strong>Nguyễn Duy Kiên</strong></h4>
+                            <i class="icon-heart"> Từ Liêm, Hà Nội</i>
                         </div>
-
                     </div>
-                    <!--<div class="view effect">  
-                        <img class="round_ava" src="
-                    <?php
-                    if ($user['user_cover'] == "") {
-                        echo Yii::app()->theme->baseUrl, "/assets/img/demo/cover.jpg";
-                    } else {
+                    <div class="input select rating-f read-only">
+                        <select class="teacher-block-rating-outside" name="rating" style="display: none; float: right">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <a href=""><button class="g-btn type_outline size_small"><span>Thành viên tích cực</span></button></a>
 
-                        echo $user['user_cover'];
-                    }
-                    ?>
-                        <div class="content-1">
-                    
-                        </div>
-                    </div>-->
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="l-submain-h g-html i-cf" id="profile_tag">
-        <script>
-            $(document).ready(function() {
-                var top = $("#profile_tag").offset().top;
-                $("body,html").scrollTop(top);
-            });
-        </script>
-        <div class="g-cols">
-            <div class="two-thirds">
-                <div class="l-content">
-                    <div class='g-cols'>
-                        <div class='full-width'>
-                    <!--<div class="view1 effect ">
-                        <img class="circular " src="<?php
-                    if (Yii::app()->session['user_avatar'] == "") {
-                        echo Yii::app()->theme->baseUrl, "/assets/img/logo.jpg";
-                    } else {
+                    <div class="underline"></div>
 
-                        echo Yii::app()->session['user_avatar'];
-                    }
-                    ?>"/>
-                        <div class="content-2">
-                            <div class="custom_file_upload1 info">
-                                <form class=" file_upload1">  
-                                    <input type="file" id="file_upload1" name="file_upload" class="">
-                                </form>  
-                            </div>
-                        </div>
-                    </div>-->
-                    <div class="rounded">
-                        <b>Trích dẫn ưa thích:</b> <?php echo $user['user_qoutes'] ?>
-                        <br/>
-                        <b>Ngày tham gia:</b> <?php echo $user['user_date_attend'] ?>
+                    <div>
+                        <p>
+                            <span style="text-align: right; color:#aaa">
+                                Công việc
+                            </span>
+                            </br>
+                            - Sinh viên
+                            </br>
+                            <span style="text-align: right; color:#aaa">
+                                Tính cách
+                            </span>
+                            </br>
+                            - Đẹp trai, nhiều ban thích
+                        </p>
                     </div>
 
-                    <!--                                <div style="text-align: center">
-                                                        <p>
-                                                            <a href="">Add he/she to a class</a> | <a href="">Add he/she to a group</a> | <a href="">Suggest he/she books</a>
-                                                        </p>
-                                                    </div>-->
+                    <div class="underline"></div>
 
-                    <!--                                <div class="rounded1 color_alternate">
-                                                        <h6>Tài liệu đã xem</h6>
-                                                    </div>
-                    
-                                                    <div class="w-gallery layout_tile size_s">
-                                                        <div class="w-gallery-h">
-                                                            <div class="w-gallery-tnails">
-                                                                <div class="w-gallery-tnails-h">
-                    
-                                                                    <a class="w-gallery-tnail" href="img/demo/photo-1.jpg" title="Photo Title">
-                                                                        <span class="w-gallery-tnail-h">
-                                                                            <img class="w-gallery-tnail-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/thumb-1.jpg" alt="photo" />
-                                                                            <span class="w-gallery-tnail-title"><i class="icon-mail-forward"></i></span>
-                                                                        </span>
-                                                                    </a>
-                                                                    <a class="w-gallery-tnail" href="img/demo/photo-2.jpg">
-                                                                        <span class="w-gallery-tnail-h">
-                                                                            <img class="w-gallery-tnail-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/thumb-2.jpg" alt="photo" />
-                                                                            <span class="w-gallery-tnail-title"><i class="icon-mail-forward"></i></span>
-                                                                        </span>
-                                                                    </a>
-                                                                    <a class="w-gallery-tnail" href="img/demo/photo-3.jpg">
-                                                                        <span class="w-gallery-tnail-h">
-                                                                            <img class="w-gallery-tnail-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/thumb-3.jpg" alt="photo" />
-                                                                            <span class="w-gallery-tnail-title"><i class="icon-mail-forward"></i></span>
-                                                                        </span>
-                                                                    </a>
-                                                                    <a class="w-gallery-tnail" href="img/demo/photo-4.jpg">
-                                                                        <span class="w-gallery-tnail-h">
-                                                                            <img class="w-gallery-tnail-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/thumb-4.jpg" alt="photo" />
-                                                                            <span class="w-gallery-tnail-title"><i class="icon-mail-forward"></i></span>
-                                                                        </span>
-                                                                    </a>
-                                                                    <a class="w-gallery-tnail" href="img/demo/photo-5.jpg">
-                                                                        <span class="w-gallery-tnail-h">
-                                                                            <img class="w-gallery-tnail-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/thumb-5.jpg" alt="photo" />
-                                                                            <span class="w-gallery-tnail-title"><i class="icon-mail-forward"></i></span>
-                                                                        </span>
-                                                                    </a>
-                    
-                                                                    <a class="w-gallery-tnail" href="img/demo/project-2.jpg">
-                                                                        <span class="w-gallery-tnail-h">
-                                                                            <img class="w-gallery-tnail-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/thumb-6.jpg" alt="photo" />
-                                                                            <span class="w-gallery-tnail-title"><i class="icon-mail-forward"></i></span>
-                                                                        </span>
-                                                                    </a>
-                    
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                    
-                                                    <a href="" style="margin-left: 30px">More...</a>-->
-                    <?php $this->renderPartial('partial/user_activity', array('user_activity' => $user_activity)) ?>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <div>
+                        <p>
+                            <span style="text-align: right; color:#aaa">
+                                Môn học theo dõi
+                            </span>
+                            </br>
+                        <div class="g-cols">
+                            <div class="one-half">
+                                <div class="w-gallery layout_tile size_xs">
+                                    <div class="w-gallery-h">
+                                        <div class="w-gallery-tnails">
+                                            <div class="w-gallery-tnails-h">
 
-
-    <div class="one-third">
-
-        <div class="rounded2 color_alternate" >
-            <h6>Thông tin chi tiết</h6>
-        </div>
-
-        <div>
-
-            <span class="dataTitle1"> <i class="icon-user"></i> Tên : </span>
-            <span class="dataItem1"><?php echo $user->user_real_name ?></span>
-            <br/>
-
-            <span class="dataTitle1"> <i class="icon-phone"></i> SĐT : </span>
-            <span class="dataItem1"><?php echo $user->user_phone ?> </span>
-            <br/>
-
-            <span class="dataTitle1"> <i class="icon-home"></i> Sống tại : </span>
-            <span class="dataItem1"><?php echo $user->user_hometown ?></span>
-            <br/>
-
-            <span class="dataTitle1"><i class="icon-calendar"></i> Ngày sinh : </span>
-            <span class="dataItem1"><?php echo $user->user_dob ?></span>
-            <br/>
-        </div>
-
-        <div class="rounded2 color_alternate" style="margin-top: 10px">
-            <h6>Lớp đang theo học</h6>
-        </div>
-
-        <div class="w-portfolio columns_2 wide-margins type_sortable">
-            <div class="w-portfolio-h">
-                <div class="w-portfolio-list">
-                    <div class="w-portfolio-list-h">
-                        <?php foreach ($user_class_info as $class): ?>
-                            <div class = "w-portfolio-item naming webdesign">
-                                <div class = "w-portfolio-item-h animate_afc">
-                                    <a class = "w-portfolio-item-anchor" href = "<?php echo Yii::app()->baseUrl, "/classPage?classid=" . $class['class_id'] ?>">
-                                        <div class = "w-portfolio-item-image">
-                                            <img src = "<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-1.jpg" alt = "" />
-                                            <div class = "w-portfolio-item-meta">
-                                                <h2 class = "w-portfolio-item-title"><?php echo $class['class_name'] ?></h2>
-                                                <i class = "icon-mail-forward"></i>
+                                                <a class="w-gallery-tnail" href="img/demo/photo-1.jpg" title="Photo Title">
+                                                    <span class="w-gallery-tnail-h">
+                                                        <img class="w-gallery-tnail-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/thumb-1.jpg" alt="photo" />
+                                                        <span class="w-gallery-tnail-title"><i class="icon-search"></i></span>
+                                                    </span>
+                                                </a>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!--                    <div class = "rounded2 color_alternate">
-                                <h6>Nhóm đã tham gia</h6>
-                            </div>
-        
-                            <div class = "w-portfolio columns_2 wide-margins type_sortable">
-                                <div class = "w-portfolio-h">
-                                    <div class = "w-portfolio-list">
-                                        <div class = "w-portfolio-list-h">
-        
-                                            <div class = "w-portfolio-item naming webdesign">
-                                                <div class = "w-portfolio-item-h animate_afc">
-                                                    <a class = "w-portfolio-item-anchor" href = "project-another-slider.html">
-                                                        <div class = "w-portfolio-item-image">
-                                                            <img src = "<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-1.jpg" alt = "" />
-                                                            <div class = "w-portfolio-item-meta">
-                                                                <h2 class = "w-portfolio-item-title">Vietnam National University</h2>
-                                                                <i class = "icon-mail-forward"></i>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-        
-                                            <div class = "w-portfolio-item naming webdesign">
-                                                <div class = "w-portfolio-item-h animate_afc">
-                                                    <a class = "w-portfolio-item-anchor" href = "project-another-slider.html">
-                                                        <div class = "w-portfolio-item-image">
-                                                            <img src = "<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-1.jpg" alt = "" />
-                                                            <div class = "w-portfolio-item-meta">
-                                                                <h2 class = "w-portfolio-item-title">Vietnam National University</h2>
-                                                                <i class = "icon-mail-forward"></i>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-        
-                                            <div class = "w-portfolio-item naming branding">
-                                                <div class = "w-portfolio-item-h animate_afc d1">
-                                                    <a class = "w-portfolio-item-anchor" href = "project-slider.html">
-                                                        <div class = "w-portfolio-item-image">
-                                                            <img src = "<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/portfolio-2.jpg" alt = "" />
-                                                            <div class = "w-portfolio-item-meta">
-                                                                <h2 class = "w-portfolio-item-title">Kien's </h2>
-                                                                <i class="icon-mail-forward"></i>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-        
                                         </div>
                                     </div>
                                 </div>
-                            </div>-->
-    </div>
-    </div>
-    </div>
-    </div>
-<?php endforeach; ?>
+                            </div>
+                            <div class="one-half">
+                                <div style="margin-top: 15px">
+                                    Công nghệ thông tin
+                                    </br>
+                                    <span style="text-align: right; color:#aaa">
+                                        Toán rời rạc
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="g-cols">
+                            <div class="one-half">
+                                <div class="w-gallery layout_tile size_xs">
+                                    <div class="w-gallery-h">
+                                        <div class="w-gallery-tnails">
+                                            <div class="w-gallery-tnails-h">
 
+                                                <a class="w-gallery-tnail" href="img/demo/photo-1.jpg" title="Photo Title">
+                                                    <span class="w-gallery-tnail-h">
+                                                        <img class="w-gallery-tnail-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/thumb-2.jpg" alt="photo" />
+                                                        <span class="w-gallery-tnail-title"><i class="icon-search"></i></span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="one-half">
+                                <div style="margin-top: 15px">
+                                    Vật lý kĩ thuật
+                                    </br>
+                                    <span style="text-align: right; color:#aaa">
+                                        Đại số
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="two-thirds">
+                    <div class="round">
+                        <div class="w-timeline">
+                            <div class="w-timeline-h">
+
+                                <div class="w-timeline-list">
+                                    <div class="w-timeline-list-h">
+
+                                        <div class="w-timeline-item active">
+                                            <span class="w-timeline-item-bullet"></span>
+                                            <span class="w-timeline-item-title">Bài đăng</span>
+                                        </div>
+
+                                        <div class="w-timeline-item">
+                                            <span class="w-timeline-item-bullet"></span>
+                                            <span class="w-timeline-item-title">Comment</span>
+                                        </div>
+
+                                        <div class="w-timeline-item">
+                                            <span class="w-timeline-item-bullet"></span>
+                                            <span class="w-timeline-item-title">Tài liệu</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="w-timeline-sections">
+                                    <div class="w-timeline-section active animate_afr">
+                                        <div class="w-timeline-section-h">
+
+                                            <div class="w-timeline-section-title">
+                                                <span class="w-timeline-section-title-bullet"></span>
+                                                <span class="w-timeline-section-title-text">Bài đăng</span>
+                                            </div>
+                                            <div class="w-timeline-section-content">
+                                                <div class="g-cols">
+                                                    <div class="one-third">
+                                                        <h4>Our Birth</h4>
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo.</p>
+                                                        <p>Suspendisse consectetur fringilla suctus. Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor. Morbi sagittis, sem quis lacinia faucibus orci. Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor.</p>
+                                                    </div>
+                                                    <div class="one-third">
+                                                        <h4>Primary Skills</h4>
+                                                        <p>Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo.</p>
+                                                        <ul>
+                                                            <li>Design</li>
+                                                            <li>HTML + CSS</li>
+                                                            <li>Coding</li>
+                                                            <li>Illustration</li>
+                                                            <li>Branding</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="one-third">
+                                                        <img src="img/demo/blog-3.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="w-timeline-section">
+                                        <div class="w-timeline-section-h">
+
+                                            <div class="w-timeline-section-title">
+                                                <span class="w-timeline-section-title-bullet"></span>
+                                                <span class="w-timeline-section-title-text">Comment</span>
+                                            </div>
+                                            <div class="w-timeline-section-content">
+                                                <div class="g-cols">
+                                                    <div class="one-third">
+                                                        <img src="img/demo/team-1.jpg" alt="" />
+                                                    </div>
+                                                    <div class="two-thirds">
+                                                        <h4>One Year Later</h4>
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo. Nulla varius consequat magna, id molestie ipsum volutpat quis. Suspendisse consectetur fringilla suctus. Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="w-timeline-section">
+                                        <div class="w-timeline-section-h">
+
+                                            <div class="w-timeline-section-title">
+                                                <span class="w-timeline-section-title-bullet"></span>
+                                                <span class="w-timeline-section-title-text">Tài liệu</span>
+                                            </div>
+                                            <div class="w-timeline-section-content">
+                                                <div class="g-cols">
+                                                    <div class="one-third">
+                                                        <h4>Two Years Later</h4>
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo.</p>
+                                                        <p>Suspendisse consectetur fringilla suctus. Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor. Morbi sagittis, sem quis lacinia faucibus orci.</p>
+                                                    </div>
+                                                    <div class="one-third">
+                                                        <img src="img/demo/member-1.jpg" alt="" />
+                                                    </div>
+                                                    <div class="one-third">
+                                                        <h4>Our Skills</h4>
+                                                        <p>Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo.</p>
+                                                        <ul>
+                                                            <li>Powerfull Design</li>
+                                                            <li>HTML + CSS</li>
+                                                            <li>Clean Coding</li>
+                                                            <li>Excellent Illustration</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
