@@ -30,7 +30,7 @@
                                                                                 </div>
                                                                                 <div class="w-nav-item level_3">
                                                                                         <div class="w-nav-item-h">
-                                                                                            <a href="<?php echo Yii::app()->createUrl('share/subject')?> class="w-nav-anchor level_3" style="color: black">Giải tích</a>
+                                                                                            <a href="<?php echo Yii::app()->createUrl('share/subject')?>" class="w-nav-anchor level_3" style="color: black">Giải tích</a>
                                                                                         </div>
                                                                                 </div>
                                                                         </div>
