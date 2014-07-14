@@ -2104,13 +2104,13 @@ button.g-btn.size_big {
 }
 .w-tabs.layout_accordion .w-tabs-section-title-text,
 .w-tabs-item-title {
-	font-size: 16px
+	font-size: 14px
 }
 .w-tabs-section-content-h {
 	padding: 25px 0 1px
 }
 .w-tabs-section-title {
-	padding: 12px 20px
+	padding: 1px 1px
 }
 .w-tabs-item-icon,
 .w-tabs-section-title-icon {
@@ -2131,13 +2131,13 @@ button.g-btn.size_big {
 }
 .w-tabs-item.with_icon .w-tabs-item-title,
 .w-tabs-section.with_icon .w-tabs-section-title-text {
-	margin-left: 32px
+	margin-left: 0px
 }
 .w-tabs.layout_accordion {
-	border-bottom: 1px solid #e8e8e8
+	border-bottom: 0px solid #e8e8e8
 }
 .w-tabs.layout_accordion .w-tabs-section {
-	border-top: 1px solid #e8e8e8
+	border-top: 0px solid #e8e8e8
 }
 .w-tabs.layout_accordion .w-tabs-section-title {
 	-webkit-transition: background-color 0.25s ease, color 0.25s ease;

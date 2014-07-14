@@ -13,6 +13,24 @@
 
 }
 
+.head{  
+  color: #262626;
+  font-size: 250%;
+  font-weight: normal;
+  margin-bottom: 38px;
+}
+
+.head1{  
+  color: #262626;
+  font-size: 150%;
+  font-weight: normal;
+  margin-top: 20px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 8px;
+  padding-left: 0px;
+}
+
 .circular img {
     opacity: 0;
     filter: alpha(opacity=0);

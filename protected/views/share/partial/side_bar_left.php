@@ -12,7 +12,7 @@
                                         <div class="w-nav-item level_1 active">
                                             <div class="w-nav-item-h">
                                                 <a href="#" class="w-nav-anchor level_1">
-                                                    <span class="w-nav-title">Năm nhất</span>
+                                                    <span class="w-nav-title">Công nghệ thông tin</span>
                                                 </a>
                                                 <div class="w-nav-list layout_ver place_inside level_2">
                                                     <div class="w-nav-list-h">
@@ -40,7 +40,7 @@
                                                         <div class="w-nav-item level_2 active">
                                                             <div class="w-nav-item-h">
                                                                 <a href="#" class="w-nav-anchor level_2">
-                                                                    <span class="w-nav-title">Vật lý kĩ thuật</span>
+                                                                    <span class="w-nav-title">Khoa học máy tính</span>
                                                                 </a>
                                                                 <div class="w-nav-list place_aside show_onhover level_3">
                                                                         <div class="w-nav-list-h">
@@ -61,7 +61,28 @@
                                                         <div class="w-nav-item level_2">
                                                             <div class="w-nav-item-h">
                                                                 <a href="#" class="w-nav-anchor level_2">
-                                                                    <span class="w-nav-title">Cơ điện tử</span>
+                                                                    <span class="w-nav-title">Điện tử viễn thông</span>
+                                                                </a>
+                                                                <div class="w-nav-list place_aside show_onhover level_3">
+                                                                        <div class="w-nav-list-h">
+                                                                                <div class="w-nav-item level_3">
+                                                                                        <div class="w-nav-item-h">
+                                                                                                <a href="home-landing.html" class="w-nav-anchor level_3" style="color: black">Đại số</a>
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="w-nav-item level_3">
+                                                                                        <div class="w-nav-item-h">
+                                                                                                <a href="home-parallax.html" class="w-nav-anchor level_3" style="color: black">Giải tích</a>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="w-nav-item level_2">
+                                                            <div class="w-nav-item-h">
+                                                                <a href="#" class="w-nav-anchor level_2">
+                                                                    <span class="w-nav-title">Hệ thống mạng</span>
                                                                 </a>
                                                                 <div class="w-nav-list place_aside show_onhover level_3">
                                                                         <div class="w-nav-list-h">
@@ -86,7 +107,7 @@
                                         <div class="w-nav-item level_1 active">
                                             <div class="w-nav-item-h">
                                                 <a href="#" class="w-nav-anchor level_1">
-                                                    <span class="w-nav-title">Năm Hai</span>
+                                                    <span class="w-nav-title">Vật lý kĩ thuật</span>
                                                 </a>
                                                 <div class="w-nav-list layout_ver place_inside level_2">
                                                     <div class="w-nav-list-h">
