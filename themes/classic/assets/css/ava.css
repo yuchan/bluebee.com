@@ -13,12 +13,77 @@
 
 }
 
+.white{
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding : 2px;
+}
+
+.box
+{
+  float: right;
+  clear: right;
+  width: 18.9em;
+  border-top-width: 4px;
+  border-right-width-value: 4px;
+  border-bottom-width: 4px;
+  border-left-width-value: 4px;
+  border-top-style: solid;
+  border-right-style-value: solid;
+  border-bottom-style: solid;
+  border-left-style-value: solid;
+  border-top-color: #bfbfbf;
+  border-right-color-value: #bfbfbf;
+  border-bottom-color: #bfbfbf;
+  border-left-color-value: #bfbfbf;
+  border-image-source: none;
+  border-image-slice: 100% 100% 100% 100%;
+  border-image-width: 1 1 1 1;
+  border-image-outset: 0 0 0 0;
+  border-image-repeat: stretch stretch;
+  margin-left: 20px;
+  margin-bottom: 15px;
+  padding-top: 1.2em;
+  padding-right: 1.3em;
+  padding-bottom: 1.2em;
+  padding-left: 1.3em;
+}
+
+.more-box
+{
+  border-top-width: medium;
+  border-right-width-value: medium;
+  border-bottom-width: medium;
+  border-left-width-value: medium;
+  border-top-style: none;
+  border-right-style-value: none;
+  border-bottom-style: none;
+  border-left-style-value: none;
+  border-image-source: none;
+  border-image-slice: 100% 100% 100% 100%;
+  border-image-width: 1 1 1 1;
+  border-image-outset: 0 0 0 0;
+  border-image-repeat: stretch stretch;
+  width: 19.7em;
+  margin-left: 1.6em;
+  background-color: #f2f2f2;
+  background-image: url("corner-download-color-3.png");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: 100% 0px;
+  background-clip: border-box;
+  background-origin: padding-box;
+  background-size: auto auto;
+}
+
 .head{  
   color: #262626;
   font-size: 250%;
   font-weight: normal;
   margin-bottom: 38px;
 }
+
+
 
 .head1{  
   color: #262626;
@@ -136,6 +201,10 @@ img.float_left{
     margin-right: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.underline1{
+    border-bottom: 2px solid #d0d6d9;
 }
 
 .box1{
