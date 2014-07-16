@@ -16,7 +16,7 @@
                     <a href=""><button class="g-btn type_outline size_small"><span>Thêm vào nhóm/lớp</span></button></a>
 
                     <div class="rounded1 color_alternate" style="margin-top: 50px">
-                        <h6>Lớp giáo viên đang dạy</h6>
+                        <h6>Môn học đang dạy</h6>
                     </div>
                 </div>
 
@@ -154,42 +154,6 @@
                                 <span class="g-hr-h">
                                     <i class="icon-star"></i>
                                 </span>
-                            </div>
-
-                            <div class="w-tabs layout_accordion with_icon">
-                                <div class="w-tabs-h">
-                                    <div class="w-tabs-section with_icon active">
-                                        <div class="w-tabs-section-title">
-                                            <span class="w-tabs-section-title-icon icon-desktop"></span>
-                                            <span class="w-tabs-section-title-text">Comments</span>
-                                            <span class="w-tabs-section-title-control"><i class="icon-angle-down"></i></span>
-                                        </div>
-                                        <div class="w-tabs-section-content">
-                                            <div class="w-tabs-section-content-h">
-                                                <p><strong>Đưa ra những điều bạn nghĩ</strong></p>
-                                                <form class="g-form" action="#" method="post" />
-                                                <div class="g-form-group">
-                                                    <div class="g-form-group-rows">
-
-                                                        <div class="g-form-row" style="margin-right: 5%; padding-bottom: 4%">
-
-                                                            <div class="g-form-row-field">
-                                                                <textarea name="#" id="input1x3" cols="30" rows="10"></textarea>
-                                                            </div>
-                                                        </div>
-                                                        <div class="g-form-row">
-                                                            <div class="g-form-row-label"></div>
-                                                            <div class="g-form-row-field">
-                                                                <button class="g-btn type_primary size_small">Send</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
