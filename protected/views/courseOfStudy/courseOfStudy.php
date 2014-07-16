@@ -1,5 +1,4 @@
 <div class="l-submain">
-
     <div class="l-submain-h i-cf">
         <div class="g-cols">
             <?php $this->renderPartial("partial/bar_left") ?>
@@ -9,7 +8,6 @@
                     <div class="two-thirds" >
                         <strong style="color: #262626">Mục tiêu đào tạo</strong>
                         <p style="margin-right: 20px">Chương trình đào tạo Khoa học máy tính của khoa Công nghệ thông tin, Trường Đại học Công nghệ, Đại học Quốc gia Hà Nội nhằm tạo ra nguồn nhân lực chất lượng cao trong lĩnh vực Khoa học máy tính, có khả năng nghiên cứu và làm việc trong các tập đoàn lớn về Công nghệ thông tin ở Việt Nam cũng như các nước trong khu vực.
-
                         </p>
 
                         <h3 style="color: #262626 ;margin-top: 25px">Mô tả khái quát</h3>
@@ -75,8 +73,7 @@
 
                             <h6> Thông tin cơ bản </h6>
                             <div class="white">
-                                <p>
-                                    Tên ngành đào tạo : Khoa học máy tính (Computer Science)
+                                Tên ngành đào tạo : Khoa học máy tính (Computer Science)
                                 <div class="underline1"></div>
                                 Mã số đào tạo : 52480101
                                 <div class="underline1"></div>
@@ -87,25 +84,20 @@
                                 Số tín chỉ : 140 tín chỉ
                                 <div class="underline1"></div>
                                 Ngôn ngữ : Tiếng Anh
-                                </p>
                             </div>
 
                             <h6> Thông tin tuyển sinh </h6>
                             <div class="white">
-                                <p>
-                                    Hình thức tuyển sinh : Thi tuyển sinh đại học hàng năm
+                                Hình thức tuyển sinh : Thi tuyển sinh đại học hàng năm
                                 <div class="underline1"></div>
                                 Chỉ tiêu : Theo quy định của Bộ Giáo dục & Đào tạo
-                                </p>
                             </div>
 
                             <h6> Yêu cầu đầu vào </h6>
                             <div class="white">
-                                <p>
-                                    Đạt điểm đại học lớn hơn hoặc bằng điểm chuẩn của ngành
+                                Đạt điểm đại học lớn hơn hoặc bằng điểm chuẩn của ngành
                                 <div class="underline1"></div>
                                 Làm bài kiểm tra đầu vào bằng tiếng anh
-                                </p>
                             </div>
                         </div>
                     </div>
@@ -137,7 +129,6 @@
                             Email : <a>kienduynguyen94@gmail.com</a><br/>
                             Web : <a>uet.vnu.edu.vn</a><br/>
                         </p>
-
                     </div>
                 </div>
             </div>

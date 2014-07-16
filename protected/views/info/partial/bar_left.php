@@ -26,7 +26,7 @@
                                                         <div class="w-nav-item-h">
                                                             <a href="#" class="w-nav-anchor level_2">
                                                                 <span class="w-nav-title">
-                                                                    Đại cương
+                                                                    Kiến thức chung
                                                                 </span>
                                                             </a>
                                                         </div>
@@ -35,7 +35,7 @@
                                                         <div class="w-nav-item-h">
                                                             <a href="#" class="w-nav-anchor level_2">
                                                                 <span class="w-nav-title">
-                                                                    Chuyên ngành
+                                                                    Kiến thức chung theo lĩnh vực
                                                                 </span>
                                                             </a>
                                                         </div>
@@ -44,7 +44,25 @@
                                                         <div class="w-nav-item-h">
                                                             <a href="#" class="w-nav-anchor level_2">
                                                                 <span class="w-nav-title">
-                                                                    Tùy chọn
+                                                                    Kiến thức chung cho khối ngành
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="w-nav-item level_2 active">
+                                                        <div class="w-nav-item-h">
+                                                            <a href="#" class="w-nav-anchor level_2">
+                                                                <span class="w-nav-title">
+                                                                    Kiến thức chung cho nhóm ngành
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="w-nav-item level_2 active">
+                                                        <div class="w-nav-item-h">
+                                                            <a href="#" class="w-nav-anchor level_2">
+                                                                <span class="w-nav-title">
+                                                                    Kiến thức ngành và bổ trợ
                                                                 </span>
                                                             </a>
                                                         </div>
@@ -68,7 +86,7 @@
                                                     <div class="w-nav-item-h">
                                                         <a href="#" class="w-nav-anchor level_2">
                                                             <span class="w-nav-title">
-                                                                Đại cương
+                                                                Kiến thức chung
                                                             </span>
                                                         </a>
                                                     </div>
@@ -77,7 +95,7 @@
                                                     <div class="w-nav-item-h">
                                                         <a href="#" class="w-nav-anchor level_2">
                                                             <span class="w-nav-title">
-                                                                Chuyên ngành
+                                                                Kiến thức chung theo lĩnh vực
                                                             </span>
                                                         </a>
                                                     </div>
@@ -86,7 +104,25 @@
                                                     <div class="w-nav-item-h">
                                                         <a href="#" class="w-nav-anchor level_2">
                                                             <span class="w-nav-title">
-                                                                Tùy chọn
+                                                                Kiến thức chung cho khối ngành
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="w-nav-item level_2 active">
+                                                    <div class="w-nav-item-h">
+                                                        <a href="#" class="w-nav-anchor level_2">
+                                                            <span class="w-nav-title">
+                                                                Kiến thức chung cho nhóm ngành
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="w-nav-item level_2 active">
+                                                    <div class="w-nav-item-h">
+                                                        <a href="#" class="w-nav-anchor level_2">
+                                                            <span class="w-nav-title">
+                                                                Kiến thức ngành và bổ trợ
                                                             </span>
                                                         </a>
                                                     </div>
@@ -109,7 +145,7 @@
                                                     <div class="w-nav-item-h">
                                                         <a href="#" class="w-nav-anchor level_2">
                                                             <span class="w-nav-title">
-                                                                Đại cương
+                                                                Kiến thức chung
                                                             </span>
                                                         </a>
                                                     </div>
@@ -118,7 +154,7 @@
                                                     <div class="w-nav-item-h">
                                                         <a href="#" class="w-nav-anchor level_2">
                                                             <span class="w-nav-title">
-                                                                Chuyên ngành
+                                                                Kiến thức chung theo lĩnh vực
                                                             </span>
                                                         </a>
                                                     </div>
@@ -127,7 +163,25 @@
                                                     <div class="w-nav-item-h">
                                                         <a href="#" class="w-nav-anchor level_2">
                                                             <span class="w-nav-title">
-                                                                Tùy chọn
+                                                                Kiến thức chung cho khối ngành
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="w-nav-item level_2 active">
+                                                    <div class="w-nav-item-h">
+                                                        <a href="#" class="w-nav-anchor level_2">
+                                                            <span class="w-nav-title">
+                                                                Kiến thức chung cho nhóm ngành
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="w-nav-item level_2 active">
+                                                    <div class="w-nav-item-h">
+                                                        <a href="#" class="w-nav-anchor level_2">
+                                                            <span class="w-nav-title">
+                                                                Kiến thức ngành và bổ trợ
                                                             </span>
                                                         </a>
                                                     </div>
@@ -155,7 +209,7 @@
                                                         <div class="w-nav-item-h">
                                                             <a href="#" class="w-nav-anchor level_2">
                                                                 <span class="w-nav-title">
-                                                                    Đại cương
+                                                                    Kiến thức chung
                                                                 </span>
                                                             </a>
                                                         </div>
@@ -164,7 +218,7 @@
                                                         <div class="w-nav-item-h">
                                                             <a href="#" class="w-nav-anchor level_2">
                                                                 <span class="w-nav-title">
-                                                                    Chuyên ngành
+                                                                    Kiến thức chung theo lĩnh vực
                                                                 </span>
                                                             </a>
                                                         </div>
@@ -173,7 +227,25 @@
                                                         <div class="w-nav-item-h">
                                                             <a href="#" class="w-nav-anchor level_2">
                                                                 <span class="w-nav-title">
-                                                                    Tùy chọn
+                                                                    Kiến thức chung cho khối ngành
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="w-nav-item level_2 active">
+                                                        <div class="w-nav-item-h">
+                                                            <a href="#" class="w-nav-anchor level_2">
+                                                                <span class="w-nav-title">
+                                                                    Kiến thức chung cho nhóm ngành
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="w-nav-item level_2 active">
+                                                        <div class="w-nav-item-h">
+                                                            <a href="#" class="w-nav-anchor level_2">
+                                                                <span class="w-nav-title">
+                                                                    Kiến thức ngành và bổ trợ
                                                                 </span>
                                                             </a>
                                                         </div>
@@ -202,7 +274,7 @@
                                                         <div class="w-nav-item-h">
                                                             <a href="#" class="w-nav-anchor level_2">
                                                                 <span class="w-nav-title">
-                                                                    Đại cương
+                                                                    Kiến thức chung
                                                                 </span>
                                                             </a>
                                                         </div>
@@ -211,7 +283,7 @@
                                                         <div class="w-nav-item-h">
                                                             <a href="#" class="w-nav-anchor level_2">
                                                                 <span class="w-nav-title">
-                                                                    Chuyên ngành
+                                                                    Kiến thức chung theo lĩnh vực
                                                                 </span>
                                                             </a>
                                                         </div>
@@ -220,7 +292,25 @@
                                                         <div class="w-nav-item-h">
                                                             <a href="#" class="w-nav-anchor level_2">
                                                                 <span class="w-nav-title">
-                                                                    Tùy chọn
+                                                                    Kiến thức chung cho khối ngành
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="w-nav-item level_2 active">
+                                                        <div class="w-nav-item-h">
+                                                            <a href="#" class="w-nav-anchor level_2">
+                                                                <span class="w-nav-title">
+                                                                    Kiến thức chung cho nhóm ngành
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="w-nav-item level_2 active">
+                                                        <div class="w-nav-item-h">
+                                                            <a href="#" class="w-nav-anchor level_2">
+                                                                <span class="w-nav-title">
+                                                                    Kiến thức ngành và bổ trợ
                                                                 </span>
                                                             </a>
                                                         </div>
@@ -249,7 +339,7 @@
                                                         <div class="w-nav-item-h">
                                                             <a href="#" class="w-nav-anchor level_2">
                                                                 <span class="w-nav-title">
-                                                                    Đại cương
+                                                                    Kiến thức chung
                                                                 </span>
                                                             </a>
                                                         </div>
@@ -258,7 +348,7 @@
                                                         <div class="w-nav-item-h">
                                                             <a href="#" class="w-nav-anchor level_2">
                                                                 <span class="w-nav-title">
-                                                                    Chuyên ngành
+                                                                    Kiến thức chung theo lĩnh vực
                                                                 </span>
                                                             </a>
                                                         </div>
@@ -267,7 +357,25 @@
                                                         <div class="w-nav-item-h">
                                                             <a href="#" class="w-nav-anchor level_2">
                                                                 <span class="w-nav-title">
-                                                                    Tùy chọn
+                                                                    Kiến thức chung cho khối ngành
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="w-nav-item level_2 active">
+                                                        <div class="w-nav-item-h">
+                                                            <a href="#" class="w-nav-anchor level_2">
+                                                                <span class="w-nav-title">
+                                                                    Kiến thức chung cho nhóm ngành
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="w-nav-item level_2 active">
+                                                        <div class="w-nav-item-h">
+                                                            <a href="#" class="w-nav-anchor level_2">
+                                                                <span class="w-nav-title">
+                                                                    Kiến thức ngành và bổ trợ
                                                                 </span>
                                                             </a>
                                                         </div>
