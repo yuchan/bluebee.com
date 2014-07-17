@@ -13,10 +13,22 @@
                             <option value="5">5</option>
                         </select>
                     </div>
-                    <a href=""><button class="g-btn type_outline size_small"><span>Thêm vào nhóm/lớp</span></button></a>
+                    <a href=""><button class="g-btn type_outline size_small"><span>Danh sách giáo viên</span></button></a>
 
                     <div class="rounded1 color_alternate" style="margin-top: 50px">
                         <h6>Môn học đang dạy</h6>
+                        <div style="margin-top:10px">
+                            <span class="dataItem1"><a>Đại số</a></span>
+                            <span class="dataTitle1">MAT1005</span>
+                        </div>
+                        <div style="margin-top:10px">
+                            <span class="dataItem1"><a>Giải tích</a></span>
+                            <span class="dataTitle1">MAT1012</span>
+                        </div>
+                        <div style="margin-top:10px">
+                            <span class="dataItem1"><a>Công nghệ phần mềm</a></span>
+                            <span class="dataTitle1">INT1005</span>
+                        </div>
                     </div>
                 </div>
 

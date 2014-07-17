@@ -25,6 +25,75 @@
                         </p>
                         <strong style="color: #262626">Giáo viên giảng dạy</strong>
 
+                        <div class="g-cols" style="margin-right: 30px;margin-top: 20px">
+                            <div class="one-third">
+
+                                <div class="w-team-member">
+                                    <div class="w-team-member-h">
+                                        <div class="w-team-member-image">
+                                            <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/member-3.jpg" alt="Item picture" />
+                                            <div class="w-team-member-links">
+                                                <div class="w-team-member-links-list">
+                                                    <a class="w-team-member-links-item" href="http://www.fb.com/" target="_blank">
+                                                        <i class="icon-facebook"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-team-member-meta">
+                                            <h4 class="w-team-member-name">Huy Nguyễn</h4>
+                                            <div class="w-team-member-role">Trưởng nhóm</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="one-third">
+
+                                <div class="w-team-member">
+                                    <div class="w-team-member-h">
+                                        <div class="w-team-member-image">
+                                            <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/member-2.jpg" alt="Item picture" />
+                                            <div class="w-team-member-links">
+                                                <div class="w-team-member-links-list">
+                                                    <a class="w-team-member-links-item" href="http://www.fb.com/" target="_blank">
+                                                        <i class="icon-twitter"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-team-member-meta">
+                                            <h4 class="w-team-member-name">Sơn Nguyễn</h4>
+                                            <div class="w-team-member-role">Nhóm thiết kế</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="one-third">
+
+                                <div class="w-team-member">
+                                    <div class="w-team-member-h">
+                                        <div class="w-team-member-image">
+                                            <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/member-2.jpg" alt="Item picture" />
+                                            <div class="w-team-member-links">
+                                                <div class="w-team-member-links-list">
+                                                    <a class="w-team-member-links-item" href="http://www.fb.com/" target="_blank">
+                                                        <i class="icon-twitter"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-team-member-meta">
+                                            <h4 class="w-team-member-name">Kiên Nguyễn</h4>
+                                            <div class="w-team-member-role">Nhóm thiết kế</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                     <div class="one-third">
                         <div class="box more-box">
@@ -43,20 +112,20 @@
 
                             <h6> Tài liệu bắt buộc </h6>
                             <div class="white">
-                                - Trần Trọng Huệ, Đại số tuyến tính và hình học giải tích,  NXB GD  2007.
+                                - <a href="#">Trần Trọng Huệ, Đại số tuyến tính và hình học giải tích,  NXB GD  2007.</a>
                                 <div class="underline1"></div>
-                                - Nguyễn Đình Trí và Tạ Văn Đĩnh, Toán cao cấp, Tập I, NXB GD  2007.
+                                - <a href="#">Nguyễn Đình Trí và Tạ Văn Đĩnh, Toán cao cấp, Tập I, NXB GD  2007.</a>
                                 <div class="underline1"></div>
-                                - Nguyễn Đức Đạt, Bài tập đại số và hình học giải tích,  NXB ĐHQGHN  2005.
+                                - <a href="#">Nguyễn Đức Đạt, Bài tập đại số và hình học giải tích,  NXB ĐHQGHN  2005.</a>
                             </div>
 
                             <h6> Tài liệu tham khảo </h6>
                             <div class="white">
-                                - Nguyễn Hữu Việt Hưng, Đại số tuyến tính,  NXB ĐHQGHN (tái bản)  2004.                                  
+                                - <a href="#"> Nguyễn Hữu Việt Hưng, Đại số tuyến tính,  NXB ĐHQGHN (tái bản)  2004.</a>                                  
                                 <div class="underline1"></div>
-                                - Lê Tuấn Hoa, Đại số tuyến tính qua các ví dụ và bài tập, NXB ĐHQGHN 2006.
+                                - <a href="#">Lê Tuấn Hoa, Đại số tuyến tính qua các ví dụ và bài tập, NXB ĐHQGHN 2006.</a>
                                 <div class="underline1"></div>
-                                - Nguyễn Thủy Thanh, Bài tập toán cao cấp, Tập I, NXB ĐHQGHN 2002.
+                                - <a href="#">Nguyễn Thủy Thanh, Bài tập toán cao cấp, Tập I, NXB ĐHQGHN 2002.</a>
                             </div>
                         </div>
                     </div>

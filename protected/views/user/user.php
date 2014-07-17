@@ -18,13 +18,13 @@
                             <span style="text-align: right; color:#aaa">
                                 Công việc
                             </span>
-                            </br>
+                            <br/>
                             - Sinh viên
-                            </br>
+                            <br/>
                             <span style="text-align: right; color:#aaa">
                                 Tính cách
                             </span>
-                            </br>
+                            <br/>
                             - Đẹp trai, nhiều ban thích
                         </p>
                     </div>
