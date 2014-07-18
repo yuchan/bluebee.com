@@ -10,7 +10,7 @@ class DocumentController extends BaseController {
 //    }
 
     public function actionIndex() {
-        if (Yii::app()->session['token'] == "")
+       
         //    $this->redirect('welcomePage');
 
         $this->actionDocument();
