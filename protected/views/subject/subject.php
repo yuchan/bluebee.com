@@ -93,6 +93,7 @@
                                 </div>
 
                             </div>
+                             
                         </div>
                     </div>
                     <div class="one-third">
@@ -128,6 +129,30 @@
                                 - <a href="#">Nguyễn Thủy Thanh, Bài tập toán cao cấp, Tập I, NXB ĐHQGHN 2002.</a>
                             </div>
                         </div>
+                    </div>
+                    <div class="full-width">
+                     <table class="g-table">
+                    <thead>
+                        <tr>
+                            <th>Bài học</th>
+                            <th>Tuần</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #d0d6d9">
+                            <td><a>Những nguyên lý cơ bản của chủ nghĩa Mác - Lênin 1</a></td>
+                            <td>2</td>
+                            
+                        </tr>
+                        <tr style="border-bottom: 1px solid #d0d6d9">
+                            <td><a>Những nguyên lý cơ bản của chủ nghĩa Mác – Lênin 2</a></td>
+                            <td>3</td>
+                            
+                        </tr>
+                        
+                    </tbody>
+                </table>
                     </div>
                 </div>
 
