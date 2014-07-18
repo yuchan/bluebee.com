@@ -9,387 +9,85 @@
             <div class="w-nav-h">
                 <div class="w-nav-list layout_ver level_1">
                     <div class="w-nav-list-h">
-                        <div class="w-nav-item level_1 active">
-                            <div class="w-nav-item-h">
-                                <a href="#" class="w-nav-anchor level_1">
-                                    <span class="w-nav-title">Công nghệ thông tin</span>
-                                </a>
-                                <div class="w-tabs layout_accordion type_toggle">
-                                    <div class="w-tabs-h">
-                                        <div class="w-tabs-section with_icon">
-                                            <div class="w-tabs-section-title">
-                                                <span class="w-tabs-section-title-text" style="margin-left: 32px">- Khoa học máy tính</span>
-                                            </div>
-                                            <div class="w-tabs-section-content">
-                                                <div class="w-tabs-section-content-h">
-                                                    <div class="w-nav-item level_2 active">
-                                                        <div class="w-nav-item-h">
-                                                            <a href="#" class="w-nav-anchor level_2">
-                                                                <span class="w-nav-title">
-                                                                    Kiến thức chung
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="w-nav-item level_2 active">
-                                                        <div class="w-nav-item-h">
-                                                            <a href="#" class="w-nav-anchor level_2">
-                                                                <span class="w-nav-title">
-                                                                    Kiến thức chung theo lĩnh vực
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="w-nav-item level_2 active">
-                                                        <div class="w-nav-item-h">
-                                                            <a href="#" class="w-nav-anchor level_2">
-                                                                <span class="w-nav-title">
-                                                                    Kiến thức chung cho khối ngành
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="w-nav-item level_2 active">
-                                                        <div class="w-nav-item-h">
-                                                            <a href="#" class="w-nav-anchor level_2">
-                                                                <span class="w-nav-title">
-                                                                    Kiến thức chung cho nhóm ngành
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="w-nav-item level_2 active">
-                                                        <div class="w-nav-item-h">
-                                                            <a href="#" class="w-nav-anchor level_2">
-                                                                <span class="w-nav-title">
-                                                                    Kiến thức ngành và bổ trợ
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <?php foreach ($category_father as $category): ?>
+                            <div class="w-nav-item level_1 active">
 
-                            <div class="w-tabs layout_accordion type_toggle">
-                                <div class="w-tabs-h">
-                                    <div class="w-tabs-section with_icon">
-                                        <div class="w-tabs-section-title">
-                                            <span class="w-tabs-section-title-text" style="margin-left: 32px">- Công nghệ thông tin</span>
-                                        </div>
-                                        <div class="w-tabs-section-content">
-                                            <div class="w-tabs-section-content-h">
-                                                <div class="w-nav-item level_2 active">
-                                                    <div class="w-nav-item-h">
-                                                        <a href="#" class="w-nav-anchor level_2">
-                                                            <span class="w-nav-title">
-                                                                Kiến thức chung
-                                                            </span>
-                                                        </a>
-                                                    </div>
+                                <?php $dept = Dept::model()->findAllByAttributes(array('dept_faculty' => $category->faculty_id)); ?>
+                                <div class="w-nav-item-h">
+                                    <div class="w-tabs layout_accordion type_toggle">
+                                        <div class="w-tabs-h">
+                                            <div class="w-tabs-section with_icon">
+                                                <div class="w-tabs-section-title">
+                                                    <a href="#" class="w-nav-anchor level_1">
+                                                        <span class="w-nav-title" faculty-id="<?php echo $category->faculty_id ?>"><?php echo $category->faculty_name ?></span>
+                                                    </a>
+                                                    </span>
                                                 </div>
-                                                <div class="w-nav-item level_2 active">
-                                                    <div class="w-nav-item-h">
-                                                        <a href="#" class="w-nav-anchor level_2">
-                                                            <span class="w-nav-title">
-                                                                Kiến thức chung theo lĩnh vực
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="w-nav-item level_2 active">
-                                                    <div class="w-nav-item-h">
-                                                        <a href="#" class="w-nav-anchor level_2">
-                                                            <span class="w-nav-title">
-                                                                Kiến thức chung cho khối ngành
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="w-nav-item level_2 active">
-                                                    <div class="w-nav-item-h">
-                                                        <a href="#" class="w-nav-anchor level_2">
-                                                            <span class="w-nav-title">
-                                                                Kiến thức chung cho nhóm ngành
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="w-nav-item level_2 active">
-                                                    <div class="w-nav-item-h">
-                                                        <a href="#" class="w-nav-anchor level_2">
-                                                            <span class="w-nav-title">
-                                                                Kiến thức ngành và bổ trợ
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="w-tabs layout_accordion type_toggle">
-                                <div class="w-tabs-h">
-                                    <div class="w-tabs-section with_icon">
-                                        <div class="w-tabs-section-title">
-                                            <span class="w-tabs-section-title-text" style="margin-left: 32px">- Điện tử viễn thông</span>
-                                        </div>
-                                        <div class="w-tabs-section-content">
-                                            <div class="w-tabs-section-content-h">
-                                                <div class="w-nav-item level_2 active">
-                                                    <div class="w-nav-item-h">
-                                                        <a href="#" class="w-nav-anchor level_2">
-                                                            <span class="w-nav-title">
-                                                                Kiến thức chung
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="w-nav-item level_2 active">
-                                                    <div class="w-nav-item-h">
-                                                        <a href="#" class="w-nav-anchor level_2">
-                                                            <span class="w-nav-title">
-                                                                Kiến thức chung theo lĩnh vực
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="w-nav-item level_2 active">
-                                                    <div class="w-nav-item-h">
-                                                        <a href="#" class="w-nav-anchor level_2">
-                                                            <span class="w-nav-title">
-                                                                Kiến thức chung cho khối ngành
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="w-nav-item level_2 active">
-                                                    <div class="w-nav-item-h">
-                                                        <a href="#" class="w-nav-anchor level_2">
-                                                            <span class="w-nav-title">
-                                                                Kiến thức chung cho nhóm ngành
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="w-nav-item level_2 active">
-                                                    <div class="w-nav-item-h">
-                                                        <a href="#" class="w-nav-anchor level_2">
-                                                            <span class="w-nav-title">
-                                                                Kiến thức ngành và bổ trợ
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w-nav-item level_1 active">
-                            <div class="w-nav-item-h">
+                                                <?php
+                                                if ($dept) {
+                                                    foreach ($dept as $dept_detail):
+                                                        ?>
+                                                        <div class="w-tabs layout_accordion type_toggle">
+                                                            <div class="w-tabs-h">
+                                                                <div class="w-tabs-section with_icon">
 
-                                <div class="w-tabs layout_accordion type_toggle">
-                                    <div class="w-tabs-h">
-                                        <div class="w-tabs-section with_icon">
-                                            <div class="w-tabs-section-title">
-                                                <span class="w-tabs-section-title-text"> <a href="#" class="w-nav-anchor level_1">
-                                                        <span class="w-nav-title">Vật lý kĩ thuật</span>
-                                                    </a></span>
-                                            </div>
-                                            <div class="w-tabs-section-content">
-                                                <div class="w-tabs-section-content-h">
-                                                    <div class="w-nav-item level_2 active">
-                                                        <div class="w-nav-item-h">
-                                                            <a href="#" class="w-nav-anchor level_2">
-                                                                <span class="w-nav-title">
-                                                                    Kiến thức chung
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="w-nav-item level_2 active">
-                                                        <div class="w-nav-item-h">
-                                                            <a href="#" class="w-nav-anchor level_2">
-                                                                <span class="w-nav-title">
-                                                                    Kiến thức chung theo lĩnh vực
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="w-nav-item level_2 active">
-                                                        <div class="w-nav-item-h">
-                                                            <a href="#" class="w-nav-anchor level_2">
-                                                                <span class="w-nav-title">
-                                                                    Kiến thức chung cho khối ngành
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="w-nav-item level_2 active">
-                                                        <div class="w-nav-item-h">
-                                                            <a href="#" class="w-nav-anchor level_2">
-                                                                <span class="w-nav-title">
-                                                                    Kiến thức chung cho nhóm ngành
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="w-nav-item level_2 active">
-                                                        <div class="w-nav-item-h">
-                                                            <a href="#" class="w-nav-anchor level_2">
-                                                                <span class="w-nav-title">
-                                                                    Kiến thức ngành và bổ trợ
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w-nav-item level_1 active">
-                            <div class="w-nav-item-h">
+                                                                    <div class="w-tabs-section-title">
+                                                                        <span class="w-tabs-section-title-text" style="margin-left: 32px" faculty-id="<?php echo $category->faculty_id ?>" dept-id="<?php echo $dept_detail->dept_id ?>">- <?php echo $dept_detail->dept_name ?></span>
+                                                                    </div>
+                                                                    <div class="w-tabs-section-content">
+                                                                        <div class="w-tabs-section-content-h">
+                                                                            <?php foreach ($subject_type as $subject_detail): ?>
+                                                                                <div class="w-nav-item level_2 active">
+                                                                                    <div class="w-nav-item-h">
 
-                                <div class="w-tabs layout_accordion type_toggle">
-                                    <div class="w-tabs-h">
-                                        <div class="w-tabs-section with_icon">
-                                            <div class="w-tabs-section-title">
-                                                <span class="w-tabs-section-title-text"> <a href="#" class="w-nav-anchor level_1">
-                                                        <span class="w-nav-title">Cơ điện tử</span>
-                                                    </a></span>
-                                            </div>
-                                            <div class="w-tabs-section-content">
-                                                <div class="w-tabs-section-content-h">
-                                                    <div class="w-nav-item level_2 active">
-                                                        <div class="w-nav-item-h">
-                                                            <a href="#" class="w-nav-anchor level_2">
-                                                                <span class="w-nav-title">
-                                                                    Kiến thức chung
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="w-nav-item level_2 active">
-                                                        <div class="w-nav-item-h">
-                                                            <a href="#" class="w-nav-anchor level_2">
-                                                                <span class="w-nav-title">
-                                                                    Kiến thức chung theo lĩnh vực
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="w-nav-item level_2 active">
-                                                        <div class="w-nav-item-h">
-                                                            <a href="#" class="w-nav-anchor level_2">
-                                                                <span class="w-nav-title">
-                                                                    Kiến thức chung cho khối ngành
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="w-nav-item level_2 active">
-                                                        <div class="w-nav-item-h">
-                                                            <a href="#" class="w-nav-anchor level_2">
-                                                                <span class="w-nav-title">
-                                                                    Kiến thức chung cho nhóm ngành
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="w-nav-item level_2 active">
-                                                        <div class="w-nav-item-h">
-                                                            <a href="#" class="w-nav-anchor level_2">
-                                                                <span class="w-nav-title">
-                                                                    Kiến thức ngành và bổ trợ
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w-nav-item level_1 active">
-                            <div class="w-nav-item-h">
+                                                                                        <a href="#" class="w-nav-anchor level_2">
+                                                                                            <span class="w-nav-title" faculty-id="<?php echo $category->faculty_id; ?>" dept-id="<?php echo $dept_detail->dept_id ?>" subject-type="<?php echo $subject_detail->id ?>">
+                                                                                                <?php echo $subject_detail->subject_type_name ?>
+                                                                                            </span>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            <?php endforeach; ?>
 
-                                <div class="w-tabs layout_accordion type_toggle">
-                                    <div class="w-tabs-h">
-                                        <div class="w-tabs-section with_icon">
-                                            <div class="w-tabs-section-title">
-                                                <span class="w-tabs-section-title-text"> <a href="#" class="w-nav-anchor level_1">
-                                                        <span class="w-nav-title">Cơ học kĩ thuật</span>
-                                                    </a></span>
-                                            </div>
-                                            <div class="w-tabs-section-content">
-                                                <div class="w-tabs-section-content-h">
-                                                    <div class="w-nav-item level_2 active">
-                                                        <div class="w-nav-item-h">
-                                                            <a href="#" class="w-nav-anchor level_2">
-                                                                <span class="w-nav-title">
-                                                                    Kiến thức chung
-                                                                </span>
-                                                            </a>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    <?php endforeach; ?>
+                                                <?php } else { ?>
+                                                    <div class="w-tabs-section-content">
+                                                        <div class="w-tabs-section-content-h">
+                                                            <?php foreach ($subject_type as $subject_detail): ?>
+                                                                <div class="w-nav-item level_2 active">
+                                                                    <div class="w-nav-item-h">
+
+                                                                        <a href="#" class="w-nav-anchor level_2">
+                                                                            <span class="w-nav-title" faculty-id="<?php echo $category->faculty_id; ?>" dept-id="<?php echo $dept_detail->dept_id ?>" subject-type="<?php echo $subject_detail->id ?>">
+                                                                                <?php echo $subject_detail->subject_type_name ?>
+                                                                            </span>
+                                                                        </a>
+
+                                                                    </div>
+                                                                </div>
+                                                            <?php endforeach; ?>
+
                                                         </div>
                                                     </div>
-                                                    <div class="w-nav-item level_2 active">
-                                                        <div class="w-nav-item-h">
-                                                            <a href="#" class="w-nav-anchor level_2">
-                                                                <span class="w-nav-title">
-                                                                    Kiến thức chung theo lĩnh vực
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="w-nav-item level_2 active">
-                                                        <div class="w-nav-item-h">
-                                                            <a href="#" class="w-nav-anchor level_2">
-                                                                <span class="w-nav-title">
-                                                                    Kiến thức chung cho khối ngành
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="w-nav-item level_2 active">
-                                                        <div class="w-nav-item-h">
-                                                            <a href="#" class="w-nav-anchor level_2">
-                                                                <span class="w-nav-title">
-                                                                    Kiến thức chung cho nhóm ngành
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="w-nav-item level_2 active">
-                                                        <div class="w-nav-item-h">
-                                                            <a href="#" class="w-nav-anchor level_2">
-                                                                <span class="w-nav-title">
-                                                                    Kiến thức ngành và bổ trợ
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <?php } ?>
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                                </div>
+                            <?php endforeach; ?>  
+                        
                     </div>
                 </div>
+
             </div>
-        </nav>
     </div>
 </div>

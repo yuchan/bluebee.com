@@ -1,7 +1,7 @@
 <div class="l-submain">
     <div class="l-submain-h i-cf">
         <div class="g-cols">
-            <?php $this->renderPartial("partial/bar_left") ?>
+            <?php $this->renderPartial("partial/bar_left",  array('category_father'=>$category_father, 'subject_type' => $subject_type)); ?>
             <div class="three-fourths">
                 <div class="head">Khối kiến thức chung</div>
                 <div class="w-tabs">

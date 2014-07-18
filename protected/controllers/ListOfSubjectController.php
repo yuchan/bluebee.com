@@ -3,20 +3,21 @@ Yii::import('application.controllers.BaseController');
 class ListOfSubjectController extends BaseController {
 
     public function actionIndex() {
-        $this->render('listOfSubject');
+        $this->actionListOfSubject();
     }
     
-    public function actionListSubject() {
-       $subject_data_first = Subject::model()->findAllByAttributes(array('subject_dept' => 1,
-                    1,
-                    'subject_type' => 1)) ;
-        
-       $this->render('listOfSubject');  
-    }
+//    public function actionListSubject() {
+////       $subject_data_first = Subject::model()->findAllByAttributes(array('subject_dept' => 1,
+////                    1,
+////                    'subject_type' => 1)) ;
+////        
+////       $this->render('listOfSubject');  
+//    }
     
-    public function actionDynamicMenu() {
+    public function actionListOfSubject() {
         $category_father = Faculty::model()->findAll();
-        $this->render('partial/bar_left');
+        $subject_type = SubjectType::model()->findAll();
+        $this->render('listOfSubject', array('category_father' => $category_father, 'subject_type' => $subject_type));
     }
 
     public function actionListOfSubject1() {

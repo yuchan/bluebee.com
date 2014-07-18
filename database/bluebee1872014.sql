@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2014 at 06:15 PM
+-- Generation Time: Jul 18, 2014 at 06:19 PM
 -- Server version: 5.5.34
 -- PHP Version: 5.4.22
 
@@ -489,10 +489,17 @@ CREATE TABLE IF NOT EXISTS `tbl_subject_teacher` (
 
 CREATE TABLE IF NOT EXISTS `tbl_subject_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `subject_type_name` varchar(255) DEFAULT NULL,
+  `subject_type_name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `is_active` int(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `tbl_subject_type`
+--
+
+INSERT INTO `tbl_subject_type` (`id`, `subject_type_name`, `is_active`) VALUES
+(1, 'Ki?n th?c chung', 1);
 
 -- --------------------------------------------------------
 
