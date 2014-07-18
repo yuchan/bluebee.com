@@ -11,7 +11,7 @@ return array(
 
 	// preloading 'log' component
 	'preload'=>array('log'),
-       // 'defaultController' => 'welcomePage',   
+        //'defaultController' => 'welcomePage',   
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
@@ -31,17 +31,14 @@ return array(
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		
+
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'1',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1'),
+			//'ipFilters'=>array('127.0.0.1','::1'),
 		),
-            'generatorPaths' => array(
-				'ext.giix-core', // giix generators
-			),
-		
+
 	),
 
 	// application components
@@ -52,24 +49,24 @@ return array(
 		),
             
 		// uncomment the following to enable URLs in path-format
-		
-		'urlManager'=>array(
-                    'urlFormat'=>'path',
-                    'showScriptName'=>false,
-                    'rules'=>array(
-                      '<controller:\w+>/<id:\d+>'=>'<controller>/view',
-                      '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-                      #'<controller:\w+>/<action:\w+>/<id:\d+>/<sex:\d+>'=>'<controller>/<action>',
-                      #'<controller:\w+>/<action:\w+>/<id:\d+>/<sex:\d+>/<userid:\d+>'=>'<controller>/<action>',
-                      '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
-                    ),
-                ),
-		
+
+//		'urlManager'=>array(
+//                    'urlFormat'=>'path',
+//                    'showScriptName'=>false,
+//                    'rules'=>array(
+//                      '<controller:\w+>/<id:\d+>'=>'<controller>/view',
+//                      '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+//                      #'<controller:\w+>/<action:\w+>/<id:\d+>/<sex:\d+>'=>'<controller>/<action>',
+//                      #'<controller:\w+>/<action:\w+>/<id:\d+>/<sex:\d+>/<userid:\d+>'=>'<controller>/<action>',
+//                      '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+//                    ),
+//                ),
+
 		'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),
 		// uncomment the following to use a MySQL database
-		
+
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=bluebee',
 			'emulatePrepare' => true,
@@ -85,7 +82,7 @@ return array(
 //			'password' => 'minhhieu',
 //			'charset' => 'utf8',
 //		),
-		
+
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
