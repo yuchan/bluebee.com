@@ -13,6 +13,11 @@ class ListOfSubjectController extends BaseController {
         
        $this->render('listOfSubject');  
     }
+    
+    public function actionDynamicMenu() {
+        $category_father = Faculty::model()->findAll();
+        $this->render('partial/bar_left');
+    }
 
     public function actionListOfSubject1() {
         $this->retVal = new stdClass();

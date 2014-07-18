@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2014 at 06:06 PM
+-- Generation Time: Jul 18, 2014 at 06:15 PM
 -- Server version: 5.5.34
 -- PHP Version: 5.4.22
 
@@ -246,7 +246,18 @@ CREATE TABLE IF NOT EXISTS `tbl_faculty` (
   `faculty_code` varchar(200) DEFAULT NULL,
   `faculty_active` int(11) DEFAULT NULL,
   PRIMARY KEY (`faculty_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `tbl_faculty`
+--
+
+INSERT INTO `tbl_faculty` (`faculty_id`, `faculty_university`, `faculty_name`, `faculty_code`, `faculty_active`) VALUES
+(1, NULL, 'Công nghệ thông tin', NULL, 1),
+(2, NULL, 'Điện tử viễn thông', NULL, 1),
+(3, NULL, 'Vật lý kỹ thuật', NULL, 1),
+(4, NULL, 'Cơ điện tử', NULL, 1),
+(5, NULL, 'Cơ học kỹ thuật', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -469,6 +480,19 @@ CREATE TABLE IF NOT EXISTS `tbl_subject_teacher` (
   `is_active` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_subject_type`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_subject_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject_type_name` varchar(255) DEFAULT NULL,
+  `is_active` int(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
