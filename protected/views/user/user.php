@@ -5,21 +5,11 @@
                 <div class="one-third">
                     <div class="g-cols">
                         <div class="full-width">
-                            <img class="rectan left" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg"/>
+                            <img class="circular left" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/cover.jpg"/>
                             <h4><strong>Nguyễn Duy Kiên</strong></h4>
                             <i class="icon-heart"> Từ Liêm, Hà Nội</i>
                         </div>
                     </div>
-                    <div class="input select rating-f read-only">
-                        <select class="teacher-block-rating-outside" name="rating" style="display: none; float: right">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </div>
-                    <a href=""><button class="g-btn type_outline size_small"><span>Thành viên tích cực</span></button></a>
 
                     <div class="underline"></div>
 
@@ -28,13 +18,13 @@
                             <span style="text-align: right; color:#aaa">
                                 Công việc
                             </span>
-                            </br>
+                            <br/>
                             - Sinh viên
-                            </br>
+                            <br/>
                             <span style="text-align: right; color:#aaa">
                                 Tính cách
                             </span>
-                            </br>
+                            <br/>
                             - Đẹp trai, nhiều ban thích
                         </p>
                     </div>
@@ -108,117 +98,354 @@
                 </div>
 
                 <div class="two-thirds">
-                    <div class="round">
-                        <div class="w-timeline">
-                            <div class="w-timeline-h">
 
-                                <div class="w-timeline-list">
-                                    <div class="w-timeline-list-h">
 
-                                        <div class="w-timeline-item active">
-                                            <span class="w-timeline-item-bullet"></span>
-                                            <span class="w-timeline-item-title">Bài đăng</span>
-                                        </div>
+                    <div class="w-tabs">
+                        <div class="w-tabs-h">
+                            <div class="w-tabs-list">
+                                <div class="w-tabs-item active">
+                                    <span class="w-tabs-item-icon"></span>
+                                    <span class="w-tabs-item-title">Tài liệu đã đăng</span>
+                                </div>
+                                <div class="w-tabs-item">
+                                    <span class="w-tabs-item-icon"></span>
+                                    <span class="w-tabs-item-title">Tài liệu yêu thích</span>
+                                </div>
 
-                                        <div class="w-timeline-item">
-                                            <span class="w-timeline-item-bullet"></span>
-                                            <span class="w-timeline-item-title">Comment</span>
-                                        </div>
+                            </div>
+                            <div class="w-tabs-section active">
+                                <div class="w-tabs-section-title">
+                                    <span class="w-tabs-section-title-icon"></span>
+                                    <span class="w-tabs-section-title-text">Tài liệu đã đăng</span>
+                                    <span class="w-tabs-section-title-control"></span>
+                                </div>
+                                <div class="w-tabs-section-content" style="">
+                                    <div class="w-tabs-section-content-h">
+                                        <div class="g-cols">
+                                            <div class="full-width">
+                                                <ol class="list_document">
+                                                    <li class="item_document">
+                                                        <div class="box_item">
+                                                            <div class="short_info_document clearfix">
+                                                                <div class="document_img">
+                                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/photo-11.jpg">
+                                                                    <a href="/viewdocument" class="document_img_hover">
+                                                                        <span class="describe_document">blah blah blah</span>
+                                                                        <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>
+                                                                    </a>
+                                                                </div>
+                                                                <ul class="document_status clearfix">
+                                                                    <li class="score"><i class="icon-heart"></i>2000</li>
+                                                                    <li class="view"><i class="icon-eye-open"></i>1999</li>
+                                                                    <li class="comment"><i class="icon-comment"></i>1203</li>
+                                                                </ul>
+                                                                <span class="attribution-user">
+                                                                    <a href="/sonvn" class="url_user" title="Sonvn">
+                                                                        <img class="photo_user" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png"> Sonvn
+                                                                    </a>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <a class="name_document" href=""><strong>Công nghệ phần mềm</strong></a>
+                                                    </li>
 
-                                        <div class="w-timeline-item">
-                                            <span class="w-timeline-item-bullet"></span>
-                                            <span class="w-timeline-item-title">Tài liệu</span>
+                                                    <li class="item_document">
+                                                        <div class="box_item">
+                                                            <div class="short_info_document clearfix">
+                                                                <div class="document_img">
+                                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/photo-11.jpg">
+                                                                    <a href="" class="document_img_hover">
+                                                                        <span class="describe_document">blah blah blah</span>
+                                                                        <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>
+                                                                    </a>
+                                                                </div>
+                                                                <ul class="document_status clearfix">
+                                                                    <li class="score"><i class="icon-heart"></i>2000</li>
+                                                                    <li class="view"><i class="icon-eye-open"></i>1999</li>
+                                                                    <li class="comment"><i class="icon-comment"></i>1203</li>
+                                                                </ul>
+                                                                <span class="attribution-user">
+                                                                    <a href="/sonvn" class="url_user" title="Sonvn">
+                                                                        <img class="photo_user" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png"> Sonvn
+                                                                    </a>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <a class="name_document" href=""><strong>Công nghệ phần mềm</strong></a>
+                                                    </li>
+
+                                                    <li class="item_document">
+                                                        <div class="box_item">
+                                                            <div class="short_info_document clearfix">
+                                                                <div class="document_img">
+                                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/photo-11.jpg">
+                                                                    <a href="" class="document_img_hover">
+                                                                        <span class="describe_document">blah blah blah</span>
+                                                                        <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>
+                                                                    </a>
+                                                                </div>
+                                                                <ul class="document_status clearfix">
+                                                                    <li class="score"><i class="icon-heart"></i>2000</li>
+                                                                    <li class="view"><i class="icon-eye-open"></i>1999</li>
+                                                                    <li class="comment"><i class="icon-comment"></i>1203</li>
+                                                                </ul>
+                                                                <span class="attribution-user">
+                                                                    <a href="/sonvn" class="url_user" title="Sonvn">
+                                                                        <img class="photo_user" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png"> Sonvn
+                                                                    </a>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <a class="name_document" href=""><strong>Công nghệ phần mềm</strong></a>
+                                                    </li>
+
+                                                    <li class="item_document">
+                                                        <div class="box_item">
+                                                            <div class="short_info_document clearfix">
+                                                                <div class="document_img">
+                                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/photo-11.jpg">
+                                                                    <a href="" class="document_img_hover">
+                                                                        <span class="describe_document">blah blah blah</span>
+                                                                        <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>
+                                                                    </a>
+                                                                </div>
+                                                                <ul class="document_status clearfix">
+                                                                    <li class="score"><i class="icon-heart"></i>2000</li>
+                                                                    <li class="view"><i class="icon-eye-open"></i>1999</li>
+                                                                    <li class="comment"><i class="icon-comment"></i>1203</li>
+                                                                </ul>
+                                                                <span class="attribution-user">
+                                                                    <a href="/sonvn" class="url_user" title="Sonvn">
+                                                                        <img class="photo_user" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png"> Sonvn
+                                                                    </a>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <a class="name_document" href=""><strong>Công nghệ phần mềm</strong></a>
+                                                    </li>
+
+                                                    <li class="item_document">
+                                                        <div class="box_item">
+                                                            <div class="short_info_document clearfix">
+                                                                <div class="document_img">
+                                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/photo-11.jpg">
+                                                                    <a href="" class="document_img_hover">
+                                                                        <span class="describe_document">blah blah blah</span>
+                                                                        <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>
+                                                                    </a>
+                                                                </div>
+                                                                <ul class="document_status clearfix">
+                                                                    <li class="score"><i class="icon-heart"></i>2000</li>
+                                                                    <li class="view"><i class="icon-eye-open"></i>1999</li>
+                                                                    <li class="comment"><i class="icon-comment"></i>1203</li>
+                                                                </ul>
+                                                                <span class="attribution-user">
+                                                                    <a href="/sonvn" class="url_user" title="Sonvn">
+                                                                        <img class="photo_user" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png"> Sonvn
+                                                                    </a>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <a class="name_document" href=""><strong>Công nghệ phần mềm</strong></a>
+                                                    </li>
+
+                                                    <li class="item_document">
+                                                        <div class="box_item">
+                                                            <div class="short_info_document clearfix">
+                                                                <div class="document_img">
+                                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/photo-11.jpg">
+                                                                    <a href="" class="document_img_hover">
+                                                                        <span class="describe_document">blah blah blah</span>
+                                                                        <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>
+                                                                    </a>
+                                                                </div>
+                                                                <ul class="document_status clearfix">
+                                                                    <li class="score"><i class="icon-heart"></i>2000</li>
+                                                                    <li class="view"><i class="icon-eye-open"></i>1999</li>
+                                                                    <li class="comment"><i class="icon-comment"></i>1203</li>
+                                                                </ul>
+                                                                <span class="attribution-user">
+                                                                    <a href="/sonvn" class="url_user" title="Sonvn">
+                                                                        <img class="photo_user" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png"> Sonvn
+                                                                    </a>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <a class="name_document" href=""><strong>Công nghệ phần mềm</strong></a>
+                                                    </li>
+
+                                                    <li class="item_document">
+                                                        <div class="box_item">
+                                                            <div class="short_info_document clearfix">
+                                                                <div class="document_img">
+                                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/photo-11.jpg">
+                                                                    <a href="" class="document_img_hover">
+                                                                        <span class="describe_document">blah blah blah</span>
+                                                                        <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>
+                                                                    </a>
+                                                                </div>
+                                                                <ul class="document_status clearfix">
+                                                                    <li class="score"><i class="icon-heart"></i>2000</li>
+                                                                    <li class="view"><i class="icon-eye-open"></i>1999</li>
+                                                                    <li class="comment"><i class="icon-comment"></i>1203</li>
+                                                                </ul>
+                                                                <span class="attribution-user">
+                                                                    <a href="/sonvn" class="url_user" title="Sonvn">
+                                                                        <img class="photo_user" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png"> Sonvn
+                                                                    </a>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <a class="name_document" href=""><strong>Công nghệ phần mềm</strong></a>
+                                                    </li>
+
+                                                    <li class="item_document">
+                                                        <div class="box_item">
+                                                            <div class="short_info_document clearfix">
+                                                                <div class="document_img">
+                                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/photo-11.jpg">
+                                                                    <a href="" class="document_img_hover">
+                                                                        <span class="describe_document">blah blah blah</span>
+                                                                        <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>
+                                                                    </a>
+                                                                </div>
+                                                                <ul class="document_status clearfix">
+                                                                    <li class="score"><i class="icon-heart"></i>2000</li>
+                                                                    <li class="view"><i class="icon-eye-open"></i>1999</li>
+                                                                    <li class="comment"><i class="icon-comment"></i>1203</li>
+                                                                </ul>
+                                                                <span class="attribution-user">
+                                                                    <a href="/sonvn" class="url_user" title="Sonvn">
+                                                                        <img class="photo_user" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png"> Sonvn
+                                                                    </a>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <a class="name_document" href=""><strong>Công nghệ phần mềm</strong></a>
+                                                    </li>
+                                                    <li class="item_document">
+                                                        <div class="box_item">
+                                                            <div class="short_info_document clearfix">
+                                                                <div class="document_img">
+                                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/photo-11.jpg">
+                                                                    <a href="" class="document_img_hover">
+                                                                        <span class="describe_document">blah blah blah</span>
+                                                                        <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>
+                                                                    </a>
+                                                                </div>
+                                                                <ul class="document_status clearfix">
+                                                                    <li class="score"><i class="icon-heart"></i>2000</li>
+                                                                    <li class="view"><i class="icon-eye-open"></i>1999</li>
+                                                                    <li class="comment"><i class="icon-comment"></i>1203</li>
+                                                                </ul>
+                                                                <span class="attribution-user">
+                                                                    <a href="/sonvn" class="url_user" title="Sonvn">
+                                                                        <img class="photo_user" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png"> Sonvn
+                                                                    </a>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <a class="name_document" href=""><strong>Công nghệ phần mềm</strong></a>
+                                                    </li>
+
+                                                    <li class="item_document">
+                                                        <div class="box_item">
+                                                            <div class="short_info_document clearfix">
+                                                                <div class="document_img">
+                                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/photo-11.jpg">
+                                                                    <a href="" class="document_img_hover">
+                                                                        <span class="describe_document">blah blah blah</span>
+                                                                        <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>
+                                                                    </a>
+                                                                </div>
+                                                                <ul class="document_status clearfix">
+                                                                    <li class="score"><i class="icon-heart"></i>2000</li>
+                                                                    <li class="view"><i class="icon-eye-open"></i>1999</li>
+                                                                    <li class="comment"><i class="icon-comment"></i>1203</li>
+                                                                </ul>
+                                                                <span class="attribution-user">
+                                                                    <a href="/sonvn" class="url_user" title="Sonvn">
+                                                                        <img class="photo_user" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png"> Sonvn
+                                                                    </a>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <a class="name_document" href=""><strong>Công nghệ phần mềm</strong></a>
+                                                    </li>
+
+                                                    <li class="item_document">
+                                                        <div class="box_item">
+                                                            <div class="short_info_document clearfix">
+                                                                <div class="document_img">
+                                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/photo-11.jpg">
+                                                                    <a href="" class="document_img_hover">
+                                                                        <span class="describe_document">blah blah blah</span>
+                                                                        <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>
+                                                                    </a>
+                                                                </div>
+                                                                <ul class="document_status clearfix">
+                                                                    <li class="score"><i class="icon-heart"></i>2000</li>
+                                                                    <li class="view"><i class="icon-eye-open"></i>1999</li>
+                                                                    <li class="comment"><i class="icon-comment"></i>1203</li>
+                                                                </ul>
+                                                                <span class="attribution-user">
+                                                                    <a href="/sonvn" class="url_user" title="Sonvn">
+                                                                        <img class="photo_user" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png"> Sonvn
+                                                                    </a>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <a class="name_document" href=""><strong>Công nghệ phần mềm</strong></a>
+                                                    </li>
+
+                                                    <li class="item_document">
+                                                        <div class="box_item">
+                                                            <div class="short_info_document clearfix">
+                                                                <div class="document_img">
+                                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/photo-11.jpg">
+                                                                    <a href="" class="document_img_hover">
+                                                                        <span class="describe_document">blah blah blah</span>
+                                                                        <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>
+                                                                    </a>
+                                                                </div>
+                                                                <ul class="document_status clearfix">
+                                                                    <li class="score"><i class="icon-heart"></i>2000</li>
+                                                                    <li class="view"><i class="icon-eye-open"></i>1999</li>
+                                                                    <li class="comment"><i class="icon-comment"></i>1203</li>
+                                                                </ul>
+                                                                <span class="attribution-user">
+                                                                    <a href="/sonvn" class="url_user" title="Sonvn">
+                                                                        <img class="photo_user" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png"> Sonvn
+                                                                    </a>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <a class="name_document" href=""><strong>Công nghệ phần mềm</strong></a>
+                                                    </li>
+                                                </ol>
+                                                <button class="g-btn type_primary" style="width: 100%; text-transform: none; font-weight: 500">Xem thêm, còn nhiều tài liệu hay lắm</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="w-timeline-sections">
-                                    <div class="w-timeline-section active animate_afr">
-                                        <div class="w-timeline-section-h">
-
-                                            <div class="w-timeline-section-title">
-                                                <span class="w-timeline-section-title-bullet"></span>
-                                                <span class="w-timeline-section-title-text">Bài đăng</span>
+                            </div>
+                            <div class="w-tabs-section">
+                                <div class="w-tabs-section-title">
+                                    <span class="w-tabs-section-title-icon"></span>
+                                    <span class="w-tabs-section-title-text">Tài liệu yêu thích</span>
+                                    <span class="w-tabs-section-title-control"></span>
+                                </div>
+                                <div class="w-tabs-section-content">
+                                    <div class="w-tabs-section-content-h">
+                                        <div class="g-cols">
+                                            <div class="one-half">
+                                                <h4>One Half</h4>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo. Etiam facilisis venenatis libero, ac fermentum dolor euismod in. Phasellus placerat egestas varius. Vivamus eleifend at massa sodales faucibus. Vestibulum egestas nibh in turpis volutpat ornare.</p>
                                             </div>
-                                            <div class="w-timeline-section-content">
-                                                <div class="g-cols">
-                                                    <div class="one-third">
-                                                        <h4>Our Birth</h4>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo.</p>
-                                                        <p>Suspendisse consectetur fringilla suctus. Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor. Morbi sagittis, sem quis lacinia faucibus orci. Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor.</p>
-                                                    </div>
-                                                    <div class="one-third">
-                                                        <h4>Primary Skills</h4>
-                                                        <p>Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo.</p>
-                                                        <ul>
-                                                            <li>Design</li>
-                                                            <li>HTML + CSS</li>
-                                                            <li>Coding</li>
-                                                            <li>Illustration</li>
-                                                            <li>Branding</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="one-third">
-                                                        <img src="img/demo/blog-3.jpg" alt="" />
-                                                    </div>
-                                                </div>
+                                            <div class="one-half">
+                                                <h4>One Half</h4>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo. Etiam facilisis venenatis libero, ac fermentum dolor euismod in. Phasellus placerat egestas varius. Vivamus eleifend at massa sodales faucibus. Vestibulum egestas nibh in turpis volutpat ornare.</p>
                                             </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="w-timeline-section">
-                                        <div class="w-timeline-section-h">
-
-                                            <div class="w-timeline-section-title">
-                                                <span class="w-timeline-section-title-bullet"></span>
-                                                <span class="w-timeline-section-title-text">Comment</span>
-                                            </div>
-                                            <div class="w-timeline-section-content">
-                                                <div class="g-cols">
-                                                    <div class="one-third">
-                                                        <img src="img/demo/team-1.jpg" alt="" />
-                                                    </div>
-                                                    <div class="two-thirds">
-                                                        <h4>One Year Later</h4>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo. Nulla varius consequat magna, id molestie ipsum volutpat quis. Suspendisse consectetur fringilla suctus. Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="w-timeline-section">
-                                        <div class="w-timeline-section-h">
-
-                                            <div class="w-timeline-section-title">
-                                                <span class="w-timeline-section-title-bullet"></span>
-                                                <span class="w-timeline-section-title-text">Tài liệu</span>
-                                            </div>
-                                            <div class="w-timeline-section-content">
-                                                <div class="g-cols">
-                                                    <div class="one-third">
-                                                        <h4>Two Years Later</h4>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo.</p>
-                                                        <p>Suspendisse consectetur fringilla suctus. Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor. Morbi sagittis, sem quis lacinia faucibus orci.</p>
-                                                    </div>
-                                                    <div class="one-third">
-                                                        <img src="img/demo/member-1.jpg" alt="" />
-                                                    </div>
-                                                    <div class="one-third">
-                                                        <h4>Our Skills</h4>
-                                                        <p>Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo.</p>
-                                                        <ul>
-                                                            <li>Powerfull Design</li>
-                                                            <li>HTML + CSS</li>
-                                                            <li>Clean Coding</li>
-                                                            <li>Excellent Illustration</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                         </div>
                                     </div>
                                 </div>

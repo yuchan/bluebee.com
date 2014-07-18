@@ -24,11 +24,8 @@ class UserController extends BaseController {
                 $user_class_info = Yii::app()->db->createCommand($sql)->queryAll();
                 $this->render('user', array('user_detail_info' => User::model()->findAll($spCriteria),
                     'user_class_info' => $user_class_info, 'user_activity' => $user_activity));
-            } else {
-                $this->redirect('welcomePage');
-            }
-        } else
-            $this->redirect('welcomePage');
+            } 
+        } 
     }
 
     public function actionUser_Visitor() {
@@ -46,10 +43,9 @@ class UserController extends BaseController {
                 $this->render('user', array('user_detail_info' => User::model()->findAll($spCriteria),
                     'user_class_info' => $user_class_info));
             } else {
-                $this->redirect('welcomePage');
+                
             }
-        } else
-            $this->redirect('welcomePage');
+        } 
     }
 
     public function userActivity() {

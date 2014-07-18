@@ -14,7 +14,7 @@
                         var item = $('<div class="g-form-row-field">' +
                                 '<div id="success" class="g-alert type_success">' +
                                 '<div class="g-alert-body" style="text-align: center">' +
-                                '<p id="login-result"><b>' + result.message + '</b></p>' +
+                                '<label id="login-result"><b>' + result.message + '</b></label>' +
                                 '</div>' +
                                 '</div>' +
                                 '</div>');
@@ -34,7 +34,7 @@
                         var item = $('<div class="g-form-row-field">' +
                                 '<div id="error" class="g-alert type_error">' +
                                 '<div class="g-alert-body" style="text-align: center">' +
-                                '<p id="login-result"><b>' + result.message + '</b></p>' +
+                                '<label id="login-result"><b>' + result.message + '</b></label>' +
                                 '</div>' +
                                 '</div>' +
                                 '</div>');
@@ -193,7 +193,7 @@
                                                                     </div>
                                                                     <div class="g-form-row"  style="padding-bottom: 5px; margin-top: -5px">
                                                                         <div class="g-form-row-field">
-                                                                            <button class="g-btn type_primary" id="Dang nhap" type="submit" name="Submit" value="Submit" style="width: 100%">Đăng Nhập</button>
+                                                                            <button class="g-btn type_primary" id="Dang-nhap" type="submit" name="Submit" value="Submit" style="width: 100%">Đăng Nhập</button>
                                                                         </div>
                                                                     </div>
                                                                     <?php $this->renderPartial('fb') ?>

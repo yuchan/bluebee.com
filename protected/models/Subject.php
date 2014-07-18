@@ -9,6 +9,14 @@
  * @property string $subject_code
  * @property string $subject_active
  * @property string $subject_university
+ * @property integer $subject_type
+ * @property integer $subject_year
+ * @property integer $subject_credits
+ * @property string $subject_credit_hour
+ * @property string $subject_requirement
+ * @property string $subject_target
+ * @property string $subject_info
+ * @property string $subject_test
  */
 class Subject extends CActiveRecord
 {
@@ -28,10 +36,14 @@ class Subject extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('subject_type, subject_year, subject_credits', 'numerical', 'integerOnly'=>true),
 			array('subject_name, subject_code, subject_active, subject_university', 'length', 'max'=>45),
+			array('subject_credit_hour', 'length', 'max'=>100),
+			array('subject_requirement', 'length', 'max'=>500),
+			array('subject_target, subject_info, subject_test', 'length', 'max'=>1000),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('subject_id, subject_name, subject_code, subject_active, subject_university', 'safe', 'on'=>'search'),
+			array('subject_id, subject_name, subject_code, subject_active, subject_university, subject_type, subject_year, subject_credits, subject_credit_hour, subject_requirement, subject_target, subject_info, subject_test', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,6 +69,14 @@ class Subject extends CActiveRecord
 			'subject_code' => 'Subject Code',
 			'subject_active' => 'Subject Active',
 			'subject_university' => 'Subject University',
+			'subject_type' => 'Subject Type',
+			'subject_year' => 'Subject Year',
+			'subject_credits' => 'Subject Credits',
+			'subject_credit_hour' => 'Subject Credit Hour',
+			'subject_requirement' => 'Subject Requirement',
+			'subject_target' => 'Subject Target',
+			'subject_info' => 'Subject Info',
+			'subject_test' => 'Subject Test',
 		);
 	}
 
@@ -83,6 +103,14 @@ class Subject extends CActiveRecord
 		$criteria->compare('subject_code',$this->subject_code,true);
 		$criteria->compare('subject_active',$this->subject_active,true);
 		$criteria->compare('subject_university',$this->subject_university,true);
+		$criteria->compare('subject_type',$this->subject_type);
+		$criteria->compare('subject_year',$this->subject_year);
+		$criteria->compare('subject_credits',$this->subject_credits);
+		$criteria->compare('subject_credit_hour',$this->subject_credit_hour,true);
+		$criteria->compare('subject_requirement',$this->subject_requirement,true);
+		$criteria->compare('subject_target',$this->subject_target,true);
+		$criteria->compare('subject_info',$this->subject_info,true);
+		$criteria->compare('subject_test',$this->subject_test,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -1,16 +1,99 @@
 .circular {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     display: inline-block;
     border-radius: 150px;
     -webkit-border-radius: 150px;
     -moz-border-radius: 150px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
     margin-bottom: 30px;
     overflow: hidden;
     border-color: #d0d6d9;
+    border : 5px solid #d0d6d9;
+    margin-right: 12px;
+
+}
+
+.white{
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding : 2px;
+}
+
+.box
+{
+  float: right;
+  clear: right;
+  width: 18.9em;
+  border-top-width: 4px;
+  border-right-width-value: 4px;
+  border-bottom-width: 4px;
+  border-left-width-value: 4px;
+  border-top-style: solid;
+  border-right-style-value: solid;
+  border-bottom-style: solid;
+  border-left-style-value: solid;
+  border-top-color: #bfbfbf;
+  border-right-color-value: #bfbfbf;
+  border-bottom-color: #bfbfbf;
+  border-left-color-value: #bfbfbf;
+  border-image-source: none;
+  border-image-slice: 100% 100% 100% 100%;
+  border-image-width: 1 1 1 1;
+  border-image-outset: 0 0 0 0;
+  border-image-repeat: stretch stretch;
+  margin-left: 20px;
+  margin-bottom: 15px;
+  padding-top: 1.2em;
+  padding-right: 1.3em;
+  padding-bottom: 1.2em;
+  padding-left: 1.3em;
+}
+
+.more-box
+{
+  border-top-width: medium;
+  border-right-width-value: medium;
+  border-bottom-width: medium;
+  border-left-width-value: medium;
+  border-top-style: none;
+  border-right-style-value: none;
+  border-bottom-style: none;
+  border-left-style-value: none;
+  border-image-source: none;
+  border-image-slice: 100% 100% 100% 100%;
+  border-image-width: 1 1 1 1;
+  border-image-outset: 0 0 0 0;
+  border-image-repeat: stretch stretch;
+  width: 19.7em;
+  margin-left: 1.6em;
+  background-color: #f2f2f2;
+  background-image: url("corner-download-color-3.png");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: 100% 0px;
+  background-clip: border-box;
+  background-origin: padding-box;
+  background-size: auto auto;
+}
+
+.head{  
+  color: #262626;
+  font-size: 250%;
+  font-weight: normal;
+  margin-bottom: 38px;
+}
+
+
+
+.head1{  
+  color: #262626;
+  font-size: 150%;
+  font-weight: normal;
+  margin-top: 20px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 8px;
+  padding-left: 0px;
 }
 
 .circular img {
@@ -99,17 +182,10 @@ img.float_left{
 }
 
 .rectan {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 250px;
     margin-bottom: 20px;
     margin-right: 20px;
-    border-radius: 5px;
-    border : 5px solid #d0d6d9;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 }
 
 .underline {
@@ -118,6 +194,10 @@ img.float_left{
     margin-right: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.underline1{
+    border-bottom: 2px solid #d0d6d9;
 }
 
 .box1{
@@ -150,12 +230,12 @@ img.float_left{
 }
 
 .dataTitle1 {
-    font-weight: bold;
     width: 45%;
     float: left;
 }
 .dataItem1 {
-    float: left;
+    color: #aaa;
+    float: right;
     width: 55%;
 }
 
@@ -759,81 +839,202 @@ form.file_upload1 input {
 }
 
 .ih-item.circle.effect13.colored .info {
-  background: #1a4a72;
-  background: rgba(26, 74, 114, 0.6);
+    background: #1a4a72;
+    background: rgba(26, 74, 114, 0.6);
 }
 .ih-item.circle.effect13 .info {
-  background: #333333;
-  background: rgba(0, 0, 0, 0.6);
-  opacity: 0;
-  pointer-events: none;
-  -webkit-transition: all 0.35s ease-in-out;
-  -moz-transition: all 0.35s ease-in-out;
-  transition: all 0.35s ease-in-out;
+    background: #333333;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;
 }
 .ih-item.circle.effect13 .info h3 {
-  visibility: hidden;
-  color: #fff;
-  text-transform: uppercase;
-  position: relative;
-  letter-spacing: 2px;
-  font-size: 22px;
-  margin: 0 30px;
-  padding: 55px 0 0 0;
-  height: 110px;
-  text-shadow: 0 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.3);
-  -webkit-transition: all 0.35s ease-in-out;
-  -moz-transition: all 0.35s ease-in-out;
-  transition: all 0.35s ease-in-out;
+    visibility: hidden;
+    color: #fff;
+    text-transform: uppercase;
+    position: relative;
+    letter-spacing: 2px;
+    font-size: 22px;
+    margin: 0 30px;
+    padding: 55px 0 0 0;
+    height: 110px;
+    text-shadow: 0 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.3);
+    -webkit-transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;
 }
 .ih-item.circle.effect13 .info p {
-  visibility: hidden;
-  color: #bbb;
-  padding: 10px 5px;
-  font-style: italic;
-  margin: 0 30px;
-  font-size: 12px;
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
-  -webkit-transition: all 0.35s ease-in-out;
-  -moz-transition: all 0.35s ease-in-out;
-  transition: all 0.35s ease-in-out;
+    visibility: hidden;
+    color: #bbb;
+    padding: 10px 5px;
+    font-style: italic;
+    margin: 0 30px;
+    font-size: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    -webkit-transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;
 }
 .ih-item.circle.effect13 a:hover .info {
-  opacity: 1;
+    opacity: 1;
 }
 .ih-item.circle.effect13 a:hover h3 {
-  visibility: visible;
+    visibility: visible;
 }
 .ih-item.circle.effect13 a:hover p {
-  visibility: visible;
+    visibility: visible;
 }
 
 .ih-item.circle.effect13.from_left_and_right .info h3 {
-  -webkit-transform: translateX(-100%);
-  -moz-transform: translateX(-100%);
-  -ms-transform: translateX(-100%);
-  -o-transform: translateX(-100%);
-  transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
 }
 
 .ih-item.circle.effect13.from_left_and_right .info p {
-  -webkit-transform: translateX(100%);
-  -moz-transform: translateX(100%);
-  -ms-transform: translateX(100%);
-  -o-transform: translateX(100%);
-  transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%);
 }
 .ih-item.circle.effect13.from_left_and_right a:hover h3 {
-  -webkit-transform: translateX(0);
-  -moz-transform: translateX(0);
-  -ms-transform: translateX(0);
-  -o-transform: translateX(0);
-  transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
 }
 .ih-item.circle.effect13.from_left_and_right a:hover p {
-  -webkit-transform: translateX(0);
-  -moz-transform: translateX(0);
-  -ms-transform: translateX(0);
-  -o-transform: translateX(0);
-  transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
 }
+
+#cssmenu {
+    float: left;
+    width: 100%;
+    font-size: 110%;
+    line-height: normal;
+    border-bottom: 1px solid #666;
+}
+#cssmenu ul {
+    margin: 0;
+    padding: 10px 10px 0 50px;
+    list-style: none;
+}
+#cssmenu li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+#cssmenu a {
+    float: left;
+    background: url('tableftf.gif') no-repeat left top;
+    margin: 0;
+    padding: 0 0 0 4px;
+    text-decoration: none;
+}
+#cssmenu a span {
+    float: left;
+    display: block;
+    background: url('tabrightf.gif') no-repeat right top;
+    padding: 5px 15px 4px 6px;
+    color: #666;
+}
+/* Commented Backslash Hack hides rule from IE5-Mac */
+#cssmenu a span {
+    float: none;
+}
+/* End IE5-Mac hack */
+#cssmenu .active a span,
+#cssmenu a:hover span {
+    color: #FFFFFF;
+}
+#cssmenu .active a,
+#cssmenu a:hover {
+    background-position: 0 -42px;
+}
+#cssmenu .active a span,
+#cssmenu a:hover span {
+    background-position: 100% -42px;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+#ts_tabmenu {
+    font-size: 1.1em; /* set the font size */
+    padding: 20px 0px 0px 20px; /* set the padding */
+
+    border-bottom: 1px solid #666;
+}
+#ts_tabmenu ul {
+    line-height: 1em; /* setting the line height now so we don't have any headaches*/
+    margin: 0px; /* let's keep the margin set to 0 for the same reasons as above*/
+    list-style-type: none; /* we remove the UL's default disc bullets */
+    float: left; /* we float the list to the left like we will all the elements inside*/
+    padding: 0px 0px 0px 5px; /* give it a left padding of 5px to counter the effect of margin -5px below */
+}
+#ts_tabmenu ul li {
+    float: left; /* floatin' left */
+}
+#ts_tabmenu ul li a {
+    text-decoration: none; /* remove the default underline off the anchor text */
+    display: block; /* we display this text as block so that we can apply padding/margin without problems */
+    float: left; /* floatin' left, to make the menu horizontal */
+    padding: 0px 0px 0px 10px;  /* we give it a left padding of 10px to show the first 10 pixels of the tabs image. you can also use padding-left: 10px; */
+    background: url('tabs0000.gif') no-repeat left top;  /* we link to the tabs image, no tiling, showing the top left part of it */
+    margin-left: -5px;  /* this is important for the overlapping part - we are overlapping the tabs by 5 px */
+    z-index: 0; /* keep it on layer 0 (default) */
+    position: relative;  /* very important as this enables the z-index to work for us and keeps the tabs where they should be */
+    color: #666666;  /* color of the tab text */
+}
+#ts_tabmenu ul li a strong {
+    font-weight: normal;   /* remove the bold effect */
+    display: block;   /* display the strong element as a block so we can pad it, etc. */
+    float: left;   /* float it left as well */
+    background: url('tabs0000.gif') no-repeat right top;  /* now we show the right part of the tab and we complete the "puzzle" */
+    padding: 6px 10px 7px 5px;  /* important, as through this you define the position of the text within the tab */
+    cursor: pointer;  /* this makes the browser show the "hand" cursor when hovering over the tab */
+}
+#ts_tabmenu ul li a:hover {
+    position: relative; /* again, keep things relative */
+    z-index: 5; /* we show this tab over all other tabs in the menu, which would be on layer 0, thus overlapping occurs */
+    background: url('tabs0000.gif') no-repeat left bottom;  /* now we show the bottom part of the tabs image, the "hover" instance */
+    color: #000000;   /* we color the hovered tab's text black */
+}
+#ts_tabmenu ul li a:hover strong {
+    background-image: url('tabs0000.gif') no-repeat;  
+    position: relative; /* keep it relative */
+    z-index: 5; /* show this on layer 5 as well */
+    background-position: right bottom; /* we show the right bottom part of the tabs image (the hover instance) */
+}
+#tsmenu1 #li_tsmenu1 a, #tsmenu2 #li_tsmenu2 a, 
+#tsmenu3 #li_tsmenu3 a, #tsmenu4 #li_tsmenu4 a, 
+#tsmenu5 #li_tsmenu5 a, #tsmenu6 #li_tsmenu6 a, 
+#tsmenu7 #li_tsmenu7 a {
+    position: relative;
+    z-index: 5; 
+    background: url('tabs0000.gif') no-repeat left bottom;  
+    color: #000000; 
+}
+#tsmenu1 #li_tsmenu1 a strong, #tsmenu2 #li_tsmenu2 a strong, 
+#tsmenu3 #li_tsmenu3 a strong, #tsmenu4 #li_tsmenu4 a strong, 
+#tsmenu5 #li_tsmenu5 a strong, #tsmenu6 #li_tsmenu6 a strong, 
+#tsmenu7 #li_tsmenu7 a strong {	
+    background-image: url('tabs0000.gif') no-repeat;  
+    position: relative; 
+    z-index: 5; 
+    background-position: right bottom; 
+}
+

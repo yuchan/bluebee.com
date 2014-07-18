@@ -270,7 +270,7 @@
     transition: width 0.4s 0.1s, height 0.4s 0.1s, top 0.4s 0.1s, left 0.4s 0.1s, margin 0.4s 0.1s, background-color 1s ease-out;
 }
 /* Let's add some nice easing for all cases */
- .morph-button .morph-content, .morph-button.open .morph-content,{
+ .morph-button .morph-content, .morph-button.open .morph-content{
     -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
     transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
 }

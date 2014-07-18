@@ -76,8 +76,65 @@ a:active {
 }
 .l-subheader-h {
 	height: 100%;
-	position: relative
+	position: relative;
+        margin-left: 100px;
+        float: left;
 }
+
+#login{
+    padding: 5px 20px;
+    margin-left: -15px;
+    background: #00A5F0;
+    color: white;
+    border: 1px solid rgba(0, 0, 0, .2);
+    font-size: 14px;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, .4) inset, 0 1px #ffffff;
+    -webkit-box-shadow: 0 0 0 1px rgba(255, 255, 255, .4) inset, 0 1px #ffffff; 
+    border-radius: 6px;
+    
+}
+
+.colorbutton{
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 27px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fbbutton{
+    background: none repeat scroll 0 0 #008cd7;
+    vertical-align: middle;
+    border-radius: 2px;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    padding-left: 0;
+}
+
+.fb-icon{
+    background: url("http://cungnghe.com/img/fb_icon.png") no-repeat scroll 0 0 / 19px 19px transparent;
+    display: block;
+    float: left;
+}
+
+.icon-x-alt{
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    vertical-align: text-top;
+    background-image: url("http://cungnghe.com/img/glyphicons-halflings.png");
+    background-position: 14px 14px;
+    background-repeat: no-repeat;
+    margin-top: 1px;
+    cursor: pointer;
+    color: #18bacd;
+}
+
 .l-main {
 	z-index: 1
 }
@@ -1423,7 +1480,8 @@ button.g-btn.size_big {
 	width: auto
 }
 .l-subheader.at_middle .w-nav {
-	float: right
+	float: right;
+        margin-right: 65px;
 }
 .l-subheader.at_middle .w-nav-select {
 	display: none;
@@ -2023,17 +2081,20 @@ button.g-btn.size_big {
 }
 .w-tabs-list {
 	background-color: #f0f0f0;
-	box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05) inset
+	box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05) inset;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
 }
 .w-tabs-item {
 	padding: 12px 20px;
 	border-top: 2px solid transparent;
 	-webkit-transition: background-color 0.25s ease, color 0.25s ease;
-	transition: background-color 0.25s ease, color 0.25s ease
+	transition: background-color 0.25s ease, color 0.25s ease;
 }
 .w-tabs-item:hover {
 	background-color: rgba(0, 0, 0, 0.03);
-	color: #333
+	color: #333;
 }
 .w-tabs-item.active {
 	box-shadow: none;
@@ -2043,13 +2104,13 @@ button.g-btn.size_big {
 }
 .w-tabs.layout_accordion .w-tabs-section-title-text,
 .w-tabs-item-title {
-	font-size: 16px
+	font-size: 14px
 }
 .w-tabs-section-content-h {
 	padding: 25px 0 1px
 }
 .w-tabs-section-title {
-	padding: 12px 20px
+	padding: 1px 1px
 }
 .w-tabs-item-icon,
 .w-tabs-section-title-icon {
@@ -2070,13 +2131,13 @@ button.g-btn.size_big {
 }
 .w-tabs-item.with_icon .w-tabs-item-title,
 .w-tabs-section.with_icon .w-tabs-section-title-text {
-	margin-left: 32px
+	margin-left: 0px
 }
 .w-tabs.layout_accordion {
-	border-bottom: 1px solid #e8e8e8
+	border-bottom: 0px solid #e8e8e8
 }
 .w-tabs.layout_accordion .w-tabs-section {
-	border-top: 1px solid #e8e8e8
+	border-top: 0px solid #e8e8e8
 }
 .w-tabs.layout_accordion .w-tabs-section-title {
 	-webkit-transition: background-color 0.25s ease, color 0.25s ease;

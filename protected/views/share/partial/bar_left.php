@@ -1,44 +1,232 @@
-   <div class="one-third" style="
-                     border-right-style: solid;
-                     border-right-width: thin;
+   <div class="one-fourth" style="
+                     border-right-style: double;
+                     border-right-width: thick;
                      border-color: #d0d6d9;
                      ">
-                    <h3>Ảnh đại diện</h3>            
-                    <div>
-                        <a href="http://localhost/DuyKien_project/index/upload.php"><img class="circular" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/blog-1.jpg"/><a/>
-                    </div>
-                    <div>
-                        <h3>Thông tin cá nhân</h3>
-                            <p>
-                                Họ tên : <a href="update.html">cập nhật họ tên</a>
-                                <br/>
-                                Ngày, tháng, năm sinh : <a href="update.html">cập nhật ngày</a>
-                                <br/>
-                                Học sinh khóa : <a href="update.html">cập nhật khóa</a>
-                                <br/>
-                                Khoa : <a href="update.html">cập nhật khoa</a>
-                             </p>
-                     </div>
-                        <div id="form" class="w-comments-form">
-                            <div class="w-comments-form-text" style="margin-left: 20px">Sơ lược bản thân !!</div>
-                            <form class="g-form" action="#" method="post" />
-                            <div class="g-form-group">
-                                <div class="g-form-group-rows">
-
-                                    <div class="g-form-row" style="margin-right: 5%; padding-bottom: 4%">
-
-                                        <div class="g-form-row-field">
-                                            <textarea name="#" id="input1x3" cols="30" rows="10"></textarea>
+                    <h3>Các chủ đề</h3>            
+                    <div class="widget">
+                        <nav class="w-nav">
+                            <div class="w-nav-h">
+                                <div class="w-nav-list layout_ver level_1">
+                                    <div class="w-nav-list-h">
+                                        <div class="w-nav-item level_1 active">
+                                            <div class="w-nav-item-h">
+                                                <a href="#" class="w-nav-anchor level_1">
+                                                    <span class="w-nav-title">Năm nhất</span>
+                                                </a>
+                                                <div class="w-nav-list layout_ver place_inside level_2">
+                                                    <div class="w-nav-list-h">
+                                                        <div class="w-nav-item level_2">
+                                                            <div class="w-nav-item-h">
+                                                                <a href="#" class="w-nav-anchor level_2">
+                                                                    <span class="w-nav-title">Công nghệ thông tin</span>
+                                                                </a>
+                                                                <div class="w-nav-list place_aside show_onhover level_3">
+                                                                        <div class="w-nav-list-h">
+                                                                                <div class="w-nav-item level_3">
+                                                                                        <div class="w-nav-item-h">
+                                                                                            <a href="<?php echo Yii::app()->createUrl('share/subject')?>" class="w-nav-anchor level_3" style="color: black">Đại số</a>
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="w-nav-item level_3">
+                                                                                        <div class="w-nav-item-h">
+                                                                                            <a href="<?php echo Yii::app()->createUrl('share/subject')?> class="w-nav-anchor level_3" style="color: black">Giải tích</a>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="w-nav-item level_2 active">
+                                                            <div class="w-nav-item-h">
+                                                                <a href="#" class="w-nav-anchor level_2">
+                                                                    <span class="w-nav-title">Vật lý kĩ thuật</span>
+                                                                </a>
+                                                                <div class="w-nav-list place_aside show_onhover level_3">
+                                                                        <div class="w-nav-list-h">
+                                                                                <div class="w-nav-item level_3">
+                                                                                        <div class="w-nav-item-h">
+                                                                                                <a href="home-landing.html" class="w-nav-anchor level_3" style="color: black">Đại số</a>
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="w-nav-item level_3">
+                                                                                        <div class="w-nav-item-h">
+                                                                                                <a href="home-parallax.html" class="w-nav-anchor level_3" style="color: black">Giải tích</a>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="w-nav-item level_2">
+                                                            <div class="w-nav-item-h">
+                                                                <a href="#" class="w-nav-anchor level_2">
+                                                                    <span class="w-nav-title">Cơ điện tử</span>
+                                                                </a>
+                                                                <div class="w-nav-list place_aside show_onhover level_3">
+                                                                        <div class="w-nav-list-h">
+                                                                                <div class="w-nav-item level_3">
+                                                                                        <div class="w-nav-item-h">
+                                                                                                <a href="home-landing.html" class="w-nav-anchor level_3" style="color: black">Đại số</a>
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="w-nav-item level_3">
+                                                                                        <div class="w-nav-item-h">
+                                                                                                <a href="home-parallax.html" class="w-nav-anchor level_3" style="color: black">Giải tích</a>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="g-form-row">
-                                        <div class="g-form-row-label"></div>
-                                        <div class="g-form-row-field">
-                                            <button class="g-btn type_primary size_small">Send</button>
+                                        <div class="w-nav-item level_1 active">
+                                            <div class="w-nav-item-h">
+                                                <a href="#" class="w-nav-anchor level_1">
+                                                    <span class="w-nav-title">Năm Hai</span>
+                                                </a>
+                                                <div class="w-nav-list layout_ver place_inside level_2">
+                                                    <div class="w-nav-list-h">
+                                                        <div class="w-nav-item level_2">
+                                                            <div class="w-nav-item-h">
+                                                                <a href="#" class="w-nav-anchor level_2">
+                                                                    <span class="w-nav-title">Công nghệ thông tin</span>
+                                                                </a>
+                                                                <div class="w-nav-list place_aside show_onhover level_3">
+                                                                        <div class="w-nav-list-h">
+                                                                                <div class="w-nav-item level_3">
+                                                                                        <div class="w-nav-item-h">
+                                                                                                <a href="home-landing.html" class="w-nav-anchor level_3" style="color: black">Lập trình</a>
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="w-nav-item level_3">
+                                                                                        <div class="w-nav-item-h">
+                                                                                                <a href="home-parallax.html" class="w-nav-anchor level_3" style="color: black">Hệ điều hành</a>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="w-nav-item level_2 active">
+                                                            <div class="w-nav-item-h">
+                                                                <a href="#" class="w-nav-anchor level_2">
+                                                                    <span class="w-nav-title">Vật lý kĩ thuật</span>
+                                                                </a>
+                                                                <div class="w-nav-list place_aside show_onhover level_3">
+                                                                        <div class="w-nav-list-h">
+                                                                                <div class="w-nav-item level_3">
+                                                                                        <div class="w-nav-item-h">
+                                                                                                <a href="home-landing.html" class="w-nav-anchor level_3" style="color: black">Vật lý ứng dụng</a>
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="w-nav-item level_3">
+                                                                                        <div class="w-nav-item-h">
+                                                                                                <a href="home-parallax.html" class="w-nav-anchor level_3" style="color: black">Tin học</a>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="w-nav-item level_2">
+                                                            <div class="w-nav-item-h">
+                                                                <a href="#" class="w-nav-anchor level_2">
+                                                                    <span class="w-nav-title">Cơ điện tử</span>
+                                                                </a>
+                                                                <div class="w-nav-list place_aside show_onhover level_3">
+                                                                        <div class="w-nav-list-h">
+                                                                                <div class="w-nav-item level_3">
+                                                                                        <div class="w-nav-item-h">
+                                                                                                <a href="home-landing.html" class="w-nav-anchor level_3" style="color: black">Đại số</a>
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="w-nav-item level_3">
+                                                                                        <div class="w-nav-item-h">
+                                                                                                <a href="home-parallax.html" class="w-nav-anchor level_3" style="color: black">Giải tích</a>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
+                                        <div class="w-nav-item level_1 active">
+                                            <div class="w-nav-item-h">
+                                                <a href="#" class="w-nav-anchor level_1">
+                                                    <span class="w-nav-title">Năm Ba</span>
+                                                </a>
+                                                <div class="w-nav-list layout_ver place_inside level_2">
+                                                    <div class="w-nav-list-h">
+                                                        <div class="w-nav-item level_2">
+                                                            <div class="w-nav-item-h">
+                                                                <a href="#" class="w-nav-anchor level_2">
+                                                                    <span class="w-nav-title">Công nghệ thông tin</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="w-nav-item level_2 active">
+                                                            <div class="w-nav-item-h">
+                                                                <a href="#" class="w-nav-anchor level_2">
+                                                                    <span class="w-nav-title">Vật lý kĩ thuật</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="w-nav-item level_2">
+                                                            <div class="w-nav-item-h">
+                                                                <a href="#" class="w-nav-anchor level_2">
+                                                                    <span class="w-nav-title">Cơ điện tử</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-nav-item level_1 active">
+                                            <div class="w-nav-item-h">
+                                                <a href="#" class="w-nav-anchor level_1">
+                                                    <span class="w-nav-title">Năm Cuối</span>
+                                                </a>
+                                                <div class="w-nav-list layout_ver place_inside level_2">
+                                                    <div class="w-nav-list-h">
+                                                        <div class="w-nav-item level_2">
+                                                            <div class="w-nav-item-h">
+                                                                <a href="#" class="w-nav-anchor level_2">
+                                                                    <span class="w-nav-title">Công nghệ thông tin</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="w-nav-item level_2 active">
+                                                            <div class="w-nav-item-h">
+                                                                <a href="#" class="w-nav-anchor level_2">
+                                                                    <span class="w-nav-title">Vật lý kĩ thuật</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="w-nav-item level_2">
+                                                            <div class="w-nav-item-h">
+                                                                <a href="#" class="w-nav-anchor level_2">
+                                                                    <span class="w-nav-title">Cơ điện tử</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
-                            </form>
-                        </div>
-   </div>
+                        </nav>
+
+                    </div>
+                    
+                </div>

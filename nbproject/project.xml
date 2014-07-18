@@ -6,8 +6,15 @@
             <name>BlueBee_Project</name>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>học</word>
+            <word>mềm</word>
+            <word>nhúng</word>
             <word>nhất</word>
+            <word>năm</word>
+            <word>triển</word>
+            <word>viên</word>
             <word>website</word>
+            <word>án</word>
         </spellchecker-wordlist>
     </configuration>
 </project>
