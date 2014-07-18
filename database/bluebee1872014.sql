@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2014 at 02:37 PM
+-- Generation Time: Jul 18, 2014 at 06:06 PM
 -- Server version: 5.5.34
 -- PHP Version: 5.4.22
 
@@ -179,12 +179,12 @@ INSERT INTO `tbl_comment` (`comment_id`, `comment_post_id`, `comment_group_id`, 
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_dept` (
-  `dept_id` int(100) NOT NULL,
+  `dept_id` int(100) NOT NULL AUTO_INCREMENT,
   `dept_name` varchar(100) DEFAULT NULL,
   `dept_active` int(2) DEFAULT NULL,
   `dept_faculty` int(2) DEFAULT NULL,
   PRIMARY KEY (`dept_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -378,14 +378,14 @@ CREATE TABLE IF NOT EXISTS `tbl_post_group` (
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_program` (
-  `program_id` int(2) NOT NULL,
+  `program_id` int(2) NOT NULL AUTO_INCREMENT,
   `program_name` varchar(200) DEFAULT NULL,
   `program_credits` int(4) DEFAULT NULL,
   `program_year` int(4) DEFAULT NULL,
   `program_active` int(2) DEFAULT NULL,
   `program_code` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`program_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -394,12 +394,12 @@ CREATE TABLE IF NOT EXISTS `tbl_program` (
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_program_subject` (
-  `id` int(19) NOT NULL,
+  `id` int(19) NOT NULL AUTO_INCREMENT,
   `program_id` int(19) DEFAULT NULL,
   `subject_id` int(10) DEFAULT NULL,
   `is_active` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -433,13 +433,13 @@ CREATE TABLE IF NOT EXISTS `tbl_subject` (
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_subject_doc` (
-  `id` int(5) NOT NULL DEFAULT '0',
+  `id` int(5) NOT NULL AUTO_INCREMENT,
   `subject_id` int(5) DEFAULT NULL,
   `doc_id` int(5) DEFAULT NULL,
   `doc_type` int(2) DEFAULT NULL,
   `active` int(2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 

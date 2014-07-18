@@ -28,7 +28,7 @@ class SubjectDoc extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, subject_id, doc_id, doc_type, active', 'numerical', 'integerOnly'=>true),
+			array('subject_id, doc_id, doc_type, active', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, subject_id, doc_id, doc_type, active', 'safe', 'on'=>'search'),

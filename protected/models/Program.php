@@ -29,8 +29,7 @@ class Program extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('program_id', 'required'),
-			array('program_id, program_credits, program_year, program_active', 'numerical', 'integerOnly'=>true),
+			array('program_credits, program_year, program_active', 'numerical', 'integerOnly'=>true),
 			array('program_name, program_code', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

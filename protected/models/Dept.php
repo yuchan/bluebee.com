@@ -27,8 +27,7 @@ class Dept extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('dept_id', 'required'),
-			array('dept_id, dept_active, dept_faculty', 'numerical', 'integerOnly'=>true),
+			array('dept_active, dept_faculty', 'numerical', 'integerOnly'=>true),
 			array('dept_name', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

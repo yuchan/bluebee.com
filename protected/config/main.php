@@ -11,7 +11,7 @@ return array(
 
 	// preloading 'log' component
 	'preload'=>array('log'),
-        'defaultController' => 'ListOfSubject',   
+     //   'defaultController' => 'ListOfSubject',   
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
@@ -50,17 +50,17 @@ return array(
             
 		// uncomment the following to enable URLs in path-format
 
-		'urlManager'=>array(
-                    'urlFormat'=>'path',
-                    'showScriptName'=>false,
-                    'rules'=>array(
-                      '<controller:\w+>/<id:\d+>'=>'<controller>/view',
-                      '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-                      #'<controller:\w+>/<action:\w+>/<id:\d+>/<sex:\d+>'=>'<controller>/<action>',
-                      #'<controller:\w+>/<action:\w+>/<id:\d+>/<sex:\d+>/<userid:\d+>'=>'<controller>/<action>',
-                      '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
-                    ),
-                ),
+//		'urlManager'=>array(
+//                    'urlFormat'=>'path',
+//                    'showScriptName'=>false,
+//                    'rules'=>array(
+//                      '<controller:\w+>/<id:\d+>'=>'<controller>/view',
+//                      '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+//                      #'<controller:\w+>/<action:\w+>/<id:\d+>/<sex:\d+>'=>'<controller>/<action>',
+//                      #'<controller:\w+>/<action:\w+>/<id:\d+>/<sex:\d+>/<userid:\d+>'=>'<controller>/<action>',
+//                      '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+//                    ),
+//                ),
 
 		'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
