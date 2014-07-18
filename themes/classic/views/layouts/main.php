@@ -301,7 +301,7 @@
                                                 </nav>
 
                                             </div>
-                                            <a id="login" href="#">Đăng nhập</a>
+                                            <a id="login" href="#">Đăng nhập với facebook</a>
                                             <!-- SEARCH -->
                                             <div class="w-search submit_inside">
                                                 <div class="w-search-h">

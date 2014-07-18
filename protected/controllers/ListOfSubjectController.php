@@ -5,6 +5,10 @@ class ListOfSubjectController extends Controller {
     public function actionIndex() {
         $this->actionListOfSubject();
     }
+    
+    public function actionListSubject() {
+        
+    }
 
     public function actionListOfSubject() {
         $this->render('listOfSubject');
