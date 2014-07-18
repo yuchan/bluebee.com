@@ -325,7 +325,7 @@
                                     </div>
                                 </div>
                                 
-                                <div id="login_overlay" style="visibility: visible; transition: visibility 0s ease 0.2s, opacity 0.6s ease-in-out 0s; -webkit-transition: visibility 0s ease 0.2s, opacity 0.6s ease-in-out 0s;">
+                              <!--  <div id="login_overlay" style="visibility: visible; transition: visibility 0s ease 0.2s, opacity 0.6s ease-in-out 0s; -webkit-transition: visibility 0s ease 0.2s, opacity 0.6s ease-in-out 0s;">
                                     <div style="background-color: rgba(255, 255, 255, 0.88); position: fixed; top: 0px; left: 0px; right: 0px; bottom: 0px; transition: visibility 0s ease 0.2s, opacity 0.6s ease-in-out 0s; z-index: 994;"></div>
                                     <div id="login_dialog" style="border-radius: 8px; position: fixed; top: 50%; left: 50%; width: 600px; height: 456px; margin-top: -265px; z-index: 995; margin-left: -300px; background: url(http://cungnghe.com/img/login_welcome.png) 0px 0px no-repeat scroll rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.298039) 0px 2px 5px;transition: visibility 0s ease 0.2s, opacity 0.6s ease-in-out 0s; -webkit-transition: visibility 0s ease 0.2s, opacity 0.6s ease-in-out 0s;">
                                         <div style="padding: 13px 140px; height: 430px; text-align: center;">

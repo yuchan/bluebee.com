@@ -5,8 +5,16 @@ class ListOfSubjectController extends BaseController {
     public function actionIndex() {
         $this->render('listOfSubject');
     }
+    
+    public function actionListSubject() {
+       $subject_data_first = Subject::model()->findAllByAttributes(array('subject_dept' => 1,
+                    1,
+                    'subject_type' => 1)) ;
+        
+       $this->render('listOfSubject');  
+    }
 
-    public function actionListOfSubject() {
+    public function actionListOfSubject1() {
         $this->retVal = new stdClass();
         $request = Yii::app()->request;
         if ($request->isPostRequest && isset($_POST)) {
