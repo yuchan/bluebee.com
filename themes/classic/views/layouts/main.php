@@ -202,7 +202,7 @@
                                                                 </div>
                                                                 <div class="w-nav-item level_1">
                                                                     <div class="w-nav-item-h">
-                                                                        <a href="<?php echo Yii::app()->createUrl("share/teacherListPage") ?>" class="w-nav-anchor level_1">
+                                                                        <a href="<?php echo Yii::app()->createUrl("document") ?>" class="w-nav-anchor level_1">
                                                                             <span class="w-nav-icon"><i class="icon-star"></i></span>
                                                                             <span class="w-nav-title">Đề thi - Tài liệu</span>
                                                                             <span class="w-nav-hint"></span>
@@ -211,7 +211,7 @@
                                                                 </div>
                                                                 <div class="w-nav-item level_1">
                                                                     <div class="w-nav-item-h">
-                    <!--                                                    <a href="<?php echo Yii::app()->createUrl("document") ?>" class="w-nav-anchor level_1">
+                    <!--                                                    <a href="<?php echo Yii::app()->createUrl("share/teacherListPage") ?>" class="w-nav-anchor level_1">
                                                                             <span class="w-nav-icon"><i class="icon-star"></i></span>
                                                                             <span class="w-nav-title">Tài liệu</span>
                                                                             <span class="w-nav-hint"></span>

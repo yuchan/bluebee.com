@@ -10,7 +10,7 @@ class DocumentController extends BaseController {
 //    }
 
     public function actionIndex() {
-       
+
         //    $this->redirect('welcomePage');
 
         $this->actionDocument();
