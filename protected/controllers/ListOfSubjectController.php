@@ -1,26 +1,39 @@
 <?php
+
 Yii::import('application.controllers.BaseController');
+
 class ListOfSubjectController extends BaseController {
 
     public function actionIndex() {
         $this->actionListOfSubject();
     }
-    
-//    public function actionListSubject() {
-////       $subject_data_first = Subject::model()->findAllByAttributes(array('subject_dept' => 1,
-////                    1,
-////                    'subject_type' => 1)) ;
-////        
-////       $this->render('listOfSubject');  
-//    }
-    
+
     public function actionListOfSubject() {
         $category_father = Faculty::model()->findAll();
         $subject_type = SubjectType::model()->findAll();
         $this->render('listOfSubject', array('category_father' => $category_father, 'subject_type' => $subject_type));
     }
 
-    public function actionListOfSubject1() {
+    public function actionInfo() {
+        $category_father = Faculty::model()->findAll();
+        $subject_type = SubjectType::model()->findAll();
+
+        $this->render('info', array('category_father' => $category_father, 'subject_type' => $subject_type));
+    }
+
+    public function actionSubject() {
+        $category_father = Faculty::model()->findAll();
+        $subject_type = SubjectType::model()->findAll();
+        $this->render('subject', array('category_father' => $category_father, 'subject_type' => $subject_type));
+    }
+
+    public function actionCourseOfStudy() {
+        $category_father = Faculty::model()->findAll();
+        $subject_type = SubjectType::model()->findAll();
+        $this->render('courseOfStudy', array('category_father' => $category_father, 'subject_type' => $subject_type));
+    }
+
+    public function actionListOfSubjectInfo() {
         $this->retVal = new stdClass();
         $request = Yii::app()->request;
         if ($request->isPostRequest && isset($_POST)) {
@@ -39,13 +52,9 @@ class ListOfSubjectController extends BaseController {
             } catch (exception $e) {
                 // $this->retVal->message = $e->getMessage();
             }
-        } else {
-            $this->retVal->message = 0;
+            echo CJSON::encode($this->retVal);
+            Yii::app()->end();
         }
-
-        echo CJSON::encode($this->retVal);
-        $this->render('listOfSubject', array('subject_data'=>$subject_data));
-        Yii::app()->end();
     }
 
 }

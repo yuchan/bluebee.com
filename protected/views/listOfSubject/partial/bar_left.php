@@ -1,8 +1,10 @@
+
 <div class="one-fourth" style="
      border-right-style: double;
      border-right-width: thick;
      border-color: #d0d6d9;
      ">
+    <?php $this->renderPartial('partial/jquery_bar_left');?>
     <h3>Các chủ đề</h3>            
     <div class="widget">
         <nav class="w-nav">
@@ -19,7 +21,7 @@
                                             <div class="w-tabs-section with_icon">
                                                 <div class="w-tabs-section-title">
                                                     <a href="#" class="w-nav-anchor level_1">
-                                                        <span class="w-nav-title" faculty-id="<?php echo $category->faculty_id ?>"><?php echo $category->faculty_name ?></span>
+                                                        <span class="w-nav-title faculty" faculty-id="<?php echo $category->faculty_id ?>"><?php echo $category->faculty_name ?></span>
                                                     </a>
                                                     </span>
                                                 </div>
@@ -33,7 +35,7 @@
                                                                 <div class="w-tabs-section with_icon">
 
                                                                     <div class="w-tabs-section-title">
-                                                                        <span class="w-tabs-section-title-text" style="margin-left: 32px" faculty-id="<?php echo $category->faculty_id ?>" dept-id="<?php echo $dept_detail->dept_id ?>">- <?php echo $dept_detail->dept_name ?></span>
+                                                                        <span class="w-tabs-section-title-text dept" style="margin-left: 32px" faculty-id="<?php echo $category->faculty_id ?>" dept-id="<?php echo $dept_detail->dept_id ?>">- <?php echo $dept_detail->dept_name ?></span>
                                                                     </div>
                                                                     <div class="w-tabs-section-content">
                                                                         <div class="w-tabs-section-content-h">
@@ -42,7 +44,7 @@
                                                                                     <div class="w-nav-item-h">
 
                                                                                         <a href="#" class="w-nav-anchor level_2">
-                                                                                            <span class="w-nav-title" faculty-id="<?php echo $category->faculty_id; ?>" dept-id="<?php echo $dept_detail->dept_id ?>" subject-type="<?php echo $subject_detail->id ?>">
+                                                                                            <span class="w-nav-title subject" faculty-id="<?php echo $category->faculty_id; ?>" dept-id="<?php echo $dept_detail->dept_id ?>" subject-type="<?php echo $subject_detail->id ?>">
                                                                                                 <?php echo $subject_detail->subject_type_name ?>
                                                                                             </span>
                                                                                         </a>
