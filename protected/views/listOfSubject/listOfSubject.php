@@ -1,3 +1,4 @@
+<?php $this->renderPartial('partial/jquery_bar_left');?>
 <div class="l-submain">
     <div class="l-submain-h i-cf">
         <div class="g-cols">

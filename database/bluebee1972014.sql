@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2014 at 11:14 AM
+-- Generation Time: Jul 19, 2014 at 11:53 AM
 -- Server version: 5.5.34
 -- PHP Version: 5.4.22
 
@@ -183,6 +183,11 @@ CREATE TABLE IF NOT EXISTS `tbl_dept` (
   `dept_name` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `dept_active` int(2) DEFAULT NULL,
   `dept_faculty` int(2) DEFAULT NULL,
+  `dept_target` text CHARACTER SET utf8,
+  `dept_knowleadge` text CHARACTER SET utf8,
+  `dept_behavior` text CHARACTER SET utf8,
+  `dept_out_standard` text CHARACTER SET utf8,
+  `dept_contact` text CHARACTER SET utf8,
   PRIMARY KEY (`dept_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
@@ -190,9 +195,9 @@ CREATE TABLE IF NOT EXISTS `tbl_dept` (
 -- Dumping data for table `tbl_dept`
 --
 
-INSERT INTO `tbl_dept` (`dept_id`, `dept_name`, `dept_active`, `dept_faculty`) VALUES
-(1, 'Khoa học máy tính', 1, 1),
-(2, 'Công nghệ thông tin', 1, 1);
+INSERT INTO `tbl_dept` (`dept_id`, `dept_name`, `dept_active`, `dept_faculty`, `dept_target`, `dept_knowleadge`, `dept_behavior`, `dept_out_standard`, `dept_contact`) VALUES
+(1, 'Khoa học máy tính', 1, 1, NULL, NULL, NULL, NULL, NULL),
+(2, 'Công nghệ thông tin', 1, 1, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 

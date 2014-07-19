@@ -8,6 +8,11 @@
  * @property string $dept_name
  * @property integer $dept_active
  * @property integer $dept_faculty
+ * @property string $dept_target
+ * @property string $dept_knowleadge
+ * @property string $dept_behavior
+ * @property string $dept_out_standard
+ * @property string $dept_contact
  */
 class Dept extends CActiveRecord
 {
@@ -29,9 +34,10 @@ class Dept extends CActiveRecord
 		return array(
 			array('dept_active, dept_faculty', 'numerical', 'integerOnly'=>true),
 			array('dept_name', 'length', 'max'=>100),
+			array('dept_target, dept_knowleadge, dept_behavior, dept_out_standard, dept_contact', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('dept_id, dept_name, dept_active, dept_faculty', 'safe', 'on'=>'search'),
+			array('dept_id, dept_name, dept_active, dept_faculty, dept_target, dept_knowleadge, dept_behavior, dept_out_standard, dept_contact', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,6 +62,11 @@ class Dept extends CActiveRecord
 			'dept_name' => 'Dept Name',
 			'dept_active' => 'Dept Active',
 			'dept_faculty' => 'Dept Faculty',
+			'dept_target' => 'Dept Target',
+			'dept_knowleadge' => 'Dept Knowleadge',
+			'dept_behavior' => 'Dept Behavior',
+			'dept_out_standard' => 'Dept Out Standard',
+			'dept_contact' => 'Dept Contact',
 		);
 	}
 
@@ -81,6 +92,11 @@ class Dept extends CActiveRecord
 		$criteria->compare('dept_name',$this->dept_name,true);
 		$criteria->compare('dept_active',$this->dept_active);
 		$criteria->compare('dept_faculty',$this->dept_faculty);
+		$criteria->compare('dept_target',$this->dept_target,true);
+		$criteria->compare('dept_knowleadge',$this->dept_knowleadge,true);
+		$criteria->compare('dept_behavior',$this->dept_behavior,true);
+		$criteria->compare('dept_out_standard',$this->dept_out_standard,true);
+		$criteria->compare('dept_contact',$this->dept_contact,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

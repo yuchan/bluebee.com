@@ -33,24 +33,21 @@ class ListOfSubjectController extends BaseController {
         $this->render('courseOfStudy', array('category_father' => $category_father, 'subject_type' => $subject_type));
     }
 
-    public function actionListOfSubjectInfo() {
-        $this->retVal = new stdClass();
+       public function actionDeptInfo() {
+         $this->retVal = new stdClass();
         $request = Yii::app()->request;
         if ($request->isPostRequest && isset($_POST)) {
             try {
                 $listSubjectData = array(
-                    'subject_dept' => $_POST['subject_dept'],
-                    'subject_faculty' => $_POST['subject_faculty'],
-                    'subject_type' => $_POST['subject_type'],
+                    'dept_id' => $_POST['dept_id'],
+                    'faculty_id' => $_POST['faculty_id'],
                 );
-
-                $subject_data = Subject::model()->findAllByAttributes(array('subject_dept' => $listSubjectData['subject_dept'],
-                    'subject_faculty' => $listSubjectData['subject_faculty'],
-                    'subject_type' => $listSubjectData['subject_type'],));
-                $this->retVal->data = $subject_data;
+                $dept_data = Dept::model()->findAllByAttributes(array('dept_id' => $listSubjectData['dept_id'],
+                    'dept_faculty' => $listSubjectData['faculty_id']));
+                $this->retVal->dept_data = $dept_data;
                 $this->retVal->message = 1;
             } catch (exception $e) {
-                 $this->retVal->message = $e->getMessage();
+                $this->retVal->message = $e->getMessage();
             }
             echo CJSON::encode($this->retVal);
             Yii::app()->end();

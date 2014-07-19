@@ -4,7 +4,7 @@
      border-right-width: thick;
      border-color: #d0d6d9;
      ">
-    <?php $this->renderPartial('partial/jquery_bar_left');?>
+
     <h3>Các chủ đề</h3>            
     <div class="widget">
         <nav class="w-nav">
