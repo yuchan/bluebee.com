@@ -195,7 +195,7 @@
                                                                     <div class="w-nav-item-h">
                                                                         <a href="<?php echo Yii::app()->createUrl("home") ?>" class="w-nav-anchor level_1">
                                                                             <span class="w-nav-icon"><i class="icon-star"></i></span>
-                                                                            <span class="w-nav-title">Trang chủ</span>
+                                                                            <span class="w-nav-title">Chương trình đào tạo</span>
                                                                             <span class="w-nav-hint"></span>
                                                                         </a>
                                                                     </div>
@@ -204,7 +204,7 @@
                                                                     <div class="w-nav-item-h">
                                                                         <a href="<?php echo Yii::app()->createUrl("share/teacherListPage") ?>" class="w-nav-anchor level_1">
                                                                             <span class="w-nav-icon"><i class="icon-star"></i></span>
-                                                                            <span class="w-nav-title">Giáo viên</span>
+                                                                            <span class="w-nav-title">Đề thi - Tài liệu</span>
                                                                             <span class="w-nav-hint"></span>
                                                                         </a>
                                                                     </div>
@@ -223,7 +223,7 @@
                                                                     <div class="w-nav-item-h">
                                                                         <a href="#" class="w-nav-anchor level_1">
                                                                             <span class="w-nav-icon"><i class="icon-star"></i></span>
-                                                                            <span class="w-nav-title">Lớp môn học</span>
+                                                                            <span class="w-nav-title">Giáo viên</span>
                                                                             <span class="w-nav-hint"></span>
                                                                         </a>
                                                                     </div>

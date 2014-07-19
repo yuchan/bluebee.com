@@ -9,8 +9,9 @@
                 type: "POST",
                         url: "<?php echo Yii::app()->createUrl('ListOfSubject/ListOfSubjectInfo') ?>",
                         data: { subject_dept: dept_id, subject_faculty: faculty_id, subject_type:subject_type },
+                        dataType: 'json',
                         success: function(data) {
-                           
+                           console.log(data);
                         }
 
             });
