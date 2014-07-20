@@ -21,7 +21,9 @@ class DocumentController extends BaseController {
         $Criteria->select = "*";
         $Criteria->order = "doc_id DESC";
 
-        $this->render('document', array('document' => Doc::model()->findAll($Criteria)));
+        $subject = Subject::model()->findAll();
+
+        $this->render('document', array('document' => Doc::model()->findAll($Criteria), 'subject_list' => $subject));
     }
 
     public function actionViewDocument() {
@@ -30,16 +32,15 @@ class DocumentController extends BaseController {
 
     public function actionUpload() {
         //$ds = DIRECTORY_SEPARATOR;  //1
+        $subject_id = strip_tags($_POST['subject_id']);
+        $doc_name = strip_tags($_POST['doc_name']);
+        $doc_description = strip_tags($_POST['$doc_description']);
+        $doc_author = Yii::app()->session['user_id'];
         $api_key = "24cxjtv3vw69wu5p7pqd9";
         $secret = "sec-b2rlvg8kxwwpkz9fo3i02mo9vo";
-
         $this->retVal = new stdClass();
-
         $scribd = new Scribd($api_key, $secret);
-
         $storeFolder = Yii::app()->basePath . '/uploads/';   //2
-
-
         $tempFile = $_FILES['file']['tmp_name'];          //3
         $targetPath = $storeFolder;  //4
         $targetFile = $targetPath . $_FILES['file']['name'];  //5
@@ -54,41 +55,25 @@ class DocumentController extends BaseController {
             'height' => '220');
         $get_thumbnail = $scribd->postRequest('thumbnail.get', $thumbnail_info);
         // var_dump($get_thumbnail);
+        $doc_model = new Doc;
+        $doc_model->doc_name = $doc_name;
+        $doc_model->doc_description = $doc_description;
+        $doc_model->doc_scribd_id = $upload_scribd["doc_id"];
+        $doc_model->doc_url = $get_thumbnail["thumbnail_url"];
+        $doc_model->doc_type = 1;
+        $doc_model->doc_status = 1;
+        $doc_model->doc_aturhor = $doc_author;
+        $doc_model->save(FALSE);
+        $doc_subject = new SubjectDoc;
+        $doc_subject->doc_id = $doc_model->doc_id;
+        $doc_subject->doc_type = $doc_model->doc_type;
+        $doc_subject->subject_id = $subject_id;
+        $doc_subject->active = 1;
+        $doc_subject->save(FALSE);
         $this->retVal->docid = $upload_scribd["doc_id"];
         $this->retVal->thumbnail = $get_thumbnail["thumbnail_url"];
-        echo CJSON::encode($this->retVal);
-        Yii::app()->end();
-    }
-
-    public function actionUpdateInfo() {
-        //   $this->retVal = new stdClass();
-        $request = Yii::app()->request;
-        if ($request->isPostRequest && isset($_POST)) {
-            try {
-                $loginFormData = array(
-                    'description' => @$_POST['description'],
-                    'title' => @$_POST['title'],
-                    'faculty' => @$_POST['faculty'],
-                    'doc_id' => @$_POST['doc_id'],
-                    'thumbnail_url' => @$_POST['thumbnail_url']
-                );
-                $doc_model = new Doc;
-                $doc_model->doc_name = $loginFormData['title'];
-                $doc_model->doc_description = $loginFormData['description'];
-                $doc_model->doc_scribd_id = $loginFormData["doc_id"];
-                $doc_model->doc_url = $loginFormData["thumbnail_url"];
-                $doc_model->doc_faculty_id = $loginFormData['faculty'];
-                $doc_model->doc_status = 1;
-                $doc_model->save(FALSE);
-            } catch (exception $e) {
-                // $this->retVal->message = $e->getMessage();
-            }
-        }
-        $this->retVal->docid = $loginFormData["doc_id"];
-        $this->retVal->thumbnail = $loginFormData["thumbnail_url"];
-        $this->retVal->title = $loginFormData["title"];
-        $this->retVal->description = $loginFormData["description"];
-        $this->retVal->faculty = $loginFormData["faculty"];
+        $this->retVal->doc_name = $doc_name;
+        $this->retVal->user_name = Yii::app()->session['user_name'];
         echo CJSON::encode($this->retVal);
         Yii::app()->end();
     }
@@ -103,7 +88,7 @@ class DocumentController extends BaseController {
                 );
                 $Criteria = new CDbCriteria(); //represent for query such as conditions, ordering by, limit/offset.
                 $Criteria->select = "*";
-                $Criteria->order = "doc_id ".$FilerFormData['filter_time'];
+                $Criteria->order = "doc_id " . $FilerFormData['filter_time'];
                 $result = Doc::model()->findAll($Criteria);
                 $this->retVal = $result;
             } catch (exception $e) {
@@ -113,7 +98,7 @@ class DocumentController extends BaseController {
         echo CJSON::encode($this->retVal);
         Yii::app()->end();
     }
-    
+
     public function actionFilterDocumentBySubject() {
         $request = Yii::app()->request;
         if ($request->isPostRequest && isset($_POST)) {
@@ -124,7 +109,7 @@ class DocumentController extends BaseController {
                 $Criteria = new CDbCriteria(); //represent for query such as conditions, ordering by, limit/offset.
                 $Criteria->select = "*";
                 $Criteria->order = "doc_id DESC";
-                $Criteria->condition = "subject_id = '".$FilerFormData['subject_id']."'";
+                $Criteria->condition = "subject_id = '" . $FilerFormData['subject_id'] . "'";
                 $result = SubjectDoc::model()->findAll($Criteria);
                 $this->retVal = $result;
             } catch (exception $e) {
