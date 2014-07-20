@@ -93,30 +93,44 @@ class DocumentController extends BaseController {
         Yii::app()->end();
     }
 
-    public function actionComment() {
-        $this->retVal = new stdClass();
+    public function actionFilterDocumentByTime() {
+
         $request = Yii::app()->request;
         if ($request->isPostRequest && isset($_POST)) {
             try {
-                $loginFormData = array(
-                    'comment_doc_id' => $_POST['comment_doc_id'],
-                    'comment_content' => $_POST['content'],
+                $FilerFormData = array(
+                    'filter_time' => $_POST['filter_time'],
                 );
-                $comment_model = new Comment;
-                $comment_model->comment_doc_id = $loginFormData['comment_doc_id'];
-                $comment_model->comment_content = $loginFormData['comment_content'];
-
-                $comment_model->save(FALSE);
-                if ($comment_model->save(FALSE)) {
-                    $this->retVal->success = TRUE;
-                } else {
-                    $this->retVal->success = FALSE;
-                }
+                $Criteria = new CDbCriteria(); //represent for query such as conditions, ordering by, limit/offset.
+                $Criteria->select = "*";
+                $Criteria->order = "doc_id ".$FilerFormData['filter_time'];
+                $result = Doc::model()->findAll($Criteria);
+                $this->retVal = $result;
             } catch (exception $e) {
                 // $this->retVal->message = $e->getMessage();
             }
         }
-        $this->retVal->message = $loginFormData['comment_content'];
+        echo CJSON::encode($this->retVal);
+        Yii::app()->end();
+    }
+    
+    public function actionFilterDocumentBySubject() {
+        $request = Yii::app()->request;
+        if ($request->isPostRequest && isset($_POST)) {
+            try {
+                $FilerFormData = array(
+                    'subject_id' => $_POST['subject_id'],
+                );
+                $Criteria = new CDbCriteria(); //represent for query such as conditions, ordering by, limit/offset.
+                $Criteria->select = "*";
+                $Criteria->order = "doc_id DESC";
+                $Criteria->condition = "subject_id = '".$FilerFormData['subject_id']."'";
+                $result = SubjectDoc::model()->findAll($Criteria);
+                $this->retVal = $result;
+            } catch (exception $e) {
+                // $this->retVal->message = $e->getMessage();
+            }
+        }
         echo CJSON::encode($this->retVal);
         Yii::app()->end();
     }
