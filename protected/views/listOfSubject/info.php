@@ -5,7 +5,6 @@
               <?php $this->renderPartial("partial/bar_left",  array('category_father'=>$category_father, 'subject_type' => $subject_type)); ?>
             <div class="three-fourths">
                 <div class="head">Khung chương trình đào tạo</div>
-                <div class="head">Công nghệ thông tin</div>
                 <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/show_picture.jpg">
                 <p style="margin-top: 20px"> With over 100 courses of study, the nine UET faculties offer you a broad program of engineering sciences, natural sciences, geosciences, business and economics, humanities, and medical subjects. Since winter semester 2012/2013, UET has converted all of its courses of study to the Bachelor-Master structure.  Medicine and dentistry are two exceptions.  Other courses of study with the Diplom and Staatsexamen degree can only be studied in higher core semesters.</p>
                 <div class="head1">Các ngành đào tạo - <a>Nhiệm vụ chiến lược</a></div>
