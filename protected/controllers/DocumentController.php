@@ -44,36 +44,58 @@ class DocumentController extends BaseController {
         $tempFile = $_FILES['file']['tmp_name'];          //3
         $targetPath = $storeFolder;  //4
         $targetFile = $targetPath . $_FILES['file']['name'];  //5
+        $ext = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
         move_uploaded_file($tempFile, $targetFile); //6
-        $upload_scribd = $scribd->upload($targetFile);
-        //var_dump($upload_scribd);
-        $thumbnail_info = array('doc_id' => $upload_scribd["doc_id"],
-            'method' => NULL,
-            'session_key' => NULL,
-            'my_user_id' => NULL,
-            'width' => '180',
-            'height' => '220');
-        $get_thumbnail = $scribd->postRequest('thumbnail.get', $thumbnail_info);
-        // var_dump($get_thumbnail);
-        $doc_model = new Doc;
-        $doc_model->doc_name = $doc_name;
-        $doc_model->doc_description = $doc_description;
-        $doc_model->doc_scribd_id = $upload_scribd["doc_id"];
-        $doc_model->doc_url = $get_thumbnail["thumbnail_url"];
-        $doc_model->doc_type = 1;
-        $doc_model->doc_status = 1;
-        $doc_model->doc_aturhor = $doc_author;
-        $doc_model->save(FALSE);
-        $doc_subject = new SubjectDoc;
-        $doc_subject->doc_id = $doc_model->doc_id;
-        $doc_subject->doc_type = $doc_model->doc_type;
-        $doc_subject->subject_id = $subject_id;
-        $doc_subject->active = 1;
-        $doc_subject->save(FALSE);
-        $this->retVal->docid = $upload_scribd["doc_id"];
-        $this->retVal->thumbnail = $get_thumbnail["thumbnail_url"];
-        $this->retVal->doc_name = $doc_name;
-        $this->retVal->user_name = Yii::app()->session['user_name'];
+        if ($ext == "gif" || $ext == "jpg" || $ext == "jpeg" || $ext == "pjepg" || $ext == "png" || $ext == "x-png") {
+            $doc_model = new Doc;
+            $doc_model->doc_name = $doc_name;
+            $doc_model->doc_description = $doc_description;
+            $doc_model->doc_url = $targetFile;
+            $doc_model->doc_type = 1;
+            $doc_model->doc_status = 1;
+            $doc_model->doc_aturhor = $doc_author;
+            $doc_model->save(FALSE);
+            $doc_subject = new SubjectDoc;
+            $doc_subject->doc_id = $doc_model->doc_id;
+            $doc_subject->doc_type = $doc_model->doc_type;
+            $doc_subject->subject_id = $subject_id;
+            $doc_subject->active = 1;
+            $doc_subject->save(FALSE);
+            $this->retVal->docid = $upload_scribd["doc_id"];
+            $this->retVal->url = $targetFile;
+            $this->retVal->doc_name = $doc_name;
+            $this->retVal->user_name = Yii::app()->session['user_name'];
+        } else {
+            $upload_scribd = $scribd->upload($targetFile);
+            //var_dump($upload_scribd);
+            $thumbnail_info = array('doc_id' => $upload_scribd["doc_id"],
+                'method' => NULL,
+                'session_key' => NULL,
+                'my_user_id' => NULL,
+                'width' => '180',
+                'height' => '220');
+            $get_thumbnail = $scribd->postRequest('thumbnail.get', $thumbnail_info);
+            // var_dump($get_thumbnail);
+            $doc_model = new Doc;
+            $doc_model->doc_name = $doc_name;
+            $doc_model->doc_description = $doc_description;
+            $doc_model->doc_scribd_id = $upload_scribd["doc_id"];
+            $doc_model->doc_url = $get_thumbnail["thumbnail_url"];
+            $doc_model->doc_type = 1;
+            $doc_model->doc_status = 1;
+            $doc_model->doc_aturhor = $doc_author;
+            $doc_model->save(FALSE);
+            $doc_subject = new SubjectDoc;
+            $doc_subject->doc_id = $doc_model->doc_id;
+            $doc_subject->doc_type = $doc_model->doc_type;
+            $doc_subject->subject_id = $subject_id;
+            $doc_subject->active = 1;
+            $doc_subject->save(FALSE);
+            $this->retVal->docid = $upload_scribd["doc_id"];
+            $this->retVal->thumbnail = $get_thumbnail["thumbnail_url"];
+            $this->retVal->doc_name = $doc_name;
+            $this->retVal->user_name = Yii::app()->session['user_name'];
+        }
         echo CJSON::encode($this->retVal);
         Yii::app()->end();
     }
