@@ -22,7 +22,8 @@ class ShareController extends Controller {
     }
     
     public function actionTeacherListPage() {
-        $this->render('teacherListPage');
+        $teacher_list = Teacher::model()->findAll();
+        $this->render('teacherListPage', array('teacher_list' => $teacher_list));
     }
 
     public function actionSubject() {
