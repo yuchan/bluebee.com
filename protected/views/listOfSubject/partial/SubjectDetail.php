@@ -4,7 +4,7 @@
             var faculty_id = $(this).attr("faculty-id");
             var dept_id = $(this).attr("dept-id");
             var subject_type = $(this).attr("subject-type");
-            $(this).click(function() {
+            $(this).one('click',function() {
                 $.ajax({
                     type: "POST",
                     url: "<?php echo Yii::app()->createUrl('listOfSubject/listOfSubjectInfo') ?>",
