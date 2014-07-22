@@ -16,7 +16,7 @@
                     url: '<?php echo Yii::app()->createUrl('classPage/changeClassInformation?classid=' . $class->class_id) ?>',
                     data: data,
                     success: function(data) {
-                        var json = data;
+                        
                         var result = $.parseJSON(json);
                         $('#alert1').html('');
                         if (result.success == 1) {

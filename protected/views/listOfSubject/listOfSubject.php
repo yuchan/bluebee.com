@@ -1,8 +1,8 @@
-<?php $this->renderPartial('partial/jquery_bar_left');?>
+
 <div class="l-submain">
     <div class="l-submain-h i-cf">
         <div class="g-cols">
-            <?php $this->renderPartial("partial/bar_left",  array('category_father'=>$category_father, 'subject_type' => $subject_type)); ?>
+            <?php $this->renderPartial("partial/bar_left", array('category_father' => $category_father, 'subject_type' => $subject_type)); ?>
             <div class="three-fourths">
                 <div class="head">Khối kiến thức chung</div>
                 <div class="w-tabs">
@@ -110,102 +110,7 @@
                 <div class="g-hr type_invisible"></div>
 
                 <!-- Table -->
-                <table class="g-table">
-                    <thead>
-                        <tr>
-                            <th>Môn học</th>
-                            <th>Số tín chỉ</th>
-                            <th>Số giờ tín chỉ</th>
-                            <th>Mã môn học</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="border-bottom: 1px solid #d0d6d9">
-                            <td><a>Những nguyên lý cơ bản của chủ nghĩa Mác - Lênin 1</a></td>
-                            <td>2</td>
-                            <td>21 - 5 - 4</td>
-                            <td>PHI1004</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #d0d6d9">
-                            <td><a>Những nguyên lý cơ bản của chủ nghĩa Mác – Lênin 2</a></td>
-                            <td>3</td>
-                            <td>32 - 8 - 5</td>
-                            <td>PHI1005</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #d0d6d9">
-                            <td><a>Tư tưởng Hồ Chí Minh</a></td>
-                            <td>2</td>
-                            <td>20 - 8 - 2</td>
-                            <td>POL1001</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #d0d6d9">
-                            <td><a>Đường lối cách mạng của Đảng Cộng sản Việt Nam</a></td>
-                            <td>3</td>
-                            <td>35 - 7 - 3</td>
-                            <td>HIS1002</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #d0d6d9">
-                            <td><a>Tin học cơ sở 1</a></td>
-                            <td>2</td>
-                            <td>10 - 20</td>
-                            <td>INT1003</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #d0d6d9">
-                            <td><a>Tin học cơ sở 4</a></td>
-                            <td>3</td>
-                            <td>20 - 23 - 2</td>
-                            <td>INT1006</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #d0d6d9">
-                            <td><a>Tiếng Anh A1</a></td>
-                            <td>4</td>
-                            <td>16 - 40 - 4</td>
-                            <td>FLF1105</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #d0d6d9">
-                            <td><a>Tiếng Anh A2</a></td>
-                            <td>5</td>
-                            <td>20 - 50 - 5</td>
-                            <td>FLF1106</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #d0d6d9">
-                            <td><a>Tiếng Anh B1</a></td>
-                            <td>5</td>
-                            <td>20 - 50 - 5</td>
-                            <td>FLF1107</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #d0d6d9">
-                            <td><a>Tiếng Anh B2</a></td>
-                            <td>5</td>
-                            <td>20 - 50 - 5</td>
-                            <td>FLF1108</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #d0d6d9">
-                            <td><a>Tiếng Anh C1</a></td>
-                            <td>5</td>
-                            <td>20 - 50 - 5</td>
-                            <td>FLF1109</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #d0d6d9">
-                            <td><a>Giáo dục thể chất</a></td>
-                            <td>4</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #d0d6d9">
-                            <td><a>Giáo dục quốc phòng - an ninh</a> </td>
-                            <td>8</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #d0d6d9">
-                            <td><a>Kỹ năng mềm</a></td>
-                            <td>3</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <?php $this->renderPartial('partial/SubjectDetail') ?>
             </div>
         </div>
     </div>
