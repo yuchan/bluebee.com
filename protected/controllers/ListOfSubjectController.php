@@ -80,7 +80,7 @@ class ListOfSubjectController extends BaseController {
                 $subject_data = Subject::model()->findAllByAttributes(array('subject_dept' => $listSubjectData['subject_dept'],
                     'subject_faculty' => $listSubjectData['subject_faculty'],
                     'subject_type' => $listSubjectData['subject_type'],));
-                $this->retVal->data = $subject_data;
+                $this->retVal->subject_data = $subject_data;
                 $dept_data = Dept::model()->findAllByAttributes(array('dept_id' => $listSubjectData['dept_id'],
                     'dept_faculty' => $listSubjectData['faculty_id']));
                 $this->retVal->dept_data = $dept_data;
