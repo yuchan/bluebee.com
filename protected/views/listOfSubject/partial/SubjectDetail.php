@@ -18,7 +18,7 @@
 
                             $('#listsubject').append(
                                     '<tr style="border-bottom: 1px solid #d0d6d9">' +
-                                    '<td><a>' + this.subject_name + '</a></td>' +
+                                    '<td><a href = "<?php echo Yii::app()->createUrl('subject') ?>'+this.subject_id+'">' + this.subject_name + '</a></td>' +
                                     '<td>2</td>' +
                                     '<td>21 - 5 - 4</td>' +
                                     '<td>PHI1004</td>' +
