@@ -89,7 +89,7 @@ class ListOfSubjectController extends BaseController {
                 $this->retVal->message = 1;
             } catch (exception $e) {
                 $this->retVal->message = $e->getMessage();
-                $this->retVal->message = $e->getMessage();
+                
             }
             echo CJSON::encode($this->retVal);
             Yii::app()->end();
