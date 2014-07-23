@@ -35,7 +35,7 @@
                                                                 <div class="w-tabs-section with_icon">
 
                                                                     <div class="w-tabs-section-title">
-                                                                        <span class="w-tabs-section-title-text dept" style="margin-left: 32px" faculty-id="<?php echo $category->faculty_id ?>" dept-id="<?php echo $dept_detail->dept_id ?>">- <?php echo $dept_detail->dept_name ?></span>
+                                                                        <a class="w-tabs-section-title-text dept" style="margin-left: 32px" faculty-id="<?php echo $category->faculty_id ?>" dept-id="<?php echo $dept_detail->dept_id ?>">- <?php echo $dept_detail->dept_name ?></a>
                                                                     </div>
                                                                     <div class="w-tabs-section-content">
                                                                         <div class="w-tabs-section-content-h">

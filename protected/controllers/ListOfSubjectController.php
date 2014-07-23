@@ -92,7 +92,7 @@ class ListOfSubjectController extends BaseController {
                 $subject_data = Subject::model()->findAllByAttributes(array('subject_dept' => $listSubjectData['subject_dept'],
                     'subject_faculty' => $listSubjectData['subject_faculty'],
                     'subject_type' => $listSubjectData['subject_type'],));
-                $subject_type_group = SubjectGroupType::model()->findAllByAttributes(array('subject_type_id' => $listSubjectData['subject_type']));
+                $subject_type_group = SubjectGroupType::model()->findAllByAttributes(array('subject_group' => $listSubjectData['subject_type']));
                 $this->retVal->subject_data = $subject_data;
                 $this->retVal->subject_group_type = $subject_type_group;
 

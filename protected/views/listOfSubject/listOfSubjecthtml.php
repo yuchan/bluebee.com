@@ -1,26 +1,11 @@
 
-               <div class="head">Khối kiến thức chung</div>
-                <div class="w-tabs">
-                    <div class="w-tabs-h">
-                        <div class="w-tabs-list">
-                            <div class="w-tabs-item active">
-                                <span class="w-tabs-item-icon"></span>
-                                <span class="w-tabs-item-title">Lý luận chính trị</span>
-                            </div>
-                            <div class="w-tabs-item">
-                                <span class="w-tabs-item-icon"></span>
-                                <span class="w-tabs-item-title">Tin học</span>
-                            </div>
-                            <div class="w-tabs-item">
-                                <span class="w-tabs-item-icon"></span>
-                                <span class="w-tabs-item-title">Ngoại ngữ</span>
-                            </div>
-                            <div class="w-tabs-item">
-                                <span class="w-tabs-item-icon"></span>
-                                <span class="w-tabs-item-title">GD thể chất & QPAN</span>
-                            </div>
-                        </div>
-                        <div class="w-tabs-section active">
+<div class="head">Khối kiến thức chung</div>
+<div class="w-tabs">
+    <div class="w-tabs-h" id="subject_type_details">
+        <div class="w-tabs-list" id="subject_type_tab">
+
+        </div>
+        <div class="w-tabs-section active">
                             <div class="w-tabs-section-title">
                                 <span class="w-tabs-section-title-icon"></span>
                                 <span class="w-tabs-section-title-text">Lý luận chính trị</span>
@@ -92,18 +77,22 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="g-hr type_short">
-                    <span class="g-hr-h">
-                        <i class="icon-arrow-down"></i>
-                    </span>
-                </div>
 
-                <h3 style="text-align: center;">Danh sách môn học</h3>
-                <div class="g-hr type_invisible"></div>
 
-                <!-- Table -->
-                <?php $this->renderPartial('partial/SubjectDetail') ?>
+
+    </div>
+</div>
+
+<div class="g-hr type_short">
+    <span class="g-hr-h">
+        <i class="icon-arrow-down"></i>
+    </span>
+</div>
+
+<h3 style="text-align: center;">Danh sách môn học</h3>
+<div class="g-hr type_invisible"></div>
+
+<!-- Table -->
+<?php $this->renderPartial('partial/SubjectDetail') ?>
      
