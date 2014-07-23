@@ -44,7 +44,7 @@ class ListOfSubjectController extends BaseController {
     }
 
     public function actionDeptInfo() {
-          $category_father = $this->listCategoryFather();
+        $category_father = $this->listCategoryFather();
         $subject_type = $this->listSubjectType();
         $this->retVal = new stdClass();
         $request = Yii::app()->request;
@@ -68,6 +68,14 @@ class ListOfSubjectController extends BaseController {
         }
     }
 
+    public function actionListOfSubjectInfoView() {
+        $this->retVal = new stdClass();
+        $html = $this->renderPartial('listOfSubjecthtml', FALSE);
+       
+        echo $html;
+        Yii::app()->end();
+    }
+
     public function actionListOfSubjectInfo() {
         $this->retVal = new stdClass();
         $request = Yii::app()->request;
@@ -87,13 +95,14 @@ class ListOfSubjectController extends BaseController {
                 $subject_type_group = SubjectGroupType::model()->findAllByAttributes(array('subject_type_id' => $listSubjectData['subject_type']));
                 $this->retVal->subject_data = $subject_data;
                 $this->retVal->subject_group_type = $subject_type_group;
+
                 $dept_data = Dept::model()->findAllByAttributes(array('dept_id' => $listSubjectData['dept_id'],
                     'dept_faculty' => $listSubjectData['faculty_id']));
                 $this->retVal->dept_data = $dept_data;
+
                 $this->retVal->message = 1;
             } catch (exception $e) {
                 $this->retVal->message = $e->getMessage();
-                
             }
             echo CJSON::encode($this->retVal);
             Yii::app()->end();

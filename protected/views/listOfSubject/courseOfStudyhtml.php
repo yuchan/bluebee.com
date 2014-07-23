@@ -19,10 +19,7 @@
         });
     });
 </script>
-<div class="l-submain">
-    <div class="l-submain-h i-cf">
-        <div class="g-cols">
-            <div class="three-fourths">
+
                 <div class="head">Khoa học máy tính</div>
                 <div class="g-cols">
                     <div class="two-thirds" >
@@ -151,7 +148,4 @@
                         </p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
+   
