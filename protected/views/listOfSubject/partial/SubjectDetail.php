@@ -1,10 +1,15 @@
 <script type="text/javascript">
     $(document).ready(function() {
-        $("span.subject").each(function() {
-            var faculty_id = $(this).attr("faculty-id");
-            var dept_id = $(this).attr("dept-id");
-            var subject_type = $(this).attr("subject-type");
-           
+        $("a.subject").each(function() {
+            $(this).click(function(e){
+                
+                e.preventDefault();
+                e.stopPropagation();
+                
+               /* var faculty_id = $(this).attr("faculty-id");
+                var dept_id = $(this).attr("dept-id");
+                var subject_type = $(this).attr("subject-type");
+
                 $.ajax({
                     type: "POST",
                     url: "<?php echo Yii::app()->createUrl('listOfSubject/listOfSubjectInfo') ?>",
@@ -13,13 +18,13 @@
                     success: function(data) {
                         var json = data;
                         var result = data;
-                        $('.three-fourths').html(result.html);
+                        $('#listsubject').html('');
 
                         $.each(result.subject_data, function(key, value) {
 
                             $('#listsubject').append(
                                     '<tr style="border-bottom: 1px solid #d0d6d9">' +
-                                    '<td><a href = "<?php echo Yii::app()->createUrl('subject') ?>'+this.subject_id+'">' + this.subject_name + '</a></td>' +
+                                    '<td><a href = "<?php echo Yii::app()->createUrl('subject') ?>' + this.subject_id + '">' + this.subject_name + '</a></td>' +
                                     '<td>2</td>' +
                                     '<td>21 - 5 - 4</td>' +
                                     '<td>PHI1004</td>' +
@@ -27,8 +32,12 @@
 
                         });
                     }
-                });
-            
+                });*/
+                
+                return false;
+            });
+
+
         });
     });
 </script>
