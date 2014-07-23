@@ -44,6 +44,8 @@ class ListOfSubjectController extends BaseController {
     }
 
     public function actionDeptInfo() {
+          $category_father = $this->listCategoryFather();
+        $subject_type = $this->listSubjectType();
         $this->retVal = new stdClass();
         $request = Yii::app()->request;
         if ($request->isPostRequest && isset($_POST)) {
@@ -56,6 +58,8 @@ class ListOfSubjectController extends BaseController {
                     'dept_faculty' => $listSubjectData['faculty_id']));
                 $this->retVal->dept_data = $dept_data;
                 $this->retVal->message = 1;
+                $html = $this->renderPartial('courseOfStudyhtml', array('dept_data' => $dept_data), FALSE);
+                $this->retVal->html = $html;
             } catch (exception $e) {
                 $this->retVal->message = $e->getMessage();
             }

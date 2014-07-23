@@ -4,11 +4,11 @@
  * This is the model class for table "tbl_subject_group_type".
  *
  * The followings are the available columns in table 'tbl_subject_group_type':
- * @property integer $id
- * @property string $subject_group_type
- * @property string $detail
- * @property integer $active
  * @property integer $subject_type_id
+ * @property string $subject_group_type
+ * @property integer $active
+ * @property string $detail
+ * @property integer $subject_group
  */
 class SubjectGroupType extends CActiveRecord
 {
@@ -28,11 +28,12 @@ class SubjectGroupType extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('active, subject_type_id', 'numerical', 'integerOnly'=>true),
-			array('subject_group_type, detail', 'safe'),
+			array('active, subject_group', 'numerical', 'integerOnly'=>true),
+			array('subject_group_type', 'length', 'max'=>255),
+			array('detail', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, subject_group_type, detail, active, subject_type_id', 'safe', 'on'=>'search'),
+			array('subject_type_id, subject_group_type, active, detail, subject_group', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -53,11 +54,11 @@ class SubjectGroupType extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'subject_group_type' => 'Subject Group Type',
-			'detail' => 'Detail',
-			'active' => 'Active',
 			'subject_type_id' => 'Subject Type',
+			'subject_group_type' => 'Subject Group Type',
+			'active' => 'Active',
+			'detail' => 'Detail',
+			'subject_group' => 'Subject Group',
 		);
 	}
 
@@ -79,11 +80,11 @@ class SubjectGroupType extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('subject_group_type',$this->subject_group_type,true);
-		$criteria->compare('detail',$this->detail,true);
-		$criteria->compare('active',$this->active);
 		$criteria->compare('subject_type_id',$this->subject_type_id);
+		$criteria->compare('subject_group_type',$this->subject_group_type,true);
+		$criteria->compare('active',$this->active);
+		$criteria->compare('detail',$this->detail,true);
+		$criteria->compare('subject_group',$this->subject_group);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
