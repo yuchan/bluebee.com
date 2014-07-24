@@ -30,13 +30,13 @@ class DocumentController extends BaseController {
         $this->render('viewdocument');
     }
 
-    public function saveDoc($doc_name, $doc_description, $doc_url, $doc_author, $subject_id, $doc_scribd_id) {
+    public function saveDoc($doc_name, $doc_description, $doc_url, $doc_author, $subject_id, $doc_scribd_id, $doc_type) {
         $doc_model = new Doc;
         $doc_model->doc_name = $doc_name;
         $doc_model->doc_description = $doc_description;
         $doc_model->doc_url = $doc_url;
         $doc_model->doc_scribd_id = $doc_scribd_id;
-        $doc_model->doc_type = 1;
+        $doc_model->doc_type = $doc_type;
         $doc_model->doc_status = 1;
         $doc_model->doc_author = $doc_author;
         $doc_model->save(FALSE);
@@ -66,7 +66,7 @@ class DocumentController extends BaseController {
         move_uploaded_file($tempFile, $targetFile); //6
         
         if ($ext == "gif" || $ext == "jpg" || $ext == "jpeg" || $ext == "pjepg" || $ext == "png" || $ext == "x-png") {
-            $this->saveDoc($doc_name, $doc_description, $targetFile, $doc_author, $subject_id, NULL);
+            $this->saveDoc($doc_name, $doc_description, $targetFile, $doc_author, $subject_id, NULL, 1);
             
             $this->retVal->url = $targetFile;
             $this->retVal->doc_name = $doc_name;
@@ -83,14 +83,14 @@ class DocumentController extends BaseController {
                 'height' => '220');
             $get_thumbnail = @$scribd->postRequest('thumbnail.get', $thumbnail_info);
             // var_dump($get_thumbnail);
-            $this->saveDoc($doc_name, $doc_description, @$get_thumbnail["thumbnail_url"], $doc_author, $subject_id, $upload_scribd["doc_id"]);
+            $this->saveDoc($doc_name, $doc_description, @$get_thumbnail["thumbnail_url"], $doc_author, $subject_id, $upload_scribd["doc_id"], 2);
             $this->retVal->docid = @$upload_scribd["doc_id"];
             $this->retVal->thumbnail = @$get_thumbnail["thumbnail_url"];
             $this->retVal->doc_name = $doc_name;
             $this->retVal->user_name = Yii::app()->session['user_name'];
         } else {
             $url_file = "";
-            $this->saveDoc($doc_name, $doc_description, $targetFile, $doc_author, $subject_id, NULL);
+            $this->saveDoc($doc_name, $doc_description, $targetFile, $doc_author, $subject_id, NULL, 3);
             $this->retVal->url = $targetFile;
             $this->retVal->doc_name = $doc_name;
             $this->retVal->user_name = Yii::app()->session['user_name'];
