@@ -50,6 +50,7 @@
                             
            
                             $('#subject_type_tab').children().first().addClass('active');
+                            $('.w-tabs-section').first().addClass('active');
 
                             $.each(result.subject_data, function(key, value) {
                                 $('#listsubject').append(
