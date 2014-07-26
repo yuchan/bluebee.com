@@ -52,7 +52,7 @@
 
 
                             jQuery('#subject_type_tab').children().first().addClass('active');
-                           
+
 
                             jQuery.each(result.subject_data, function(key, value) {
                                 jQuery('#listsubject').append(
@@ -64,8 +64,8 @@
                                         '</tr>');
                             });
 
-                            jQuery(".w-tabs").wTabs();
-                             $("#content-tabs.w-tabs .w-tabs-section").first().addClass('active');
+                            jQuery("#content-tabs.w-tabs").wTabs();
+                            $("#content-tabs.w-tabs .w-tabs-section").first().addClass('active');
                         }
                     });
 
@@ -75,28 +75,29 @@
     });
 </script>
 
-<!--
-<script type="text/javascript">
-    $(document).ready(function() {
-        $("a.dept").click(function() {
-            var faculty_id = $(this).attr("faculty-id");
-            var dept_id = $(this).attr("dept-id");
 
-            $.ajax({
-            var faculty_id = $(this).attr("faculty-id");
-                    var dept_id = $(this).attr("dept-id");
-            type: "POST",
-                    url: "<?php echo Yii::app()->createUrl('listOfSubject/deptInfo') ?>",
-                    data: {faculty_id: faculty_id, dept_id: dept_id},
-                    dataType: 'json',
-                    success: function(data) {
+<script type="text/javascript">
+    // var $j = jQuery.noConflict(); 
+    $(document).ready(function() {
+
+        jQuery("a.dept").click(function() {
+            var $self = $(this);
+            var faculty_id = $self.attr("faculty-id");
+            var dept_id = $self.attr("dept-id");
+            jQuery.ajax({
+                type: "POST",
+                data: {faculty_id: faculty_id, dept_id: dept_id},
+                url: "<?php echo Yii::app()->createUrl('listOfSubject/deptInfoView') ?>",
+                success: function(data) {
+                    var json = data;
+                  
                     jQuery('.three-fourths').html(data);
                 }
-
+            });
         });
     });
-    });
-</script>-->
+</script>
+
 <div class="l-submain">
     <div class="l-submain-h i-cf">
         <div class="g-cols">
