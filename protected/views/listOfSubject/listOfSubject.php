@@ -1,7 +1,7 @@
 <script type="text/javascript">
-   // var $j = jQuery.noConflict(); 
+    // var $j = jQuery.noConflict(); 
     $(document).ready(function() {
-       
+
         jQuery("a.subject").click(function() {
             var $self = $(this);
             jQuery.ajax({
@@ -30,7 +30,7 @@
 
                             jQuery.each(result.subject_group_type, function(key, value) {
                                 jQuery('#subject_type_tab').append(
-                                        '<div class="w-tabs-item" subject_type_id='+this.subject_type_id+'>' +
+                                        '<div class="w-tabs-item" subject_type_id=' + this.subject_type_id + '>' +
                                         '<span class="w-tabs-item-icon"></span>' +
                                         '<span class="w-tabs-item-title">' + this.subject_group_type + '</span>' +
                                         '</div>');
@@ -49,10 +49,10 @@
 
 
                             });
-                            
-           
+
+
                             jQuery('#subject_type_tab').children().first().addClass('active');
-                            jQuery('.w-tabs-section').first().addClass('active');
+                           
 
                             jQuery.each(result.subject_data, function(key, value) {
                                 jQuery('#listsubject').append(
@@ -63,8 +63,9 @@
                                         '<td>' + this.subject_code + '</td>' +
                                         '</tr>');
                             });
-                            
-                            jQuery(".w-tabs").wTabs()
+
+                            jQuery(".w-tabs").wTabs();
+                             $("#content-tabs.w-tabs .w-tabs-section").first().addClass('active');
                         }
                     });
 
@@ -73,6 +74,29 @@
         });
     });
 </script>
+
+<!--
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("a.dept").click(function() {
+            var faculty_id = $(this).attr("faculty-id");
+            var dept_id = $(this).attr("dept-id");
+
+            $.ajax({
+            var faculty_id = $(this).attr("faculty-id");
+                    var dept_id = $(this).attr("dept-id");
+            type: "POST",
+                    url: "<?php echo Yii::app()->createUrl('listOfSubject/deptInfo') ?>",
+                    data: {faculty_id: faculty_id, dept_id: dept_id},
+                    dataType: 'json',
+                    success: function(data) {
+                    jQuery('.three-fourths').html(data);
+                }
+
+        });
+    });
+    });
+</script>-->
 <div class="l-submain">
     <div class="l-submain-h i-cf">
         <div class="g-cols">
