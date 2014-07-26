@@ -64,7 +64,7 @@
                                         '</tr>');
                             });
 
-                            jQuery("#content-tabs.w-tabs").wTabs();
+                            jQuery(".w-tabs").wTabs();
                             $("#content-tabs.w-tabs .w-tabs-section").first().addClass('active');
                         }
                     });
