@@ -1,10 +1,11 @@
 
 <div class="head">Khối kiến thức chung</div>
-<div class="w-tabs">
+<div class="w-tabs" id = "content-tabs">
     <div class="w-tabs-h" id="subject_type_details">
         <div class="w-tabs-list" id="subject_type_tab">
 
         </div>
+</div>
 </div>
 
 <div class="g-hr type_short">

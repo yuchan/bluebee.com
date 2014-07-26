@@ -55,6 +55,14 @@ class ListOfSubjectController extends BaseController {
         $this->render('courseOfStudy', array('category_father' => $category_father, 'subject_type' => $subject_type));
     }
 
+    public function actionDeptInfoView() {
+        $this->retVal = new stdClass();
+        $html = $this->renderPartial('courseOfStudyhtml', FALSE);
+
+        echo $html;
+        Yii::app()->end();
+    }
+
     public function actionDeptInfo() {
         $category_father = $this->listCategoryFather();
         $subject_type = $this->listSubjectType();
@@ -83,7 +91,7 @@ class ListOfSubjectController extends BaseController {
     public function actionListOfSubjectInfoView() {
         $this->retVal = new stdClass();
         $html = $this->renderPartial('listOfSubjecthtml', FALSE);
-       
+
         echo $html;
         Yii::app()->end();
     }
@@ -104,7 +112,8 @@ class ListOfSubjectController extends BaseController {
                 $subject_data = Subject::model()->findAllByAttributes(array('subject_dept' => $listSubjectData['subject_dept'],
                     'subject_faculty' => $listSubjectData['subject_faculty'],
                     'subject_type' => $listSubjectData['subject_type'],));
-                $subject_type_group = SubjectGroupType::model()->findAllByAttributes(array('subject_group' => $listSubjectData['subject_type']));
+                $subject_type_group = SubjectGroupType::model()->findAllByAttributes(array('subject_group' => $listSubjectData['subject_type'],
+                    'subject_dept' => $listSubjectData['subject_dept'], 'subject_faculty' => $listSubjectData['subject_faculty']));
                 $this->retVal->subject_data = $subject_data;
                 $this->retVal->subject_group_type = $subject_type_group;
 
