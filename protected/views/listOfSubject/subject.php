@@ -23,7 +23,6 @@
                             <?php echo $subject->subject_content ?>
                         </p>
                         <strong style="color: #262626">Giáo viên giảng dạy</strong>
-
                         <div class="g-cols" style="margin-right: 30px;margin-top: 20px">
 <?php foreach($result as $teacher): ?>
                             <div class="one-third">
