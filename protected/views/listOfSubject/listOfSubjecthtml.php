@@ -6,6 +6,7 @@
 
         </div>
 </div>
+</div>
 
 <div class="g-hr type_short">
     <span class="g-hr-h">

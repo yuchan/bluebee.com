@@ -1,21 +1,23 @@
 <script type="text/javascript">
+   // var $j = jQuery.noConflict(); 
     $(document).ready(function() {
-        $("a.subject").click(function() {
+       
+        jQuery("a.subject").click(function() {
             var $self = $(this);
-            $.ajax({
+            jQuery.ajax({
                 type: "POST",
                 url: "<?php echo Yii::app()->createUrl('listOfSubject/listOfSubjectInfoView') ?>",
                 success: function(data) {
                     var json = data;
                     var result = data;
-                    $('.three-fourths').html(data);
+                    jQuery('.three-fourths').html(data);
 
 
                     var faculty_id = $self.attr("faculty-id");
                     var dept_id = $self.attr("dept-id");
                     var subject_type = $self.attr("subject-type");
 
-                    $.ajax({
+                    jQuery.ajax({
                         type: "POST",
                         url: "<?php echo Yii::app()->createUrl('listOfSubject/listOfSubjectInfo') ?>",
                         data: {subject_dept: dept_id, subject_faculty: faculty_id, subject_type: subject_type},
@@ -26,14 +28,14 @@
 
                             //  $('#subject_type_tab').html('');
 
-                            $.each(result.subject_group_type, function(key, value) {
-                                $('#subject_type_tab').append(
+                            jQuery.each(result.subject_group_type, function(key, value) {
+                                jQuery('#subject_type_tab').append(
                                         '<div class="w-tabs-item" subject_type_id='+this.subject_type_id+'>' +
                                         '<span class="w-tabs-item-icon"></span>' +
                                         '<span class="w-tabs-item-title">' + this.subject_group_type + '</span>' +
                                         '</div>');
 
-                                $('#subject_type_details').append(
+                                jQuery('#subject_type_details').append(
                                         '<div class="w-tabs-section">' +
                                         ' <div class="w-tabs-section-title">' +
                                         '<span class="w-tabs-section-title-icon"></span>' +
@@ -49,11 +51,11 @@
                             });
                             
            
-                            $('#subject_type_tab').children().first().addClass('active');
-                            $('.w-tabs-section').first().addClass('active');
+                            jQuery('#subject_type_tab').children().first().addClass('active');
+                            jQuery('.w-tabs-section').first().addClass('active');
 
-                            $.each(result.subject_data, function(key, value) {
-                                $('#listsubject').append(
+                            jQuery.each(result.subject_data, function(key, value) {
+                                jQuery('#listsubject').append(
                                         '<tr style="border-bottom: 1px solid #d0d6d9">' +
                                         '<td><a href = "<?php echo Yii::app()->createUrl('subject') ?>' + this.subject_id + '">' + this.subject_name + '</a></td>' +
                                         '<td>' + this.subject_credits + '</td>' +
@@ -61,6 +63,8 @@
                                         '<td>' + this.subject_code + '</td>' +
                                         '</tr>');
                             });
+                            
+                            jQuery(".w-tabs").wTabs()
                         }
                     });
 

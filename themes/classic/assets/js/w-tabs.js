@@ -44,5 +44,6 @@
     }
 })(jQuery), jQuery(document).ready(function() {
     "use strict";
+	
     jQuery(".w-tabs").wTabs()
 });
