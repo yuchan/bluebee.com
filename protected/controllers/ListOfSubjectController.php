@@ -32,10 +32,22 @@ class ListOfSubjectController extends BaseController {
     }
 
     public function actionSubject() {
-        $category_father = $this->listCategoryFather();
-        $subject_type = $this->listSubjectType();
-        $this->render('subject', array('category_father' => $category_father, 'subject_type' => $subject_type));
-    }
+        if(isset($_GET["subject_id"])){
+            $subjectCriteria = new CDbCriteria();
+            $subjectCriteria->select = "*";
+            $subjectCriteria->condition = "subject_id = " . $_GET["subject_id"];
+            $subject = Subject::model()->findAll($subjectCriteria);
+          
+            $teachers = Teacher::model()->with(array("subject_teacher"=> array(
+                "select" => false,
+                "condition" => "subject_id = " . $_GET["subject_id"]
+            )))->findAll();
+        }
+        $category_father = Faculty::model()->findAll();
+        $subject_type = SubjectType::model()->findAll();
+        $this->render('subject', array('subject' => $subject, 'category_father' => $category_father,
+            'subject_type' => $subject_type, 'result' => $teachers));
+        }
 
     public function actionCourseOfStudy() {
         $category_father = $this->listCategoryFather();

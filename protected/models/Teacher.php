@@ -21,6 +21,12 @@ class Teacher extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
+         
+         public function primaryKey()
+        {
+            return "teacher_id";
+        }
+    
 	public function tableName()
 	{
 		return 'tbl_teacher';
@@ -50,6 +56,7 @@ class Teacher extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+                    'subject_teacher' => array(self::BELONGS_TO, 'SubjectTeacher', 'teacher_id')
 		);
 	}
 

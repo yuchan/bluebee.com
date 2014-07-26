@@ -10,7 +10,8 @@
  * @property integer $is_active
  */
 class SubjectTeacher extends CActiveRecord
-{
+{       
+        
 	/**
 	 * @return string the associated database table name
 	 */
@@ -41,7 +42,7 @@ class SubjectTeacher extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		return array(
+		return array('teachers' => array(self::HAS_MANY, 'Teacher', 'teacher_id')
 		);
 	}
 
