@@ -169,16 +169,25 @@
                                                         </a>
                                                     </div>
                                                 </div>
-                                                <div class="w-logo">
-                                                    <div class="w-logo-h">
-                                                        <a class="w-logo-link" href="<?php echo Yii::app()->createUrl("home") ?>" class="w-nav-anchor level_1">
-                                                            <img class="w-logo-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo2.jpg" alt="BlueBee" />
-                                                            <span class="w-logo-title">
-                                                                <span class="w-logo-title-h">BlueBee</span>
-                                                            </span>
-                                                        </a>
+
+
+                                                <div class="w-search submit_inside">
+                                                <div class="w-search-h">
+                                                    <a class="w-search-show" href="javascript:void(0)" style="margin: auto;">
+                                                        <i class="icon-search" style="line-height: inherit"></i>
+                                                    </a>
+                                                    <form class="w-search-form show_hidden" action="#" />
+                                                    <div class="w-search-input">
+                                                        <input type="text" value="" placeholder="Bạn muốn tìm gì ?" />
                                                     </div>
+                                                    <div class="w-search-submit">
+                                                        <input type="submit" value="Search" />
+
+                                                    </div>
+                                                    <a class="w-search-close" href="javascript:void(0)" title="Close search"> &#10005; </a>
+                                                    </form>
                                                 </div>
+                                            </div>
 
 
 
@@ -220,6 +229,9 @@
                                                                         </a>
                                                                     </div>
                                                                 </div>
+                                                                <a id="login" href="<?php echo $this->createUrl('welcomePage/fb_login')?>">Đăng nhập với facebook</a>
+                                            <!-- SEARCH -->
+
 
 
 
@@ -264,25 +276,7 @@
                                                 </nav>
 
                                             </div>
-                                            <a id="login" href="<?php echo $this->createUrl('welcomePage/fb_login')?>">Đăng nhập với facebook</a>
-                                            <!-- SEARCH -->
-                                            <div class="w-search submit_inside">
-                                                <div class="w-search-h">
-                                                    <a class="w-search-show" href="javascript:void(0)" style="margin: auto;">
-                                                        <i class="icon-search" style="line-height: inherit"></i>
-                                                    </a>
-                                                    <form class="w-search-form show_hidden" action="#" />
-                                                    <div class="w-search-input">
-                                                        <input type="text" value="" placeholder="Bạn muốn tìm gì ?" />
-                                                    </div>
-                                                    <div class="w-search-submit">
-                                                        <input type="submit" value="Search" />
 
-                                                    </div>
-                                                    <a class="w-search-close" href="javascript:void(0)" title="Close search"> &#10005; </a>
-                                                    </form>
-                                                </div>
-                                            </div>
                                         </div>
 
                                     </div>
@@ -316,7 +310,7 @@
                                               });
                                           </script>
                                           <a style="position: absolute; right: 16px; top: 20px; cursor: pointer; color: #18bacd; visibility: visible; font-size: 14px;" title="Close" class="close-onboarding" rel="no-follow">
-                                              <i id="close_login" class="icon-x-alt"></i>                      
+                                              <i id="close_login" class="icon-x-alt"></i>
                                           </a>
                                       </div>
                                   </div> -->
