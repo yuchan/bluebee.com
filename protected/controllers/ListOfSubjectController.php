@@ -42,11 +42,25 @@ class ListOfSubjectController extends BaseController {
                 "select" => false,
                 "condition" => "subject_id = " . $_GET["subject_id"]
             )))->findAll();
+            
+            $doc = Doc::model()->with(array("docs"=> array(
+                "select" => false,
+                "condition" => "subject_id = " . $_GET["subject_id"] . " and active = 1"
+            ))) -> findAll();
+            
+            $reference = Doc::model()->with(array("docs"=> array(
+                "select" => false,
+                "condition" => "subject_id = " . $_GET["subject_id"] . " and active = 0"
+            ))) -> findAll();
+            
+            $lesson = Lesson::model()->findAll(array("select"=> "*", "condition"=>"lesson_subject = ". $_GET["subject_id"],
+                                                    "order" => "lesson_weeks ASC"));
         }
         $category_father = Faculty::model()->findAll();
         $subject_type = SubjectType::model()->findAll();
         $this->render('subject', array('subject' => $subject, 'category_father' => $category_father,
-            'subject_type' => $subject_type, 'result' => $teachers));
+            'subject_type' => $subject_type, 'teacher' => $teachers,
+            'doc' => $doc, 'reference' => $reference, 'lesson'=> $lesson));
         }
 
     public function actionCourseOfStudy() {

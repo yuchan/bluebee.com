@@ -24,7 +24,7 @@
                         </p>
                         <strong style="color: #262626">Giáo viên giảng dạy</strong>
                         <div class="g-cols" style="margin-right: 30px;margin-top: 20px">
-<?php foreach($result as $teacher): ?>
+<?php foreach($teacher as $teacher): ?>
                             <div class="one-third">
                                 <div class="w-team-member">
                                     <div class="w-team-member-h">
@@ -66,20 +66,18 @@
 
                             <h6> Tài liệu bắt buộc </h6>
                             <div class="white">
-                                - <a href="#">Trần Trọng Huệ, Đại số tuyến tính và hình học giải tích,  NXB GD  2007.</a>
+                                <?php foreach($doc as $doc): ?>
+                                - <a href="google.com"><?php echo $doc->doc_name.", ".$doc->doc_author.", ".$doc->doc_publisher ?></a>
                                 <div class="underline1"></div>
-                                - <a href="#">Nguyễn Đình Trí và Tạ Văn Đĩnh, Toán cao cấp, Tập I, NXB GD  2007.</a>
-                                <div class="underline1"></div>
-                                - <a href="#">Nguyễn Đức Đạt, Bài tập đại số và hình học giải tích,  NXB ĐHQGHN  2005.</a>
+                                <?php endforeach; ?>
                             </div>
 
                             <h6> Tài liệu tham khảo </h6>
                             <div class="white">
-                                - <a href="#"> Nguyễn Hữu Việt Hưng, Đại số tuyến tính,  NXB ĐHQGHN (tái bản)  2004.</a>                                  
+                                <?php foreach($reference as $reference): ?>
+                                - <a href="<?php echo $reference->doc_url ?>"><?php echo $reference->doc_name.", ".$reference->doc_author.", ".$reference->doc_publisher ?></a>
                                 <div class="underline1"></div>
-                                - <a href="#">Lê Tuấn Hoa, Đại số tuyến tính qua các ví dụ và bài tập, NXB ĐHQGHN 2006.</a>
-                                <div class="underline1"></div>
-                                - <a href="#">Nguyễn Thủy Thanh, Bài tập toán cao cấp, Tập I, NXB ĐHQGHN 2002.</a>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
@@ -93,17 +91,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach($lesson as $lesson): ?>
                         <tr style="border-bottom: 1px solid #d0d6d9">
-                            <td><a>Những nguyên lý cơ bản của chủ nghĩa Mác - Lênin 1</a></td>
-                            <td>2</td>
-                            
+                            <td><a><?php echo $lesson->lesson_name ?></a></td>
+                            <td><?php echo $lesson->lesson_weeks ?></td>                            
                         </tr>
-                        <tr style="border-bottom: 1px solid #d0d6d9">
-                            <td><a>Những nguyên lý cơ bản của chủ nghĩa Mác – Lênin 2</a></td>
-                            <td>3</td>
-                            
-                        </tr>
-                        
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
                     </div>

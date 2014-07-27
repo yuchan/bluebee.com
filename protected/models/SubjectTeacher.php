@@ -15,6 +15,12 @@ class SubjectTeacher extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
+    
+        public function primaryKey()
+        {
+            return "id";
+        }
+    
 	public function tableName()
 	{
 		return 'tbl_subject_teacher';
