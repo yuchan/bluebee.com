@@ -32,15 +32,49 @@ class ListOfSubjectController extends BaseController {
     }
 
     public function actionSubject() {
-        $category_father = $this->listCategoryFather();
-        $subject_type = $this->listSubjectType();
-        $this->render('subject', array('category_father' => $category_father, 'subject_type' => $subject_type));
-    }
+        if(isset($_GET["subject_id"])){
+            $subjectCriteria = new CDbCriteria();
+            $subjectCriteria->select = "*";
+            $subjectCriteria->condition = "subject_id = " . $_GET["subject_id"];
+            $subject = Subject::model()->findAll($subjectCriteria);
+          
+            $teachers = Teacher::model()->with(array("subject_teacher"=> array(
+                "select" => false,
+                "condition" => "subject_id = " . $_GET["subject_id"]
+            )))->findAll();
+            
+            $doc = Doc::model()->with(array("docs"=> array(
+                "select" => false,
+                "condition" => "subject_id = " . $_GET["subject_id"] . " and active = 1"
+            ))) -> findAll();
+            
+            $reference = Doc::model()->with(array("docs"=> array(
+                "select" => false,
+                "condition" => "subject_id = " . $_GET["subject_id"] . " and active = 0"
+            ))) -> findAll();
+            
+            $lesson = Lesson::model()->findAll(array("select"=> "*", "condition"=>"lesson_subject = ". $_GET["subject_id"],
+                                                    "order" => "lesson_weeks ASC"));
+        }
+        $category_father = Faculty::model()->findAll();
+        $subject_type = SubjectType::model()->findAll();
+        $this->render('subject', array('subject' => $subject, 'category_father' => $category_father,
+            'subject_type' => $subject_type, 'teacher' => $teachers,
+            'doc' => $doc, 'reference' => $reference, 'lesson'=> $lesson));
+        }
 
     public function actionCourseOfStudy() {
         $category_father = $this->listCategoryFather();
         $subject_type = $this->listSubjectType();
         $this->render('courseOfStudy', array('category_father' => $category_father, 'subject_type' => $subject_type));
+    }
+
+    public function actionDeptInfoView() {
+        $this->retVal = new stdClass();
+        $html = $this->renderPartial('courseOfStudyhtml', FALSE);
+
+        echo $html;
+        Yii::app()->end();
     }
 
     public function actionDeptInfo() {
@@ -71,7 +105,7 @@ class ListOfSubjectController extends BaseController {
     public function actionListOfSubjectInfoView() {
         $this->retVal = new stdClass();
         $html = $this->renderPartial('listOfSubjecthtml', FALSE);
-       
+
         echo $html;
         Yii::app()->end();
     }
@@ -92,7 +126,8 @@ class ListOfSubjectController extends BaseController {
                 $subject_data = Subject::model()->findAllByAttributes(array('subject_dept' => $listSubjectData['subject_dept'],
                     'subject_faculty' => $listSubjectData['subject_faculty'],
                     'subject_type' => $listSubjectData['subject_type'],));
-                $subject_type_group = SubjectGroupType::model()->findAllByAttributes(array('subject_group' => $listSubjectData['subject_type']));
+                $subject_type_group = SubjectGroupType::model()->findAllByAttributes(array('subject_group' => $listSubjectData['subject_type'],
+                    'subject_dept' => $listSubjectData['subject_dept'], 'subject_faculty' => $listSubjectData['subject_faculty']));
                 $this->retVal->subject_data = $subject_data;
                 $this->retVal->subject_group_type = $subject_type_group;
 

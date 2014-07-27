@@ -1,26 +1,7 @@
 
-<script type="text/javascript">
-    $(document).ready(function() {
-        $("span.dept").each(function() {
-            var faculty_id = $(this).attr("faculty-id");
-            var dept_id = $(this).attr("dept-id");
-            $(this).click(function() {
-                $.ajax({
-                    type: "POST",
-                    url: "<?php echo Yii::app()->createUrl('listOfSubject/deptInfo') ?>",
-                    data: {faculty_id: faculty_id, dept_id: dept_id},
-                    dataType: 'json',
-                    success: function(data) {
-                        console.log(data);
-                    }
 
-                });
-            });
-        });
-    });
-</script>
 
-                <div class="head">Khoa học máy tính</div>
+                <div class="head"></div>
                 <div class="g-cols">
                     <div class="two-thirds" >
                         <strong style="color: #262626">Mục tiêu đào tạo</strong>
@@ -28,7 +9,7 @@
                         </p>
 
                         <h3 style="color: #262626 ;margin-top: 25px">Mô tả khái quát</h3>
-                        <div class="w-tabs layout_accordion" style="margin-right: 20px;">
+                        <div class="w-tabs layout_accordion" style="margin-right: 20px;" id="tab_acc">
                             <div class="w-tabs-h">
                                 <div class="w-tabs-section active">
                                     <div class="w-tabs-section-title">

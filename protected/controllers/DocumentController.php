@@ -58,7 +58,7 @@ class DocumentController extends BaseController {
         $secret = "sec-b2rlvg8kxwwpkz9fo3i02mo9vo";
         $this->retVal = new stdClass();
         $scribd = new Scribd($api_key, $secret);
-        $storeFolder = Yii::app()->basePath . '/uploads';   //2
+        $storeFolder = Yii::app()->basePath . '/uploads/';   //2
         $tempFile = $_FILES['file']['tmp_name'];          //3
         $targetPath = $storeFolder;  //4
         $targetFile = $targetPath . $_FILES['file']['name'];  //5
