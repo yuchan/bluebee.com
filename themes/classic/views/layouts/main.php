@@ -229,9 +229,12 @@
                                                                         </a>
                                                                     </div>
                                                                 </div>
-                                                                <a id="login" href="<?php echo $this->createUrl('welcomePage/fb_login')?>">Đăng nhập với facebook</a>
-                                            <!-- SEARCH -->
 
+                                                                <div class="w-nav-item level_1">
+                                                                    <div class="w-nav-item-h">
+                                                                        <a id="login" href="<?php echo $this->createUrl('welcomePage/fb_login')?>">Đăng nhập với facebook</a>
+                                                                    </div>
+                                                                </div>
 
 
 
