@@ -9,10 +9,11 @@
  * @property string $doc_name
  * @property string $doc_scribd_id
  * @property string $doc_description
- * @property string $doc_publisher
+ * @property string $doc_title
  * @property string $doc_status
- * @property string $doc_author
+ * @property integer $doc_author
  * @property integer $doc_type
+ * @property string $doc_path
  */
 class Doc extends CActiveRecord
 {
@@ -32,12 +33,12 @@ class Doc extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('doc_type', 'numerical', 'integerOnly'=>true),
-			array('doc_url, doc_name, doc_scribd_id, doc_description, doc_publisher, doc_status', 'length', 'max'=>200),
-			array('doc_author', 'length', 'max'=>50),
+			array('doc_author, doc_type', 'numerical', 'integerOnly'=>true),
+			array('doc_url, doc_name, doc_scribd_id, doc_description, doc_title, doc_status', 'length', 'max'=>200),
+			array('doc_path', 'length', 'max'=>500),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('doc_id, doc_url, doc_name, doc_scribd_id, doc_description, doc_publisher, doc_status, doc_author, doc_type', 'safe', 'on'=>'search'),
+			array('doc_id, doc_url, doc_name, doc_scribd_id, doc_description, doc_title, doc_status, doc_author, doc_type, doc_path', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -49,7 +50,6 @@ class Doc extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-                    'docs' => array(self::BELONGS_TO, 'SubjectDoc', 'doc_id')
 		);
 	}
 
@@ -64,10 +64,11 @@ class Doc extends CActiveRecord
 			'doc_name' => 'Doc Name',
 			'doc_scribd_id' => 'Doc Scribd',
 			'doc_description' => 'Doc Description',
-			'doc_publisher' => 'Doc Publisher',
+			'doc_title' => 'Doc Title',
 			'doc_status' => 'Doc Status',
 			'doc_author' => 'Doc Author',
 			'doc_type' => 'Doc Type',
+			'doc_path' => 'Doc Path',
 		);
 	}
 
@@ -94,10 +95,11 @@ class Doc extends CActiveRecord
 		$criteria->compare('doc_name',$this->doc_name,true);
 		$criteria->compare('doc_scribd_id',$this->doc_scribd_id,true);
 		$criteria->compare('doc_description',$this->doc_description,true);
-		$criteria->compare('doc_publisher',$this->doc_publisher,true);
+		$criteria->compare('doc_title',$this->doc_title,true);
 		$criteria->compare('doc_status',$this->doc_status,true);
-		$criteria->compare('doc_author',$this->doc_author,true);
+		$criteria->compare('doc_author',$this->doc_author);
 		$criteria->compare('doc_type',$this->doc_type);
+		$criteria->compare('doc_path',$this->doc_path,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

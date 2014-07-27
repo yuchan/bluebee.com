@@ -58,7 +58,7 @@ class DocumentController extends BaseController {
         $secret = "sec-b2rlvg8kxwwpkz9fo3i02mo9vo";
         $this->retVal = new stdClass();
         $scribd = new Scribd($api_key, $secret);
-        $storeFolder = Yii::app()->basePath . '/uploads/';   //2
+        $storeFolder = Yii::getPathOfAlias('webroot') . '/uploads/';   //2
         $tempFile = $_FILES['file']['tmp_name'];          //3
         $targetPath = $storeFolder;  //4
         $targetFile = $targetPath . $_FILES['file']['name'];  //5
@@ -87,6 +87,7 @@ class DocumentController extends BaseController {
             $this->retVal->docid = @$upload_scribd["doc_id"];
             $this->retVal->thumbnail = @$get_thumbnail["thumbnail_url"];
             $this->retVal->doc_name = $doc_name;
+            $this->retVal->doc_path = $targetFile;
             $this->retVal->user_name = Yii::app()->session['user_name'];
         } else {
             $url_file = "";
