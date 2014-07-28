@@ -13,6 +13,7 @@
  * @property string $doc_status
  * @property integer $doc_author
  * @property integer $doc_type
+ * @property string $doc_path
  */
 class Doc extends CActiveRecord
 {
@@ -34,9 +35,10 @@ class Doc extends CActiveRecord
 		return array(
 			array('doc_author, doc_type', 'numerical', 'integerOnly'=>true),
 			array('doc_url, doc_name, doc_scribd_id, doc_description, doc_title, doc_status', 'length', 'max'=>200),
+			array('doc_path', 'length', 'max'=>500),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('doc_id, doc_url, doc_name, doc_scribd_id, doc_description, doc_title, doc_status, doc_author, doc_type', 'safe', 'on'=>'search'),
+			array('doc_id, doc_url, doc_name, doc_scribd_id, doc_description, doc_title, doc_status, doc_author, doc_type, doc_path', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -66,6 +68,7 @@ class Doc extends CActiveRecord
 			'doc_status' => 'Doc Status',
 			'doc_author' => 'Doc Author',
 			'doc_type' => 'Doc Type',
+			'doc_path' => 'Doc Path',
 		);
 	}
 
@@ -96,6 +99,7 @@ class Doc extends CActiveRecord
 		$criteria->compare('doc_status',$this->doc_status,true);
 		$criteria->compare('doc_author',$this->doc_author);
 		$criteria->compare('doc_type',$this->doc_type);
+		$criteria->compare('doc_path',$this->doc_path,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

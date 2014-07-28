@@ -13,6 +13,11 @@
  * @property string $dept_behavior
  * @property string $dept_out_standard
  * @property string $dept_contact
+ * @property string $dept_in_standart
+ * @property string $dept_language
+ * @property integer $dept_credits
+ * @property string $dept_code
+ * @property string $dept_link_download
  */
 class Dept extends CActiveRecord
 {
@@ -32,12 +37,14 @@ class Dept extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('dept_active, dept_faculty', 'numerical', 'integerOnly'=>true),
+			array('dept_active, dept_faculty, dept_credits', 'numerical', 'integerOnly'=>true),
 			array('dept_name', 'length', 'max'=>100),
-			array('dept_target, dept_knowleadge, dept_behavior, dept_out_standard, dept_contact', 'safe'),
+			array('dept_code', 'length', 'max'=>255),
+			array('dept_link_download', 'length', 'max'=>500),
+			array('dept_target, dept_knowleadge, dept_behavior, dept_out_standard, dept_contact, dept_in_standart, dept_language', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('dept_id, dept_name, dept_active, dept_faculty, dept_target, dept_knowleadge, dept_behavior, dept_out_standard, dept_contact', 'safe', 'on'=>'search'),
+			array('dept_id, dept_name, dept_active, dept_faculty, dept_target, dept_knowleadge, dept_behavior, dept_out_standard, dept_contact, dept_in_standart, dept_language, dept_credits, dept_code, dept_link_download', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,6 +74,11 @@ class Dept extends CActiveRecord
 			'dept_behavior' => 'Dept Behavior',
 			'dept_out_standard' => 'Dept Out Standard',
 			'dept_contact' => 'Dept Contact',
+			'dept_in_standart' => 'Dept In Standart',
+			'dept_language' => 'Dept Language',
+			'dept_credits' => 'Dept Credits',
+			'dept_code' => 'Dept Code',
+			'dept_link_download' => 'Dept Link Download',
 		);
 	}
 
@@ -97,6 +109,11 @@ class Dept extends CActiveRecord
 		$criteria->compare('dept_behavior',$this->dept_behavior,true);
 		$criteria->compare('dept_out_standard',$this->dept_out_standard,true);
 		$criteria->compare('dept_contact',$this->dept_contact,true);
+		$criteria->compare('dept_in_standart',$this->dept_in_standart,true);
+		$criteria->compare('dept_language',$this->dept_language,true);
+		$criteria->compare('dept_credits',$this->dept_credits);
+		$criteria->compare('dept_code',$this->dept_code,true);
+		$criteria->compare('dept_link_download',$this->dept_link_download,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -1,10 +1,7 @@
-<?php $this->renderPartial('partial/jquery_bar_left');?>
-<div class="l-submain">
-    <div class="l-submain-h i-cf">
-        <div class="g-cols">
-            <?php $this->renderPartial("partial/bar_left",  array('category_father'=>$category_father, 'subject_type' => $subject_type)); ?>
-            <div class="three-fourths">
-                <div class="head">Khoa học máy tính</div>
+
+
+
+                <div class="head"></div>
                 <div class="g-cols">
                     <div class="two-thirds" >
                         <strong style="color: #262626">Mục tiêu đào tạo</strong>
@@ -12,7 +9,7 @@
                         </p>
 
                         <h3 style="color: #262626 ;margin-top: 25px">Mô tả khái quát</h3>
-                        <div class="w-tabs layout_accordion" style="margin-right: 20px;">
+                        <div class="w-tabs layout_accordion" style="margin-right: 20px;" id="tab_acc">
                             <div class="w-tabs-h">
                                 <div class="w-tabs-section active">
                                     <div class="w-tabs-section-title">
@@ -132,7 +129,4 @@
                         </p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
+   

@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $("span.dept").each(function() {
+        $("a.dept").each(function() {
             var faculty_id = $(this).attr("faculty-id");
             var dept_id = $(this).attr("dept-id");
             $(this).click(function() {
