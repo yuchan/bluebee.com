@@ -18,7 +18,18 @@ class ShareController extends Controller {
     }
 
     public function actionTeacher() {
-        $this->render('teacher');
+        if (isset($_GET["id"])) {
+
+            $spCriteria = new CDbCriteria();
+            $spCriteria->select = "*";
+            $spCriteria->condition = "teacher_id = '" . $_GET["id"] . "'";
+
+            $teacher_current_id = Teacher::model()->findByAttributes(array('teacher_id' => $_GET["id"]));
+
+            if ($teacher_current_id) {
+                $this->render('teacher', array('teacher_detail_info' => Teacher::model()->findAll($spCriteria)));
+            } 
+        }
     }
     
     public function actionTeacherListPage() {

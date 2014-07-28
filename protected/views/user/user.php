@@ -24,7 +24,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="underline"></div>
+<!--                        <div class="underline"></div>
 
                         <div>
                             <p>
@@ -40,7 +40,7 @@
                                 <br/>
                                 - Đẹp trai, nhiều ban thích
                             </p>
-                        </div>
+                        </div>-->
 
                         <div class="underline"></div>
 
