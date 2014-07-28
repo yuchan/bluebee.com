@@ -93,31 +93,31 @@
                     var dept_id = $self.attr("dept-id");
 
                     jQuery('.three-fourths').html(data);
-                     jQuery("#tab_acc.w-tabs").wTabs();
+                    jQuery("#tab_acc.w-tabs").wTabs();
 
                     jQuery.ajax({
                         type: "POST",
                         url: "<?php echo Yii::app()->createUrl('listOfSubject/DeptInfo') ?>",
                         data: {faculty_id: faculty_id, dept_id: dept_id},
-                        dataType: 'json',
+                        //dataType: 'json',
                         success: function(data) {
-                            var json = data;
-                            var result = data;
-
-
+                            var json = $.parseJSON(data);
                             //  $('#subject_type_tab').html('');
-
-                            $('.head').html(result.dept_data.dept_name);
+                            var list = json.dept_data;
+                            $.each(list, function(i, item) {
+                                $('#head_subject').html(item.dept_name);
+                            });
+                            
                             jQuery("#tab_acc.w-tabs").wTabs();
 
 
-                            }
-                        });
-                    }
-                });
+                        }
+                    });
+                }
             });
         });
-    
+    });
+
 </script>
 
 <div class="l-submain">

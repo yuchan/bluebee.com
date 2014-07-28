@@ -92,8 +92,7 @@ class ListOfSubjectController extends BaseController {
                     'dept_faculty' => $listSubjectData['faculty_id']));
                 $this->retVal->dept_data = $dept_data;
                 $this->retVal->message = 1;
-                $html = $this->renderPartial('courseOfStudyhtml', array('dept_data' => $dept_data), FALSE);
-                $this->retVal->html = $html;
+               
             } catch (exception $e) {
                 $this->retVal->message = $e->getMessage();
             }

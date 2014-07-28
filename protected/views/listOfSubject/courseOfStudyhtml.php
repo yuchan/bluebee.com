@@ -1,7 +1,7 @@
 
 
 
-                <div class="head"></div>
+<div class="head" id="head_subject"></div>
                 <div class="g-cols">
                     <div class="two-thirds" >
                         <strong style="color: #262626">Mục tiêu đào tạo</strong>
