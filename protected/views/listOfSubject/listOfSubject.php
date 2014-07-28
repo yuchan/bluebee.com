@@ -80,7 +80,6 @@
 <script type="text/javascript">
     // var $j = jQuery.noConflict(); 
     $(document).ready(function() {
-
         jQuery("a.dept").click(function() {
             var $self = $(this);
 
@@ -106,11 +105,16 @@
                             var list = json.dept_data;
                             $.each(list, function(i, item) {
                                 $('#head_subject').html(item.dept_name);
+                                $('#dept_detail').html(item.dept_target);
+                                $('#dept_knowledge').html(item.dept_knowledge);
+                                $('#dept_skill').html(item.dept_target);
+                                $('#dept_behavior').html(item.dept_knowledge);
+                                $('#dept_name').html(item.dept_name);
+                                $('#dept_in_standart').html(item.dept_in_standart);
+                                $('#dept_out_standart').html(item.dept_out_standart);
+                                $('#dept_contact').html(item.dept_contact);
                             });
-                            
                             jQuery("#tab_acc.w-tabs").wTabs();
-
-
                         }
                     });
                 }
