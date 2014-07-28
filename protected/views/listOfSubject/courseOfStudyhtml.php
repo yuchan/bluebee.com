@@ -60,17 +60,17 @@
 
             <h6> Thông tin cơ bản </h6>
             <div class="white">
-                Tên ngành đào tạo : <div id="dept_name"></div>
+                Tên ngành đào tạo : <div id="dept_name" style="display: inline;"></div>
                 <div class="underline1"></div>
-                Mã số đào tạo : <div id="dept_code"></div>
+                Mã số đào tạo : <div id="dept_code" style="display: inline;"></div>
                 <div class="underline1"></div>
                 Trình độ đào tạo : Đại học
                 <div class="underline1"></div>
                 Thời gian đào tạo : 4 năm
                 <div class="underline1"></div>
-                Số tín chỉ : <div id="dept_credits"></div> tín chỉ
+                Số tín chỉ : <p id="dept_credits" style="display: inline;"></p> 
                 <div class="underline1"></div>
-                Ngôn ngữ : <div id="dept_language"></div>
+                Ngôn ngữ : <div id="dept_language" style="display: inline;"></div>
             </div>
 
             <h6> Thông tin tuyển sinh </h6>
@@ -101,15 +101,9 @@
 
         <h3 style="color: #262626 ;margin-top: 25px">Liên hệ</h3>
         <p>
-            Nếu bạn có thắc mắc về ngành Khoa học máy tính , hãy liên hệ :<br/>
+            Nếu bạn có thắc mắc, hãy liên hệ :<br/>
         <div id="dept_contact">
-            <strong>Đại học Công Nghệ - Đại học Quốc Gia Hà Nội</strong><br/>
-            Khoa học máy tính <br/>
-            Số 2, Xuân Thủy, Cầu Giấy, Hà Nội<br/>
-            Điện thoại :<br/>
-            Fax : <br/>
-            Email : <a>kienduynguyen94@gmail.com</a><br/>
-            Web : <a>uet.vnu.edu.vn</a><br/>
+           
         </div>
         </p>
     </div>

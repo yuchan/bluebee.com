@@ -18,6 +18,7 @@
  * @property integer $dept_credits
  * @property string $dept_code
  * @property string $dept_link_download
+ * @property string $dept_skill
  */
 class Dept extends CActiveRecord
 {
@@ -41,10 +42,10 @@ class Dept extends CActiveRecord
 			array('dept_name', 'length', 'max'=>100),
 			array('dept_code', 'length', 'max'=>255),
 			array('dept_link_download', 'length', 'max'=>500),
-			array('dept_target, dept_knowleadge, dept_behavior, dept_out_standard, dept_contact, dept_in_standart, dept_language', 'safe'),
+			array('dept_target, dept_knowleadge, dept_behavior, dept_out_standard, dept_contact, dept_in_standart, dept_language, dept_skill', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('dept_id, dept_name, dept_active, dept_faculty, dept_target, dept_knowleadge, dept_behavior, dept_out_standard, dept_contact, dept_in_standart, dept_language, dept_credits, dept_code, dept_link_download', 'safe', 'on'=>'search'),
+			array('dept_id, dept_name, dept_active, dept_faculty, dept_target, dept_knowleadge, dept_behavior, dept_out_standard, dept_contact, dept_in_standart, dept_language, dept_credits, dept_code, dept_link_download, dept_skill', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -79,6 +80,7 @@ class Dept extends CActiveRecord
 			'dept_credits' => 'Dept Credits',
 			'dept_code' => 'Dept Code',
 			'dept_link_download' => 'Dept Link Download',
+			'dept_skill' => 'Dept Skill',
 		);
 	}
 
@@ -114,6 +116,7 @@ class Dept extends CActiveRecord
 		$criteria->compare('dept_credits',$this->dept_credits);
 		$criteria->compare('dept_code',$this->dept_code,true);
 		$criteria->compare('dept_link_download',$this->dept_link_download,true);
+		$criteria->compare('dept_skill',$this->dept_skill,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

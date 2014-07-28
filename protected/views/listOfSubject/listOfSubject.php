@@ -106,13 +106,18 @@
                             $.each(list, function(i, item) {
                                 $('#head_subject').html(item.dept_name);
                                 $('#dept_detail').html(item.dept_target);
-                                $('#dept_knowledge').html(item.dept_knowledge);
-                                $('#dept_skill').html(item.dept_target);
-                                $('#dept_behavior').html(item.dept_knowledge);
+                                $('#dept_knowledge').html(item.dept_knowleadge);
+                                $('#dept_skill').html(item.dept_skill);
+                                $('#dept_behavior').html(item.dept_behavior);
                                 $('#dept_name').html(item.dept_name);
                                 $('#dept_in_standart').html(item.dept_in_standart);
-                                $('#dept_out_standart').html(item.dept_out_standart);
+                                $('#dept_out_standard').html(item.dept_out_standard);
                                 $('#dept_contact').html(item.dept_contact);
+                                $('#dept_credits').html(item.dept_credits);
+                                $('#dept_language').html(item.dept_language);
+                                $('#dept_out_standard').html(item.dept_out_standard);
+                                $('#dept_code').html(item.dept_code);
+                                $('#target_detail').html(item.dept_target);
                             });
                             jQuery("#tab_acc.w-tabs").wTabs();
                         }
