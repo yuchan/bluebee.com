@@ -27,18 +27,42 @@ class DocumentController extends BaseController {
     }
 
 
-    public function actionDocument() {
-         $category_father = $this->listCategoryFather();
+        public function actionDocument() {
+        $category_father = $this->listCategoryFather();
         $subject_type = $this->listSubjectType();
         $Criteria = new CDbCriteria(); //represent for query such as conditions, ordering by, limit/offset.
-        
-        $Criteria->select = "*";
-        $Criteria->order = "doc_id DESC";
-
-        $subject = Subject::model()->findAll();
-
-        $this->render('document', array('document' => Doc::model()->findAll($Criteria), 'subject_list' => $subject, 'category_father' => $category_father, 'subject_type' => $subject_type));
+        $this->render('document', array( 'category_father' => $category_father, 'subject_type' => $subject_type));
     }
+
+    public function actionListDocument() {
+       $this->retVal = new stdClass();
+        $request = Yii::app()->request;
+        if ($request->isPostRequest && isset($_POST)) {
+            try {
+                $listSubjectData = array(
+                    'subject_dept' => $_POST['subject_dept'],
+                    'subject_faculty' => $_POST['subject_faculty'],
+                    'subject_type' => $_POST['subject_type'],
+                );
+                $subject_data = Subject::model()->findAllByAttributes(array('subject_dept' => $listSubjectData['subject_dept'],
+                    'subject_faculty' => $listSubjectData['subject_faculty'],
+                    'subject_type' => $listSubjectData['subject_type'],));
+                $doc_data = Doc::model()->findAllByAttributes(array('subject_dept' => $listSubjectData['subject_dept'],
+                    'subject_faculty' => $listSubjectData['subject_faculty'],
+                    'subject_type' => $listSubjectData['subject_type'],));
+                $this->retVal->subject_data = $subject_data;
+                $this->retVal->doc_data = $doc_data;
+                $this->retVal->message = 1;
+            } catch (exception $e) {
+                $this->retVal->message = $e->getMessage();
+            }
+            echo CJSON::encode($this->retVal);
+            Yii::app()->end();
+        }
+    }
+
+
+
 
 
     public function actionViewDocument() {
