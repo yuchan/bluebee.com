@@ -16,7 +16,7 @@ class DocumentController extends BaseController {
         $this->actionDocument();
     }
 
-      public function listCategoryFather() {
+    public function listCategoryFather() {
         $category_father = Faculty::model()->findAll();
         return $category_father;
     }
@@ -26,16 +26,15 @@ class DocumentController extends BaseController {
         return $subject_type;
     }
 
-
-        public function actionDocument() {
+    public function actionDocument() {
         $category_father = $this->listCategoryFather();
         $subject_type = $this->listSubjectType();
         $Criteria = new CDbCriteria(); //represent for query such as conditions, ordering by, limit/offset.
-        $this->render('document', array( 'category_father' => $category_father, 'subject_type' => $subject_type));
+        $this->render('document', array('category_father' => $category_father, 'subject_type' => $subject_type));
     }
 
     public function actionListDocument() {
-       $this->retVal = new stdClass();
+        $this->retVal = new stdClass();
         $request = Yii::app()->request;
         if ($request->isPostRequest && isset($_POST)) {
             try {
@@ -61,9 +60,56 @@ class DocumentController extends BaseController {
         }
     }
 
+    public function actionListDocumentDept() {
+        $this->retVal = new stdClass();
+        $request = Yii::app()->request;
+        if ($request->isPostRequest && isset($_POST)) {
+            try {
+                $listSubjectData = array(
+                    'subject_dept' => $_POST['subject_dept'],
+                    'subject_faculty' => $_POST['subject_faculty'],
+                );
+                $subject_data = Subject::model()->findAllByAttributes(array('subject_dept' => $listSubjectData['subject_dept'],
+                    'subject_faculty' => $listSubjectData['subject_faculty']));
+                $doc_data = Doc::model()->findAllByAttributes(array('subject_dept' => $listSubjectData['subject_dept'],
+                    'subject_faculty' => $listSubjectData['subject_faculty']));
+                $this->retVal->subject_data = $subject_data;
+                $this->retVal->doc_data = $doc_data;
+                $this->retVal->message = 1;
+            } catch (exception $e) {
+                $this->retVal->message = $e->getMessage();
+            }
+            echo CJSON::encode($this->retVal);
+            Yii::app()->end();
+        }
+    }
 
-
-
+    public function actionListDocumentFaculty() {
+        $this->retVal = new stdClass();
+        $request = Yii::app()->request;
+        if ($request->isPostRequest && isset($_POST)) {
+            try {
+                $listSubjectData = array(
+                    'subject_dept' => $_POST['subject_dept'],
+                    'subject_faculty' => $_POST['subject_faculty'],
+                    'subject_type' => $_POST['subject_type'],
+                );
+                $subject_data = Subject::model()->findAllByAttributes(array(
+                    'subject_faculty' => $listSubjectData['subject_faculty']
+                ));
+                $doc_data = Doc::model()->findAllByAttributes(array(
+                    'subject_faculty' => $listSubjectData['subject_faculty']
+                ));
+                $this->retVal->subject_data = $subject_data;
+                $this->retVal->doc_data = $doc_data;
+                $this->retVal->message = 1;
+            } catch (exception $e) {
+                $this->retVal->message = $e->getMessage();
+            }
+            echo CJSON::encode($this->retVal);
+            Yii::app()->end();
+        }
+    }
 
     public function actionViewDocument() {
         $this->render('viewdocument');
@@ -121,7 +167,7 @@ class DocumentController extends BaseController {
         $this->retVal = new stdClass();
         $scribd = new Scribd($api_key, $secret);
         $storeFolder = Yii::getPathOfAlias('webroot') . '/uploads/';   //2
-        $name = $this->unicode_str_filter( $_FILES['file']['name']);
+        $name = $this->unicode_str_filter($_FILES['file']['name']);
         $tempFile = $_FILES['file']['tmp_name'];          //3
         $targetPath = $storeFolder;  //4
         $targetFile = $targetPath . $name;  //5
