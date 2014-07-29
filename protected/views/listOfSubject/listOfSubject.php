@@ -129,30 +129,13 @@
     });
 </script>
 
-<style>
-    #loading-image {
-        display:-moz-box;
 
-        -moz-box-align:center;
-
-        -moz-box-pack:center;
-
-        /* Dành cho Safari and Chrome */
-
-        display:-webkit-box;
-
-        -webkit-box-align:center;
-
-        -webkit-box-pack:center;
-
-    }
-</style>
 <div class="l-submain">
     <div class="l-submain-h i-cf">
         <div class="g-cols">
             <?php $this->renderPartial("partial/bar_left", array('category_father' => $category_father, 'subject_type' => $subject_type)); ?>
             <div class="three-fourths">
-                <img id="loading-image" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax_loader_blue_128.gif"/>
+                <img id="loading-image" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax_loader_blue_128.gif" style="margin-left: 400px;"/>
             </div>
         </div>
     </div>
