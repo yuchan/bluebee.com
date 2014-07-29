@@ -110,8 +110,8 @@
                                 '<div class="box_item">' +
                                 '<div class="short_info_document clearfix">' +
                                 '<div class="document_img">' +
-                                '<img src="'+this.doc_url+'">' +
-                                '<a href="/viewdocument" class="document_img_hover">' +
+                                '<img src="' + this.doc_url + '">' +
+                                '<a href="/viewdocument?' + this.doc_id + '" class="document_img_hover">' +
                                 '<span class="describe_document">blah blah blah</span>' +
                                 '<em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>' +
                                 '</a>' +
@@ -128,8 +128,17 @@
                                 '</span>' +
                                 '</div>' +
                                 '</div>' +
-                                '<a class="name_document" href=""><strong>'+this.doc_name+'</strong></a>' +
+                                '<a class="name_document" href=""><strong>' + this.doc_name + '</strong></a>' +
                                 '</li>');
+                    });
+
+                    jQuery.each(result.subject_data, function(key, value) {
+                        jQuery('#filter_subject').empty();
+                        jQuery('#filter_subject').append(
+                                '<label class="checkbox-styled">' +
+                                '<input type="checkbox"/>' +
+                                '<span>' + this.subject_name + '</span>' +
+                                '</label>');
                     });
                 }
             });
@@ -162,8 +171,8 @@
                                 '<div class="box_item">' +
                                 '<div class="short_info_document clearfix">' +
                                 '<div class="document_img">' +
-                                '<img src="'+this.doc_url+'">' +
-                                '<a href="/viewdocument" class="document_img_hover">' +
+                                '<img src="' + this.doc_url + '">' +
+                                '<a href="/viewdocument?' + this.doc_id + '" class="document_img_hover">' +
                                 '<span class="describe_document">blah blah blah</span>' +
                                 '<em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>' +
                                 '</a>' +
@@ -180,8 +189,17 @@
                                 '</span>' +
                                 '</div>' +
                                 '</div>' +
-                                '<a class="name_document" href=""><strong>'+this.doc_name+'</strong></a>' +
+                                '<a class="name_document" href=""><strong>' + this.doc_name + '</strong></a>' +
                                 '</li>');
+                    });
+
+                    jQuery.each(result.subject_data, function(key, value) {
+                        jQuery('#filter_subject').empty();
+                        jQuery('#filter_subject').append(
+                                '<label class="checkbox-styled">' +
+                                '<input type="checkbox"/>' +
+                                '<span>' + this.subject_name + '</span>' +
+                                '</label>');
                     });
                 }
             });
@@ -193,7 +211,7 @@
     // var $j = jQuery.noConflict(); 
     $(document).ready(function() {
 
-        jQuery("a.faculty").click(function() {
+        jQuery("a.f").click(function() {
             var $self = $(this);
             var faculty_id = $self.attr("faculty-id");
             var dept_id = $self.attr("dept-id");
@@ -214,8 +232,8 @@
                                 '<div class="box_item">' +
                                 '<div class="short_info_document clearfix">' +
                                 '<div class="document_img">' +
-                                '<img src="'+this.doc_url+'">' +
-                                '<a href="/viewdocument" class="document_img_hover">' +
+                                '<img src="' + this.doc_url + '">' +
+                                '<a href="/viewdocument' + ?this.doc_id + '" class="document_img_hover">' +
                                 '<span class="describe_document">blah blah blah</span>' +
                                 '<em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>' +
                                 '</a>' +
@@ -232,8 +250,16 @@
                                 '</span>' +
                                 '</div>' +
                                 '</div>' +
-                                '<a class="name_document" href=""><strong>'+this.doc_name+'</strong></a>' +
+                                '<a class="name_document" href=""><strong>' + this.doc_name + '</strong></a>' +
                                 '</li>');
+                    });
+                    jQuery.each(result.subject_data, function(key, value) {
+                        jQuery('#filter_subject').empty();
+                        jQuery('#filter_subject').append(
+                                '<label class="checkbox-styled">' +
+                                '<input type="checkbox"/>' +
+                                '<span>' + this.subject_name + '</span>' +
+                                '</label>');
                     });
                 }
             });

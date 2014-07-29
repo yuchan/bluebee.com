@@ -5,17 +5,14 @@
                                 <span>Lọc theo tình trạng</span>
                                 <div class="filter_subjects">
                                     <label class="checkbox-styled">
-                                        <input class="status_input" type="checkbox"/ checked>
+                                        <input class="status_input" type="checkbox" id="latest" value="latest">
                                                <span>Mới nhất</span>
                                     </label>
                                     <label class="checkbox-styled">
-                                        <input class="status_input" type="checkbox"/>
+                                        <input class="status_input" type="checkbox" id="oldest" value="oldest"/>
                                         <span>Cũ nhất</span>
                                     </label>
-                                    <label class="checkbox-styled">
-                                        <input class="status_input" type="checkbox"/>
-                                        <span>Xem nhiều</span>
-                                    </label>
+                                
                                 </div>
                                 <script type="text/javascript">
                                     $('input.status_input').on('change', function() {
@@ -25,47 +22,12 @@
                             </div>
                             <div class="clearfix" style="margin-top: 10px">
                                 <span class="">Lọc theo Môn học</span>
-                                <div class="filter_subjects">
+                                <div class="filter_subjects" id="filter_subject">
                                     <label class="checkbox-styled">
                                         <input type="checkbox"/>
                                         <span>Tất cả</span>
                                     </label>
-                                    <label class="checkbox-styled">
-                                        <input type="checkbox"/>
-                                        <span>Tin học cơ sở 1</span>
-                                    </label>
-                                    <label class="checkbox-styled">
-                                        <input type="checkbox"/>
-                                        <span>Tin học cơ sở 2</span>
-                                    </label>
-                                    <label class="checkbox-styled">
-                                        <input type="checkbox"/>
-                                        <span>Tin học cơ sở 3</span>
-                                    </label>
-                                    <label class="checkbox-styled">
-                                        <input type="checkbox"/>
-                                        <span>Tin học cơ sở 4</span>
-                                    </label>
-                                    <label class="checkbox-styled">
-                                        <input type="checkbox"/ checked>
-                                               <span>Công nghệ phần mềm</span>
-                                    </label>
-                                    <label class="checkbox-styled">
-                                        <input type="checkbox"/>
-                                        <span>Đại số tuyến tính</span>
-                                    </label>
-                                    <label class="checkbox-styled">
-                                        <input type="checkbox"/>
-                                        <span>Mạng máy tính</span>
-                                    </label>
-                                    <label class="checkbox-styled">
-                                        <input type="checkbox"/>
-                                        <span>Nguyên lý hệ điều hành</span>
-                                    </label>
-                                    <label class="checkbox-styled">
-                                        <input type="checkbox"/>
-                                        <span>Giải tích 2</span>
-                                    </label>
+                                   
                                 </div>
                             </div>
                         </div>
