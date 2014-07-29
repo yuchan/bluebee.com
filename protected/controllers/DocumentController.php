@@ -16,15 +16,30 @@ class DocumentController extends BaseController {
         $this->actionDocument();
     }
 
+      public function listCategoryFather() {
+        $category_father = Faculty::model()->findAll();
+        return $category_father;
+    }
+
+    public function listSubjectType() {
+        $subject_type = SubjectType::model()->findAll();
+        return $subject_type;
+    }
+
+
     public function actionDocument() {
+         $category_father = $this->listCategoryFather();
+        $subject_type = $this->listSubjectType();
         $Criteria = new CDbCriteria(); //represent for query such as conditions, ordering by, limit/offset.
+        
         $Criteria->select = "*";
         $Criteria->order = "doc_id DESC";
 
         $subject = Subject::model()->findAll();
 
-        $this->render('document', array('document' => Doc::model()->findAll($Criteria), 'subject_list' => $subject));
+        $this->render('document', array('document' => Doc::model()->findAll($Criteria), 'subject_list' => $subject, 'category_father' => $category_father, 'subject_type' => $subject_type));
     }
+
 
     public function actionViewDocument() {
         $this->render('viewdocument');
