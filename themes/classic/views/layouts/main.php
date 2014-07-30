@@ -34,6 +34,18 @@
                 <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/documentpage.css">
 
                     <!-- javascript -->
+                    <script type="text/javascript">
+                        var _urq = _urq || [];
+                        _urq.push(['initSite', '29a51bfa-e262-46d8-ad97-c910fe367879']);
+                        (function() {
+                            var ur = document.createElement('script');
+                            ur.type = 'text/javascript';
+                            ur.async = true;
+                            ur.src = ('https:' == document.location.protocol ? 'https://cdn.userreport.com/userreport.js' : 'http://cdn.userreport.com/userreport.js');
+                            var s = document.getElementsByTagName('script')[0];
+                            s.parentNode.insertBefore(ur, s);
+                        })();
+                    </script>
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery-1.9.1.js"></script>
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/g-alert.js"></script>
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.carousello.js"></script>
@@ -169,14 +181,23 @@
                                                         </a>
                                                     </div>
                                                 </div>
-                                                <div class="w-logo">
-                                                    <div class="w-logo-h">
-                                                        <a class="w-logo-link" href="<?php echo Yii::app()->createUrl("home") ?>" class="w-nav-anchor level_1">
-                                                            <img class="w-logo-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo2.jpg" alt="BlueBee" />
-                                                            <span class="w-logo-title">
-                                                                <span class="w-logo-title-h">BlueBee</span>
-                                                            </span>
+
+
+                                                <div class="w-search submit_inside">
+                                                    <div class="w-search-h">
+                                                        <a class="w-search-show" href="javascript:void(0)" style="margin: auto;">
+                                                            <i class="icon-search" style="line-height: inherit"></i>
                                                         </a>
+                                                        <form class="w-search-form show_hidden" action="#" />
+                                                        <div class="w-search-input">
+                                                            <input type="text" value="" placeholder="Bạn muốn tìm gì ?" />
+                                                        </div>
+                                                        <div class="w-search-submit">
+                                                            <input type="submit" value="Search" />
+
+                                                        </div>
+                                                        <a class="w-search-close" href="javascript:void(0)" title="Close search"> &#10005; </a>
+                                                        </form>
                                                     </div>
                                                 </div>
 
@@ -193,7 +214,7 @@
                                                             <div class="w-nav-list-h">
                                                                 <div class="w-nav-item level_1 active">
                                                                     <div class="w-nav-item-h">
-                                                                        <a href="<?php echo Yii::app()->createUrl("listOfSubject/info") ?>" class="w-nav-anchor level_1">
+                                                                        <a href="<?php echo Yii::app()->createUrl("listOfSubject") ?>" class="w-nav-anchor level_1">
                                                                             <span class="w-nav-icon"><i class="icon-star"></i></span>
                                                                             <span class="w-nav-title">Chương trình đào tạo</span>
                                                                             <span class="w-nav-hint"></span>
@@ -218,6 +239,12 @@
                                                                             <span class="w-nav-title">Giáo viên</span>
                                                                             <span class="w-nav-hint"></span>
                                                                         </a>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="w-nav-item level_1">
+                                                                    <div class="w-nav-item-h">
+                                                                        <a id="login" href="<?php echo $this->createUrl('welcomePage/fb_login') ?>">Đăng nhập với facebook</a>
                                                                     </div>
                                                                 </div>
 
@@ -264,25 +291,7 @@
                                                 </nav>
 
                                             </div>
-                                            <a id="login" href="<?php echo $this->createUrl('welcomePage/fb_login')?>">Đăng nhập với facebook</a>
-                                            <!-- SEARCH -->
-                                            <div class="w-search submit_inside">
-                                                <div class="w-search-h">
-                                                    <a class="w-search-show" href="javascript:void(0)" style="margin: auto;">
-                                                        <i class="icon-search" style="line-height: inherit"></i>
-                                                    </a>
-                                                    <form class="w-search-form show_hidden" action="#" />
-                                                    <div class="w-search-input">
-                                                        <input type="text" value="" placeholder="Bạn muốn tìm gì ?" />
-                                                    </div>
-                                                    <div class="w-search-submit">
-                                                        <input type="submit" value="Search" />
 
-                                                    </div>
-                                                    <a class="w-search-close" href="javascript:void(0)" title="Close search"> &#10005; </a>
-                                                    </form>
-                                                </div>
-                                            </div>
                                         </div>
 
                                     </div>
@@ -316,7 +325,7 @@
                                               });
                                           </script>
                                           <a style="position: absolute; right: 16px; top: 20px; cursor: pointer; color: #18bacd; visibility: visible; font-size: 14px;" title="Close" class="close-onboarding" rel="no-follow">
-                                              <i id="close_login" class="icon-x-alt"></i>                      
+                                              <i id="close_login" class="icon-x-alt"></i>
                                           </a>
                                       </div>
                                   </div> -->

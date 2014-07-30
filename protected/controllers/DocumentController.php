@@ -16,14 +16,99 @@ class DocumentController extends BaseController {
         $this->actionDocument();
     }
 
+    public function listCategoryFather() {
+        $category_father = Faculty::model()->findAll();
+        return $category_father;
+    }
+
+    public function listSubjectType() {
+        $subject_type = SubjectType::model()->findAll();
+        return $subject_type;
+    }
+
     public function actionDocument() {
+        $category_father = $this->listCategoryFather();
+        $subject_type = $this->listSubjectType();
         $Criteria = new CDbCriteria(); //represent for query such as conditions, ordering by, limit/offset.
-        $Criteria->select = "*";
-        $Criteria->order = "doc_id DESC";
+        $this->render('document', array('category_father' => $category_father, 'subject_type' => $subject_type));
+    }
 
-        $subject = Subject::model()->findAll();
+    public function actionListDocument() {
+        $this->retVal = new stdClass();
+        $request = Yii::app()->request;
+        if ($request->isPostRequest && isset($_POST)) {
+            try {
+                $listSubjectData = array(
+                    'subject_dept' => $_POST['subject_dept'],
+                    'subject_faculty' => $_POST['subject_faculty'],
+                    'subject_type' => $_POST['subject_type'],
+                );
+                $subject_data = Subject::model()->findAllByAttributes(array('subject_dept' => $listSubjectData['subject_dept'],
+                    'subject_faculty' => $listSubjectData['subject_faculty'],
+                    'subject_type' => $listSubjectData['subject_type'],));
+                $doc_data = Doc::model()->findAllByAttributes(array('subject_dept' => $listSubjectData['subject_dept'],
+                    'subject_faculty' => $listSubjectData['subject_faculty'],
+                    'subject_type' => $listSubjectData['subject_type'],));
+                $this->retVal->subject_data = $subject_data;
+                $this->retVal->doc_data = $doc_data;
+                $this->retVal->message = 1;
+            } catch (exception $e) {
+                $this->retVal->message = $e->getMessage();
+            }
+            echo CJSON::encode($this->retVal);
+            Yii::app()->end();
+        }
+    }
 
-        $this->render('document', array('document' => Doc::model()->findAll($Criteria), 'subject_list' => $subject));
+    public function actionListDocumentDept() {
+        $this->retVal = new stdClass();
+        $request = Yii::app()->request;
+        if ($request->isPostRequest && isset($_POST)) {
+            try {
+                $listSubjectData = array(
+                    'subject_dept' => $_POST['subject_dept'],
+                    'subject_faculty' => $_POST['subject_faculty'],
+                );
+                $subject_data = Subject::model()->findAllByAttributes(array('subject_dept' => $listSubjectData['subject_dept'],
+                    'subject_faculty' => $listSubjectData['subject_faculty']));
+                $doc_data = Doc::model()->findAllByAttributes(array('subject_dept' => $listSubjectData['subject_dept'],
+                    'subject_faculty' => $listSubjectData['subject_faculty']));
+                $this->retVal->subject_data = $subject_data;
+                $this->retVal->doc_data = $doc_data;
+                $this->retVal->message = 1;
+            } catch (exception $e) {
+                $this->retVal->message = $e->getMessage();
+            }
+            echo CJSON::encode($this->retVal);
+            Yii::app()->end();
+        }
+    }
+
+    public function actionListDocumentFaculty() {
+        $this->retVal = new stdClass();
+        $request = Yii::app()->request;
+        if ($request->isPostRequest && isset($_POST)) {
+            try {
+                $listSubjectData = array(
+                    'subject_dept' => $_POST['subject_dept'],
+                    'subject_faculty' => $_POST['subject_faculty'],
+                    'subject_type' => $_POST['subject_type'],
+                );
+                $subject_data = Subject::model()->findAllByAttributes(array(
+                    'subject_faculty' => $listSubjectData['subject_faculty']
+                ));
+                $doc_data = Doc::model()->findAllByAttributes(array(
+                    'subject_faculty' => $listSubjectData['subject_faculty']
+                ));
+                $this->retVal->subject_data = $subject_data;
+                $this->retVal->doc_data = $doc_data;
+                $this->retVal->message = 1;
+            } catch (exception $e) {
+                $this->retVal->message = $e->getMessage();
+            }
+            echo CJSON::encode($this->retVal);
+            Yii::app()->end();
+        }
     }
 
     public function actionViewDocument() {
@@ -48,6 +133,29 @@ class DocumentController extends BaseController {
         $doc_subject->save(FALSE);
     }
 
+    public function unicode_str_filter($str) {
+        $unicode = array(
+            'a' => 'á|à|ả|ã|ạ|ă|ắ|ặ|ằ|ẳ|ẵ|â|ấ|ầ|ẩ|ẫ|ậ',
+            'd' => 'đ',
+            'e' => 'é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ',
+            'i' => 'í|ì|ỉ|ĩ|ị',
+            'o' => 'ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ',
+            'u' => 'ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự',
+            'y' => 'ý|ỳ|ỷ|ỹ|ỵ',
+            'A' => 'Á|À|Ả|Ã|Ạ|Ă|Ắ|Ặ|Ằ|Ẳ|Ẵ|Â|Ấ|Ầ|Ẩ|Ẫ|Ậ',
+            'D' => 'Đ',
+            'E' => 'É|È|Ẻ|Ẽ|Ẹ|Ê|Ế|Ề|Ể|Ễ|Ệ',
+            'I' => 'Í|Ì|Ỉ|Ĩ|Ị',
+            'O' => 'Ó|Ò|Ỏ|Õ|Ọ|Ô|Ố|Ồ|Ổ|Ỗ|Ộ|Ơ|Ớ|Ờ|Ở|Ỡ|Ợ',
+            'U' => 'Ú|Ù|Ủ|Ũ|Ụ|Ư|Ứ|Ừ|Ử|Ữ|Ự',
+            'Y' => 'Ý|Ỳ|Ỷ|Ỹ|Ỵ',
+        );
+        foreach ($unicode as $nonUnicode => $uni) {
+            $str = preg_replace("/($uni)/i", $nonUnicode, $str);
+        }
+        return $str;
+    }
+
     public function actionUpload() {
         //$ds = DIRECTORY_SEPARATOR;  //1
         $subject_id = strip_tags($_POST['subject_id']);
@@ -58,23 +166,24 @@ class DocumentController extends BaseController {
         $secret = "sec-b2rlvg8kxwwpkz9fo3i02mo9vo";
         $this->retVal = new stdClass();
         $scribd = new Scribd($api_key, $secret);
-        $storeFolder = Yii::app()->basePath . '/uploads/';   //2
+        $storeFolder = Yii::getPathOfAlias('webroot') . '/uploads/';   //2
+        $name = $this->unicode_str_filter($_FILES['file']['name']);
         $tempFile = $_FILES['file']['tmp_name'];          //3
         $targetPath = $storeFolder;  //4
-        $targetFile = $targetPath . $_FILES['file']['name'];  //5
+        $targetFile = $targetPath . $name;  //5
         $ext = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
         move_uploaded_file($tempFile, $targetFile); //6
-        
+
         if ($ext == "gif" || $ext == "jpg" || $ext == "jpeg" || $ext == "pjepg" || $ext == "png" || $ext == "x-png") {
             $this->saveDoc($doc_name, $doc_description, $targetFile, $doc_author, $subject_id, NULL, 1);
-            
+
             $this->retVal->url = $targetFile;
             $this->retVal->doc_name = $doc_name;
             $this->retVal->user_name = Yii::app()->session['user_name'];
-        } else if ($ext == "doc" || $ext == "docx" || $ext == "ppt" || $ext == "pptx" || $ext == "xls" || $ext == "xlsx" || $ext=='txt' || $ext == 'pdf') {
-            
+        } else if ($ext == "doc" || $ext == "docx" || $ext == "ppt" || $ext == "pptx" || $ext == "xls" || $ext == "xlsx" || $ext == 'txt' || $ext == 'pdf') {
+
             $upload_scribd = @$scribd->upload($targetFile);
-            
+
             $thumbnail_info = array('doc_id' => $upload_scribd["doc_id"],
                 'method' => NULL,
                 'session_key' => NULL,
@@ -87,6 +196,7 @@ class DocumentController extends BaseController {
             $this->retVal->docid = @$upload_scribd["doc_id"];
             $this->retVal->thumbnail = @$get_thumbnail["thumbnail_url"];
             $this->retVal->doc_name = $doc_name;
+            $this->retVal->doc_path = $targetFile;
             $this->retVal->user_name = Yii::app()->session['user_name'];
         } else {
             $url_file = "";

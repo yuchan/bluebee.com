@@ -77,8 +77,6 @@ a:active {
 .l-subheader-h {
 	height: 100%;
 	position: relative;
-        margin-left: 100px;
-        float: left;
 }
 
 #login{
@@ -89,9 +87,9 @@ a:active {
     border: 1px solid rgba(0, 0, 0, .2);
     font-size: 14px;
     box-shadow: 0 0 0 1px rgba(255, 255, 255, .4) inset, 0 1px #ffffff;
-    -webkit-box-shadow: 0 0 0 1px rgba(255, 255, 255, .4) inset, 0 1px #ffffff; 
+    -webkit-box-shadow: 0 0 0 1px rgba(255, 255, 255, .4) inset, 0 1px #ffffff;
     border-radius: 6px;
-    
+
 }
 
 .colorbutton{
@@ -1481,7 +1479,6 @@ button.g-btn.size_big {
 }
 .l-subheader.at_middle .w-nav {
 	float: right;
-        margin-right: 65px;
 }
 .l-subheader.at_middle .w-nav-select {
 	display: none;
@@ -1520,7 +1517,7 @@ button.g-btn.size_big {
 }
 .l-subheader.at_middle .w-nav-item.level_1.active .w-nav-anchor.level_1,
 .l-subheader.at_middle .w-nav-item.level_1.current-menu-item .w-nav-anchor.level_1,
-.l-subheader.at_middle .w-nav-item.level_1.current-menu-ancestor .w-nav-anchor.level_1, 
+.l-subheader.at_middle .w-nav-item.level_1.current-menu-ancestor .w-nav-anchor.level_1,
 .w-nav-anchor.level_ava{
 	font-weight: 700;
 	color: #666

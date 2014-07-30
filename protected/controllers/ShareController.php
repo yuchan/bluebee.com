@@ -13,17 +13,40 @@ class ShareController extends Controller {
         $this->actionShare();
     }
 
+    public function listCategoryFather() {
+        $category_father = Faculty::model()->findAll();
+        return $category_father;
+    }
+
+    public function listSubjectType() {
+        $subject_type = SubjectType::model()->findAll();
+        return $subject_type;
+    }
+
     public function actionShare() {
         $this->render('share');
     }
 
     public function actionTeacher() {
-        $this->render('teacher');
+        if (isset($_GET["id"])) {
+
+            $spCriteria = new CDbCriteria();
+            $spCriteria->select = "*";
+            $spCriteria->condition = "teacher_id = '" . $_GET["id"] . "'";
+
+            $teacher_current_id = Teacher::model()->findByAttributes(array('teacher_id' => $_GET["id"]));
+
+            if ($teacher_current_id) {
+                $this->render('teacher', array('teacher_detail_info' => Teacher::model()->findAll($spCriteria)));
+            }
+        }
     }
-    
+
     public function actionTeacherListPage() {
         $teacher_list = Teacher::model()->findAll();
-        $this->render('teacherListPage', array('teacher_list' => $teacher_list));
+        $category_father = $this->listCategoryFather();
+        $subject_type = $this->listSubjectType();
+        $this->render('teacherListPage', array('teacher_list' => $teacher_list, 'category_father' => $category_father, 'subject_type' => $subject_type));
     }
 
     public function actionSubject() {

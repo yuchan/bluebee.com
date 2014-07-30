@@ -67,7 +67,7 @@
                         </ul>
                     </div>
                     <div class="l-content">
-                        <iframe class="scribd_iframe_embed" src="//www.scribd.com/embeds/<?php echo $detail->doc_scribd_id ?>/content?start_page=1&view_mode=scroll&access_key=key-1jb30g90t74etya1jsvh&show_recommendations=true" data-auto-height="false" data-aspect-ratio="0.75" scrolling="no" id="doc_76746" width="100%" height="600" frameborder="0"></iframe>
+                        <iframe src="http://docs.google.com/viewer?url=http://uet.vnu.edu.vn/tltk/Learning/File_PDF/XSS_co_ban.pdf&embedded=true" height="600" style="border-radius: 3px; box-shadow: 0 0 2px rgba(0, 0, 0, 0.3); width: 100%; "></iframe>
                     </div>
                 </div>
                 <div class="one-third" style="margin-left: 0;">

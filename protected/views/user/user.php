@@ -24,7 +24,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="underline"></div>
+<!--                        <div class="underline"></div>
 
                         <div>
                             <p>
@@ -40,11 +40,11 @@
                                 <br/>
                                 - Đẹp trai, nhiều ban thích
                             </p>
-                        </div>
+                        </div>-->
 
                         <div class="underline"></div>
 
-                        <div>
+<!--                        <div>
                             <p>
                                 <span style="text-align: right; color:#aaa">
                                     Môn học theo dõi
@@ -107,7 +107,7 @@
                                 </div>
                             </div>
                             </p>
-                        </div>
+                        </div>-->
                     </div>
 
                     <div class="two-thirds">
@@ -120,10 +120,10 @@
                                         <span class="w-tabs-item-icon"></span>
                                         <span class="w-tabs-item-title">Tài liệu đã đăng</span>
                                     </div>
-                                    <div class="w-tabs-item">
+<!--                                    <div class="w-tabs-item">
                                         <span class="w-tabs-item-icon"></span>
                                         <span class="w-tabs-item-title">Tài liệu yêu thích</span>
-                                    </div>
+                                    </div>-->
 
                                 </div>
                                 <div class="w-tabs-section active">
@@ -442,7 +442,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="w-tabs-section">
+<!--                                <div class="w-tabs-section">
                                     <div class="w-tabs-section-title">
                                         <span class="w-tabs-section-title-icon"></span>
                                         <span class="w-tabs-section-title-text">Tài liệu yêu thích</span>
@@ -462,7 +462,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                     </div>

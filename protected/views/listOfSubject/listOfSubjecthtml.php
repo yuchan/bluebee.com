@@ -1,5 +1,5 @@
 
-<div class="head">Khối kiến thức chung</div>
+<div class="head" id="subject_type_name"></div>
 <div class="w-tabs" id = "content-tabs">
     <div class="w-tabs-h" id="subject_type_details">
         <div class="w-tabs-list" id="subject_type_tab">
