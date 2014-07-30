@@ -253,10 +253,7 @@ class WelcomePageController extends BaseController {
         //print_r($user["id"]);
         //die();
         $user_facebook_exist = User::model()->findByAttributes(array('user_id_fb' => $user["id"]));
-
         if ($user_facebook_exist) {
-            //     echo 'huy';
-            //   die();
             $token = StringHelper::generateToken(16, 36);
             $user_facebook_exist->user_token = $token;
             if (isset($user["name"])) {
@@ -270,17 +267,8 @@ class WelcomePageController extends BaseController {
                 $user_facebook_exist->user_qoutes = $user["quotes"];
             }
             $user_facebook_exist->user_dob = $user["birthday"];
-            $url = "https://graph.facebook.com/" . $user["id"] . "?fields=cover";
-            $json = file_get_contents($url);
-
-            $data = json_decode($json, TRUE);
-
-            $facebook_cover = $data["cover"]["source"];
-            $facebook_cover_resize = Yii::getPathOfAlias('webroot') . '/images/coverfacebook' . $user["id"] . '.png';
-            imageresize::resize_image($facebook_cover, null, 1000, 315, false, $facebook_cover_resize, false, false, 100);
-            // $user_facebook_exist->user_cover = '/images/coverfacebook' . $user["id"] . '.png';
+            $user_facebook_exist->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture?type=small";
             $user_facebook_exist->user_hometown = $user["hometown"]["name"];
-            //$user_facebook_exist->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture?type=large";
             $user_facebook_exist->user_active = 1;
             $user_facebook_exist->save(FALSE);
             Yii::app()->session['user_avatar'] = $user_facebook_exist->user_avatar;
@@ -301,20 +289,11 @@ class WelcomePageController extends BaseController {
             }
             $user_facebook->user_token = $token;
             $user_facebook->user_dob = $user["birthday"];
-            $url = "https://graph.facebook.com/" . $user["id"] . "?fields=cover";
-            $json = file_get_contents($url);
-
-            $data = json_decode($json, TRUE);
-
-            $facebook_cover = $data["cover"]["source"];
             $user_facebook->user_hometown = $user["hometown"]["name"];
             $user_facebook->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture?type=large";
             Yii::app()->session['user_avatar'] = "http://graph.facebook.com/" . $user["id"] . "/picture?type=large";
             Yii::app()->session['token'] = $token;
             $user_facebook->user_id_fb = $user["id"];
-            $facebook_cover_resize = Yii::getPathOfAlias('webroot') . '/images/coverfacebook' . $user["id"] . '.png';
-            imageresize::resize_image($facebook_cover, null, 1000, 315, false, $facebook_cover_resize, false, false, 100);
-            $user_facebook_exist->user_cover = '/images/coverfacebook' . $user["id"] . '.png';
             $user_facebook->user_active = 1;
             if (isset($user["quotes"])) {
                 $user_facebook->user_qoutes = $user["quotes"];
@@ -322,28 +301,12 @@ class WelcomePageController extends BaseController {
             $user_facebook->user_date_attend = date('d/m/Y');
             $user_facebook->save(FALSE);
             Yii::app()->session['user_id'] = $user_facebook->user_id;
-
-
             //return $user;
             $this->redirect(Yii::app()->createUrl('user?token=' . $token));
         }
     }
 
-//    public function actionSaveFacebookUserInfo() {
-//        $user = $this->actionFb_login_result();
-//        $user_facebook = new User;
-//        $user["password"] = "bluebee_facebook";
-//        if (!isset($user["username"])) {
-//            $user_facebook->user_real_name = $user['username'];
-//        }
-//        if (!isset($user["email"])) {
-//            $user_facebook->username = $user['email'];
-//        }
-//        $user_facebook->user_token = md5($user["id"]);
-//        $user_facebook->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture";
-//        $user_facebook->user_id_fb = $user["id"];
-//        $user_facebook->save(FALSE);
-//    }
+
 
     public function actionloginFacebook() {
         $app_id = "1428478800723370";

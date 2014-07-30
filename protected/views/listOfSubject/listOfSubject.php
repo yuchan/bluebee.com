@@ -7,35 +7,34 @@
             jQuery.ajax({
                 type: "POST",
                 url: "<?php echo Yii::app()->createUrl('listOfSubject/listOfSubjectInfoView') ?>",
+                beforeSend: function() {
+                    $('#loading-image').show();
+                },
                 success: function(data) {
                     var json = data;
                     var result = data;
                     jQuery('.three-fourths').html(data);
-
-
                     var faculty_id = $self.attr("faculty-id");
                     var dept_id = $self.attr("dept-id");
                     var subject_type = $self.attr("subject-type");
-
                     jQuery.ajax({
                         type: "POST",
                         url: "<?php echo Yii::app()->createUrl('listOfSubject/listOfSubjectInfo') ?>",
                         data: {subject_dept: dept_id, subject_faculty: faculty_id, subject_type: subject_type},
-                        dataType: 'json',
+                        beforeSend: function() {
+                            jQuery('.three-fourths').hide();
+                        },
                         success: function(data) {
-                            var json = data;
-                            var result = data;
+                            
+                            var result = $.parseJSON(data);
                             $("#loading-image").hide();
-
-                            //  $('#subject_type_tab').html('');
-
+                            jQuery('.three-fourths').show();
                             jQuery.each(result.subject_group_type, function(key, value) {
                                 jQuery('#subject_type_tab').append(
                                         '<div class="w-tabs-item" subject_type_id=' + this.subject_type_id + '>' +
                                         '<span class="w-tabs-item-icon"></span>' +
                                         '<span class="w-tabs-item-title">' + this.subject_group_type + '</span>' +
                                         '</div>');
-
                                 jQuery('#subject_type_details').append(
                                         '<div class="w-tabs-section">' +
                                         ' <div class="w-tabs-section-title">' +
@@ -47,14 +46,9 @@
                                         '<div class="w-tabs-section-content-h">' + this.detail + '</div>' +
                                         '</div>' +
                                         '</div>');
-
-
                             });
 
-
                             jQuery('#subject_type_tab').children().first().addClass('active');
-
-
                             jQuery.each(result.subject_data, function(key, value) {
                                 jQuery('#listsubject').append(
                                         '<tr style="border-bottom: 1px solid #d0d6d9">' +
@@ -64,42 +58,48 @@
                                         '<td>' + this.subject_code + '</td>' +
                                         '</tr>');
                             });
-
+                            var list = result.subject_type;
+                            jQuery.each(result.subject_type, function(i, item) {
+                                $('#subject_type_name').html(item.subject_type_name);
+                                console.log(item.subject_type_name);
+                            });
                             jQuery(".w-tabs").wTabs();
                             $("#content-tabs.w-tabs .w-tabs-section").first().addClass('active');
+                            $('#loading-image').hide();
                         }
                     });
-
                 }
             });
         });
     });
 </script>
-
-
 <script type="text/javascript">
     // var $j = jQuery.noConflict(); 
     $(document).ready(function() {
+        $('#loading-image').hide();
         jQuery("a.dept").click(function() {
             var $self = $(this);
-
             jQuery.ajax({
                 type: "POST",
                 url: "<?php echo Yii::app()->createUrl('listOfSubject/deptInfoView') ?>",
+                beforeSend: function() {
+                    $('#loading-image').show();
+                },
                 success: function(data) {
                     var json = data;
                     var faculty_id = $self.attr("faculty-id");
                     var dept_id = $self.attr("dept-id");
-
                     jQuery('.three-fourths').html(data);
                     jQuery("#tab_acc.w-tabs").wTabs();
-
                     jQuery.ajax({
                         type: "POST",
                         url: "<?php echo Yii::app()->createUrl('listOfSubject/DeptInfo') ?>",
                         data: {faculty_id: faculty_id, dept_id: dept_id},
-                        //dataType: 'json',
+                        beforeSend: function() {
+                            jQuery('.three-fourths').hide();
+                        },
                         success: function(data) {
+                            jQuery('.three-fourths').show();
                             var json = $.parseJSON(data);
                             //  $('#subject_type_tab').html('');
                             var list = json.dept_data;
@@ -120,21 +120,22 @@
                                 $('#target_detail').html(item.dept_target);
                             });
                             jQuery("#tab_acc.w-tabs").wTabs();
+                            $('#loading-image').hide();
                         }
                     });
                 }
             });
         });
     });
-
 </script>
+
 
 <div class="l-submain">
     <div class="l-submain-h i-cf">
         <div class="g-cols">
             <?php $this->renderPartial("partial/bar_left", array('category_father' => $category_father, 'subject_type' => $subject_type)); ?>
             <div class="three-fourths">
-<!--                <img id="loading-image" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax_loader_blue_128.gif"/>-->
+                <img id="loading-image" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax_loader_blue_128.gif" style="margin-left: 400px;"/>
             </div>
         </div>
     </div>
