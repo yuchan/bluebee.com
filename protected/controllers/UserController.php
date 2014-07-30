@@ -46,7 +46,6 @@ class UserController extends BaseController {
                     'user_class_info' => $user_class_info, 'user_activity' => $user_activity));
             } 
         }
-        $this->render('user');
         
     }
 
