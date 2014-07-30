@@ -14,7 +14,17 @@ class ViewDocumentController extends Controller {
     }
 
     public function actionViewDocument() {
-        $this->render('viewDocument');
+        if(isset($_GET['doc_id'])){
+            $detail_doc = Doc::model()->findAll(array("select" => "*", "condition" => "doc_id = ". $_GET["doc_id"]));
+            
+            $doc_subject = SubjectDoc::model()->findAll(array("select" => "*", "condition" => "doc_id =".$detail_doc->doc_id));
+            
+            $related_doc = SubjectDoc::model()->findAll(array("select" => "*", "condition" => "subject_id =".$doc_subject->subject_id));
+            
+            if(count($related_doc))
+            
+            $this->render('viewDocument', array('detail_doc' => $detail_doc));
+        }
     }
 
     // Uncomment the following methods and override them if needed

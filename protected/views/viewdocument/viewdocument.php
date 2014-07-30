@@ -1,3 +1,5 @@
+
+<?php foreach($detail_doc as $detail): ?>
 <div id="content">
     <div class="l-submain">
         <div class="l-submain-h">
@@ -44,8 +46,8 @@
                             <img class="photo_user" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png" style="width: 50px; max-height: 50px">
                         </a>
                         <h1>
-                            <span>Scribd SAP Largest API Integration Press Release</span>
-                            <button class="g-btn type_primary size_small" style="float: right; text-transform: none; font-size: 14px; font-weight: normal;"><span>Scribd</span></button>
+                            <span><?php echo $detail->doc_name ?></span>
+                            <button href="#" class="g-btn type_primary size_small" style="float: right; text-transform: none; font-size: 14px; font-weight: normal;"><span>Scribd</span></button>
                             <p style="float: right">Môn học:</p>
                         </h1>
                         <div class="shot-byline">
@@ -65,12 +67,12 @@
                         </ul>
                     </div>
                     <div class="l-content">
-                        <iframe class="scribd_iframe_embed" src="//www.scribd.com/embeds/29510913/content?start_page=1&view_mode=scroll&access_key=key-1jb30g90t74etya1jsvh&show_recommendations=true" data-auto-height="false" data-aspect-ratio="0.75" scrolling="no" id="doc_76746" width="100%" height="600" frameborder="0"></iframe>
+                        <iframe class="scribd_iframe_embed" src="//www.scribd.com/embeds/<?php echo $detail->doc_scribd_id ?>/content?start_page=1&view_mode=scroll&access_key=key-1jb30g90t74etya1jsvh&show_recommendations=true" data-auto-height="false" data-aspect-ratio="0.75" scrolling="no" id="doc_76746" width="100%" height="600" frameborder="0"></iframe>
                     </div>
                 </div>
                 <div class="one-third" style="margin-left: 0;">
                     <h3>Miêu tả về tài liệu:</h3>
-                    <p>blah blah</p>
+                    <p><?php echo $detail->doc_description ?></p>
                 </div>
                 <div class="two-thirds">
                     <div class="related_document">
@@ -157,3 +159,4 @@
         </div>
     </div>
 </div>
+<?php endforeach; ?>
