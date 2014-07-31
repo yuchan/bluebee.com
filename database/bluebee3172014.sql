@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 31, 2014 at 04:34 AM
+-- Generation Time: Jul 31, 2014 at 04:09 PM
 -- Server version: 5.5.34
 -- PHP Version: 5.4.22
 
@@ -48,99 +48,6 @@ CREATE TABLE IF NOT EXISTS `notifications` (
 
 INSERT INTO `notifications` (`id`, `user_id`, `action`, `object_type`, `object_id`, `possessive`, `from_user_id`, `clicked`, `relevant_id`, `relevant_object`, `app`, `is_active`) VALUES
 (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_class`
---
-
-CREATE TABLE IF NOT EXISTS `tbl_class` (
-  `class_id` int(11) NOT NULL AUTO_INCREMENT,
-  `class_code` varchar(45) DEFAULT NULL,
-  `class_avatar` varchar(200) DEFAULT NULL,
-  `class_cover` varchar(200) DEFAULT NULL,
-  `class_description` varchar(200) DEFAULT NULL,
-  `class_name` varchar(200) DEFAULT NULL,
-  `class_active` varchar(45) DEFAULT NULL,
-  `class_token` varchar(200) DEFAULT NULL,
-  `class_credit_number` int(10) DEFAULT NULL,
-  `class_website` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`class_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `tbl_class`
---
-
-INSERT INTO `tbl_class` (`class_id`, `class_code`, `class_avatar`, `class_cover`, `class_description`, `class_name`, `class_active`, `class_token`, `class_credit_number`, `class_website`) VALUES
-(1, '123', NULL, NULL, NULL, 'test', NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_class_teacher`
---
-
-CREATE TABLE IF NOT EXISTS `tbl_class_teacher` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `class_id` int(11) DEFAULT NULL,
-  `teacher_id` int(11) DEFAULT NULL,
-  `is_active` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_class_user`
---
-
-CREATE TABLE IF NOT EXISTS `tbl_class_user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `class_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `is_active` int(11) DEFAULT NULL,
-  `admin_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `tbl_class_user`
---
-
-INSERT INTO `tbl_class_user` (`id`, `class_id`, `user_id`, `is_active`, `admin_id`) VALUES
-(1, 1, 5, 1, 5);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_class_year`
---
-
-CREATE TABLE IF NOT EXISTS `tbl_class_year` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `class_code` varchar(200) DEFAULT NULL,
-  `class_year` varchar(200) DEFAULT NULL,
-  `is_active` int(11) DEFAULT NULL,
-  `class_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
-
---
--- Dumping data for table `tbl_class_year`
---
-
-INSERT INTO `tbl_class_year` (`id`, `class_code`, `class_year`, `is_active`, `class_id`) VALUES
-(3, '123', '2014', NULL, 5),
-(4, '1234', '2014', NULL, 6),
-(5, '123123124', '2014', NULL, 7),
-(7, 'INT2007', '2014', NULL, 9),
-(8, '456', '2014', NULL, 10),
-(9, '456', '2014', NULL, 11),
-(10, '789', '2014', NULL, 12),
-(11, '7890', '2014', NULL, 13),
-(12, '7890', '2014', NULL, 14);
 
 -- --------------------------------------------------------
 
@@ -233,6 +140,7 @@ CREATE TABLE IF NOT EXISTS `tbl_doc` (
   `subject_type` int(3) DEFAULT NULL,
   `subject_faculty` int(3) DEFAULT NULL,
   `doc_author_name` text,
+  `doc_publisher` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`doc_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
 
@@ -240,52 +148,24 @@ CREATE TABLE IF NOT EXISTS `tbl_doc` (
 -- Dumping data for table `tbl_doc`
 --
 
-INSERT INTO `tbl_doc` (`doc_id`, `doc_url`, `doc_name`, `doc_scribd_id`, `doc_description`, `doc_title`, `doc_status`, `doc_author`, `doc_type`, `doc_path`, `subject_dept`, `subject_type`, `subject_faculty`, `doc_author_name`) VALUES
-(1, 'E:\\xampp\\htdocs\\BlueBee.com\\protected/uploads/medium-0f9fd36fd5784e56b8612ec5db552112-650.jpg', '', NULL, '', NULL, '1', NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(2, 'E:\\xampp\\htdocs\\BlueBee.com\\protected/uploads/Gmail.zip', '', NULL, '', NULL, '1', NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(3, 'E:\\xampp\\htdocs\\BlueBee.com\\protected/uploads/Gmail.zip', 'huy', NULL, 'huy', NULL, '1', NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(4, 'E:\\xampp\\htdocs\\BlueBee.com\\protected/uploads/speed.png', 'huy', NULL, 'huy', NULL, '1', NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(5, 'http://imgv2-1.scribdassets.com/img/word_document/234960278/180x220/607646de8f/1406202392', 'huy', '234960278', 'huy', NULL, '1', NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(6, 'http://imgv2-3.scribdassets.com/img/word_document/234960355/180x220/71b5a37f8f/1406202495', 'huy', '234960355', 'huy', NULL, '1', NULL, 1, NULL, 1, 1, 1, NULL),
-(8, 'http://imgv2-1.scribdassets.com/img/word_document/235028990/180x220/9095bf4556/1406254764', '', '235028990', '', NULL, '1', NULL, 2, NULL, 1, 1, 1, NULL),
-(9, 'http://imgv2-4.scribdassets.com/img/word_document/235029641/180x220/090149283e/1406255207', '', '235029641', '', NULL, '1', NULL, 2, NULL, 1, 1, 1, NULL),
-(11, 'http://imgv2-3.scribdassets.com/img/word_document/235196884/180x220/a87d68cbb0/1406457973', '', '235196884', '', NULL, '1', NULL, 2, NULL, 1, 1, 1, NULL),
-(12, 'http://imgv2-4.scribdassets.com/img/word_document/235199258/180x220/c8cf5eb218/1406461209', '', '235199258', '', NULL, '1', NULL, 2, NULL, 1, 1, 1, NULL),
-(13, 'http://imgv2-1.scribdassets.com/img/word_document/235199304/180x220/da2815dfb9/1406461308', '', '235199304', '', NULL, '1', NULL, 2, NULL, 1, 1, 1, NULL),
-(14, 'http://imgv2-4.scribdassets.com/img/word_document/235199463/180x220/c8d237934b/1406461575', '', '235199463', '', NULL, '1', NULL, 2, NULL, 1, 1, 1, NULL),
-(15, 'http://imgv2-3.scribdassets.com/img/word_document/235199491/180x220/1f5d3f2ac7/1406461606', '', '235199491', '', NULL, '1', NULL, 2, NULL, 1, 1, 1, NULL),
-(16, 'http://imgv2-2.scribdassets.com/img/word_document/235199565/180x220/d9afe6dd08/1406461747', '', '235199565', '', NULL, '1', NULL, 2, NULL, 1, 1, 1, NULL),
-(17, 'E:/xampp/htdocs/BlueBee.com/uploads/1518722_373602562783177_148904274_o.jpg', '', NULL, '', NULL, '1', NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(18, 'http://imgv2-3.scribdassets.com/img/word_document/235365673/180x220/fc86a7feb4/1406640974', 'Test', '235365673', 'Test', NULL, '1', NULL, 2, NULL, 1, 1, 1, NULL),
-(19, 'http://imgv2-2.scribdassets.com/img/word_document/235455991/180x220/4769eefffc/1406732662', '', '235455991', '', NULL, '1', NULL, 2, 'E:/xampp/htdocs/BlueBee.com/uploads/bai tap dai so.docx', NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_doc_class`
---
-
-CREATE TABLE IF NOT EXISTS `tbl_doc_class` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `doc_id` int(11) DEFAULT NULL,
-  `class_id` int(11) DEFAULT NULL,
-  `is_active` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_doc_group`
---
-
-CREATE TABLE IF NOT EXISTS `tbl_doc_group` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `doc_id` int(11) DEFAULT NULL,
-  `group_id` int(11) DEFAULT NULL,
-  `is_active` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+INSERT INTO `tbl_doc` (`doc_id`, `doc_url`, `doc_name`, `doc_scribd_id`, `doc_description`, `doc_title`, `doc_status`, `doc_author`, `doc_type`, `doc_path`, `subject_dept`, `subject_type`, `subject_faculty`, `doc_author_name`, `doc_publisher`) VALUES
+(1, 'E:\\xampp\\htdocs\\BlueBee.com\\protected/uploads/medium-0f9fd36fd5784e56b8612ec5db552112-650.jpg', '', NULL, '', NULL, '1', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'E:\\xampp\\htdocs\\BlueBee.com\\protected/uploads/Gmail.zip', '', NULL, '', NULL, '1', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'E:\\xampp\\htdocs\\BlueBee.com\\protected/uploads/Gmail.zip', 'huy', NULL, 'huy', NULL, '1', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'E:\\xampp\\htdocs\\BlueBee.com\\protected/uploads/speed.png', 'huy', NULL, 'huy', NULL, '1', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 'http://imgv2-1.scribdassets.com/img/word_document/234960278/180x220/607646de8f/1406202392', 'huy', '234960278', 'huy', NULL, '1', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 'http://imgv2-3.scribdassets.com/img/word_document/234960355/180x220/71b5a37f8f/1406202495', 'huy', '234960355', 'huy', NULL, '1', NULL, 1, NULL, 1, 1, 1, NULL, NULL),
+(8, 'http://imgv2-1.scribdassets.com/img/word_document/235028990/180x220/9095bf4556/1406254764', '', '235028990', '', NULL, '1', NULL, 2, NULL, 1, 1, 1, NULL, NULL),
+(9, 'http://imgv2-4.scribdassets.com/img/word_document/235029641/180x220/090149283e/1406255207', '', '235029641', '', NULL, '1', NULL, 2, NULL, 1, 1, 1, NULL, NULL),
+(11, 'http://imgv2-3.scribdassets.com/img/word_document/235196884/180x220/a87d68cbb0/1406457973', '', '235196884', '', NULL, '1', NULL, 2, NULL, 1, 1, 1, NULL, NULL),
+(12, 'http://imgv2-4.scribdassets.com/img/word_document/235199258/180x220/c8cf5eb218/1406461209', '', '235199258', '', NULL, '1', NULL, 2, NULL, 1, 1, 1, NULL, NULL),
+(13, 'http://imgv2-1.scribdassets.com/img/word_document/235199304/180x220/da2815dfb9/1406461308', '', '235199304', '', NULL, '1', NULL, 2, NULL, 1, 1, 1, NULL, NULL),
+(14, 'http://imgv2-4.scribdassets.com/img/word_document/235199463/180x220/c8d237934b/1406461575', '', '235199463', '', NULL, '1', NULL, 2, NULL, 1, 1, 1, NULL, NULL),
+(15, 'http://imgv2-3.scribdassets.com/img/word_document/235199491/180x220/1f5d3f2ac7/1406461606', '', '235199491', '', NULL, '1', NULL, 2, NULL, 1, 1, 1, NULL, NULL),
+(16, 'http://imgv2-2.scribdassets.com/img/word_document/235199565/180x220/d9afe6dd08/1406461747', '', '235199565', '', NULL, '1', NULL, 2, NULL, 1, 1, 1, NULL, NULL),
+(17, 'E:/xampp/htdocs/BlueBee.com/uploads/1518722_373602562783177_148904274_o.jpg', '', NULL, '', NULL, '1', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL),
+(18, 'http://imgv2-3.scribdassets.com/img/word_document/235365673/180x220/fc86a7feb4/1406640974', 'Test', '235365673', 'Test', NULL, '1', NULL, 2, NULL, 1, 1, 1, NULL, NULL),
+(19, 'http://imgv2-2.scribdassets.com/img/word_document/235455991/180x220/4769eefffc/1406732662', '', '235455991', '', NULL, '1', NULL, 2, 'E:/xampp/htdocs/BlueBee.com/uploads/bai tap dai so.docx', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -299,6 +179,8 @@ CREATE TABLE IF NOT EXISTS `tbl_faculty` (
   `faculty_name` varchar(200) DEFAULT NULL,
   `faculty_code` varchar(200) DEFAULT NULL,
   `faculty_active` int(11) DEFAULT NULL,
+  `faculty_research` text,
+  `faculty_lab` text,
   PRIMARY KEY (`faculty_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
@@ -306,42 +188,12 @@ CREATE TABLE IF NOT EXISTS `tbl_faculty` (
 -- Dumping data for table `tbl_faculty`
 --
 
-INSERT INTO `tbl_faculty` (`faculty_id`, `faculty_university`, `faculty_name`, `faculty_code`, `faculty_active`) VALUES
-(1, NULL, 'Công nghệ thông tin', NULL, 1),
-(2, NULL, 'Điện tử viễn thông', NULL, 1),
-(3, NULL, 'Vật lý kỹ thuật', NULL, 1),
-(4, NULL, 'Cơ điện tử', NULL, 1),
-(5, NULL, 'Cơ học kỹ thuật', NULL, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_group`
---
-
-CREATE TABLE IF NOT EXISTS `tbl_group` (
-  `group_id` int(11) NOT NULL AUTO_INCREMENT,
-  `group_avatar` varchar(200) DEFAULT NULL,
-  `group_cover` varchar(200) DEFAULT NULL,
-  `group_description` varchar(200) DEFAULT NULL,
-  `group_name` varchar(200) DEFAULT NULL,
-  `group_active` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`group_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_group_user`
---
-
-CREATE TABLE IF NOT EXISTS `tbl_group_user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `group_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `is_active` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+INSERT INTO `tbl_faculty` (`faculty_id`, `faculty_university`, `faculty_name`, `faculty_code`, `faculty_active`, `faculty_research`, `faculty_lab`) VALUES
+(1, NULL, 'Công nghệ thông tin', NULL, 1, NULL, NULL),
+(2, NULL, 'Điện tử viễn thông', NULL, 1, NULL, NULL),
+(3, NULL, 'Vật lý kỹ thuật', NULL, 1, NULL, NULL),
+(4, NULL, 'Cơ điện tử', NULL, 1, NULL, NULL),
+(5, NULL, 'Cơ học kỹ thuật', NULL, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -411,34 +263,6 @@ INSERT INTO `tbl_post` (`post_id`, `post_author`, `post_date`, `post_content`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_post_class`
---
-
-CREATE TABLE IF NOT EXISTS `tbl_post_class` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `post_id` int(11) DEFAULT NULL,
-  `class_id` int(11) DEFAULT NULL,
-  `is_active` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_post_group`
---
-
-CREATE TABLE IF NOT EXISTS `tbl_post_group` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `post_id` int(11) DEFAULT NULL,
-  `class_id` int(11) DEFAULT NULL,
-  `is_active` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_program`
 --
 
@@ -488,6 +312,7 @@ CREATE TABLE IF NOT EXISTS `tbl_subject` (
   `subject_test` varchar(1000) DEFAULT NULL,
   `subject_faculty` int(12) DEFAULT NULL,
   `subject_dept` int(12) DEFAULT NULL,
+  `subject_content` text,
   PRIMARY KEY (`subject_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
@@ -495,9 +320,9 @@ CREATE TABLE IF NOT EXISTS `tbl_subject` (
 -- Dumping data for table `tbl_subject`
 --
 
-INSERT INTO `tbl_subject` (`subject_id`, `subject_name`, `subject_code`, `subject_active`, `subject_university`, `subject_type`, `subject_year`, `subject_credits`, `subject_credit_hour`, `subject_requirement`, `subject_target`, `subject_info`, `subject_test`, `subject_faculty`, `subject_dept`) VALUES
-(1, 'Tin học cơ sở 4', 'INT1006', '1', NULL, 1, NULL, 3, '20 - 23 - 2', NULL, NULL, NULL, NULL, 1, 1),
-(2, 'Tiếng Anh A1', NULL, '1', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1);
+INSERT INTO `tbl_subject` (`subject_id`, `subject_name`, `subject_code`, `subject_active`, `subject_university`, `subject_type`, `subject_year`, `subject_credits`, `subject_credit_hour`, `subject_requirement`, `subject_target`, `subject_info`, `subject_test`, `subject_faculty`, `subject_dept`, `subject_content`) VALUES
+(1, 'Đại số tuyến tính', 'INT1006', '1', NULL, 1, NULL, 3, '20 - 23 - 2', NULL, 'Trang bị cho sinh viên những khái niệm và kỹ năng cơ bản nhất của Đại số tuyến tính một trong những môn cơ sở của Toán học, tạo điều kiện để học tập, nghiên cứu các môn học khác.\r\n                                Giúp sinh viên hiểu được các kiến thức cơ bản của Đại số tuyến tính, liên hệ với những kiến thức đã học ở bậc phổ thông, biết cách tự hệ thống hoá kiến thức, tìm tòi mở rộng thêm các kiến thức cơ bản để phục vụ công tác sau này.', NULL, NULL, 1, 1, 'Đại số tuyến tính là một trong những môn học đầu tiên của Toán học trừu tượng, sinh viên cần nắm vững các khái niệm, hình dung chính xác các khái niệm đó trong những tình huống cụ thể, biết vận dụng các kết quả mới. Phần đầu chương trình ôn tập lại các khái niệm về tập hợp và ánh xạ, sau đó giới thiệu một số cấu trúc đại số như nhóm, vành, trường. Một thời lượng đáng kể dành cho việc giới thiệu trường số phức, các tính chất của số phức, đa thức và phân thức hữu tỉ thực. Chương III là lý thuyết về ma trận, định thức và hệ phương trình tuyến tính. Ở chương này sinh viên sẽ được ôn lại cách giải hệ phương trình tuyến tính đã học từ chương trình phổ thông. Tuy vậy toàn bộ lý thuyết sẽ được trình bày một cách có hệ thống và ở một ngôn ngữ tổng quát. Chương IV gồm những vấn đề cơ bản của không gian véc tơ, không gian Euclid. Đây có thể coi như những tổng quát hóa lên trường hợp nhiều chiều của các khái niệm mặt phẳng toạ độ, hệ toạ độ trong không gian mà sinh viên đã nắm vững từ bậc phổ thông. Chương V khảo sát một số tính chất quan trọng của ánh xạ tuyến tính, toán tử tuyến tính trong không gian véc tơ hữu hạn chiều, phép biến đổi trực giao, dạng song tuyến tính, dạng toàn phương toán tử tự liên hợp (hay phép biến đổi đối xứng). Chương VI dành cho áp dụng lí thuyết không gian véc tơ Euclid, dạng toàn phương vào việc khảo sát một số vấn đề của hình học giải tích như phân loại các đường bậc hai, mặt bậc hai.'),
+(2, 'Tiếng Anh A1', NULL, '1', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -527,13 +352,13 @@ INSERT INTO `tbl_subject_doc` (`id`, `subject_id`, `doc_id`, `doc_type`, `active
 (6, 0, 6, 1, 1),
 (7, 0, 7, 2, 1),
 (8, 0, 8, 2, 1),
-(9, 0, 9, 2, 1),
+(9, 1, 9, 2, 1),
 (10, NULL, 10, 3, 1),
-(11, 0, 11, 2, 1),
-(12, 0, 12, 2, 1),
+(11, 1, 11, 2, 1),
+(12, 1, 12, 2, 1),
 (13, 0, 13, 2, 1),
-(14, 0, 14, 2, 1),
-(15, 0, 15, 2, 1),
+(14, 1, 14, 2, 1),
+(15, 1, 15, 2, 1),
 (16, 0, 16, 2, 1),
 (17, 0, 17, 1, 1),
 (18, 0, 18, 2, 1),
@@ -609,7 +434,14 @@ CREATE TABLE IF NOT EXISTS `tbl_subject_teacher` (
   `teacher_id` int(11) DEFAULT NULL,
   `is_active` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `tbl_subject_teacher`
+--
+
+INSERT INTO `tbl_subject_teacher` (`id`, `subject_id`, `teacher_id`, `is_active`) VALUES
+(1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -654,7 +486,36 @@ CREATE TABLE IF NOT EXISTS `tbl_teacher` (
   `teacher_birthday` varchar(45) DEFAULT NULL,
   `teacher_sex` int(5) DEFAULT NULL,
   PRIMARY KEY (`teacher_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `tbl_teacher`
+--
+
+INSERT INTO `tbl_teacher` (`teacher_id`, `teacher_name`, `teacher_personal_page`, `teacher_avatar`, `teacher_description`, `teacher_work_place`, `teacher_active`, `teacher_status`, `teacher_acadamic_title`, `teacher_birthday`, `teacher_sex`) VALUES
+(1, 'Nguyễn Thế Huy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_teacher_faculty_position`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_teacher_faculty_position` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `teacher_id` int(11) DEFAULT NULL,
+  `teacher_name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `faculty_id` int(11) DEFAULT NULL,
+  `teacher_position` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `tbl_teacher_faculty_position`
+--
+
+INSERT INTO `tbl_teacher_faculty_position` (`id`, `teacher_id`, `teacher_name`, `faculty_id`, `teacher_position`) VALUES
+(1, 1, NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
