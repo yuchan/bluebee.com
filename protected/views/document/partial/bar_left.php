@@ -112,24 +112,20 @@
                                 '<div class="document_img">' +
                                 '<img src="' + this.doc_url + '">' +
                                 '<a href="/viewdocument?' + this.doc_id + '" class="document_img_hover">' +
-                                '<span class="describe_document">blah blah blah</span>' +
-                                '<em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>' +
+                                '<span class="describe_document">' + this.doc_description + '</span>' +
                                 '</a>' +
                                 '</div>' +
                                 ' <ul class="document_status clearfix">' +
-                                '<li class="score"><i class="icon-heart"></i>2000</li>' +
-                                '<li class="view"><i class="icon-eye-open"></i>1999</li>' +
-                                '<li class="comment"><i class="icon-comment"></i>1203</li>' +
                                 '</ul>' +
                                 '<span class="attribution-user">' +
-                                '<a href="/sonvn" class="url_user" title="Sonvn">' +
-                                '<img class="photo_user" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png"> Sonvn' +
+                                '<a href="/sonvn" class="url_user" title="' + this.doc_author_name + '">' +
                                 '</a>' +
                                 '</span>' +
                                 '</div>' +
                                 '</div>' +
                                 '<a class="name_document" href=""><strong>' + this.doc_name + '</strong></a>' +
-                                '</li>');
+                                '</li>'
+                                );
                     });
 
                     jQuery.each(result.subject_data, function(key, value) {
@@ -173,24 +169,20 @@
                                 '<div class="document_img">' +
                                 '<img src="' + this.doc_url + '">' +
                                 '<a href="/viewdocument?' + this.doc_id + '" class="document_img_hover">' +
-                                '<span class="describe_document">blah blah blah</span>' +
-                                '<em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>' +
+                                '<span class="describe_document">' + this.doc_description + '</span>' +
                                 '</a>' +
                                 '</div>' +
                                 ' <ul class="document_status clearfix">' +
-                                '<li class="score"><i class="icon-heart"></i>2000</li>' +
-                                '<li class="view"><i class="icon-eye-open"></i>1999</li>' +
-                                '<li class="comment"><i class="icon-comment"></i>1203</li>' +
                                 '</ul>' +
                                 '<span class="attribution-user">' +
-                                '<a href="/sonvn" class="url_user" title="Sonvn">' +
-                                '<img class="photo_user" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png"> Sonvn' +
+                                '<a href="/sonvn" class="url_user" title="' + this.doc_author_name + '">' +
                                 '</a>' +
                                 '</span>' +
                                 '</div>' +
                                 '</div>' +
                                 '<a class="name_document" href=""><strong>' + this.doc_name + '</strong></a>' +
-                                '</li>');
+                                '</li>'
+                                );
                     });
 
                     jQuery.each(result.subject_data, function(key, value) {
@@ -211,7 +203,7 @@
     // var $j = jQuery.noConflict(); 
     $(document).ready(function() {
 
-        jQuery("a.f").click(function() {
+        jQuery("a.faculty").click(function() {
             var $self = $(this);
             var faculty_id = $self.attr("faculty-id");
             var dept_id = $self.attr("dept-id");
@@ -233,25 +225,21 @@
                                 '<div class="short_info_document clearfix">' +
                                 '<div class="document_img">' +
                                 '<img src="' + this.doc_url + '">' +
-                                '<a href="/viewdocument' + ?this.doc_id + '" class="document_img_hover">' +
-                                '<span class="describe_document">blah blah blah</span>' +
-                                '<em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>' +
+                                '<a href="/viewdocument?' + this.doc_id + '" class="document_img_hover">' +
+                                '<span class="describe_document">' + this.doc_description + '</span>' +
                                 '</a>' +
                                 '</div>' +
                                 ' <ul class="document_status clearfix">' +
-                                '<li class="score"><i class="icon-heart"></i>2000</li>' +
-                                '<li class="view"><i class="icon-eye-open"></i>1999</li>' +
-                                '<li class="comment"><i class="icon-comment"></i>1203</li>' +
                                 '</ul>' +
                                 '<span class="attribution-user">' +
-                                '<a href="/sonvn" class="url_user" title="Sonvn">' +
-                                '<img class="photo_user" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png"> Sonvn' +
+                                '<a href="/sonvn" class="url_user" title="' + this.doc_author_name + '">' +
                                 '</a>' +
                                 '</span>' +
                                 '</div>' +
                                 '</div>' +
                                 '<a class="name_document" href=""><strong>' + this.doc_name + '</strong></a>' +
-                                '</li>');
+                                '</li>'
+                                );
                     });
                     jQuery.each(result.subject_data, function(key, value) {
                         jQuery('#filter_subject').empty();
@@ -266,5 +254,6 @@
         });
     });
 </script>
+
 
 
