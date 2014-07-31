@@ -140,5 +140,4 @@ class ListOfSubjectController extends BaseController {
             Yii::app()->end();
         }
     }
-
 }
