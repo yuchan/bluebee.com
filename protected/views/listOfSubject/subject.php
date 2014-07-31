@@ -2,8 +2,8 @@
     <div class="l-submain">
         <div class="l-submain-h i-cf">
             <div class="g-cols">
-                <?php $this->renderPartial("partial/bar_left", array('category_father' => $category_father, 'subject_type' => $subject_type)); ?>
-                <div class="three-fourths">
+               
+                <div class="full-width">
                     <div class="head"><?php echo $subject->subject_name ?></div>
                     <div class="w-testimonial">
                         <div class="w-testimonial-h">
