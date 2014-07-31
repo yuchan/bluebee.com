@@ -17,13 +17,14 @@ class ViewDocumentController extends Controller {
         if(isset($_GET['doc_id'])){
             $detail_doc = Doc::model()->findAll(array("select" => "*", "condition" => "doc_id = ". $_GET["doc_id"]));
             
-            $doc_subject = SubjectDoc::model()->findAll(array("select" => "*", "condition" => "doc_id =".$detail_doc->doc_id));
+            $subject = Subject::model()->with(array("subject_doc" => array(
+                            "select" => false,
+                            "condition" => "doc_id = " . $_GET["doc_id"]
+                )))->findAll();
             
-            $related_doc = SubjectDoc::model()->findAll(array("select" => "*", "condition" => "subject_id =".$doc_subject->subject_id));
-            
-            if(count($related_doc))
-            
-            $this->render('viewDocument', array('detail_doc' => $detail_doc));
+            $related_doc = Doc::model()->findAll(array("select" => "*", "limit" => "3", "order" => "RAND()"));
+                       
+            $this->render('viewDocument', array('detail_doc' => $detail_doc, 'related_doc' => $related_doc, 'subject' => $subject));
         }
     }
 
