@@ -77,6 +77,13 @@ class ListOfSubjectController extends BaseController {
         Yii::app()->end();
     }
 
+    public function actionFacultyInfoView() {
+        $this->retVal = new stdClass();
+        $html = $this->renderPartial('departmenthtml', FALSE);
+        echo $html;
+        Yii::app()->end();
+    }
+
     public function actionDeptInfo() {
         $category_father = $this->listCategoryFather();
         $subject_type = $this->listSubjectType();
@@ -130,7 +137,7 @@ class ListOfSubjectController extends BaseController {
                 $this->retVal->subject_group_type = $subject_type_group;
                 $dept_data = Dept::model()->findAllByAttributes(array('dept_id' => $listSubjectData['dept_id'],
                     'dept_faculty' => $listSubjectData['faculty_id']));
-               
+
                 $this->retVal->subject_type = $subject_type_name;
                 $this->retVal->message = 1;
             } catch (exception $e) {
@@ -140,4 +147,31 @@ class ListOfSubjectController extends BaseController {
             Yii::app()->end();
         }
     }
+
+    public function actionFacultyInfo() {
+        $category_father = $this->listCategoryFather();
+        $subject_type = $this->listSubjectType();
+        $this->retVal = new stdClass();
+        $request = Yii::app()->request;
+        if ($request->isPostRequest && isset($_POST)) {
+            try {
+                $listSubjectData = array(
+                    'faculty_id' => $_POST['faculty_id'],
+                );
+                $faculty_data = Faculty::model()->findAllByAttributes(array(
+                    'faculty_id' => $listSubjectData['faculty_id']));
+                $sql = "SELECT * FROM tbl_teacher_faculty_position INNER JOIN tbl_teacher ON tbl_teacher_faculty_position.teacher_id = tbl_teacher.teacher_id WHERE tbl_teacher_faculty_position.teacher_id = '" . $listSubjectData['faculty_id'] . "'";
+                $teacher_faculty_position = Yii::app()->db->createCommand($sql)->queryAll();
+
+                $this->retVal->faculty_data = $faculty_data;
+                $this->retVal->teacher_faculty_position = $teacher_faculty_position;
+                $this->retVal->message = 1;
+            } catch (exception $e) {
+                $this->retVal->message = $e->getMessage();
+            }
+            echo CJSON::encode($this->retVal);
+            Yii::app()->end();
+        }
+    }
+
 }
