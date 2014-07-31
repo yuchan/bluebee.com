@@ -48,7 +48,7 @@
                         <h1>
                             <span><?php echo $detail->doc_name ?></span>
                             <?php foreach ($subject as $subject) ?>
-                            <button href="<?php echo "listofsubject/subject?subject_id=".$subject->subject_id ?>" class="g-btn type_primary size_small" style="float: right; text-transform: none; font-size: 14px; font-weight: normal;"><span><?php echo $subject->subject_name ?></span></button>
+                            <button onclick="window.location.href='<?php echo "listofsubject/subject?subject_id=".$subject->subject_id ?>';" class="g-btn type_primary size_small" style="float: right; text-transform: none; font-size: 14px; font-weight: normal;"><span><?php echo $subject->subject_name ?></span></button>
                            
                             <p style="float: right">Môn học:</p>
                         </h1>
