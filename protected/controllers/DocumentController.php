@@ -238,7 +238,7 @@ class DocumentController extends BaseController {
         if ($request->isPostRequest && isset($_POST)) {
             try {
                 $FilerFormData = array(
-                    'subject_id' => $_POST['subject_id'],
+                    'subject_id' => @$_POST['subject_id']
                 );
                 $Criteria = new CDbCriteria(); //represent for query such as conditions, ordering by, limit/offset.
                 $Criteria->select = "*";
