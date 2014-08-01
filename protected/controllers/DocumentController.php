@@ -90,9 +90,9 @@ class DocumentController extends BaseController {
         if ($request->isPostRequest && isset($_POST)) {
             try {
                 $listSubjectData = array(
-                    'subject_dept' => $_POST['subject_dept'],
+                    
                     'subject_faculty' => $_POST['subject_faculty'],
-                    'subject_type' => $_POST['subject_type'],
+                   
                 );
                 $subject_data = Subject::model()->findAllByAttributes(array(
                     'subject_faculty' => $listSubjectData['subject_faculty']

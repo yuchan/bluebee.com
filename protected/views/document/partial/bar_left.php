@@ -4,7 +4,7 @@
      border-color: #d0d6d9;
      ">
 
-    <h3>Các chủ đề</h3>            
+    <h3>Các ngành học</h3>            
     <div class="widget">
         <nav class="w-nav">
             <div class="w-nav-h">
@@ -111,7 +111,7 @@
                                 '<div class="short_info_document clearfix">' +
                                 '<div class="document_img">' +
                                 '<img src="' + this.doc_url + '">' +
-                                '<a href="/viewdocument?' + this.doc_id + '" class="document_img_hover">' +
+                                '<a href="/viewdocument?doc_id=' + this.doc_id + '" class="document_img_hover">' +
                                 '<span class="describe_document">' + this.doc_description + '</span>' +
                                 '</a>' +
                                 '</div>' +
@@ -125,16 +125,16 @@
                                 '</div>' +
                                 '<a class="name_document" href=""><strong>' + this.doc_name + '</strong></a>' +
                                 '</li>'
-                                );
+                                ).hide().fadeIn(500);
                     });
-
+                    jQuery('#filter_subject').html('');
                     jQuery.each(result.subject_data, function(key, value) {
-                        jQuery('#filter_subject').empty();
+
                         jQuery('#filter_subject').append(
                                 '<label class="checkbox-styled">' +
                                 '<input type="checkbox"/>' +
-                                '<span>' + this.subject_name + '</span>' +
-                                '</label>');
+                                '<span subject_id = ' + this.subject_id + '>' + this.subject_name + '</span>' +
+                                '</label>').hide().fadeIn(500);
                     });
                 }
             });
@@ -168,7 +168,7 @@
                                 '<div class="short_info_document clearfix">' +
                                 '<div class="document_img">' +
                                 '<img src="' + this.doc_url + '">' +
-                                '<a href="/viewdocument?' + this.doc_id + '" class="document_img_hover">' +
+                                '<a href="/viewdocument?doc_id=' + this.doc_id + '" class="document_img_hover">' +
                                 '<span class="describe_document">' + this.doc_description + '</span>' +
                                 '</a>' +
                                 '</div>' +
@@ -182,16 +182,16 @@
                                 '</div>' +
                                 '<a class="name_document" href=""><strong>' + this.doc_name + '</strong></a>' +
                                 '</li>'
-                                );
+                                ).hide().fadeIn(500);
                     });
-
+                    jQuery('#filter_subject').html('');
                     jQuery.each(result.subject_data, function(key, value) {
-                        jQuery('#filter_subject').empty();
+
                         jQuery('#filter_subject').append(
                                 '<label class="checkbox-styled">' +
                                 '<input type="checkbox"/>' +
-                                '<span>' + this.subject_name + '</span>' +
-                                '</label>');
+                                '<span subject_id = ' + this.subject_id + '>' + this.subject_name + '</span>' +
+                                '</label>').hide().fadeIn(500);
                     });
                 }
             });
@@ -225,7 +225,7 @@
                                 '<div class="short_info_document clearfix">' +
                                 '<div class="document_img">' +
                                 '<img src="' + this.doc_url + '">' +
-                                '<a href="/viewdocument?' + this.doc_id + '" class="document_img_hover">' +
+                                '<a href="/viewdocument?doc_id=' + this.doc_id + '" class="document_img_hover">' +
                                 '<span class="describe_document">' + this.doc_description + '</span>' +
                                 '</a>' +
                                 '</div>' +
@@ -239,15 +239,16 @@
                                 '</div>' +
                                 '<a class="name_document" href=""><strong>' + this.doc_name + '</strong></a>' +
                                 '</li>'
-                                );
+                                ).hide().fadeIn(500);
                     });
+                    jQuery('#filter_subject').html('');
                     jQuery.each(result.subject_data, function(key, value) {
-                        jQuery('#filter_subject').empty();
-                        jQuery('#filter_subject').append(
+
+                        jQuery('#filter_subject.filter_subjects').append(
                                 '<label class="checkbox-styled">' +
                                 '<input type="checkbox"/>' +
-                                '<span>' + this.subject_name + '</span>' +
-                                '</label>');
+                                '<span subject_id = ' + this.subject_id + '>' + this.subject_name + '</span>' +
+                                '</label>').hide().fadeIn(500);
                     });
                 }
             });

@@ -2,18 +2,6 @@
     <?php $this->renderPartial('partial/upload'); ?>
     <div class="wrap_fliter">
         <div class="clearfix">
-            <span>Lọc theo tình trạng</span>
-            <div class="filter_subjects">
-                <label class="checkbox-styled">
-                    <input class="status_input filter_time" type="checkbox" id="latest" value="DESC">
-                    <span>Mới nhất</span>
-                </label>
-                <label class="checkbox-styled">
-                    <input class="status_input filter_time" type="checkbox" id="oldest" value="ASC"/>
-                    <span>Cũ nhất</span>
-                </label>
-
-            </div>
             <script type="text/javascript">
                 $('input.status_input').on('change', function() {
                     $('input.status_input').not(this).prop('checked', false);
@@ -23,11 +11,7 @@
         <div class="clearfix" style="margin-top: 10px">
             <span class="">Lọc theo Môn học</span>
             <div class="filter_subjects" id="filter_subject">
-                <label class="checkbox-styled">
-                    <input type="checkbox"/>
-                    <span>Tất cả</span>
-                </label>
-
+                
             </div>
         </div>
     </div>
@@ -43,7 +27,7 @@
         jQuery("input.filter_time").click(function() {
             var $self = $(this);
             var filter_time = $self.val();
-           
+
             jQuery.ajax({
                 type: "POST",
                 url: "<?php echo Yii::app()->createUrl('document/listdocumentfaculty') ?>",
@@ -61,7 +45,7 @@
                                 '<div class="short_info_document clearfix">' +
                                 '<div class="document_img">' +
                                 '<img src="' + this.doc_url + '">' +
-                                '<a href="/viewdocument' + ?this.doc_id + '" class="document_img_hover">' +
+                                '<a href="/viewdocument?doc_id=' + this.doc_id + '" class="document_img_hover">' +
                                 '<span class="describe_document">blah blah blah</span>' +
                                 '<em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>' +
                                 '</a>' +
@@ -86,7 +70,7 @@
                         jQuery('#filter_subject').append(
                                 '<label class="checkbox-styled">' +
                                 '<input type="checkbox"/>' +
-                                '<span>' + this.subject_name + '</span>' +
+                                '<span subject_id = "'+this.subject_id+'">' + this.subject_name + '</span>' +
                                 '</label>');
                     });
                 }
@@ -94,3 +78,4 @@
         });
     });
 </script>
+
