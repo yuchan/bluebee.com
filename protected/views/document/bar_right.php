@@ -23,8 +23,7 @@
 <script type="text/javascript">
     // var $j = jQuery.noConflict(); 
     $(document).ready(function() {
-
-        jQuery("input.filter_time").click(function() {
+        jQuery("span.subject_filter").click(function() {
             var $self = $(this);
             var filter_time = $self.val();
 

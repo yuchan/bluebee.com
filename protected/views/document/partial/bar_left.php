@@ -133,7 +133,7 @@
                         jQuery('#filter_subject').append(
                                 '<label class="checkbox-styled">' +
                                 '<input type="checkbox"/>' +
-                                '<span subject_id = ' + this.subject_id + '>' + this.subject_name + '</span>' +
+                                '<span class = "subject_filter" subject_id = ' + this.subject_id + '>' + this.subject_name + '</span>' +
                                 '</label>').hide().fadeIn(500);
                     });
                 }
@@ -190,7 +190,7 @@
                         jQuery('#filter_subject').append(
                                 '<label class="checkbox-styled">' +
                                 '<input type="checkbox"/>' +
-                                '<span subject_id = ' + this.subject_id + '>' + this.subject_name + '</span>' +
+                                '<span class = "subject_filter" subject_id = ' + this.subject_id + '>' + this.subject_name + '</span>' +
                                 '</label>').hide().fadeIn(500);
                     });
                 }
@@ -247,7 +247,7 @@
                         jQuery('#filter_subject.filter_subjects').append(
                                 '<label class="checkbox-styled">' +
                                 '<input type="checkbox"/>' +
-                                '<span subject_id = ' + this.subject_id + '>' + this.subject_name + '</span>' +
+                                '<span class = "subject_filter" subject_id = ' + this.subject_id + '>' + this.subject_name + '</span>' +
                                 '</label>').hide().fadeIn(500);
                     });
                 }
