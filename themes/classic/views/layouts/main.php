@@ -308,7 +308,8 @@
                                                                 
                                                                 else
                                                                 {
-                                                                    
+                                                                    echo '<img style="border: 5px solid white;"class="ava" src="'.Yii::app()->session['user_avatar'].
+                                                                        '"/>';
                                                                 }
                                                                 ?> 
 

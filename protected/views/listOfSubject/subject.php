@@ -107,7 +107,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="fb-comments" data-href="<?php echo Yii::app()->createAbsoluteUrl('listofsubject/subject?subject_id=').$subject->subject_id ?>" data-width="1000" data-numposts="8" data-colorscheme="light"></div>
+                        <div class="fb-comments" data-href="<?php echo Yii::app()->createAbsoluteUrl('listOfSubject/subject?subject_id=').$subject->subject_id ?>" data-width="1000" data-numposts="8" data-colorscheme="light"></div>
                     </div>
 
                 </div>
