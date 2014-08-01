@@ -174,13 +174,14 @@ class DocumentController extends BaseController {
         $targetFile = $targetPath . $name;  //5
         $ext = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
         move_uploaded_file($tempFile, $targetFile); //6
+        $doc_path = Yii::app()->createAbsoluteUrl('uploads').'\\'.$name;
 
         if ($ext == "gif" || $ext == "jpg" || $ext == "jpeg" || $ext == "pjepg" || $ext == "png" || $ext == "x-png") {
-            $this->saveDoc($doc_name, $doc_description, $targetFile, $doc_author, $subject_id, NULL, 1, $targetFile);
+            $this->saveDoc($doc_name, $doc_description, $targetFile, $doc_author, $subject_id, NULL, 1, $doc_path);
 
             $this->retVal->url = $targetFile;
             $this->retVal->doc_name = $doc_name;
-            $this->retVal->doc_path = $targetFile;
+            $this->retVal->doc_path = $doc_path;
             $this->retVal->user_name = Yii::app()->session['user_name'];
         } else if ($ext == "doc" || $ext == "docx" || $ext == "ppt" || $ext == "pptx" || $ext == "xls" || $ext == "xlsx" || $ext == 'txt' || $ext == 'pdf') {
 
@@ -194,18 +195,18 @@ class DocumentController extends BaseController {
                 'height' => '220');
             $get_thumbnail = @$scribd->postRequest('thumbnail.get', $thumbnail_info);
             // var_dump($get_thumbnail);
-            $this->saveDoc($doc_name, $doc_description, @$get_thumbnail["thumbnail_url"], $doc_author, $subject_id, $upload_scribd["doc_id"], 2, $targetFile);
+            $this->saveDoc($doc_name, $doc_description, @$get_thumbnail["thumbnail_url"], $doc_author, $subject_id, $upload_scribd["doc_id"], 2, $doc_path);
             $this->retVal->docid = @$upload_scribd["doc_id"];
             $this->retVal->thumbnail = @$get_thumbnail["thumbnail_url"];
             $this->retVal->doc_name = $doc_name;
-            $this->retVal->doc_path = $targetFile;
+            $this->retVal->doc_path = $doc_path;
             $this->retVal->user_name = Yii::app()->session['user_name'];
         } else {
             $url_file = "";
-            $this->saveDoc($doc_name, $doc_description, NULL, $doc_author, $subject_id, NULL, 3, $targetFile);
+            $this->saveDoc($doc_name, $doc_description, NULL, $doc_author, $subject_id, NULL, 3, $doc_path);
             $this->retVal->url = $targetFile;
             $this->retVal->doc_name = $doc_name;
-            $this->retVal->doc_path = $targetFile;
+            $this->retVal->doc_path = $doc_path;
             $this->retVal->user_name = Yii::app()->session['user_name'];
         }
         echo CJSON::encode($this->retVal);

@@ -1,4 +1,11 @@
-
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=1428478800723370&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <?php foreach($detail_doc as $detail): ?>
 <div id="content">
     <div class="l-submain">
@@ -69,7 +76,19 @@
                         </ul>
                     </div>
                     <div class="l-content">
-                        <iframe src="http://docs.google.com/viewer?url=<?php echo $detail->doc_url?>&embedded=true" height="600" style="border-radius: 3px; box-shadow: 0 0 2px rgba(0, 0, 0, 0.3); width: 100%; "></iframe>
+                        <?php if($detail->doc_type == 2) {
+                           echo '<iframe src="http://docs.google.com/viewer?url='.$detail->doc_url.'&embedded=true" height="600" style="border-radius: 3px; box-shadow: 0 0 2px rgba(0, 0, 0, 0.3); width: 100%; "></iframe>'
+                                .'<a href="'.$detail->doc_path.'"'.'download="'.$detail->doc_name.'">Download</a>';
+                        } else {
+                            if($detail->doc_type == 1){
+                               echo '<img style="width: 100%; height: auto; " src="'.$detail->doc_path.'" />'.'<a href="'.$detail->doc_path.'"'.'download="'.$detail->doc_name.'">Download</a>';
+                            }
+                            else {
+                                if($detail->doc_type == 3){
+                                    echo '<a href="'.$detail->doc_path.'"'.'download="'.$detail->doc_name.'">Download</a>';
+                                }
+                            }
+                        } ?>                                                 
                     </div>
                 </div>
                 <div class="one-third" style="margin-left: 0;">
@@ -85,8 +104,8 @@
                                 <div class="box_item">
                                     <div class="short_info_document clearfix">
                                         <div class="document_img">
-                                            <img src="<?php echo $related_doc->doc_url>
-                                            <a href="<?php echo 'viewdocument?doc_id='.$related_doc->doc_id ?>" action="" class="document_img_hover">
+                                            <img src="<?php echo $related_doc->doc_url?>"/>
+                                            <a href="<?php echo Yii::app()->createAbsoluteUrl('viewdocument?doc_id=').$related_doc->doc_id ?>" action="" class="document_img_hover">
                                                 <span class="describe_document">blah blah blah</span>
                                                 <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>
                                             </a>
@@ -111,6 +130,7 @@
             </div>
             <div>
                 <h3>Bình luận</h3>
+                <div class="fb-comments" data-href="<?php echo Yii::app()->createAbsoluteUrl('viewdocument?doc_id=').$detail->doc_id ?>" data-width="1000" data-numposts="8" data-colorscheme="light"></div>
             </div>
         </div>
     </div>
