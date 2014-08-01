@@ -29,8 +29,6 @@
                     </div>
 
                     <div class="two-thirds">
-
-
                         <div class="w-tabs">
                             <div class="w-tabs-h">
                                 <div class="w-tabs-list">
@@ -59,7 +57,7 @@
                                                                             <img src="<?php echo $doc->doc_url ?>">
                                                                             <a href="/viewdocument" class="document_img_hover">
                                                                                 <span class="describe_document"><?php echo $doc->doc_description ?></span>
-<!--                                                                                <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>-->
+        <!--                                                                                <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>-->
                                                                             </a>
                                                                         </div>
                                                                         <ul class="document_status clearfix">
@@ -76,21 +74,21 @@
                                                                 </div>
                                                                 <a class="name_document" href=""><strong><?php echo $doc['doc_name'] ?></strong></a>
                                                             </li>
-                                                                    <?php endforeach; ?>
-                                                                    </ol>
-                                                                    </div>
-                                                                    </div>
-                                                                    </div>
-                                                                    </div>
-                                                                    </div>
+                                                        <?php endforeach; ?>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                                                    </div>
-                                                                    </div>
-                                                                    </div>
-                                                                    </div>
-                                                                    </div>
-                                                                    </div>
-                                                                    </div>
-                                                                    <?php
-                                                                endforeach;
-                                                                
+                            </div>
+                        </div>
+                        <!--cmt facebook-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php
+endforeach;

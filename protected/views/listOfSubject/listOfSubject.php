@@ -267,6 +267,7 @@
             <?php $this->renderPartial("partial/bar_left", array('category_father' => $category_father, 'subject_type' => $subject_type)); ?>
             <div class="three-fourths">
                 <img id="loading-image" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax_loader_blue_128.gif" style="margin-left: 400px;"/>
+                <!--cmt facebook-->
             </div>
         </div>
     </div>
