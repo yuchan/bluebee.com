@@ -9,7 +9,7 @@ return array(
     'name' => 'My Web Application',
     // preloading 'log' component
     'preload' => array('log'),
-    //   'defaultController' => 'ListOfSubject',   
+       'defaultController' => 'ListOfSubject',   
     // autoloading model and component classes
     'import' => array(
         'application.models.*',

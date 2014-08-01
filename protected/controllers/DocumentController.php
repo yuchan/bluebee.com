@@ -90,9 +90,9 @@ class DocumentController extends BaseController {
         if ($request->isPostRequest && isset($_POST)) {
             try {
                 $listSubjectData = array(
-                    'subject_dept' => $_POST['subject_dept'],
+                    
                     'subject_faculty' => $_POST['subject_faculty'],
-                    'subject_type' => $_POST['subject_type'],
+                   
                 );
                 $subject_data = Subject::model()->findAllByAttributes(array(
                     'subject_faculty' => $listSubjectData['subject_faculty']
@@ -115,11 +115,12 @@ class DocumentController extends BaseController {
         $this->render('viewdocument');
     }
 
-    public function saveDoc($doc_name, $doc_description, $doc_url, $doc_author, $subject_id, $doc_scribd_id, $doc_type) {
+    public function saveDoc($doc_name, $doc_description, $doc_url, $doc_author, $subject_id, $doc_scribd_id, $doc_type, $doc_path) {
         $doc_model = new Doc;
         $doc_model->doc_name = $doc_name;
         $doc_model->doc_description = $doc_description;
         $doc_model->doc_url = $doc_url;
+        $doc_model->doc_path = $doc_path;
         $doc_model->doc_scribd_id = $doc_scribd_id;
         $doc_model->doc_type = $doc_type;
         $doc_model->doc_status = 1;
@@ -175,10 +176,11 @@ class DocumentController extends BaseController {
         move_uploaded_file($tempFile, $targetFile); //6
 
         if ($ext == "gif" || $ext == "jpg" || $ext == "jpeg" || $ext == "pjepg" || $ext == "png" || $ext == "x-png") {
-            $this->saveDoc($doc_name, $doc_description, $targetFile, $doc_author, $subject_id, NULL, 1);
+            $this->saveDoc($doc_name, $doc_description, $targetFile, $doc_author, $subject_id, NULL, 1, $targetFile);
 
             $this->retVal->url = $targetFile;
             $this->retVal->doc_name = $doc_name;
+            $this->retVal->doc_path = $targetFile;
             $this->retVal->user_name = Yii::app()->session['user_name'];
         } else if ($ext == "doc" || $ext == "docx" || $ext == "ppt" || $ext == "pptx" || $ext == "xls" || $ext == "xlsx" || $ext == 'txt' || $ext == 'pdf') {
 
@@ -192,7 +194,7 @@ class DocumentController extends BaseController {
                 'height' => '220');
             $get_thumbnail = @$scribd->postRequest('thumbnail.get', $thumbnail_info);
             // var_dump($get_thumbnail);
-            $this->saveDoc($doc_name, $doc_description, @$get_thumbnail["thumbnail_url"], $doc_author, $subject_id, $upload_scribd["doc_id"], 2);
+            $this->saveDoc($doc_name, $doc_description, @$get_thumbnail["thumbnail_url"], $doc_author, $subject_id, $upload_scribd["doc_id"], 2, $targetFile);
             $this->retVal->docid = @$upload_scribd["doc_id"];
             $this->retVal->thumbnail = @$get_thumbnail["thumbnail_url"];
             $this->retVal->doc_name = $doc_name;
@@ -200,9 +202,10 @@ class DocumentController extends BaseController {
             $this->retVal->user_name = Yii::app()->session['user_name'];
         } else {
             $url_file = "";
-            $this->saveDoc($doc_name, $doc_description, $targetFile, $doc_author, $subject_id, NULL, 3);
+            $this->saveDoc($doc_name, $doc_description, NULL, $doc_author, $subject_id, NULL, 3, $targetFile);
             $this->retVal->url = $targetFile;
             $this->retVal->doc_name = $doc_name;
+            $this->retVal->doc_path = $targetFile;
             $this->retVal->user_name = Yii::app()->session['user_name'];
         }
         echo CJSON::encode($this->retVal);
@@ -235,7 +238,7 @@ class DocumentController extends BaseController {
         if ($request->isPostRequest && isset($_POST)) {
             try {
                 $FilerFormData = array(
-                    'subject_id' => $_POST['subject_id'],
+                    'subject_id' => @$_POST['subject_id']
                 );
                 $Criteria = new CDbCriteria(); //represent for query such as conditions, ordering by, limit/offset.
                 $Criteria->select = "*";
