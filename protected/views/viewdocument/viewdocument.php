@@ -85,7 +85,7 @@
                                 <div class="box_item">
                                     <div class="short_info_document clearfix">
                                         <div class="document_img">
-                                            <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/photo-11.jpg">
+                                            <img src="<?php echo $related_doc->doc_url>
                                             <a href="<?php echo 'viewdocument?doc_id='.$related_doc->doc_id ?>" action="" class="document_img_hover">
                                                 <span class="describe_document">blah blah blah</span>
                                                 <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>
