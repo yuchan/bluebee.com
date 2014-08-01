@@ -9,6 +9,7 @@
                     <?php $this->renderPartial('listdocument')?>
                    <?php $this->renderPartial('bar_right')?>
                 </div>
+                <!--cmt facebook-->
             </div>
         </div>
     </div>
