@@ -211,7 +211,7 @@
                                         </div>
                                         <div class="w-nav-list layout_hor width_auto float_right level_1">
                                             <div class="w-nav-list-h">
-                                                <div class="w-nav-item level_1">
+                                                <div class="w-nav-item level_1  <?php if($current_page=="listOfSubject"): ?>active<?php endif; ?>">
                                                     <div class="w-nav-item-h">
                                                         <a href="<?php echo Yii::app()->createUrl("listOfSubject") ?>" class="w-nav-anchor level_1">
                                                             <span class="w-nav-icon"><i class="icon-star"></i></span>
@@ -220,7 +220,7 @@
                                                         </a>
                                                     </div>
                                                 </div>
-                                                <div class="w-nav-item level_1 active">
+                                                <div class="w-nav-item level_1">
                                                     <div class="w-nav-item-h">
                                                         <a href="<?php echo Yii::app()->createUrl("document") ?>" class="w-nav-anchor level_1">
                                                             <span class="w-nav-icon"><i class="icon-star"></i></span>
