@@ -7,7 +7,7 @@ class UserController extends BaseController {
     public function actionIndex() {
         $this->actionUser();
     }
-    
+
 //    public function actionUser() {
 //        if (isset($_GET["token"])) {
 //
@@ -27,8 +27,8 @@ class UserController extends BaseController {
 //            } 
 //        } 
 //    }
-    
-    public function actionUser(){
+
+    public function actionUser() {
         if (isset($_GET["id"])) {
 
             $user_activity = $this->userActivity();
@@ -41,21 +41,17 @@ class UserController extends BaseController {
             if ($user_current_id) {
                 $this->render('user', array('user_detail_info' => User::model()->findAll($spCriteria),
                     'user_doc_info' => $user_doc_info, 'user_activity' => $user_activity));
-            } 
+            }
         }
-        
     }
 
     public function actionUser_Visitor() {
-        if (isset($_GET["userid"])) {
+        if (isset($_GET["token"])) {
+            $user_current_token = User::model()->findByAttributes(array('user_token' => $_GET["token"]));
             $spCriteria = new CDbCriteria();
             $spCriteria->select = "*";
-            $spCriteria->condition = "user_id = '" . $_GET["userid"] . "'";
-
-            $user_current_token = User::model()->findByAttributes(array('user_id' => $_GET["userid"]));
-
+            $spCriteria->condition = "user_id = '" . $user_current_token->user_id . "'";
             if ($user_current_token) {
-
                 $sql = "SELECT * FROM tbl_class_user INNER JOIN tbl_class ON tbl_class_user.class_id = tbl_class.class_id WHERE user_id = '" . $user_current_token->user_id . "'";
                 $user_class_info = Yii::app()->db->createCommand($sql)->queryAll();
                 $this->render('user', array('user_detail_info' => User::model()->findAll($spCriteria),
@@ -63,7 +59,7 @@ class UserController extends BaseController {
             } else {
                 
             }
-        } 
+        }
     }
 
     public function userActivity() {
@@ -73,7 +69,7 @@ class UserController extends BaseController {
 
     public function actionChangeCover() {
         $this->retVal = new stdClass;
-        $relativePath = '/images/user_cover/' . Yii::app()->session["user_id"]. '/';
+        $relativePath = '/images/user_cover/' . Yii::app()->session["user_id"] . '/';
         $dir = "images/user_cover/" . Yii::app()->session["user_id"];
         @mkdir(Yii::getPathOfAlias('webroot') . '/' . $dir, 0777, true);
         $image = "";

@@ -90,9 +90,7 @@ class DocumentController extends BaseController {
         if ($request->isPostRequest && isset($_POST)) {
             try {
                 $listSubjectData = array(
-                    
                     'subject_faculty' => $_POST['subject_faculty'],
-                   
                 );
                 $subject_data = Subject::model()->findAllByAttributes(array(
                     'subject_faculty' => $listSubjectData['subject_faculty']
@@ -235,18 +233,18 @@ class DocumentController extends BaseController {
     }
 
     public function actionFilterDocumentBySubject() {
+        $this->retVal = new stdClass();
         $request = Yii::app()->request;
         if ($request->isPostRequest && isset($_POST)) {
             try {
                 $FilerFormData = array(
-                    'subject_id' => $_POST['subject_id'],
+                    'subject_id' => $_POST['subject_id']
                 );
-                $Criteria = new CDbCriteria(); //represent for query such as conditions, ordering by, limit/offset.
-                $Criteria->select = "*";
-                $Criteria->order = "doc_id DESC";
-                $Criteria->condition = "subject_id = '" . $FilerFormData['subject_id'] . "'";
-                $result = SubjectDoc::model()->findAll($Criteria);
-                $this->retVal = $result;
+                $sql = "SELECT * FROM tbl_doc INNER JOIN tbl_subject_doc ON tbl_doc.doc_id = tbl_subject_doc.doc_id WHERE tbl_subject_doc.subject_id = '" . $FilerFormData['subject_id'] . "'";
+//                var_dump($sql);
+//                exit();
+                $result = Yii::app()->db->createCommand($sql)->queryAll();
+                $this->retVal->doc_data = $result;
             } catch (exception $e) {
                 // $this->retVal->message = $e->getMessage();
             }

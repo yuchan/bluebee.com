@@ -111,7 +111,7 @@
                                 '<div class="short_info_document clearfix">' +
                                 '<div class="document_img">' +
                                 '<img src="' + this.doc_url + '">' +
-                                '<a href="/viewdocument?doc_id=' + this.doc_id + '" class="document_img_hover">' +
+                                '<a href="<?php echo Yii::app()->createAbsoluteUrl('viewdocument') ?>?doc_id=' + this.doc_id + '" class="document_img_hover">' +
                                 '<span class="describe_document">' + this.doc_description + '</span>' +
                                 '</a>' +
                                 '</div>' +
@@ -133,7 +133,7 @@
                         jQuery('#filter_subject').append(
                                 '<label class="checkbox-styled">' +
                                 '<input type="checkbox"/>' +
-                                '<span subject_id = ' + this.subject_id + '>' + this.subject_name + '</span>' +
+                                '<span class = "subject_filter" subject-id-filter = ' + this.subject_id + ' onclick="loaddoc('+this.subject_id+')">' + this.subject_name + '</span>' +
                                 '</label>').hide().fadeIn(500);
                     });
                 }
@@ -168,7 +168,7 @@
                                 '<div class="short_info_document clearfix">' +
                                 '<div class="document_img">' +
                                 '<img src="' + this.doc_url + '">' +
-                                '<a href="/viewdocument?doc_id=' + this.doc_id + '" class="document_img_hover">' +
+                                '<a href="<?php echo Yii::app()->createAbsoluteUrl('viewdocument') ?>?doc_id=' + this.doc_id + '" class="document_img_hover">' +
                                 '<span class="describe_document">' + this.doc_description + '</span>' +
                                 '</a>' +
                                 '</div>' +
@@ -190,7 +190,7 @@
                         jQuery('#filter_subject').append(
                                 '<label class="checkbox-styled">' +
                                 '<input type="checkbox"/>' +
-                                '<span subject_id = ' + this.subject_id + '>' + this.subject_name + '</span>' +
+                                 '<span class = "subject_filter" subject-id-filter = ' + this.subject_id + ' onclick="loaddoc('+this.subject_id+')">' + this.subject_name + '</span>' +
                                 '</label>').hide().fadeIn(500);
                     });
                 }
@@ -225,7 +225,7 @@
                                 '<div class="short_info_document clearfix">' +
                                 '<div class="document_img">' +
                                 '<img src="' + this.doc_url + '">' +
-                                '<a href="/viewdocument?doc_id=' + this.doc_id + '" class="document_img_hover">' +
+                                '<a href="<?php echo Yii::app()->createAbsoluteUrl('viewdocument') ?>?doc_id=' + this.doc_id + '" class="document_img_hover">' +
                                 '<span class="describe_document">' + this.doc_description + '</span>' +
                                 '</a>' +
                                 '</div>' +
@@ -247,7 +247,7 @@
                         jQuery('#filter_subject.filter_subjects').append(
                                 '<label class="checkbox-styled">' +
                                 '<input type="checkbox"/>' +
-                                '<span subject_id = ' + this.subject_id + '>' + this.subject_name + '</span>' +
+                                 '<span class = "subject_filter" subject-id-filter = ' + this.subject_id + ' onclick="loaddoc('+this.subject_id+')">' + this.subject_name + '</span>' +
                                 '</label>').hide().fadeIn(500);
                     });
                 }

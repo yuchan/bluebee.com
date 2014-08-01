@@ -112,6 +112,7 @@
 
                 </div>
             </div>
+            <!--cmt facebook-->
         </div>
     </div>
 <?php endforeach; ?>
