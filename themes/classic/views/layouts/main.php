@@ -299,11 +299,9 @@
                                                                 if (Yii::app()->session["user_id"] == "")
                                                                 {
                                                                     echo '
-                                                                      
-
                                                                 <div class="w-nav-item level_1">
                                                                     <div class="w-nav-item-h">
-                                                                        <a id="login" href="'.<?php echo $this->createUrl('welcomePage/fb_login') ?>">.'Đăng nhập với facebook</a>
+                                                                        <a id="login" href="'.$this->createUrl('welcomePage/fb_login').'">Đăng nhập với facebook</a>
                                                                     </div>
                                                                 </div>';
                                                                 }
