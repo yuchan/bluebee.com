@@ -22,16 +22,13 @@
 
 <script type="text/javascript">
     // var $j = jQuery.noConflict(); 
-    function loaddoc() {
+    function loaddoc(id) {
         var $self = $(this);
-        var subject_id = $self.attr("subject_id");
+        
         jQuery.ajax({
             type: "POST",
-            url: "<?php echo Yii::app()->createUrl('document/filterdocumentbysubject') ?>",
-            data: {subject_id: subject_id},
-            beforeSend: function() {
-                $('#loading-image').show();
-            },
+            url: "<?php echo Yii::app()->createUrl('document/FilterDocumentBySubject') ?>",
+            data: {subject_id: id},
             success: function(data) {
                 var result = $.parseJSON(data);
                 jQuery('#list_document').empty();
