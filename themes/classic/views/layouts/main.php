@@ -4,16 +4,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="language" content="en" />
-
         <!-- blueprint CSS framework -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <link rel="stylesheet" type="text/css" media="all" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic" />
         <link rel="stylesheet" type="text/css" media="all" href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700" />
-
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/motioncss.css" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/motioncss-widgets.css" />
-
-
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/font-awesome.css" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/rs-settings.css" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/switcher.css" />
@@ -32,7 +28,6 @@
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/post_style.css">
             <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/search_style.css">
                 <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/documentpage.css">
-
                     <!-- javascript -->
                     <script type="text/javascript">
                         var _urq = _urq || [];
@@ -50,7 +45,6 @@
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/g-alert.js"></script>
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.carousello.js"></script>
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.flexslider.js"></script>
-
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.isotope.js"></script>
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.magnific-popup.js"></script>
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.parallax.js"></script>
@@ -72,7 +66,6 @@
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.tokeninput.js"></script>
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/classie.js"></script>
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/cbpScroller.js"></script>
-
                     <!-- Star rating-->
                     <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/ratings.css" />
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.barrating.js"></script>
@@ -81,7 +74,6 @@
                             $('.example-f').barrating({showSelectedRating: false});
                         });
                     </script>
-
                     <!-- Pop-up -->
                     <script>
                         $(document).ready(function() {
@@ -100,7 +92,6 @@
                                 }
                                 ;
                             });
-
                             //formulário popup
                             $('.popup-with-form').magnificPopup({
                                 type: 'inline',
@@ -119,8 +110,6 @@
 
                         });
                     </script>
-
-
                     <!-- GMap-->
                     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.gmap.min.js"></script>
@@ -152,11 +141,75 @@
                     <script type="text/javascript">stLight.options
                                 ({publisher: "ur-b6bcdd5b-dde-cce8-a00c-478890414ff", doNotHash: true, doNotCopy: true, hashAddressBar: true});
                     </script>
-
                     </head>
-
                     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
                     <body class="l-body home" style="background-color: white">
+                        <div id="fb-root"></div>
+                        <script>(function(d, s, id) {
+                          var js, fjs = d.getElementsByTagName(s)[0];
+                          if (d.getElementById(id)) return;
+                          js = d.createElement(s); js.id = id;
+                          js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.0";
+                          fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>
+                        <style>
+                            #fan_page_fb {
+                                position: fixed;
+                                z-index: 1000000;
+                                height: 271px;
+                                width: 300px;
+                                background-color: white;
+                                top: 58%;
+                                left: -300px;
+                                -moz-transition: background 0.1s ease-in;
+                                -o-transition: background 0.1s ease-in;
+                                -webkit-transition: background 0.1s ease-in;
+                                transition: left 1s ease-in;
+                            }
+
+                            #button_like_fanpage_fb {
+                                position: absolute;
+                                right: -33%;
+                                top: 19%;
+                                transform: rotate(90deg);
+                                background-color: #429edb;
+                                font-size: 15px;
+                                color: white;
+                                height: 50px;
+                                width: 150px;
+                                font-family: 'Open sans';
+                                text-align: center;
+                                border-radius: 4px 4px 0 0;
+                                -moz-transition: background 0.1s ease-in;
+                                -o-transition: background 0.1s ease-in;
+                                -webkit-transition: background 0.1s ease-in;
+                                transition: left 1s ease-in;
+                                cursor: pointer;
+                            }
+                        </style>
+                        <script>
+                            $(document).ready(function() {
+                                $('#button_like_fanpage_fb').click(function(event) {
+                                    var pos = $('#fan_page_fb').css('left');
+                                    if (pos != '0px') {
+                                        pos = $('#fan_page_fb').css('left', '0px');
+                                        $('#button_like_fanpage_fb p').html('<div class="g-alert-close"> ✕ </div>');
+                                    }
+                                    else {
+                                        $('#button_like_fanpage_fb p').html('<i class="icon-thumbs-up-alt"></i>&#32;Thích trang<br> của chúng tớ');
+                                        pos = $('#fan_page_fb').css('left', '-300px');
+                                    }
+                                });
+                            });
+                        </script>
+                        <div id="fan_page_fb">
+                            <div id="button_like_fanpage_fb">
+                                <p><i class="icon-thumbs-up-alt"></i>&#32;Thích trang<br> của chúng tớ</p>
+                            </div>
+                            <div>
+                                <div class="fb-like-box" data-href="https://www.facebook.com/hotrohoctapUET" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
+                            </div>
+                        </div>
 
                         <!-- CANVAS -->
                         <div class="l-canvas type_wide col_cont headerpos_fixed headertype_extended">
