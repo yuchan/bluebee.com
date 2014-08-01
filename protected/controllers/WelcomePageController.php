@@ -203,7 +203,7 @@ class WelcomePageController extends BaseController {
         Yii::app()->session['token'] = "";
         Yii::app()->session['user_avatar'] = "";
 
-        $this->redirect(Yii::app()->createUrl('welcomePage'));
+        $this->redirect(Yii::app()->createUrl('index.php'));
     }
 
     public function actionActivate() {
