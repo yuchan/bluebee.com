@@ -20,23 +20,22 @@ class UserController extends BaseController {
 //
 //            if ($user_current_token) {
 //
-//                $sql = "SELECT * FROM tbl_class_user INNER JOIN tbl_class ON tbl_class_user.class_id = tbl_class.class_id WHERE user_id = '" . $user_current_token->user_id . "'";
-//                $user_class_info = Yii::app()->db->createCommand($sql)->queryAll();
+//
 //                $this->render('user', array('user_detail_info' => User::model()->findAll($spCriteria),
-//                    'user_class_info' => $user_class_info, 'user_activity' => $user_activity));
-//            } 
-//        } 
+//                    'user_activity' => $user_activity));
+//            }
+//        }
 //    }
 
     public function actionUser() {
-        if (isset($_GET["id"])) {
-
+        if (isset($_GET["token"])) {
+            $user_current_token = User::model()->findByAttributes(array('user_token' => $_GET["token"]));
             $user_activity = $this->userActivity();
             $spCriteria = new CDbCriteria();
             $spCriteria->select = "*";
-            $spCriteria->condition = "user_id = '" . $_GET["id"] . "'";
-            $user_doc_info = Doc::model()->findAllByAttributes(array('doc_author' => $_GET["id"]));
-            $user_current_id = User::model()->findByAttributes(array('user_id' => $_GET["id"]));
+            $spCriteria->condition = "user_id = '" .$user_current_token->user_id . "'";
+            $user_doc_info = Doc::model()->findAllByAttributes(array('doc_author' => $user_current_token->user_id));
+            $user_current_id = User::model()->findByAttributes(array('user_id' => $user_current_token->user_id));
 
             if ($user_current_id) {
                 $this->render('user', array('user_detail_info' => User::model()->findAll($spCriteria),

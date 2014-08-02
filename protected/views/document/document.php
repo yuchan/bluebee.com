@@ -6,78 +6,81 @@
 
             <div class="three-fourths">
                 <div class="g-cols">
-                    <?php $this->renderPartial('listdocument')?>
-                   <?php $this->renderPartial('bar_right')?>
+                    <?php $this->renderPartial('listdocument') ?>
+                    <?php $this->renderPartial('bar_right', array('subject_info' => $subject_info)) ?>
                 </div>
                 <!--cmt facebook-->
+            </div>
+            <div class="full-width">
+                <div class="fb-comments" data-href="<?php echo Yii::app()->createAbsoluteUrl('document') ?>" data-width="1000" data-numposts="8" data-colorscheme="light"></div>
             </div>
         </div>
     </div>
 </div>
-    <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/uiMorphingButton_fixed.js"></script>
-    <script>
-                                    (function() {
-                                        var docElem = window.document.documentElement, didScroll, scrollPosition;
+<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/uiMorphingButton_fixed.js"></script>
+<script>
+    (function() {
+        var docElem = window.document.documentElement, didScroll, scrollPosition;
 
-                                        // trick to prevent scrolling when opening/closing button
-                                        function noScrollFn() {
-                                            window.scrollTo(scrollPosition ? scrollPosition.x : 0, scrollPosition ? scrollPosition.y : 0);
-                                        }
+        // trick to prevent scrolling when opening/closing button
+        function noScrollFn() {
+            window.scrollTo(scrollPosition ? scrollPosition.x : 0, scrollPosition ? scrollPosition.y : 0);
+        }
 
-                                        function noScroll() {
-                                            window.removeEventListener('scroll', scrollHandler);
-                                            window.addEventListener('scroll', noScrollFn);
-                                        }
+        function noScroll() {
+            window.removeEventListener('scroll', scrollHandler);
+            window.addEventListener('scroll', noScrollFn);
+        }
 
-                                        function scrollFn() {
-                                            window.addEventListener('scroll', scrollHandler);
-                                        }
+        function scrollFn() {
+            window.addEventListener('scroll', scrollHandler);
+        }
 
-                                        function canScroll() {
-                                            window.removeEventListener('scroll', noScrollFn);
-                                            scrollFn();
-                                        }
+        function canScroll() {
+            window.removeEventListener('scroll', noScrollFn);
+            scrollFn();
+        }
 
-                                        function scrollHandler() {
-                                            if (!didScroll) {
-                                                didScroll = true;
-                                                setTimeout(function() {
-                                                    scrollPage();
-                                                }, 60);
-                                            }
-                                        }
-                                        ;
+        function scrollHandler() {
+            if (!didScroll) {
+                didScroll = true;
+                setTimeout(function() {
+                    scrollPage();
+                }, 60);
+            }
+        }
+        ;
 
-                                        function scrollPage() {
-                                            scrollPosition = {x: window.pageXOffset || docElem.scrollLeft, y: window.pageYOffset || docElem.scrollTop};
-                                            didScroll = false;
-                                        }
-                                        ;
+        function scrollPage() {
+            scrollPosition = {x: window.pageXOffset || docElem.scrollLeft, y: window.pageYOffset || docElem.scrollTop};
+            didScroll = false;
+        }
+        ;
 
-                                        scrollFn();
+        scrollFn();
 
-                                        var UIBtnn = new UIMorphingButton(document.querySelector('.morph-button'), {
-                                            closeEl: '.icon-close',
-                                            onBeforeOpen: function() {
-                                                // don't allow to scroll
-                                                noScroll();
-                                            },
-                                            onAfterOpen: function() {
-                                                // can scroll again
-                                                canScroll();
-                                            },
-                                            onBeforeClose: function() {
-                                                // don't allow to scroll
-                                                noScroll();
-                                            },
-                                            onAfterClose: function() {
-                                                // can scroll again
-                                                canScroll();
-                                            }
-                                        });
+        var UIBtnn = new UIMorphingButton(document.querySelector('.morph-button'), {
+            closeEl: '.icon-close',
+            onBeforeOpen: function() {
+                // don't allow to scroll
+                noScroll();
+            },
+            onAfterOpen: function() {
+                // can scroll again
+                canScroll();
+            },
+            onBeforeClose: function() {
+                // don't allow to scroll
+                noScroll();
+            },
+            onAfterClose: function() {
+                // can scroll again
+                canScroll();
+            }
+        });
 
-                                        document.getElementById('terms').addEventListener('change', function() {
-                                            UIBtnn.toggle();
-                                        });
-                                    })();
-    </script>
+        document.getElementById('terms').addEventListener('change', function() {
+            UIBtnn.toggle();
+        });
+    })();
+</script>

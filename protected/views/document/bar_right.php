@@ -1,5 +1,5 @@
 <div class="one-third">
-    <?php $this->renderPartial('partial/upload'); ?>
+    <?php $this->renderPartial('partial/upload',array('subject_info' => $subject_info)); ?>
     <div class="wrap_fliter">
         <div class="clearfix">
             <script type="text/javascript">
@@ -39,7 +39,7 @@
                             '<div class="short_info_document clearfix">' +
                             '<div class="document_img">' +
                             '<img src="' + this.doc_url + '">' +
-                            '<a href="<?php echo Yii::app()->createAbsoluteUrl('viewdocument') ?>?doc_id=' + this.doc_id + '" class="document_img_hover">' +
+                            '<a href="<?php echo Yii::app()->createAbsoluteUrl('viewDocument') ?>?doc_id=' + this.doc_id + '" class="document_img_hover">' +
                             '<span class="describe_document">' + this.doc_description + '</span>' +
                             '</a>' +
                             '</div>' +

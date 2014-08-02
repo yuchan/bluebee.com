@@ -269,6 +269,9 @@
                 <img id="loading-image" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax_loader_blue_128.gif" style="margin-left: 400px;"/>
                 <!--cmt facebook-->
             </div>
+            <div class="full-width">
+                <div class="fb-comments" data-href="<?php echo Yii::app()->createAbsoluteUrl('listOfSubject') ?>" data-width="1000" data-numposts="8" data-colorscheme="light"></div>
+            </div>
         </div>
     </div>
 </div><!--

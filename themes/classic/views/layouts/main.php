@@ -141,6 +141,16 @@
                     <script type="text/javascript">stLight.options
                                 ({publisher: "ur-b6bcdd5b-dde-cce8-a00c-478890414ff", doNotHash: true, doNotCopy: true, hashAddressBar: true});
                     </script>
+                    <div id="fb-root"></div>
+                    <script>(function(d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0];
+                            if (d.getElementById(id))
+                                return;
+                            js = d.createElement(s);
+                            js.id = id;
+                            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=1428478800723370&version=v2.0";
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>
                     </head>
                     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
                     <body class="l-body home" style="background-color: white">
@@ -296,20 +306,45 @@
                                                                 </div>
 
                                                                 <?php
-                                                                if (Yii::app()->session["user_id"] == "")
-                                                                {
+                                                                if (Yii::app()->session["user_id"] == "") {
+                                                                    echo'
+   
+
+<div class="w-nav-item level_1">
+    <div class="w-nav-item-h">
+        <a id="login" href="' . $this->createUrl('welcomePage/fb_login') . '">Đăng nhập với facebook</a>
+    </div>
+</div>';
+                                                                } else {
                                                                     echo '
                                                                 <div class="w-nav-item level_1">
-                                                                    <div class="w-nav-item-h">
-                                                                        <a id="login" href="'.$this->createUrl('welcomePage/fb_login').'">Đăng nhập với facebook</a>
-                                                                    </div>
-                                                                </div>';
-                                                                }
-                                                                
-                                                                else
-                                                                {
-                                                                    echo '<img style="border: 5px solid white;"class="ava" src="'.Yii::app()->session['user_avatar'].
-                                                                        '"/>';
+    <div class="w-nav-item-h">
+        <a href="' . Yii::app()->createUrl("user?token=" . Yii::app()->session['token']) . '" class="w-nav-anchor level_ava">
+            <img style="border: 5px solid white;"class="ava" src="' .
+                                                                    Yii::app()->session['user_avatar']
+                                                                    . '"/>
+        </a>
+
+
+        <div class="w-nav-list place_down show_onhover level_2">
+            <div class="w-nav-list-h">
+                <div class="w-nav-item level_2">
+                    <div class="w-nav-item-h">
+                        <a href="' . Yii::app()->createUrl('welcomePage/logout') . '" class="w-nav-anchor level_2">Đăng xuất</a>
+                    </div>
+                </div>
+                <!--                                                            <div class="w-nav-item level_2">
+                                                                                <div class="w-nav-item-h">
+                                                                                    <a href="home-parallax.html" class="w-nav-anchor level_2">Cập nhật thông tin</a>
+                                                                                </div>
+                                                                            </div>-->
+
+            </div>
+        </div>
+
+    </div>
+</div>'
+                                                                    ;
                                                                 }
                                                                 ?> 
 
@@ -419,5 +454,5 @@
 
 
                     </body>
-</html>
+                    </html>
 
