@@ -11,7 +11,9 @@
                 </div>
                 <!--cmt facebook-->
             </div>
+            
             <div class="full-width">
+                <div class="fb-like" data-href="<?php echo Yii::app()->createAbsoluteUrl('document') ?>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                 <div class="fb-comments" data-href="<?php echo Yii::app()->createAbsoluteUrl('document') ?>" data-width="1000" data-numposts="8" data-colorscheme="light"></div>
             </div>
         </div>

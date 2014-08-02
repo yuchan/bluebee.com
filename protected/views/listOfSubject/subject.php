@@ -6,6 +6,7 @@
                
                 <div class="full-width">
                     <div class="head"><?php echo $subject->subject_name ?></div>
+                    <div class="fb-like" data-href="<?php echo Yii::app()->createAbsoluteUrl('listOfSubject/subject?subject_id=').$subject->subject_id ?>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                     <div class="w-testimonial">
                         <div class="w-testimonial-h">
                             <blockquote>

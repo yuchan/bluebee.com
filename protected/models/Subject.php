@@ -60,7 +60,7 @@ class Subject extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-                    'monhoc' => array (self::BELONGS_TO, 'SubjectDoc', array('subject_id'=>'subject_id'))
+                    'subject_doc' => array (self::BELONGS_TO, 'SubjectDoc', array('subject_id'=>'subject_id'))
                     //'docs' => array(self::BELONGS_TO, 'SubjectDoc', 'doc_id')
 		);
 	}

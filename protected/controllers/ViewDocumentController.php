@@ -17,7 +17,7 @@ class ViewDocumentController extends Controller {
         if(isset($_GET['doc_id'])){
             $detail_doc = Doc::model()->findAll(array("select" => "*", "condition" => "doc_id = ". $_GET["doc_id"]));
             
-            $subject = Subject::model()->with(array("monhoc" => array(
+            $subject = Subject::model()->with(array("subject_doc" => array(
                             "select" => false,
                             "condition" => "doc_id = " . $_GET["doc_id"]. " and active = 1"
                 )))->find();
