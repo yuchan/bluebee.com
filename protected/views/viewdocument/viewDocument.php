@@ -54,9 +54,9 @@
                         </a>
                         <h1>
                             <span><?php echo $detail->doc_name ?></span>
-                            <?php foreach ($subject as $subject) ?>
-                            <button onclick="window.location.href='<?php echo "listofsubject/subject?subject_id=".$subject->subject_id ?>';" class="g-btn type_primary size_small" style="float: right; text-transform: none; font-size: 14px; font-weight: normal;"><span><?php echo $subject->subject_name ?></span></button>
-                           
+                            
+                            <button onclick="window.location.href='<?php echo "listOfSubject/subject?subject_id=".$subject->subject_id ?>';" class="g-btn type_primary size_small" style="float: right; text-transform: none; font-size: 14px; font-weight: normal;"><span><?php echo $subject->subject_name ?></span></button>
+                            
                             <p style="float: right">Môn học:</p>
                         </h1>
                         <div class="shot-byline">
@@ -130,7 +130,7 @@
             </div>
             <div>
                 <h3>Bình luận</h3>
-                <div class="fb-comments" data-href="<?php echo Yii::app()->createAbsoluteUrl('viewdocument?doc_id=').$detail->doc_id ?>" data-width="1000" data-numposts="8" data-colorscheme="light"></div>
+                <div class="fb-comments" data-href="<?php echo Yii::app()->createAbsoluteUrl('viewDocument?doc_id=').$detail->doc_id ?>" data-width="1000" data-numposts="8" data-colorscheme="light"></div>
             </div>
         </div>
     </div>
