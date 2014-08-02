@@ -296,20 +296,45 @@
                                                                 </div>
 
                                                                 <?php
-                                                                if (Yii::app()->session["user_id"] == "")
-                                                                {
+                                                                if (Yii::app()->session["user_id"] == "") {
+                                                                    echo'
+   
+
+<div class="w-nav-item level_1">
+    <div class="w-nav-item-h">
+        <a id="login" href="' . $this->createUrl('welcomePage/fb_login') . '">Đăng nhập với facebook</a>
+    </div>
+</div>';
+                                                                } else {
                                                                     echo '
                                                                 <div class="w-nav-item level_1">
-                                                                    <div class="w-nav-item-h">
-                                                                        <a id="login" href="'.$this->createUrl('welcomePage/fb_login').'">Đăng nhập với facebook</a>
-                                                                    </div>
-                                                                </div>';
-                                                                }
-                                                                
-                                                                else
-                                                                {
-                                                                    echo '<img style="border: 5px solid white;"class="ava" src="'.Yii::app()->session['user_avatar'].
-                                                                        '"/>';
+    <div class="w-nav-item-h">
+        <a href="' . Yii::app()->createUrl("user?token=" . Yii::app()->session['token']) . '" class="w-nav-anchor level_ava">
+            <img style="border: 5px solid white;"class="ava" src="' .
+                                                                    Yii::app()->session['user_avatar']
+                                                                    . '"/>
+        </a>
+
+
+        <div class="w-nav-list place_down show_onhover level_2">
+            <div class="w-nav-list-h">
+                <div class="w-nav-item level_2">
+                    <div class="w-nav-item-h">
+                        <a href="' . Yii::app()->createUrl('welcomePage/logout') . '" class="w-nav-anchor level_2">Đăng xuất</a>
+                    </div>
+                </div>
+                <!--                                                            <div class="w-nav-item level_2">
+                                                                                <div class="w-nav-item-h">
+                                                                                    <a href="home-parallax.html" class="w-nav-anchor level_2">Cập nhật thông tin</a>
+                                                                                </div>
+                                                                            </div>-->
+
+            </div>
+        </div>
+
+    </div>
+</div>'
+                                                                    ;
                                                                 }
                                                                 ?> 
 
@@ -360,7 +385,7 @@
                                   </div> -->
                                 <!-- MAIN -->
                                 <div style="padding-top: 126px">
-<?php echo $content; ?>
+                                    <?php echo $content; ?>
                                 </div>
                                 <!-- /MAIN -->
                             </div>
@@ -419,5 +444,5 @@
 
 
                     </body>
-</html>
+                    </html>
 
