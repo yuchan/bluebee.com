@@ -415,12 +415,12 @@
                                                     <div class="w-nav-list-h">
                                                         <div class="w-nav-item level_1">
                                                             <div class="w-nav-item-h">
-                                                                <a href="" class="w-nav-anchor level_1">Điều khoản và dịch vụ</a>
+                                                                <a href="<?php echo Yii::app()->createUrl("clause") ?>" class="w-nav-anchor level_1">Điều khoản và dịch vụ</a>
                                                             </div>
                                                         </div>
                                                         <div class="w-nav-item level_1">
                                                             <div class="w-nav-item-h">
-                                                                <a href="" class="w-nav-anchor level_1">FAQ</a>
+                                                                <a href="<?php echo Yii::app()->createUrl("faq") ?>" class="w-nav-anchor level_1">FAQ</a>
                                                             </div>
                                                         </div>
                                                         <div class="w-nav-item level_1">
