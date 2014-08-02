@@ -35,7 +35,6 @@
                                                                 <?php foreach ($subject_type as $subject_detail): ?>
                                                                     <div class="w-nav-item level_2 active">
                                                                         <div class="w-nav-item-h">
-
                                                                             <a href="javascript:void(0)" class="w-nav-anchor level_2 subject" faculty-id="<?php echo $category->faculty_id; ?>" dept-id="<?php echo $dept_detail->dept_id ?>" subject-type="<?php echo $subject_detail->id ?>">
                                                                                 <span class="w-nav-title " >
                                                                                     <?php echo $subject_detail->subject_type_name ?>
@@ -44,8 +43,6 @@
                                                                         </div>
                                                                     </div>
                                                                 <?php endforeach; ?>
-
-
                                                             </div>
                                                         </div>
                                                     </div>
