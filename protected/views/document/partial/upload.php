@@ -36,7 +36,7 @@ if (Yii::app()->session["user_id"] == "") {
             });
         });
                 </script>
-                <form method="POST" action="<?php echo Yii::app()->createUrl('document/upload') ?>" enctype="multipart/form-data">
+                <form method="POST" action="<?php echo Yii::app()->createUrl('document/upload') ?>" enctype="multipart/form-data" id="">
                     <label class="g-btn size_small type_primary upload_button">
                         <input class="ssa" type="file" multiple="multiple" name="file" style="display: none;" />
                         <span>Chọn 1 tệp tin</span>

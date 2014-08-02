@@ -167,15 +167,18 @@ class DocumentController extends BaseController {
         $api_key = "24cxjtv3vw69wu5p7pqd9";
         $secret = "sec-b2rlvg8kxwwpkz9fo3i02mo9vo";
         $this->retVal = new stdClass();
-        $scribd = new Scribd($api_key, $secret);
-        $storeFolder = Yii::getPathOfAlias('webroot') . '/uploads/';   //2
+        $scribd = new Scribd($api_key, $secret);    
         $name = $this->unicode_str_filter($_FILES['file']['name']);
+        $storeFolder = Yii::getPathOfAlias('webroot') . '/uploads/user_id_' . $doc_author . '/'.$name.'/';   //2
+        if (!file_exists($storeFolder)) {
+           mkdir($storeFolder, 0777, true); 
+        }
         $tempFile = $_FILES['file']['tmp_name'];          //3
         $targetPath = $storeFolder;  //4
         $targetFile = $targetPath . $name;  //5
         $ext = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
         move_uploaded_file($tempFile, $targetFile); //6
-        $doc_path = Yii::app()->createAbsoluteUrl('uploads') . '\\' . $name;
+        $doc_path = Yii::app()->createAbsoluteUrl('uploads') . '/user_id_'. $doc_author . '/'.$name.'/' . $name;
 
         if ($ext == "gif" || $ext == "jpg" || $ext == "jpeg" || $ext == "pjepg" || $ext == "png" || $ext == "x-png") {
             $this->saveDoc($doc_name, $doc_description, $targetFile, $doc_author, $subject_id, NULL, 1, $doc_path, $doc_author_name);
