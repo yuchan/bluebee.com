@@ -68,7 +68,7 @@
                             <li class="comment" style="font-size: 14px;"><i class="icon-comment"></i>1203 comments</li>
                         </ul>
                     </div>
-                    <div class="fb-like" data-href="<?php echo Yii::app()->createAbsoluteUrl('viewDocument?doc_id=').$detail->doc_id ?>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+                    <div class="fb-like" data-href="<?php echo Yii::app()->createAbsoluteUrl('viewDocument?doc_id=').$detail->doc_id ?>" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
                     <div class="l-content">
                         <?php if($detail->doc_type == 2) {
                            echo '<iframe src="http://docs.google.com/viewer?url='.$detail->doc_url.'&embedded=true" height="600" style="border-radius: 3px; box-shadow: 0 0 2px rgba(0, 0, 0, 0.3); width: 100%; "></iframe>'
