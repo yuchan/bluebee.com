@@ -1,5 +1,5 @@
 <div class="one-third">
-    <?php $this->renderPartial('partial/upload'); ?>
+    <?php $this->renderPartial('partial/upload',array('subject_info' => $subject_info)); ?>
     <div class="wrap_fliter">
         <div class="clearfix">
             <script type="text/javascript">

@@ -7,7 +7,7 @@
             <div class="three-fourths">
                 <div class="g-cols">
                     <?php $this->renderPartial('listdocument') ?>
-                    <?php $this->renderPartial('bar_right') ?>
+                    <?php $this->renderPartial('bar_right', array('subject_info' => $subject_info)) ?>
                 </div>
                 <!--cmt facebook-->
             </div>

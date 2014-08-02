@@ -29,8 +29,9 @@ class DocumentController extends BaseController {
     public function actionDocument() {
         $category_father = $this->listCategoryFather();
         $subject_type = $this->listSubjectType();
+        $subject = Subject::model()->findAll();
         $Criteria = new CDbCriteria(); //represent for query such as conditions, ordering by, limit/offset.
-        $this->render('document', array('category_father' => $category_father, 'subject_type' => $subject_type));
+        $this->render('document', array('category_father' => $category_father, 'subject_type' => $subject_type, 'subject_info' => $subject));
     }
 
     public function actionListDocument() {
@@ -113,7 +114,7 @@ class DocumentController extends BaseController {
         $this->render('viewdocument');
     }
 
-    public function saveDoc($doc_name, $doc_description, $doc_url, $doc_author, $subject_id, $doc_scribd_id, $doc_type, $doc_path) {
+    public function saveDoc($doc_name, $doc_description, $doc_url, $doc_author, $subject_id, $doc_scribd_id, $doc_type, $doc_path, $doc_author_name) {
         $doc_model = new Doc;
         $doc_model->doc_name = $doc_name;
         $doc_model->doc_description = $doc_description;
@@ -122,6 +123,7 @@ class DocumentController extends BaseController {
         $doc_model->doc_scribd_id = $doc_scribd_id;
         $doc_model->doc_type = $doc_type;
         $doc_model->doc_status = 1;
+        $doc_model->doc_author_name = $doc_author_name;
         $doc_model->doc_author = $doc_author;
         $doc_model->save(FALSE);
         $doc_subject = new SubjectDoc;
@@ -161,6 +163,7 @@ class DocumentController extends BaseController {
         $doc_name = strip_tags($_POST['doc_name']);
         $doc_description = strip_tags($_POST['doc_description']);
         $doc_author = Yii::app()->session['user_id'];
+        $doc_author_name = Yii::app()->session['user_name'];
         $api_key = "24cxjtv3vw69wu5p7pqd9";
         $secret = "sec-b2rlvg8kxwwpkz9fo3i02mo9vo";
         $this->retVal = new stdClass();
@@ -172,10 +175,10 @@ class DocumentController extends BaseController {
         $targetFile = $targetPath . $name;  //5
         $ext = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
         move_uploaded_file($tempFile, $targetFile); //6
-        $doc_path = Yii::app()->createAbsoluteUrl('uploads').'\\'.$name;
+        $doc_path = Yii::app()->createAbsoluteUrl('uploads') . '\\' . $name;
 
         if ($ext == "gif" || $ext == "jpg" || $ext == "jpeg" || $ext == "pjepg" || $ext == "png" || $ext == "x-png") {
-            $this->saveDoc($doc_name, $doc_description, $targetFile, $doc_author, $subject_id, NULL, 1, $doc_path);
+            $this->saveDoc($doc_name, $doc_description, $targetFile, $doc_author, $subject_id, NULL, 1, $doc_path, $doc_author_name);
 
             $this->retVal->url = $targetFile;
             $this->retVal->doc_name = $doc_name;
@@ -193,7 +196,7 @@ class DocumentController extends BaseController {
                 'height' => '220');
             $get_thumbnail = @$scribd->postRequest('thumbnail.get', $thumbnail_info);
             // var_dump($get_thumbnail);
-            $this->saveDoc($doc_name, $doc_description, @$get_thumbnail["thumbnail_url"], $doc_author, $subject_id, $upload_scribd["doc_id"], 2, $doc_path);
+            $this->saveDoc($doc_name, $doc_description, @$get_thumbnail["thumbnail_url"], $doc_author, $subject_id, $upload_scribd["doc_id"], 2, $doc_path, $doc_author_name);
             $this->retVal->docid = @$upload_scribd["doc_id"];
             $this->retVal->thumbnail = @$get_thumbnail["thumbnail_url"];
             $this->retVal->doc_name = $doc_name;
@@ -201,7 +204,7 @@ class DocumentController extends BaseController {
             $this->retVal->user_name = Yii::app()->session['user_name'];
         } else {
             $url_file = "";
-            $this->saveDoc($doc_name, $doc_description, NULL, $doc_author, $subject_id, NULL, 3, $doc_path);
+            $this->saveDoc($doc_name, $doc_description, NULL, $doc_author, $subject_id, NULL, 3, $doc_path, $doc_author_name);
             $this->retVal->url = $targetFile;
             $this->retVal->doc_name = $doc_name;
             $this->retVal->doc_path = $doc_path;

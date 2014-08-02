@@ -272,6 +272,7 @@ class WelcomePageController extends BaseController {
             $user_facebook_exist->user_active = 1;
             $user_facebook_exist->save(FALSE);
             Yii::app()->session['user_avatar'] = $user_facebook_exist->user_avatar;
+            Yii::app()->session['user_name'] = $user['name'];
             Yii::app()->session['token'] = $token;
             Yii::app()->session['user_id'] = $user_facebook_exist->user_id;
             $this->redirect(Yii::app()->createUrl('user?token=' . $token));
@@ -293,6 +294,7 @@ class WelcomePageController extends BaseController {
             $user_facebook->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture?type=large";
             Yii::app()->session['user_avatar'] = "http://graph.facebook.com/" . $user["id"] . "/picture?type=large";
             Yii::app()->session['token'] = $token;
+            Yii::app()->session['user_name'] = $user['name'];
             $user_facebook->user_id_fb = $user["id"];
             $user_facebook->user_active = 1;
             if (isset($user["quotes"])) {
@@ -305,8 +307,6 @@ class WelcomePageController extends BaseController {
             $this->redirect(Yii::app()->createUrl('user?token=' . $token));
         }
     }
-
-
 
     public function actionloginFacebook() {
         $app_id = "1428478800723370";
@@ -360,7 +360,6 @@ class WelcomePageController extends BaseController {
         }
         $this->render('fb');
     }
-    
 
 //    public function actionWelcomePage() {
 //        $this->render('index');
