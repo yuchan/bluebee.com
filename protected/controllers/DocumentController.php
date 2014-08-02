@@ -169,7 +169,7 @@ class DocumentController extends BaseController {
         $this->retVal = new stdClass();
         $scribd = new Scribd($api_key, $secret);    
         $name = $this->unicode_str_filter($_FILES['file']['name']);
-        $storeFolder = Yii::getPathOfAlias('webroot') . '/uploads/user_id_' . $doc_author . '/'.$name.'/';   //2
+        $storeFolder = Yii::getPathOfAlias('webroot') . '/uploads/document/user_id_' . $doc_author . '/';   //2
         if (!file_exists($storeFolder)) {
            mkdir($storeFolder, 0777, true); 
         }
@@ -178,7 +178,7 @@ class DocumentController extends BaseController {
         $targetFile = $targetPath . $name;  //5
         $ext = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
         move_uploaded_file($tempFile, $targetFile); //6
-        $doc_path = Yii::app()->createAbsoluteUrl('uploads') . '/user_id_'. $doc_author . '/'.$name.'/' . $name;
+        $doc_path = Yii::app()->createAbsoluteUrl('uploads') . 'document/user_id_'. $doc_author . '/' . $name;
 
         if ($ext == "gif" || $ext == "jpg" || $ext == "jpeg" || $ext == "pjepg" || $ext == "png" || $ext == "x-png") {
             $this->saveDoc($doc_name, $doc_description, $targetFile, $doc_author, $subject_id, NULL, 1, $doc_path, $doc_author_name);
