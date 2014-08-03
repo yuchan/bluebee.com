@@ -97,9 +97,7 @@
     color: #999;
     float: right;
 }
-.url_user {
-}
-.photo_user {
+.url_user {} .photo_user {
     float: left;
     width: 16px;
     max-height: 16px;
@@ -134,7 +132,7 @@
     background: #1e8449;
 }
 .checkbox-styled input[type="checkbox"] + span.sad:before {
-    content:":(";
+    content: ":(";
 }
 .checkbox-styled input[type="checkbox"]:checked + span {
     background: #145b32;
@@ -187,7 +185,8 @@
     pointer-events: auto;
 }
 /* Common styles for overlay and modal type (fixed morph) */
- .morph-button-fixed, .morph-button-fixed .morph-content {
+
+.morph-button-fixed, .morph-button-fixed .morph-content {
     width: 306px;
     height: 50px;
 }
@@ -234,6 +233,7 @@
     z-index: 1900;
 }
 /* Morph Button Style: Modal */
+
 .morph-button-modal::before {
     position: fixed;
     top: 0;
@@ -242,7 +242,7 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    content:'';
+    content: '';
     opacity: 0;
     -webkit-transition: opacity 0.5s;
     transition: opacity 0.5s;
@@ -270,7 +270,8 @@
     transition: width 0.4s 0.1s, height 0.4s 0.1s, top 0.4s 0.1s, left 0.4s 0.1s, margin 0.4s 0.1s, background-color 1s ease-out;
 }
 /* Let's add some nice easing for all cases */
- .morph-button .morph-content, .morph-button.open .morph-content{
+
+.morph-button .morph-content, .morph-button.open .morph-content {
     -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
     transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
 }
@@ -317,4 +318,18 @@
 }
 .progress {
     background: none repeat scroll 0% 0% #27AE60;
+}
+.info_file_content:after, .info_file_content:before {
+    position: absolute;
+    right: 20px;
+    color: #0E7138;
+    font-family: "icomoon";
+    opacity: 0;
+    transition: opacity 0.3s ease 0.3s;
+}
+.info_file_content:before {
+    content: "\f00c";
+}
+.info_file_content:after {
+    content:"\f00d"
 }

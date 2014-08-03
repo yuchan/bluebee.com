@@ -42,9 +42,11 @@ if (Yii::app()->session["user_id"] == "") {
                     <span>Chọn 1 tệp tin</span>
                 </label>
                 <div class="info_file" style="display: none">
-                    <span class="file_name"></span>
-                    <span class="file_size"></span>
-                    <span class="cancel_file">✕</span>
+                    <span class="info_file_content">
+                        <span class="file_name"></span>
+                        <span class="file_size"></span>
+                        <span class="cancel_file">✕</span>
+                    </span>
                     <span class="progress">
                         <span class="progress-inner"></span>
                     </span>
@@ -62,10 +64,10 @@ if (Yii::app()->session["user_id"] == "") {
                 <button class="g-btn size_small type_primary" type="submit">Đăng tài liệu</button>
             </form>
             <div style="float:right; margin-top: -90px">
-                <div style="background-color: green; box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3); color: white; border-radius: 3px;">
+                <div style="background-color: #CFE6A1; color: #3D4D1F; border-radius: 3px;">
                     <p class="clearfix" style="padding: 10px 10px 10px 10px"><i class="icon-upload-alt">&#32;Uploading: 90%</i></p>
                 </div>
-                <div style="display: none; background-color: red; box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3); color: white; border-radius: 3px;">
+                <div style="display: none; background-color: #F7C4C1; color: #3D4D1F; border-radius: 3px;">
                     <p class="clearfix" style="padding: 10px 10px 10px 10px">
                         Hãy điền tên tài liệu
                     </p>
