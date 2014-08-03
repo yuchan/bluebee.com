@@ -181,10 +181,10 @@ class DocumentController extends BaseController {
                         }
                         $tempFile = $_FILES['file']['tmp_name'];          //3
                         $targetPath = $storeFolder;  //4
-                        $targetFile = $targetPath .  $cnt.$name ;  //5
+                        $targetFile = $targetPath .  $name ;  //5
                         $ext = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
                         move_uploaded_file($tempFile, $targetFile); //6
-                        $doc_path = Yii::app()->createAbsoluteUrl('uploads') . '/document/user_id_' . $doc_author . '/' .$cnt. $name;
+                        $doc_path = Yii::app()->createAbsoluteUrl('uploads') . '/document/user_id_' . $doc_author . '/' . $name;
 
                         if ($ext == "gif" || $ext == "jpg" || $ext == "jpeg" || $ext == "pjepg" || $ext == "png" || $ext == "x-png") {
                             $this->saveDoc($doc_name, $doc_description, $targetFile, $doc_author, $subject_id, NULL, 1, $doc_path, $doc_author_name);
@@ -221,15 +221,19 @@ class DocumentController extends BaseController {
                         }
                     } else {
                         $this->retVal->info = "Bạn phải nhập đầy đủ các thông tin";
+                        $this->retVal->status = 0;
                     }
                 } else {
                     $this->retVal->info = "Bạn phải nhập đầy đủ các thông tin";
+                    $this->retVal->status = 0;
                 }
             } else {
                 $this->retVal->info = "Bạn phải nhập đầy đủ các thông tin";
+                $this->retVal->status = 0;
             }
         } else {
             $this->retVal->info = "Bạn phải nhập đầy đủ các thông tin";
+            $this->retVal->status = 0;
         }
         echo CJSON::encode($this->retVal);
 
