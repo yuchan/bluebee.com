@@ -301,6 +301,7 @@
     padding: 6px 10px 7px 10px;
     border-radius: 3px;
     margin: 5px 0;
+    cursor: pointer;
 }
 .cancel_file, .content-style-text .icon-close {
     font-size: 20px;
@@ -313,4 +314,7 @@
 #name_document, #description_document {
     background-color: white !important;
     margin: 5px 0;
+}
+.progress {
+    background: none repeat scroll 0% 0% #27AE60;
 }

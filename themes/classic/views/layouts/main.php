@@ -66,6 +66,7 @@
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.tokeninput.js"></script>
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/classie.js"></script>
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/cbpScroller.js"></script>
+                    <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.form.min.js"></script>
                     <!-- Star rating-->
                     <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/ratings.css" />
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.barrating.js"></script>
@@ -151,7 +152,7 @@
                             js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=1428478800723370&version=v2.0";
                             fjs.parentNode.insertBefore(js, fjs);
                         }(document, 'script', 'facebook-jssdk'));</script>
-                 
+
                     </head>
                     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
                     <body class="l-body home" style="background-color: white">
@@ -311,11 +312,8 @@
                                                                     echo'
    
 
-<div class="w-nav-item level_1">
-    <div class="w-nav-item-h">
-        <a id="login" href="' . $this->createUrl('welcomePage/fb_login') . '">Đăng nhập với facebook</a>
-    </div>
-</div>';
+        <a style="margin:10px" id="login" href="' . $this->createUrl('welcomePage/fb_login') . '">Đăng nhập với facebook</a>
+    ';
                                                                 } else {
                                                                     echo '
                                                                 <div class="w-nav-item level_1">
@@ -396,7 +394,7 @@
                                   </div> -->
                                 <!-- MAIN -->
                                 <div style="padding-top: 126px">
-<?php echo $content; ?>
+                                    <?php echo $content; ?>
                                 </div>
                                 <!-- /MAIN -->
                             </div>
@@ -418,12 +416,12 @@
                                                     <div class="w-nav-list-h">
                                                         <div class="w-nav-item level_1">
                                                             <div class="w-nav-item-h">
-                                                                <a href="" class="w-nav-anchor level_1">Điều khoản và dịch vụ</a>
+                                                                <a href="<?php echo Yii::app()->createUrl("clause") ?>" class="w-nav-anchor level_1">Điều khoản và dịch vụ</a>
                                                             </div>
                                                         </div>
                                                         <div class="w-nav-item level_1">
                                                             <div class="w-nav-item-h">
-                                                                <a href="" class="w-nav-anchor level_1">FAQ</a>
+                                                                <a href="<?php echo Yii::app()->createUrl("faq") ?>" class="w-nav-anchor level_1">FAQ</a>
                                                             </div>
                                                         </div>
                                                         <div class="w-nav-item level_1">

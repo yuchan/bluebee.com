@@ -8,6 +8,7 @@ class DocumentController extends BaseController {
 //        if (Yii::app()->session['token'] == '')
 //            $this->redirect('welcomePage');
 //    }
+    public static $cnt = 1;
 
     public function actionIndex() {
 
@@ -115,11 +116,14 @@ class DocumentController extends BaseController {
     }
 
     public function saveDoc($doc_name, $doc_description, $doc_url, $doc_author, $subject_id, $doc_scribd_id, $doc_type, $doc_path, $doc_author_name) {
+        $doc_data = Subject::model()->findByAttributes(array('subject_id' => $subject_id));
         $doc_model = new Doc;
         $doc_model->doc_name = $doc_name;
         $doc_model->doc_description = $doc_description;
         $doc_model->doc_url = $doc_url;
         $doc_model->doc_path = $doc_path;
+        $doc_model->subject_faculty = $doc_data->subject_faculty;
+        $doc_model->subject_dept = $doc_data->subject_dept;
         $doc_model->doc_scribd_id = $doc_scribd_id;
         $doc_model->doc_type = $doc_type;
         $doc_model->doc_status = 1;
@@ -159,6 +163,7 @@ class DocumentController extends BaseController {
 
     public function actionUpload() {
         //$ds = DIRECTORY_SEPARATOR;  //1
+        $cnt = DocumentController::$cnt++;
         $subject_id = strip_tags($_POST['subject_id']);
         $doc_name = strip_tags($_POST['doc_name']);
         $doc_description = strip_tags($_POST['doc_description']);
@@ -167,50 +172,74 @@ class DocumentController extends BaseController {
         $api_key = "24cxjtv3vw69wu5p7pqd9";
         $secret = "sec-b2rlvg8kxwwpkz9fo3i02mo9vo";
         $this->retVal = new stdClass();
-        $scribd = new Scribd($api_key, $secret);
-        $storeFolder = Yii::getPathOfAlias('webroot') . '/uploads/';   //2
-        $name = $this->unicode_str_filter($_FILES['file']['name']);
-        $tempFile = $_FILES['file']['tmp_name'];          //3
-        $targetPath = $storeFolder;  //4
-        $targetFile = $targetPath . $name;  //5
-        $ext = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
-        move_uploaded_file($tempFile, $targetFile); //6
-        $doc_path = Yii::app()->createAbsoluteUrl('uploads') . '\\' . $name;
+        if ($_FILES['file']) {
+            if (!empty($doc_name)) {
+                if (!empty($doc_description)) {
+                    if (!empty($subject_id)) {
+                        $scribd = new Scribd($api_key, $secret);
+                        $name = $this->unicode_str_filter($_FILES['file']['name']);
+                        $storeFolder = Yii::getPathOfAlias('webroot') . '/uploads/document/user_id_' . $doc_author . '/';   //2
+                        if (!file_exists($storeFolder)) {
+                            mkdir($storeFolder, 0777, true);
+                        }
+                        $tempFile = $_FILES['file']['tmp_name'];          //3
+                        $targetPath = $storeFolder;  //4
+                        $targetFile = $targetPath . $name;  //5
+                        $ext = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
+                        move_uploaded_file($tempFile, $targetFile); //6
+                        $doc_path = Yii::app()->createAbsoluteUrl('uploads') . '/document/user_id_' . $doc_author . '/' . $name;
 
-        if ($ext == "gif" || $ext == "jpg" || $ext == "jpeg" || $ext == "pjepg" || $ext == "png" || $ext == "x-png") {
-            $this->saveDoc($doc_name, $doc_description, $targetFile, $doc_author, $subject_id, NULL, 1, $doc_path, $doc_author_name);
+                        if ($ext == "gif" || $ext == "jpg" || $ext == "jpeg" || $ext == "pjepg" || $ext == "png" || $ext == "x-png") {
+                            $this->saveDoc($doc_name, $doc_description, $targetFile, $doc_author, $subject_id, NULL, 1, $doc_path, $doc_author_name);
 
-            $this->retVal->url = $targetFile;
-            $this->retVal->doc_name = $doc_name;
-            $this->retVal->doc_path = $doc_path;
-            $this->retVal->user_name = Yii::app()->session['user_name'];
-        } else if ($ext == "doc" || $ext == "docx" || $ext == "ppt" || $ext == "pptx" || $ext == "xls" || $ext == "xlsx" || $ext == 'txt' || $ext == 'pdf') {
+                            $this->retVal->url = $targetFile;
+                            $this->retVal->doc_name = $doc_name;
+                            $this->retVal->doc_path = $doc_path;
+                            $this->retVal->user_name = Yii::app()->session['user_name'];
+                        } else if ($ext == "doc" || $ext == "docx" || $ext == "ppt" || $ext == "pptx" || $ext == "xls" || $ext == "xlsx" || $ext == 'txt' || $ext == 'pdf') {
 
-            $upload_scribd = @$scribd->upload($targetFile);
+                            $upload_scribd = @$scribd->upload($targetFile);
 
-            $thumbnail_info = array('doc_id' => $upload_scribd["doc_id"],
-                'method' => NULL,
-                'session_key' => NULL,
-                'my_user_id' => NULL,
-                'width' => '180',
-                'height' => '220');
-            $get_thumbnail = @$scribd->postRequest('thumbnail.get', $thumbnail_info);
-            // var_dump($get_thumbnail);
-            $this->saveDoc($doc_name, $doc_description, @$get_thumbnail["thumbnail_url"], $doc_author, $subject_id, $upload_scribd["doc_id"], 2, $doc_path, $doc_author_name);
-            $this->retVal->docid = @$upload_scribd["doc_id"];
-            $this->retVal->thumbnail = @$get_thumbnail["thumbnail_url"];
-            $this->retVal->doc_name = $doc_name;
-            $this->retVal->doc_path = $doc_path;
-            $this->retVal->user_name = Yii::app()->session['user_name'];
+                            $thumbnail_info = array('doc_id' => $upload_scribd["doc_id"],
+                                'method' => NULL,
+                                'session_key' => NULL,
+                                'my_user_id' => NULL,
+                                'width' => '180',
+                                'height' => '220');
+                            $get_thumbnail = @$scribd->postRequest('thumbnail.get', $thumbnail_info);
+                            // var_dump($get_thumbnail);
+                            $this->saveDoc($doc_name, $doc_description, @$get_thumbnail["thumbnail_url"], $doc_author, $subject_id, $upload_scribd["doc_id"], 2, $doc_path, $doc_author_name);
+                            $this->retVal->docid = @$upload_scribd["doc_id"];
+                            $this->retVal->thumbnail = @$get_thumbnail["thumbnail_url"];
+                            $this->retVal->doc_name = $doc_name;
+                            $this->retVal->doc_path = $doc_path;
+                            $this->retVal->user_name = Yii::app()->session['user_name'];
+                        } else {
+                            $url_file = "";
+                            $this->saveDoc($doc_name, $doc_description, NULL, $doc_author, $subject_id, NULL, 3, $doc_path, $doc_author_name);
+                            $this->retVal->url = $targetFile;
+                            $this->retVal->doc_name = $doc_name;
+                            $this->retVal->doc_path = $doc_path;
+                            $this->retVal->user_name = Yii::app()->session['user_name'];
+                        }
+                    } else {
+                        $this->retVal->info = "Bạn phải nhập đầy đủ các thông tin";
+                        $this->retVal->status = 0;
+                    }
+                } else {
+                    $this->retVal->info = "Bạn phải nhập đầy đủ các thông tin";
+                    $this->retVal->status = 0;
+                }
+            } else {
+                $this->retVal->info = "Bạn phải nhập đầy đủ các thông tin";
+                $this->retVal->status = 0;
+            }
         } else {
-            $url_file = "";
-            $this->saveDoc($doc_name, $doc_description, NULL, $doc_author, $subject_id, NULL, 3, $doc_path, $doc_author_name);
-            $this->retVal->url = $targetFile;
-            $this->retVal->doc_name = $doc_name;
-            $this->retVal->doc_path = $doc_path;
-            $this->retVal->user_name = Yii::app()->session['user_name'];
+            $this->retVal->info = "Bạn phải nhập đầy đủ các thông tin";
+            $this->retVal->status = 0;
         }
         echo CJSON::encode($this->retVal);
+
         Yii::app()->end();
     }
 
