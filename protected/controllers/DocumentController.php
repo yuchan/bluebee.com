@@ -116,11 +116,14 @@ class DocumentController extends BaseController {
     }
 
     public function saveDoc($doc_name, $doc_description, $doc_url, $doc_author, $subject_id, $doc_scribd_id, $doc_type, $doc_path, $doc_author_name) {
+        $doc_data = Subject::model()->findByAttributes(array('subject_id' => $subject_id));
         $doc_model = new Doc;
         $doc_model->doc_name = $doc_name;
         $doc_model->doc_description = $doc_description;
         $doc_model->doc_url = $doc_url;
         $doc_model->doc_path = $doc_path;
+        $doc_model->subject_faculty = $doc_data->subject_faculty;
+        $doc_model->subject_dept = $doc_data->subject_dept;
         $doc_model->doc_scribd_id = $doc_scribd_id;
         $doc_model->doc_type = $doc_type;
         $doc_model->doc_status = 1;
@@ -181,13 +184,13 @@ class DocumentController extends BaseController {
                         }
                         $tempFile = $_FILES['file']['tmp_name'];          //3
                         $targetPath = $storeFolder;  //4
-                        $targetFile = $targetPath .  $cnt.$name ;  //5
+                        $targetFile = $targetPath . $name;  //5
                         $ext = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
                         move_uploaded_file($tempFile, $targetFile); //6
-                        $doc_path = Yii::app()->createAbsoluteUrl('uploads') . '/document/user_id_' . $doc_author . '/' .$cnt. $name;
+                        $doc_path = Yii::app()->createAbsoluteUrl('uploads') . '/document/user_id_' . $doc_author . '/' . $name;
 
                         if ($ext == "gif" || $ext == "jpg" || $ext == "jpeg" || $ext == "pjepg" || $ext == "png" || $ext == "x-png") {
-                            $this->saveDoc($doc_name, $doc_description, $targetFile, $doc_author, $subject_id, NULL, 1, $doc_path, $doc_author_name);
+                            $this->saveDoc($doc_name, $doc_description, $doc_path, $doc_author, $subject_id, NULL, 1, $doc_path, $doc_author_name);
 
                             $this->retVal->url = $targetFile;
                             $this->retVal->doc_name = $doc_name;
@@ -212,24 +215,28 @@ class DocumentController extends BaseController {
                             $this->retVal->doc_path = $doc_path;
                             $this->retVal->user_name = Yii::app()->session['user_name'];
                         } else {
-                            $url_file = "";
-                            $this->saveDoc($doc_name, $doc_description, NULL, $doc_author, $subject_id, NULL, 3, $doc_path, $doc_author_name);
-                            $this->retVal->url = $targetFile;
+                            $url_file_image = Yii::app()->theme->baseUrl.'/assets/img/document.png';
+                            $this->saveDoc($doc_name, $doc_description, $url_file_image, $doc_author, $subject_id, NULL, 3, $doc_path, $doc_author_name);
+                            $this->retVal->doc_url = $url_file_image;
                             $this->retVal->doc_name = $doc_name;
                             $this->retVal->doc_path = $doc_path;
                             $this->retVal->user_name = Yii::app()->session['user_name'];
                         }
                     } else {
                         $this->retVal->info = "Bạn phải nhập đầy đủ các thông tin";
+                        $this->retVal->status = 0;
                     }
                 } else {
                     $this->retVal->info = "Bạn phải nhập đầy đủ các thông tin";
+                    $this->retVal->status = 0;
                 }
             } else {
                 $this->retVal->info = "Bạn phải nhập đầy đủ các thông tin";
+                $this->retVal->status = 0;
             }
         } else {
             $this->retVal->info = "Bạn phải nhập đầy đủ các thông tin";
+            $this->retVal->status = 0;
         }
         echo CJSON::encode($this->retVal);
 

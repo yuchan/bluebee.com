@@ -41,6 +41,8 @@
                             s.parentNode.insertBefore(ur, s);
                         })();
                     </script>
+
+
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery-1.9.1.js"></script>
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/g-alert.js"></script>
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.carousello.js"></script>
@@ -66,9 +68,19 @@
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.tokeninput.js"></script>
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/classie.js"></script>
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/cbpScroller.js"></script>
+                    <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.form.min.js"></script>
                     <!-- Star rating-->
                     <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/ratings.css" />
                     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.barrating.js"></script>
+                    <script type="text/javascript">
+                        jQuery(document).ready(function($) {
+                            // Get current url
+                            // Select an a element that has the matching href and apply a class of 'active'. Also prepend a - to the content of the link
+                            var url = window.location.href;
+                            $('a[href="' + url + '"]').parent().parent().addClass('active');
+
+                        });
+                    </script>
                     <script type="text/javascript">
                         $(function() {
                             $('.example-f').barrating({showSelectedRating: false});
@@ -278,9 +290,9 @@
                                                         </div>
                                                         <div class="w-nav-list layout_hor width_auto float_right level_1">
                                                             <div class="w-nav-list-h">
-                                                                <div class="w-nav-item level_1 active">
+                                                                <div class="w-nav-item level_1">
                                                                     <div class="w-nav-item-h">
-                                                                        <a href="<?php echo Yii::app()->createUrl("listOfSubject") ?>" class="w-nav-anchor level_1">
+                                                                        <a href="<?php echo Yii::app()->createAbsoluteUrl("listOfSubject") ?>" class="w-nav-anchor level_1 menu-header">
                                                                             <span class="w-nav-icon"><i class="icon-star"></i></span>
                                                                             <span class="w-nav-title">Chương trình đào tạo</span>
                                                                             <span class="w-nav-hint"></span>
@@ -289,7 +301,7 @@
                                                                 </div>
                                                                 <div class="w-nav-item level_1">
                                                                     <div class="w-nav-item-h">
-                                                                        <a href="<?php echo Yii::app()->createUrl("document") ?>" class="w-nav-anchor level_1">
+                                                                        <a href="<?php echo Yii::app()->createAbsoluteUrl("document") ?>" class="w-nav-anchor level_1 menu-header">
                                                                             <span class="w-nav-icon"><i class="icon-star"></i></span>
                                                                             <span class="w-nav-title">Đề thi - Tài liệu</span>
                                                                             <span class="w-nav-hint"></span>
@@ -298,7 +310,7 @@
                                                                 </div>
                                                                 <div class="w-nav-item level_1">
                                                                     <div class="w-nav-item-h">
-                                                                        <a href="<?php echo Yii::app()->createUrl("share/teacherListPage") ?>" class="w-nav-anchor level_1">
+                                                                        <a href="<?php echo Yii::app()->createAbsoluteUrl("share/teacherListPage") ?>" class="w-nav-anchor level_1 menu-header">
                                                                             <span class="w-nav-icon"><i class="icon-star"></i></span>
                                                                             <span class="w-nav-title">Giáo viên</span>
                                                                             <span class="w-nav-hint"></span>
