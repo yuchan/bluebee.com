@@ -45,6 +45,9 @@ if (Yii::app()->session["user_id"] == "") {
                     <span class="file_name"></span>
                     <span class="file_size"></span>
                     <span class="cancel_file">✕</span>
+                    <span class="progress">
+                        <span class="progress-inner"></span>
+                    </span>
                 </div>
                 <input id="name_document" type="text" placeholder="Tên tài liệu" name="doc_name"/>
                 <textarea id="description_document" placeholder="Mô tả" name="doc_description"></textarea>
@@ -58,6 +61,16 @@ if (Yii::app()->session["user_id"] == "") {
                 <br/>
                 <button class="g-btn size_small type_primary" type="submit">Đăng tài liệu</button>
             </form>
+            <div style="float:right; margin-top: -90px">
+                <div style="background-color: green; box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3); color: white; border-radius: 3px;">
+                    <p class="clearfix" style="padding: 10px 10px 10px 10px"><i class="icon-upload-alt">&#32;Uploading: 90%</i></p>
+                </div>
+                <div style="display: none; background-color: red; box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3); color: white; border-radius: 3px;">
+                    <p class="clearfix" style="padding: 10px 10px 10px 10px">
+                        Hãy điền tên tài liệu
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
     <?php //} ?>
