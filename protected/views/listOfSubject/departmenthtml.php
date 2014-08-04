@@ -24,13 +24,14 @@
     </div>
 </div>
 <script type="text/javascript">
-    jQuery(window).load(function() {
+    $(window).ready(function() {
+//$(document).ready(function(){
         jQuery(".flexslider").flexslider({
             directionalNav: false,
             controlNav: false,
             smoothHeight: true,
             start: function() {
-                jQuery(".flexslider").removeClass("flex-loading");
+                jQuery(".flexslider").removeClass(".flex-loading");
             }
         });
     });
