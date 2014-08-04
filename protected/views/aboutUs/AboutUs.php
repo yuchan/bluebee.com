@@ -156,10 +156,10 @@
                                         <div class="w-team-member">
                                             <div class="w-team-member-h">
                                                 <div class="w-team-member-image">
-                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/member-3.jpg" alt="Item picture" />
+                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/huy1.jpg" alt="Item picture" />
                                                     <div class="w-team-member-links">
                                                         <div class="w-team-member-links-list">
-                                                            <a class="w-team-member-links-item" href="http://www.fb.com/" target="_blank">
+                                                            <a class="w-team-member-links-item" href="https://www.facebook.com/zhu.gheliang.5" target="_blank">
                                                                 <i class="icon-facebook"></i>
                                                             </a>
                                                         </div>
@@ -169,7 +169,7 @@
                                                     <h4 class="w-team-member-name">Huy Nguyễn</h4>
                                                     <div class="w-team-member-role">Trưởng nhóm</div>
                                                     <div class="w-team-member-description">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor.</p>
+                                                        <p></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -181,11 +181,11 @@
                                         <div class="w-team-member">
                                             <div class="w-team-member-h">
                                                 <div class="w-team-member-image">
-                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/member-2.jpg" alt="Item picture" />
+                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/son1.jpg" alt="Item picture" />
                                                     <div class="w-team-member-links">
                                                         <div class="w-team-member-links-list">
-                                                            <a class="w-team-member-links-item" href="http://www.fb.com/" target="_blank">
-                                                                <i class="icon-twitter"></i>
+                                                            <a class="w-team-member-links-item" href="https://www.facebook.com/supercat.incredible" target="_blank">
+                                                                <i class="icon-facebook"></i>
                                                             </a>
                                                         </div>
                                                     </div>
@@ -194,7 +194,7 @@
                                                     <h4 class="w-team-member-name">Sơn Nguyễn</h4>
                                                     <div class="w-team-member-role">Nhóm thiết kế</div>
                                                     <div class="w-team-member-description">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor.</p>
+                                                        <p></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -207,11 +207,11 @@
                                         <div class="w-team-member">
                                             <div class="w-team-member-h">
                                                 <div class="w-team-member-image">
-                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/member-2.jpg" alt="Item picture" />
+                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/kien1.jpg" alt="Item picture" />
                                                     <div class="w-team-member-links">
                                                         <div class="w-team-member-links-list">
-                                                            <a class="w-team-member-links-item" href="http://www.fb.com/" target="_blank">
-                                                                <i class="icon-twitter"></i>
+                                                            <a class="w-team-member-links-item" href="https://www.facebook.com/kien.d.nguyen.33" target="_blank">
+                                                                <i class="icon-facebook"></i>
                                                             </a>
                                                         </div>
                                                     </div>
@@ -220,7 +220,7 @@
                                                     <h4 class="w-team-member-name">Kiên Nguyễn</h4>
                                                     <div class="w-team-member-role">Nhóm thiết kế</div>
                                                     <div class="w-team-member-description">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor.</p>
+                                                        <p></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -233,11 +233,11 @@
                                         <div class="w-team-member">
                                             <div class="w-team-member-h">
                                                 <div class="w-team-member-image">
-                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/member-2.jpg" alt="Item picture" />
+                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/khanh.jpg" alt="Item picture" />
                                                     <div class="w-team-member-links">
                                                         <div class="w-team-member-links-list">
-                                                            <a class="w-team-member-links-item" href="http://www.fb.com/" target="_blank">
-                                                                <i class="icon-twitter"></i>
+                                                            <a class="w-team-member-links-item" href="https://www.facebook.com/khanhnv.57" target="_blank">
+                                                                <i class="icon-facebook"></i>
                                                             </a>
                                                         </div>
                                                     </div>
@@ -246,7 +246,7 @@
                                                     <h4 class="w-team-member-name">Khánh Nguyễn</h4>
                                                     <div class="w-team-member-role">Nhóm lập trình</div>
                                                     <div class="w-team-member-description">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor.</p>
+                                                        <p></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -259,11 +259,11 @@
                                         <div class="w-team-member">
                                             <div class="w-team-member-h">
                                                 <div class="w-team-member-image">
-                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/member-2.jpg" alt="Item picture" />
+                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/khoa1.jpg" alt="Item picture" />
                                                     <div class="w-team-member-links">
                                                         <div class="w-team-member-links-list">
-                                                            <a class="w-team-member-links-item" href="http://www.fb.com/" target="_blank">
-                                                                <i class="icon-twitter"></i>
+                                                            <a class="w-team-member-links-item" href="https://www.facebook.com/khoa.levan.1" target="_blank">
+                                                                <i class="icon-facebook"></i>
                                                             </a>
                                                         </div>
                                                     </div>
@@ -272,7 +272,7 @@
                                                     <h4 class="w-team-member-name">Khoa Lê</h4>
                                                     <div class="w-team-member-role">Nhóm lập trình</div>
                                                     <div class="w-team-member-description">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor.</p>
+                                                        <p></p>
                                                     </div>
                                                 </div>
                                             </div>
