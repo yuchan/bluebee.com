@@ -149,10 +149,7 @@
                         });
                     </script>
                     <script type="text/javascript">var switchTo5x = true;</script>
-                    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-                    <script type="text/javascript">stLight.options
-                                ({publisher: "ur-b6bcdd5b-dde-cce8-a00c-478890414ff", doNotHash: true, doNotCopy: true, hashAddressBar: true});
-                    </script>
+                   
                     <div id="fb-root"></div>
                     <script>(function(d, s, id) {
                             var js, fjs = d.getElementsByTagName(s)[0];
