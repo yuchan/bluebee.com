@@ -215,7 +215,7 @@ class DocumentController extends BaseController {
                             $this->retVal->doc_path = $doc_path;
                             $this->retVal->user_name = Yii::app()->session['user_name'];
                         } else {
-                            $url_file_image = Yii::app()->theme->baseUrl.'/assets/img/document.png';
+                            $url_file_image = Yii::app()->theme->baseUrl . '/assets/img/document.png';
                             $this->saveDoc($doc_name, $doc_description, $url_file_image, $doc_author, $subject_id, NULL, 3, $doc_path, $doc_author_name);
                             $this->retVal->doc_url = $url_file_image;
                             $this->retVal->doc_name = $doc_name;

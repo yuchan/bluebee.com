@@ -14,8 +14,8 @@ if (Yii::app()->session["user_id"] == "") {
 </script>
 <div class="morph-button morph-button-modal morph-button-fixed" id="morph-upload">
     <button class="btn-2 btn-2a" type="button" onclick="<?php if (Yii::app()->session["user_id"] == "") echo 'checkuploadfunction();' ?>" >Đăng một tài liệu lên</button>
-    <?php if (Yii::app()->session["user_id"] != "") { ?>
-    <div class="morph-content" id="upload_area_morph">
+    
+    <div class="morph-content" id="upload_area_morph"> 
         <div class="content-style-text">
             <span class="icon icon-close" id="close_form">✕</span>
             <h4 style="margin-bottom: 5px;">Hãy chọn một tài liệu mà bạn muốn đăng</h4>
@@ -80,7 +80,7 @@ if (Yii::app()->session["user_id"] == "") {
             </div>
         </div>
     </div>
-    <?php } ?>
+    
 </div><!-- morph-button -->
 
 <script type="text/javascript">
