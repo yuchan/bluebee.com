@@ -165,6 +165,7 @@ class DocumentController extends BaseController {
         //$ds = DIRECTORY_SEPARATOR;  //1
         $cnt = DocumentController::$cnt++;
         $subject_id = strip_tags($_POST['subject_id']);
+        
         $doc_name = strip_tags($_POST['doc_name']);
         $doc_description = strip_tags($_POST['doc_description']);
         $doc_author = Yii::app()->session['user_id'];
@@ -175,7 +176,7 @@ class DocumentController extends BaseController {
         if ($_FILES['file']) {
             if (!empty($doc_name)) {
                 if (!empty($doc_description)) {
-                    if (!empty($subject_id)) {
+                    if ($subject_id!="") {
                         $scribd = new Scribd($api_key, $secret);
                         $name = $this->unicode_str_filter($_FILES['file']['name']);
                         $storeFolder = Yii::getPathOfAlias('webroot') . '/uploads/document/user_id_' . $doc_author . '/';   //2

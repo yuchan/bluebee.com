@@ -55,7 +55,7 @@ if (Yii::app()->session["user_id"] == "") {
                 <textarea id="description_document" placeholder="Mô tả" name="doc_description"></textarea>
                 <select style="max-width: 200px; border-radius: 3px; background-color: white; margin: 5px 0;" name="subject_id">
                     <!--thêm môn học tại đây-->
-                    <option>Môn học</option>
+                    <option value="">Môn học</option>
                     <?php foreach ($subject_info as $subject_info_detail) : ?>
                         <option value="<?php echo $subject_info_detail->subject_id ?>"><?php echo $subject_info_detail->subject_name ?></option>
                     <?php endforeach; ?>
