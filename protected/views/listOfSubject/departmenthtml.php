@@ -1,4 +1,3 @@
-
 <div class="w-gallery type_slider">
     <div class="w-gallery-h">
         <div class="w-gallery-main">
@@ -24,18 +23,17 @@
     </div>
 </div>
 <script type="text/javascript">
-    jQuery(window).load(function() {
+    jQuery(window).ready(function() {
         jQuery(".flexslider").flexslider({
             directionalNav: false,
             controlNav: false,
             smoothHeight: true,
             start: function() {
-                jQuery(".flexslider").removeClass("flex-loading");
+                jQuery(".flexslider").removeClass(".flex-loading");
             }
         });
     });
 </script>
-
 <div class="g-cols">
     <div class="one-third" id="teacher_lead">
         <h3>Nhân sự lãnh đạo</h3>
@@ -80,12 +78,10 @@
                     </div>
                     <div class="w-tabs-section-content">
                         <div class="w-tabs-section-content-h" id="faculty_lab">
-                            
+
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
