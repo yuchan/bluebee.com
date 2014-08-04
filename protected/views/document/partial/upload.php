@@ -45,7 +45,7 @@ if (Yii::app()->session["user_id"] == "") {
                     <span class="info_file_content">
                         <span class="file_name"></span>
                         <span class="file_size"></span>
-                        <span class="cancel_file">✕</span>
+                        <span class="cancel_file" id="cancel_file">✕</span>
                     </span>
                     <span class="progress">
                         <span class="progress-inner"></span>
