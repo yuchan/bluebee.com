@@ -269,6 +269,18 @@
                 <img id="loading-image" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ajax_loader_blue_128.gif" style="margin-left: 400px;"/>
                 <!--cmt facebook-->
             </div>
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            </br>
+            </br>
+            </br>
+            </br>
             <div class="full-width">
                 <div class="fb-like" data-href="<?php echo Yii::app()->createAbsoluteUrl('listOfSubject') ?>" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
                 <div class="fb-comments" data-href="<?php echo Yii::app()->createAbsoluteUrl('listOfSubject') ?>" data-width="1000" data-numposts="8" data-colorscheme="light"></div>

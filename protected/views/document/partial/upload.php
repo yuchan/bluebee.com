@@ -13,8 +13,8 @@ if (Yii::app()->session["user_id"] == "") {
 </script>
 <div class="morph-button morph-button-modal morph-button-fixed" id="morph-upload">
     <button class="btn-2 btn-2a" type="button" onclick="<?php if (Yii::app()->session["user_id"] == "") echo 'checkuploadfunction();' ?>" >Đăng một tài liệu lên</button>
-    <?php //if (Yii::app()->session["user_id"] != "") { ?>
-    <div class="morph-content" id="upload_area_morph">
+    
+    <div class="morph-content" id="upload_area_morph"> 
         <div class="content-style-text">
             <span class="icon icon-close" id="close_form">✕</span>
             <h4 style="margin-bottom: 5px;">Hãy chọn một tài liệu mà bạn muốn đăng</h4>
@@ -41,9 +41,11 @@ if (Yii::app()->session["user_id"] == "") {
                     <span>Chọn 1 tệp tin</span>
                 </label>
                 <div class="info_file" style="display: none">
-                    <span class="file_name"></span>
-                    <span class="file_size"></span>
-                    <span class="cancel_file" id="cancel_file">✕</span>
+                    <span class="info_file_content">
+                        <span class="file_name"></span>
+                        <span class="file_size"></span>
+                        <span class="cancel_file" id="cancel_file">✕</span>
+                    </span>
                     <span class="progress">
                         <span class="progress-inner"></span>
                     </span>
@@ -52,7 +54,7 @@ if (Yii::app()->session["user_id"] == "") {
                 <textarea id="description_document" placeholder="Mô tả" name="doc_description"></textarea>
                 <select style="max-width: 200px; border-radius: 3px; background-color: white; margin: 5px 0;" name="subject_id">
                     <!--thêm môn học tại đây-->
-                    <option>Môn học</option>
+                    <option value="">Môn học</option>
                     <?php foreach ($subject_info as $subject_info_detail) : ?>
                         <option value="<?php echo $subject_info_detail->subject_id ?>"><?php echo $subject_info_detail->subject_name ?></option>
                     <?php endforeach; ?>
@@ -77,7 +79,7 @@ if (Yii::app()->session["user_id"] == "") {
             </div>
         </div>
     </div>
-    <?php //} ?>
+    
 </div><!-- morph-button -->
 
 <script type="text/javascript">

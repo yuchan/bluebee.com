@@ -38,7 +38,7 @@
                             '<div class="box_item">' +
                             '<div class="short_info_document clearfix">' +
                             '<div class="document_img">' +
-                            '<img src="' + this.doc_url + '">' +
+                            '<img src="' + this.doc_url + '" height = "166px">' +
                             '<a href="<?php echo Yii::app()->createAbsoluteUrl('viewDocument') ?>?doc_id=' + this.doc_id + '" class="document_img_hover">' +
                             '<span class="describe_document">' + this.doc_description + '</span>' +
                             '</a>' +

@@ -165,6 +165,7 @@ class DocumentController extends BaseController {
         //$ds = DIRECTORY_SEPARATOR;  //1
         $cnt = DocumentController::$cnt++;
         $subject_id = strip_tags($_POST['subject_id']);
+        
         $doc_name = strip_tags($_POST['doc_name']);
         $doc_description = strip_tags($_POST['doc_description']);
         $doc_author = Yii::app()->session['user_id'];
@@ -175,7 +176,7 @@ class DocumentController extends BaseController {
         if ($_FILES['file']) {
             if (!empty($doc_name)) {
                 if (!empty($doc_description)) {
-                    if (!empty($subject_id)) {
+                    if ($subject_id!="") {
                         $scribd = new Scribd($api_key, $secret);
                         $name = $this->unicode_str_filter($_FILES['file']['name']);
                         $storeFolder = Yii::getPathOfAlias('webroot') . '/uploads/document/user_id_' . $doc_author . '/';   //2
@@ -190,7 +191,7 @@ class DocumentController extends BaseController {
                         $doc_path = Yii::app()->createAbsoluteUrl('uploads') . '/document/user_id_' . $doc_author . '/' . $name;
 
                         if ($ext == "gif" || $ext == "jpg" || $ext == "jpeg" || $ext == "pjepg" || $ext == "png" || $ext == "x-png") {
-                            $this->saveDoc($doc_name, $doc_description, $targetFile, $doc_author, $subject_id, NULL, 1, $doc_path, $doc_author_name);
+                            $this->saveDoc($doc_name, $doc_description, $doc_path, $doc_author, $subject_id, NULL, 1, $doc_path, $doc_author_name);
 
                             $this->retVal->url = $targetFile;
                             $this->retVal->doc_name = $doc_name;
@@ -215,9 +216,9 @@ class DocumentController extends BaseController {
                             $this->retVal->doc_path = $doc_path;
                             $this->retVal->user_name = Yii::app()->session['user_name'];
                         } else {
-                            $url_file = "";
-                            $this->saveDoc($doc_name, $doc_description, NULL, $doc_author, $subject_id, NULL, 3, $doc_path, $doc_author_name);
-                            $this->retVal->url = $targetFile;
+                            $url_file_image = Yii::app()->theme->baseUrl . '/assets/img/document.png';
+                            $this->saveDoc($doc_name, $doc_description, $url_file_image, $doc_author, $subject_id, NULL, 3, $doc_path, $doc_author_name);
+                            $this->retVal->doc_url = $url_file_image;
                             $this->retVal->doc_name = $doc_name;
                             $this->retVal->doc_path = $doc_path;
                             $this->retVal->user_name = Yii::app()->session['user_name'];

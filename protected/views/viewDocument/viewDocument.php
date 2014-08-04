@@ -62,24 +62,24 @@
                                 Jul 17, 2014
                             </span>
                         </div>
-                        <ul class="document_status clearfix" style="float:left; margin:2px 0 0 0;">
+<!--                        <ul class="document_status clearfix" style="float:left; margin:2px 0 0 0;">
                             <li class="score" style="font-size: 14px;"><i class="icon-heart"></i>2000 likes</li>
                             <li class="view" style="font-size: 14px;"><i class="icon-eye-open"></i>1999 views</li>
                             <li class="comment" style="font-size: 14px;"><i class="icon-comment"></i>1203 comments</li>
-                        </ul>
+                        </ul>-->
                     </div>
                     <div class="fb-like" data-href="<?php echo Yii::app()->createAbsoluteUrl('viewDocument?doc_id=').$detail->doc_id ?>" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
+                    </br>
                     <div class="l-content">
                         <?php if($detail->doc_type == 2) {
-                           echo '<iframe src="http://docs.google.com/viewer?url='.$detail->doc_url.'&embedded=true" height="600" style="border-radius: 3px; box-shadow: 0 0 2px rgba(0, 0, 0, 0.3); width: 100%; "></iframe>'
-                                .'<a href="'.$detail->doc_path.'"'.'download="'.$detail->doc_name.'">Download</a>';
+                           echo '<iframe src="http://docs.google.com/viewer?url='.$detail->doc_path.'&embedded=true" height="600" style="border-radius: 3px; box-shadow: 0 0 2px rgba(0, 0, 0, 0.3); width: 100%; "></iframe></br></br>'.'<a href="'.$detail->doc_path.'"'.'download="'.$detail->doc_name.'" style = "font-size:25px;">Download</a>';
                         } else {
                             if($detail->doc_type == 1){
-                               echo '<img style="width: 100%; height: auto; " src="'.$detail->doc_path.'" />'.'<a href="'.$detail->doc_path.'"'.'download="'.$detail->doc_name.'">Download</a>';
+                               echo '<img style="width: auto; height: auto; " src="'.$detail->doc_path.'" /></br></br>'.'<a href="'.$detail->doc_path.'"'.'download="'.$detail->doc_name.'" style = "font-size:25px;">Download</a>';
                             }
                             else {
                                 if($detail->doc_type == 3){
-                                    echo '<a href="'.$detail->doc_path.'"'.'download="'.$detail->doc_name.'">Download</a>';
+                                    echo '<a href="'.$detail->doc_path.'"'.'download="'.$detail->doc_name.'" style = "font-size:25px;">Download</a>';
                                 }
                             }
                         } ?>                                                 
@@ -99,16 +99,16 @@
                                     <div class="short_info_document clearfix">
                                         <div class="document_img">
                                             <img src="<?php echo $related_doc->doc_url?>"/>
-                                            <a href="<?php echo Yii::app()->createAbsoluteUrl('viewdocument?doc_id=').$related_doc->doc_id ?>" action="" class="document_img_hover">
-                                                <span class="describe_document">blah blah blah</span>
-                                                <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>
+                                            <a href="<?php echo Yii::app()->createAbsoluteUrl('viewDocument?doc_id=').$related_doc->doc_id ?>" action="" class="document_img_hover">
+                                                <span class="describe_document"><?php $related_doc->doc_description ?></span>
+<!--                                                <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>-->
                                             </a>
                                         </div>
-                                        <ul class="document_status clearfix">
+<!--                                        <ul class="document_status clearfix">
                                             <li class="score"><i class="icon-heart"></i>2000</li>
                                             <li class="view"><i class="icon-eye-open"></i>1999</li>
                                             <li class="comment"><i class="icon-comment"></i>1203</li>
-                                        </ul>
+                                        </ul>-->
                                         <span class="attribution-user">
                                             <a href="/sonvn" class="url_user" title="Sonvn">
                                                 <img class="photo_user" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png"> Sonvn
