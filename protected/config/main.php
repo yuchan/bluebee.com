@@ -25,6 +25,8 @@ return array(
         'ext.Paginator.*', // giix components
         'ext.YiiMailer.YiiMailer',
         'ext.xupload.XUpload',
+        'ext.xupload.eguiders',
+        
     ),
     'modules' => array(
         // uncomment the following to enable the Gii tool

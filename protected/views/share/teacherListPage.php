@@ -1,10 +1,4 @@
 <div class="l-main-h">
-
-    <div class="l-submain" id="teacherListHeader">
-        <p>
-            <strong>Hãy tìm kiếm giáo viên của lớp bạn. Nếu chưa có, hãy thêm giáo viên ngay ------> <button class="g-btn type_primary size_small"><span>Nhập giáo viên</span></button></strong>
-        </p>
-    </div>
     <div class="l-submain">
         <div class="l-submain-h g-html i-cf">
             <div class="g-cols">
