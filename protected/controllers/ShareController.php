@@ -77,7 +77,7 @@ class ShareController extends BaseController {
         }
     }
 
-    public function ListTeacherFaculty() {
+    public function actionListTeacherFaculty() {
         $this->retVal = new stdClass();
         $request = Yii::app()->request;
         if ($request->isPostRequest && isset($_POST)) {
@@ -88,7 +88,7 @@ class ShareController extends BaseController {
                 $faculty_data = Faculty::model()->findAllByAttributes(array('faculty_id' => $listSubjectData['faculty_id']));
                 $teacher_data = Teacher::model()->findAllByAttributes(array('teacher_faculty' => $listSubjectData['faculty_id']));
                 $this->retVal->teacher_data = $teacher_data;
-                $this->retVal->dept_data = $faculty_data;
+                $this->retVal->faculty_data = $faculty_data;
                 $this->retVal->message = 1;
             } catch (exception $e) {
                 $this->retVal->message = $e->getMessage();
