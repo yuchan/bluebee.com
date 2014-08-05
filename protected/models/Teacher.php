@@ -17,6 +17,7 @@
  * @property integer $teacher_sex
  * @property integer $teacher_faculty
  * @property integer $teacher_dept
+ * @property integer $teacher_rate
  */
 class Teacher extends CActiveRecord
 {
@@ -36,12 +37,12 @@ class Teacher extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('teacher_work_place, teacher_active, teacher_status, teacher_sex, teacher_faculty, teacher_dept', 'numerical', 'integerOnly'=>true),
+			array('teacher_work_place, teacher_active, teacher_status, teacher_sex, teacher_faculty, teacher_dept, teacher_rate', 'numerical', 'integerOnly'=>true),
 			array('teacher_name, teacher_personal_page, teacher_description, teacher_acadamic_title, teacher_birthday', 'length', 'max'=>45),
 			array('teacher_avatar', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('teacher_id, teacher_name, teacher_personal_page, teacher_avatar, teacher_description, teacher_work_place, teacher_active, teacher_status, teacher_acadamic_title, teacher_birthday, teacher_sex, teacher_faculty, teacher_dept', 'safe', 'on'=>'search'),
+			array('teacher_id, teacher_name, teacher_personal_page, teacher_avatar, teacher_description, teacher_work_place, teacher_active, teacher_status, teacher_acadamic_title, teacher_birthday, teacher_sex, teacher_faculty, teacher_dept, teacher_rate', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -75,6 +76,7 @@ class Teacher extends CActiveRecord
 			'teacher_sex' => 'Teacher Sex',
 			'teacher_faculty' => 'Teacher Faculty',
 			'teacher_dept' => 'Teacher Dept',
+			'teacher_rate' => 'Teacher Rate',
 		);
 	}
 
@@ -109,6 +111,7 @@ class Teacher extends CActiveRecord
 		$criteria->compare('teacher_sex',$this->teacher_sex);
 		$criteria->compare('teacher_faculty',$this->teacher_faculty);
 		$criteria->compare('teacher_dept',$this->teacher_dept);
+		$criteria->compare('teacher_rate',$this->teacher_rate);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2014 at 04:01 PM
+-- Generation Time: Aug 05, 2014 at 04:13 PM
 -- Server version: 5.5.34
 -- PHP Version: 5.4.22
 
@@ -478,6 +478,7 @@ CREATE TABLE IF NOT EXISTS `tbl_teacher` (
   `teacher_sex` int(5) DEFAULT NULL,
   `teacher_faculty` int(5) DEFAULT NULL,
   `teacher_dept` int(5) DEFAULT NULL,
+  `teacher_rate` int(3) DEFAULT NULL,
   PRIMARY KEY (`teacher_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
@@ -485,8 +486,8 @@ CREATE TABLE IF NOT EXISTS `tbl_teacher` (
 -- Dumping data for table `tbl_teacher`
 --
 
-INSERT INTO `tbl_teacher` (`teacher_id`, `teacher_name`, `teacher_personal_page`, `teacher_avatar`, `teacher_description`, `teacher_work_place`, `teacher_active`, `teacher_status`, `teacher_acadamic_title`, `teacher_birthday`, `teacher_sex`, `teacher_faculty`, `teacher_dept`) VALUES
-(1, 'PGS. TS. Phạm Bảo Sơn', NULL, 'http://localhost/BlueBee.com/themes/classic/assets/img/PGS. TS. Pham Bao Son.jpg', NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL);
+INSERT INTO `tbl_teacher` (`teacher_id`, `teacher_name`, `teacher_personal_page`, `teacher_avatar`, `teacher_description`, `teacher_work_place`, `teacher_active`, `teacher_status`, `teacher_acadamic_title`, `teacher_birthday`, `teacher_sex`, `teacher_faculty`, `teacher_dept`, `teacher_rate`) VALUES
+(1, 'PGS. TS. Phạm Bảo Sơn', NULL, 'http://localhost/BlueBee.com/themes/classic/assets/img/PGS. TS. Pham Bao Son.jpg', NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
