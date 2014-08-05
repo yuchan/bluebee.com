@@ -53,6 +53,50 @@ class ShareController extends Controller {
         $this->render('subject');
     }
 
+    public function ListTeacherDeptFaculty() {
+        $this->retVal = new stdClass();
+        $request = Yii::app()->request;
+        if ($request->isPostRequest && isset($_POST)) {
+            try {
+                $listSubjectData = array(
+                    'dept_id' => $_POST['dept_id'],
+                    'faculty_id' => $_POST['faculty_id'],
+                );
+                $dept_data = Dept::model()->findAllByAttributes(array('dept_id' => $listSubjectData['dept_id']));
+                $teacher_data = Teacher::model()->findAllByAttributes(array('teacher_dept' => $listSubjectData['dept_id'],
+                    'teacher_faculty' => $listSubjectData['faculty_id']));
+                $this->retVal->teacher_data = $teacher_data;
+                $this->retVal->dept_data = $dept_data;
+                $this->retVal->message = 1;
+            } catch (exception $e) {
+                $this->retVal->message = $e->getMessage();
+            }
+            echo CJSON::encode($this->retVal);
+            Yii::app()->end();
+        }
+    }
+
+    public function ListTeacherFaculty() {
+        $this->retVal = new stdClass();
+        $request = Yii::app()->request;
+        if ($request->isPostRequest && isset($_POST)) {
+            try {
+                $listSubjectData = array(
+                    'faculty_id' => $_POST['faculty_id'],
+                );
+                $faculty_data = Faculty::model()->findAllByAttributes(array('faculty_id' => $listSubjectData['faculty_id']));
+                $teacher_data = Teacher::model()->findAllByAttributes(array('teacher_faculty' => $listSubjectData['faculty_id']));
+                $this->retVal->teacher_data = $teacher_data;
+                $this->retVal->dept_data = $faculty_data;
+                $this->retVal->message = 1;
+            } catch (exception $e) {
+                $this->retVal->message = $e->getMessage();
+            }
+            echo CJSON::encode($this->retVal);
+            Yii::app()->end();
+        }
+    }
+
     // Uncomment the following methods and override them if needed
     /*
       public function filters()

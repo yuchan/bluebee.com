@@ -85,8 +85,6 @@ class ListOfSubjectController extends BaseController {
     }
 
     public function actionDeptInfo() {
-        $category_father = $this->listCategoryFather();
-        $subject_type = $this->listSubjectType();
         $this->retVal = new stdClass();
         $request = Yii::app()->request;
         if ($request->isPostRequest && isset($_POST)) {
