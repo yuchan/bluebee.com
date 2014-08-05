@@ -65,7 +65,7 @@
                                                                             <li class="view"><i class="icon-eye-open"></i>1999</li>
                                                                             <li class="comment"><i class="icon-comment"></i>1203</li>
                                                                         </ul>-->
-                                                                        
+                                                                  
                                                                     </div>
                                                                 </div>
                                                                 <a class="name_document" href=""><strong><?php echo $doc['doc_name'] ?></strong></a>

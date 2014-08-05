@@ -3,8 +3,8 @@
      border-right-width: thick;
      border-color: #d0d6d9;
      ">
-
-    <h3>Các ngành học</h3>            
+   
+    <h3 id="second">Các ngành học</h3>            
     <div class="widget">
         <nav class="w-nav">
             <div class="w-nav-h">
