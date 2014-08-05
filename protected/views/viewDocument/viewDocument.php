@@ -55,12 +55,12 @@
                         <div class="shot-byline">
                             <div class="attribution ">
                                 <span class="shot-byline-user">
-                                    by <a href="/Sonvn" class="url_user" title="Sonvn">Sonvn</a>
+                                    đăng bởi <a href="<?php echo Yii::app()->createUrl('user?id=').$detail->doc_author?>" class="url_user" title="<?php echo $detail->doc_author_name ?>"><?php echo $detail->doc_author_name ?></a>
                                 </span>
                             </div>
-                            <span class="time_post">
+<!--                            <span class="time_post">
                                 Jul 17, 2014
-                            </span>
+                            </span>-->
                         </div>
 <!--                        <ul class="document_status clearfix" style="float:left; margin:2px 0 0 0;">
                             <li class="score" style="font-size: 14px;"><i class="icon-heart"></i>2000 likes</li>
@@ -110,8 +110,8 @@
                                             <li class="comment"><i class="icon-comment"></i>1203</li>
                                         </ul>-->
                                         <span class="attribution-user">
-                                            <a href="/sonvn" class="url_user" title="Sonvn">
-                                                <img class="photo_user" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png"> Sonvn
+                                            <a href="<?php echo Yii::app()->createUrl('user?id=').$related_doc->doc_author?>" class="url_user" title="<?php echo $related_doc->doc_author_name ?>">
+                                                <img class="photo_user" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png"> <?php echo $related_doc->doc_author_name ?>
                                             </a>
                                         </span>
                                     </div>
