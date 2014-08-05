@@ -1,12 +1,13 @@
 <?php
 
-class ShareController extends Controller {
+Yii::import('application.controllers.BaseController');
+
+class ShareController extends BaseController {
 
 //    public function beforeAction() {
 //        if (Yii::app()->session['token'] == '')
 //            $this->redirect('welcomePage');
 //    }
-
     public function actionIndex() {
 //        if (Yii::app()->session['token'] == "")
 //            $this->redirect('welcomePage');
@@ -53,7 +54,7 @@ class ShareController extends Controller {
         $this->render('subject');
     }
 
-    public function ListTeacherDeptFaculty() {
+    public function actionListTeacherDeptFaculty() {
         $this->retVal = new stdClass();
         $request = Yii::app()->request;
         if ($request->isPostRequest && isset($_POST)) {

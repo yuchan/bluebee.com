@@ -9,7 +9,7 @@
             var dept_id = $self.attr("dept-id");
             jQuery.ajax({
                 type: "POST",
-                url: "<?php echo Yii::app()->createUrl('share/listteacherdeptfaculty') ?>",
+                url: "<?php echo Yii::app()->createUrl('share/ListTeacherDeptFaculty') ?>",
                 data: {dept_id: dept_id, faculty_id: faculty_id},
                 beforeSend: function() {
                     $('#loading-image').show();
@@ -17,8 +17,9 @@
                 success: function(data) {
                     var result = $.parseJSON(data);
                     jQuery('#teacher-list').empty();
-                    jQuery.each(result.doc_data, function(key, value) {
-                        '<div class="leftAlignedImage ">' +
+                    jQuery.each(result.teacher_data, function(key, value) {
+                        jQuery('#teacher-list').append(
+                                '<div class="leftAlignedImage ">' +
                                 '<div class="coverWrapper">' +
                                 '<div class="w-team-member">' +
                                 '<div class="w-team-member-h">' +
@@ -47,11 +48,11 @@
                                 '<option value="5">5</option>' +
                                 '</select>' +
                                 '</div>' +
-                                '</div> '
+                                '</div> ').hide().fadeIn(500);
 
                     });
-                    jQuery.each(result.doc_data, function(key, value) {
-
+                    jQuery.each(result.dept_data, function(key, value) {
+                        jQuery('#teacher_header').html(this.dept_name).hide().fadeIn(500);
                     });
 
                 }
@@ -66,7 +67,7 @@
                 <?php $this->renderPartial("partial/bar_left", array('category_father' => $category_father, 'subject_type' => $subject_type)) ?>
 
                 <div class="three-fourths ">
-                    <h3 id="teacher_header"> Khoa học máy tính</h3>
+                    <h3 id="teacher_header"></h3>
                     <div class="teacherList" id="teacher-list">
 
                         <!--cmt facebook-->
