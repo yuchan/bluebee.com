@@ -55,21 +55,17 @@
                                                                     <div class="short_info_document clearfix">
                                                                         <div class="document_img">
                                                                             <img src="<?php echo $doc->doc_url ?>">
-                                                                            <a href="/viewdocument" class="document_img_hover">
+                                                                            <a href="<?php echo Yii::app()->createAbsoluteUrl('viewDocument?doc_id=').$doc->doc_id ?>" class="document_img_hover">
                                                                                 <span class="describe_document"><?php echo $doc->doc_description ?></span>
         <!--                                                                                <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>-->
                                                                             </a>
                                                                         </div>
-                                                                        <ul class="document_status clearfix">
+<!--                                                                        <ul class="document_status clearfix">
                                                                             <li class="score"><i class="icon-heart"></i>2000</li>
                                                                             <li class="view"><i class="icon-eye-open"></i>1999</li>
                                                                             <li class="comment"><i class="icon-comment"></i>1203</li>
-                                                                        </ul>
-                                                                        <span class="attribution-user">
-                                                                            <a href="/sonvn" class="url_user" title="Sonvn">
-                                                                                <img class="photo_user" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/default-avatar.png"> <?php echo $doc->doc_author_name ?>
-                                                                            </a>
-                                                                        </span>
+                                                                        </ul>-->
+                                                                        
                                                                     </div>
                                                                 </div>
                                                                 <a class="name_document" href=""><strong><?php echo $doc['doc_name'] ?></strong></a>
