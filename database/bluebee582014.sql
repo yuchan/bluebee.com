@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.6
+-- version 4.0.9
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2014 at 11:22 AM
--- Server version: 5.6.16
--- PHP Version: 5.5.9
+-- Generation Time: Aug 05, 2014 at 04:01 PM
+-- Server version: 5.5.34
+-- PHP Version: 5.4.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `tbl_doc` (
   `doc_author_name` text,
   `doc_publisher` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`doc_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `tbl_doc`
@@ -136,7 +136,8 @@ INSERT INTO `tbl_doc` (`doc_id`, `doc_url`, `doc_name`, `doc_scribd_id`, `doc_de
 (3, '/BlueBee.com/themes/classic/assets/img/document.png', 'nặng', NULL, 'nặng', NULL, '1', NULL, 3, 'http://localhost/BlueBee.com/uploads/document/user_id_/Read.rar', 1, NULL, 1, NULL, NULL),
 (4, '/BlueBee.com/themes/classic/assets/img/document.png', '7m', NULL, '7m', NULL, '1', NULL, 3, 'http://localhost/BlueBee.com/uploads/document/user_id_/Read.rar', 1, NULL, 1, NULL, NULL),
 (5, '/BlueBee.com/themes/classic/assets/img/document.png', 'akjdfls', NULL, 'aldfj', NULL, '1', NULL, 3, 'http://localhost/BlueBee.com/uploads/document/user_id_/Read.rar', 1, NULL, 1, NULL, NULL),
-(6, '/BlueBee.com/themes/classic/assets/img/document.png', 'khoa', NULL, 'khoa', NULL, '1', NULL, 3, 'http://localhost/BlueBee.com/uploads/document/user_id_/Read.rar', 1, NULL, 1, NULL, NULL);
+(6, '/BlueBee.com/themes/classic/assets/img/document.png', 'khoa', NULL, 'khoa', NULL, '1', NULL, 3, 'http://localhost/BlueBee.com/uploads/document/user_id_/Read.rar', 1, NULL, 1, NULL, NULL),
+(7, '/BlueBee.com/themes/classic/assets/img/document.png', 'tesst', NULL, 'tesst', NULL, '1', NULL, 3, 'http://localhost/BlueBee.com/uploads/document/user_id_/back up.rar', 1, NULL, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -293,7 +294,6 @@ CREATE TABLE IF NOT EXISTS `tbl_subject` (
 --
 
 INSERT INTO `tbl_subject` (`subject_id`, `subject_name`, `subject_code`, `subject_active`, `subject_university`, `subject_type`, `subject_year`, `subject_credits`, `subject_credit_hour`, `subject_requirement`, `subject_target`, `subject_info`, `subject_test`, `subject_faculty`, `subject_dept`, `subject_content`, `subject_general_faculty_id`) VALUES
-(0, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (1, 'Những nguyên lý cơ bản của chủ nghĩa Mác – Lênin 1', 'PHI1004', '1', NULL, 1, NULL, 2, '21 - 5 - 4', 'Dùng cho sinh viên khối không chuyên ngành Mác-Lênin, tư tưởng Hồ Chí Minh trình độ đại học, cao đẳng.', '<p>M&ocirc;n học Những nguy&ecirc;n l&yacute; cơ bản của chủ nghĩa M&aacute;c-L&ecirc;nin nhằm gi&uacute;p cho sinh vi&ecirc;n:</p>\r\n\r\n<p>- X&aacute;c lập cơ sở l&yacute; luận cơ bản nhất để từ đ&oacute; c&oacute; thể tiếp cận được nội dung m&ocirc;n học Tư tưởng Hồ Ch&iacute; Minh v&agrave; Đường lối c&aacute;ch mạng của Đảng Cộng sản Việt Nam, hiểu biết nền tảng tư tưởng của Đảng;</p>\r\n\r\n<p>- X&acirc;y dựng niềm tin, l&yacute; tưởng c&aacute;ch mạng cho sinh vi&ecirc;n;</p>\r\n\r\n<p>- Từng bước x&aacute;c lập thế giới quan, nh&acirc;n sinh quan v&agrave; phương ph&aacute;p luận chung nhất để tiếp cận c&aacute;c khoa học chuy&ecirc;n ng&agrave;nh được đ&agrave;o tạo.</p>', NULL, NULL, 1, 1, 'Ngoài 1 chương mở đầu nhằm giới thiệu khái lược về chủ nghĩa Mác-Lênin và một số vấn đề chung của môn học. Căn cứ vào mục tiêu môn học, nội dung chương trình môn học được cấu trúc thành 3 phần, 9 chương: Phần thứ nhất có 3 chương bao quát những nội dung cơ bản về thế giới quan và phương pháp luận của chủ nghĩa Mác-Lênin; phần thứ hai có 3 chương trình bày ba nội dung trọng tâm thuộc học thuyết kinh tế của chủ nghĩa Mác-Lênin về phương thức sản xuất tư bản chủ nghĩa; phần thứ ba có 3 chương, trong đó có 2 chương khái quát những nội dung cơ bản thuộc lý luận của chủ nghĩa Mác-Lênin về chủ nghĩa xã hội và 1 chương khái quát chủ nghĩa xã hội hiện thực và triển vọng.', 1),
 (2, 'Những nguyên lý cơ bản của chủ nghĩa Mác – Lênin 2', 'PHI1004', '1', NULL, 1, NULL, 3, '32 - 8 - 5 ', 'Dùng cho sinh viên khối không chuyên ngành Mác-Lênin, tư tưởng Hồ Chí Minh trình độ đại học, cao đẳng.', '<p>M&ocirc;n học Những nguy&ecirc;n l&yacute; cơ bản của chủ nghĩa M&aacute;c-L&ecirc;nin nhằm gi&uacute;p cho sinh vi&ecirc;n:</p>\r\n\r\n<p>- X&aacute;c lập cơ sở l&yacute; luận cơ bản nhất để từ đ&oacute; c&oacute; thể tiếp cận được nội dung m&ocirc;n học Tư tưởng Hồ Ch&iacute; Minh v&agrave; Đường lối c&aacute;ch mạng của Đảng Cộng sản Việt Nam, hiểu biết nền tảng tư tưởng của Đảng;</p>\r\n\r\n<p>- X&acirc;y dựng niềm tin, l&yacute; tưởng c&aacute;ch mạng cho sinh vi&ecirc;n;</p>\r\n\r\n<p>- Từng bước x&aacute;c lập thế giới quan, nh&acirc;n sinh quan v&agrave; phương ph&aacute;p luận chung nhất để tiếp cận c&aacute;c khoa học chuy&ecirc;n ng&agrave;nh được đ&agrave;o tạo.</p>', NULL, NULL, 1, 1, 'Ngoài 1 chương mở đầu nhằm giới thiệu khái lược về chủ nghĩa Mác-Lênin và một số vấn đề chung của môn học. Căn cứ vào mục tiêu môn học, nội dung chương trình môn học được cấu trúc thành 3 phần, 9 chương: Phần thứ nhất có 3 chương bao quát những nội dung cơ bản về thế giới quan và phương pháp luận của chủ nghĩa Mác-Lênin; phần thứ hai có 3 chương trình bày ba nội dung trọng tâm thuộc học thuyết kinh tế của chủ nghĩa Mác-Lênin về phương thức sản xuất tư bản chủ nghĩa; phần thứ ba có 3 chương, trong đó có 2 chương khái quát những nội dung cơ bản thuộc lý luận của chủ nghĩa Mác-Lênin về chủ nghĩa xã hội và 1 chương khái quát chủ nghĩa xã hội hiện thực và triển vọng.', 1),
 (3, 'Đại số', 'MAT1093', '1', NULL, 2, NULL, 4, '45 - 15', NULL, '<p>- Trang bị cho sinh vi&ecirc;n những kh&aacute;i niệm v&agrave; kỹ năng cơ bản nhất của Đại số tuyến t&iacute;nh một trong những m&ocirc;n cơ sở của To&aacute;n học, tạo điều kiện để học tập, nghi&ecirc;n cứu c&aacute;c m&ocirc;n học kh&aacute;c.</p>\r\n\r\n<p>- Gi&uacute;p sinh vi&ecirc;n hiểu được c&aacute;c kiến thức cơ bản của Đại số tuyến t&iacute;nh, li&ecirc;n hệ với những kiến thức đ&atilde; học ở bậc phổ th&ocirc;ng, biết c&aacute;ch tự hệ thống ho&aacute; kiến thức, t&igrave;m t&ograve;i mở rộng th&ecirc;m c&aacute;c kiến thức cơ bản để phục vụ c&ocirc;ng t&aacute;c sau n&agrave;y.</p>', NULL, NULL, 1, 1, 'Đại số tuyến tính là một trong những môn học đầu tiên của Toán học trừu tượng, sinh viên cần nắm vững các khái niệm, hình dung chính xác các khái niệm đó trong những tình huống cụ thể, biết vận dụng các kết quả mới. Phần đầu chương trình ôn tập lại các khái niệm về tập hợp và ánh xạ, sau đó giới thiệu một số cấu trúc đại số như nhóm, vành, trường. Một thời lượng đáng kể dành cho việc giới thiệu trường số phức, các tính chất của số phức, đa thức và phân thức hữu tỉ thực. Chương III là lý thuyết về ma trận, định thức và hệ phương trình tuyến tính. Ở chương này sinh viên sẽ được ôn lại cách giải hệ phương trình tuyến tính đã học từ chương trình phổ thông. Tuy vậy toàn bộ lý thuyết sẽ được trình bày một cách có hệ thống và ở một ngôn ngữ tổng quát. Chương IV gồm những vấn đề cơ bản của không gian véc tơ, không gian Euclid. Đây có thể coi như những tổng quát hóa lên trường hợp nhiều chiều của các khái niệm mặt phẳng toạ độ, hệ toạ độ trong không gian mà sinh viên đã nắm vững từ bậc phổ thông. Chương V khảo sát một số tính chất quan trọng của ánh xạ tuyến tính, toán tử tuyến tính trong không gian véc tơ hữu hạn chiều, phép biến đổi trực giao, dạng song tuyến tính, dạng toàn phương toán tử tự liên hợp (hay phép biến đổi đối xứng). Chương VI dành cho áp dụng lí thuyết không gian véc tơ Euclid, dạng toàn phương vào việc khảo sát một số vấn đề của hình học giải tích như phân loại các đường bậc hai, mặt bậc hai.', 1),
@@ -324,7 +324,7 @@ CREATE TABLE IF NOT EXISTS `tbl_subject_doc` (
   `doc_type` int(2) DEFAULT NULL,
   `active` int(2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `tbl_subject_doc`
@@ -336,7 +336,8 @@ INSERT INTO `tbl_subject_doc` (`id`, `subject_id`, `doc_id`, `doc_type`, `active
 (3, 2, 3, 3, 1),
 (4, 1, 4, 3, 1),
 (5, 1, 5, 3, 1),
-(6, 10, 6, 3, 1);
+(6, 10, 6, 3, 1),
+(7, 1, 7, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -475,6 +476,8 @@ CREATE TABLE IF NOT EXISTS `tbl_teacher` (
   `teacher_acadamic_title` varchar(45) DEFAULT NULL,
   `teacher_birthday` varchar(45) DEFAULT NULL,
   `teacher_sex` int(5) DEFAULT NULL,
+  `teacher_faculty` int(5) DEFAULT NULL,
+  `teacher_dept` int(5) DEFAULT NULL,
   PRIMARY KEY (`teacher_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
@@ -482,8 +485,8 @@ CREATE TABLE IF NOT EXISTS `tbl_teacher` (
 -- Dumping data for table `tbl_teacher`
 --
 
-INSERT INTO `tbl_teacher` (`teacher_id`, `teacher_name`, `teacher_personal_page`, `teacher_avatar`, `teacher_description`, `teacher_work_place`, `teacher_active`, `teacher_status`, `teacher_acadamic_title`, `teacher_birthday`, `teacher_sex`) VALUES
-(1, 'PGS. TS. Phạm Bảo Sơn', NULL, 'http://localhost/BlueBee.com/themes/classic/assets/img/PGS. TS. Pham Bao Son.jpg', NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `tbl_teacher` (`teacher_id`, `teacher_name`, `teacher_personal_page`, `teacher_avatar`, `teacher_description`, `teacher_work_place`, `teacher_active`, `teacher_status`, `teacher_acadamic_title`, `teacher_birthday`, `teacher_sex`, `teacher_faculty`, `teacher_dept`) VALUES
+(1, 'PGS. TS. Phạm Bảo Sơn', NULL, 'http://localhost/BlueBee.com/themes/classic/assets/img/PGS. TS. Pham Bao Son.jpg', NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
