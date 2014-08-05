@@ -1,4 +1,3 @@
-
 <?php
 
 /**
@@ -21,6 +20,7 @@
  * @property integer $subject_faculty
  * @property integer $subject_dept
  * @property string $subject_content
+ * @property integer $subject_general_faculty_id
  */
 class Subject extends CActiveRecord
 {
@@ -40,15 +40,15 @@ class Subject extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('subject_type, subject_year, subject_credits, subject_faculty, subject_dept', 'numerical', 'integerOnly'=>true),
-			array('subject_name, subject_code, subject_active, subject_university', 'length', 'max'=>45),
-			array('subject_credit_hour', 'length', 'max'=>100),
+			array('subject_type, subject_year, subject_credits, subject_faculty, subject_dept, subject_general_faculty_id', 'numerical', 'integerOnly'=>true),
+			array('subject_name, subject_credit_hour', 'length', 'max'=>100),
+			array('subject_code, subject_active, subject_university', 'length', 'max'=>45),
 			array('subject_requirement', 'length', 'max'=>500),
 			array('subject_target, subject_info, subject_test', 'length', 'max'=>1000),
 			array('subject_content', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('subject_id, subject_name, subject_code, subject_active, subject_university, subject_type, subject_year, subject_credits, subject_credit_hour, subject_requirement, subject_target, subject_info, subject_test, subject_faculty, subject_dept, subject_content', 'safe', 'on'=>'search'),
+			array('subject_id, subject_name, subject_code, subject_active, subject_university, subject_type, subject_year, subject_credits, subject_credit_hour, subject_requirement, subject_target, subject_info, subject_test, subject_faculty, subject_dept, subject_content, subject_general_faculty_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -60,8 +60,6 @@ class Subject extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-                    'subject_doc' => array (self::BELONGS_TO, 'SubjectDoc', array('subject_id'=>'subject_id'))
-                    //'docs' => array(self::BELONGS_TO, 'SubjectDoc', 'doc_id')
 		);
 	}
 
@@ -87,6 +85,7 @@ class Subject extends CActiveRecord
 			'subject_faculty' => 'Subject Faculty',
 			'subject_dept' => 'Subject Dept',
 			'subject_content' => 'Subject Content',
+			'subject_general_faculty_id' => 'Subject General Faculty',
 		);
 	}
 
@@ -124,6 +123,7 @@ class Subject extends CActiveRecord
 		$criteria->compare('subject_faculty',$this->subject_faculty);
 		$criteria->compare('subject_dept',$this->subject_dept);
 		$criteria->compare('subject_content',$this->subject_content,true);
+		$criteria->compare('subject_general_faculty_id',$this->subject_general_faculty_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

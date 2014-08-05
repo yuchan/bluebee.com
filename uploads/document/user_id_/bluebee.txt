@@ -1,0 +1,6 @@
+b. Acount truy cập hệ thống Cpanel hoặc Plesk : 
+https://123.30.185.160:2083
+login: bluebee
+
+
+password: uuKe6cymZq

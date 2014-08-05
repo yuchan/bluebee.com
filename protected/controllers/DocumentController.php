@@ -95,7 +95,8 @@ class DocumentController extends BaseController {
                     'subject_faculty' => $_POST['subject_faculty'],
                 );
                 $subject_data = Subject::model()->findAllByAttributes(array(
-                    'subject_faculty' => $listSubjectData['subject_faculty']
+                    'subject_faculty' => $listSubjectData['subject_faculty'],
+//                ), array('select' => 't.subject_name', 'distinct' => true)
                 ));
                 $doc_data = Doc::model()->findAllByAttributes(array(
                     'subject_faculty' => $listSubjectData['subject_faculty']

@@ -242,6 +242,7 @@
                                 ).hide().fadeIn(500);
                     });
                     jQuery('#filter_subject').html('');
+//Scrip Loc theo mon hoc - bar-right                   
                     jQuery.each(result.subject_data, function(key, value) {
 
                         jQuery('#filter_subject.filter_subjects').append(
@@ -250,6 +251,7 @@
                                 '<span class = "subject_filter" subject-id-filter = ' + this.subject_id + ' onclick="loaddoc(' + this.subject_id + ')">' + this.subject_name + '</span>' +
                                 '</label>').hide().fadeIn(500);
                     });
+//
                 }
             });
         });
