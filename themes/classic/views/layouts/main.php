@@ -30,20 +30,6 @@
                 <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/documentpage.css">
                     <link rel="icon" type="image/png"  href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/favicon.ico">
                         <!-- javascript -->
-                        <script type="text/javascript">
-                            var _urq = _urq || [];
-                            _urq.push(['initSite', '29a51bfa-e262-46d8-ad97-c910fe367879']);
-                            (function() {
-                                var ur = document.createElement('script');
-                                ur.type = 'text/javascript';
-                                ur.async = true;
-                                ur.src = ('https:' == document.location.protocol ? 'https://cdn.userreport.com/userreport.js' : 'http://cdn.userreport.com/userreport.js');
-                                var s = document.getElementsByTagName('script')[0];
-                                s.parentNode.insertBefore(ur, s);
-                            })();
-                        </script>
-
-
                         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery-1.9.1.js"></script>
                         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/g-alert.js"></script>
                         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.carousello.js"></script>
