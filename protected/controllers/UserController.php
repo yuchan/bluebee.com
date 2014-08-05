@@ -42,19 +42,6 @@ class UserController extends BaseController {
                     'user_doc_info' => $user_doc_info, 'user_activity' => $user_activity));
             }
         }
-       if (isset($_GET["id"])) {
-            $user_activity = $this->userActivity();
-            $spCriteria = new CDbCriteria();
-            $spCriteria->select = "*";
-            $spCriteria->condition = "user_id = '" . $_GET["id"] . "'";
-            $user_doc_info = Doc::model()->findAllByAttributes(array('doc_author' => $_GET["id"]));
-            $this->render('user', array('user_detail_info' => User::model()->findAll($spCriteria),
-                'user_doc_info' => $user_doc_info, 'user_activity' => $user_activity));
-        } 
-        
-    }
-
-    public function actionUserWithId() {
         if (isset($_GET["id"])) {
             $user_activity = $this->userActivity();
             $spCriteria = new CDbCriteria();
