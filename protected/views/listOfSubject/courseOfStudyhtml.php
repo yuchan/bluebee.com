@@ -91,9 +91,9 @@
 </div>
 <div class="g-cols">
     <div class="full-width">
-        <h3 style="color: #262626 ;margin-top: 25px">Chuẩn đầu ra của chương trình đào tạo</h3>
+        <h3 style="color: #262626 ;margin-top: 25px">Định hướng nghề nghiệp của sinh viên tốt nghiệp</h3>
         <p>
-            <a href="#">Chuẩn đầu ra của chương trình đào tạo (download)</a>  giúp sinh viên có thể đảm nhận :<br/>
+<!--            <a href="#">Chuẩn đầu ra của chương trình đào tạo (download)</a>  giúp sinh viên có thể đảm nhận :<br/>-->
         <p id="dept_out_standard">
 
         </p>
@@ -101,7 +101,7 @@
 
         <h3 style="color: #262626 ;margin-top: 25px">Liên hệ</h3>
         <p>
-            Nếu bạn có thắc mắc, hãy liên hệ :<br/>
+        <br/>
         <div id="dept_contact">
            
         </div>

@@ -127,11 +127,13 @@ class ListOfSubjectController extends BaseController {
                     'dept_id' => $_POST['subject_dept'],
                     'faculty_id' => $_POST['subject_faculty'],
                 );
-                $subject_data = Subject::model()->findAllByAttributes(array('subject_dept' => $listSubjectData['subject_dept'],
-                    'subject_faculty' => $listSubjectData['subject_faculty'],
-                    'subject_type' => $listSubjectData['subject_type'],));
+                $subject_data = Subject::model()->findAll(array(
+                 'select' => '*',   
+                 'condition' => 'subject_faculty = '. $listSubjectData['subject_faculty'].' AND subject_type = '.$listSubjectData['subject_type'].' AND (subject_general_faculty_id = '. $listSubjectData['faculty_id'].' OR subject_dept = '. $listSubjectData['subject_dept'].')'));
                 $subject_type_group = SubjectGroupType::model()->findAllByAttributes(array('subject_group' => $listSubjectData['subject_type'],
                     'subject_dept' => $listSubjectData['subject_dept'], 'subject_faculty' => $listSubjectData['subject_faculty']));
+//                var_dump($subject_data);
+//                                exit();
                 $subject_type_name = SubjectType::model()->findAllByAttributes(array('id' => $listSubjectData['subject_type']));
                 $this->retVal->subject_data = $subject_data;
                 $this->retVal->subject_group_type = $subject_type_group;

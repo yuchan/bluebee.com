@@ -23,6 +23,7 @@
     </div>
 </div>
 <script type="text/javascript">
+
     jQuery(window).ready(function() {
         jQuery(".flexslider").flexslider({
             directionalNav: false,

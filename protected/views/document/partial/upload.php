@@ -9,7 +9,6 @@ if (Yii::app()->session["user_id"] == "") {
 <script>
     function checkuploadfunction() {
         alert("Bạn phải đăng nhập mới được upload, hãy bấm đăng nhập với facebook phía trên");
-
     }
 </script>
 <div class="morph-button morph-button-modal morph-button-fixed" id="morph-upload">
