@@ -1,6 +1,6 @@
 <?php
 
-class SearchController extends Controller {
+class SearchController extends CController {
 
     public function actionIndex() {
         $this->actionSearch();
@@ -18,25 +18,25 @@ class SearchController extends Controller {
 
     public function searchSubject($subject_name) {
         $subCriteria = new CDbCriteria;
-        $subCriteria->select('*');
-        $subCriteria->addSearchCondition('s.subject_name', $subject_name);
+        $subCriteria->select = "*";
+        $subCriteria->addSearchCondition('subject_name', $subject_name);
         $subject_result = Subject::model()->findAll($subCriteria);
         return $subject_result;
     }
 
     public function searchTeacher($teacher_name) {
         $teacherCriteria = new CDbCriteria;
-        $teacherCriteria->select('*');
-        $teacherCriteria->addSearchCondition('t.teacher_name', $teacher_name);
-        $teacher_result = Subject::model()->findAll($teacherCriteria);
+        $teacherCriteria->select = "*";
+        $teacherCriteria->addSearchCondition('teacher_name', $teacher_name);
+        $teacher_result = Teacher::model()->findAll($teacherCriteria);
         return $teacher_result;
     }
 
     public function searchDocument($doc_name) {
         $docCriteria = new CDbCriteria;
-        $docCriteria->select('*');
-        $docCriteria->addSearchCondition('d.doc_name', $doc_name);
-        $doc_result = Subject::model()->findAll($docCriteria);
+        $docCriteria->select = "*";
+        $docCriteria->addSearchCondition('doc_name', $doc_name);
+        $doc_result = Doc::model()->findAll($docCriteria);
         return $doc_result;
     }
 

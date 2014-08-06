@@ -253,7 +253,7 @@
                                                                 <i class="icon-search" style="line-height: inherit"></i>
                                                             </a>
                                                            
-                                                            <form class="w-search-form show_hidden" action="<?php Yii::app()->createUrl('search')?>" method="get"  />
+                                                            <form class="w-search-form show_hidden" action="<?php echo Yii::app()->createUrl('search')?>" method="get"  />
                                                             <div class="w-search-input">
                                                                 <input type="text" value="" placeholder="Bạn muốn tìm gì ?" id="input_search" name="query"/>
                                                             </div>
