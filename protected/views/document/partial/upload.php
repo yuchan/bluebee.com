@@ -13,8 +13,8 @@ if (Yii::app()->session["user_id"] == "") {
 </script>
 <div class="morph-button morph-button-modal morph-button-fixed" id="morph-upload">
     <button class="btn-2 btn-2a" type="button" onclick="<?php if (Yii::app()->session["user_id"] == "") echo 'checkuploadfunction();' ?>" >Đăng một tài liệu lên</button>
-    
-    <div class="morph-content" id="upload_area_morph"> 
+
+    <div class="morph-content" id="upload_area_morph">
         <div class="content-style-text">
             <span class="icon icon-close" id="close_form">✕</span>
             <h4 style="margin-bottom: 5px;">Hãy chọn một tài liệu mà bạn muốn đăng</h4>
@@ -36,6 +36,7 @@ if (Yii::app()->session["user_id"] == "") {
     });
             </script>
             <form method="POST" action="<?php echo Yii::app()->createUrl('document/upload') ?>" enctype="multipart/form-data" id="formscribd">
+                <p>Thông báo: Trang Web đang trong quá trình thử nghiệm đề nghị không đưa lên tài liệu quá 8MB</p>
                 <label class="g-btn size_small type_primary upload_button">
                     <input class="ssa" type="file" multiple="multiple" name="file" style="display: none;" id="upload_input" />
                     <span>Chọn 1 tệp tin</span>
@@ -79,7 +80,7 @@ if (Yii::app()->session["user_id"] == "") {
             </div>
         </div>
     </div>
-    
+
 </div><!-- morph-button -->
 
 <script type="text/javascript">
