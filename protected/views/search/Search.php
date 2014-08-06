@@ -4,7 +4,7 @@
     <div class="g-cols">
 <div class="one-fourth" >
 <div class="tabs">
-    <input id="tab-1" type="radio" name="radio-set" data=".content-1" class="tab-selector-1">
+    <input id="tab-1" type="radio" name="radio-set" data=".content-1" class="tab-selector-1" checked="checked">
     <label for="tab-1" class="tab-label-1">Người dùng (2 kết quả)</label>
     <input id="tab-2" type="radio" name="radio-set" data=".content-2" class="tab-selector-2">
     <label for="tab-2" class="tab-label-2">Giáo viên (3 kết quả)</label>
