@@ -72,7 +72,7 @@
                         </script>
                         <script type="text/javascript">
                             $(function() {
-                                $('.example-f').barrating({showSelectedRating: false});
+                                $('.example-f').barrating({showSelectedRating: true});
                             });
                         </script>
                         <!-- Pop-up -->

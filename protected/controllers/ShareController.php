@@ -36,8 +36,17 @@ class ShareController extends Controller {
 
             $teacher_current_id = Teacher::model()->findByAttributes(array('teacher_id' => $_GET["id"]));
 
+            $subject_teacher = Subject::model()->with(array('subject_teacher'=>array(
+                'select' => false,
+                'condition' => 'teacher_id = '.$_GET['id']
+            )))->findAll();
+//            $teachers = Teacher::model()->with(array("subject_teacher" => array(
+//                            "select" => false,
+//                            "condition" => "subject_id = " . $_GET["subject_id"]
+//                )))->findAll();
             if ($teacher_current_id) {
-                $this->render('teacher', array('teacher_detail_info' => Teacher::model()->findAll($spCriteria)));
+                $this->render('teacher', array('teacher_detail_info' => Teacher::model()->findAll($spCriteria),
+                    'subject_teacher' => $subject_teacher));
             }
         }
     }
@@ -53,6 +62,15 @@ class ShareController extends Controller {
         $this->render('subject');
     }
 
+    public  function actionRating(){
+        $this->retval = new stdClass();
+        $request = Yii::app()->request;
+        if ($request->isPostRequest && isset($_POST)) {
+            $this->retval->score = 1;
+        }
+        echo CJSON::endcode($this->retval);
+        Yii::app()->end();
+    }
     // Uncomment the following methods and override them if needed
     /*
       public function filters()

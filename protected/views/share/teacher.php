@@ -13,8 +13,25 @@
                                         echo Yii::app()->session['teacher_avatar'];
                                     }
                                     ?>"/></a>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".star").click(function(){
+            var score = $(this).attr("data-rating-value")
+            $.ajax({
+                type: "POST",
+                url: "<?php echo Yii::app()->createUrl('share/Rating') ?>",
+                data: {rating_score: score},
+                success: function(data){
+                    var result = $.parseJSON(data);
+                    console.log(result.score);
+                }
+            });
+        });
+
+    });  
+</script>
                         <div class="input select rating-f read-only">
-                            <select class="teacher-block-rating-outside" name="rating" style="display: none; float: right">
+                            <select class="teacher-block-rating-outside" id="rating" name="rating" style="display: none; float: right">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -26,18 +43,12 @@
 
                         <div class="rounded1 color_alternate" style="margin-top: 50px">
                             <h6>Môn học đang dạy</h6>
+<?php foreach($subject_teacher as $subject_teacher): ?>                            
                             <div style="margin-top:10px">
-                                <span class="dataItem1"><a>Đại số</a></span>
-                                <span class="dataTitle1">MAT1005</span>
+                                <span class="dataItem1"><a href="<?php echo Yii::app()->createAbsoluteUrl('listOfSubject/subject?subject_id=').$subject_teacher->subject_id ?>"><?php echo $subject_teacher->subject_name ?></a></span>
+                                <span class="dataTitle1"><?php echo $subject_teacher->subject_code ?></span>
                             </div>
-                            <div style="margin-top:10px">
-                                <span class="dataItem1"><a>Giải tích</a></span>
-                                <span class="dataTitle1">MAT1012</span>
-                            </div>
-                            <div style="margin-top:10px">
-                                <span class="dataItem1"><a>Công nghệ phần mềm</a></span>
-                                <span class="dataTitle1">INT1005</span>
-                            </div>
+<?php endforeach; ?>                          
                         </div>
                     </div>
 
@@ -134,5 +145,4 @@
             </div>
         </div>
     </div>
-<?php
-endforeach;
+<?php endforeach; ?>
