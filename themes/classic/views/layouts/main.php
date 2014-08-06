@@ -25,7 +25,7 @@
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/token-input-facebook.css" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/token-input-mac.css" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/component.css" />
-         
+
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/post_style.css">
             <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/search_style.css">
                 <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/documentpage.css">
@@ -57,7 +57,7 @@
                         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/classie.js"></script>
                         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/cbpScroller.js"></script>
                         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.form.min.js"></script>
-                       
+
                         <!-- Star rating-->
                         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/ratings.css" />
                         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.barrating.js"></script>
@@ -252,15 +252,16 @@
                                                             <a class="w-search-show" href="javascript:void(0)" style="margin: auto;">
                                                                 <i class="icon-search" style="line-height: inherit"></i>
                                                             </a>
-                                                            <form class="w-search-form show_hidden" action="#" />
+                                                           
+                                                            <form class="w-search-form show_hidden" action="<?php echo Yii::app()->createUrl('search')?>" method="get"  />
                                                             <div class="w-search-input">
-                                                                <input type="text" value="" placeholder="Bạn muốn tìm gì ?" />
+                                                                <input type="text" value="" placeholder="Bạn muốn tìm gì ?" id="input_search" name="query"/>
                                                             </div>
-                                                            <div class="w-search-submit">
-                                                                <input type="submit" value="Search" />
+                                                            <div class="w-search-submit" >
+                                                                <input type="submit" value="Tìm kiếm"/>
 
                                                             </div>
-                                                            <a class="w-search-close" href="javascript:void(0)" title="Close search"> &#10005; </a>
+                                                            <a class="w-search-close" href="javascript:void(0)" title="Đóng tìm kiếm"> &#10005; </a>
                                                             </form>
                                                         </div>
                                                     </div>

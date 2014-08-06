@@ -1,4 +1,4 @@
-<div class="one-third">
+<div class="one-third" style="float: right;">
     <?php $this->renderPartial('partial/upload',array('subject_info' => $subject_info)); ?>
     <div class="wrap_fliter">
         <div class="clearfix">
@@ -10,7 +10,7 @@
         </div>
         <div class="clearfix" style="margin-top: 10px">
             <span class="">Lọc theo Môn học</span>
-            <button class="g-btn type_outline size_small"><span><i class="icon-home"></i>Theo dõi</span></button>
+<!--            <button class="g-btn type_outline size_small"><span><i class="icon-home"></i>Theo dõi</span></button>-->
             <div class="filter_subjects" id="filter_subject">
 
             </div>
@@ -22,10 +22,10 @@
 </div>
 
 <script type="text/javascript">
-    // var $j = jQuery.noConflict(); 
+    // var $j = jQuery.noConflict();
     function loaddoc(id) {
         var $self = $(this);
-        
+
         jQuery.ajax({
             type: "POST",
             url: "<?php echo Yii::app()->createUrl('document/FilterDocumentBySubject') ?>",
