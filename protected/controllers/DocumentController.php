@@ -122,6 +122,7 @@ class DocumentController extends BaseController {
         $doc_model->doc_name = $doc_name;
         $doc_model->doc_description = $doc_description;
         $doc_model->doc_url = $doc_url;
+        $doc_model->subject_type = $doc_data->subject_type;
         $doc_model->doc_path = $doc_path;
         $doc_model->subject_faculty = $doc_data->subject_faculty;
         $doc_model->subject_dept = $doc_data->subject_dept;
