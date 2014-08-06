@@ -212,7 +212,7 @@ class DocumentController extends BaseController {
                                     'height' => '220');
                                 $get_thumbnail = @$scribd->postRequest('thumbnail.get', $thumbnail_info);
                                 // var_dump($get_thumbnail);
-                                $this->saveDoc($doc_name, $doc_description, @$get_thumbnail["thumbnail_url"], $doc_author, $subject_id, $upload_scribd["doc_id"], 2, $doc_path, $doc_author_name);
+                                $this->saveDoc($doc_name.'.'.$ext, $doc_description, @$get_thumbnail["thumbnail_url"], $doc_author, $subject_id, $upload_scribd["doc_id"], 2, $doc_path, $doc_author_name);
                                 $this->retVal->docid = @$upload_scribd["doc_id"];
                                 $this->retVal->thumbnail = @$get_thumbnail["thumbnail_url"];
                                 $this->retVal->doc_name = $doc_name;
