@@ -116,7 +116,6 @@ class ShareController extends BaseController {
         }
     }
 
->>>>>>> 28409a2986a07ea84d66c1d98f0643a21287b36a
     // Uncomment the following methods and override them if needed
     /*
       public function filters()
