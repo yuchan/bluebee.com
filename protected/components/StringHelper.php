@@ -29,4 +29,11 @@ class StringHelper{
 		}
 		return $randomString;
 	}
+        
+        public static function filterString($string) {
+            $string = strip_tags($string);
+            $string = stripcslashes($string);
+            $string = htmlspecialchars($string);
+            return $string;
+        }
 }

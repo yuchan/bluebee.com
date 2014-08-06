@@ -1,12 +1,13 @@
 <?php
 
-class ShareController extends Controller {
+Yii::import('application.controllers.BaseController');
+
+class ShareController extends BaseController {
 
 //    public function beforeAction() {
 //        if (Yii::app()->session['token'] == '')
 //            $this->redirect('welcomePage');
 //    }
-
     public function actionIndex() {
 //        if (Yii::app()->session['token'] == "")
 //            $this->redirect('welcomePage');
@@ -71,6 +72,51 @@ class ShareController extends Controller {
         echo CJSON::endcode($this->retval);
         Yii::app()->end();
     }
+    public function actionListTeacherDeptFaculty() {
+        $this->retVal = new stdClass();
+        $request = Yii::app()->request;
+        if ($request->isPostRequest && isset($_POST)) {
+            try {
+                $listSubjectData = array(
+                    'dept_id' => $_POST['dept_id'],
+                    'faculty_id' => $_POST['faculty_id'],
+                );
+                $dept_data = Dept::model()->findAllByAttributes(array('dept_id' => $listSubjectData['dept_id']));
+                $teacher_data = Teacher::model()->findAllByAttributes(array('teacher_dept' => $listSubjectData['dept_id'],
+                    'teacher_faculty' => $listSubjectData['faculty_id']));
+                $this->retVal->teacher_data = $teacher_data;
+                $this->retVal->dept_data = $dept_data;
+                $this->retVal->message = 1;
+            } catch (exception $e) {
+                $this->retVal->message = $e->getMessage();
+            }
+            echo CJSON::encode($this->retVal);
+            Yii::app()->end();
+        }
+    }
+
+    public function actionListTeacherFaculty() {
+        $this->retVal = new stdClass();
+        $request = Yii::app()->request;
+        if ($request->isPostRequest && isset($_POST)) {
+            try {
+                $listSubjectData = array(
+                    'faculty_id' => $_POST['faculty_id'],
+                );
+                $faculty_data = Faculty::model()->findAllByAttributes(array('faculty_id' => $listSubjectData['faculty_id']));
+                $teacher_data = Teacher::model()->findAllByAttributes(array('teacher_faculty' => $listSubjectData['faculty_id']));
+                $this->retVal->teacher_data = $teacher_data;
+                $this->retVal->faculty_data = $faculty_data;
+                $this->retVal->message = 1;
+            } catch (exception $e) {
+                $this->retVal->message = $e->getMessage();
+            }
+            echo CJSON::encode($this->retVal);
+            Yii::app()->end();
+        }
+    }
+
+>>>>>>> 28409a2986a07ea84d66c1d98f0643a21287b36a
     // Uncomment the following methods and override them if needed
     /*
       public function filters()

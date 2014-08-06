@@ -165,11 +165,10 @@ class DocumentController extends BaseController {
     public function actionUpload() {
         //$ds = DIRECTORY_SEPARATOR;  //1
         $cnt = DocumentController::$cnt++;
-        $subject_id = strip_tags($_POST['subject_id']);
+        $subject_id = StringHelper::filterString(Validator::validatePostParam($_POST['subject_id']));
         $size = 8 * 1024 * 1024;
-
-        $doc_name = strip_tags($_POST['doc_name']);
-        $doc_description = strip_tags($_POST['doc_description']);
+        $doc_name = StringHelper::filterString(Validator::validatePostParam($_POST['doc_name']));
+        $doc_description = StringHelper::filterString(Validator::validatePostParam($_POST['doc_description']));
         $doc_author = Yii::app()->session['user_id'];
         $doc_author_name = Yii::app()->session['user_name'];
         $api_key = "24cxjtv3vw69wu5p7pqd9";
