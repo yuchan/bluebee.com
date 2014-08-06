@@ -56,7 +56,7 @@ class ListOfSubjectController extends BaseController {
             $lesson = Lesson::model()->findAll(array("select" => "*", "condition" => "lesson_subject = " . $_GET["subject_id"],
                 "order" => "lesson_weeks ASC"));
             
-            $doc_related = Doc::model()->with(array("subject_doc" => array(
+            $doc_related = Doc::model()->with(array("docs" => array(
                 "select" => FALSE,
                 "condition" => "subject_id = " . $_GET["subject_id"]
             ) ))->findAll();
