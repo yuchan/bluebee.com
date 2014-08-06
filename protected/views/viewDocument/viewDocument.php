@@ -84,7 +84,7 @@
                                     }
                                 }
                             }
-                            ?>                                                 
+                            ?>
                         </div>
                     </div>
                     <div class="one-third" style="margin-left: 0;">
@@ -95,7 +95,7 @@
                         <div class="related_document">
                             <span style="font-size: 16px; padding-bottom: 10px;">Tài liệu liên quan:</span>
                             <ol class="list_document">
-    <?php foreach ($related_doc as $related_doc): ?>              
+    <?php foreach ($related_doc as $related_doc): ?>
                                     <li class="item_document">
                                         <div class="box_item">
                                             <div class="short_info_document clearfix">
@@ -121,6 +121,7 @@
                                         <a class="name_document" href=""><strong><?php echo $related_doc->doc_name ?></strong></a>
                                     </li>
     <?php endforeach; ?>
+                            </ol>
                         </div>
                     </div>
                 </div>

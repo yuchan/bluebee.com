@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="language" content="en" />
-        
+
         <!-- blueprint CSS framework -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <link rel="stylesheet" type="text/css" media="all" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic" />
@@ -309,7 +309,7 @@
                                                                     <?php
                                                                     if (Yii::app()->session["user_id"] == "") {
                                                                         echo'
-   
+
 
         <a style="margin:10px" id="login" href="' . $this->createUrl('welcomePage/fb_login') . '">Đăng nhập với facebook</a>
     ';
@@ -344,7 +344,7 @@
 </div>'
                                                                         ;
                                                                     }
-                                                                    ?> 
+                                                                    ?>
 
 
 
@@ -392,7 +392,7 @@
                                           </div>
                                       </div> -->
                                     <!-- MAIN -->
-                                    <div style="padding-top: 126px">
+                                    <div style="padding-top: 126px; z-index: 0; position: relative;">
                                         <?php echo $content; ?>
                                     </div>
                                     <!-- /MAIN -->
