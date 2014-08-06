@@ -8,9 +8,10 @@ class SearchController extends CController {
 
     public function actionSearch() {
         if (isset($_GET['query'])) {
-            $subject_result = $this->searchSubject($_GET['query']);
-            $teacher_result = $this->searchTeacher($_GET['query']);
-            $doc_result = $this->searchDocument($_GET['query']);
+            $query = StringHelper::filterString($_GET['query']);
+            $subject_result = $this->searchSubject($query);
+            $teacher_result = $this->searchTeacher($query);
+            $doc_result = $this->searchDocument($query);
             $this->render('Search', array('subject_result' => $subject_result, 'teacher_result' => $teacher_result, 'doc_result' => $doc_result,
                 'subject_count' => count($subject_result), 'teacher_count' => count($teacher_result), 'doc_count' => count($doc_result)));
         }
