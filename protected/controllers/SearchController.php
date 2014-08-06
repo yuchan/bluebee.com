@@ -11,7 +11,8 @@ class SearchController extends Controller {
             $subject_result = $this->searchSubject($_GET['query']);
             $teacher_result = $this->searchTeacher($_GET['query']);
             $doc_result = $this->searchDocument($_GET['query']);
-            $this->render('Search', array('subject_result' => $subject_result, 'teacher_result' => $teacher_result, 'doc_result' => $doc_result));
+            $this->render('Search', array('subject_result' => $subject_result, 'teacher_result' => $teacher_result, 'doc_result' => $doc_result,
+                'subject_count' => count($subject_result), 'teacher_count' => count($teacher_result), 'doc_count' => count($doc_result)));
         }
     }
 

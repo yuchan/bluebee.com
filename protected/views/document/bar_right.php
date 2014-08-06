@@ -10,7 +10,7 @@
         </div>
         <div class="clearfix" style="margin-top: 10px">
             <span class="">Lọc theo Môn học</span>
-            <button class="g-btn type_outline size_small"><span><i class="icon-home"></i>Theo dõi</span></button>
+<!--            <button class="g-btn type_outline size_small"><span><i class="icon-home"></i>Theo dõi</span></button>-->
             <div class="filter_subjects" id="filter_subject">
 
             </div>
