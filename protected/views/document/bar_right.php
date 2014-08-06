@@ -1,4 +1,4 @@
-<div class="one-third">
+<div class="one-third" style="float: right;">
     <?php $this->renderPartial('partial/upload',array('subject_info' => $subject_info)); ?>
     <div class="wrap_fliter">
         <div class="clearfix">
@@ -22,10 +22,10 @@
 </div>
 
 <script type="text/javascript">
-    // var $j = jQuery.noConflict(); 
+    // var $j = jQuery.noConflict();
     function loaddoc(id) {
         var $self = $(this);
-        
+
         jQuery.ajax({
             type: "POST",
             url: "<?php echo Yii::app()->createUrl('document/FilterDocumentBySubject') ?>",
