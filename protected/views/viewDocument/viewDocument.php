@@ -1,5 +1,7 @@
 
 <?php foreach ($detail_doc as $detail): ?>
+<meta property="og:image" content="<?php echo $detail->doc_url ?>"/>
+ <link href="<?php echo $detail->doc_url ?>" rel="image_src"/>
     <div id="content">
         <div class="l-submain">
             <div class="l-submain-h">

@@ -101,11 +101,24 @@
                                 </tbody>
                             </table>
                         </div>
+                        <style type="text/css">
+
+                        </style>
                         <div class="full-width">
                             <strong style="color: #262626">Tài liệu môn học</strong>
-                            <ol class="list_document">
+                            <ol class="list_document" style="">
                                 <?php foreach ($doc_related as $doc): ?>
-                                    <li class="item_document">
+                                    <li class="item_document" style="
+                                        text-align: center;
+                                        position: relative;
+                                        width: 20.6804%;
+                                        float: left;
+                                        padding: 0;
+                                        margin: 0 3.09278% 30px 0;
+
+                                        :nth-child(4n) {
+                                            margin-right: 0px;
+                                        }">
                                         <div class="box_item">
                                             <div class="short_info_document clearfix">
                                                 <div class="document_img">
