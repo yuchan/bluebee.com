@@ -62,7 +62,6 @@ class ShareController extends BaseController {
     public  function actionRating(){
         $this->retVal = new stdClass();
         $request = Yii::app()->request;
-        Yii::app()->session["user_id"] = 4;
         if ($request->isPostRequest && isset($_POST)) {
             $ratingCriteria = new CDbCriteria();
             $ratingCriteria->select = "*";
