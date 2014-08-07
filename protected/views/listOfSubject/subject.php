@@ -106,7 +106,8 @@
                         </style>
                         <div class="full-width">
                             <strong style="color: #262626">Tài liệu môn học</strong>
-                            <ol class="list_document" style="">
+                            
+                            <ol class="list_document" style="padding-top: 15px;">
                                 <?php foreach ($doc_related as $doc): ?>
                                     <li class="item_document" style="
                                         text-align: center;
