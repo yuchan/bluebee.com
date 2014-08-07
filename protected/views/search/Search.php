@@ -5,13 +5,13 @@
         <div class="one-fourth" >
             <div class="tabs">
                 <input id="tab-1" type="radio" name="radio-set" data=".content-1" class="tab-selector-1" checked="checked">
-                <label for="tab-1" class="tab-label-1">Người dùng (<?php echo $user_count ?> kết quả)</label>
+                <label for="tab-1" class="tab-label-1" style="font-size: 16px;">Người dùng (<?php echo $user_count ?> kết quả)</label>
                 <input id="tab-2" type="radio" name="radio-set" data=".content-2" class="tab-selector-2">
-                <label for="tab-2" class="tab-label-2">Giáo viên (<?php echo $teacher_count ?> kết quả)</label>
+                <label for="tab-2" class="tab-label-2" style="font-size: 16px;">Giáo viên (<?php echo $teacher_count ?> kết quả)</label>
                 <input id="tab-3" type="radio" name="radio-set" data=".content-3" class="tab-selector-3">
-                <label for="tab-3" class="tab-label-3">Môn học (<?php echo $subject_count ?> kết quả)</label>
+                <label for="tab-3" class="tab-label-3" style="font-size: 16px;">Môn học (<?php echo $subject_count ?> kết quả)</label>
                 <input id="tab-4" type="radio" name="radio-set" data=".content-4" class="tab-selector-4">
-                <label for="tab-4" class="tab-label-4">Tài liệu (<?php echo $doc_count ?> kết quả)</label>
+                <label for="tab-4" class="tab-label-4" style="font-size: 16px;">Tài liệu (<?php echo $doc_count ?> kết quả)</label>
                 <div class="clear-shadow"></div>
             </div>
         </div>
