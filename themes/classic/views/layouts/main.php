@@ -425,7 +425,7 @@
                                                             </div>
                                                             <div class="w-nav-item level_1">
                                                                 <div class="w-nav-item-h">
-                                                                    <a href="<?php echo Yii::app()->createUrl("Contact") ?>" class="w-nav-anchor level_1">Liên hệ</a>
+                                                                    <a href="http://blog.bluebee-uet.com" class="w-nav-anchor level_1">Blog</a>
                                                                 </div>
                                                             </div>
 

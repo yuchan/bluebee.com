@@ -31,12 +31,12 @@
 
                                 <div class="w-timeline-item">
                                     <span class="w-timeline-item-bullet"></span>
-                                    <span class="w-timeline-item-title">4/2014</span>
+                                    <span class="w-timeline-item-title">5/2014</span>
                                 </div>
 
                                 <div class="w-timeline-item">
                                     <span class="w-timeline-item-bullet"></span>
-                                    <span class="w-timeline-item-title">5/2014</span>
+                                    <span class="w-timeline-item-title">8/2014</span>
                                 </div>
 
                             </div>
@@ -64,7 +64,7 @@
                                                 Thành lập 1 website với chức năng chuyên biệt :
                                                     <ul>
                                                         <li>Bàn luận về bài học, học tập</li>
-                                                        <li>Chia sẻ tài liệu (có thể dùng qua DropBox)</li>
+                                                        <li>Chia sẻ tài liệu</li>
                                                         <li>Tạo 1 môi trường đoàn kết cho lớp học</li>
                                                         <li>Đánh giá chất lượng của môn học</li>
                                                         <li>Nhắc nhở những việc cần thiết trong môn học</li>
@@ -84,7 +84,7 @@
 
                                     <div class="w-timeline-section-title">
                                         <span class="w-timeline-section-title-bullet"></span>
-                                        <span class="w-timeline-section-title-text">4/2014</span>
+                                        <span class="w-timeline-section-title-text">5/2014</span>
                                     </div>
                                     <div class="w-timeline-section-content">
                                         <div class="g-cols">
@@ -93,7 +93,7 @@
                                             </div>
                                             <div class="two-thirds">
                                                 <h4>Những bước đi đầu tiên</h4>
-                                                <p>Cùng với ý tưởng đã có sẵn và sự giúp đỡ nhiệt tình tới từ các thầy cô giáo trong trường,
+                                                <p>Cùng với ý tưởng đã có sẵn và sự giúp đỡ nhiệt tình tới từ thầy Trương Anh Hoàng, trưởng bộ môn Công nghệ phần mềm
                                                 nhóm chúng tôi đã từng bước xây dựng website 1 cách đơn giản, thân thiện và dễ hiểu nhất
                                                 đối với các bạn để có thể đưa vào thực tế nhanh nhất.</p>
                                             </div>
@@ -108,14 +108,14 @@
 
                                     <div class="w-timeline-section-title">
                                         <span class="w-timeline-section-title-bullet"></span>
-                                        <span class="w-timeline-section-title-text">5/2014</span>
+                                        <span class="w-timeline-section-title-text">8/2014</span>
                                     </div>
                                     <div class="w-timeline-section-content">
                                         <div class="g-cols">
                                             <div class="one-third">
-                                                <h4>Một tháng nỗ lực</h4>
-                                                <p>Với sự cố gắng và nghiên cứu công nghệ, nhóm xây dựng được 1 website để đưa tới các bạn sinh viên.Mong các bạn ủng hộ phiên bản
-                                                đầu tiên của website.</p>
+                                                <h4>Nỗ lực và thành quả</h4>
+                                                <p>Với sự cố gắng và nỗ lực, nhóm xây dựng được 1 website để đưa tới các bạn sinh viên.Mong các bạn ủng hộ phiên bản
+                                                đầu tiên của website. Tất nhiên không tránh khỏi thiếu sót, vì toàn bộ team đều là newbie về công nghệ web</p>
                                             </div>
                                             <div class="one-third">
                                                 <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/blog-1.jpg" alt="" />
@@ -290,7 +290,7 @@
                                                     <h3>Bạn đã tham gia chưa ? Đăng ký ngay !!!!</h3>
                                                 </div>
                                                 <div class="w-actionbox-controls at_right">
-                                                    <a class="w-actionbox-button g-btn type_primary size_big" href="<?php echo Yii::app()->createUrl("welcomePage") ?>" target="_blank">Đăng ký !</a>
+                                                    <a class="w-actionbox-button g-btn type_primary size_big" href="<?php echo Yii::app()->createUrl("welcomePage/fb_login") ?>" target="_blank">Đăng ký !</a>
                                                 </div>
                                             </div>
                                         </div>
