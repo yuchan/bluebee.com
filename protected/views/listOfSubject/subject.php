@@ -3,10 +3,10 @@
     <div class="l-submain">
         <div class="l-submain-h i-cf">
             <div class="g-cols">
-               
+
                 <div class="full-width">
                     <div class="head"><?php echo $subject->subject_name ?></div>
-                    <div class="fb-like" data-href="<?php echo Yii::app()->createAbsoluteUrl('listOfSubject/subject?subject_id=').$subject->subject_id ?>" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
+                    <div class="fb-like" data-href="<?php echo Yii::app()->createAbsoluteUrl('listOfSubject/subject?subject_id=') . $subject->subject_id ?>" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
                     <div class="w-testimonial">
                         <div class="w-testimonial-h">
                             <blockquote>
@@ -101,7 +101,48 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="fb-comments" data-href="<?php echo Yii::app()->createAbsoluteUrl('listOfSubject/subject?subject_id=').$subject->subject_id ?>" data-width="1000" data-numposts="8" data-colorscheme="light"></div>
+                        <style type="text/css">
+
+                        </style>
+                        <div class="full-width">
+                            <strong style="color: #262626">Tài liệu môn học</strong>
+                            
+                            <ol class="list_document" style="padding-top: 15px;">
+                                <?php foreach ($doc_related as $doc): ?>
+                                    <li class="item_document" style="
+                                        text-align: center;
+                                        position: relative;
+                                        width: 20.6804%;
+                                        float: left;
+                                        padding: 0;
+                                        margin: 0 3.09278% 30px 0;
+
+                                        :nth-child(4n) {
+                                            margin-right: 0px;
+                                        }">
+                                        <div class="box_item">
+                                            <div class="short_info_document clearfix">
+                                                <div class="document_img">
+                                                    <img src="<?php echo $doc->doc_url ?>">
+                                                    <a href="<?php echo Yii::app()->createAbsoluteUrl('viewDocument?doc_id=') . $doc->doc_id ?>" class="document_img_hover">
+                                                        <span class="describe_document"><?php echo $doc->doc_description ?></span>
+        <!--                                                                                <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>-->
+                                                    </a>
+                                                </div>
+                                                <!--                                                                        <ul class="document_status clearfix">
+                                                                                                                            <li class="score"><i class="icon-heart"></i>2000</li>
+                                                                                                                            <li class="view"><i class="icon-eye-open"></i>1999</li>
+                                                                                                                            <li class="comment"><i class="icon-comment"></i>1203</li>
+                                                                                                                        </ul>-->
+
+                                            </div>
+                                        </div>
+                                        <a class="name_document" href=""><strong><?php echo $doc['doc_name'] ?></strong></a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ol>
+                        </div>
+                        <div class="fb-comments" data-href="<?php echo Yii::app()->createAbsoluteUrl('listOfSubject/subject?subject_id=') . $subject->subject_id ?>" data-width="1000" data-numposts="8" data-colorscheme="light"></div>
                     </div>
 
                 </div>

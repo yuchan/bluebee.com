@@ -7,12 +7,7 @@
                         <div class="g-cols">
                             <div class="full-width">
                                 <a href=""><img class="circular float_left" src="<?php
-                                    if (Yii::app()->session['user_avatar'] == "") {
-                                        echo Yii::app()->theme->baseUrl, "/assets/img/logo.jpg";
-                                    } else {
-
-                                        echo Yii::app()->session['user_avatar'];
-                                    }
+                                    echo $user->user_avatar;
                                     ?>"/></a>
                                 <div  class="clearfix" style="line-height: 20px;">
                                     <h4 style="font-size: 20px"><strong><?php echo $user['user_real_name'] ?></strong></h4>
@@ -49,28 +44,28 @@
                                             <div class="g-cols">
                                                 <div class="full-width">
                                                     <ol class="list_document">
-                                                        <?php foreach ($user_doc_info as $doc): ?>
+    <?php foreach ($user_doc_info as $doc): ?>
                                                             <li class="item_document">
                                                                 <div class="box_item">
                                                                     <div class="short_info_document clearfix">
                                                                         <div class="document_img">
                                                                             <img src="<?php echo $doc->doc_url ?>">
-                                                                            <a href="<?php echo Yii::app()->createAbsoluteUrl('viewDocument?doc_id=').$doc->doc_id ?>" class="document_img_hover">
+                                                                            <a href="<?php echo Yii::app()->createAbsoluteUrl('viewDocument?doc_id=') . $doc->doc_id ?>" class="document_img_hover">
                                                                                 <span class="describe_document"><?php echo $doc->doc_description ?></span>
         <!--                                                                                <em class="timestamp"><i class="icon-time"></i>&nbsp;June 26, 2014</em>-->
                                                                             </a>
                                                                         </div>
-<!--                                                                        <ul class="document_status clearfix">
-                                                                            <li class="score"><i class="icon-heart"></i>2000</li>
-                                                                            <li class="view"><i class="icon-eye-open"></i>1999</li>
-                                                                            <li class="comment"><i class="icon-comment"></i>1203</li>
-                                                                        </ul>-->
-                                                                  
+                                                                        <!--                                                                        <ul class="document_status clearfix">
+                                                                                                                                                    <li class="score"><i class="icon-heart"></i>2000</li>
+                                                                                                                                                    <li class="view"><i class="icon-eye-open"></i>1999</li>
+                                                                                                                                                    <li class="comment"><i class="icon-comment"></i>1203</li>
+                                                                                                                                                </ul>-->
+
                                                                     </div>
                                                                 </div>
                                                                 <a class="name_document" href=""><strong><?php echo $doc['doc_name'] ?></strong></a>
                                                             </li>
-                                                        <?php endforeach; ?>
+    <?php endforeach; ?>
                                                     </ol>
                                                 </div>
                                             </div>

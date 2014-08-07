@@ -12,8 +12,10 @@ class SearchController extends CController {
             $subject_result = $this->searchSubject($query);
             $teacher_result = $this->searchTeacher($query);
             $doc_result = $this->searchDocument($query);
+            $user_result = $this->searchUser($query);
             $this->render('Search', array('subject_result' => $subject_result, 'teacher_result' => $teacher_result, 'doc_result' => $doc_result,
-                'subject_count' => count($subject_result), 'teacher_count' => count($teacher_result), 'doc_count' => count($doc_result)));
+                'subject_count' => count($subject_result), 'teacher_count' => count($teacher_result), 'doc_count' => count($doc_result),
+                'user_result' => $user_result, 'user_count' => count($user_result), 'query'=>$query));
         }
     }
 
@@ -39,6 +41,14 @@ class SearchController extends CController {
         $docCriteria->addSearchCondition('doc_name', $doc_name);
         $doc_result = Doc::model()->findAll($docCriteria);
         return $doc_result;
+    }
+
+    public function searchUser($user_name) {
+        $userCriteria = new CDbCriteria;
+        $userCriteria->select = "*";
+        $userCriteria->addSearchCondition('user_real_name', $user_name);
+        $user_result = User::model()->findAll($userCriteria);
+        return $user_result;
     }
 
     // Uncomment the following methods and override them if needed

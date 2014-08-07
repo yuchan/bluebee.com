@@ -29,7 +29,7 @@ class WelcomePageController extends BaseController {
         $mail->CharSet = "UTF-8";
         $mail->IsHTML(true);
         //    $mail->SMTPDebug = 1;       // kiểm tra ỗi : 1 là  hiển thị lỗi và thông báo cho ta biết, 2 = chỉ thông báo lỗi
-        $mail->SMTPAuth = true;      // bật chức năng đăng nhập vào SMTP này
+        $mail->SMTPAuth = true;      // bật chức năng đăng nhập vào SMTP nàyf
         //$mail->SMTPSecure = 'ssl'; 				// sử dụng giao thức SSL vì gmail bắt buộc dùng cái này
         $mail->Host = 'localhost';   // smtp của gmail
         $mail->Port = 25;       // port của smpt gmail

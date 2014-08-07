@@ -55,12 +55,17 @@ class ListOfSubjectController extends BaseController {
 
             $lesson = Lesson::model()->findAll(array("select" => "*", "condition" => "lesson_subject = " . $_GET["subject_id"],
                 "order" => "lesson_weeks ASC"));
+            
+            $doc_related = Doc::model()->with(array("docs" => array(
+                "select" => FALSE,
+                "condition" => "subject_id = " . $_GET["subject_id"]
+            ) ))->findAll();
         }
         $category_father = Faculty::model()->findAll();
         $subject_type = SubjectType::model()->findAll();
         $this->render('subject', array('subject' => $subject, 'category_father' => $category_father,
             'subject_type' => $subject_type, 'teacher' => $teachers,
-            'doc' => $doc, 'reference' => $reference, 'lesson' => $lesson));
+            'doc' => $doc, 'reference' => $reference, 'lesson' => $lesson, 'doc_related' => $doc_related));
     }
 
     public function actionCourseOfStudy() {
@@ -126,8 +131,8 @@ class ListOfSubjectController extends BaseController {
                     'faculty_id' => $_POST['subject_faculty'],
                 );
                 $subject_data = Subject::model()->findAll(array(
-                 'select' => '*',   
-                 'condition' => 'subject_faculty = '. $listSubjectData['subject_faculty'].' AND subject_type = '.$listSubjectData['subject_type'].' AND (subject_general_faculty_id = '. $listSubjectData['faculty_id'].' OR subject_dept = '. $listSubjectData['subject_dept'].')'));
+                    'select' => '*',
+                    'condition' => 'subject_faculty = ' . $listSubjectData['subject_faculty'] . ' AND subject_type = ' . $listSubjectData['subject_type'] . ' AND (subject_general_faculty_id = ' . $listSubjectData['faculty_id'] . ' OR subject_dept = ' . $listSubjectData['subject_dept'] . ')'));
                 $subject_type_group = SubjectGroupType::model()->findAllByAttributes(array('subject_group' => $listSubjectData['subject_type'],
                     'subject_dept' => $listSubjectData['subject_dept'], 'subject_faculty' => $listSubjectData['subject_faculty']));
 //                var_dump($subject_data);

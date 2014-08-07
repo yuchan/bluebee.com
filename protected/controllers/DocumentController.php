@@ -122,6 +122,7 @@ class DocumentController extends BaseController {
         $doc_model->doc_name = $doc_name;
         $doc_model->doc_description = $doc_description;
         $doc_model->doc_url = $doc_url;
+        $doc_model->subject_type = $doc_data->subject_type;
         $doc_model->doc_path = $doc_path;
         $doc_model->subject_faculty = $doc_data->subject_faculty;
         $doc_model->subject_dept = $doc_data->subject_dept;
@@ -165,18 +166,18 @@ class DocumentController extends BaseController {
     public function actionUpload() {
         //$ds = DIRECTORY_SEPARATOR;  //1
         $cnt = DocumentController::$cnt++;
-        $subject_id = StringHelper::filterString(Validator::validatePostParam($_POST['subject_id']));
+        $subject_id = StringHelper::filterString($_POST['subject_id']);
         $size = 8 * 1024 * 1024;
-        $doc_name = StringHelper::filterString(Validator::validatePostParam($_POST['doc_name']));
-        $doc_description = StringHelper::filterString(Validator::validatePostParam($_POST['doc_description']));
+        $doc_name = StringHelper::filterString($_POST['doc_name']);
+        $doc_description = StringHelper::filterString($_POST['doc_description']);
         $doc_author = Yii::app()->session['user_id'];
         $doc_author_name = Yii::app()->session['user_name'];
         $api_key = "24cxjtv3vw69wu5p7pqd9";
         $secret = "sec-b2rlvg8kxwwpkz9fo3i02mo9vo";
         $this->retVal = new stdClass();
         if ($_FILES['file']) {
-            if (!empty($doc_name)) {
-                if (!empty($doc_description)) {
+            if ($doc_name!="") {
+                if ($doc_description!="") {
                     if ($subject_id != "") {
                         if ($_FILES['file']['size'] <= $size) {
                             $scribd = new Scribd($api_key, $secret);
@@ -211,7 +212,7 @@ class DocumentController extends BaseController {
                                     'height' => '220');
                                 $get_thumbnail = @$scribd->postRequest('thumbnail.get', $thumbnail_info);
                                 // var_dump($get_thumbnail);
-                                $this->saveDoc($doc_name, $doc_description, @$get_thumbnail["thumbnail_url"], $doc_author, $subject_id, $upload_scribd["doc_id"], 2, $doc_path, $doc_author_name);
+                                $this->saveDoc($doc_name.'.'.$ext, $doc_description, @$get_thumbnail["thumbnail_url"], $doc_author, $subject_id, $upload_scribd["doc_id"], 2, $doc_path, $doc_author_name);
                                 $this->retVal->docid = @$upload_scribd["doc_id"];
                                 $this->retVal->thumbnail = @$get_thumbnail["thumbnail_url"];
                                 $this->retVal->doc_name = $doc_name;

@@ -161,24 +161,21 @@
                             //  $('#subject_type_tab').html('');
                             jQuery.each(result.teacher_faculty_position, function(key, value) {
                                 var item = $('<div style="height: 250px">' +
-                                        '<div class="w-team-member" style="width: 170px;height: 170px">' +
+                                        '<div class="w-team-member">' +
                                         '<div class="w-team-member-h">' +
                                         '<div class="w-team-member-image">' +
+                                        '<a href = "<?php echo Yii::app()->createUrl('share/teacher?id=') ?>' + this.teacher_id + '">' +
                                         '<img src="' + this.teacher_avatar + '" />' +
-                                        '<div class="w-team-member-links">' +
-                                        ' <div class="w-team-member-links-list">' +
-                                        '<a class="w-team-member-links-item" href="http://www.twitter.com/" target="_blank"><i class="icon-twitter"></i></a>' +
-                                        '<a class="w-team-member-links-item" href="http://www.linkedin.com/" target="_blank"><i class="icon-linkedin"></i></a>' +
-                                        '</div>' +
-                                        '</div>' +
+                                        '</a>' +
                                         '</div>' +
                                         '<div class="w-team-member-meta">' +
-                                        '<h4 class="w-team-member-name">' + this.teacher_name + '</h4>' +
-                                        '<div class="w-team-member-role">' + this.teacher_position + '</div>' +
+                                        '<h5 class="w-team-member-name">' + this.teacher_name + '</h5>' +
+                                        '<div class="w-team-member-role">' + this.teacher_description + '</div>' +
                                         '</div>' +
                                         '</div>' +
-                                        '</div>' +
-                                        '</div>').hide().fadeIn(800);
+                                        '</div>'
+
+                                        ).hide().fadeIn(500);
                                 jQuery('#teacher_lead').append(item
                                         );
                             });
@@ -224,25 +221,21 @@
                         //  $('#subject_type_tab').html('');
                         jQuery.each(result.teacher_faculty_position, function(key, value) {
                             jQuery('#teacher_lead').append(
-                                    '<div style="height: 250px">' +
-                                    '<div class="w-team-member" style="width: 170px;height: 170px">' +
+                                    '<div class="w-team-member">' +
                                     '<div class="w-team-member-h">' +
                                     '<div class="w-team-member-image">' +
+                                    '<a href = "<?php echo Yii::app()->createUrl('share/teacher?id=') ?>' + this.teacher_id + '">' +
                                     '<img src="' + this.teacher_avatar + '" />' +
-                                    '<div class="w-team-member-links">' +
-                                    ' <div class="w-team-member-links-list">' +
-                                    '<a class="w-team-member-links-item" href="http://www.twitter.com/" target="_blank"><i class="icon-twitter"></i></a>' +
-                                    '<a class="w-team-member-links-item" href="http://www.linkedin.com/" target="_blank"><i class="icon-linkedin"></i></a>' +
-                                    '</div>' +
-                                    '</div>' +
+                                    '</a>' +
                                     '</div>' +
                                     '<div class="w-team-member-meta">' +
-                                    '<h4 class="w-team-member-name">' + this.teacher_name + '</h4>' +
-                                    '<div class="w-team-member-role">' + this.teacher_position + '</div>' +
+                                    '<h5 class="w-team-member-name">' + this.teacher_name + '</h5>' +
+                                    '<div class="w-team-member-role">' + this.teacher_description + '</div>' +
                                     '</div>' +
                                     '</div>' +
-                                    '</div>' +
-                                    '</div>').hide().fadeIn(800);
+                                    '</div>'
+
+                                    ).hide().fadeIn(500);
                         });
                         jQuery.each(result.faculty_data, function(key, value) {
                             jQuery('#research').append(
