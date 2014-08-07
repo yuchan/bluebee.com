@@ -71,8 +71,8 @@
                             });
                         </script>
                         <script type="text/javascript">
-                            $(function() {
-                                $('.example-f').barrating({showSelectedRating: true});
+                            $(function() {                           
+                                $('#example-f').barrating({ showSelectedRating:false, readonly: true });
                             });
                         </script>
                         <!-- Pop-up -->

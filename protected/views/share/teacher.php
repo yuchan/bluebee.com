@@ -6,13 +6,13 @@
                 <div class="g-cols">
                     <div class="one-third">
                         <a href=""><img class="rectan" src="<?php
-                                    if (Yii::app()->session['teacher_avatar'] == "") {
+                                    if ($teacher['teacher_avatar'] == "") {
                                         echo Yii::app()->theme->baseUrl, "/assets/img/logo.jpg";
                                     } else {
-
-                                        echo Yii::app()->session['teacher_avatar'];
+                                        echo $teacher['teacher_avatar'];
                                     }
                                     ?>"/></a>
+<!--rating function script when click rating star  -->
 <script type="text/javascript">
     $(document).ready(function(){
         $(".star").click(function(){
@@ -20,26 +20,54 @@
             $.ajax({
                 type: "POST",
                 url: "<?php echo Yii::app()->createUrl('share/Rating') ?>",
-                data: {rating_score: score},
+                data: {rating_score: score, teacher_id: <?php echo $teacher['teacher_id'] ?>},
                 success: function(data){
                     var result = $.parseJSON(data);
-                    console.log(result.score);
+                    if(result.checkRatingStatus === 0){
+                        var i;
+                        console.log(result.score);
+                        console.log(result.aver);
+                        console.log(result.count);
+                        
+                        for(i = 1; i <= 5; i++){
+                            if(i <= result.score)
+                                $('a[data-rating-value='+i+']').addClass("br-selected");
+                            else
+                                $('a[data-rating-value='+i+']').removeClass(".br-selected");
+                        }
+                    } else {
+                        alert(result.message);
+                    }
                 }
             });
         });
-
     });  
 </script>
-                        <div class="input select rating-f read-only">
-                            <select class="teacher-block-rating-outside" id="rating" name="rating" style="display: none; float: right">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
+
+<!--loading star corresponds to teacher's rating score-->
+<script>
+    $(document).ready(function(){
+        for(i = 1; i <= 5; i++){
+            if(i <= <?php echo $teacher['teacher_rate'] ?>)
+                $('a[data-rating-value='+i+']').addClass("br-selected");
+            else
+                $('a[data-rating-value='+i+']').removeClass(".br-selected");
+        }
+    });
+</script>
+
+
+                        <div class="input select rating-f">
+                                    <label for="example-f"></label>
+                                    <select id="example-f" name="rating">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
                         </div>
-                        <a href=""><button class="g-btn type_outline size_small"><span>Danh sách giáo viên</span></button></a>
+<a href="<?php echo Yii::app()->createAbsoluteUrl('share/teacherListPage') ?>"><button class="g-btn type_outline size_small"><span>Danh sách giáo viên</span></button></a>
 
                         <div class="rounded1 color_alternate" style="margin-top: 50px">
                             <h6>Môn học đang dạy</h6>
@@ -93,7 +121,7 @@
                                         <div class="w-iconbox-text">
                                             <h3 class="w-iconbox-text-title">Tính cách</h3>
                                             <div class="w-iconbox-text-description">
-                                                <p>Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world.</p>
+                                                <p><?php echo $teacher['teacher_personality'] ?></p>
                                             </div>
                                             <a class="w-iconbox-text-link" href="#"><span>Learn more</span></a>
                                         </div>
@@ -109,7 +137,7 @@
                                         <div class="w-iconbox-text">
                                             <h3 class="w-iconbox-text-title">Lời khuyên</h3>
                                             <div class="w-iconbox-text-description">
-                                                <p>Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world.</p>
+                                                <p><?php echo $teacher['advices'] ?></p>
                                             </div>
                                             <a class="w-iconbox-text-link" href="#"><span>Learn more</span></a>
                                         </div>
@@ -125,7 +153,7 @@
                                         <div class="w-iconbox-text">
                                             <h3 class="w-iconbox-text-title">Công trình nghiên cứu</h3>
                                             <div class="w-iconbox-text-description">
-                                                <p>Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world.</p>
+                                                <p><?php echo $teacher['teacher_research'] ?></p>
                                             </div>
                                             <a class="w-iconbox-text-link" href="#"><span>Learn more</span></a>
                                         </div>

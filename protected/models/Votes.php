@@ -7,9 +7,9 @@
  * @property integer $id
  * @property integer $user_id
  * @property string $vote_type
- * @property integer $object_id
+ * @property integer $teacher_id
  * @property string $object_type
- * @property string $created_time
+ * @property integer $rating_score
  */
 class Votes extends CActiveRecord
 {
@@ -29,12 +29,11 @@ class Votes extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, object_id', 'numerical', 'integerOnly'=>true),
+			array('user_id, teacher_id, rating_score', 'numerical', 'integerOnly'=>true),
 			array('vote_type, object_type', 'length', 'max'=>45),
-			array('created_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_id, vote_type, object_id, object_type, created_time', 'safe', 'on'=>'search'),
+			array('id, user_id, vote_type, teacher_id, object_type, rating_score', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -58,9 +57,9 @@ class Votes extends CActiveRecord
 			'id' => 'ID',
 			'user_id' => 'User',
 			'vote_type' => 'Vote Type',
-			'object_id' => 'Object',
+			'teacher_id' => 'Teacher',
 			'object_type' => 'Object Type',
-			'created_time' => 'Created Time',
+			'rating_score' => 'Rating Score',
 		);
 	}
 
@@ -85,9 +84,9 @@ class Votes extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('user_id',$this->user_id);
 		$criteria->compare('vote_type',$this->vote_type,true);
-		$criteria->compare('object_id',$this->object_id);
+		$criteria->compare('teacher_id',$this->teacher_id);
 		$criteria->compare('object_type',$this->object_type,true);
-		$criteria->compare('created_time',$this->created_time,true);
+		$criteria->compare('rating_score',$this->rating_score);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
