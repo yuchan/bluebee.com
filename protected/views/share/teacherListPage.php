@@ -24,13 +24,12 @@
                                 '<div class="w-team-member">' +
                                 '<div class="w-team-member-h">' +
                                 '<div class="w-team-member-image">' +
-                                '<a href = "<?php echo Yii::app()->createUrl('share/teacher?id=')?>'+this.teacher_id+'">'+
+                                '<a href = "<?php echo Yii::app()->createUrl('share/teacher?id=') ?>' + this.teacher_id + '">' +
                                 '<img src="' + this.teacher_avatar + '" />' +
-                                '</a>'+
+                                '</a>' +
                                 '</div>' +
                                 '<div class="w-team-member-meta">' +
-                                '<h5 class="w-team-member-name">' + this.teacher_name + '</h5>' +
-                                '<div class="w-team-member-role">' + this.teacher_description + '</div>' +
+                                '<h5 class="w-team-member-name">' + this.teacher_acadamic_title + ' ' + this.teacher_name + '</h5>' +
                                 '</div>' +
                                 '</div>' +
                                 '</div>' +
@@ -67,18 +66,17 @@
                     jQuery('#teacher-list').empty();
                     jQuery.each(result.teacher_data, function(key, value) {
                         jQuery('#teacher-list').append(
-                              '<div class="leftAlignedImage ">' +
+                                '<div class="leftAlignedImage ">' +
                                 '<div class="coverWrapper">' +
                                 '<div class="w-team-member">' +
                                 '<div class="w-team-member-h">' +
                                 '<div class="w-team-member-image">' +
-                                '<a href = "<?php echo Yii::app()->createUrl('share/teacher?id=')?>'+this.teacher_id+'">'+
+                                '<a href = "<?php echo Yii::app()->createUrl('share/teacher?id=') ?>' + this.teacher_id + '">' +
                                 '<img src="' + this.teacher_avatar + '" />' +
-                                '</a>'+
+                                '</a>' +
                                 '</div>' +
                                 '<div class="w-team-member-meta">' +
-                                '<h5 class="w-team-member-name">' + this.teacher_name + '</h5>' +
-                                '<div class="w-team-member-role">' + this.teacher_description + '</div>' +
+                                '<h5 class="w-team-member-name">' + this.teacher_acadamic_title + ' ' + this.teacher_name + '</h5>' +
                                 '</div>' +
                                 '</div>' +
                                 '</div>' +
@@ -111,23 +109,22 @@
                 jQuery('#teacher-list').empty();
                 jQuery.each(result.teacher_data, function(key, value) {
                     jQuery('#teacher-list').append(
-                           '<div class="leftAlignedImage ">' +
-                                '<div class="coverWrapper">' +
-                                '<div class="w-team-member">' +
-                                '<div class="w-team-member-h">' +
-                                '<div class="w-team-member-image">' +
-                                '<a href = "<?php echo Yii::app()->createUrl('share/teacher?id=')?>'+this.teacher_id+'">'+
-                                '<img src="' + this.teacher_avatar + '" />' +
-                                '</a>'+
-                                '</div>' +
-                                '<div class="w-team-member-meta">' +
-                                '<h5 class="w-team-member-name">' + this.teacher_name + '</h5>' +
-                                '<div class="w-team-member-role">' + this.teacher_description + '</div>' +
-                                '</div>' +
-                                '</div>' +
-                                '</div>' +
-                                ' </div>' +
-                                '</div> ').hide().fadeIn(500);
+                            '<div class="leftAlignedImage ">' +
+                            '<div class="coverWrapper">' +
+                            '<div class="w-team-member">' +
+                            '<div class="w-team-member-h">' +
+                            '<div class="w-team-member-image">' +
+                            '<a href = "<?php echo Yii::app()->createUrl('share/teacher?id=') ?>' + this.teacher_id + '">' +
+                            '<img src="' + this.teacher_avatar + '" />' +
+                            '</a>' +
+                            '</div>' +
+                            '<div class="w-team-member-meta">' +
+                            '<h5 class="w-team-member-name">' + this.teacher_acadamic_title + ' ' + this.teacher_name + '</h5>' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>' +
+                            ' </div>' +
+                            '</div> ').hide().fadeIn(500);
                 });
                 jQuery.each(result.faculty_data, function(key, value) {
                     jQuery('#teacher_header').html(this.faculty_name).hide().fadeIn(500);
@@ -135,7 +132,7 @@
 
             }
         });
-        
+
     }
     window.onload = listteacher;
 </script>
