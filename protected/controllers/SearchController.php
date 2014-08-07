@@ -46,7 +46,7 @@ class SearchController extends CController {
     public function searchUser($user_name) {
         $userCriteria = new CDbCriteria;
         $userCriteria->select = "*";
-        $userCriteria->addSearchCondition('username', $user_name);
+        $userCriteria->addSearchCondition('user_real_name', $user_name);
         $user_result = User::model()->findAll($userCriteria);
         return $user_result;
     }

@@ -1,5 +1,5 @@
 <div class="l-submain-h" style="margin-top: 2%">
-    <h1>Kết quả cho: "<?php echo $query?>"</h1>
+    <h1>Kết quả cho: "<?php echo $query ?>"</h1>
     <input class="none-display" type="text" id="styleforsearchbar" value="" placeholder="Bạn muốn tìm gì ?"/>
     <div class="g-cols">
         <div class="one-fourth" >
@@ -11,7 +11,7 @@
                 <input id="tab-3" type="radio" name="radio-set" data=".content-3" class="tab-selector-3">
                 <label for="tab-3" class="tab-label-3">Môn học (<?php echo $subject_count ?> kết quả)</label>
                 <input id="tab-4" type="radio" name="radio-set" data=".content-4" class="tab-selector-4">
-                <label for="tab-4" class="tab-label-4">Tài Liệu (<?php echo $doc_count ?> kết quả)</label>
+                <label for="tab-4" class="tab-label-4">Tài liệu (<?php echo $doc_count ?> kết quả)</label>
                 <div class="clear-shadow"></div>
             </div>
         </div>
@@ -37,7 +37,7 @@
                             </a>
                             <div class="info">
                                 <a href="<?php echo Yii::app()->createUrl('user?id=') . $user->user_id ?>">
-                                    <span id="el-105"><?php echo $user->username ?></span>
+                                    <span id="el-105"><?php echo $user->user_real_name ?></span>
                                 </a>
                             </div>
                         </div>
@@ -54,22 +54,21 @@
                                 <a href="<?php echo Yii::app()->createUrl('share/teacher?id=') . $teacher->teacher_id ?>">
                                     <span id="el-105"><?php echo $teacher->teacher_name ?></span>
                                 </a>
-                                <p>Nơi công tác: Đại học công nghệ - Đại học quốc gia Hà Nội</p>
-                                <p>Môn dạy: Đường đời, Chém gió,...</p>
+                                <p><?php echo $teacher->teacher_description ?></p>
                             </div>
-<!--                            <div class="float_right">
-                                <div class="input select rating-f read-only">
-                                    <p style="float: left">Độ yêu thích:</p>
-                                    <br>
-                                    <select class="teacher-block-rating-outside" name="rating" style="display: none; float: right">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5" selected="selected">5</option>
-                                    </select>
-                                </div>
-                            </div>-->
+                            <!--                            <div class="float_right">
+                                                            <div class="input select rating-f read-only">
+                                                                <p style="float: left">Độ yêu thích:</p>
+                                                                <br>
+                                                                <select class="teacher-block-rating-outside" name="rating" style="display: none; float: right">
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="5" selected="selected">5</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>-->
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -79,7 +78,7 @@
                         <div class="result-class clearfix">
                             <div class="info-teacher float-left">
                                 <a href="<?php echo Yii::app()->createUrl('listOfSubject/subject?subject_id=') . $subject->subject_id ?>">
-                                    <span style="font-size: 18px">Tên môn học: <?php echo $subject->subject_name ?></span>
+                                    <span style="font-size: 18px"> <?php echo $subject->subject_name ?></span>
                                 </a>
                                 <p>Mã môn học: <?php echo $subject->subject_code ?></p>
                                 <p>Số tín chỉ: <?php echo $subject->subject_credits ?></p>
@@ -104,7 +103,7 @@
                                         </div>
                                         <span class="attribution-user">
                                             <a href="<?php echo Yii::app()->createUrl('user?id=') . $doc->doc_author ?>" class="url_user" title="<?php echo $doc->doc_author_name; ?>">
-                                                
+
                                             </a>1
                                         </span>
                                     </div>
