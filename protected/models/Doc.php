@@ -11,13 +11,15 @@
  * @property string $doc_description
  * @property string $doc_title
  * @property string $doc_status
- * @property integer $doc_author
+ * @property string $doc_author
  * @property integer $doc_type
  * @property string $doc_path
  * @property integer $subject_dept
  * @property integer $subject_type
  * @property integer $subject_faculty
  * @property string $doc_author_name
+ * @property string $doc_publisher
+ * @property integer $subject_general_faculty_id
  */
 class Doc extends CActiveRecord
 {
@@ -37,13 +39,15 @@ class Doc extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('doc_author, doc_type, subject_dept, subject_type, subject_faculty', 'numerical', 'integerOnly'=>true),
+			array('doc_type, subject_dept, subject_type, subject_faculty, subject_general_faculty_id', 'numerical', 'integerOnly'=>true),
 			array('doc_url, doc_name, doc_scribd_id, doc_description, doc_title, doc_status', 'length', 'max'=>200),
+			array('doc_author', 'length', 'max'=>30),
 			array('doc_path', 'length', 'max'=>500),
+			array('doc_publisher', 'length', 'max'=>255),
 			array('doc_author_name', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('doc_id, doc_url, doc_name, doc_scribd_id, doc_description, doc_title, doc_status, doc_author, doc_type, doc_path, subject_dept, subject_type, subject_faculty, doc_author_name', 'safe', 'on'=>'search'),
+			array('doc_id, doc_url, doc_name, doc_scribd_id, doc_description, doc_title, doc_status, doc_author, doc_type, doc_path, subject_dept, subject_type, subject_faculty, doc_author_name, doc_publisher, subject_general_faculty_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,7 +59,7 @@ class Doc extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-                     'docs' => array(self::BELONGS_TO, 'SubjectDoc', 'doc_id')
+                    'docs' => array(self::BELONGS_TO, 'SubjectDoc', 'doc_id')
 		);
 	}
 
@@ -79,6 +83,8 @@ class Doc extends CActiveRecord
 			'subject_type' => 'Subject Type',
 			'subject_faculty' => 'Subject Faculty',
 			'doc_author_name' => 'Doc Author Name',
+			'doc_publisher' => 'Doc Publisher',
+			'subject_general_faculty_id' => 'Subject General Faculty',
 		);
 	}
 
@@ -107,13 +113,15 @@ class Doc extends CActiveRecord
 		$criteria->compare('doc_description',$this->doc_description,true);
 		$criteria->compare('doc_title',$this->doc_title,true);
 		$criteria->compare('doc_status',$this->doc_status,true);
-		$criteria->compare('doc_author',$this->doc_author);
+		$criteria->compare('doc_author',$this->doc_author,true);
 		$criteria->compare('doc_type',$this->doc_type);
 		$criteria->compare('doc_path',$this->doc_path,true);
 		$criteria->compare('subject_dept',$this->subject_dept);
 		$criteria->compare('subject_type',$this->subject_type);
 		$criteria->compare('subject_faculty',$this->subject_faculty);
 		$criteria->compare('doc_author_name',$this->doc_author_name,true);
+		$criteria->compare('doc_publisher',$this->doc_publisher,true);
+		$criteria->compare('subject_general_faculty_id',$this->subject_general_faculty_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -45,12 +45,12 @@ class DocumentController extends BaseController {
                     'subject_faculty' => $_POST['subject_faculty'],
                     'subject_type' => $_POST['subject_type'],
                 );
-                $subject_data = Subject::model()->findAllByAttributes(array('subject_dept' => $listSubjectData['subject_dept'],
-                    'subject_faculty' => $listSubjectData['subject_faculty'],
-                    'subject_type' => $listSubjectData['subject_type'],));
-                $doc_data = Doc::model()->findAllByAttributes(array('subject_dept' => $listSubjectData['subject_dept'],
-                    'subject_faculty' => $listSubjectData['subject_faculty'],
-                    'subject_type' => $listSubjectData['subject_type'],));
+                $subject_data = Subject::model()->findAll(array(
+                    'select' => '*',
+                    'condition' => 'subject_faculty = ' . $listSubjectData['subject_faculty'] . ' AND subject_type = ' . $listSubjectData['subject_type'] . ' AND (subject_general_faculty_id = ' . $listSubjectData['subject_faculty'] . ' OR subject_dept = ' . $listSubjectData['subject_dept'] . ')'));
+                $doc_data = Doc::model()->findAll(array(
+                    'select' => '*',
+                    'condition' => 'subject_faculty = ' . $listSubjectData['subject_faculty'] . ' AND subject_type = ' . $listSubjectData['subject_type'] . ' AND (subject_general_faculty_id = ' . $listSubjectData['subject_faculty'] . ' OR subject_dept = ' . $listSubjectData['subject_dept'] . ')'));  
                 $this->retVal->subject_data = $subject_data;
                 $this->retVal->doc_data = $doc_data;
                 $this->retVal->message = 1;
@@ -71,10 +71,12 @@ class DocumentController extends BaseController {
                     'subject_dept' => $_POST['subject_dept'],
                     'subject_faculty' => $_POST['subject_faculty'],
                 );
-                $subject_data = Subject::model()->findAllByAttributes(array('subject_dept' => $listSubjectData['subject_dept'],
-                    'subject_faculty' => $listSubjectData['subject_faculty']));
-                $doc_data = Doc::model()->findAllByAttributes(array('subject_dept' => $listSubjectData['subject_dept'],
-                    'subject_faculty' => $listSubjectData['subject_faculty']));
+                $subject_data = Subject::model()->findAll(array(
+                    'select' => '*',
+                    'condition' => 'subject_faculty = ' . $listSubjectData['subject_faculty'] . ' AND (subject_general_faculty_id = ' . $listSubjectData['subject_faculty'] . ' OR subject_dept = ' . $listSubjectData['subject_dept'] . ')'));
+                $doc_data = Doc::model()->findAll(array(
+                    'select' => '*',
+                    'condition' => 'subject_faculty = ' . $listSubjectData['subject_faculty'] . ' AND (subject_general_faculty_id = ' . $listSubjectData['subject_faculty'] . ' OR subject_dept = ' . $listSubjectData['subject_dept'] . ')'));  
                 $this->retVal->subject_data = $subject_data;
                 $this->retVal->doc_data = $doc_data;
                 $this->retVal->message = 1;
