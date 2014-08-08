@@ -2,8 +2,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
+        <title>Bluebee - UET - Web hỗ trợ học tập UET</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="language" content="en" />
+
         <!-- blueprint CSS framework -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <link rel="stylesheet" type="text/css" media="all" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic" />
@@ -25,7 +27,7 @@
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/token-input-facebook.css" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/token-input-mac.css" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/component.css" />
-         
+
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/post_style.css">
             <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/search_style.css">
                 <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/documentpage.css">
@@ -57,22 +59,22 @@
                         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/classie.js"></script>
                         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/cbpScroller.js"></script>
                         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.form.min.js"></script>
-                       
+
                         <!-- Star rating-->
                         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/ratings.css" />
                         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.barrating.js"></script>
                         <script type="text/javascript">
-                            jQuery(document).ready(function($) {
-                                // Get current url
-                                // Select an a element that has the matching href and apply a class of 'active'. Also prepend a - to the content of the link
-                                var url = window.location.href;
-                                $('a[href="' + url + '"]').parent().parent().addClass('active');
+            jQuery(document).ready(function($) {
+                // Get current url
+                // Select an a element that has the matching href and apply a class of 'active'. Also prepend a - to the content of the link
+                var url = window.location.href;
+                $('a[href="' + url + '"]').parent().parent().addClass('active');
 
-                            });
+            });
                         </script>
                         <script type="text/javascript">
-                            $(function() {
-                                $('.example-f').barrating({showSelectedRating: false});
+                            $(function() {                           
+                                $('#example-f').barrating({ showSelectedRating:false, readonly: true });
                             });
                         </script>
                         <!-- Pop-up -->
@@ -252,15 +254,16 @@
                                                             <a class="w-search-show" href="javascript:void(0)" style="margin: auto;">
                                                                 <i class="icon-search" style="line-height: inherit"></i>
                                                             </a>
-                                                            <form class="w-search-form show_hidden" action="#" />
+
+                                                            <form class="w-search-form show_hidden" action="<?php echo Yii::app()->createUrl('search') ?>" method="get"  />
                                                             <div class="w-search-input">
-                                                                <input type="text" value="" placeholder="Bạn muốn tìm gì ?" />
+                                                                <input type="text" value="" placeholder="Bạn muốn tìm gì ?" id="input_search" name="query"/>
                                                             </div>
-                                                            <div class="w-search-submit">
-                                                                <input type="submit" value="Search" />
+                                                            <div class="w-search-submit" >
+                                                                <input type="submit" value="Tìm kiếm"/>
 
                                                             </div>
-                                                            <a class="w-search-close" href="javascript:void(0)" title="Close search"> &#10005; </a>
+                                                            <a class="w-search-close" href="javascript:void(0)" title="Đóng tìm kiếm"> &#10005; </a>
                                                             </form>
                                                         </div>
                                                     </div>
@@ -307,7 +310,7 @@
                                                                     <?php
                                                                     if (Yii::app()->session["user_id"] == "") {
                                                                         echo'
-   
+
 
         <a style="margin:10px" id="login" href="' . $this->createUrl('welcomePage/fb_login') . '">Đăng nhập với facebook</a>
     ';
@@ -342,7 +345,7 @@
 </div>'
                                                                         ;
                                                                     }
-                                                                    ?> 
+                                                                    ?>
 
 
 
@@ -390,7 +393,7 @@
                                           </div>
                                       </div> -->
                                     <!-- MAIN -->
-                                    <div style="padding-top: 126px">
+                                    <div style="padding-top: 126px; z-index: 0; position: relative;">
                                         <?php echo $content; ?>
                                     </div>
                                     <!-- /MAIN -->
@@ -423,7 +426,7 @@
                                                             </div>
                                                             <div class="w-nav-item level_1">
                                                                 <div class="w-nav-item-h">
-                                                                    <a href="<?php echo Yii::app()->createUrl("Contact") ?>" class="w-nav-anchor level_1">Liên hệ</a>
+                                                                    <a href="http://blog.bluebee-uet.com" class="w-nav-anchor level_1">Blog</a>
                                                                 </div>
                                                             </div>
 

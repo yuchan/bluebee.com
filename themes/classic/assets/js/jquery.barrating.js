@@ -46,7 +46,7 @@
                         // create ratings - but only if val is defined
                         if (val) {
                             text = $(this).text();
-                            $a = $('<a />', { href:'#', 'data-rating-value':val, 'data-rating-text':text });
+                            $a = $('<a />', { class:'star', href:'#', 'data-rating-value':val, 'data-rating-text':text });
                             $span = $('<span />', { text:(userOptions.showValues) ? text : '' });
 
                             $widget.append($a.append($span));

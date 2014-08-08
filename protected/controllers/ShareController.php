@@ -37,8 +37,13 @@ class ShareController extends BaseController {
 
             $teacher_current_id = Teacher::model()->findByAttributes(array('teacher_id' => $_GET["id"]));
 
+            $subject_teacher = Subject::model()->with(array('subject_teacher'=>array(
+                'select' => false,
+                'condition' => 'teacher_id = '.$_GET['id']
+            )))->findAll();
             if ($teacher_current_id) {
-                $this->render('teacher', array('teacher_detail_info' => Teacher::model()->findAll($spCriteria)));
+                $this->render('teacher', array('teacher_detail_info' => Teacher::model()->findAll($spCriteria),
+                    'subject_teacher' => $subject_teacher));
             }
         }
     }
@@ -54,6 +59,49 @@ class ShareController extends BaseController {
         $this->render('subject');
     }
 
+    public  function actionRating(){
+        $this->retVal = new stdClass();
+        $request = Yii::app()->request;
+        if ($request->isPostRequest && isset($_POST)) {
+            $ratingCriteria = new CDbCriteria();
+            $ratingCriteria->select = "*";
+            $ratingCriteria->condition = "teacher_id = ".$_POST['teacher_id'];
+            $rating = Votes::model()->findAll($ratingCriteria);
+            $count = count($rating);
+            $averageRatingScore = 0;
+            $this->retVal->checkRatingStatus = 0;
+            foreach ($rating as $rating) {
+                $averageRatingScore += $rating["rating_score"];
+                if($rating->user_id == Yii::app()->session['user_id'])
+                    $this->retVal->checkRatingStatus = 1;
+            }
+            
+            if($this->retVal->checkRatingStatus === 0){
+                $teacher = Teacher::model()->find(array(
+                    'select' => '*',
+                    'condition' => 'teacher_id = '.$_POST['teacher_id']
+                ));
+                $ratingScore = round(($averageRatingScore +$_POST['rating_score'])/($count + 1));
+
+                $teacher->teacher_rate = $ratingScore;
+                $teacher->save(FALSE);
+                
+                $vote = new Votes;
+                $vote->teacher_id = $_POST['teacher_id'];
+                $vote->user_id = Yii::app()->session['user_id'];
+                $vote->rating_score = $_POST['rating_score'];
+                $vote->save(FALSE);
+
+                $this->retVal->count = $count;
+                $this->retVal->aver = $averageRatingScore;
+                $this->retVal->score = $ratingScore;
+            }else{
+                $this->retVal->message = "Bạn đã đánh giá thầy/cô này.";
+            }
+        }
+        echo CJSON::encode($this->retVal);
+        Yii::app()->end();
+    }
     public function actionListTeacherDeptFaculty() {
         $this->retVal = new stdClass();
         $request = Yii::app()->request;

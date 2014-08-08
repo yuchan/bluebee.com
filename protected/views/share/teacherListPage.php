@@ -24,30 +24,16 @@
                                 '<div class="w-team-member">' +
                                 '<div class="w-team-member-h">' +
                                 '<div class="w-team-member-image">' +
+                                '<a href = "<?php echo Yii::app()->createUrl('share/teacher?id=') ?>' + this.teacher_id + '">' +
                                 '<img src="' + this.teacher_avatar + '" />' +
-                                '<div class="w-team-member-links">' +
-                                '<div class="w-team-member-links-list">' +
-                                '<a class="w-team-member-links-item" href="http://www.twitter.com/" target="_blank"><i class="icon-twitter"></i></a>' +
-                                '<a class="w-team-member-links-item" href="http://www.linkedin.com/" target="_blank"><i class="icon-linkedin"></i></a>' +
-                                '</div>' +
-                                '</div>' +
+                                '</a>' +
                                 '</div>' +
                                 '<div class="w-team-member-meta">' +
-                                '<h4 class="w-team-member-name">' + this.teacher_name + '</h4>' +
-                                '<div class="w-team-member-role">' + this.teacher_description + '</div>' +
+                                '<h5 class="w-team-member-name">' + this.teacher_acadamic_title + ' ' + this.teacher_name + '</h5>' +
                                 '</div>' +
                                 '</div>' +
                                 '</div>' +
                                 ' </div>' +
-                                '<div class="input select rating-f read-only ratingMargin" >' +
-                                '<select class="teacher-block-rating-outside" name="rating">' +
-                                '<option value="1">1</option>' +
-                                '<option value="2">2</option>' +
-                                '<option value="3">3</option>' +
-                                '<option value="4">4</option>' +
-                                '<option value="5">5</option>' +
-                                '</select>' +
-                                '</div>' +
                                 '</div> ').hide().fadeIn(500);
                     });
                     jQuery.each(result.dept_data, function(key, value) {
@@ -85,30 +71,16 @@
                                 '<div class="w-team-member">' +
                                 '<div class="w-team-member-h">' +
                                 '<div class="w-team-member-image">' +
+                                '<a href = "<?php echo Yii::app()->createUrl('share/teacher?id=') ?>' + this.teacher_id + '">' +
                                 '<img src="' + this.teacher_avatar + '" />' +
-                                '<div class="w-team-member-links">' +
-                                '<div class="w-team-member-links-list">' +
-                                '<a class="w-team-member-links-item" href="http://www.twitter.com/" target="_blank"><i class="icon-twitter"></i></a>' +
-                                '<a class="w-team-member-links-item" href="http://www.linkedin.com/" target="_blank"><i class="icon-linkedin"></i></a>' +
-                                '</div>' +
-                                '</div>' +
+                                '</a>' +
                                 '</div>' +
                                 '<div class="w-team-member-meta">' +
-                                '<h4 class="w-team-member-name">' + this.teacher_name + '</h4>' +
-                                '<div class="w-team-member-role">' + this.teacher_description + '</div>' +
+                                '<h5 class="w-team-member-name">' + this.teacher_acadamic_title + ' ' + this.teacher_name + '</h5>' +
                                 '</div>' +
                                 '</div>' +
                                 '</div>' +
                                 ' </div>' +
-                                '<div class="input select rating-f read-only ratingMargin" >' +
-                                '<select class="teacher-block-rating-outside" name="rating">' +
-                                '<option value="1">1</option>' +
-                                '<option value="2">2</option>' +
-                                '<option value="3">3</option>' +
-                                '<option value="4">4</option>' +
-                                '<option value="5">5</option>' +
-                                '</select>' +
-                                '</div>' +
                                 '</div> ').hide().fadeIn(500);
                     });
                     jQuery.each(result.faculty_data, function(key, value) {
@@ -142,30 +114,16 @@
                             '<div class="w-team-member">' +
                             '<div class="w-team-member-h">' +
                             '<div class="w-team-member-image">' +
+                            '<a href = "<?php echo Yii::app()->createUrl('share/teacher?id=') ?>' + this.teacher_id + '">' +
                             '<img src="' + this.teacher_avatar + '" />' +
-                            '<div class="w-team-member-links">' +
-                            '<div class="w-team-member-links-list">' +
-                            '<a class="w-team-member-links-item" href="http://www.twitter.com/" target="_blank"><i class="icon-twitter"></i></a>' +
-                            '<a class="w-team-member-links-item" href="http://www.linkedin.com/" target="_blank"><i class="icon-linkedin"></i></a>' +
-                            '</div>' +
-                            '</div>' +
+                            '</a>' +
                             '</div>' +
                             '<div class="w-team-member-meta">' +
-                            '<h4 class="w-team-member-name">' + this.teacher_name + '</h4>' +
-                            '<div class="w-team-member-role">' + this.teacher_description + '</div>' +
+                            '<h5 class="w-team-member-name">' + this.teacher_acadamic_title + ' ' + this.teacher_name + '</h5>' +
                             '</div>' +
                             '</div>' +
                             '</div>' +
                             ' </div>' +
-                            '<div class="input select rating-f read-only ratingMargin" >' +
-                            '<select class="teacher-block-rating-outside" name="rating">' +
-                            '<option value="1">1</option>' +
-                            '<option value="2">2</option>' +
-                            '<option value="3">3</option>' +
-                            '<option value="4">4</option>' +
-                            '<option value="5">5</option>' +
-                            '</select>' +
-                            '</div>' +
                             '</div> ').hide().fadeIn(500);
                 });
                 jQuery.each(result.faculty_data, function(key, value) {
@@ -174,7 +132,7 @@
 
             }
         });
-        
+
     }
     window.onload = listteacher;
 </script>
