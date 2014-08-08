@@ -5,6 +5,7 @@
 </script>
 <div class="morph-button morph-button-modal morph-button-fixed" id="morph-upload">
     <button class="btn-2 btn-2a" type="button" onclick="<?php if (Yii::app()->session["user_id"] == "") echo 'checkuploadfunction();' ?>" >Đăng một tài liệu lên</button>
+	<?php if (Yii::app()->session["user_id"] != "") { ?>
     <div class="morph-content" id="upload_area_morph">
         <div class="content-style-text">
             <span class="icon icon-close" id="close_form">✕</span>
@@ -71,6 +72,7 @@
             </div>
         </div>
     </div>
+	<?php }?>
 
 </div><!-- morph-button -->
 
