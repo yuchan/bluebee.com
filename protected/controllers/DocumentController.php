@@ -120,6 +120,7 @@ class DocumentController extends BaseController {
 
     public function saveDoc($doc_name, $doc_description, $doc_url, $doc_author, $subject_id, $doc_scribd_id, $doc_type, $doc_path, $doc_author_name) {
         $doc_data = Subject::model()->findByAttributes(array('subject_id' => $subject_id));
+        
         $doc_model = new Doc;
         $doc_model->doc_name = $doc_name;
         $doc_model->doc_description = $doc_description;
@@ -128,6 +129,7 @@ class DocumentController extends BaseController {
         $doc_model->doc_path = $doc_path;
         $doc_model->subject_faculty = $doc_data->subject_faculty;
         $doc_model->subject_dept = $doc_data->subject_dept;
+        $doc_model->subject_general_faculty_id = $doc_data->subject_general_faculty_id;
         $doc_model->doc_scribd_id = $doc_scribd_id;
         $doc_model->doc_type = $doc_type;
         $doc_model->doc_status = 1;
