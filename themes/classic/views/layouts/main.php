@@ -239,7 +239,7 @@
                                                     <!-- LOGO -->
                                                     <div class="w-logo">
                                                         <div class="w-logo-h">
-                                                            <a class="w-logo-link" href="<?php echo Yii::app()->createUrl("home") ?>" class="w-nav-anchor level_1">
+                                                            <a class="w-logo-link" href="<?php echo Yii::app()->createUrl("listOfSubject") ?>" class="w-nav-anchor level_1">
                                                                 <img class="w-logo-img" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo.jpg" alt="BlueBee" />
                                                                 <span class="w-logo-title">
                                                                     <span class="w-logo-title-h">BlueBee</span>
