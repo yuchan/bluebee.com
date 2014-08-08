@@ -31,18 +31,12 @@
                                         <div class="w-team-member">
                                             <div class="w-team-member-h">
                                                 <div class="w-team-member-image">
-                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/member-3.jpg" alt="Item picture" />
-                                                    <div class="w-team-member-links">
-                                                        <div class="w-team-member-links-list">
-                                                            <a class="w-team-member-links-item" href="http://www.fb.com/" target="_blank">
-                                                                <i class="icon-facebook"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
+                                                    <a href="<?php echo Yii::app()->createUrl('share/teacher?id=').$teacher->teacher_id?>">
+                                                    <img src="<?php echo $teacher->teacher_avatar ?>" alt="<?php echo $teacher->teacher_name ?>" />
+                                                    </a>
                                                 </div>
                                                 <div class="w-team-member-meta">
-                                                    <h4 class="w-team-member-name"><?php echo $teacher->teacher_name ?></h4>
-                                                    <div class="w-team-member-role">Trưởng nhóm</div>
+                                                    <h4 class="w-team-member-name"><?php echo $teacher->teacher_acadamic_title." ".$teacher->teacher_name ?></h4>
                                                 </div>
                                             </div>
                                         </div>

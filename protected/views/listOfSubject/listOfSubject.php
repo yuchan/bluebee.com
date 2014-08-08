@@ -169,14 +169,14 @@
                                         '</a>' +
                                         '</div>' +
                                         '<div class="w-team-member-meta">' +
-                                        '<h5 class="w-team-member-name">' + this.teacher_name + '</h5>' +
-                                        '<div class="w-team-member-role">' + this.teacher_description + '</div>' +
+                                        '<h5 class="w-team-member-name">' + this.teacher_acadamic_title + ' ' + this.teacher_name + '</h5>' +
+                                        '<div class="w-team-member-role">' + this.teacher_position +'</div>' +
                                         '</div>' +
                                         '</div>' +
                                         '</div>'
 
-                                        ).hide().fadeIn(500);
-                                jQuery('#teacher_lead').append(item
+                                ).hide().fadeIn(500);
+                                        jQuery('#teacher_lead').append(item
                                         );
                             });
                             jQuery.each(result.faculty_data, function(key, value) {
@@ -229,13 +229,13 @@
                                     '</a>' +
                                     '</div>' +
                                     '<div class="w-team-member-meta">' +
-                                    '<h5 class="w-team-member-name">' + this.teacher_name + '</h5>' +
-                                    '<div class="w-team-member-role">' + this.teacher_description + '</div>' +
+                                    '<h5 class="w-team-member-name">' + this.teacher_acadamic_title + ' ' + this.teacher_name + '</h5>' +
+                                    '<div class="w-team-member-role">' + this.teacher_position +'</div>' +
                                     '</div>' +
                                     '</div>' +
                                     '</div>'
 
-                                    ).hide().fadeIn(500);
+                            ).hide().fadeIn(500);
                         });
                         jQuery.each(result.faculty_data, function(key, value) {
                             jQuery('#research').append(

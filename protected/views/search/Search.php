@@ -52,7 +52,7 @@
                             </a>
                             <div class="info">
                                 <a href="<?php echo Yii::app()->createUrl('share/teacher?id=') . $teacher->teacher_id ?>">
-                                    <span id="el-105"><?php echo $teacher->teacher_name ?></span>
+                                    <span id="el-105"><?php echo $teacher->teacher_acadamic_title." ".$teacher->teacher_name ?></span>
                                 </a>
                                 <p><?php echo $teacher->teacher_description ?></p>
                             </div>
