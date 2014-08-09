@@ -45,12 +45,12 @@ class DocumentController extends BaseController {
                     'subject_faculty' => $_POST['subject_faculty'],
                     'subject_type' => $_POST['subject_type'],
                 );
-                $subject_data = Subject::model()->findAllByAttributes(array('subject_dept' => $listSubjectData['subject_dept'],
-                    'subject_faculty' => $listSubjectData['subject_faculty'],
-                    'subject_type' => $listSubjectData['subject_type'],));
-                $doc_data = Doc::model()->findAllByAttributes(array('subject_dept' => $listSubjectData['subject_dept'],
-                    'subject_faculty' => $listSubjectData['subject_faculty'],
-                    'subject_type' => $listSubjectData['subject_type'],));
+                $subject_data = Subject::model()->findAll(array(
+                    'select' => '*',
+                    'condition' => 'subject_faculty = ' . $listSubjectData['subject_faculty'] . ' AND subject_type = ' . $listSubjectData['subject_type'] . ' AND (subject_general_faculty_id = ' . $listSubjectData['subject_faculty'] . ' OR subject_dept = ' . $listSubjectData['subject_dept'] . ')'));
+                $doc_data = Doc::model()->findAll(array(
+                    'select' => '*',
+                    'condition' => 'subject_faculty = ' . $listSubjectData['subject_faculty'] . ' AND subject_type = ' . $listSubjectData['subject_type'] . ' AND (subject_general_faculty_id = ' . $listSubjectData['subject_faculty'] . ' OR subject_dept = ' . $listSubjectData['subject_dept'] . ')'));  
                 $this->retVal->subject_data = $subject_data;
                 $this->retVal->doc_data = $doc_data;
                 $this->retVal->message = 1;
@@ -71,10 +71,12 @@ class DocumentController extends BaseController {
                     'subject_dept' => $_POST['subject_dept'],
                     'subject_faculty' => $_POST['subject_faculty'],
                 );
-                $subject_data = Subject::model()->findAllByAttributes(array('subject_dept' => $listSubjectData['subject_dept'],
-                    'subject_faculty' => $listSubjectData['subject_faculty']));
-                $doc_data = Doc::model()->findAllByAttributes(array('subject_dept' => $listSubjectData['subject_dept'],
-                    'subject_faculty' => $listSubjectData['subject_faculty']));
+                $subject_data = Subject::model()->findAll(array(
+                    'select' => '*',
+                    'condition' => 'subject_faculty = ' . $listSubjectData['subject_faculty'] . ' AND (subject_general_faculty_id = ' . $listSubjectData['subject_faculty'] . ' OR subject_dept = ' . $listSubjectData['subject_dept'] . ')'));
+                $doc_data = Doc::model()->findAll(array(
+                    'select' => '*',
+                    'condition' => 'subject_faculty = ' . $listSubjectData['subject_faculty'] . ' AND (subject_general_faculty_id = ' . $listSubjectData['subject_faculty'] . ' OR subject_dept = ' . $listSubjectData['subject_dept'] . ')'));  
                 $this->retVal->subject_data = $subject_data;
                 $this->retVal->doc_data = $doc_data;
                 $this->retVal->message = 1;
@@ -118,6 +120,7 @@ class DocumentController extends BaseController {
 
     public function saveDoc($doc_name, $doc_description, $doc_url, $doc_author, $subject_id, $doc_scribd_id, $doc_type, $doc_path, $doc_author_name) {
         $doc_data = Subject::model()->findByAttributes(array('subject_id' => $subject_id));
+        
         $doc_model = new Doc;
         $doc_model->doc_name = $doc_name;
         $doc_model->doc_description = $doc_description;
@@ -126,6 +129,7 @@ class DocumentController extends BaseController {
         $doc_model->doc_path = $doc_path;
         $doc_model->subject_faculty = $doc_data->subject_faculty;
         $doc_model->subject_dept = $doc_data->subject_dept;
+        $doc_model->subject_general_faculty_id = $doc_data->subject_general_faculty_id;
         $doc_model->doc_scribd_id = $doc_scribd_id;
         $doc_model->doc_type = $doc_type;
         $doc_model->doc_status = 1;

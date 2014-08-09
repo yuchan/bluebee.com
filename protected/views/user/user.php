@@ -15,7 +15,7 @@
                                     <p style="float: right"><?php echo $user['user_hometown'] ?></p>
                                     <br><br>
                                     <i class="icon-calendar" style="float: left"></i>
-                                    <p style="float: right"> <?php echo $user['user_phone'] ?> </p>
+                                    <p style="float: right"> <?php echo $user['user_dob'] ?> </p>
                                 </div>
                             </div>
                         </div>

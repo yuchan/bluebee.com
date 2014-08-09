@@ -6,73 +6,81 @@
 
 <item>
      <link>http://bluebee-uet.com/</link>
-     <title></title>
-     
-     <ror:updatePeriod></ror:updatePeriod>
+     <title>Bluebee - UET - Web hỗ trợ học tập UET</title>
+     <description>Bluebee - UET - Web hỗ trợ học tập UET</description>
+     <ror:updatePeriod>always</ror:updatePeriod>
      <ror:sortOrder>0</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
 <item>
      <link>http://bluebee-uet.com/listOfSubject</link>
-     <title></title>
-     
-     <ror:updatePeriod></ror:updatePeriod>
+     <title>Bluebee - UET - Web hỗ trợ học tập UET</title>
+     <description>Bluebee - UET - Web hỗ trợ học tập UET</description>
+     <ror:updatePeriod>always</ror:updatePeriod>
      <ror:sortOrder>1</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
 <item>
      <link>http://bluebee-uet.com/document</link>
-     <title></title>
-     
-     <ror:updatePeriod></ror:updatePeriod>
+     <title>Bluebee - UET - Web hỗ trợ học tập UET</title>
+     <description>Bluebee - UET - Web hỗ trợ học tập UET</description>
+     <ror:updatePeriod>always</ror:updatePeriod>
      <ror:sortOrder>1</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
 <item>
      <link>http://bluebee-uet.com/share/teacherListPage</link>
-     <title></title>
-     
-     <ror:updatePeriod></ror:updatePeriod>
+     <title>Bluebee - UET - Web hỗ trợ học tập UET</title>
+     <description>Bluebee - UET - Web hỗ trợ học tập UET</description>
+     <ror:updatePeriod>always</ror:updatePeriod>
      <ror:sortOrder>1</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
 <item>
      <link>http://bluebee-uet.com/listOfSubject/subject?subject_id='%20+%20this.subject_id%20+%20'</link>
-     <title></title>
-     
-     <ror:updatePeriod></ror:updatePeriod>
+     <title>Bluebee - UET - Web hỗ trợ học tập UET</title>
+     <description>Bluebee - UET - Web hỗ trợ học tập UET</description>
+     <ror:updatePeriod>always</ror:updatePeriod>
      <ror:sortOrder>1</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
 <item>
-     <link>http://bluebee-uet.com/Contact</link>
+     <link>http://bluebee-uet.com/share/teacher?id='%20+%20this.teacher_id%20+%20'</link>
      <title></title>
      
-     <ror:updatePeriod></ror:updatePeriod>
+     <ror:updatePeriod>always</ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://bluebee-uet.com/term</link>
+     <title>Bluebee - UET - Web hỗ trợ học tập UET</title>
+     <description>Bluebee - UET - Web hỗ trợ học tập UET</description>
+     <ror:updatePeriod>always</ror:updatePeriod>
      <ror:sortOrder>1</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
 <item>
      <link>http://bluebee-uet.com/aboutUs</link>
-     <title></title>
-     
-     <ror:updatePeriod></ror:updatePeriod>
+     <title>Bluebee - UET - Web hỗ trợ học tập UET</title>
+     <description>Bluebee - UET - Web hỗ trợ học tập UET</description>
+     <ror:updatePeriod>always</ror:updatePeriod>
      <ror:sortOrder>1</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
 <item>
      <link>http://bluebee-uet.com/viewDocument?doc_id='%20+%20this.doc_id%20+%20'</link>
-     <title></title>
-     
-     <ror:updatePeriod></ror:updatePeriod>
+     <title>Bluebee - UET - Web hỗ trợ học tập UET</title>
+     <description>Bluebee - UET - Web hỗ trợ học tập UET</description>
+     <ror:updatePeriod>always</ror:updatePeriod>
      <ror:sortOrder>2</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
 <item>
-     <link>http://bluebee-uet.com/welcomePage</link>
-     <title></title>
-     
-     <ror:updatePeriod></ror:updatePeriod>
+     <link>http://bluebee-uet.com/Contact</link>
+     <title>Bluebee - UET - Web hỗ trợ học tập UET</title>
+     <description>Bluebee - UET - Web hỗ trợ học tập UET</description>
+     <ror:updatePeriod>always</ror:updatePeriod>
      <ror:sortOrder>2</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
