@@ -62,13 +62,13 @@
                                             <div class="one-third">
                                                 <h4>Ý tưởng-Triển khai</h4>
                                                 Thành lập 1 website với chức năng chuyên biệt :
-                                    <ul>
-                                                        <li>Bàn luận về bài học, học tập</li>
-                                                        <li>Chia sẻ tài liệu</li>
-                                                        <li>Tạo 1 môi trường đoàn kết cho lớp học</li>
-                                                        <li>Đánh giá chất lượng của môn học</li>
-                                                        <li>Nhắc nhở những việc cần thiết trong môn học</li>
-                                                    </ul>
+                                                <ul>
+                                                    <li>Bàn luận về bài học, học tập</li>
+                                                    <li>Chia sẻ tài liệu</li>
+                                                    <li>Tạo 1 môi trường đoàn kết cho lớp học</li>
+                                                    <li>Đánh giá chất lượng của môn học</li>
+                                                    <li>Nhắc nhở những việc cần thiết trong môn học</li>
+                                                </ul>
                                             </div>
                                             <div class="one-third">
                                                 <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/blog-3.jpg" alt="" />
@@ -159,12 +159,12 @@
 
                                         <div class="w-team-member">
                                             <div class="w-team-member-h">
-                                                <div class="w-team-member-image">
-                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/huy1.jpg" alt="Item picture" />
+                                                <div class="w-team-member-image" style="position: relative;" >
+                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/huy1.jpg" alt="Item picture"  />
                                                     <div class="w-team-member-links">
-                                                        <div class="w-team-member-links-list">
+                                                        <div class="w-team-member-links-list" >
                                                             <a class="w-team-member-links-item" href="https://www.facebook.com/zhu.gheliang.5" target="_blank">
-                                                                <i class="icon-facebook"></i>
+                                                                <i class="icon-facebook" style="position: relative;"> </i>
                                                             </a>
                                                         </div>
                                                     </div>
