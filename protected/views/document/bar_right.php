@@ -52,7 +52,7 @@
                             '</span>' +
                             '</div>' +
                             '</div>' +
-                            '<a class="name_document" href=""><strong>' + this.doc_name + '</strong></a>' +
+                            '<div class="name_document"><a href="<?php echo Yii::app()->createAbsoluteUrl('viewDocument') ?>?doc_id=' + this.doc_id + '"><strong>' + this.doc_name + '</strong></a></div>' +
                             '</li>'
                             ).hide().fadeIn(500);
                 });

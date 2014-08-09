@@ -90,7 +90,7 @@
                             </div>
                             <div>
                                 <span class="dataTitle">Website</span>
-                                <span class="dataItem"><?php echo $teacher['teacher_personal_page'] ?></span>
+                                <span class="dataItem"><a href="http://<?php echo $teacher['teacher_personal_page'] ?>"><?php echo $teacher['teacher_personal_page'] ?></a></span>
                             </div>
                             <div>
                                 <span class="dataTitle">Ngày sinh</span>

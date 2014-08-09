@@ -62,23 +62,13 @@
                                             <div class="one-third">
                                                 <h4>Ý tưởng-Triển khai</h4>
                                                 Thành lập 1 website với chức năng chuyên biệt :
-<<<<<<< HEAD
                                                 <ul>
                                                     <li>Bàn luận về bài học, học tập</li>
-                                                    <li>Chia sẻ tài liệu (có thể dùng qua DropBox)</li>
+                                                    <li>Chia sẻ tài liệu</li>
                                                     <li>Tạo 1 môi trường đoàn kết cho lớp học</li>
                                                     <li>Đánh giá chất lượng của môn học</li>
                                                     <li>Nhắc nhở những việc cần thiết trong môn học</li>
                                                 </ul>
-=======
-                                                    <ul>
-                                                        <li>Bàn luận về bài học, học tập</li>
-                                                        <li>Chia sẻ tài liệu</li>
-                                                        <li>Tạo 1 môi trường đoàn kết cho lớp học</li>
-                                                        <li>Đánh giá chất lượng của môn học</li>
-                                                        <li>Nhắc nhở những việc cần thiết trong môn học</li>
-                                                    </ul>
->>>>>>> b91df2548dfd989011775eceb43a61444b68615a
                                             </div>
                                             <div class="one-third">
                                                 <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/blog-3.jpg" alt="" />
@@ -103,15 +93,11 @@
                                             </div>
                                             <div class="two-thirds">
                                                 <h4>Những bước đi đầu tiên</h4>
-<<<<<<< HEAD
+
                                                 <p>Cùng với ý tưởng đã có sẵn và sự giúp đỡ nhiệt tình tới từ các thầy cô giáo trong trường,
                                                     nhóm chúng tôi đã từng bước xây dựng website 1 cách đơn giản, thân thiện và dễ hiểu nhất
                                                     đối với các bạn để có thể đưa vào thực tế nhanh nhất.</p>
-=======
-                                                <p>Cùng với ý tưởng đã có sẵn và sự giúp đỡ nhiệt tình tới từ thầy Trương Anh Hoàng, trưởng bộ môn Công nghệ phần mềm
-                                                nhóm chúng tôi đã từng bước xây dựng website 1 cách đơn giản, thân thiện và dễ hiểu nhất
-                                                đối với các bạn để có thể đưa vào thực tế nhanh nhất.</p>
->>>>>>> b91df2548dfd989011775eceb43a61444b68615a
+
                                             </div>
                                         </div>
                                     </div>
@@ -129,15 +115,11 @@
                                     <div class="w-timeline-section-content">
                                         <div class="g-cols">
                                             <div class="one-third">
-<<<<<<< HEAD
-                                                <h4>Một tháng nỗ lực</h4>
+
+                                                <h4>Nỗ lực và thành quả</h4>
                                                 <p>Với sự cố gắng và nghiên cứu công nghệ, nhóm xây dựng được 1 website để đưa tới các bạn sinh viên.Mong các bạn ủng hộ phiên bản
                                                     đầu tiên của website.</p>
-=======
-                                                <h4>Nỗ lực và thành quả</h4>
-                                                <p>Với sự cố gắng và nỗ lực, nhóm xây dựng được 1 website để đưa tới các bạn sinh viên.Mong các bạn ủng hộ phiên bản
-                                                đầu tiên của website. Tất nhiên không tránh khỏi thiếu sót, vì toàn bộ team đều là newbie về công nghệ web</p>
->>>>>>> b91df2548dfd989011775eceb43a61444b68615a
+
                                             </div>
                                             <div class="one-third">
                                                 <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/blog-1.jpg" alt="" />
@@ -177,12 +159,12 @@
 
                                         <div class="w-team-member">
                                             <div class="w-team-member-h">
-                                                <div class="w-team-member-image">
-                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/huy1.jpg" alt="Item picture" />
+                                                <div class="w-team-member-image" style="position: relative;" >
+                                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/huy1.jpg" alt="Item picture"  />
                                                     <div class="w-team-member-links">
-                                                        <div class="w-team-member-links-list">
+                                                        <div class="w-team-member-links-list" >
                                                             <a class="w-team-member-links-item" href="https://www.facebook.com/zhu.gheliang.5" target="_blank">
-                                                                <i class="icon-facebook"></i>
+                                                                <i class="icon-facebook" style="position: relative;"> </i>
                                                             </a>
                                                         </div>
                                                     </div>

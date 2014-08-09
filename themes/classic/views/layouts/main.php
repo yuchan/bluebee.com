@@ -64,13 +64,13 @@
                         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/ratings.css" />
                         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.barrating.js"></script>
                         <script type="text/javascript">
-            jQuery(document).ready(function($) {
-                // Get current url
-                // Select an a element that has the matching href and apply a class of 'active'. Also prepend a - to the content of the link
-                var url = window.location.href;
-                $('a[href="' + url + '"]').parent().parent().addClass('active');
+                            jQuery(document).ready(function($) {
+                                // Get current url
+                                // Select an a element that has the matching href and apply a class of 'active'. Also prepend a - to the content of the link
+                                var url = window.location.href;
+                                $('a[href="' + url + '"]').parent().parent().addClass('active');
 
-            });
+                            });
                         </script>
                         <script type="text/javascript">
                             $(function() {                           
