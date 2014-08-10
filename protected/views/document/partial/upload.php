@@ -82,9 +82,9 @@
         $('#loading-image-upload').hide();
 
         form.submit(function(event) {
-            // prevent default action
+            
             event.preventDefault();
-            // send ajax request
+            
             var formData = new FormData($('#formscribd')[0]);
             $.ajax({
                 beforeSend: function() {
@@ -102,7 +102,7 @@
                     $('#loading-image-upload').hide();
                 },
                 success: function(data) {
-                    // Append with fadeIn see http://stackoverflow.com/a/978731
+                    
                     console.log(data);
                     var result = $.parseJSON(data);
                     var input = $("#upload_input");
