@@ -33,7 +33,7 @@
                     <?php foreach ($user_result as $user): ?>
                         <div class="result-user clearfix">
                             <a class="search-avatar-view relative float-left" href="<?php echo Yii::app()->createUrl('user?id=') . $user->user_id ?>">
-                                <img class="" width="70" height="70" src="<?php echo $user->user_avatar ?>" style="opacity: 1;">
+                                <img class="" width="70" height="70" src="<?php echo $user->user_avatar ?>" style="opacity: 1;min-height: 70px; min-width: 70px;">
                             </a>
                             <div class="info">
                                 <a href="<?php echo Yii::app()->createUrl('user?id=') . $user->user_id ?>">
@@ -48,7 +48,7 @@
                     <?php foreach ($teacher_result as $teacher): ?>
                         <div class="result-teacher clearfix">
                             <a class="search-avatar-view relative float-left" href="user" style="margin-top: 5px">
-                                <img width="70" height="70" src="<?php echo $teacher->teacher_avatar ?>" style="opacity: 1;">
+                                <img width="70" height="70" src="<?php echo $teacher->teacher_avatar ?>" style="opacity: 1; ">
                             </a>
                             <div class="info">
                                 <a href="<?php echo Yii::app()->createUrl('share/teacher?id=') . $teacher->teacher_id ?>">
