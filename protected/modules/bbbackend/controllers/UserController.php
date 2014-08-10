@@ -4,6 +4,6 @@ class UserController extends Controller
 {
 	public function actionIndex()
 	{
-		$this->render('user');
+		$this->render('index');
 	}
 }
