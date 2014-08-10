@@ -234,8 +234,8 @@ class WelcomePageController extends BaseController {
         $facebook = $this->getFb();
         $loginUrl = $facebook->getLoginUrl(array(
             'scope' => 'read_stream, publish_stream, user_birthday, user_location, user_work_history, user_hometown, user_photos, email',
-            'redirect_uri' => "http://bluebee-uet.com/user?token=" . $user_id->user_token,
-            //"redirect_uri" => Yii::app()->createAbsoluteUrl('welcomePage/fb_login_result')
+        //    'redirect_uri' => "http://bluebee-uet.com/user?token=" . $user_id->user_token,
+            "redirect_uri" => Yii::app()->createAbsoluteUrl('welcomePage/fb_login_result')
         ));
         $this->redirect($loginUrl);
     }
