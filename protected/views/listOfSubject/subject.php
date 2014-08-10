@@ -32,7 +32,8 @@
                                             <div class="w-team-member-h">
                                                 <div class="w-team-member-image">
                                                     <a href="<?php echo Yii::app()->createUrl('share/teacher?id=').$teacher->teacher_id?>">
-                                                    <img src="<?php echo $teacher->teacher_avatar ?>" alt="<?php echo $teacher->teacher_name ?>" />
+                                                    <img src="<?php if($teacher->teacher_avatar != "") {echo $teacher->teacher_avatar;}
+                                                        else {echo Yii::app()->createAbsoluteUrl("themes/classic/assets/img/Teacher_img/Teacher_default_avatar.png");}?>" alt="<?php echo $teacher->teacher_name ?>" />
                                                     </a>
                                                 </div>
                                                 <div class="w-team-member-meta">
