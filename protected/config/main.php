@@ -9,7 +9,7 @@ return array(
     'name' => 'My Web Application',
     // preloading 'log' component
     'preload' => array('log'),
-       'defaultController' => 'ListOfSubject',   
+    'defaultController' => 'ListOfSubject',
     // autoloading model and component classes
     'import' => array(
         'application.models.*',
@@ -26,7 +26,6 @@ return array(
         'ext.YiiMailer.YiiMailer',
         'ext.xupload.XUpload',
         'ext.xupload.eguiders',
-        
     ),
     'modules' => array(
         // uncomment the following to enable the Gii tool
@@ -37,7 +36,7 @@ return array(
         // If removed, Gii defaults to localhost only. Edit carefully to taste.
         //'ipFilters'=>array('127.0.0.1','::1'),
         ),
-        
+        'admin'
     ),
     // application components
     'components' => array(
@@ -50,6 +49,9 @@ return array(
             'urlFormat' => 'path',
             'showScriptName' => false,
             'rules' => array(
+                '<module:\w+>/<controller:\w+>/<id:\d+>' => '<module>/<controller>/view',
+                '<module:\w+>/<controller:\w+>/<action:\w+>/<id:\d+>' => '<module>/<controller>/<action>',
+                '<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 #'<controller:\w+>/<action:\w+>/<id:\d+>/<sex:\d+>'=>'<controller>/<action>',
