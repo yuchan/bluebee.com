@@ -68,7 +68,8 @@
                             </select>
                         </div>
                         &nbsp;
-                        </br>
+                        <div class="left"> Lượt like : </div>
+                        <br/>
                         <a href="<?php echo Yii::app()->createAbsoluteUrl('share/teacherListPage') ?>"><button class="g-btn type_outline size_small"><span>Danh sách giáo viên</span></button></a>
 
                         <div class="rounded1 color_alternate" style="margin-top: 20px; height: auto">
