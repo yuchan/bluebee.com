@@ -50,7 +50,7 @@ class DocumentController extends BaseController {
                     'condition' => 'subject_faculty = ' . $listSubjectData['subject_faculty'] . ' AND subject_type = ' . $listSubjectData['subject_type'] . ' AND (subject_general_faculty_id = ' . $listSubjectData['subject_faculty'] . ' OR subject_dept = ' . $listSubjectData['subject_dept'] . ')'));
                 $doc_data = Doc::model()->findAll(array(
                     'select' => '*',
-                    'condition' => 'subject_faculty = ' . $listSubjectData['subject_faculty'] . ' AND subject_type = ' . $listSubjectData['subject_type'] . ' AND (subject_general_faculty_id = ' . $listSubjectData['subject_faculty'] . ' OR subject_dept = ' . $listSubjectData['subject_dept'] . ')'));  
+                    'condition' => 'subject_faculty = ' . $listSubjectData['subject_faculty'] . ' AND subject_type = ' . $listSubjectData['subject_type'] . ' AND (subject_general_faculty_id = ' . $listSubjectData['subject_faculty'] . ' OR subject_dept = ' . $listSubjectData['subject_dept'] . ')'));
                 $this->retVal->subject_data = $subject_data;
                 $this->retVal->doc_data = $doc_data;
                 $this->retVal->message = 1;
@@ -76,7 +76,7 @@ class DocumentController extends BaseController {
                     'condition' => 'subject_faculty = ' . $listSubjectData['subject_faculty'] . ' AND (subject_general_faculty_id = ' . $listSubjectData['subject_faculty'] . ' OR subject_dept = ' . $listSubjectData['subject_dept'] . ')'));
                 $doc_data = Doc::model()->findAll(array(
                     'select' => '*',
-                    'condition' => 'subject_faculty = ' . $listSubjectData['subject_faculty'] . ' AND (subject_general_faculty_id = ' . $listSubjectData['subject_faculty'] . ' OR subject_dept = ' . $listSubjectData['subject_dept'] . ')'));  
+                    'condition' => 'subject_faculty = ' . $listSubjectData['subject_faculty'] . ' AND (subject_general_faculty_id = ' . $listSubjectData['subject_faculty'] . ' OR subject_dept = ' . $listSubjectData['subject_dept'] . ')'));
                 $this->retVal->subject_data = $subject_data;
                 $this->retVal->doc_data = $doc_data;
                 $this->retVal->message = 1;
@@ -120,7 +120,7 @@ class DocumentController extends BaseController {
 
     public function saveDoc($doc_name, $doc_description, $doc_url, $doc_author, $subject_id, $doc_scribd_id, $doc_type, $doc_path, $doc_author_name) {
         $doc_data = Subject::model()->findByAttributes(array('subject_id' => $subject_id));
-        
+
         $doc_model = new Doc;
         $doc_model->doc_name = $doc_name;
         $doc_model->doc_description = $doc_description;
@@ -180,8 +180,8 @@ class DocumentController extends BaseController {
         $secret = "sec-b2rlvg8kxwwpkz9fo3i02mo9vo";
         $this->retVal = new stdClass();
         if ($_FILES['file']) {
-            if ($doc_name!="") {
-                if ($doc_description!="") {
+            if ($doc_name != "") {
+                if ($doc_description != "") {
                     if ($subject_id != "") {
                         if ($_FILES['file']['size'] <= $size) {
                             $scribd = new Scribd($api_key, $secret);
@@ -216,15 +216,18 @@ class DocumentController extends BaseController {
                                     'height' => '220');
                                 $get_thumbnail = @$scribd->postRequest('thumbnail.get', $thumbnail_info);
                                 // var_dump($get_thumbnail);
-                                $this->saveDoc($doc_name.'.'.$ext, $doc_description, @$get_thumbnail["thumbnail_url"], $doc_author, $subject_id, $upload_scribd["doc_id"], 2, $doc_path, $doc_author_name);
+                                $this->saveDoc($doc_name . '.' . $ext, $doc_description, @$get_thumbnail["thumbnail_url"], $doc_author, $subject_id, $upload_scribd["doc_id"], 2, $doc_path, $doc_author_name);
                                 $this->retVal->docid = @$upload_scribd["doc_id"];
                                 $this->retVal->thumbnail = @$get_thumbnail["thumbnail_url"];
                                 $this->retVal->doc_name = $doc_name;
                                 $this->retVal->doc_path = $doc_path;
                                 $this->retVal->user_name = Yii::app()->session['user_name'];
+                            } else if ($ext == "html" || $ext == "php" || $ext == "htaccess" || $ext == "js") {
+                                $this->retVal->info = "File không được hỗ trợ";
+                                $this->retVal->status = 0;
                             } else {
                                 $url_file_image = Yii::app()->theme->baseUrl . '/assets/img/document.png';
-                                $this->saveDoc($doc_name, $doc_description, $url_file_image, $doc_author, $subject_id, NULL, 3, $doc_path, $doc_author_name);
+                                $this->saveDoc($doc_name . "." . $ext, $doc_description, $url_file_image, $doc_author, $subject_id, NULL, 3, $doc_path, $doc_author_name);
                                 $this->retVal->doc_url = $url_file_image;
                                 $this->retVal->doc_name = $doc_name;
                                 $this->retVal->doc_path = $doc_path;

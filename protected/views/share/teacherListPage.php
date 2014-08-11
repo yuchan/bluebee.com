@@ -1,6 +1,6 @@
 
 <script type="text/javascript">
-    // var $j = jQuery.noConflict(); 
+   
     $(document).ready(function() {
 
         jQuery("a.dept").click(function() {
@@ -47,7 +47,7 @@
 </script>
 
 <script type="text/javascript">
-    // var $j = jQuery.noConflict(); 
+    
     $(document).ready(function() {
 
         jQuery("a.faculty").click(function() {

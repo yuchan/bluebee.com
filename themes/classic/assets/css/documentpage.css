@@ -333,3 +333,6 @@
 .info_file_content:after {
     content:"\f00d"
 }
+.name_document {
+    height: 100px;
+}

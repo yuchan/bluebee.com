@@ -4,7 +4,7 @@
      border-color: #d0d6d9;
      ">
 
-    <h3>Các ngành học</h3>            
+    <h3>Các ngành học</h3>
     <div class="widget">
         <nav class="w-nav">
             <div class="w-nav-h">
@@ -15,7 +15,7 @@
 
                                 <?php $dept = Dept::model()->findAllByAttributes(array('dept_faculty' => $category->faculty_id)); ?>
                                 <div class="w-nav-item-h">
-                                    <a href="javascript:void(0)" class="w-nav-anchor level_1 faculty" faculty-id="<?php echo $category->faculty_id ?>"><?php echo $category->faculty_name ?> 
+                                    <a href="javascript:void(0)" class="w-nav-anchor level_1 faculty" faculty-id="<?php echo $category->faculty_id ?>"><?php echo $category->faculty_name ?>
                                         <span class="w-nav-title " ></span>
                                     </a>
 
@@ -76,7 +76,7 @@
                                 </div>
                             </div>
 
-                        <?php endforeach; ?>  
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@
 
 
 <script type="text/javascript">
-    // var $j = jQuery.noConflict(); 
+    
     $(document).ready(function() {
 
         jQuery("a.subject").click(function() {
@@ -123,7 +123,7 @@
                                 '</span>' +
                                 '</div>' +
                                 '</div>' +
-                                '<a class="name_document" href=""><strong>' + this.doc_name + '</strong></a>' +
+                                '<div class="name_document"><a href="<?php echo Yii::app()->createAbsoluteUrl('viewDocument') ?>?doc_id=' + this.doc_id + '"><strong>' + this.doc_name + '</strong></a></div>' +
                                 '</li>'
                                 ).hide().fadeIn(500);
                     });
@@ -143,7 +143,7 @@
 </script>
 
 <script type="text/javascript">
-    // var $j = jQuery.noConflict(); 
+    // var $j = jQuery.noConflict();
     $(document).ready(function() {
 
         jQuery("a.dept").click(function() {
@@ -180,7 +180,7 @@
                                 '</span>' +
                                 '</div>' +
                                 '</div>' +
-                                '<a class="name_document" href=""><strong>' + this.doc_name + '</strong></a>' +
+                                '<div class="name_document"><a href="<?php echo Yii::app()->createAbsoluteUrl('viewDocument') ?>?doc_id=' + this.doc_id + '"><strong>' + this.doc_name + '</strong></a></div>' +
                                 '</li>'
                                 ).hide().fadeIn(500);
                     });
@@ -200,7 +200,7 @@
 </script>
 
 <script type="text/javascript">
-    // var $j = jQuery.noConflict(); 
+    // var $j = jQuery.noConflict();
     $(document).ready(function() {
 
         jQuery("a.faculty").click(function() {
@@ -237,12 +237,12 @@
                                 '</span>' +
                                 '</div>' +
                                 '</div>' +
-                                '<a class="name_document" href=""><strong>' + this.doc_name + '</strong></a>' +
+                                '<div class="name_document"><a href="<?php echo Yii::app()->createAbsoluteUrl('viewDocument') ?>?doc_id=' + this.doc_id + '"><strong>' + this.doc_name + '</strong></a></div>' +
                                 '</li>'
                                 ).hide().fadeIn(500);
                     });
                     jQuery('#filter_subject').html('');
-//Scrip Loc theo mon hoc - bar-right                   
+//Scrip Loc theo mon hoc - bar-right
                     jQuery.each(result.subject_data, function(key, value) {
 
                         jQuery('#filter_subject.filter_subjects').append(
@@ -259,7 +259,7 @@
 </script>
 
 <script type="text/javascript">
-    // var $j = jQuery.noConflict(); 
+    // var $j = jQuery.noConflict();
     function loaddoc() {
 
         var $self = $(this);
@@ -295,7 +295,7 @@
                             '</span>' +
                             '</div>' +
                             '</div>' +
-                            '<a class="name_document" href=""><strong>' + this.doc_name + '</strong></a>' +
+                            '<div class="name_document"><a href="<?php echo Yii::app()->createAbsoluteUrl('viewDocument') ?>?doc_id=' + this.doc_id + '"><strong>' + this.doc_name + '</strong></a></div>' +
                             '</li>'
                             ).hide().fadeIn(500);
                 });
