@@ -41,9 +41,16 @@ class ShareController extends BaseController {
                 'select' => false,
                 'condition' => 'teacher_id = '.$_GET['id']
             )))->findAll();
+            
+            $ratingCriteria = new CDbCriteria();
+            $ratingCriteria->select = "*";
+            $ratingCriteria->condition = "teacher_id = ".$_GET['id'];
+            $rating = Votes::model()->findAll($ratingCriteria);
+            $count = count($rating);
+            
             if ($teacher_current_id) {
                 $this->render('teacher', array('teacher_detail_info' => Teacher::model()->findAll($spCriteria),
-                    'subject_teacher' => $subject_teacher));
+                    'subject_teacher' => $subject_teacher, 'countVote' => $count));
             }
         }
     }
@@ -81,9 +88,9 @@ class ShareController extends BaseController {
                     'select' => '*',
                     'condition' => 'teacher_id = '.$_POST['teacher_id']
                 ));
-                $ratingScore = round(($averageRatingScore +$_POST['rating_score'])/($count + 1));
+                $ratingScore = ($averageRatingScore +$_POST['rating_score'])/($count + 1);
 
-                $teacher->teacher_rate = $ratingScore;
+                $teacher->teacher_rate = round($ratingScore, 1);
                 $teacher->save(FALSE);
                 
                 $vote = new Votes;
@@ -92,9 +99,9 @@ class ShareController extends BaseController {
                 $vote->rating_score = $_POST['rating_score'];
                 $vote->save(FALSE);
 
-                $this->retVal->count = $count;
-                $this->retVal->aver = $averageRatingScore;
-                $this->retVal->score = $ratingScore;
+                $this->retVal->count = $count + 1;
+                $this->retVal->aver = round($ratingScore, 1);
+                $this->retVal->score = round($ratingScore);
             }else{
                 $this->retVal->message = "Bạn đã đánh giá thầy/cô này.";
             }
