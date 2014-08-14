@@ -297,6 +297,15 @@
                                                                             </a>
                                                                         </div>
                                                                     </div>
+                                                                     <div class="w-nav-item level_1">
+                                                                        <div class="w-nav-item-h">
+                                                                            <a href="<?php echo Yii::app()->createAbsoluteUrl("lab") ?>" class="w-nav-anchor level_1 menu-header">
+                                                                                <span class="w-nav-icon"><i class="icon-star"></i></span>
+                                                                                <span class="w-nav-title">Lab - Tài liệu nén</span>
+                                                                                <span class="w-nav-hint"></span>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
                                                                     <div class="w-nav-item level_1">
                                                                         <div class="w-nav-item-h">
                                                                             <a href="<?php echo Yii::app()->createAbsoluteUrl("share/teacherListPage") ?>" class="w-nav-anchor level_1 menu-header">
