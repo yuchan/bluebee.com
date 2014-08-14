@@ -13,7 +13,7 @@ class DocumentController extends BaseController {
     public function actionIndex() {
 
         //    $this->redirect('welcomePage');
-        $this->pageTitle = "Đề thi - Tài liệu UET";
+        $this->pageTitle = "Bluebee - UET | Đề thi - Tài liệu UET";
         $this->actionDocument();
     }
 
@@ -216,7 +216,7 @@ class DocumentController extends BaseController {
                                     'method' => NULL,
                                     'session_key' => NULL,
                                     'my_user_id' => NULL,
-                                    'width' => '180',
+                                    'width' => '200',
                                     'height' => '220');
                                 $get_thumbnail = @$scribd->postRequest('thumbnail.get', $thumbnail_info);
                                 // var_dump($get_thumbnail);

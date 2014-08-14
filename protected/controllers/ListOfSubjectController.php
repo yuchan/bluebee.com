@@ -5,6 +5,7 @@ Yii::import('application.controllers.BaseController');
 class ListOfSubjectController extends BaseController {
 
     public function actionIndex() {
+        $this->pageTitle = "Bluebee - UET | Chương trình đào tạo";
         $this->actionListOfSubject();
     }
 
