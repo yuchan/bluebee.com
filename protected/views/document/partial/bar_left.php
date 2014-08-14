@@ -86,7 +86,7 @@
 
 
 <script type="text/javascript">
-    // var $j = jQuery.noConflict();
+    
     $(document).ready(function() {
 
         jQuery("a.subject").click(function() {

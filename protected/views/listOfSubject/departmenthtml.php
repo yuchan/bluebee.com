@@ -4,10 +4,10 @@
             <div class="w-gallery-main-h flexslider flex-loading">
                 <ul class="slides">
                     <li>
-                        <img width="728" height="410" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/department_1.jpg" />
+                        <img width="720" height="370" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/department_1.jpg" />
                     </li>
                     <li>
-                        <img width="728" height="410" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/department_3.jpg" />
+                        <img width="720" height="370" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/demo/department_3.jpg" />
                     </li>
                 </ul>
                 <ul class="flex-direction-nav">

@@ -22,7 +22,6 @@
 </div>
 
 <script type="text/javascript">
-    // var $j = jQuery.noConflict();
     function loaddoc(id) {
         var $self = $(this);
 

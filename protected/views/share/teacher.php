@@ -184,8 +184,14 @@
                         </div>
                         <!--cmt facebook-->
                     </div>
+                    <div>
+                        <h3>Bình luận</h3>
+                        <div class="fb-comments" data-href="<?php echo Yii::app()->createAbsoluteUrl('share/teacher?id=') . $teacher['teacher_id'] ?>" data-width="1000" data-numposts="8" data-colorscheme="light"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+
 <?php endforeach; ?>

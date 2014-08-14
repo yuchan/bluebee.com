@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
-        <title>Bluebee - UET - Web hỗ trợ học tập UET</title>
+        <title><?php echo $this->pageTitle;?></title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="language" content="en" />
 
@@ -359,39 +359,6 @@
 
                                         </div>
                                     </div>
-
-                                    <!--  <div id="login_overlay" style="visibility: visible; transition: visibility 0s ease 0.2s, opacity 0.6s ease-in-out 0s; -webkit-transition: visibility 0s ease 0.2s, opacity 0.6s ease-in-out 0s;">
-                                          <div style="background-color: rgba(255, 255, 255, 0.88); position: fixed; top: 0px; left: 0px; right: 0px; bottom: 0px; transition: visibility 0s ease 0.2s, opacity 0.6s ease-in-out 0s; z-index: 994;"></div>
-                                          <div id="login_dialog" style="border-radius: 8px; position: fixed; top: 50%; left: 50%; width: 600px; height: 456px; margin-top: -265px; z-index: 995; margin-left: -300px; background: url(http://cungnghe.com/img/login_welcome.png) 0px 0px no-repeat scroll rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.298039) 0px 2px 5px;transition: visibility 0s ease 0.2s, opacity 0.6s ease-in-out 0s; -webkit-transition: visibility 0s ease 0.2s, opacity 0.6s ease-in-out 0s;">
-                                              <div style="padding: 13px 140px; height: 430px; text-align: center;">
-                                                  <h2 style="color: rgb(255, 255, 255); font-weight: bold; line-height: normal; padding: 0px; margin: 70px 0px 25px; letter-spacing: -1px; font-size: 30px;">
-                                                      Welcome to Bluebee!
-                                                  </h2>
-                                                  <p style="color: rgb(255, 255, 255); font-size: 16px; font-weight: 500; line-height: 22px; margin: 15px 0px; font-family: Helvetica, Arial,sans-serif;">
-                                                      "Nơi giao lưu, hỗ trợ học tập hiệu quả cho sinh viên UET!"
-                                                  </p>
-                                                  <div style="margin-top: 105px; height: 100px;">
-                                                      <div style="width: 322px; height: 50px; padding: 12px 0px;" class="colorbutton fbbutton">
-                                                          <span style="background-size: 30px 30px; height: 26px; margin-left: 16px; margin-top: 0; margin-right: 0px; width: 30px;" class="fb-icon"></span>
-                                                          <span style="font-weight: normal; font-size: 21px; -webkit-font-smoothing: antialiased">Đăng nhập với Facebook</span>
-                                                      </div>
-                                                      <p style="margin-top: 10px; font-size: 13px; font-family: Helvetica,Arial,sans-serif; color: #333333;">
-                                                          Đăng nhập để khám phá một môi trường học tập thú vị mang bản sắc UET!
-                                                      </p>
-                                                  </div>
-                                              </div>
-                                              <script type="text/javascript">
-                                                  $(document).ready(function(){
-                                                      $('#close_login').click(function(){
-                                                          $('#login_overlay').hide();
-                                                      });
-                                                  });
-                                              </script>
-                                              <a style="position: absolute; right: 16px; top: 20px; cursor: pointer; color: #18bacd; visibility: visible; font-size: 14px;" title="Close" class="close-onboarding" rel="no-follow">
-                                                  <i id="close_login" class="icon-x-alt"></i>
-                                              </a>
-                                          </div>
-                                      </div> -->
                                     <!-- MAIN -->
                                     <div style="padding-top: 126px; z-index: 0; position: relative;">
                                         <?php echo $content; ?>
