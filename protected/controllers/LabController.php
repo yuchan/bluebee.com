@@ -29,7 +29,7 @@ class LabController extends BaseController {
     }
 
     public function actionLab() {
-      //  Yii::app()->clientScript->registerMetaTag('foo, bar', 'keywords');
+        //  Yii::app()->clientScript->registerMetaTag('foo, bar', 'keywords');
         $category_father = $this->listCategoryFather();
         $subject_type = $this->listSubjectType();
         $subject = Subject::model()->findAll();
@@ -100,12 +100,11 @@ class LabController extends BaseController {
                 );
                 $subject_data = Subject::model()->findAllByAttributes(array(
                     'subject_faculty' => $listSubjectData['subject_faculty'],
-                    
 //                ), array('select' => 't.subject_name', 'distinct' => true)
                 ));
                 $doc_data = Doc::model()->findAllByAttributes(array(
                     'subject_faculty' => $listSubjectData['subject_faculty'],
-                    'doc_type'=>3
+                    'doc_type' => 3
                 ));
                 $this->retVal->subject_data = $subject_data;
                 $this->retVal->doc_data = $doc_data;
@@ -123,7 +122,7 @@ class LabController extends BaseController {
     }
 
     public function saveDoc($doc_name, $doc_description, $doc_url, $doc_author, $subject_id, $doc_scribd_id, $doc_type, $doc_path, $doc_author_name) {
-      
+
         $doc_data = Subject::model()->findByAttributes(array('subject_id' => $subject_id));
 
         $doc_model = new Doc;
