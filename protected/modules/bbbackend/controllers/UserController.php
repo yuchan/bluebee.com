@@ -4,6 +4,8 @@ class UserController extends Controller
 {
 	public function actionIndex()
 	{
-		$this->render('index');
+            //echo "UserController.actionIndex";
+            //return;
+            $this->render('application.modules.bbbackend.views.user.index');
 	}
 }
