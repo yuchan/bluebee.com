@@ -14,6 +14,7 @@ class DocumentController extends BaseController {
 
         //    $this->redirect('welcomePage');
         $this->pageTitle = "Bluebee - UET | Đề thi - Tài liệu UET";
+        Yii::app()->clientScript->registerMetaTag("Bluebee - UET | Đề thi - Tài liệu UET", null, null, array('property' => 'og:title'));
         $this->actionDocument();
     }
 
@@ -216,8 +217,8 @@ class DocumentController extends BaseController {
                                     'method' => NULL,
                                     'session_key' => NULL,
                                     'my_user_id' => NULL,
-                                    'width' => '200',
-                                    'height' => '220');
+                                    'width' => '220',
+                                    'height' => '250');
                                 $get_thumbnail = @$scribd->postRequest('thumbnail.get', $thumbnail_info);
                                 // var_dump($get_thumbnail);
                                 $this->saveDoc($doc_name . '.' . $ext, $doc_description, @$get_thumbnail["thumbnail_url"], $doc_author, $subject_id, $upload_scribd["doc_id"], 2, $doc_path, $doc_author_name);

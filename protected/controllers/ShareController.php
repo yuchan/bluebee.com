@@ -52,12 +52,12 @@ class ShareController extends BaseController {
                 foreach ($teacher_current_id as $detail):
                     $title = "Bluebee - UET | " . $detail->teacher_acadamic_title . " " . $detail->teacher_name;
                     $image = $detail->teacher_avatar;
+                    $des = $detail->teacher_description;
                     $this->pageTitle = $title;
                     Yii::app()->clientScript->registerMetaTag($title, null, null, array('property' => 'og:title'));
                     Yii::app()->clientScript->registerMetaTag($image, null, null, array('property' => 'og:image'));
+                    Yii::app()->clientScript->registerMetaTag($des, null, null, array('property' => 'og:description'));
                 endforeach;
-
-
                 $this->render('teacher', array('teacher_detail_info' => Teacher::model()->findAll($spCriteria),
                     'subject_teacher' => $subject_teacher, 'countVote' => $count));
             }
@@ -68,6 +68,8 @@ class ShareController extends BaseController {
         $teacher_list = Teacher::model()->findAll();
         $category_father = $this->listCategoryFather();
         $subject_type = $this->listSubjectType();
+        $this->pageTitle = "Bluebee - UET | Danh sách giáo viên UET";
+        Yii::app()->clientScript->registerMetaTag("Bluebee - UET | Danh sách giáo viên UET", null, null, array('property' => 'og:title'));
         $this->render('teacherListPage', array('teacher_list' => $teacher_list, 'category_father' => $category_father, 'subject_type' => $subject_type));
     }
 

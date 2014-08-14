@@ -6,6 +6,7 @@ class ListOfSubjectController extends BaseController {
 
     public function actionIndex() {
         $this->pageTitle = "Bluebee - UET | Chương trình đào tạo";
+        Yii::app()->clientScript->registerMetaTag("Bluebee - UET | Chương trình đào tạo", null, null, array('property' => 'og:title'));
         $this->actionListOfSubject();
     }
 
@@ -56,11 +57,11 @@ class ListOfSubjectController extends BaseController {
 
             $lesson = Lesson::model()->findAll(array("select" => "*", "condition" => "lesson_subject = " . $_GET["subject_id"],
                 "order" => "lesson_weeks ASC"));
-            
+
             $doc_related = Doc::model()->with(array("docs" => array(
-                "select" => FALSE,
-                "condition" => "subject_id = " . $_GET["subject_id"]
-            ) ))->findAll();
+                            "select" => FALSE,
+                            "condition" => "subject_id = " . $_GET["subject_id"]
+                )))->findAll();
         }
         $category_father = Faculty::model()->findAll();
         $subject_type = SubjectType::model()->findAll();
