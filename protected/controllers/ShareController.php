@@ -54,6 +54,8 @@ class ShareController extends BaseController {
                     $image = $detail->teacher_avatar;
                     $des = $detail->teacher_description;
                     $this->pageTitle = $title;
+                   
+                    Yii::app()->clientScript->registerLinkTag("image_src", "image/jpeg", $image);
                     Yii::app()->clientScript->registerMetaTag($title, null, null, array('property' => 'og:title'));
                     Yii::app()->clientScript->registerMetaTag($image, null, null, array('property' => 'og:image'));
                     Yii::app()->clientScript->registerMetaTag($des, null, null, array('property' => 'og:description'));
