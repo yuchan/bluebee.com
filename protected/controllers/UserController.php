@@ -36,6 +36,9 @@ class UserController extends BaseController {
             $spCriteria->condition = "user_id = '" . $user_current_token->user_id . "'";
             $user_doc_info = Doc::model()->findAllByAttributes(array('doc_author' => $user_current_token->user_id));
             $user_current_id = User::model()->findByAttributes(array('user_id' => $user_current_token->user_id));
+            $this->pageTitle = "Bluebee - UET | " . $user_current_token->user_real_name;
+            Yii::app()->clientScript->registerMetaTag("Bluebee - UET | " . $user_current_token->user_real_name, null, null, array('property' => 'og:title'));
+            Yii::app()->clientScript->registerMetaTag($user_current_token->user_avatar, null, null, array('property' => 'og:image'));
 
             if ($user_current_id) {
                 $this->render('user', array('user_detail_info' => User::model()->findAll($spCriteria),
@@ -48,6 +51,12 @@ class UserController extends BaseController {
             $spCriteria->select = "*";
             $spCriteria->condition = "user_id = '" . $_GET["id"] . "'";
             $user_doc_info = Doc::model()->findAllByAttributes(array('doc_author' => $_GET["id"]));
+            $user_detail_info = User::model()->findAll($spCriteria);
+            foreach ($user_detail_info as $user):
+                $this->pageTitle = "Bluebee - UET | " . $user['user_real_name'];
+                Yii::app()->clientScript->registerMetaTag("Bluebee - UET | " . $user['user_real_name'], null, null, array('property' => 'og:title'));
+                Yii::app()->clientScript->registerMetaTag($user['user_avatar'], null, null, array('property' => 'og:image'));
+            endforeach;
             $this->render('user', array('user_detail_info' => User::model()->findAll($spCriteria),
                 'user_doc_info' => $user_doc_info, 'user_activity' => $user_activity));
         }

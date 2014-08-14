@@ -16,7 +16,7 @@
  * @property integer $teacher_sex
  * @property integer $teacher_faculty
  * @property integer $teacher_dept
- * @property integer $teacher_rate
+ * @property double $teacher_rate
  * @property string $teacher_personality
  * @property string $advices
  * @property string $teacher_research
@@ -39,7 +39,8 @@ class Teacher extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('teacher_active, teacher_sex, teacher_faculty, teacher_dept, teacher_rate', 'numerical', 'integerOnly'=>true),
+			array('teacher_active, teacher_sex, teacher_faculty, teacher_dept', 'numerical', 'integerOnly'=>true),
+			array('teacher_rate', 'numerical'),
 			array('teacher_name, teacher_personal_page, teacher_description, teacher_acadamic_title, teacher_birthday', 'length', 'max'=>45),
 			array('teacher_avatar', 'length', 'max'=>200),
 			array('teacher_work_place', 'length', 'max'=>100),
@@ -58,7 +59,6 @@ class Teacher extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-                    'subject_teacher' => array(self::BELONGS_TO, 'SubjectTeacher', array('teacher_id'=>'teacher_id'))
 		);
 	}
 

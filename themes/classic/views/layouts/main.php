@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
-        <title>Bluebee - UET - Web hỗ trợ học tập UET</title>
+        <title><?php echo $this->pageTitle;?></title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="language" content="en" />
 
@@ -293,6 +293,15 @@
                                                                             <a href="<?php echo Yii::app()->createAbsoluteUrl("document") ?>" class="w-nav-anchor level_1 menu-header">
                                                                                 <span class="w-nav-icon"><i class="icon-star"></i></span>
                                                                                 <span class="w-nav-title">Đề thi - Tài liệu</span>
+                                                                                <span class="w-nav-hint"></span>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                     <div class="w-nav-item level_1">
+                                                                        <div class="w-nav-item-h">
+                                                                            <a href="<?php echo Yii::app()->createAbsoluteUrl("lab") ?>" class="w-nav-anchor level_1 menu-header">
+                                                                                <span class="w-nav-icon"><i class="icon-star"></i></span>
+                                                                                <span class="w-nav-title">Lab - Tài liệu nén</span>
                                                                                 <span class="w-nav-hint"></span>
                                                                             </a>
                                                                         </div>

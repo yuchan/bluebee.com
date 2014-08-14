@@ -263,7 +263,7 @@ class WelcomePageController extends BaseController {
                 $user_facebook_exist->user_qoutes = $user["quotes"];
             }
             $user_facebook_exist->user_dob = $user["birthday"];
-            $user_facebook_exist->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture?type=small";
+            $user_facebook_exist->user_avatar = "http://graph.facebook.com/" . $user["id"] . "/picture?type=large";
             $user_facebook_exist->user_hometown = $user["hometown"]["name"];
             $user_facebook_exist->user_active = 1;
             $user_facebook_exist->save(FALSE);

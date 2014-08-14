@@ -16,30 +16,35 @@
                         <script type="text/javascript">
                             $(document).ready(function() {
                                 $(".star").click(function() {
-                                    var score = $(this).attr("data-rating-value")
-                                    $.ajax({
-                                        type: "POST",
-                                        url: "<?php echo Yii::app()->createUrl('share/Rating') ?>",
-                                        data: {rating_score: score, teacher_id: <?php echo $teacher['teacher_id'] ?>},
-                                        success: function(data) {
-                                            var result = $.parseJSON(data);
-                                            if (result.checkRatingStatus === 0) {
-                                                var i;
-                                                console.log(result.score);
-                                                console.log(result.aver);
-                                                console.log(result.count);
-
-                                                for (i = 1; i <= 5; i++) {
-                                                    if (i <= result.score)
-                                                        $('a[data-rating-value=' + i + ']').addClass("br-selected");
-                                                    else
-                                                        $('a[data-rating-value=' + i + ']').removeClass(".br-selected");
+                                    if("<?php echo Yii::app()->session["user_id"]?>" == ""){
+                                        alert("Bạn vui lòng đăng nhập để thực hiện tác vụ này!");
+                                    } else {                                                                               
+                                        var score = $(this).attr("data-rating-value");
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "<?php echo Yii::app()->createUrl('share/Rating') ?>",
+                                            data: {rating_score: score, teacher_id: <?php echo $teacher['teacher_id'] ?>},
+                                            success: function(data) {
+                                                var result = $.parseJSON(data);
+                                                if (result.checkRatingStatus === 0) {
+                                                    var i;
+                                                    console.log(result.score);
+                                                    console.log(result.aver);
+                                                    console.log(result.count);
+                                                    $("#number_rator").html(result.count);
+                                                    $("#average_score").html(result.aver);
+                                                    for (i = 1; i <= 5; i++) {
+                                                        if (i <= result.score)
+                                                            $('a[data-rating-value=' + i + ']').addClass("br-selected");
+                                                        else
+                                                            $('a[data-rating-value=' + i + ']').removeClass("br-selected");
+                                                    }
+                                                } else {
+                                                    alert(result.message);
                                                 }
-                                            } else {
-                                                alert(result.message);
                                             }
-                                        }
-                                    });
+                                        });
+                                    }; 
                                 });
                             });
                         </script>
@@ -48,28 +53,35 @@
                         <script>
                             $(document).ready(function() {
                                 for (i = 1; i <= 5; i++) {
-                                    if (i <= <?php echo $teacher['teacher_rate'] ?>)
+                                    if (i <= <?php echo round($teacher['teacher_rate']) ?>)
                                         $('a[data-rating-value=' + i + ']').addClass("br-selected");
                                     else
                                         $('a[data-rating-value=' + i + ']').removeClass(".br-selected");
                                 }
+                                $("#average_score").html("<?php echo $teacher->teacher_rate ?>");
+                                $("#number_rator").html("<?php echo " ".$countVote ?>");
                             });
                         </script>
 
-                        <h5>Đánh giá giáo viên: <?php echo $teacher['teacher_acadamic_title'] . " " . $teacher['teacher_name'] ?>:</h5>
-                        <div class="input select rating-f">
-                            <label for="example-f"></label>
-                            <select id="example-f" name="rating">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
+                        <h5>Đánh giá giáo viên:</h5>
+                        <div style="width:50%;float:left">
+                            <div class="input select rating-f">
+                                <label for="example-f"></label>
+                                <select id="example-f" name="rating">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
                         </div>
-                        &nbsp;
-                        <div class="left"> Lượt like : </div>
-                        <br/>
+                         <div style="float: left;width:20%">
+                             <strong style="font-size: 150%" id="average_score"></strong>
+                        </div>
+                        <div style="margin-left: 43px;width:30%">
+                            <div ><p><i class="icon-user" id="number_rator"></i></p></div>
+                        </div>        
                         <a href="<?php echo Yii::app()->createAbsoluteUrl('share/teacherListPage') ?>"><button class="g-btn type_outline size_small"><span>Danh sách giáo viên</span></button></a>
 
                         <div class="rounded1 color_alternate" style="margin-top: 20px; height: auto">
@@ -175,6 +187,7 @@
                     </div>
                     <div>
                         <h3>Bình luận</h3>
+                        <div class="fb-like" data-href="<?php echo Yii::app()->createAbsoluteUrl('share/teacher?id=') . $teacher['teacher_id'] ?>" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
                         <div class="fb-comments" data-href="<?php echo Yii::app()->createAbsoluteUrl('share/teacher?id=') . $teacher['teacher_id'] ?>" data-width="1000" data-numposts="8" data-colorscheme="light"></div>
                     </div>
                 </div>
