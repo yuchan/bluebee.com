@@ -27,9 +27,10 @@ class ViewDocumentController extends Controller {
                 $title = "Bluebee - UET | " . $detail->doc_name;
                 $this->pageTitle = $title;
                 if ($detail->doc_type == 3) {
-                    $image = Yii::app()->getBaseUrl(true). $detail->doc_url;
+                    $image = Yii::app()->getBaseUrl(true) . $detail->doc_url;
                 } else {
-                $image = $detail->doc_url;}
+                    $image = $detail->doc_url;
+                }
                 $des = $detail->doc_description;
                 Yii::app()->clientScript->registerMetaTag($title, null, null, array('property' => 'og:title'));
                 Yii::app()->clientScript->registerMetaTag($image, null, null, array('property' => 'og:image'));
