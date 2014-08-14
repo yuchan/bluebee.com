@@ -13,7 +13,7 @@ class DocumentController extends BaseController {
     public function actionIndex() {
 
         //    $this->redirect('welcomePage');
-
+        $this->pageTitle = "Đề thi - Tài liệu UET";
         $this->actionDocument();
     }
 
@@ -28,6 +28,9 @@ class DocumentController extends BaseController {
     }
 
     public function actionDocument() {
+         
+
+      //  Yii::app()->clientScript->registerMetaTag('foo, bar', 'keywords');
         $category_father = $this->listCategoryFather();
         $subject_type = $this->listSubjectType();
         $subject = Subject::model()->findAll();
@@ -119,6 +122,7 @@ class DocumentController extends BaseController {
     }
 
     public function saveDoc($doc_name, $doc_description, $doc_url, $doc_author, $subject_id, $doc_scribd_id, $doc_type, $doc_path, $doc_author_name) {
+      
         $doc_data = Subject::model()->findByAttributes(array('subject_id' => $subject_id));
 
         $doc_model = new Doc;

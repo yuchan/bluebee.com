@@ -8,22 +8,25 @@ class ViewDocumentController extends Controller {
 //    }
 
     public function actionIndex() {
-      //  if (Yii::app()->session['token'] == "")
+        //  if (Yii::app()->session['token'] == "")
         //    $this->redirect('welcomePage');
         $this->actionViewDocument();
     }
 
     public function actionViewDocument() {
-        if(isset($_GET['doc_id'])){
-            $detail_doc = Doc::model()->findAll(array("select" => "*", "condition" => "doc_id = ". $_GET["doc_id"]));
-            
+        if (isset($_GET['doc_id'])) {
+            $detail_doc = Doc::model()->findAll(array("select" => "*", "condition" => "doc_id = " . $_GET["doc_id"]));
+
             $subject = Subject::model()->with(array("subject_doc" => array(
                             "select" => false,
-                            "condition" => "doc_id = " . $_GET["doc_id"]. " and active = 1"
+                            "condition" => "doc_id = " . $_GET["doc_id"] . " and active = 1"
                 )))->find();
-            
+
             $related_doc = Doc::model()->findAll(array("select" => "*", "limit" => "3", "order" => "RAND()"));
-                       
+            foreach ($detail_doc as $detail):
+                $this->pageTitle = $detail->doc_name;
+            endforeach;
+
             $this->render('viewDocument', array('detail_doc' => $detail_doc, 'related_doc' => $related_doc, 'subject' => $subject));
         }
     }
