@@ -74,13 +74,14 @@
 
                         <div class="rounded1 color_alternate" style="margin-top: 20px; height: auto">
                             <h6>Môn học đang dạy</h6>
-                            <?php foreach ($subject_teacher as $subject_teacher): ?>                            
-                                <div style="margin-top:10px">
-                                    <span class="dataItem1"><a href="<?php echo Yii::app()->createAbsoluteUrl('listOfSubject/subject?subject_id=') . $subject_teacher->subject_id ?>"><?php echo $subject_teacher->subject_name ?></a></span>
-                                    <span class="dataTitle1"><?php echo $subject_teacher->subject_code ?></span>
-                                </div>
-                            <?php endforeach; ?>                          
                         </div>
+                        <?php foreach ($subject_teacher as $subject_teacher): ?>                            
+                            <div style="margin-top:10px">
+                                <span class="dataItem1"><a href="<?php echo Yii::app()->createAbsoluteUrl('listOfSubject/subject?subject_id=') . $subject_teacher->subject_id ?>"><?php echo $subject_teacher->subject_name ?></a></span>
+                                <span class="dataTitle1"><?php echo $subject_teacher->subject_code ?></span>
+                            </div>
+                        <?php endforeach; ?>                          
+
                     </div>
 
                     <div class="two-thirds">
@@ -98,10 +99,10 @@
                                 <span class="dataItem"><?php echo $teacher['teacher_birthday'] ?></span>
                             </div>
                             <br/>
-
-                            <div class="dataTitle" style="float: left;">Thông tin thêm:</div>
-                            <br>
-                            <div class="type_long"><?php echo $teacher['teacher_description'] ?></div>
+                            <div>
+                                <span class="dataTitle">Thông tin thêm:</span>
+                                <span class="dataItem"><?php echo $teacher['teacher_description'] ?></span>
+                            </div>
                         </div>
 
 
@@ -115,7 +116,7 @@
                         </div>
 
                         <div class="g-cols">
-                            <div class="one-half">
+                            <div class="full-width">
                                 <div class="w-iconbox icon_left">
                                     <div class="w-iconbox-h">
                                         <div class="w-iconbox-icon">
@@ -146,8 +147,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="one-half">
+                                <br/>
+                                <br/>
                                 <div class="w-iconbox icon_left">
                                     <div class="w-iconbox-h">
                                         <div class="w-iconbox-icon">
