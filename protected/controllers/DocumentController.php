@@ -293,7 +293,7 @@ class DocumentController extends BaseController {
                 $FilerFormData = array(
                     'subject_id' => $_POST['subject_id']
                 );
-                $sql = "SELECT * FROM tbl_doc INNER JOIN tbl_subject_doc ON tbl_doc.doc_id = tbl_subject_doc.doc_id WHERE tbl_subject_doc.subject_id = '" . $FilerFormData['subject_id'] . "' AND AND doc_type < 3";
+                $sql = "SELECT * FROM tbl_doc INNER JOIN tbl_subject_doc ON tbl_doc.doc_id = tbl_subject_doc.doc_id WHERE tbl_subject_doc.subject_id = '" . $FilerFormData['subject_id'] . "' AND tbl_doc.doc_type < 3";
 //                var_dump($sql);
 //                exit();
                 $result = Yii::app()->db->createCommand($sql)->queryAll();
