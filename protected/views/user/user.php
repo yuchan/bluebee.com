@@ -5,10 +5,12 @@
                 <div class="g-cols">
                     <div class="one-third">
                         <div class="g-cols">
-                            <div class="full-width">
+                            <div class="one-third">
                                 <a href=""><img class="circular float_left" src="<?php
                                     echo $user->user_avatar;
                                     ?>"/></a>
+                            </div>
+                            <div class="two-thirds">
                                 <div  class="clearfix" style="line-height: 20px;">
                                     <h4 style="font-size: 20px"><strong><?php echo $user['user_real_name'] ?></strong></h4>
                                     <i class="icon-home" style="float: left"></i>
@@ -44,7 +46,7 @@
                                             <div class="g-cols">
                                                 <div class="full-width">
                                                     <ol class="list_document">
-    <?php foreach ($user_doc_info as $doc): ?>
+                                                        <?php foreach ($user_doc_info as $doc): ?>
                                                             <li class="item_document">
                                                                 <div class="box_item">
                                                                     <div class="short_info_document clearfix">
@@ -65,7 +67,7 @@
                                                                 </div>
                                                                 <a class="name_document" href=""><strong><?php echo $doc['doc_name'] ?></strong></a>
                                                             </li>
-    <?php endforeach; ?>
+                                                        <?php endforeach; ?>
                                                     </ol>
                                                 </div>
                                             </div>

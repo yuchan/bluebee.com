@@ -13,6 +13,8 @@ class AboutUsController extends Controller {
     }
 
     public function actionAboutUs() {
+        $this->pageTitle = "Bluebee - UET | Về chúng tôi";
+        Yii::app()->clientScript->registerMetaTag("Bluebee - UET | Về chúng tôi", null, null, array('property' => 'og:title'));
         $this->render('AboutUs');
     }
 
