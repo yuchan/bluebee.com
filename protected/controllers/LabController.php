@@ -52,7 +52,7 @@ class LabController extends BaseController {
                     'condition' => 'subject_faculty = ' . $listSubjectData['subject_faculty'] . ' AND subject_type = ' . $listSubjectData['subject_type'] . ' AND (subject_general_faculty_id = ' . $listSubjectData['subject_faculty'] . ' OR subject_dept = ' . $listSubjectData['subject_dept'] . ')'));
                 $doc_data = Doc::model()->findAll(array(
                     'select' => '*',
-                    'condition' => 'subject_faculty = ' . $listSubjectData['subject_faculty'] . 'AND doc_type = 3 AND subject_type = ' . $listSubjectData['subject_type'] . ' AND (subject_general_faculty_id = ' . $listSubjectData['subject_faculty'] . ' OR subject_dept = ' . $listSubjectData['subject_dept'] . ')'));
+                    'condition' => 'subject_faculty = ' . $listSubjectData['subject_faculty'] . ' AND doc_type = 3 AND subject_type = ' . $listSubjectData['subject_type'] . ' AND (subject_general_faculty_id = ' . $listSubjectData['subject_faculty'] . ' OR subject_dept = ' . $listSubjectData['subject_dept'] . ')'));
                 $this->retVal->subject_data = $subject_data;
                 $this->retVal->doc_data = $doc_data;
                 $this->retVal->message = 1;
@@ -78,7 +78,7 @@ class LabController extends BaseController {
                     'condition' => 'subject_faculty = ' . $listSubjectData['subject_faculty'] . ' AND (subject_general_faculty_id = ' . $listSubjectData['subject_faculty'] . ' OR subject_dept = ' . $listSubjectData['subject_dept'] . ')'));
                 $doc_data = Doc::model()->findAll(array(
                     'select' => '*',
-                    'condition' => 'subject_faculty = ' . $listSubjectData['subject_faculty'] . 'AND doc_type = 3 AND (subject_general_faculty_id = ' . $listSubjectData['subject_faculty'] . ' OR subject_dept = ' . $listSubjectData['subject_dept'] . ')'));
+                    'condition' => 'subject_faculty = ' . $listSubjectData['subject_faculty'] . ' AND doc_type = 3 AND (subject_general_faculty_id = ' . $listSubjectData['subject_faculty'] . ' OR subject_dept = ' . $listSubjectData['subject_dept'] . ')'));
                 $this->retVal->subject_data = $subject_data;
                 $this->retVal->doc_data = $doc_data;
                 $this->retVal->message = 1;
