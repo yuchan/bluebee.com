@@ -21,11 +21,11 @@ class UserController extends Controller {
         if ($request->isPostRequest && isset($_POST)) {
             try {
                 $editFormData = array(
-                    'user_id' => @$_POST['user_id'],
-                    'username' => @$_POST['username'],
-                    'user_real_name' => @$_POST['user_real_name'],
-                    'user_date_attend' => @$_POST['user_date_attend'],
-                    'user_active' => @$_POST['user_active'],
+                    'user_id' => $_POST['user_id'],
+                    'username' => $_POST['username'],
+                    'user_real_name' => $_POST['user_real_name'],
+                    'user_date_attend' => $_POST['user_date_attend'],
+                    'user_active' => $_POST['user_active'],
                 );
 //                var_dump($editFormData['user_id']);
 //                var_dump($editFormData['username']);

@@ -12,9 +12,11 @@
 
         // create a blank object to hold our form information
         // $scope will allow this to pass between controller and view
-        $scope.formData = {};
+        $scope.formData = $scope.user; // dong nay THIS LINE :V
         // process the form
         $scope.processForm = function() {
+           // console.log($scope.formData);
+           
             $http({
                 method: 'POST',
                 url: '<?php echo Yii::app()->createAbsoluteUrl('bbbackend/user/editUser') ?>',
@@ -140,35 +142,36 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="portlet"> 
-                                                    <form ng-submit="processForm()"  ng-controller="formEditController">
-                                                        <div class="form-body">
-                                                            <input  type="hidden" class="form-control" id="job_location"  name="user_id" ng-value="{{user.user_id}}"> 
+
+                                                    <div class="form-body">
+                                                        <form ng-submit="processForm()"  ng-controller="formEditController">
+                                                            <input  type="text" class="form-control" ng-model="formData.user_id"  name="user_id"  style="display: none;"> 
                                                             <div class="form-group">
-    
                                                                 <label>Email:</label>
-                                                                <input  type="text" class="form-control" id="job_location" placeholder="{{user.username}}"  name="username" ng-value="{{user.username}}"> 
+                                                                <input  type="text" class="form-control" ng-model="formData.username" placeholder="{{user.username}}"  name="username"> 
                                                             </div>
                                                             <div class="form-group">
                                                                 <label>Tên hiển thị:</label>
-                                                                <input  type="text" class="form-control" id="job_location" placeholder="{{user.user_real_name}}"  name="user_real_name" ng-value="{{user.user_real_name}}">
+                                                                <input  type="text" class="form-control" ng-model="formData.user_real_name" placeholder="{{user.user_real_name}}"  name="user_real_name">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label >Ngày tháng tham gia:</label>
-                                                                <input  type="date" class="form-control" id="job_location" placeholder="{{user.user_date_attend}}"  name="user_date_attend" ng-value="{{user.user_date_attend}}">
+                                                                <input  type="date" class="form-control" ng-model="formData.user_date_attend" placeholder="{{user.user_date_attend}}"  name="user_date_attend">
                                                             </div>                                        
                                                             <div class="form-group">
                                                                 <label>Trạng thái</label>
-                                                                <select class="form-control" id="is_active" name="user_active" ng-value="{{user.user_active}}">
+                                                                <select class="form-control" id="is_active" ng-model="formData.user_active">
                                                                     <option value = "1">Kích hoạt</option>
                                                                     <option value = "0">Phạt</option>
                                                                 </select>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" data-dismiss="modal" class="btn btn-default">Canel</button>
+                                                                <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
                                                                 <button type="submit" class="btn" ng-click="submit">Save changes</button>
                                                             </div>
-                                                        </div>
-                                                    </form>
+                                                        </form>
+                                                    </div>
+
                                                 </div
                                             </div>
                                         </div>
