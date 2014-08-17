@@ -20,15 +20,27 @@ class UserController extends Controller {
         $request = Yii::app()->request;
         if ($request->isPostRequest && isset($_POST)) {
             try {
-                $loginFormData = array(
+                $editFormData = array(
                     'user_id' => @$_POST['user_id'],
                     'username' => @$_POST['username'],
                     'user_real_name' => @$_POST['user_real_name'],
                     'user_date_attend' => @$_POST['user_date_attend'],
                     'user_active' => @$_POST['user_active'],
                 );
+//                var_dump($editFormData['user_id']);
+//                var_dump($editFormData['username']);
+//                exit();
+                $user_edit = User::model()->findByAttributes(array('user_id' => $editFormData['user_id']));
+                $user_edit->username = $editFormData['username'];
+                $user_edit->user_real_name = $editFormData['user_real_name'];
+                $user_edit->user_date_attend = $editFormData['user_date_attend'];
+                $user_edit->user_active = $editFormData['user_active'];
                 
-                
+                if ($user_edit->update(FALSE)) {
+                    $this->retVal->message = "Lưu thành công";
+                } else {
+                    $this->retVal->message = "Có lỗi xảy ra";
+                }
             } catch (exception $e) {
                 $this->retVal->message = $e->getMessage();
             }

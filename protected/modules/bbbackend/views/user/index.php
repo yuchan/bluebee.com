@@ -13,7 +13,6 @@
         // create a blank object to hold our form information
         // $scope will allow this to pass between controller and view
         $scope.formData = {};
-
         // process the form
         $scope.processForm = function() {
             $http({
@@ -135,13 +134,13 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Chỉnh sửa người dùng {{user.user_real_name}}</h4>
+                                        <h4 class="modal-title" id="myModalLabel">Chỉnh sửa người dùng: {{user.user_real_name}}</h4>
                                     </div>
-                                    <div class="modal-body" ng-controller="formEditController">
+                                    <div class="modal-body">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="portlet"> 
-                                                    <form ng-submit="processForm()">
+                                                    <form ng-submit="processForm()"  ng-controller="formEditController">
                                                         <div class="form-body">
                                                             <input  type="hidden" class="form-control" id="job_location"  name="user_id" ng-value="{{user.user_id}}"> 
                                                             <div class="form-group">
@@ -166,7 +165,7 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" data-dismiss="modal" class="btn btn-default">Canel</button>
-                                                                <button type="submit" class="btn" ng-click="">Save changes</button>
+                                                                <button type="submit" class="btn" ng-click="submit">Save changes</button>
                                                             </div>
                                                         </div>
                                                     </form>
