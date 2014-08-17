@@ -6,6 +6,36 @@
     }
 </script>
 
+<script>
+    // create angular controller and pass in $scope and $http
+    function formEditController($scope, $http) {
+
+        // create a blank object to hold our form information
+        // $scope will allow this to pass between controller and view
+        $scope.formData = {};
+
+        // process the form
+        $scope.processForm = function() {
+            $http({
+                method: 'POST',
+                url: '<?php echo Yii::app()->createAbsoluteUrl('bbbackend/user/editUser') ?>',
+                data: $.param($scope.formData), // pass in data as strings
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}  // set the headers so angular passing info as form data (not request payload)
+            })
+                    .success(function(data) {
+                        console.log(data);
+                        if (!data.success) {
+                            // if not successful, bind errors to error variables
+
+                        } else {
+                            // if successful, bind success message to message
+                            $scope.message = data.message;
+                        }
+                    });
+        };
+    }
+</script>
+
 <h1><center>Quản lý người dùng</center></h1>
 <div class="container-fluid" ng-controller="UserController">
     <div class="container">
@@ -17,6 +47,7 @@
                     <th>Email</th>
                     <th>Tên hiển thị</th>
                     <th>Ảnh đại diện</th>
+                    <th>Trạng thái</th>
                     <th>Hành động</th>
                 </tr>
             </thead>
@@ -26,88 +57,139 @@
                     <td>{{user.user_id_fb}}</td>
                     <td>{{user.username}}</td>
                     <td>{{user.user_real_name}}</td>
+                    <td ng-if="user.user_active == 1">Đã kích hoạt</td>
+                    <td ng-if="user.user_active == 0">Chưa kích hoạt (đang bị phạt)</td>
                     <td>
                         <img ng-src="{{user.user_avatar}}" height="120" width="120" class="img-circle"/>
                     </td>
                     <td>
-                        <a data-toggle="modal" data-target="#{{user.user_id}}">
+                        <a data-toggle="modal" data-target="#view-{{user.user_id}}">
                             <i class="glyphicon glyphicon-eye-open"></i>
-
                         </a>
-                        <div class="modal fade" id="{{user.user_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="view-{{user.user_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Chi tiết người dùng {{user.user_real_name}}</h4>
+                                        <h4 class="modal-title" id="myModalLabel">Chi tiết người dùng: {{user.user_real_name}}</h4>
                                     </div>
                                     <div class="modal-body">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="portlet">
-
-                                                    <div class="portlet-body form">
-                                                        <form role="form" action="<?php echo Yii::app()->createUrl('backend/job/updatejob') ?>" method="POST">
-                                                            <input type="hidden" id="job_id" name="job_id" value="" />
-                                                            <div class="form-body">
-                                                                <div class="form-group">
-                                                                    <label for="exampleInputEmail1">Job Location</label>
-                                                                    <input  type="text" class="form-control" id="job_location" placeholder="Job Location"  name="job_location">
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label for="exampleInputEmail1">Job Salary</label>
-                                                                    <input  type="text" class="form-control" id="salary" placeholder="Salary"  name="salary">
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label for="exampleInputEmail1">Description</label>
-                                                                    <input  type="text" class="form-control" id="description" placeholder="Description"  name="description">
-                                                                </div>
-
-                                                                <div class="form-group">
-                                                                    <label>Language</label>
-                                                                    <select class="form-control" id="language" name="language">
-                                                                        <option value = "1">Vietnamese</option>
-                                                                        <option value = "2">English</option>
-                                                                        <option value = "3">Chinese</option>
-                                                                    </select>
-                                                                </div>
-
-                                                                <div class="form-group">
-                                                                    <label>Status</label>
-                                                                    <select class="form-control" id="is_active" name="is_active">
-                                                                        <option value = "1">Active</option>
-                                                                        <option value = "2">Deactive</option>
-                                                                        <option value = "3">Pending</option>
-                                                                    </select>
-                                                                </div>
-
-
-                                                                <div class="modal-footer">
-                                                                    <button type="button" data-dismiss="modal" class="btn btn-default">Canel</button>
-                                                                    <button type="submit" class="btn blue" >Edit</button>
-                                                                </div>
-                                                        </form>
+                                                <div class="portlet">                                                 
+                                                    <div class="form-body">
+                                                        <div class="form-group">
+                                                            <label for=" ">ID người dùng:</label>
+                                                            <span>{{user.user_id}}</span>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for=" ">Email:</label>
+                                                            <span>{{user.username}}</span>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for=" ">Tên hiển thị:</label>
+                                                            <span>{{user.user_real_name}}</span>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for=" ">Avatar:</label></br>
+                                                            <img class="img-circle" width = "120" height = "120" ng-src="{{user.user_avatar}}"/>
+                                                        </div>  
+                                                        <div class="form-group">
+                                                            <label for=" ">Ngày tháng năm sinh:</label>
+                                                            <span>{{user.user_dob}}</span>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for=" ">Quê quán:</label>
+                                                            <span>{{user.user_hometown}}</span>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for=" ">Trích dẫn:</label>
+                                                            <span>{{user.user_qoutes}}</span>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for=" ">Active:</label>
+                                                            <span ng-if="user.user_active == 1">Đã kích hoạt</span>
+                                                            <span ng-if="user.user_active == 0">Chưa kích hoạt (đang bị phạt)</span>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for=" ">Ngày tham gia:</label>
+                                                            <span>{{user.user_date_attend}}</span>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" data-dismiss="modal" class="btn btn-default">Canel</button>
+                                                        </div>
                                                     </div>
-                                                </div>
-
+                                                </div
                                             </div>
-
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
                         </div>
-                        <a>Sửa</a>
-                        <a>Xóa</a>
+                        <a data-toggle="modal" data-target="#edit-{{user.user_id}}" style="padding-left: 5px; padding-right: 5px;">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </a>
+                        <div class="modal fade" id="edit-{{user.user_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Chỉnh sửa người dùng {{user.user_real_name}}</h4>
+                                    </div>
+                                    <div class="modal-body" ng-controller="formEditController">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="portlet"> 
+                                                    <form ng-submit="processForm()">
+                                                        <div class="form-body">
+                                                            <input  type="hidden" class="form-control" id="job_location"  name="user_id" ng-value="{{user.user_id}}"> 
+                                                            <div class="form-group">
+    
+                                                                <label>Email:</label>
+                                                                <input  type="text" class="form-control" id="job_location" placeholder="{{user.username}}"  name="username" ng-value="{{user.username}}"> 
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Tên hiển thị:</label>
+                                                                <input  type="text" class="form-control" id="job_location" placeholder="{{user.user_real_name}}"  name="user_real_name" ng-value="{{user.user_real_name}}">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label >Ngày tháng tham gia:</label>
+                                                                <input  type="date" class="form-control" id="job_location" placeholder="{{user.user_date_attend}}"  name="user_date_attend" ng-value="{{user.user_date_attend}}">
+                                                            </div>                                        
+                                                            <div class="form-group">
+                                                                <label>Trạng thái</label>
+                                                                <select class="form-control" id="is_active" name="user_active" ng-value="{{user.user_active}}">
+                                                                    <option value = "1">Kích hoạt</option>
+                                                                    <option value = "0">Phạt</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" data-dismiss="modal" class="btn btn-default">Canel</button>
+                                                                <button type="submit" class="btn" ng-click="">Save changes</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <a data-toggle="modal" data-target="#{{user.user_id}}">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
                     </td>
-
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+
+
+
 
 
 <!-- Modal -->
