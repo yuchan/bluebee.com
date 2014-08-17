@@ -27,7 +27,7 @@
                     <td>{{user.username}}</td>
                     <td>{{user.user_real_name}}</td>
                     <td>
-                        <img ng-src="{{user.user_avatar}}" height="120" width="120"/>
+                        <img ng-src="{{user.user_avatar}}" height="120" width="120" class="img-circle"/>
                     </td>
                     <td>
                         <a data-toggle="modal" data-target="#{{user.user_id}}">
@@ -42,14 +42,62 @@
                                         <h4 class="modal-title" id="myModalLabel">Chi tiết người dùng {{user.user_real_name}}</h4>
                                     </div>
                                     <div class="modal-body">
-                                        
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="portlet">
+
+                                                    <div class="portlet-body form">
+                                                        <form role="form" action="<?php echo Yii::app()->createUrl('backend/job/updatejob') ?>" method="POST">
+                                                            <input type="hidden" id="job_id" name="job_id" value="" />
+                                                            <div class="form-body">
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Job Location</label>
+                                                                    <input  type="text" class="form-control" id="job_location" placeholder="Job Location"  name="job_location">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Job Salary</label>
+                                                                    <input  type="text" class="form-control" id="salary" placeholder="Salary"  name="salary">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Description</label>
+                                                                    <input  type="text" class="form-control" id="description" placeholder="Description"  name="description">
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label>Language</label>
+                                                                    <select class="form-control" id="language" name="language">
+                                                                        <option value = "1">Vietnamese</option>
+                                                                        <option value = "2">English</option>
+                                                                        <option value = "3">Chinese</option>
+                                                                    </select>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label>Status</label>
+                                                                    <select class="form-control" id="is_active" name="is_active">
+                                                                        <option value = "1">Active</option>
+                                                                        <option value = "2">Deactive</option>
+                                                                        <option value = "3">Pending</option>
+                                                                    </select>
+                                                                </div>
+
+
+                                                                <div class="modal-footer">
+                                                                    <button type="button" data-dismiss="modal" class="btn btn-default">Canel</button>
+                                                                    <button type="submit" class="btn blue" >Edit</button>
+                                                                </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
+
                                 </div>
                             </div>
+                        </div>
                         </div>
                         <a>Sửa</a>
                         <a>Xóa</a>
