@@ -6,6 +6,11 @@ class UserController extends Controller
 	{
             //echo "UserController.actionIndex";
             //return;
-            $this->render('application.modules.bbbackend.views.user.index');
+            $this->render('index');
 	}
+        
+        public function actionListUser() {
+            $user =  User::model()->findAll();
+            echo CJSON::encode($user);
+        }
 }
