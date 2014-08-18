@@ -63,6 +63,14 @@ class ListOfSubjectController extends BaseController {
                             "condition" => "subject_id = " . $_GET["subject_id"]
                 )))->findAll();
         }
+        foreach ($subject as $subject_detail):
+            $title = "Bluebee - UET | " . $subject_detail->subject_name;
+            $des = $subject_detail->subject_target;
+        endforeach;
+        $this->pageTitle = $title;
+        Yii::app()->clientScript->registerMetaTag($title, null, null, array('property' => 'og:title'));
+        Yii::app()->clientScript->registerMetaTag(Yii::app()->createAbsoluteUrl('listOfSubject/subject?subject_id=') . $_GET["subject_id"], null, null, array('property' => 'og:url'));
+        Yii::app()->clientScript->registerMetaTag($des, null, null, array('property' => 'og:description'));
         $category_father = Faculty::model()->findAll();
         $subject_type = SubjectType::model()->findAll();
         $this->render('subject', array('subject' => $subject, 'category_father' => $category_father,
