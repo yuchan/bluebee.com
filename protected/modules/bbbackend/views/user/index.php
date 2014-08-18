@@ -167,7 +167,7 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
-                                                                <button type="submit" class="btn" ng-click="submit">Save changes</button>
+                                                                <button type="submit" data-dismiss="modal"class="btn" ng-click="submit">Save changes</button>
                                                             </div>
                                                         </form>
                                                     </div>
