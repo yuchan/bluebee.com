@@ -3,6 +3,8 @@
 class SearchController extends CController {
 
     public function actionIndex() {
+        $this->pageTitle = "Bluebee - UET | Tìm kiếm";
+        Yii::app()->clientScript->registerMetaTag("Bluebee - UET | Tìm kiếm", null, null, array('property' => 'og:title'));
         $this->actionSearch();
     }
 
@@ -15,7 +17,7 @@ class SearchController extends CController {
             $user_result = $this->searchUser($query);
             $this->render('Search', array('subject_result' => $subject_result, 'teacher_result' => $teacher_result, 'doc_result' => $doc_result,
                 'subject_count' => count($subject_result), 'teacher_count' => count($teacher_result), 'doc_count' => count($doc_result),
-                'user_result' => $user_result, 'user_count' => count($user_result), 'query'=>$query));
+                'user_result' => $user_result, 'user_count' => count($user_result), 'query' => $query));
         }
     }
 

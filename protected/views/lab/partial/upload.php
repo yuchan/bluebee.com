@@ -2,9 +2,6 @@
     function checkuploadfunction() {
         alert("Bạn phải đăng nhập mới được upload, hãy bấm đăng nhập với facebook phía trên");
     }
-    $(document).ready(function() {
-
-    });
 </script>
 <div class="<?php if (Yii::app()->session["user_id"] != "") echo 'morph-button' ?> morph-button-modal morph-button-fixed" id="morph-upload">
     <button class="btn-2 btn-2a" type="button" onclick="<?php if (Yii::app()->session["user_id"] == "") echo 'checkuploadfunction();' ?>" >Đăng một tài liệu lên</button>
@@ -30,7 +27,7 @@
             });
         });
                 </script>
-                <form method="POST" action="<?php echo Yii::app()->createUrl('document/upload') ?>" enctype="multipart/form-data" id="formscribd">
+                <form method="POST" action="<?php echo Yii::app()->createUrl('lab/upload') ?>" enctype="multipart/form-data" id="formscribd">
                     <p>Thông báo: Trang Web đang trong quá trình thử nghiệm đề nghị không đưa lên tài liệu quá 8MB</p>
                     <label class="g-btn size_small type_primary upload_button">
                         <input class="ssa" type="file" multiple="multiple" name="file" style="display: none;" id="upload_input" />
@@ -85,9 +82,9 @@
         $('#loading-image-upload').hide();
 
         form.submit(function(event) {
-
+            
             event.preventDefault();
-
+            
             var formData = new FormData($('#formscribd')[0]);
             $.ajax({
                 beforeSend: function() {
@@ -105,7 +102,7 @@
                     $('#loading-image-upload').hide();
                 },
                 success: function(data) {
-
+                    
                     console.log(data);
                     var result = $.parseJSON(data);
                     var input = $("#upload_input");

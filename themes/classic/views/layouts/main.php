@@ -31,7 +31,7 @@
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/post_style.css">
             <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/search_style.css">
                 <link rel="stylesheet" type="text/css" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/documentpage.css">
-                    <link rel="icon" type="image/png"  href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/favicon.ico">
+                    <link rel="icon" type="image/png"  href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/16fv.ico">
                         <!-- javascript -->
                         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery-1.9.1.js"></script>
                         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/g-alert.js"></script>
@@ -293,6 +293,15 @@
                                                                             <a href="<?php echo Yii::app()->createAbsoluteUrl("document") ?>" class="w-nav-anchor level_1 menu-header">
                                                                                 <span class="w-nav-icon"><i class="icon-star"></i></span>
                                                                                 <span class="w-nav-title">Đề thi - Tài liệu</span>
+                                                                                <span class="w-nav-hint"></span>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                     <div class="w-nav-item level_1">
+                                                                        <div class="w-nav-item-h">
+                                                                            <a href="<?php echo Yii::app()->createAbsoluteUrl("lab") ?>" class="w-nav-anchor level_1 menu-header">
+                                                                                <span class="w-nav-icon"><i class="icon-star"></i></span>
+                                                                                <span class="w-nav-title">Lab - Tài liệu nén</span>
                                                                                 <span class="w-nav-hint"></span>
                                                                             </a>
                                                                         </div>

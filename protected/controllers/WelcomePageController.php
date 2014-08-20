@@ -11,7 +11,7 @@ class WelcomePageController extends BaseController {
 
 
     public function actionIndex() {
-        $this->actionWelcomePage();
+        $this->redirect(Yii::app()->createAbsoluteUrl('listOfSubject'));
     }
 
     public function actionWelcomePage() {
