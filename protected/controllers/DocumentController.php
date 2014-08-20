@@ -145,7 +145,7 @@ class DocumentController extends BaseController {
         $doc_subject->doc_id = $doc_model->doc_id;
         $doc_subject->doc_type = $doc_model->doc_type;
         $doc_subject->subject_id = $subject_id;
-        $doc_subject->active = 1;
+        $doc_subject->active = 0;
         $doc_subject->save(FALSE);
     }
 

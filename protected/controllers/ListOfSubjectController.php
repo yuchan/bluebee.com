@@ -46,14 +46,14 @@ class ListOfSubjectController extends BaseController {
                 )))->findAll();
 
             $doc = Doc::model()->with(array("docs" => array(
-                            "select" => false,
+                            "select" => false,                           
                             "condition" => "subject_id = " . $_GET["subject_id"] . " and active = 1"
-                )))->findAll();
+                )))->findAll(array("limit" => "3", "order" => "RAND()"));
 
             $reference = Doc::model()->with(array("docs" => array(
                             "select" => false,
-                            "condition" => "subject_id = " . $_GET["subject_id"] . " and active = 0"
-                )))->findAll();
+                            "condition" => "subject_id = " . $_GET["subject_id"] . " and active = 0"                           
+                )))->findAll(array("limit" => "3", "order" => "RAND()"));
 
             $lesson = Lesson::model()->findAll(array("select" => "*", "condition" => "lesson_subject = " . $_GET["subject_id"],
                 "order" => "lesson_weeks ASC"));
