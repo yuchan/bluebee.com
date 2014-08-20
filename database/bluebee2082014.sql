@@ -3,7 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
+<<<<<<< HEAD
 -- Generation Time: Aug 20, 2014 at 08:16 PM
+=======
+-- Generation Time: Aug 20, 2014 at 10:24 AM
+>>>>>>> b74522e9f1d443f30ede46069265c95e856e5bec
 -- Server version: 5.5.38-0ubuntu0.12.04.1
 -- PHP Version: 5.3.10-1ubuntu3.13
 
@@ -199,11 +203,19 @@ CREATE TABLE IF NOT EXISTS `tbl_lesson` (
   `lesson_active` int(10) DEFAULT NULL,
   `lesson_weeks` varchar(100) DEFAULT NULL,
   `lesson_subject` int(10) DEFAULT NULL,
+<<<<<<< HEAD
   `lesson_name` varchar(300) CHARACTER SET utf8 DEFAULT NULL,
   `lesson_info` varchar(500) DEFAULT NULL,
   `lesson_doc` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`lesson_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+=======
+  `lesson_name` varchar(300) DEFAULT NULL,
+  `lesson_info` varchar(500) DEFAULT NULL,
+  `lesson_doc` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`lesson_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+>>>>>>> b74522e9f1d443f30ede46069265c95e856e5bec
 
 --
 -- Dumping data for table `tbl_lesson`
@@ -216,8 +228,12 @@ INSERT INTO `tbl_lesson` (`lesson_id`, `lesson_active`, `lesson_weeks`, `lesson_
 (4, 1, '4', 28, 'Functions', NULL, NULL),
 (5, 1, '5', 28, 'Arrays', NULL, NULL),
 (6, 1, '6', 28, 'Pointers and Strings', NULL, NULL),
+<<<<<<< HEAD
 (7, 1, '7', 28, 'Structures', NULL, NULL),
 (8, 1, '1', 6, 'Giới thiệu về Cấu trúc dữ liệu và Giải thuật', NULL, NULL);
+=======
+(7, 1, '7', 28, 'Structures', NULL, NULL);
+>>>>>>> b74522e9f1d443f30ede46069265c95e856e5bec
 
 -- --------------------------------------------------------
 
