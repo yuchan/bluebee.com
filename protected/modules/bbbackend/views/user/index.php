@@ -3,6 +3,37 @@
         $http.get('<?php echo Yii::app()->createAbsoluteUrl('bbbackend/user/listUser') ?>').success(function(data) {
             $scope.users = data;
         });
+        $scope.removeRow = function(user_id) {
+            $http({
+                method: 'POST',
+                url: '<?php echo Yii::app()->createAbsoluteUrl('bbbackend/user/deleteUser') ?>',
+                data:$.param(user_id),
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}  // set the headers so angular passing info as form data (not request payload)
+            })
+                    .success(function(data) {
+                        console.log(data);
+                        if (!data.success) {
+                            // if not successful, bind errors to error variables
+
+                        } else {
+                            // if successful, bind success message to message
+                            $scope.message = data.message;
+                        }
+                    });
+            var index = -1;
+            var userArr = eval($scope.users);
+            for (var i = 0; i < userArr.length; i++) {
+                if (userArr[i].user_id === user_id) {
+                    index = i;
+                    break;
+                }
+            }
+            if (index === -1) {
+                alert("Something gone wrong");
+            }
+            $scope.users.splice(index, 1);
+        };
+
     }
 </script>
 
@@ -15,8 +46,8 @@
         $scope.formData = $scope.user; // dong nay THIS LINE :V
         // process the form
         $scope.processForm = function() {
-           // console.log($scope.formData);
-           
+            // console.log($scope.formData);
+
             $http({
                 method: 'POST',
                 url: '<?php echo Yii::app()->createAbsoluteUrl('bbbackend/user/editUser') ?>',
@@ -166,8 +197,8 @@
                                                                 </select>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
-                                                                <button type="submit" data-dismiss="modal"class="btn" ng-click="submit">Save changes</button>
+                                                                <button type="button" data-dismiss="modal" class="btn btn-default">Hủy</button>
+                                                                <button type="submit" data-dismiss="modal"class="btn" ng-click="submit">Lưu thay đổi</button>
                                                             </div>
                                                         </form>
                                                     </div>
@@ -180,8 +211,8 @@
                             </div>
                         </div>
                         </div>
-                        <a data-toggle="modal" data-target="#{{user.user_id}}">
-                            <i class="glyphicon glyphicon-trash"></i>
+                        <a>
+                            <i class="glyphicon glyphicon-trash" ng-click="removeRow(user.user_id)"></i>
                         </a>
                     </td>
                 </tr>
