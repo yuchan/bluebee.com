@@ -17,32 +17,32 @@ class WelcomePageController extends BaseController {
 //    public function actionWelcomePage() {
 //        $this->render('welcomePage');
 //    }
-
-    function smtpmailer($to, $from, $from_name, $subject, $body) {
-
-        $mail = new PHPMailer();      // tạo một đối tượng mới từ class PHPMailer
-        $mail->IsSMTP();       // bật chức năng SMTP
-        $mail->CharSet = "UTF-8";
-        $mail->IsHTML(true);
-        //    $mail->SMTPDebug = 1;       // kiểm tra ỗi : 1 là  hiển thị lỗi và thông báo cho ta biết, 2 = chỉ thông báo lỗi
-        $mail->SMTPAuth = true;      // bật chức năng đăng nhập vào SMTP nàyf
-        //$mail->SMTPSecure = 'ssl'; 				// sử dụng giao thức SSL vì gmail bắt buộc dùng cái này
-        $mail->Host = 'localhost';   // smtp của gmail
-        $mail->Port = 25;       // port của smpt gmail
-        $mail->Username = "activate@bluebee-uet.com";
-        $mail->Password = "123456789";
-        $mail->SetFrom($from, $from_name);
-        $mail->Subject = $subject;
-        $mail->Body = $body;
-        $mail->AddAddress($to);
-        if (!$mail->Send()) {
-            $message = 'Gửi mail bị lỗi: ' . $mail->ErrorInfo;
-            return false;
-        } else {
-            $message = 'Thư của bạn đã được gửi đi ';
-            return true;
-        }
-    }
+//
+//    function smtpmailer($to, $from, $from_name, $subject, $body) {
+//
+//        $mail = new PHPMailer();      // tạo một đối tượng mới từ class PHPMailer
+//        $mail->IsSMTP();       // bật chức năng SMTP
+//        $mail->CharSet = "UTF-8";
+//        $mail->IsHTML(true);
+//        //    $mail->SMTPDebug = 1;       // kiểm tra ỗi : 1 là  hiển thị lỗi và thông báo cho ta biết, 2 = chỉ thông báo lỗi
+//        $mail->SMTPAuth = true;      // bật chức năng đăng nhập vào SMTP nàyf
+//        //$mail->SMTPSecure = 'ssl'; 				// sử dụng giao thức SSL vì gmail bắt buộc dùng cái này
+//        $mail->Host = 'localhost';   // smtp của gmail
+//        $mail->Port = 25;       // port của smpt gmail
+//        $mail->Username = "activate@bluebee-uet.com";
+//        $mail->Password = "123456789";
+//        $mail->SetFrom($from, $from_name);
+//        $mail->Subject = $subject;
+//        $mail->Body = $body;
+//        $mail->AddAddress($to);
+//        if (!$mail->Send()) {
+//            $message = 'Gửi mail bị lỗi: ' . $mail->ErrorInfo;
+//            return false;
+//        } else {
+//            $message = 'Thư của bạn đã được gửi đi ';
+//            return true;
+//        }
+//    }
 
 //    public function actionLogin() {
 //
@@ -201,19 +201,19 @@ class WelcomePageController extends BaseController {
 
         $this->redirect(Yii::app()->createUrl('index.php'));
     }
-
-    public function actionActivate() {
-        if (isset($_GET["token"])) {
-            $user_activate = User::model()->findByAttributes(array('user_activator' => $_GET["token"]));
-            if ($user_activate) {
-                $user_activate->user_active = 1;
-                $user_activate->save(FALSE);
-                $this->retVal->message = "Kích hoạt tài khoản thành công, hãy đăng nhập bằng tài khoản của bạn.";
-                $this->retVal->success = 1;
-            }
-        }
-        $this->render('activate');
-    }
+//
+//    public function actionActivate() {
+//        if (isset($_GET["token"])) {
+//            $user_activate = User::model()->findByAttributes(array('user_activator' => $_GET["token"]));
+//            if ($user_activate) {
+//                $user_activate->user_active = 1;
+//                $user_activate->save(FALSE);
+//                $this->retVal->message = "Kích hoạt tài khoản thành công, hãy đăng nhập bằng tài khoản của bạn.";
+//                $this->retVal->success = 1;
+//            }
+//        }
+//        $this->render('activate');
+//    }
 
     function getFb() {
         $app_id = "1428478800723370";
